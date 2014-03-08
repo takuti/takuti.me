@@ -1,0 +1,122 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&subset=latin,latin-ext);
+@font-face {
+    font-family: 'LigatureSymbols';
+    src: url('/fonts/LigatureSymbols-2.11.eot');
+    src: url('/fonts/LigatureSymbols-2.11.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/LigatureSymbols-2.11.woff') format('woff'),
+         url('/fonts/LigatureSymbols-2.11.ttf') format('truetype'),
+         url('/fonts/LigatureSymbols-2.11.svg#LigatureSymbols') format('svg');
+    src: url('/fonts/LigatureSymbols-2.11.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*--- init ---*/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  margin:0; padding:0; border:0; font-weight:inherit; font-style:inherit; font-size:100%; font-family:inherit; vertical-align:baseline;
+}
+body{
+  line-height:1.5; background:#fff; margin:1.5em 0;
+}
+table{
+  border-collapse:separate; border-spacing:0;
+}
+caption, th, td{
+  text-align:left; font-weight:400;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+  content:"";
+}
+blockquote, q{
+  quotes:"" "";
+}
+a img{
+  border:none;
+}
+
+
+/*--- style ---*/
+html, body{
+  background: #fff;
+  height: 100%;
+  color: #444;
+  font-family:'Source Code Pro','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+  font-size: 13px;
+  margin: 0px;
+  padding: 0px;
+}
+
+a:link {
+  color: #444;
+  text-decoration: none;
+}
+a:hover {
+  -webkit-transition: 0.2s ease-in-out;
+           -moz-transition: 0.2s ease-in-out;
+                 -o-transition: 0.2s ease-in-out;
+                        transition: 0.2s ease-in-out;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=40)"; /* IE */
+  filter: alpha(opacity=40); /* IE */
+  -moz-opacity:0.4; /* Firefox(old) */
+  -khtml-opacity: 0.4; /* Safari(old) */
+  opacity: 0.4;
+  text-decoration: none;
+}
+a:visited { color: #444; }
+
+/*--- layout ---*/
+#wrapper {
+  /*min-height: 100%;*/
+  width: 900px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+#about p { margin-top: 20px; }
+#link span, #dev span {
+  display: block;
+  height: 1.4em;
+  margin-bottom: 20px;
+}
+
+/*--- fonts ---*/
+.bold { font-weight:bold; }
+.child { margin-left: 1.5em; }
+
+.symbol:before {
+  font-family: 'LigatureSymbols';
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  content:attr(title) " ";
+  /*margin-right:0.3em;*/
+  font-size: 1.4em;
+}
+
+/***** SmartPhone *****/
+section {
+  font-size: 1em;
+  width: 100%;
+  padding: 15px;
+}
+
+/***** PC *****/
+@media all and (min-width: 640px) {
+  section {
+    float: left;
+    font-size: 1em;
+    width: 267px;
+    height: 500px;
+    padding: 15px;
+    border-left: 1.5px solid #aaa;
+  }
+  section:first-child { border: none; }
+}
