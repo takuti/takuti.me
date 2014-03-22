@@ -51,8 +51,9 @@ a:visited { color: #344; }
 a:hover   { text-decoration: none; }
 
 section {
-  width: 500px;
-  margin: 0 auto 3em auto;
+  width: 450px;
+  margin-bottom: 3em;
+  float: right;
 }
 p { margin: 0 0 1em 1em; }
 
@@ -85,28 +86,6 @@ header {
     margin: 0 auto;
     padding: 10px;
   }
-    header #header-content img.icon {
-      width: 45px;
-      border-radius: 45px;
-      -webkit-border-radius: 45px;
-      -moz-border-radius: 45px;
-      vertical-align: middle;
-      margin-right: 10px;
-    }
-    header #header-content img.icon:hover {
-      -webkit-transition: 0.2s ease-in-out;
-      -moz-transition: 0.2s ease-in-out;
-       -o-transition: 0.2s ease-in-out;
-       transition: 0.2s ease-in-out;
-
-      -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=40)"; /* IE */
-      filter: alpha(opacity=40); /* IE */
-
-      -moz-opacity:0.4; /* Firefox(old) */
-      -khtml-opacity: 0.4; /* Safari(old) */
-      opacity: 0.4;
-    }
-
     header #header-content .left {
       float: left;
       width: 280px;
@@ -139,7 +118,7 @@ header {
 #container {
   width: 700px;
   margin: 0 auto;
-  padding-top: 150px;
+  padding-top: 120px;
 }
 
 .clearfix {zoom:1;}
