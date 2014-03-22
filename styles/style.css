@@ -94,9 +94,14 @@ header {
         color: #9aa;
         text-decoration: none;
         line-height: 45px;
+        display: inline-block;
+        margin-right: 2.5em;
       }
       header #header-content .left a:visited { color: #9aa; }
       header #header-content .left a:hover { text-decoration: none; }
+      header #header-content .left a:nth-child(2) { color: #677; }
+      header #header-content .left a:nth-child(2):visited { color: #677; }
+      header #header-content .left a:nth-child(2):hover { color: #9aa; }
     header #header-content .right {
       float: right;
       width: 400px;
