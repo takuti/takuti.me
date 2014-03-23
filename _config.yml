@@ -1,3 +1,5 @@
 name: takuti.me
 markdown: redcarpet
 pygments: true
+
+exclude: ['Rakefile']
