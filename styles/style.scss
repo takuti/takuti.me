@@ -2,19 +2,10 @@
 ---
 
 @charset "UTF-8";
-@font-face {
-    font-family: 'LigatureSymbols';
-    src: url('/fonts/LigatureSymbols-2.11.eot');
-    src: url('/fonts/LigatureSymbols-2.11.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/LigatureSymbols-2.11.woff') format('woff'),
-         url('/fonts/LigatureSymbols-2.11.ttf') format('truetype'),
-         url('/fonts/LigatureSymbols-2.11.svg#LigatureSymbols') format('svg');
-    src: url('/fonts/LigatureSymbols-2.11.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
 
-/*--- variables ---*/
+@import "normalize.css";
+
+// scss variable
 $primary-color: #344;
 
 /*--- style ---*/
@@ -75,28 +66,27 @@ header {
 
     .left {
       float: left;
-      width: 280px;
+      width: 330px;
 
       a {
-        color: #9aa;
+        color: #677;
         text-decoration: none;
         line-height: 45px;
         display: inline-block;
         margin-right: 2.5em;
         &:visited {
-          color: #9aa;
+          color: #677;
         }
         &:hover {
+          color: #9aa;
           text-decoration: none;
         }
       }
 
-      a:nth-child(2) {
-        color: #677;
+      a.active {
+        @extend a;
+        color: #9aa;
         &:visited {
-          color: #677;
-        }
-        &:hover {
           color: #9aa;
         }
       }
@@ -104,7 +94,7 @@ header {
 
     .right {
       float: right;
-      width: 400px;
+      width: 350px;
       text-align: right;
 
       a {
@@ -143,6 +133,19 @@ header {
 
 /*--- fonts ---*/
 .bold { font-weight:bold; }
+
+
+@font-face {
+    font-family: 'LigatureSymbols';
+    src: url('/fonts/LigatureSymbols-2.11.eot');
+    src: url('/fonts/LigatureSymbols-2.11.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/LigatureSymbols-2.11.woff') format('woff'),
+         url('/fonts/LigatureSymbols-2.11.ttf') format('truetype'),
+         url('/fonts/LigatureSymbols-2.11.svg#LigatureSymbols') format('svg');
+    src: url('/fonts/LigatureSymbols-2.11.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 .symbol {
   font-family: 'LigatureSymbols';
