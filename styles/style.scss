@@ -1,3 +1,6 @@
+---
+---
+
 @charset "UTF-8";
 @font-face {
     font-family: 'LigatureSymbols';
@@ -11,88 +14,117 @@
     font-style: normal;
 }
 
+/*--- variables ---*/
+$primary-color: #344;
+
 /*--- style ---*/
-html, body{
+html, body {
   background: #fff;
   height: 100%;
-  color: #344;
+  color: $primary-color;
   font-family:'Source Sans Pro','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
   font-size: 18px;
   margin: 0px;
   padding: 0px;
 }
 
-a:link    { color: #344; }
-a:visited { color: #344; }
-a:hover   { text-decoration: none; }
+a {
+  color: $primary-color;
+  &:visited {
+    color: $primary-color;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
 
 section {
   width: 450px;
   margin-bottom: 3em;
   float: right;
+  p {
+    margin: 0 0 1em 1em;
+  }
+  h3 {
+    font-size: 1.2em;
+    border-left: 5px solid $primary-color;
+    padding-left: 10px;
+    margin: 0;
+    margin-bottom: 1em;
+  }
+  ul {
+    list-style-type: square;
+  }
 }
-p { margin: 0 0 1em 1em; }
 
-
-h3 {
-  font-size: 1.2em;
-  border-left: 5px solid #344;
-  padding-left: 10px;
-  margin: 0;
-  margin-bottom: 1em;
-}
-
-ul { list-style-type: square; }
 
 /*--- layout ---*/
 header {
   width: 100%;
-  background: #344;
+  background: $primary-color;
   position: fixed;
   top: 0; left: 0;
   z-index: 99;
-}
 
-  header #header-content {
+  #header-content {
     color: #fff;
     width: 700px;
     height: 45px;
     margin: 0 auto;
     padding: 10px;
-  }
-    header #header-content .left {
+
+    .left {
       float: left;
       width: 280px;
-    }
-      header #header-content .left a {
+
+      a {
         color: #9aa;
         text-decoration: none;
         line-height: 45px;
         display: inline-block;
         margin-right: 2.5em;
+        &:visited {
+          color: #9aa;
+        }
+        &:hover {
+          text-decoration: none;
+        }
       }
-      header #header-content .left a:visited { color: #9aa; }
-      header #header-content .left a:hover { text-decoration: none; }
-      header #header-content .left a:nth-child(2) { color: #677; }
-      header #header-content .left a:nth-child(2):visited { color: #677; }
-      header #header-content .left a:nth-child(2):hover { color: #9aa; }
-    header #header-content .right {
+
+      a:nth-child(2) {
+        color: #677;
+        &:visited {
+          color: #677;
+        }
+        &:hover {
+          color: #9aa;
+        }
+      }
+    }
+
+    .right {
       float: right;
       width: 400px;
       text-align: right;
-    }
-      header #header-content .right a {
+
+      a {
         display: inline-block;
         margin-left: 2.5em;
         color: #ccc;
         text-decoration: none;
         line-height: 45px;
+        &:visited {
+          color: #ccc;
+        }
+        &:hover {
+          color: #fff;
+          text-decoration: none;
+        }
       }
-      header #header-content .right a:visited { color: #ccc; }
-      header #header-content .right a:hover {
-        color: #fff;
-        text-decoration: none;
-      }
+    }
+
+  }
+}
 
 #container {
   width: 700px;
@@ -100,11 +132,13 @@ header {
   padding-top: 120px;
 }
 
-.clearfix {zoom:1;}
-.clearfix:after {
-  content: "";
-  display: block;
-  clear: both;
+.clearfix {
+  zoom:1;
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
 }
 
 /*--- fonts ---*/
