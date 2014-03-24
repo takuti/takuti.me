@@ -7,6 +7,7 @@
 
 // scss variable
 $primary-color: #344;
+$header-height: 45px;
 
 /*--- style ---*/
 html, body {
@@ -60,7 +61,7 @@ header {
   #header-content {
     color: #fff;
     width: 700px;
-    height: 45px;
+    height: $header-height;
     margin: 0 auto;
     padding: 10px;
 
@@ -71,7 +72,7 @@ header {
       a {
         color: #677;
         text-decoration: none;
-        line-height: 45px;
+        line-height: $header-height;
         display: inline-block;
         margin-right: 2.5em;
         &:visited {
@@ -91,7 +92,7 @@ header {
         margin-left: 2.5em;
         color: #ccc;
         text-decoration: none;
-        line-height: 45px;
+        line-height: $header-height;
         &:visited {
           color: #ccc;
         }
