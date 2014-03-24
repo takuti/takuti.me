@@ -66,7 +66,7 @@ header {
 
     .left {
       float: left;
-      width: 330px;
+      width: 200px;
 
       a {
         color: #677;
@@ -77,24 +77,13 @@ header {
         &:visited {
           color: #677;
         }
-        &:hover {
-          color: #9aa;
-          text-decoration: none;
-        }
       }
 
-      a.active {
-        @extend a;
-        color: #9aa;
-        &:visited {
-          color: #9aa;
-        }
-      }
     }
 
     .right {
       float: right;
-      width: 350px;
+      width: 480px;
       text-align: right;
 
       a {
@@ -108,7 +97,6 @@ header {
         }
         &:hover {
           color: #fff;
-          text-decoration: none;
         }
       }
     }
