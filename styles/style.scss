@@ -90,14 +90,14 @@ header {
       a {
         display: inline-block;
         margin-left: 2.5em;
-        color: #ccc;
+        color: #9aa;
         text-decoration: none;
         line-height: $header-height;
         &:visited {
-          color: #ccc;
+          color: #9aa;
         }
         &:hover {
-          color: #fff;
+          color: #cdd;
         }
       }
     }
