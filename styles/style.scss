@@ -63,13 +63,12 @@ header {
   width: $content-width;
   height: $header-height;
   margin: 0 auto;
-  padding: 10px;
+  padding: $header-height/2 0 $header-height/4 0;
 
   h1 {
     font-size: 2em;
     font-weight: normal;
     margin: 0;
-    margin-bottom: $header-height / 2;
     a {
       .light {
         color: $sub-sub-color;
@@ -82,10 +81,10 @@ header {
 nav {
   width: $content-width;
   margin: 0 auto;
+  font-size: 0.9em;
   a {
     display: inline-block;
     margin-right: 1em;
-    padding-bottom: 0;
     color: $sub-color;
     text-decoration: none;
     &:visited {
