@@ -46,15 +46,15 @@ section {
     margin-bottom: 1em;
   }
   h3 {
-    background: url(/images/line.gif) repeat-x center left;
-    padding-bottom: 5px;
+    background: url(/images/line.gif) repeat-x bottom left;
+    padding-bottom: 15px;
     font-size: 1.2em;
     margin: 0;
     margin-bottom: 1em;
   }
   ul {
     list-style-type: square;
-    padding-left: 1em;
+    padding-left: 2em;
   }
 }
 section.right { width: 450px; }
@@ -86,7 +86,7 @@ nav {
   font-size: 0.9em;
   a {
     display: inline-block;
-    margin-right: 1em;
+    margin-right: 2em;
     color: $sub-color;
     text-decoration: none;
     &:visited {
