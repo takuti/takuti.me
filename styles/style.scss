@@ -20,7 +20,7 @@ html, body {
   height: 100%;
   color: $primary-color;
   font-family:'Source Sans Pro','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   margin: 0px;
   padding: 0px;
 }
@@ -141,7 +141,10 @@ footer {
 #container {
   width: $content-width;
   margin: 0 auto;
-  padding: $header-height 0 $footer-height 0;
+  padding: $header-height 0 $footer-height*2 0;
+  h2 {
+    font-size: 1.5em;
+  }
 }
 
 #wrapper {

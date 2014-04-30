@@ -1,5 +1,9 @@
 name: takuti.me
+url: http://takuti.me/
+
 markdown: redcarpet
-highlighter: pygemnts
+highlighter: nil
 
 exclude: ['Rakefile']
+
+permalink: /:year/:month/:day/:title/
