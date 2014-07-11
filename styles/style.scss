@@ -6,10 +6,10 @@
 @import "normalize.css";
 
 // scss variable
-$primary-color: #344;
-$sub-color: #677;
-$sub-sub-color: #9aa;
-$sub-sub-sub-color: #cdd;
+$primary-color: #333;
+$sub-color: #666;
+$sub-sub-color: #999;
+$sub-sub-sub-color: #ccc;
 $content-width: 700px;
 $header-height: 45px;
 $footer-height: 45px;
@@ -46,7 +46,7 @@ section {
     margin-bottom: 1em;
   }
   h3 {
-    background: url(/images/line.gif) repeat-x bottom left;
+    border-bottom: 1px solid $sub-sub-color;
     padding-bottom: 15px;
     font-size: 1.2em;
     margin: 0;
@@ -100,7 +100,7 @@ nav {
 
 footer {
   width: 100%;
-  background: $primary-color;
+//  background: $primary-color;
   position: absolute;
   bottom: 0;
 
@@ -123,14 +123,14 @@ footer {
       a {
         display: inline-block;
         margin-left: 1em;
-        color: $sub-sub-color;
+        color: $sub-color;
         text-decoration: none;
         line-height: $footer-height;
         &:visited {
-          color: $sub-sub-color;
+          color: $sub-color;
         }
         &:hover {
-          color: $sub-sub-sub-color;
+          color: $sub-sub-color;
         }
       }
     }
