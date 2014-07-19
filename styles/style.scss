@@ -54,10 +54,9 @@ section {
   }
   ul {
     list-style-type: square;
-    padding-left: 2em;
+    padding-left: 1em;
   }
 }
-section.right { width: 450px; }
 
 
 /*--- layout ---*/
@@ -163,6 +162,7 @@ footer {
 
 /*--- fonts ---*/
 .bold { font-weight:bold; }
+.thin { color: $sub-sub-sub-color; }
 .special-font { font-family: 'Cabin Sketch', 'cursive'; }
 
 @font-face {
