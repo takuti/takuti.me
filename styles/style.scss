@@ -223,3 +223,25 @@ footer {
   font-size: 1.3em;
   line-height: 1.3em;
 }
+
+/*--- responsive ---*/
+@media screen and (max-width: 767px) {
+  body {
+    width: 100%;
+  }
+  #container, footer, nav, section {
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 90%;
+  }
+  header {
+    padding-right: 5%;
+    padding-left:5%;
+    width: 90%;
+    #header-content {
+      width: 90%;
+      padding: 0 50%;
+      height: $header-height*2;
+    }
+  }
+}
