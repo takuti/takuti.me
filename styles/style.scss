@@ -6,10 +6,10 @@
 @import "normalize.css";
 
 // scss variable
-$primary-color: #333;
-$sub-color: #666;
-$sub-sub-color: #999;
-$sub-sub-sub-color: #ccc;
+$primary-color: #555;
+$sub-color: #888;
+$sub-sub-color: #bbb;
+$sub-sub-sub-color: #ddd;
 $content-width: 700px;
 $header-height: 45px;
 $footer-height: 45px;
@@ -19,8 +19,10 @@ html, body {
   background: #fff;
   height: 100%;
   color: $primary-color;
-  font-family:'Source Sans Pro','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
-  font-size: 15px;
+  font-family: 'museo sans','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.9;
   margin: 0px;
   padding: 0px;
 }
@@ -46,11 +48,12 @@ section {
     margin-bottom: 1em;
   }
   h3 {
-    border-bottom: 1px solid $sub-sub-color;
     padding-bottom: 15px;
-    font-size: 1.2em;
+    font-size: 1.3em;
+    font-weight: 900;
     margin: 0;
     margin-bottom: 1em;
+    line-height: 0;
   }
   ul {
     list-style-type: square;
@@ -58,6 +61,61 @@ section {
   }
 }
 
+section#profile {
+  text-align: center;
+  a {
+    color: $primary-color;
+    &:visited {
+      color: $primary-color;
+    }
+  }
+  img#icon {
+    width: 100px;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    margin: 0 auto $header-height/4 auto;
+  }
+  /* balloon-1 top */
+  #balloon-1-top {
+    color: $primary-color;
+    position: relative;
+    display: inline-block;
+    padding: 16px;
+    min-width: 115px;
+    line-height: 32px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid $sub-sub-color;
+    z-index: 0;
+  }
+  #balloon-1-top:before {
+    content: "";
+    position: absolute;
+    top: -8px; left: 50%;
+    margin-left: -9px;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 9px 9px 9px;
+    border-color: transparent transparent #fff transparent;
+    z-index: 0;
+  }
+  #balloon-1-top:after {
+    content: "";
+    position: absolute;
+    top: -10px; left: 50%;
+    margin-left: -10px;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent $sub-sub-color transparent;
+    z-index: -1;
+  }
+}
 
 /*--- layout ---*/
 header {
@@ -65,6 +123,7 @@ header {
   height: $header-height;
   margin: 0 auto;
   padding: $header-height/2 0 $header-height/4 0;
+  text-align: center;
 
   h1 {
     font-size: 2em;
@@ -83,9 +142,10 @@ nav {
   width: $content-width;
   margin: 0 auto;
   font-size: 0.9em;
+  text-align: center;
   a {
     display: inline-block;
-    margin-right: 2em;
+    margin: 0 1em;
     color: $sub-color;
     text-decoration: none;
     &:visited {
@@ -102,39 +162,10 @@ footer {
 //  background: $primary-color;
   position: absolute;
   bottom: 0;
+  text-align: center;
 
-  #footer-content {
-    width: $content-width;
-    height: $footer-height;
-    margin: 0 auto;
-    padding: 10px;
-
-    .left {
-      width: 200px;
-      color: $sub-color;
-      line-height: $footer-height;
-    }
-
-    .right {
-      width: 480px;
-      text-align: right;
-
-      a {
-        display: inline-block;
-        margin-left: 1em;
-        color: $sub-color;
-        text-decoration: none;
-        line-height: $footer-height;
-        &:visited {
-          color: $sub-color;
-        }
-        &:hover {
-          color: $sub-sub-color;
-        }
-      }
-    }
-
-  }
+  height: $footer-height;
+  color: $sub-color;
 }
 
 #container {
@@ -161,7 +192,7 @@ footer {
 }
 
 /*--- fonts ---*/
-.bold { font-weight:bold; }
+.bold { font-weight: 700; }
 .thin { color: $sub-sub-sub-color; }
 .special-font { font-family: 'Cabin Sketch', 'cursive'; }
 
