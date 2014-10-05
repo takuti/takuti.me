@@ -20,7 +20,7 @@ html, body {
   height: 100%;
   color: $primary-color;
   font-family: 'museo sans','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
   line-height: 1.9;
   margin: 0px;
@@ -42,85 +42,30 @@ a {
 
 section {
   width: $content-width;
-  margin-bottom: 3em;
+  margin-bottom: 50px;
   p {
     margin: 0;
     margin-bottom: 1em;
   }
   h3 {
-    padding-bottom: 15px;
     font-size: 1.3em;
-    font-weight: 900;
-    margin: 0;
-    margin-bottom: 1em;
-    line-height: 0;
+    font-weight: bold;
+    margin: 0 0 1em 0;
+    border-bottom: 1px solid $sub-sub-sub-color;
   }
   ul {
+    margin: 0;
     list-style-type: square;
-    padding-left: 1em;
+    padding-left: 2em;
   }
-}
-
-section#profile {
-  text-align: center;
-  a {
-    color: $primary-color;
-    &:visited {
-      color: $primary-color;
+  &#me {
+    img {
+      width: 75px;
+      border-radius: 75px;
+      -webkit-border-radius: 75px;
+      -moz-border-radius: 75px;
+      margin: 0 1em 0 0;
     }
-  }
-  img#icon {
-    width: 100px;
-    border-radius: 100px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    margin: 0 auto $header-height/4 auto;
-  }
-  /* balloon-1 top */
-  #balloon-1-top {
-    color: $primary-color;
-    position: relative;
-    display: inline-block;
-    padding: 16px;
-    min-width: 115px;
-    line-height: 32px;
-    text-align: center;
-    background: #fff;
-    border: 1px solid $sub-sub-color;
-    z-index: 0;
-  }
-  #balloon-1-top:before {
-    content: "";
-    position: absolute;
-    top: -8px; left: 50%;
-    margin-left: -9px;
-    display: block;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 0 9px 9px 9px;
-    border-color: transparent transparent #fff transparent;
-    z-index: 0;
-  }
-  #balloon-1-top:after {
-    content: "";
-    position: absolute;
-    top: -10px; left: 50%;
-    margin-left: -10px;
-    display: block;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 0 10px 10px 10px;
-    border-color: transparent transparent $sub-sub-color transparent;
-    z-index: -1;
-  }
-}
-
-div#profile-details {
-  margin-top: 50px;
-  h3 {
-    text-align: center;
   }
 }
 
@@ -166,7 +111,7 @@ nav {
 
 footer {
   width: 100%;
-//  background: $primary-color;
+  font-size: .9em;
   position: absolute;
   bottom: 0;
   text-align: center;
