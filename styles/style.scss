@@ -19,7 +19,7 @@ html, body {
   background: #fff;
   height: 100%;
   color: $primary-color;
-  font-family: 'museo sans','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
   font-size: 14px;
   font-weight: 300;
   line-height: 1.9;
@@ -48,7 +48,7 @@ section {
     margin-bottom: 1em;
   }
   h3 {
-    font-family: 'Droid Serif', serif;
+    font-family: 'Merriweather', serif;
     font-size: 1.3em;
     font-weight: bold;
     margin: 0 0 1em 0;
@@ -147,7 +147,6 @@ footer {
 /*--- fonts ---*/
 .bold { font-weight: 700; }
 .thin { color: $sub-sub-color; }
-.special-font { font-family: 'Cabin Sketch', 'cursive'; }
 
 @font-face {
     font-family: 'LigatureSymbols';
