@@ -281,6 +281,49 @@ blockquote {
   line-height: 1.3em;
 }
 
+#me {
+  text-align: center;
+  p {
+    margin: 0;
+    color: $primary-color;
+    position: relative;
+    display: inline-block;
+    padding: 16px;
+    min-width: 115px;
+    line-height: 32px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid $sub-sub-sub-color;
+    z-index: 0;
+    &:before {
+      content: "";
+      position: absolute;
+      top: -8px; left: 50%;
+      margin-left: -9px;
+      display: block;
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-width: 0 9px 9px 9px;
+      border-color: transparent transparent #fff transparent;
+      z-index: 0;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: -10px; left: 50%;
+      margin-left: -10px;
+      display: block;
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-width: 0 10px 10px 10px;
+      border-color: transparent transparent $sub-sub-sub-color transparent;
+      z-index: -1;
+    }
+  }
+}
+
 /*--- responsive ---*/
 @media screen and (max-width: 767px) {
   body {
