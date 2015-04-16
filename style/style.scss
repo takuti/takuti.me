@@ -287,7 +287,8 @@ blockquote {
     color: $primary-color;
     position: relative;
     display: inline-block;
-    padding: 16px;
+    padding: 16px 0 ;
+    width: 100%;
     min-width: 115px;
     line-height: 32px;
     text-align: center;
