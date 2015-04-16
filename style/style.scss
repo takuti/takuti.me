@@ -17,8 +17,8 @@ html, body {
   background: #fff;
   height: 100%;
   color: $primary-color;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
   margin: 0px;
   padding: 0px;
 }
@@ -183,7 +183,6 @@ nav {
 }
 
 #container {
-  font-size: 15px;
   width: $content-width;
   margin: 30px auto 50px auto;
   .left {
