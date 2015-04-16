@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<h1><span class="symbol">tag </span>{{ page.title }}</h1>
+
+<!-- This loops through the paginated posts -->
+<dl id="entry-list">
+{% for post in site.tags[page.tag] %}
+  <dt>
+  <span class="date">{{ post.date | date: '%B %-d, %Y' }}</span>
+  </dt>
+  <dd><a href="{{ post.url }}">{{ post.title }}</a></dd>
+{% endfor %}
+</dl>
+

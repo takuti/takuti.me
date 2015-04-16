@@ -1,79 +1,29 @@
 ---
-layout: layout
+layout: default
 title: TOP
 ---
 
-<header>
-<a href='/ja/'>日本語</a> | English
-</header>
+<div id="language">
+  <span class="symbol active">earth </span>
+  <span class="l active">日本語</span>
+  <span class="l">English</span>
+</div>
+<dl class="entry-list">
+{% for post in site.posts %}
+  {% if post.lang == 'ja' %}
+  <span class="lang-{{ post.lang }}" visible>
+  {% else %}
+  <span class="lang-{{ post.lang }}" hidden>
+  {% endif %}
+  <dt>
+  <span class="date">
+    {{ post.date | date: '%b %d, %Y' | upcase }}
+  </span>
+  </dt>
+  <dd>
+    <a href="{{ post.url }}">{{ post.title }}</a>
+  </dd>
+  </span>
+{% endfor %}
+</dl>
 
-<section id="me" class="clearfix">
-  <p>
-  <img src="/images/s9.jpg" alt="icon" align="left" />
-  I'm <span class="bold">takuti</span>, a master's student at the University of Tokyo, Japan. My particular interest is in machine learning.
-  </p>
-</section>
-
-<section>
-  <h3><span class="symbol">sns </span>Links</h3>
-  <ul>
-    <li><a href="http://twitter.com/takuti/">twitter</a>
-    <li><a href="http://blog.takuti.me/">blog</a>
-    <li><a href="https://github.com/takuti">github</a>
-    <li><a href="https://instagram.com/takuti/">instagram</a>
-  </ul>
-</section>
-
-<section>
-  <h3><span class="symbol">code </span>Development</h3>
-  <ul>
-    <li><a href="/dev/poisson/">Poisson Image Blending</a> - Image processing on HTML5 Canvas.
-    <li><a href="/dev/meltokei/">Colorful Clock</a> - HTML5 Canvas exercise.
-    <li><a href="/dev/bezier/">Draw Bezier Curve</a> - Collaboration between HTML5 Canvas and AngularJS.
-    <li><a href="https://github.com/takuti/conversion-crx">Conversion Guy</a> - Google Chrome Extention for various conversion.
-    <li><a href="/dev/binary2decimal2hex/">Smooth Radix Converter</a> - Practical application of AngularJS.
-    <li><a href="https://github.com/takuti/twitter-bot">Twitter Bot</a> - Practice of Japanese natural language processing.
-    <li> and so on as a part-time engineer.
-  </ul>
-</section>
-
-<section>
-  <h3><span class="symbol">book </span>Skills</h3>
-  <ul>
-    <li>Programming: Python, Ruby, JavaScript, PHP, Objective-C, MATLAB (Octave)
-    <li>Languages: Japanese (Native), English (TOEFL iBT 92, October 2014)
-  </ul>
-</section>
-
-<section>
-  <h3><span class="symbol">bag </span>Activities</h3>
-  <ul>
-    <li>pixiv Inc., Winter Internship, December 2014.
-    <li>Speee, Inc., Engineering Internship, September 2013.
-    <li>mixi, Inc., mixi Scrap Challenge for Security, January 2013.
-    <li>SECCON CTF Tsukuba (team: 5a454e), May 2012.
-    <li>Security and Programming Camp 2011 Web Security Class, August 2011.
-  </ul>
-</section>
-
-<section>
-  <h3><span class="symbol">college </span>Education</h3>
-  <ul>
-    <li>April 2015 - Present, Master's Program, <a href="http://www.ci.i.u-tokyo.ac.jp/site/?home-e">Department of Creative Informatics</a>, The University of Tokyo, Japan.
-    <li>B.S. in Computer Science, The University of Aizu, Japan, March 2015.
-  </ul>
-</section>
-
-<section>
-  <h3><span class="symbol">crown </span>Awards</h3>
-  <ul>
-    <li>Representative of the Graduates, The University of Aizu, 2015.
-    <li>IEEE Sendai Section Student Awards 2014, <span class="bold">The Best Paper Prize</span>, 2014.
-    <li>TAC-Keio SFC Entrepreneurship Seminar and Business Plan Competition, <span class="bold">Innovative Award</span>, 2012.
-  </ul>
-</section>
-
-<section>
-  <h3><span class="symbol">mail </span>Contact</h3>
-  <p><span class="bold">k.takuti</span>_at_<span class="bold">gmail.com</span> or <a href="http://twitter.com/takuti">@takuti</a></p>
-</section>

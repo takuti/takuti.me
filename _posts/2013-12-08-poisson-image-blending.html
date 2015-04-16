@@ -1,0 +1,169 @@
+---
+layout: post
+title: Poisson Image Editingでいい感じの画像合成ができるやつを作る on Web
+lang: ja
+tags:
+- Development
+- HTML5 Canvas
+- Image Processing
+---
+<p><a href="http://atnd.org/events/45075">Aizu Advent Calendar 2013</a> 8日目の記事です。</p>
+<h3>デモ</h3>
+<p>まずは作ったやつ（デモ版）からどうぞ。<br />
+【 <strong><a href="http://takuti.me/dev/poisson/demo/">Poisson Image Blending - Demo</a></strong> 】</p>
+<p><!--more--></p>
+<p>Step1はいじらなくていいので、Step2で適当にマスク領域を塗ってあげてください。<br />
+<img src="http://blog.takuti.me/images/wp/Screen-Shot-2013-12-08-at-12.41.01-AM.png" alt="Screen Shot 2013-12-08 at 12.41.01 AM" width="186" height="271" class="alignnone size-full wp-image-294" /><br />
+こんな感じで塗れたら、<strong>HERE</strong>ボタンをクリック。するとStep3にマスクをかけた領域だけ乗っかります。<br />
+<img src="http://blog.takuti.me/images/wp/Screen-Shot-2013-12-08-at-12.43.06-AM.png" alt="Screen Shot 2013-12-08 at 12.43.06 AM" width="287" height="275" class="alignnone size-full wp-image-295" /><br />
+そうしたら矢印ボタンで位置を調整して、<br />
+<img src="http://blog.takuti.me/images/wp/Screen-Shot-2013-12-08-at-12.44.40-AM.png" alt="Screen Shot 2013-12-08 at 12.44.40 AM" width="282" height="283" class="alignnone size-full wp-image-296" /><br />
+「ここで合成だー」と思ったところで<strong>OK</strong>ボタンをクリックすれば、<br />
+<img src="http://blog.takuti.me/images/wp/Screen-Shot-2013-12-08-at-12.44.51-AM.png" alt="Screen Shot 2013-12-08 at 12.44.51 AM" width="286" height="283" class="alignnone size-full wp-image-297" /><br />
+真顔モナリザの完成です。</p>
+<p>このようにいい感じの画像合成ができる手法は、ググればC++やPython、さらにHTML5 Canvasでの実装もすでに存在します。ま、まぁマスク領域自分で塗れるようにしたから新規性あるよね・・・。</p>
+<h3>アプリ版</h3>
+<p>デモを利用して、合成したい2枚の画像を自分で選べるものを作りました。アプリ版です。<br />
+【 <strong><a href="http://takuti.me/dev/poisson/app/">Poisson Image Blending - App</a></strong> 】</p>
+<p>まずは<strong>ベース画像（合成先）</strong>と<strong>ソース画像（切り抜いて合成する方）</strong>をそれぞれ選択します。画像サイズはいずれも150ピクセル×150ピクセルに限定しています。それより大きい/小さい画像を選択すると縮小/拡大されます。</p>
+<p>ちゃんと両方選択できると、<strong>Start App</strong>ボタンが有効になるのでクリック。<br />
+<img src="http://blog.takuti.me/images/wp/Screen-Shot-2013-12-08-at-7.26.53-AM-e1386455286656.png" alt="Screen Shot 2013-12-08 at 7.26.53 AM" width="500" height="237" class="alignnone size-full wp-image-307" /><br />
+すると先ほどのデモ版と同様の画面が表示されるので、Step2でマスク領域を塗って、Step3で位置調整、合成という流れで遊んでください。<br />
+<img src="http://blog.takuti.me/images/wp/blend_result.png" alt="blend_result" width="150" height="150" class="alignnone size-full wp-image-306" /><br />
+こんな感じになります。<del datetime="2013-12-07T16:12:47+00:00">アゴ</del></p>
+<p>実際に顔写真でやってみるのが個人的には一番おもしろいと思います。</p>
+<p>あ、フッターみたいな変な所に結構重要なボタンがあります。最悪ですね。<br />
+<img src="http://blog.takuti.me/images/wp/Screen-Shot-2013-12-08-at-2.23.06-AM.png" alt="Screen Shot 2013-12-08 at 2.23.06 AM" width="500" height="351" class="alignnone size-full wp-image-300" /></p>
+<h3>Importing gradients と Mixing gradients</h3>
+<p>ここで無視していたStep1の話をしましょう。</p>
+<p>いい感じの画像合成では画像の勾配(Gradients)が大切です。画像における勾配とは、隣り合っているピクセル同士でRGB値がどれだけ違うかということ。<br />
+<img src="http://blog.takuti.me/images/wp/blend_result.png" alt="blend_result" width="150" height="150" class="alignnone size-full wp-image-306" /><br />
+先ほどの合成結果を見ると、<strong>色はベース画像に馴染みつつも、どこに線があるかという情報はソース画像のものを受け継いでいます</strong>。このバランスがいい感じの合成を実現しているんですね。</p>
+<p>この線の情報（＝合成結果の勾配）の求め方は2通りあります。それが<strong>Importing gradients</strong>と<strong>Mixing gradients</strong>です。</p>
+<p><strong>Importing gradients</strong>は先ほども例に挙げたように、ソース画像の勾配をそのまま合成結果に利用します。一方で<strong>Mixing gradients</strong>は、各ピクセルに対してベース画像とソース画像の勾配を比較して大きい方を採用するというものです。</p>
+<p>これを切り替えて試せるのが、デモ版にもアプリ版にもあるStep1のラジオボタンです。さらにデモ版では<strong>Faces</strong>と<strong>Hand&amp;Sign</strong>という2種類のベース画像・ソース画像の組み合わせを切り替え可能にしました。勾配の取り方2種類と画像セット2種類なので計4通りの合成を試すことができ、結果は以下のようになります。</p>
+<table>
+<tr>
+<td></td>
+<th>Importing</th>
+<th>Mixing</th>
+</tr>
+<tr>
+<th>Faces</th>
+<td><img src="http://blog.takuti.me/images/wp/faces_importing.png" alt="faces_importing" width="150" height="150" class="alignnone size-full wp-image-301" /></td>
+<td><img src="http://blog.takuti.me/images/wp/faces_mixing.png" alt="faces_mixing" width="150" height="150" class="alignnone size-full wp-image-302" /></td>
+</tr>
+<tr>
+<th>Hand&amp;Sign</th>
+<td><img src="http://blog.takuti.me/images/wp/hand_importing.png" alt="hand_importing" width="150" height="150" class="alignnone size-full wp-image-303" /></td>
+<td><img src="http://blog.takuti.me/images/wp/hand_mixing.png" alt="hand_mixing" width="150" height="150" class="alignnone size-full wp-image-304" /></td>
+</tr>
+</table>
+<p>見ての通り、Facesの場合はImportingのほうが期待通りの結果になっています。一方Hand&amp;Signでは、Mixingのほうが手のシワを残しつつ文字を合成していて綺麗な結果になっています。<strong>文字上では手のシワよりも文字の勾配のほうが大きく、その他の部分は変化の少ない白い紙の写真なので手のシワの勾配のほうが大きかった</strong>というわけです。</p>
+<p>ImportingとMixingのどちらが良いのかは一概に言うことはできず、合成する画像の組み合わせによって勾配の取り方も適切な方を使う必要があるんですね。</p>
+<h3>Poisson Image Editing</h3>
+<p>さて、そろそろ今回の画像合成手法をちゃんと紹介しましょう。<br />
+（トップダウン式な記事で我ながらすばらですね）</p>
+<p>今回利用している手法は<strong>Poisson Image Editing</strong>というタイトルの、「ポアソン方程式を解くことで画像補間をいい感じにできるよ」という内容の論文で提案されているものです。PDFは以下より。</p>
+<pre>P. Pérez, M. Gangnet, A. Blake. <strong><a href="http://xeds.eu/clone/poisson.pdf">Poisson Image Editing</a></strong>. ACM Transactions on Graphics (SIGGRAPH'03), 22(3):313-318, 2003.</pre>
+<p>いい感じの画像補完の具体例が今回実装したシームレスな画像合成で、これは論文の2章と3章にあたります。式の導出から書こうと思いましたがイマイチ自身無いのと実装で力尽きたのとでやめました。気になった方は原文読んで下さい。</p>
+<p>結論だけ書くと、論文内の式(7)を\(f_p=\)の形に変形して解けば終わりです。すなわち、すべての\(p \in \Omega\)に対して以下の式が成り立つような連立一次方程式を解くと言う問題。</p>
+<p>\[<br />
+f_p = \frac{\displaystyle \sum_{q \in N_p \cap \Omega}f_q + \sum_{q \in N_p \cap \partial \Omega}f^*_q + \sum_{q \in N_p}v_{pq}}{\displaystyle |N_p|}<br />
+\]</p>
+<p>この式の意味するところは論文中の図1なんかを参照しながらイメージするしかありません。無理やり言葉で説明するとだいたい以下のような雰囲気です。</p>
+<p>※<strong>ベース画像＝合成先</strong>、<strong>ソース画像＝切り抜いて合成する方</strong>です。</p>
+<dl>
+<dt>\(\Omega\)</dt>
+<dd>合成結果の中で、切り抜いたソース画像が合成された領域</dd>
+<dt>\(f_p\)</dt>
+<dd>ある点\(p \in \Omega\)での\(f\)の値で、<strong>これを求めることが今回の目標</strong><br />\(f\)は\(\Omega\)内の各ピクセルのRGB値を示す関数</dd>
+<dt>\(f^*_p\)</dt>
+<dd>ある点\(p\)での\(f^*\)の値<br />\(f^*\)はベース画像内の各ピクセルのRGB値を示す関数（既知）</dd>
+<dt>\(N_p\)</dt>
+<dd>ある点\(p\)の近傍点の集合（今回はその点の上下左右、4近傍）</dd>
+<dt>\(\partial \Omega\)</dt>
+<dd>\(\Omega\)の境界領域<br />\(p \not\in \Omega\)を満たす点のうち、近傍点が1つでも領域\(\Omega\)に入っていれば\(p \in \partial \Omega\)<br /><strong>自分自身は入っていないけど近傍点のどれかは入っている</strong>という状態</dd>
+<dt>\(g_p\)</dt>
+<dd>ソース画像からマスクをかけて切り抜いた部分の中にある点\(p\)でのRGB値</dd>
+<dt>\(v_{pq}\)</dt>
+<dd>ある点\(p\)とその近傍点のうちの1つ\(q\)の間の勾配<br /><strong>Importing</strong> \(g_p-g_q\)<br /><strong>Mixing</strong> ベース画像の勾配の方が大きければ\(f^*_p-f^*_q\), そうじゃなければ\(g_p-g_q\)</dd>
+</dl>
+<p>これに沿って実際に合成を行っている（＝\(f_p\)を求めている）コードは、ざっくりと流れを追うと以下のような感じ。</p>
+<pre class="prettyprint lang-js">
+do {
+  // 全ピクセルを見る 今回は簡単のため画像の端のピクセルは考慮しない
+  for(var y=1; y&lt;base_size.height-1; y++) {
+    for(var x=1; x&lt;base_size.width-1; x++) {
+      if(/* もしStep2で塗ったマスク領域の中なら合成後のRGB値を推定 */) {
+
+        // そのピクセルのRGB各色について連立一次方程式を解く
+        for(var rgb=0; rgb&lt;3; rgb++) {
+          var sum_fq = 0;       // (1)
+          var sum_boundary = 0; // (2)
+          var sum_vpq = 0;      // (3)
+
+          // 近傍点（4点）それぞれについて
+          for(var i=0; i&lt;num_neighbors; i++) {
+
+            if(/* もし近傍点がStep2で塗ったマスク領域の中なら */) {
+              // (1)の加算
+            } else { // 近傍点は境界領域の中
+              // (2)の加算
+            }
+
+            if(/* Mixingで、ベース画像の勾配の方が大きければ */) {
+              // (3)の加算（ベース画像の勾配）
+            } else {
+              // (3)の加算（ソース画像の勾配）
+            }
+          }
+          // そのピクセルのRGB推定値の格納
+        }
+      }
+    }
+  }
+  if(/* 全ピクセルの推定が終わったので収束判定 */) break;
+} while(true);
+</pre>
+<p><a href="https://github.com/takuti/poisson-image-blending">takuti / poisson-image-blending</a></p>
+<p>(1)〜(3)は先に示した\(f_p = \)の式の右辺、分子の3つ項に対応します。</p>
+<dl>
+<dt>(1)</dt>
+<dd>\(\displaystyle \sum_{q \in N_p \cap \Omega}f_q\)</dd>
+<dt>(2)</dt>
+<dd>\(\displaystyle \sum_{q \in N_p \cap \partial \Omega}f^*_q\)</dd>
+<dt>(3)</dt>
+<dd>\(\displaystyle \sum_{q \in N_p}v_{pq}\)</dd>
+</dl>
+<p>今、すべての\(p \in \Omega\)に対して\(f_p\)を求めているため、連立一次方程式の未知数（＝合成される領域内の点の数）は\(|\Omega|\)です。\(|\Omega|\)個の未知の点を順番に推定していくことになりますが、推定途中でも(1)では\(f\)の値を利用しています。</p>
+<p>このような、<strong>連立一次方程式の解の推定途中で推定済みの値とまだ推定されていない（過去の）値の両方を計算に利用する形</strong>は、ガウスサイデル法の漸化式そのままです。そこで上記簡易コードではガウスサイデル法による解の推定を行っており、推定値の収束を合成の終了としています。</p>
+<p>合成の軸になる処理はこのようなシンプルな数値計算で完結します。しかし実際はCanvasの操作なんかでコードの肥大化が深刻。</p>
+<h3>まとめ</h3>
+<p>というわけで、Poisson Image Editingという論文で提案されたシームレスな画像合成をCanvasとJavaScriptで実装してみて、おまけにアプリ版も作ってみたお話でした。</p>
+<p>実は以前この手法の画像合成を試したことがあったのですが、なぜかうまくいかず詰んだので放置していました。しかし再挑戦したらなんとかなった。これは今期履修している数値解析のおかげかな！？（申し訳程度の会津大要素）</p>
+<p>アプリ版はまた気が向いた頃に実装の見直しや改善をするかもしれません。</p>
+<p>とりあえず今はこの記事を書き上げたことでようやくBDFS始められるので僕は消えます。</p>
+<div class="kaerebalink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom: 1;overflow: hidden;">
+<div class="kaerebalink-image" style="float:left;margin:0 15px 10px 0;"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00EVN4T40/takuti-22/ref=nosim/" rel="nofollow" target="_blank"><img src="http://ecx.images-amazon.com/images/I/61wNv9RM0UL._SL160_.jpg" style="border: none;" /></a></div>
+<div class="kaerebalink-info" style="line-height:120%;/zoom: 1;overflow: hidden;">
+<div class="kaerebalink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00EVN4T40/takuti-22/ref=nosim/" rel="nofollow" target="_blank">ブレイブリーデフォルト フォーザ・シークウェル</a>
+<div class="kaerebalink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div>
+</div>
+<div class="kaerebalink-detail" style="margin-bottom:5px;"> スクウェア・エニックス 2013-12-05    </div>
+<div class="kaerebalink-link1" style="margin-top:10px;">
+<div class="shoplinkamazon" style="display:inline;margin-right:5px"><a href="http://www.amazon.co.jp/gp/search?keywords=%83u%83%8C%83C%83u%83%8A%81%5B%83f%83t%83H%83%8B%83g%20%83t%83H%81%5B%83U&__mk_ja_JP=%83J%83%5E%83J%83i&tag=takuti-22" rel="nofollow" target="_blank" title="アマゾン" >Amazon</a></div>
+</div>
+</div>
+<div class="booklink-footer" style="clear: left"></div>
+</div>
+<p>明日、<a href="http://atnd.org/events/45075">Aizu Advent Calendar 2013</a> 9日目の担当は<a href="http://twitter.com/WinField95">95さん</a>です！しゃす！</p>
+<p><a href="http://araraak.hatenadiary.jp/">影で就活Advent Calendarやってる人</a>がいるのでよかったらそちらも見てあげて下さい。</p>
+<h3>参考</h3>
+<ul>
+<li><a href="http://opencv.jp/opencv2-x-samples/poisson-blending">Poisson Blending | OpenCV.jp</a></li>
+<li><a href="http://d.hatena.ne.jp/mscp/20081130/1261916214">Poisson Image Editing - ますぽんの雑記</a></li>
+<li><a href="http://akita-nct.jp/yamamoto/lecture/2006/5E/Linear_eauations/concrete_relax_html/node2.html">2 ガウス・ザイデル法を使った計算</a></li>
+<li><a href="http://www.html5rocks.com/ja/tutorials/file/dndfiles/">JavaScript でのローカル ファイルの読み込み - HTML5 Rocks</a></li>
+<li><a href="http://jsdo.it/Yukisuke/p311">Canvasの画像(スクリーンショット)をローカルダウンロードします。 - jsdo.it - Share JavaScript, HTML5 and CSS</a></li>
+</ul>

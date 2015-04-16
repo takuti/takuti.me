@@ -1,0 +1,28 @@
+---
+layout: post
+title: "はじめてのChrome拡張開発は進数変換とRGB/カラーコード変換ができるやつ"
+lang: ja
+tags:
+- Development
+- Chrome Extensions
+---
+<p>思っている以上に簡単だとか、<a href="http://takuti.hatenablog.com/entry/20111002/1317563321">JSを書きたければChrome拡張をつくろう！</a>とか、そんな話を前々から聞きながらもスルーしていたChrome拡張開発をやってみました。</p>
+<p>ほんとに簡単だった。</p>
+<p>自分が実際に使えるものをつくりたかったので、進数変換とRGB/カラーコード変換ができるものをつくることに。</p>
+<p>進数変換は<a href="http://hogehoge.tk/tool/number.html">いつも利用させていただいているツール</a>にその都度いくのが面倒だなーと思っていたこと、RGB/カラーコード変換はCSS編集するときにサクッと相互変換できたら嬉しいなーと常日頃思っていたことが動機です。</p>
+<p>しっかりと調べていないので、上記の要望を満足するChrome拡張がすでに存在するかもしれませんがそんなことは知らない。</p>
+<p>プロトタイプクオリティの完成品は以下のような雰囲気です。い、いつかもっとカッコよくするんだ・・・。<br />
+<img src="http://blog.takuti.me/images/wp/chrome_ext.png" alt="chrome_ext" width="309" height="321" class="alignnone size-full wp-image-219" /><br />
+<!--more--><br />
+作り方はみんな大好きドットインストールで勉強させていただきました。<br />
+<a href="http://dotinstall.com/lessons/basic_chrome_v2">Google Chrome拡張機能入門 (全20回) - プログラミングならドットインストール</a></p>
+<p>すごくざっくりなテキトーコードは以下より。<br />
+<strong><a href="https://github.com/takuti/conversion_crx">takuti/conversion_crx</a></strong></p>
+<p>ちなみに今回つくったChrome拡張ですが、正しくない値を入力して変換しようとするとピヨさん（今考えた）が教えてくれます。（どうでもいい）<br />
+<img src="http://blog.takuti.me/images/wp/chrome_ext_err.png" alt="chrome_ext_err" width="312" height="312" class="alignnone size-full wp-image-220" /></p>
+<p>ピヨさんは<a href="http://blog.takuti.me/twitter-bot/">僕のbot</a>が考えてくれたこの夏の新作顔文字ですみなさんよろしくおねがいします。<br />
+https://twitter.com/yootakuti/status/355280706269753344</p>
+<p>今回つくったものはショボショボな感じですが、Chrome拡張ってこんなに簡単に作れるんだ！ということを身を持って知れたのが何よりの収穫だったと思います。</p>
+<p>※開発にあたり、以下を利用させていただきました。<br />
+<a href="http://www.phpied.com/rgb-color-parser-in-javascript/">RGB color parser in JavaScript / Stoyan's phpied.com</a><br />
+【参考】<a href="http://tande.jp/lab/2012/07/1849">[JavaScript] 色表記の変換が簡単なライブラリ rgbcolor.js | tande lab. </a></p>

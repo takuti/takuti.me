@@ -1,0 +1,29 @@
+---
+layout: post
+title: WordPressの新規投稿を決めた時間内でさっさと書かせるプラグイン
+lang: ja
+tags:
+- Development
+- WordPress
+---
+<p>を作った。</p>
+<p>記事１つ書いただけなのにもうこんな時間！という経験ありませんか？あ、ない・・・そうですか。</p>
+<p>まぁ僕はいつもそんな感じなので構わず話を続けます。</p>
+<p>WordPressのプラグイン作成が気になったので、お試しついでにそんな問題を解決する（かもしれない）超簡単なプラグインを作りました。<strong>Hurry Up Post</strong>というセンスの欠片も感じないネーミングです。</p>
+<p><img src="http://blog.takuti.me/images/wp/Screen-Shot-2013-12-09-at-2.14.39-PM-e1386566110949.png" alt="Screen Shot 2013-12-09 at 2.14.39 PM" width="500" height="154" class="alignnone size-full wp-image-385" /><br />
+<!--more--></p>
+<ol>
+<li>新規投稿画面を開くとタイトル入力フィールドの下にこんなのが出ます。</li>
+<li>記事を書き上げたい時間を分単位で指定して、Startボタンをクリックすることでカウントダウンがスタートします。</li>
+<li>Stopボタンとか甘えたものはありません。自分の選択には責任を持ちましょう。</li>
+<li>カウントダウンが終了すると、クリックイベントで勝手に『公開』ボタンをクリックします。</li>
+</ol>
+<p>制限時間が表示されていることで効率的に記事をかけるようになる（かもしれない）。人間は追い込まれると謎の生産性を発揮するものです。</p>
+<p>この記事は30分以内で書き上げたいと思いました。何とかなりそうです。時間を意識することは大切ですね。</p>
+<p>プラグインはとりあえずgithubに上げています。使いたいという稀有な方がいましたら、ダウンロードしてWordPressのインストールディレクトリ内 <strong>wp-content/plugins</strong> 以下に置いた後、管理画面のインストール済みプラグインから有効化してください。</p>
+<p><strong><a href="https://github.com/takuti/hurry-up-post">takuti/hurry-up-post</a></strong></p>
+<h3>とっても分かりやすかったスライド</h3>
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/15359306" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
+<div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/yuka2py/wordpress-15359306" title="WordPressプラグイン作成入門" target="_blank">WordPressプラグイン作成入門</a> </strong> from <strong><a href="http://www.slideshare.net/yuka2py" target="_blank">Yuji Nojima</a></strong> </div>
+<p><br>&nbsp;<br />
+WordPressのプラグインってこんなに簡単な仕組みだったんですねー。みなさんも欲しい機能があるときは、簡単なものなら数十分で作れちゃうので自作してみてはいかがでしょうか。</p>

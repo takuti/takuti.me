@@ -1,0 +1,23 @@
+---
+layout: post
+title: "さくらVPSにRubyを入れたらSSHで入れなくなった"
+lang: ja
+tags:
+- Development
+- VPS
+---
+<p>焦った。</p>
+<p><a href="http://akabeko.me/blog/2012/05/revps-09-ruby-redmine-subversion/#revps-09-01">さくらのVPS を改めて使いはじめる 9 &#8211; Ruby、Redmine、Subversion | アカベコマイリ</a><br />
+ここに従ってRubyをインストールしたら、その直後からSSHでVPSに入れなくなった。</p>
+<p>なんか<br />
+<strong>Permission denied (publickey,gssapi-keyex,gssapi-with-mic).</strong><br />
+って出る。怖い。</p>
+<p>しかし理由は単純で、SSHで入ろうとしたユーザのホームディレクトリのパーミッションがおかしくなっていた様子。<br />
+【参考】<a href="http://cns-guide.sfc.keio.ac.jp/1999/11/4/2.html">4.2 ホームディレクトリに移動できない</a></p>
+<p>ので、<a href="https://secure.sakura.ad.jp/vpscontrol/">さくらVPSのコントロールパネル</a>からクソ使いづらいリモートコンソールもしくはVNCコンソールからrootで入って、そのユーザのホームディレクトリをchmodしてあげて解決。</p>
+<p>原因はなんだったんでしょうか・・・。</p>
+<pre>$ sudo yum install openssl-devel readline-devel zlib-devel curl-devel libyaml-devel mysql-devel httpd-devel ImageMagick ImageMagick-devel</pre>
+<p>このときに入れたどれかかなぁ。</p>
+<h3>追記(2013.08.02)</h3>
+<p>この件について詳しく書かれているエントリがありました。chownをしないと、chmodでいくらパーミッションを変えてもSFTPでPermission Deniedになるなどの状態が続きます。</p>
+<p><a href="http://blog.ao-oni.net/sakura-vps-006/">青鬼 | さくらVPS Ruby Redmine Subversion</a></p>

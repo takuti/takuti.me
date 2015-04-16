@@ -1,23 +1,18 @@
 ---
-layout: layout
+layout: default
 ---
 <article>
-  <h2>{{ page.title }}</h2>
   <p class="meta clearfix">
-    <span class="left">{{ page.date | date: '%B %-d, %Y' }}</span>
-    <span class="right">
-      {% unless page.tags == empty %}
-      <span class="tag"><span class="symbol">tag </span>
-      {% for tag in page.tags %}
-      {% unless forloop.first %}
-      ,&nbsp;
-      {% endunless %}
-      <a href="/tag/{{ tag | downcase | replace: ' ', '-' }}">{{ tag }}</a>
-      {% endfor %}
-      </span>
-      {% endunless %}
-    </span>
+    {{ page.date | date: '%B %-d, %Y' | upcase}} <!-- &nbsp;
+    {% unless page.tags == empty %}
+    {% for tag in page.tags %}
+    {% capture t %}{{ tag | downcase | replace:' ','-' }}{% endcapture %}
+    [<a href="/tag/{{ t }}">{{ site.tagname[t] }}</a>]
+    {% endfor %}
+    {% endunless %}
+-->
   </p>
+  <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
 
   <div class="post">
     {{ content }}
@@ -39,11 +34,3 @@ layout: layout
 
 </article>
 
-<div class="nav clearfix">
-  {% if page.previous %}
-  <span class="left"><a href="{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a></span>
-  {% endif %}
-  {% if page.next %}
-  <span class="right"><a href="{{ page.next.url }}">{{ page.next.title }} &raquo;</a></span>
-  {% endif %}
-</div>

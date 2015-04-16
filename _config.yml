@@ -1,9 +1,15 @@
 name: takuti.me
 url: http://takuti.me/
 
+baseurl: http://takuti.me
+
 markdown: redcarpet
-highlighter: nil
+redcarpet:
+  extensions: [tables,autolink,strikethrough]
+highlighter: nil # not use pygments because of using google-code-prettify
 
-exclude: ['Rakefile']
+exclude: ['Rakefile', 'tools']
+include: ['.htaccess']
 
-permalink: /:year/:month/:day/:title/
+permalink: /note/:title/
+

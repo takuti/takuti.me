@@ -1,0 +1,174 @@
+---
+layout: post
+title: 'WordPressテーマの断捨離カスタマイズ #Stinger-WP'
+lang: ja
+tags:
+- Development
+- WordPress
+---
+<p><a href="http://www.adventar.org/calendars/90"><img src="http://blog.takuti.me/images/wp/Advent_black_a.jpg" alt="Advent_black_a" width="580" height="116" class="alignnone size-full wp-image-390" /></a></p>
+<p>こんにちは！<a href="http://www.adventar.org/calendars/90">Stinger Advent Calendar 2013</a> 12日目を担当します、たくちです。</p>
+<p><a href="http://stinger3.com/">Stinger</a>には良いところがたくさんありますが、簡潔で見通しのいいマークアップのおかげでカスタマイズしやすいというのが僕は特に嬉しいです。</p>
+<p>僕がStingerをカスタマイズする上で意識しているのは、できるだけ構成要素を減らすこと。<strong>初期状態でも十分な機能を備えているStingerだからこそ、カスタマイズの際は機能を増やすだけじゃなくて削ぎ落とすことも重要</strong>だと思うわけです。</p>
+<p>というわけで断捨離カスタマイズです。<br />
+<!--more--></p>
+<h3>減らすことも立派なカスタマイズです</h3>
+<p>まず断捨離とはそもそも何か、<a href="http://ja.wikipedia.org/wiki/%E6%96%AD%E6%8D%A8%E9%9B%A2">Wikipedia先生に聞いてみましょう</a>。</p>
+<blockquote><p>
+断捨離（だんしゃり）とは、不要なモノなどの数を減らし、生活や人生に調和をもたらそうとする生活術や処世術のこと。<br />
+（中略）<br />
+断＝入ってくる要らない物を断つ<br />
+捨＝家にずっとある要らない物を捨てる<br />
+離＝物への執着から離れる
+</p></blockquote>
+<p>これをこのように読み替えます。</p>
+<p><strong>断＝入ってくる「便利かも」な機能を断つ</strong></p>
+<p>それが本当に必要な機能か慎重に見極めましょう。旅行の荷物で「使うかも」とあれもこれも持って行ったけど結局使わなかった、という経験ありませんか？無意識にいろいろ導入しているといつの間にか肥大化しています。</p>
+<p><strong>捨＝ずっとあるけど実は無くても困らない機能を捨てる</strong></p>
+<p>あって当たり前な機能もその価値を一度疑ってみましょう。サイドバーの検索窓、広告やタグなど、実は無くたって困らないのかもしれません。</p>
+<p><strong>離＝便利な機能への執着から離れる</strong></p>
+<p>便利だから使う、というだけではなく『減らす』という可能性も常に頭の片隅に置いてカスタマイズしてみましょう。</p>
+<p>どんな機能は不要なのか、それはみなさんがどんなブログを目指すのかに依ると思います。<strong>自分のブログの色</strong>をぜひ一度考えてみてください。カスタマイズはそれからです。</p>
+<p>僕はこのブログを、PV数や広告収入を意識しすぎずに書きたいことを書く自己満足の場にしたいと思っています。そしてその副産物として、誰か1人でも記事を読んで何か感じてくれれば十分だな、と。</p>
+<p>だからたとえSEOや直帰率に多少影響してしまおうと、自分が客観的に見て必要だと思う機能だけを置いて、無知ながらもシンプルっぽいデザインにしたいという想いの下にカスタマイズしています。まぁ、<strong>過度にSEOを意識しなくていいという心理的な負担の少なさはやっぱりStingerさまさま</strong>ですね！</p>
+<p>みなさんのブログはどんなブログですか？アフィリエイトでバンバン稼ぎたいですか？有益な情報を毎日一人でも多くの人に発信したいですか？</p>
+<p>もちろん機能が少なければ少ないほど良いというわけではありませんし、アフィリエイト目的のブログで広告を断捨離なんかしたら論外でしょう。しかし<strong>ブログをあなたの思う色に近づけるために必要なのは、もしかしたら適度な断捨離なのかも</strong>しれません。</p>
+<p>WordPressで既存のテーマを使うと、どうしても機能1つ1つに集中してしまってブログ全体を見ることを忘れがちです。素晴らしく扱いやすく実用的なStingerというテーマだからこそ、カスタマイズのあり方について少し立ち止まって考えてみてはいかがでしょうか！<br />
+<br>&nbsp;<br />
+さて、言いたかったことはひと通り語ったので最後にさらっとこのブログのStingerカスタマイズで断捨離したところをまとめて締めたいと思います。</p>
+<h3>サイドバーのNEW ENTRYを削除</h3>
+<p>ブログ内のどのページでも（だいたい）同じものが表示されるサイドバー。<strong>ブログの顔といっても過言ではないこの部分がごちゃごちゃしているのは個人的には避けたかった</strong>です。</p>
+<p>というわけで、このブログで最近の投稿をアピールしたい理由が特に無いのでNEW ENTRYは削除しました。<strong>sidebar.php</strong>の　&lt;!--最近のエントリ--&gt;　から　&lt;!--/最近のエントリ--&gt;　までを削除（コメントアウト）するだけです。</p>
+<p>Stingerはデフォルトで各記事の下に関連記事を出してくれるので、ある記事に対する訪問者の直帰率を下げたいのであればそれと<a href="http://wordpress.org/plugins/wordpress-popular-posts/">Popular Posts</a>の設置で十分かなーと思っています。</p>
+<h3>サイドバーのスクロール追尾広告をタブ型コンテンツエリアに</h3>
+<p>スクロールで広告が追いかけてくるのはちょっと露骨でこのブログの目指すところではありません。</p>
+<p>そこで、その部分をタブ型のコンテンツエリアにしました。こうすればより多くのブログ内コンテンツを効率的に訪問者に届けることができる（かも）。めざせ収納上手！<br />
+<img src="http://blog.takuti.me/images/wp/Screen-Shot-2013-12-10-at-11.34.17-PM.png" alt="Screen Shot 2013-12-10 at 11.34.17 PM" width="357" height="407" class="alignnone size-full wp-image-391" /><br />
+<a href="http://wordpress.org/plugins/wordpress-popular-posts/">Popular Posts</a>とカテゴリ一覧、あと技術ネタの記事にだけ付けているタグの一覧を表示しています。</p>
+<p>一応コードを貼っておきますね。<strong>sidebar.php</strong>の最下部です。詳しい解説は以下のものが分かりやすいのでここでは割愛。</p>
+<p><a href="http://kachibito.net/web-design/jquery-tab-tutorial.html">jQuery事始めvol.3・プラグインに頼らず自分でクリックで切り替わるタブメニューを作ってみる - かちびと.net</a></p>
+<pre class="prettyprint lang-html">
+&lt;!--アドセンス--&gt;
+&lt;div id=&quot;ad1&quot;&gt;
+ &lt;div&gt;
+  &lt;ul class=&quot;tab clearfix&quot;&gt; &lt;!--タブを作成--&gt;
+   &lt;li&gt;&lt;a href=&quot;#tab1&quot;&gt;人気&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href=&quot;#tab2&quot;&gt;カテゴリ&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href=&quot;#tab3&quot;&gt;研究・開発タグ&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class=&quot;tab-content&quot;&gt; &lt;!--各タブの中身を作成--&gt;
+   &lt;div class=&quot;area&quot; id=&quot;tab1&quot;&gt;
+    &lt;!--スクロール広告用のウィジェットエリアにはPopularPostsを登録--&gt;
+    &lt;?php get_template_part(&#039;scroll-ad&#039;);?&gt;
+   &lt;/div&gt;
+   &lt;div class=&quot;area&quot; id=&quot;tab2&quot;&gt;
+    &lt;ul class=&quot;list-categories&quot;&gt;
+     &lt;!--カテゴリ一覧--&gt;
+     &lt;?php wp_list_categories(&#039;orderby=count&amp;order=DESC&amp;title_li=&amp;show_count=1&#039;); ?&gt;
+    &lt;/ul&gt;
+   &lt;/div&gt;
+   &lt;div class=&quot;area&quot; id=&quot;tab3&quot;&gt;
+    &lt;h4&gt;研究・開発エントリの中身です&lt;/h4&gt;
+    &lt;!--タグ一覧--&gt;
+    &lt;?php wp_tag_cloud(&#039;smallest=13&amp;largest=13&amp;unit=px&amp;number=0&amp;orderby=count&amp;order=DESC&#039;); ?&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+$(document).ready(function() {
+
+ // カテゴリ一覧でカテゴリ説明文を一緒に表示するための処理
+ $(&#039;.list-categories li&#039;).each(function(){
+  var title = $(this).find(&#039;a&#039;).attr(&#039;title&#039;);
+  $(this).append(&quot;&lt;br /&gt;&lt;p class=&#039;category-description&#039;&gt;&quot;+title+&quot;&lt;/p&gt;&quot;);
+ });
+
+ // タブコンテンツの切り替え処理
+ $(&#039;.area&#039;).hide();
+ $(&#039;.area:first&#039;).show();
+ $(&#039;.tab li:first&#039;).addClass(&#039;active&#039;);
+ var $tbl = $(&#039;.tab li&#039;);
+
+ $tbl.click(function() {
+  $tbl.removeClass(&#039;active&#039;);
+  $(this).addClass(&#039;active&#039;);
+  $(&#039;.area&#039;).hide();
+
+  var $ath = $(this).find(&#039;a&#039;).attr(&#039;href&#039;);
+
+  $($ath).fadeIn();
+  return false;
+ });
+});
+&lt;/script&gt;
+</pre>
+<p>カテゴリ一覧でカテゴリの説明文を一緒に表示しているところがポイントです。</p>
+<h3>SNSボタンの削除</h3>
+<p>初期状態でStingerに付いている画面左下のSNSボタンは現在削除しています。これはStingerに限った話ではないのですが、SNSボタン独特の既成品感が全体をみたときに浮いてしまって好きじゃないので、設置するなら自分で改めて実装しようと思っていました。</p>
+<p>これはStinger Advent Calendar 6日目の以下の記事も参考にしつつ、いずれ再設置します！<br />
+<a href="http://ideabb.jp/stinger-advent-calender2013-6">最高のWordPressテーマStingerのSNSボタンを軽量化する。#Stinger-WP|アイディア・ボード</a></p>
+<h3>『ちょっと良いモノ』を使う</h3>
+<p>断捨離をして整った生活をするためには、良いモノを長く使うことも大切だと思います。</p>
+<p>というわけでカスタマイズのときも『<strong>ちょっと良いモノ</strong>』を意識してみては？</p>
+<ul>
+<li>ブログタイトルのフォントには<a href="http://www.google.com/fonts">Webフォント</a></li>
+<li>検索窓には<a href="https://www.google.co.jp/cse/?hl=ja">Googleカスタム検索</a></li>
+<li>コードの記述には<a href="https://code.google.com/p/google-code-prettify/">Google Code Prettify</a></li>
+<li>コメント欄には<a href="http://disqus.com/">Disqus</a></li>
+</ul>
+<p>このブログで導入しているのは上記のようなものです。</p>
+<p>これらが『ちょっと良いモノ』かどうかは完全に僕の主観ですが、断捨離でひと通り整理した後は残っている機能をより良くすることも大切ですね。<br />
+<br>&nbsp;<br />
+はい、これくらい書ければそろそろ僕も満足です。WordPressに関して長く語ったことはこれまでなかったので、いい機会になりました。</p>
+<p>僕は基本的に常に迷っている人間ですので、この先も当分Stingerを使い続けるとは思いますがデザインはころころと変わると思います。現時点でまだ弄りたい部分がいくつか残っていたりもします。そんなとき、常に『このブログの色』を意識した断捨離カスタマイズをしていきたいと思うわけであります。あと意識するのはほんのちょっとの解析結果。</p>
+<p>最後の最後になってしまいましたが、Stingerという素敵なテーマを作ってくださった<a href="http://rentalhomepage.com/">ENJIさん</a>、そしてStinger Advent Calendarを企画してくださった<a href="http://scope.minibird.jp/niji-life/">mamiさん</a>、本当にありがとうございました！</p>
+<p>冒頭でStingerには良いところがたくさんあると書きましたが、一番良いところは<strong>テーマ1つでこれだけの人が繋がることができる</strong>というところだと思います。すばらっ。</p>
+<p>というわけでStinger Advent Calendar 12日目でした。</p>
+<p>明日の担当はコジローさんです。よろしくお願いします！</p>
+<h3>追記：トップページのサムネイル画像の削除</h3>
+<p>コメントで質問を頂いたので、トップページのサムネイル画像を削除する方法を追記します。</p>
+<p><img src="http://blog.takuti.me/images/wp/sumbox_true-e1387944685166.png" alt="sumbox_true" width="500" height="501" class="alignnone size-full wp-image-402" /></p>
+<p>トップページのコードはStingerテーマ中の<strong>home.php</strong>に書かれています。このうち、サムネイル画像を出力しているのは<em><strong>sumbox</strong></em>というクラスのついたdivになります。</p>
+<pre class="prettyprint lang-php">
+&lt;div class=&quot;sumbox&quot;&gt; &lt;a href=&quot;&lt;?php the_permalink() ?&gt;&quot; title=&quot;&lt;?php the_title_attribute(); ?&gt;&quot;&gt;
+&lt;?php if ( has_post_thumbnail() ): // サムネイルを持っているときの処理 ?&gt;
+&lt;?php
+$title= get_the_title();
+the_post_thumbnail(array( 150,150 ), array( &#039;alt&#039; =&gt;$title, &#039;title&#039; =&gt; $title)); ?&gt;
+&lt;?php else: // サムネイルを持っていないときの処理 ?&gt;
+&lt;img src=&quot;&lt;?php echo get_template_directory_uri(); ?&gt;/images/no-img.png&quot; alt=&quot;no image&quot; title=&quot;no image&quot; width=&quot;150&quot; height=&quot;150&quot; /&gt;
+&lt;?php endif; ?&gt;
+&lt;/a&gt; &lt;/div&gt;
+&lt;!-- /.sumbox --&gt;
+</pre>
+<p>これですね。この部分を削除/コメントアウトすると、トップページからサムネイル画像が消えます。</p>
+<p><img src="http://blog.takuti.me/images/wp/sumbox_false-e1387944701660.png" alt="sumbox_false" width="500" height="491" class="alignnone size-full wp-image-403" /></p>
+<p>これだけだとさっきまでサムネイルのあったところが空白になってしまって不格好なので、最後にCSSをいじって仕上げます。<strong>style.css</strong>の</p>
+<pre class="prettyprint lang-css">
+.sumbox {
+  float: left;
+  height: 150px;
+  width: 150px;
+}
+.post .entry .entry-content {
+  float: right;
+  width: 380px;
+  padding-left: 20px;
+}
+</pre>
+<p>この部分を削除してしまいます。すると、</p>
+<p><img src="http://blog.takuti.me/images/wp/sumbox_delete-e1387944668265.png" alt="sumbox_delete" width="500" height="455" class="alignnone size-full wp-image-401" /></p>
+<p>サムネイルが完全に消えてイイ感じになりました。もう少し手を加えるのであれば、表示している文章の量でしょうか。</p>
+<p>今のままだと、100文字でぶっつりと切られてしまっています。これは先程もいじった<strong>home.php</strong>の中にある</p>
+<pre class="prettyprint lang-php">
+&lt;p class=&quot;dami&quot;&gt;&lt;?php echo mb_substr( strip_tags( stinger_noshotcode( $post-&gt;post_content ) ), 0, 100 ) . &#039;&#039;; ?&gt;&lt;/p&gt;
+&lt;p class=&quot;motto&quot;&gt;&lt;a class=&quot;more-link&quot; href=&quot;&lt;?php the_permalink() ?&gt;&quot;&gt;続きを見る&lt;/a&gt;&lt;/p&gt;
+</pre>
+<p>この部分を変更することで修正できます。「もう少し多くの文字数を表示したい！」という場合は、上記コードの<strong>100</strong>を好きな文字数に書き換えればOKです。</p>
+<p>もしくは、このブログのように記事を書いた時に<em><strong>&lt;!--more--&gt;</strong></em>を入れたところまで表示したい場合は上記コードを以下のように書き換えることもできます。</p>
+<pre class="prettyprint lang-php">
+&lt;?php the_content(&quot;&lt;p class=\&quot;motto\&quot;&gt;続きを見る&lt;/p&gt;&quot;); ?&gt;
+</pre>
+<p>そんな感じです！</p>

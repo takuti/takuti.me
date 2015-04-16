@@ -1,0 +1,33 @@
+---
+layout: post
+title: HTML5 CanvasでメルトPVに出てくるメル時計をつくった
+lang: ja
+tags:
+- Development
+- HTML5 Canvas
+---
+<p>メルトといえばあのメルトです。恋に落ちる音がするやつです。冬に売ってる雪のような口どけのやつじゃないです。</p>
+<p>そのPVに、以下のようなものがあります。</p>
+<p><script type="text/javascript" src="http://ext.nicovideo.jp/thumb_watch/sm2671946"></script><br />
+<noscript><a href="http://www.nicovideo.jp/watch/sm2671946">【ニコニコ動画】メルトPV　shortバージョン（完成版）</a></noscript></p>
+<p>素敵ですね。</p>
+<p>このPVに出てくる時計が可愛いということで、アップロードされた当時は<strong>メル時計</strong>なんて呼ばれて、<a href="http://www.nicovideo.jp/watch/sm2146274">実際に作ってみた人</a>や<a href="http://www.nicovideo.jp/watch/sm2694098">Windows Vistaのサイドバーガジェットにした人</a>、<a href="http://www.nicovideo.jp/watch/sm2694098">Flashで作った人</a>なんかが現れたのは記憶に新し・・・くはないけれど、今でもよく覚えています。</p>
+<p>ふとHTML5 Canvasで何か作りたいなーと思って思い浮かんだのがこのメル時計だったので早速作ってみました。完成品は以下より。</p>
+<p><strong><a href="http://takuti.me/dev/meltokei/">メル時計</a></strong><br />
+<img src="http://blog.takuti.me/images/wp/meltokei.png" alt="meltokei" width="428" height="420" class="alignnone size-full wp-image-236" /><br />
+<!--more--><br />
+秒針もつけました。いいかんじ。</p>
+<p>PVの時計のシーンを見ながら作って、サイズはそのままに、色もMacに標準で入っているカラーピッカー <strong>DigitalColor Meter</strong> を使ってできる限り再現したつもりです。もちろん画像は使ってません。</p>
+<p>PVでは左上から光が当たっているので影を付けたかったのですが、あまり綺麗にならなかったのでそれはボツ。</p>
+<p>実装に関しては、</p>
+<ol>
+<li>背景色でCanvas全体を塗りつぶし</li>
+<li>時計の円を色ごとに外側から順番に描画</li>
+<li>文字盤代わりの六角形たちを描画</li>
+<li>現在の時刻からそれぞれの針の角度を求めて描画</li>
+</ol>
+<p>を1秒間隔でやり続けるだけです。</p>
+<p>基本的にはただひたすらarcとかfillとかやればいいだけなので簡単ですが、Canvasビギナーの僕には回転 <strong>rotate()</strong> の扱い方と、長針・短針の角丸化が少しだけ厄介でした。勉強になった。</p>
+<p>これについては別記事でメモとして書きます。<br />
+<a href="http://blog.takuti.me/canvas-rotate-round/">HTML5 Canvasの回転と角丸についてメモ</a></p>
+<p>PV確認のついでにメルトを聴いてちょっと懐かしい気持ちになり、投稿日を確認したらもう5年も前で驚きを隠せなかった僕でした。おわり。</p>

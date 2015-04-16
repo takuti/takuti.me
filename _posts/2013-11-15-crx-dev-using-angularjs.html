@@ -1,0 +1,70 @@
+---
+layout: post
+title: AngularJSでChromeExtension開発をするならCSPに気をつけよう
+lang: ja
+tags:
+- Development
+- AngularJS
+- Chrome Extensions
+---
+<p><a href="http://blog.takuti.me/hello-chrome-extension/">初めてのChromeExtensionを作った</a>後に<a href="http://blog.takuti.me/hello-angularjs/">AngularJSに触れて</a>、最初は<strong>「ChromeExtensionをAngularJS使って作ることができたらChromeの右上ライフが捗る！？」</strong>なんて思って試したわけですが、何故かAngularJSが動かず諦めていました。</p>
+<p>それを最近ふと思い出したので調べてみたら、ChromeExtensionの<strong>CSP</strong>  (<strong>C</strong>ontent <strong>S</strong>ecurity <strong>P</strong>olicy) が原因だったことがあっさりと分かって解決したのでメモ。</p>
+<h3>結論</h3>
+<p>AngularJSでChromeExtension開発をするためにやるべきことは以下の2つ。</p>
+<ol>
+<li>ng-appの横にng-cspと書いてあげる</li>
+<li><a href="http://code.angularjs.org/snapshot/angular-csp.css">angular-csp.css</a>をローカルに持ってきてロードしてあげる</li>
+</ol>
+<p>以下詳細。<br />
+<!--more--></p>
+<h3>CSP (Content Security Policy) とは</h3>
+<p>すごーくざっくりと言えば、XSSをはじめとする<strong>攻撃に利用されそうな機能に対して与える制限</strong>のこと。</p>
+<p>そのような機能の分かりやすい例としては<strong>eval()</strong>でしょう。ご存知の通りevalは与えられた文字列をソースとしてなんでもかんでも解釈・実行してしまうため、脆弱性があった際に与える影響は絶大です。</p>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom: 1;overflow: hidden;">
+<div class="booklink-image" style="float:left;margin:0 15px 10px 0;"><a href="http://www.amazon.co.jp/exec/obidos/asin/4797361190/takuti-22/" name="booklink" rel="nofollow" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41lX6Fg5KpL._SL160_.jpg" style="border: none;" /></a></div>
+<div class="booklink-info" style="line-height:120%;/zoom: 1;overflow: hidden;">
+<div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/asin/4797361190/takuti-22/" rel="nofollow" name="booklink" target="_blank">体系的に学ぶ 安全なWebアプリケーションの作り方　脆弱性が生まれる原理と対策の実践</a>
+<div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div>
+</div>
+<div class="booklink-detail" style="margin-bottom:5px;">徳丸 浩 ソフトバンククリエイティブ 2011-03-03    </div>
+<div class="booklink-link2" style="margin-top:10px;">
+<div class="shoplinkamazon" style="display:inline;margin-right:5px"><a href="http://www.amazon.co.jp/exec/obidos/asin/4797361190/takuti-22/" rel="nofollow" target="_blank" title="アマゾン" >Amazon</a></div>
+<div class="shoplinkkindle" style="display:inline;margin-right:5px"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00E5TJ120/takuti-22/" rel="nofollow" target="_blank" >Kindle</a></div>
+<div class="shoplinkrakuten" style="display:inline;margin-right:5px"><a href="http://hb.afl.rakuten.co.jp/hgc/10952997.eae88ca3.10952998.38cdd415/?pc=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F6994894%2F%3Fscid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2Fev%2Fbook%2F" rel="nofollow" target="_blank" title="楽天ブックス" >楽天ブックス</a></div>
+</p></div>
+</div>
+<div class="booklink-footer" style="clear: left"></div>
+</div>
+<p>evalを使おう！とあなたが思った時、それは他の機能で代替可能ですので思い止まりましょう。というわけで、CSPでeval相当の記述を全て禁止にすることができたりするわけです。</p>
+<h3>ChromeExtensionのCSPとAngularJSの使い方</h3>
+<p>ChromeExtensionでは、CSPがデフォルトで設定されています。<br />
+<a href="http://developer.chrome.com/extensions/contentSecurityPolicy.html">Content Security Policy (CSP) - Google Chrome</a></p>
+<p>設定されている制限の内容は、</p>
+<ul>
+<li>evalとそれに相当する記述の無効化</li>
+<li>インライン（HTMLに埋め込む形）でのJavaScript実行の禁止</li>
+<li>スクリプトファイルやその他リソースファイルの読み込みはローカルからのみ</li>
+</ul>
+<p>の3つ。</p>
+<p>AngularJSでは実行速度向上のためにeval相当の記述を利用している箇所があり、そこがChromeExtensionのCSPに引っかかっているのです。10041行目(angular.js v1.2.0)から定義されているgetterFn関数です。これがChromeExtensionでAngularJSが動かなかった原因。</p>
+<p>そして、この問題への対処法は<a href="http://docs.angularjs.org/api/ng.directive:ngCsp">AngularJS公式で用意されています</a>。やり方は<strong>ng-appと一緒にng-cspと書いてあげるだけ</strong>。</p>
+<pre class="prettyprint lang-html">
+&lt;html lang=&quot;ja&quot; ng-app ng-csp&gt;
+</pre>
+<p>これで、AngularJSが実行速度向上を諦めるモードになります。そんなわけですべての式の評価にかかる速度が30%減になってしまうようですが、仕方ない。</p>
+<p>しかしどうやら30%の速度だけでは等価交換にならなかったようで、CSPによって影響を受けたままのものがまだあります。それはCSSの一部。</p>
+<p>angular.js(v1.2.0)の最下部では、AngularJSの導入に伴って必要となるCSSをまとめてjQueryでhead要素の先頭に埋め込んでいます。これは例えばバリデーション時に表示するエラーメッセージのhidden制御なんかが関係してくる。</p>
+<p>その処理がChromeExtensionのCSPの1つ「インラインでのJavaScript実行の禁止」に引っかかってしまい、必要なCSSが埋め込まれない問題が発生します。実際、ng-cspを付けるだけだとバリデーションの結果に関係なくエラーメッセージが表示され続けます。</p>
+<p>これを解決するには、jQueryを使って埋め込んでいたCSSを全て1つのCSSファイルにまとめて<strong>ローカルから</strong>ロードしてあげる必要があるのです。</p>
+<p>ロードすべきCSSファイルは公式でも公開しています。<br />
+<a href="http://code.angularjs.org/snapshot/angular-csp.css">angular-csp.css</a></p>
+<p>ここまでやって初めて、ChromeExtension上でAngularJSが問題なく動くようになります。（ぱちぱち</p>
+<h3>へんかんくん v0.2.0 が生まれました</h3>
+<p>以上、AngularJSでChromeExtension開発をした時のメモでした。</p>
+<p>僕が何をしたかったかと言うと、<a href="http://blog.takuti.me/hello-chrome-extension/">初めて作ったChromeExtension</a>のリニューアルです。</p>
+<p><img src="http://blog.takuti.me/images/wp/num.png" alt="num" width="309" height="239" class="alignnone size-full wp-image-282" /><br />
+<a href="https://github.com/takuti/conversion_crx">takuti/conversion_crx</a></p>
+<p>HTMLエスケープ機能が追加されて、名前は「しんすうへんかんくん」から「へんかんくん」になりました。僕のChromeの右上ライフが捗ります。それだけ。</p>
+<h3>参考</h3>
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/25492209" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe></p>
+<div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/benlau/making-chrome-extension-with-angularjs" title="Making Chrome Extension with AngularJS" target="_blank">Making Chrome Extension with AngularJS</a> </strong> from <strong><a href="http://www.slideshare.net/benlau" target="_blank">Ben Lau</a></strong> </div>

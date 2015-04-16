@@ -1,0 +1,312 @@
+---
+---
+
+@charset "UTF-8";
+
+@import "normalize.css";
+
+// scss variable
+$primary-color: #555;
+$sub-color: #888;
+$sub-sub-color: #bbb;
+$sub-sub-sub-color: #ddd;
+$content-width: 700px;
+$header-height: 45px;
+
+html, body {
+  background: #fff;
+  height: 100%;
+  color: $primary-color;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  color: $primary-color;
+  &:visited {
+    color: $primary-color;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+article {
+  margin-bottom: 50px;
+  .meta {
+    font-size: 0.8em;
+    color: $sub-color;
+  }
+  h2 {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    background: url(/images/line.gif) repeat-x bottom left;
+    padding-bottom: 15px;
+    a {
+      text-decoration: none;
+    }
+  }
+  .post {
+    a {
+      color: #208DC3;
+      text-decoration: none;
+      &:visited {
+        color: #208DC3;
+      }
+      &:hover {
+        color: #006EA5;
+        text-decoration: underline;
+      }
+    }
+    h3 {
+      font-size: 1.1em;
+      margin: 2em 0 1em 0;
+      padding-bottom: 5px;
+      border-bottom: 1px solid $sub-sub-sub-color;
+    }
+    img {
+      display: block;
+      margin: .5em 0;
+    }
+    hr {
+      border: 0;
+      border-top: 1px solid $sub-sub-sub-color;
+    }
+    table {
+      margin: 0 auto;
+      width: 100%;
+      border-collapse: collapse;
+      th{
+        padding: 6px;
+        text-align: left;
+        vertical-align: top;
+        color: #333;
+        background-color: #eee;
+        border: 1px solid #b9b9b9;
+      }
+      td{
+        padding: 6px;
+        background-color: #fff;
+        border: 1px solid #b9b9b9;
+      }
+    }
+  }
+  #disqus_thread {
+    margin-top: 50px;
+  }
+}
+
+h3.year {
+  cursor: pointer;
+}
+
+.entry-list {
+  .date {
+    display: inline-block;
+  }
+  .tag {
+    color: $sub-color;
+    display: inline-block;
+    a {
+      color: $sub-color;
+      text-decoration: none;
+    }
+  }
+  dt {
+    padding-top: 0.5em;
+    font-size: 0.8em;
+    color: $sub-sub-color;
+  }
+  dd {
+    margin: 0;
+    padding: 0 0 0.5em 0;
+    a {
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+}
+
+.nav {
+  margin-bottom: 2em;
+}
+
+header {
+  width: $content-width;
+  height: $header-height;
+  margin: 0 auto;
+  padding: $header-height/2 0 $header-height/4 0;
+  text-align: center;
+  a { text-decoration: none; }
+  img {
+    width: 50px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+  }
+}
+
+nav {
+  width: $content-width;
+  margin: .9em auto;
+  font-size: 0.9em;
+  text-align: center;
+  a {
+    display: inline-block;
+    margin: 0 .5em;
+    color: $sub-sub-sub-color;
+    text-decoration: none;
+    &:visited {
+      color: $sub-sub-sub-color;
+    }
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+#language {
+  font-size: 0.9em;
+  text-align: center;
+  margin: -40px 0 40px 0;
+  span {
+    display: inline-block;
+    margin: 0 .5em;
+    &.l {
+      cursor: pointer;
+      color: $sub-sub-sub-color;
+      &:hover,
+      &.active {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+#container {
+  font-size: 15px;
+  width: $content-width;
+  margin: 50px auto;
+  .left {
+    display: block;
+    float: left;
+  }
+  .right {
+    display: block;
+    float:right;
+  }
+  ul {
+    margin-left: 0;
+    padding-left: 2em;
+    list-style-type: square;
+  }
+}
+
+footer {
+  text-align: center;
+  font-size: 0.8em;
+  width: $content-width;
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+
+.clearfix {
+  zoom:1;
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+pre, code {
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 12px;
+  display: block;
+  padding: 9.5px;
+  margin: 20px 0;
+  background-color: #f5f5f5;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+blockquote {
+  display: block;
+  margin: 0;
+  padding: 1em;
+  background: #eee;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/*--- fonts ---*/
+.bold { font-weight:bold; }
+
+@font-face {
+    font-family: 'LigatureSymbols';
+    src: url('/fonts/LigatureSymbols-2.11.eot');
+    src: url('/fonts/LigatureSymbols-2.11.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/LigatureSymbols-2.11.woff') format('woff'),
+         url('/fonts/LigatureSymbols-2.11.ttf') format('truetype'),
+         url('/fonts/LigatureSymbols-2.11.svg#LigatureSymbols') format('svg');
+    src: url('/fonts/LigatureSymbols-2.11.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.symbol {
+  font-family: 'LigatureSymbols';
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-size: 1.3em;
+  line-height: 1.3em;
+}
+
+/*--- responsive ---*/
+@media screen and (max-width: 767px) {
+  body {
+    width: 100%;
+  }
+  #container, footer, nav {
+    padding: 0 5%;
+    width: 90%;
+  }
+  header {
+    padding-right: 5%;
+    padding-left: 5%;
+    width: 90%;
+    #header-content {
+      width: 90%;
+      padding: 0 5%;
+      height: $header-height*2;
+    }
+  }
+  article {
+    .post img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}

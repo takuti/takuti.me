@@ -1,0 +1,54 @@
+---
+layout: post
+title: AngularJSでさくさく進数相互変換をつくる
+lang: ja
+tags:
+- Development
+- AngularJS
+---
+<p><a href="http://angularjs.org/">AngularJS</a>を使ってみました。MVCな雰囲気を取り入れたJavaScriptのフレームワークです。あんぎゅらーらしいです、あんぐらーじゃないです。</p>
+<p>この子、とんでもなく簡単で気持ちがいいですね。<strong>ng-app, ng-model, {{}}</strong>を追加するだけであっという間にさくさく！</p>
+<p>公式にある一番基本のアプリが以下。</p>
+<pre class="prettyprint">
+&lt;!DOCTYPE html&gt;
+&lt;html ng-app&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div&gt;
+      &lt;label&gt;Name:&lt;/label&gt;
+      &lt;input type=&quot;text&quot; ng-model=&quot;yourName&quot; placeholder=&quot;Enter a name here&quot;&gt;
+      &lt;hr&gt;
+      &lt;h1&gt;Hello {{yourName}}!&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>せっかくなので<a href="http://blog.takuti.me/hello-chrome-extension/">先日作った進数変換のできるChrome拡張</a>を流用して、入力したらすぐ進数変換されるものを作りました。よかったら使ってあげて下さい。</p>
+<p><strong><a href="http://takuti.me/dev/binary2decimal2hex/">さくさく進数相互変換</a></strong><br />
+<img src="http://blog.takuti.me/images/wp/Screen-Shot-2013-08-01-at-11.38.37-PM-e1375367959918.png" alt="Screen Shot 2013-08-01 at 11.38.37 PM" width="500" height="398" class="alignnone size-full wp-image-232" /><br />
+<!--more--><br />
+AngularJSそのものに関する説明は他に譲りますが、バリデーションが特に簡単で嬉しかった印象です。</p>
+<pre class="prettyprint">
+&lt;p&gt;【2進数】　&lt;span class=&quot;error&quot; ng-show=&quot;num_form.binary.$error.pattern&quot;&gt;2進数は0と1だけだよ&lt;/span&gt;&lt;br /&gt;
+  &lt;input type=&quot;text&quot; name=&quot;binary&quot; placeholder=&quot;ここに2進数を入力&quot; ng-model=&quot;num.binary&quot; ng-pattern=&quot;binary_pattern&quot; ng-change=&quot;binary()&quot; /&gt;&lt;/p&gt;
+</pre>
+<p>見づらいですが、各進数あたり2行でバリデーションも含めて必要なことのほとんどが書けてしまいます。</p>
+<p>進数の変換処理も、<strong>ng-change</strong>からコントローラーの関数を適当に呼んであげればリアルタイムにできちゃったり。</p>
+<pre class="prettyprint">
+$scope.binary = function(){
+    if($scope.num.binary){
+        $scope.num.decimal = parseInt($scope.num.binary,2);
+        $scope.num.hex = parseInt($scope.num.binary,2).toString(16);
+    } else {
+        $scope.num.decimal = undefined;
+        $scope.num.hex = undefined;
+    }
+}
+</pre>
+<p>というわけで、AngularJSでした。開発はさくさく進んで、できるものはさくさく動いて、2さくさくですね。</p>
+<p>ちなみに今回作った<a href="http://takuti.me/dev/binary2decimal2hex/">さくさく進数相互変換</a>、無駄に入力スペース広いですが特に何も考えずにparseIntを使って変換しているだけなので、大きすぎる数だとおかしくなったりします。ま、まぁいいよね。</p>
+<h3>追記(2013.08.02)</h3>
+<p>大きすぎて対応できない数の場合には変換処理を行わないように修正しました。<br />
+【参考】<a href="http://liosk.blog103.fc2.com/blog-entry-197.html">JavaScript (ECMAScript) の整数の精度と乱数の精度について / LiosK-free Blog</a></p>

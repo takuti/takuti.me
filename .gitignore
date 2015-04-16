@@ -1,4 +1,8 @@
 .DS_Store
-Rakefile
 *.swp
+
+Rakefile
+
 _site/
+_drafts/
+images/
