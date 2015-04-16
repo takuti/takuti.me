@@ -33,6 +33,13 @@ a {
   }
 }
 
+h3 {
+  font-size: 1.1em;
+  margin: 2em 0 1em 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid $sub-sub-sub-color;
+}
+
 article {
   margin-bottom: 50px;
   .meta {
@@ -59,12 +66,6 @@ article {
         color: #006EA5;
         text-decoration: underline;
       }
-    }
-    h3 {
-      font-size: 1.1em;
-      margin: 2em 0 1em 0;
-      padding-bottom: 5px;
-      border-bottom: 1px solid $sub-sub-sub-color;
     }
     img {
       display: block;
