@@ -10,10 +10,26 @@ title: TOP
 </section>
 
 <section>
+  <h3><span class="symbol">pen </span>Notes</h3>
+  <dl class="entry-list">
+    {% for i in (1..5) %}
+      <dt>
+      <span class="date">
+        {{ site.posts[i].date | date: '%b %d, %Y' | upcase }}
+      </span>
+      </dt>
+      <dd>
+        <a href="{{ site.posts[i].url }}">{{ site.posts[i].title }}</a>
+      </dd>
+    {% endfor %}
+  </dl>
+  <a href="/note">&raquo; more</a>
+</section>
+
+<section>
   <h3><span class="symbol">sns </span>Links</h3>
   <ul>
     <li><a href="http://twitter.com/takuti/">twitter</a>
-    <li><a href="http://blog.takuti.me/">blog</a>
     <li><a href="https://github.com/takuti">github</a>
     <li><a href="https://instagram.com/takuti/">instagram</a>
   </ul>
