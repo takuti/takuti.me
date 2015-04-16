@@ -138,7 +138,7 @@ header {
   width: $content-width;
   height: $header-height;
   margin: 0 auto;
-  padding: $header-height/2 0 $header-height/4 0;
+  padding-top: $header-height/2;
   text-align: center;
   a { text-decoration: none; }
   img {
@@ -151,12 +151,12 @@ header {
 
 nav {
   width: $content-width;
-  margin: .9em auto;
+  margin: -30px auto 30px auto;
   font-size: 0.9em;
   text-align: center;
   a {
     display: inline-block;
-    margin: 0 .5em;
+    margin-bottom: 1em;
     color: $sub-sub-sub-color;
     text-decoration: none;
     &:visited {
@@ -166,21 +166,17 @@ nav {
       color: $primary-color;
     }
   }
-}
-
-#language {
-  font-size: 0.9em;
-  text-align: center;
-  margin: -40px 0 40px 0;
-  span {
-    display: inline-block;
-    margin: 0 .5em;
-    &.l {
-      cursor: pointer;
-      color: $sub-sub-sub-color;
-      &:hover,
-      &.active {
-        color: $primary-color;
+  #language {
+    span {
+      display: inline-block;
+      margin: 0 .5em;
+      &.l {
+        cursor: pointer;
+        color: $sub-sub-sub-color;
+        &:hover,
+        &.active {
+          color: $primary-color;
+        }
       }
     }
   }
