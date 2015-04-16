@@ -1,0 +1,32 @@
+---
+layout: default
+title: TOP
+---
+
+<nav>
+  <a href="/about"><span class="symbol">user </span>about</a>
+  <div id="language">
+    <span class="symbol active">earth </span>
+    <span class="l active">日本語</span>
+    <span class="l">English</span>
+  </div>
+</nav>
+<dl class="entry-list">
+{% for post in site.posts %}
+  {% if post.lang == 'ja' %}
+  <span class="lang-{{ post.lang }}" visible>
+  {% else %}
+  <span class="lang-{{ post.lang }}" hidden>
+  {% endif %}
+  <dt>
+  <span class="date">
+    {{ post.date | date: '%b %d, %Y' | upcase }}
+  </span>
+  </dt>
+  <dd>
+    <a href="{{ post.url }}">{{ post.title }}</a>
+  </dd>
+  </span>
+{% endfor %}
+</dl>
+
