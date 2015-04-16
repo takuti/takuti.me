@@ -49,13 +49,6 @@
     </script>
 
     <script>
-      // random posts
-      var posts = [];
-      {% for post in site.posts %}
-      posts.push("{{ post.url }}");
-      {% endfor %}
-      $('#random').attr('href',posts[Math.floor(Math.random() * posts.length)]);
-
       // language chooser
       $('#language .l').click(function() {
         $('.l').removeClass('active');
