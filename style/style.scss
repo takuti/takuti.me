@@ -151,7 +151,7 @@ header {
 
 nav {
   width: $content-width;
-  margin: -30px auto 30px auto;
+  margin: 30px auto 30px auto;
   font-size: 0.9em;
   text-align: center;
   a {
@@ -185,7 +185,7 @@ nav {
 #container {
   font-size: 15px;
   width: $content-width;
-  margin: 50px auto;
+  margin: 30px auto 50px auto;
   .left {
     display: block;
     float: left;
