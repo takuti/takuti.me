@@ -13,13 +13,13 @@ tags:
 【 <strong><a href="http://takuti.me/dev/poisson/demo/">Poisson Image Blending - Demo</a></strong> 】</p>
 <p><!--more--></p>
 <p>Step1はいじらなくていいので、Step2で適当にマスク領域を塗ってあげてください。<br />
-<img src="http://blog.takuti.me/images/wp/Screen-Shot-2013-12-08-at-12.41.01-AM.png" alt="Screen Shot 2013-12-08 at 12.41.01 AM" width="186" height="271" class="alignnone size-full wp-image-294" /><br />
+<img src="/images/wp/Screen-Shot-2013-12-08-at-12.41.01-AM.png" alt="Screen Shot 2013-12-08 at 12.41.01 AM" width="186" height="271" class="alignnone size-full wp-image-294" /><br />
 こんな感じで塗れたら、<strong>HERE</strong>ボタンをクリック。するとStep3にマスクをかけた領域だけ乗っかります。<br />
-<img src="http://blog.takuti.me/images/wp/Screen-Shot-2013-12-08-at-12.43.06-AM.png" alt="Screen Shot 2013-12-08 at 12.43.06 AM" width="287" height="275" class="alignnone size-full wp-image-295" /><br />
+<img src="/images/wp/Screen-Shot-2013-12-08-at-12.43.06-AM.png" alt="Screen Shot 2013-12-08 at 12.43.06 AM" width="287" height="275" class="alignnone size-full wp-image-295" /><br />
 そうしたら矢印ボタンで位置を調整して、<br />
-<img src="http://blog.takuti.me/images/wp/Screen-Shot-2013-12-08-at-12.44.40-AM.png" alt="Screen Shot 2013-12-08 at 12.44.40 AM" width="282" height="283" class="alignnone size-full wp-image-296" /><br />
+<img src="/images/wp/Screen-Shot-2013-12-08-at-12.44.40-AM.png" alt="Screen Shot 2013-12-08 at 12.44.40 AM" width="282" height="283" class="alignnone size-full wp-image-296" /><br />
 「ここで合成だー」と思ったところで<strong>OK</strong>ボタンをクリックすれば、<br />
-<img src="http://blog.takuti.me/images/wp/Screen-Shot-2013-12-08-at-12.44.51-AM.png" alt="Screen Shot 2013-12-08 at 12.44.51 AM" width="286" height="283" class="alignnone size-full wp-image-297" /><br />
+<img src="/images/wp/Screen-Shot-2013-12-08-at-12.44.51-AM.png" alt="Screen Shot 2013-12-08 at 12.44.51 AM" width="286" height="283" class="alignnone size-full wp-image-297" /><br />
 真顔モナリザの完成です。</p>
 <p>このようにいい感じの画像合成ができる手法は、ググればC++やPython、さらにHTML5 Canvasでの実装もすでに存在します。ま、まぁマスク領域自分で塗れるようにしたから新規性あるよね・・・。</p>
 <h3>アプリ版</h3>
@@ -27,17 +27,17 @@ tags:
 【 <strong><a href="http://takuti.me/dev/poisson/app/">Poisson Image Blending - App</a></strong> 】</p>
 <p>まずは<strong>ベース画像（合成先）</strong>と<strong>ソース画像（切り抜いて合成する方）</strong>をそれぞれ選択します。画像サイズはいずれも150ピクセル×150ピクセルに限定しています。それより大きい/小さい画像を選択すると縮小/拡大されます。</p>
 <p>ちゃんと両方選択できると、<strong>Start App</strong>ボタンが有効になるのでクリック。<br />
-<img src="http://blog.takuti.me/images/wp/Screen-Shot-2013-12-08-at-7.26.53-AM-e1386455286656.png" alt="Screen Shot 2013-12-08 at 7.26.53 AM" width="500" height="237" class="alignnone size-full wp-image-307" /><br />
+<img src="/images/wp/Screen-Shot-2013-12-08-at-7.26.53-AM-e1386455286656.png" alt="Screen Shot 2013-12-08 at 7.26.53 AM" width="500" height="237" class="alignnone size-full wp-image-307" /><br />
 すると先ほどのデモ版と同様の画面が表示されるので、Step2でマスク領域を塗って、Step3で位置調整、合成という流れで遊んでください。<br />
-<img src="http://blog.takuti.me/images/wp/blend_result.png" alt="blend_result" width="150" height="150" class="alignnone size-full wp-image-306" /><br />
+<img src="/images/wp/blend_result.png" alt="blend_result" width="150" height="150" class="alignnone size-full wp-image-306" /><br />
 こんな感じになります。<del datetime="2013-12-07T16:12:47+00:00">アゴ</del></p>
 <p>実際に顔写真でやってみるのが個人的には一番おもしろいと思います。</p>
 <p>あ、フッターみたいな変な所に結構重要なボタンがあります。最悪ですね。<br />
-<img src="http://blog.takuti.me/images/wp/Screen-Shot-2013-12-08-at-2.23.06-AM.png" alt="Screen Shot 2013-12-08 at 2.23.06 AM" width="500" height="351" class="alignnone size-full wp-image-300" /></p>
+<img src="/images/wp/Screen-Shot-2013-12-08-at-2.23.06-AM.png" alt="Screen Shot 2013-12-08 at 2.23.06 AM" width="500" height="351" class="alignnone size-full wp-image-300" /></p>
 <h3>Importing gradients と Mixing gradients</h3>
 <p>ここで無視していたStep1の話をしましょう。</p>
 <p>いい感じの画像合成では画像の勾配(Gradients)が大切です。画像における勾配とは、隣り合っているピクセル同士でRGB値がどれだけ違うかということ。<br />
-<img src="http://blog.takuti.me/images/wp/blend_result.png" alt="blend_result" width="150" height="150" class="alignnone size-full wp-image-306" /><br />
+<img src="/images/wp/blend_result.png" alt="blend_result" width="150" height="150" class="alignnone size-full wp-image-306" /><br />
 先ほどの合成結果を見ると、<strong>色はベース画像に馴染みつつも、どこに線があるかという情報はソース画像のものを受け継いでいます</strong>。このバランスがいい感じの合成を実現しているんですね。</p>
 <p>この線の情報（＝合成結果の勾配）の求め方は2通りあります。それが<strong>Importing gradients</strong>と<strong>Mixing gradients</strong>です。</p>
 <p><strong>Importing gradients</strong>は先ほども例に挙げたように、ソース画像の勾配をそのまま合成結果に利用します。一方で<strong>Mixing gradients</strong>は、各ピクセルに対してベース画像とソース画像の勾配を比較して大きい方を採用するというものです。</p>
@@ -50,13 +50,13 @@ tags:
 </tr>
 <tr>
 <th>Faces</th>
-<td><img src="http://blog.takuti.me/images/wp/faces_importing.png" alt="faces_importing" width="150" height="150" class="alignnone size-full wp-image-301" /></td>
-<td><img src="http://blog.takuti.me/images/wp/faces_mixing.png" alt="faces_mixing" width="150" height="150" class="alignnone size-full wp-image-302" /></td>
+<td><img src="/images/wp/faces_importing.png" alt="faces_importing" width="150" height="150" class="alignnone size-full wp-image-301" /></td>
+<td><img src="/images/wp/faces_mixing.png" alt="faces_mixing" width="150" height="150" class="alignnone size-full wp-image-302" /></td>
 </tr>
 <tr>
 <th>Hand&amp;Sign</th>
-<td><img src="http://blog.takuti.me/images/wp/hand_importing.png" alt="hand_importing" width="150" height="150" class="alignnone size-full wp-image-303" /></td>
-<td><img src="http://blog.takuti.me/images/wp/hand_mixing.png" alt="hand_mixing" width="150" height="150" class="alignnone size-full wp-image-304" /></td>
+<td><img src="/images/wp/hand_importing.png" alt="hand_importing" width="150" height="150" class="alignnone size-full wp-image-303" /></td>
+<td><img src="/images/wp/hand_mixing.png" alt="hand_mixing" width="150" height="150" class="alignnone size-full wp-image-304" /></td>
 </tr>
 </table>
 <p>見ての通り、Facesの場合はImportingのほうが期待通りの結果になっています。一方Hand&amp;Signでは、Mixingのほうが手のシワを残しつつ文字を合成していて綺麗な結果になっています。<strong>文字上では手のシワよりも文字の勾配のほうが大きく、その他の部分は変化の少ない白い紙の写真なので手のシワの勾配のほうが大きかった</strong>というわけです。</p>

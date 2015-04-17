@@ -10,7 +10,7 @@ tags:
 <!--more--></p>
 <h3>回転 rotate() の扱い方</h3>
 <p><a href="http://takuti.me/dev/meltokei/">メル時計</a>の文字盤代わりの六角形は、12時の位置に全ての時刻分を（色を変えながら）作りつつ、それらを30°ずつ回転させていくことで描画しました。</p>
-<p><img src="http://blog.takuti.me/images/wp/hexagon.png" alt="hexagon" width="202" height="144" class="alignnone size-full wp-image-237" /><br />
+<p><img src="/images/wp/hexagon.png" alt="hexagon" width="202" height="144" class="alignnone size-full wp-image-237" /><br />
 1：てっぺんをスタートして右に8px、下に10pxの移動<br />
 2：下に18pxの移動<br />
 3：2の移動した先から、更に下に3px移動したところが、もう1つの六角形のてっぺん</p>
@@ -43,7 +43,7 @@ ctx.save();
 <h3>角丸な長方形</h3>
 <p>長方形を角丸にしたい場面はたくさんあるのに、Canvasではササッと角丸な長方形を作ってくれる機能などありません。</p>
 <p>そこで、角丸長方形は1/4の円弧を4つ描いてそれらを結ぶことによって実現します。</p>
-<p><img src="http://blog.takuti.me/images/wp/Screen-Shot-2013-08-04-at-12.19.25-PM.png" alt="Screen Shot 2013-08-04 at 12.19.25 PM" width="130" height="130" class="alignnone size-full wp-image-239" /><br />
+<p><img src="/images/wp/Screen-Shot-2013-08-04-at-12.19.25-PM.png" alt="Screen Shot 2013-08-04 at 12.19.25 PM" width="130" height="130" class="alignnone size-full wp-image-239" /><br />
 これは円弧ひとつひとつに対して<strong>beginPath()</strong>,<strong>stroke()</strong>をしたもの。</p>
 <p>これを、<strong>beginPath()</strong>を最初に一度だけ行い、円弧すべての<strong>arc()</strong>を実行した後に<strong>closePath()</strong>をしてあげるようにすれば、あとは<strong>stroke()</strong>なり<strong>fill()</strong>なりでお好みの角丸な長方形ができあがる。</p>
 <p>長方形の位置や幅、高さは4つの円弧の中心点に依存するわけですね。</p>

@@ -1,18 +1,13 @@
 #! /bin/sh
 
-if [ $# -ne 2 ] ; then
-  echo "error"
-  exit 1
-fi
-
-BEFORE=$1
-AFTER=$2
+BEFORE="http:\/\/blog.takuti.me\/images\/wp"
+AFTER="\/images\/wp"
 
 for FILE in ../_posts/*
 do
-    if grep -q "\- ${BEFORE}" ${FILE}
+    if grep -q "${BEFORE}" ${FILE}
     then
-      sed -i -n -e "s/\- ${BEFORE}/\- ${AFTER}/" ${FILE}
+      sed -i -n -e "s/${BEFORE}/${AFTER}/" ${FILE}
       echo "${FILE} : ${BEFORE}->${AFTER}"
     fi
 done

@@ -25,11 +25,11 @@ tweet = tweet.gsub(/http:\/\/\S+/, '')
 tweet = tweet.gsub(/#[0-9A-Za-z_]+/, '')
 </pre>
 <p>ツイートデータをダウンロードして前処理を行った後の文字数をそれぞれ数えてgnuplotでヒストグラムにすると以下のような結果に。</p>
-<p><img src="http://blog.takuti.me/images/wp/source-e1387890887456.png" alt="source" width="500" height="375" class="alignnone size-full wp-image-395" /></p>
+<p><img src="/images/wp/source-e1387890887456.png" alt="source" width="500" height="375" class="alignnone size-full wp-image-395" /></p>
 <p>この結果から、僕のツイートは80%が30文字以内、90%が40文字以内であることが分かります。</p>
 <p>一方、マルコフ連鎖で生成したツイートの文字数はどうでしょうか。</p>
 <p>@<a href="https://twitter.com/takuti/">takuti</a> のツイート数に合わせて、47,812個のサンプルツイートをマルコフ連鎖で生成します。デーモンを作って1日回しておけばOKです。そこから文字数のヒストグラムを作ると、</p>
-<p><img src="http://blog.takuti.me/images/wp/markov-e1387896201933.png" alt="markov" width="500" height="375" class="alignnone size-full wp-image-396" /></p>
+<p><img src="/images/wp/markov-e1387896201933.png" alt="markov" width="500" height="375" class="alignnone size-full wp-image-396" /></p>
 <p>ここまで綺麗な形になるとは思っていませんでしたが、やはり40文字以上の長いツイートが@<a href="https://twitter.com/takuti/">takuti</a>より多いことが分かり、文字数の少ないツイートをもっと増やしたい感じですね。</p>
 <p>とまぁこんな結果が見れて満足したところで、今はマルコフ連鎖によるツイート生成の文字数上限を40文字に設定した上でbotを稼働させています。単純に、@<a href="https://twitter.com/takuti/">takuti</a> のツイートの90%が40文字以内ですからね。</p>
 <p>短い発言なら支離滅裂でも結構なんとかなっちゃうものです。</p>

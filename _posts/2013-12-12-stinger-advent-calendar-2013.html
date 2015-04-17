@@ -6,7 +6,7 @@ tags:
 - Development
 - WordPress
 ---
-<p><a href="http://www.adventar.org/calendars/90"><img src="http://blog.takuti.me/images/wp/Advent_black_a.jpg" alt="Advent_black_a" width="580" height="116" class="alignnone size-full wp-image-390" /></a></p>
+<p><a href="http://www.adventar.org/calendars/90"><img src="/images/wp/Advent_black_a.jpg" alt="Advent_black_a" width="580" height="116" class="alignnone size-full wp-image-390" /></a></p>
 <p>こんにちは！<a href="http://www.adventar.org/calendars/90">Stinger Advent Calendar 2013</a> 12日目を担当します、たくちです。</p>
 <p><a href="http://stinger3.com/">Stinger</a>には良いところがたくさんありますが、簡潔で見通しのいいマークアップのおかげでカスタマイズしやすいというのが僕は特に嬉しいです。</p>
 <p>僕がStingerをカスタマイズする上で意識しているのは、できるだけ構成要素を減らすこと。<strong>初期状態でも十分な機能を備えているStingerだからこそ、カスタマイズの際は機能を増やすだけじゃなくて削ぎ落とすことも重要</strong>だと思うわけです。</p>
@@ -43,7 +43,7 @@ tags:
 <h3>サイドバーのスクロール追尾広告をタブ型コンテンツエリアに</h3>
 <p>スクロールで広告が追いかけてくるのはちょっと露骨でこのブログの目指すところではありません。</p>
 <p>そこで、その部分をタブ型のコンテンツエリアにしました。こうすればより多くのブログ内コンテンツを効率的に訪問者に届けることができる（かも）。めざせ収納上手！<br />
-<img src="http://blog.takuti.me/images/wp/Screen-Shot-2013-12-10-at-11.34.17-PM.png" alt="Screen Shot 2013-12-10 at 11.34.17 PM" width="357" height="407" class="alignnone size-full wp-image-391" /><br />
+<img src="/images/wp/Screen-Shot-2013-12-10-at-11.34.17-PM.png" alt="Screen Shot 2013-12-10 at 11.34.17 PM" width="357" height="407" class="alignnone size-full wp-image-391" /><br />
 <a href="http://wordpress.org/plugins/wordpress-popular-posts/">Popular Posts</a>とカテゴリ一覧、あと技術ネタの記事にだけ付けているタグの一覧を表示しています。</p>
 <p>一応コードを貼っておきますね。<strong>sidebar.php</strong>の最下部です。詳しい解説は以下のものが分かりやすいのでここでは割愛。</p>
 <p><a href="http://kachibito.net/web-design/jquery-tab-tutorial.html">jQuery事始めvol.3・プラグインに頼らず自分でクリックで切り替わるタブメニューを作ってみる - かちびと.net</a></p>
@@ -129,7 +129,7 @@ $(document).ready(function() {
 <p>明日の担当はコジローさんです。よろしくお願いします！</p>
 <h3>追記：トップページのサムネイル画像の削除</h3>
 <p>コメントで質問を頂いたので、トップページのサムネイル画像を削除する方法を追記します。</p>
-<p><img src="http://blog.takuti.me/images/wp/sumbox_true-e1387944685166.png" alt="sumbox_true" width="500" height="501" class="alignnone size-full wp-image-402" /></p>
+<p><img src="/images/wp/sumbox_true-e1387944685166.png" alt="sumbox_true" width="500" height="501" class="alignnone size-full wp-image-402" /></p>
 <p>トップページのコードはStingerテーマ中の<strong>home.php</strong>に書かれています。このうち、サムネイル画像を出力しているのは<em><strong>sumbox</strong></em>というクラスのついたdivになります。</p>
 <pre class="prettyprint lang-php">
 &lt;div class=&quot;sumbox&quot;&gt; &lt;a href=&quot;&lt;?php the_permalink() ?&gt;&quot; title=&quot;&lt;?php the_title_attribute(); ?&gt;&quot;&gt;
@@ -144,7 +144,7 @@ the_post_thumbnail(array( 150,150 ), array( &#039;alt&#039; =&gt;$title, &#039;t
 &lt;!-- /.sumbox --&gt;
 </pre>
 <p>これですね。この部分を削除/コメントアウトすると、トップページからサムネイル画像が消えます。</p>
-<p><img src="http://blog.takuti.me/images/wp/sumbox_false-e1387944701660.png" alt="sumbox_false" width="500" height="491" class="alignnone size-full wp-image-403" /></p>
+<p><img src="/images/wp/sumbox_false-e1387944701660.png" alt="sumbox_false" width="500" height="491" class="alignnone size-full wp-image-403" /></p>
 <p>これだけだとさっきまでサムネイルのあったところが空白になってしまって不格好なので、最後にCSSをいじって仕上げます。<strong>style.css</strong>の</p>
 <pre class="prettyprint lang-css">
 .sumbox {
@@ -159,7 +159,7 @@ the_post_thumbnail(array( 150,150 ), array( &#039;alt&#039; =&gt;$title, &#039;t
 }
 </pre>
 <p>この部分を削除してしまいます。すると、</p>
-<p><img src="http://blog.takuti.me/images/wp/sumbox_delete-e1387944668265.png" alt="sumbox_delete" width="500" height="455" class="alignnone size-full wp-image-401" /></p>
+<p><img src="/images/wp/sumbox_delete-e1387944668265.png" alt="sumbox_delete" width="500" height="455" class="alignnone size-full wp-image-401" /></p>
 <p>サムネイルが完全に消えてイイ感じになりました。もう少し手を加えるのであれば、表示している文章の量でしょうか。</p>
 <p>今のままだと、100文字でぶっつりと切られてしまっています。これは先程もいじった<strong>home.php</strong>の中にある</p>
 <pre class="prettyprint lang-php">
