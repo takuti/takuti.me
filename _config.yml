@@ -8,7 +8,7 @@ redcarpet:
   extensions: [tables,autolink,strikethrough]
 highlighter: nil # not use pygments because of using google-code-prettify
 
-exclude: ['Rakefile', 'tools']
+exclude: ['Rakefile']
 include: ['.htaccess']
 
 permalink: /note/:title/
