@@ -19,3 +19,7 @@ Renewed __blog.takuti.me__ may cover following topics:
 Currently, you can see my implementations and specific applications on [my github repositories](https://github.com/takuti). On this blog, I will explain about them more deeply.
 
 Please send your comments freely! Everything is welcome. Thank you.
+
+### P.S. (Apr. 18, 2015)
+
+I said _"I will not write any more Japanese posts"_ in this entry, but I will change the opinion. I use this blog as a bilingual blog; more specifically, I will write articles both in English and Japanese.
