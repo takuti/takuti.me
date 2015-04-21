@@ -5,7 +5,7 @@ baseurl: http://takuti.me
 
 markdown: redcarpet
 redcarpet:
-  extensions: [tables,autolink,strikethrough]
+  extensions: [no_intra_emphasis,tables,autolink,strikethrough]
 highlighter: nil # not use pygments because of using google-code-prettify
 
 exclude: ['Rakefile']
