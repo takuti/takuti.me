@@ -20,7 +20,7 @@ The main task is to find an optimal parameter $\textbf{w}$ from $N$ learning dat
 
 ### Least squares method
 
-How can we estimate an optimal parameter $\textbf{w}$? The answer is quite simple: minimization of the total prediction error. When we choose arbitrary parameter, the total prediction error for the $N$ learning data may be computed by $\sum_{n=1}^{N} (t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x}_n))$. Is it correct?
+How can we estimate an optimal parameter $\textbf{w}$? The answer is quite simple: minimization of the total prediction error. When we already have parameters, the total prediction error for the $N$ learning data may be computed by $\sum_{n=1}^{N} (t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x}_n))$. Is it correct?
 
 Unfortunately, this formula has two problems. First, if learning data such that $t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x}_n)< 0$ exists, above formula does not represent "total error". Second, since the formula is linear for $\textbf{w}$, we cannot minimize it. Thus, squared error function $E(\textbf{w})$ is considered as:
 
@@ -28,13 +28,13 @@ $$
 E(\textbf{w}) = \sum_{n=1}^{N} (t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x}_n))^2.
 $$
 
-$E(\textbf{w})$ is quadratic function, and it will be concave up. So, we can minimize it by finding $\textbf{w}$ which satisfies $\frac{\partial E}{\partial \textbf{w}} = 0$.
+$E(\textbf{w})$ is a quadratic function, and it will be concave up. So, we can minimize it by finding $\textbf{w}$ which satisfies $\frac{\partial E}{\partial \textbf{w}} = 0$.
 
 Note that, in the PRML, squared error function is represented as $E(\textbf{w}) = \frac{1}{2} \sum_{n=1}^{N} (t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x}_n))^2$ with mysterious $\frac{1}{2}$, but it just deletes $2$ in $\frac{\partial E}{\partial \textbf{w}}$. Hence, the coefficient is not so important to understand the normal equation.
 
 ### Normal equation
 
-For the reasons that I mentioned above, we want to obtain $\frac{\partial E}{\partial \textbf{w}}$. For better understanding, I will first check the result of vector derivation for a small example. When we have just one learning data and input vector has two dimensions, the squared error function is:
+For the reasons that I mentioned above, we want to obtain $\frac{\partial E}{\partial \textbf{w}}$. For better understanding, I will first check the result of vector derivation for a small example. When we have just one learning data, and input vector has two dimensions, the squared error function is:
 
 $$
 E(\textbf{w}) = \sum_{n=1}^{1} (t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x}_n))^2
@@ -94,8 +94,7 @@ $$
 &=& -2 \sum_{n=1}^{N} ((t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}_n)\cdot\boldsymbol{\phi}_n ) \\\\
 &=&-2 \sum_{n=1}^{N} ((t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}_n)\cdot\boldsymbol{\phi}_n ) \\\\
 &=& -2 \sum_{n=1}^{N} t_n\boldsymbol{\phi}_n +2 \sum_{n=1}^{N}(\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}_n ) \cdot \boldsymbol{\phi}_n \\\\
-&=& -2 \sum_{n=1}^{N} t_n\boldsymbol{\phi}_n +2 \left(\sum_{n=1}^{N}\boldsymbol{\phi}_n \boldsymbol{\phi}_n^{\mathrm{T}}\right)\textbf{w} \\\\
-&=& 0,
+&=& -2 \sum_{n=1}^{N} t_n\boldsymbol{\phi}_n +2 \left(\sum_{n=1}^{N}\boldsymbol{\phi}_n \boldsymbol{\phi}_n^{\mathrm{T}}\right)\textbf{w},
 \end{array}
 $$
 
@@ -124,7 +123,7 @@ $$
   \right)
 $$
 
-for $M$, dimensions of input vector. It can be simply written as:
+for $M$, dimensions of input vector. It can be simply written as
 $\boldsymbol{\Phi} = \left[
 \boldsymbol{\phi_1} \
 \boldsymbol{\phi_2}
