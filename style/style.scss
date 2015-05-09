@@ -35,6 +35,9 @@ a {
     font-weight: bold;
     text-decoration: none;
   }
+  &.nounderline {
+  text-decoration: none;
+}
 }
 
 h3 {
