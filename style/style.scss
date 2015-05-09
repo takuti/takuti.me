@@ -286,16 +286,14 @@ blockquote {
 }
 
 #me {
-  text-align: center;
   p {
     margin: 0;
     color: $primary-color;
     position: relative;
     display: inline-block;
-    width: 95%;
-    padding: 2.5%;
+    width: 94%;
+    padding: 3%;
     min-width: 115px;
-    text-align: center;
     background: #fff;
     border: 1px solid $sub-sub-sub-color;
     z-index: 0;
