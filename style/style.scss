@@ -45,6 +45,9 @@ h3 {
   margin: 2em 0 1em 0;
   padding-bottom: 5px;
   border-bottom: 1px solid $sub-sub-sub-color;
+  & .symbol {
+    font-weight: normal;
+  }
 }
 
 article {
