@@ -3,18 +3,25 @@ html, body {
   height: 100%;
   color: #6a6a6a;
   font-family: sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   margin: 0px;
   padding: 0px;
 }
 
+#container {
+  height: 100%;
+}
+
 #map {
-	height: 600px;
+  float: left;
+  width: 65%;
+  height: 100%;
 }
 
 #category-checkboxes {
-	width: 100%;
-	margin: 1em;
+  float: right;
+  width: 35%;
+  height: 100%;
 }
 
 .category-checkbox {
