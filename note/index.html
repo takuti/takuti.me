@@ -3,20 +3,8 @@ layout: default
 title: TOP
 ---
 
-<nav>
-  <div id="language">
-    <span class="symbol active">earth </span>
-    <span class="l active">日本語</span>
-    <span class="l">English</span>
-  </div>
-</nav>
 <dl class="entry-list">
 {% for post in site.posts %}
-  {% if post.lang == 'ja' %}
-  <span class="lang-{{ post.lang }}" visible>
-  {% else %}
-  <span class="lang-{{ post.lang }}" hidden>
-  {% endif %}
   <dt>
   <span class="date">
     {{ post.date | date: '%b %d, %Y' | upcase }}
