@@ -40,6 +40,22 @@ a {
 }
 }
 
+dl {
+  dt {
+    padding-top: 0.5em;
+    a {
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+  dd {
+    margin: 0;
+    padding: 0 0 0.5em 0;
+    font-size: 0.8em;
+    color: $sub-sub-color;
+  }
+}
+
 h3 {
   font-size: 1.1em;
   margin: 2em 0 1em 0;
