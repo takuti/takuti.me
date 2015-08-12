@@ -6,3 +6,4 @@ Rakefile
 _site/
 _drafts/
 images/
+.jekyll-metadata
