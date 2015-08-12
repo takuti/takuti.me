@@ -13,12 +13,12 @@ title: TOP
 </section>
 
 <section>
-  <h3><span class="symbol">pen </span>Notes</h3>
+  <h3><span class="symbol">pen </span>Recent Notes</h3>
   <dl class="entry-list">
     {% for i in (0..4) %}
       <dt>
       <span class="date">
-        {{ site.posts[i].date | date: '%b %d, %Y' | upcase }}
+        {{ site.posts[i].date | date: '%F' }}
       </span>
       </dt>
       <dd>

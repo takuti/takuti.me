@@ -3,14 +3,7 @@ layout: default
 ---
 <article>
   <p class="meta clearfix">
-    {{ page.date | date: '%B %-d, %Y' | upcase}} <!-- &nbsp;
-    {% unless page.tags == empty %}
-    {% for tag in page.tags %}
-    {% capture t %}{{ tag | downcase | replace:' ','-' }}{% endcapture %}
-    [<a href="/tag/{{ t }}">{{ site.tagname[t] }}</a>]
-    {% endfor %}
-    {% endunless %}
--->
+    {{ page.date | date: '%F' }}
   </p>
   <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
 
