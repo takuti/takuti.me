@@ -157,10 +157,6 @@ h3.year {
   }
 }
 
-.nav {
-  margin-bottom: 2em;
-}
-
 header {
   width: $content-width;
   height: $header-height;
@@ -173,39 +169,6 @@ header {
     border-radius: 50px;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
-  }
-}
-
-nav {
-  width: $content-width;
-  margin: 30px auto 30px auto;
-  font-size: 0.9em;
-  text-align: center;
-  a {
-    display: inline-block;
-    margin-bottom: 1em;
-    color: $sub-sub-sub-color;
-    text-decoration: none;
-    &:visited {
-      color: $sub-sub-sub-color;
-    }
-    &:hover {
-      color: $primary-color;
-    }
-  }
-  #language {
-    span {
-      display: inline-block;
-      margin: 0 .5em;
-      &.l {
-        cursor: pointer;
-        color: $sub-sub-sub-color;
-        &:hover,
-        &.active {
-          color: $primary-color;
-        }
-      }
-    }
   }
 }
 
@@ -222,7 +185,7 @@ nav {
   }
   ul {
     margin-left: 0;
-    padding-left: 2em;
+    padding-left: 1.5em;
     list-style-type: square;
   }
 }
