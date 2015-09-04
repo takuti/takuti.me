@@ -1,18 +1,36 @@
+
 require 'open-uri'
 require 'json'
 
-=begin
-def sub_twitter_url(content)
+# convert tweet url to emmbededding html
+def url2emb(content)
+  converted_content = content
   content.scan(/(https?:\/\/twitter\.com\/[a-zA-Z0-9_]+\/status\/([0-9]+)\/?)/).each { |url, id|
     json = open("https://api.twitter.com/1/statuses/oembed.json?id=#{id}").read
     html = JSON.parse(json)['html']
-    content = content.gsub(/#{url}/, html)
+    converted_content = converted_content.gsub(/#{url}/, html)
   }
-  content
+  converted_content
 end
 
+
 module Jekyll
-  class HtmlTwitterEmb < Converter
+
+  # for markdown, extend oroginal parser's convert function
+  module Converters
+    class Markdown
+      class RedcarpetParser
+        alias :original_convert :convert
+        def convert(content)
+          content = url2emb(content)
+          original_convert(content)
+        end
+      end
+    end
+  end
+
+  # for html, extend converter as a plugin
+  class TweetUrl2Emb < Converter
     safe true
     priority :low
 
@@ -21,22 +39,12 @@ module Jekyll
     end
 
     def output_ext(ext)
-      ".html"
+      '.html'
     end
 
     def convert(content)
-      sub_twitter_url(content)
+      url2emb(content)
     end
   end
 
-  module Converters
-    class Markdown
-      class CustomizedMarkdownParser < RedcarpetParser
-        def convert(content)
-          super(sub_twitter_url(content))
-        end
-      end
-    end
-  end
 end
-=end
