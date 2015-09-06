@@ -40,22 +40,6 @@ a {
 }
 }
 
-dl {
-  dt {
-    padding-top: 0.5em;
-    a {
-      font-weight: bold;
-      text-decoration: none;
-    }
-  }
-  dd {
-    margin: 0;
-    padding: 0 0 0.5em 0;
-    font-size: 0.8em;
-    color: $sub-sub-color;
-  }
-}
-
 h3 {
   font-size: 1.1em;
   margin: 2em 0 1em 0;
@@ -316,6 +300,22 @@ code.has-jax {
     border-width: 0 10px 10px 10px;
     border-color: transparent transparent $sub-sub-sub-color transparent;
     z-index: -1;
+  }
+  
+  dl:not(.entry-list) {
+    dt {
+      padding-top: 0.5em;
+      a {
+        font-weight: bold;
+        text-decoration: none;
+      }
+    }
+    dd {
+      margin: 0;
+      padding: 0 0 0.5em 0;
+      font-size: 0.8em;
+      color: $sub-sub-color;
+    }
   }
   
   img.emoji {
