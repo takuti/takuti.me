@@ -1,9 +1,7 @@
 name: takuti.me
 url: http://takuti.me/
 
-markdown: redcarpet
-redcarpet:
-  extensions: [no_intra_emphasis,tables,autolink,strikethrough]
+markdown: kramdown
 highlighter: nil # not use pygments because of using google-code-prettify
 
 exclude: ['Rakefile']
