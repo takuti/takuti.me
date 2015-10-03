@@ -19,7 +19,7 @@ module Jekyll
   # for markdown, extend oroginal parser's convert function
   module Converters
     class Markdown
-      class RedcarpetParser
+      class KramdownParser
         alias :original_convert :convert
         def convert(content)
           content = url2emb(content)
