@@ -11,5 +11,4 @@ title = "takuti.me"
 	note = "/note/:filename/"
 
 [params]
-  description = "Tesla's Awesome Hugo Site"
-  author = "Nikola Tesla"
+  author = "takuti"
