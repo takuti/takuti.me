@@ -8,7 +8,8 @@ tags:
 date: 2013-12-25
 ---
 <p><a href="http://blog.takuti.me/twitter-bot/">マルコフ連鎖でbotを作った</a>けどちょっとお粗末な発言が多い。</p>
-<p>https://twitter.com/yootakuti/status/413693204735606784</p>
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">そろそろバスですバス代失うような気もきたし、病み上がりはどこかうちの？ねぇ君どこもおかしくない、質問攻めにあったようなじかんじゃねーの印象は消えてます！というわけで寝よー。てか9時か悩んでるなう・・・・ぼくだかも体調管理実装あ、情報処理技術者試験までは考えた</p>&mdash; ヨーグルト (@yootakuti) <a href="https://twitter.com/yootakuti/status/413693204735606784">December 19, 2013</a></blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 <p>やる気が感じられない。つなげりゃいいってもんじゃあない。</p>
 <p>というわけで、生成するツイートの文字数に上限を設けてしまえば少なくとも上のようなぶっ飛んだ発言はなくなるだろうという考えの下に対策を施します。</p>
 <p>もちろん対策前の上限はツイートの最高文字数である140文字です。これを何文字に制限しようか。<br />
@@ -34,6 +35,7 @@ tweet = tweet.gsub(/#[0-9A-Za-z_]+/, '')
 <p>ここまで綺麗な形になるとは思っていませんでしたが、やはり40文字以上の長いツイートが@<a href="https://twitter.com/takuti/">takuti</a>より多いことが分かり、文字数の少ないツイートをもっと増やしたい感じですね。</p>
 <p>とまぁこんな結果が見れて満足したところで、今はマルコフ連鎖によるツイート生成の文字数上限を40文字に設定した上でbotを稼働させています。単純に、@<a href="https://twitter.com/takuti/">takuti</a> のツイートの90%が40文字以内ですからね。</p>
 <p>短い発言なら支離滅裂でも結構なんとかなっちゃうものです。</p>
-<p>https://twitter.com/yootakuti/status/415369180116811777</p>
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">お！！！また大失敗して自殺行為じゃ、じゃあ脱がなくてしょぼんなど…だとコーン</p>&mdash; ヨーグルト (@yootakuti) <a href="https://twitter.com/yootakuti/status/415369180116811777">December 24, 2013</a></blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 <p>以上！<del datetime="2013-12-25T04:18:49+00:00">ヒストグラムにした意味は果たしてあったのか。</del></p>
 <p>『<strong>いかに知的な発言をさせるか</strong>』よりも前に、まずは『<strong>いかに知的っぽく見せることができるか</strong>』という点を少しでもシンプルな方法で模索したいですね。</p>

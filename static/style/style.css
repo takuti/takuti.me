@@ -1,0 +1,271 @@
+@import url(normalize.css);
+html, body {
+  background: #fff;
+  height: 100%;
+  color: #6a6a6a;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  margin: 0px;
+  padding: 0px; }
+
+a {
+  color: #6a6a6a; }
+  a:visited {
+    color: #6a6a6a; }
+  a:hover {
+    text-decoration: none; }
+  a.bold {
+    font-weight: bold;
+    text-decoration: none; }
+  a.nounderline {
+    text-decoration: none; }
+
+h3 {
+  font-size: 1.1em;
+  margin: 2em 0 1em 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #dadada; }
+  h3 .symbol {
+    font-weight: normal; }
+
+article {
+  margin-bottom: 50px; }
+  article .meta {
+    font-size: 0.8em;
+    color: #9a9a9a; }
+  article h2 {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    background: url(/images/line.gif) repeat-x bottom left;
+    padding-bottom: 15px; }
+    article h2 a {
+      text-decoration: none; }
+  article .post a {
+    color: #208DC3;
+    text-decoration: none; }
+    article .post a:visited {
+      color: #208DC3; }
+    article .post a:hover {
+      color: #006EA5;
+      text-decoration: underline; }
+  article .post img {
+    display: block;
+    margin: .5em 0;
+    max-width: 100%; }
+  article .post hr {
+    border: 0;
+    border-top: 1px solid #dadada; }
+  article .post table {
+    margin: 0 auto;
+    width: 100%;
+    border-collapse: collapse; }
+    article .post table th {
+      padding: 6px;
+      text-align: left;
+      vertical-align: top;
+      color: #333;
+      background-color: #eee;
+      border: 1px solid #b9b9b9; }
+    article .post table td {
+      padding: 6px;
+      background-color: #fff;
+      border: 1px solid #b9b9b9; }
+  article #disqus_thread {
+    margin-top: 50px; }
+
+h3.year {
+  cursor: pointer; }
+
+.entry-list .date {
+  display: inline-block; }
+.entry-list .tag {
+  color: #9a9a9a;
+  display: inline-block; }
+  .entry-list .tag a {
+    color: #9a9a9a;
+    text-decoration: none; }
+.entry-list dt {
+  padding-top: 0.5em;
+  font-size: 0.8em;
+  color: #bababa; }
+.entry-list dd {
+  margin: 0;
+  padding: 0 0 0.5em 0;
+  font-size: 1.0em; }
+  .entry-list dd a {
+    font-weight: bold;
+    text-decoration: none; }
+
+header {
+  width: 700px;
+  height: 45px;
+  margin: 0 auto;
+  padding-top: 22.5px;
+  text-align: center; }
+  header a {
+    text-decoration: none; }
+  header img {
+    width: 50px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px; }
+
+#container {
+  width: 700px;
+  margin: 30px auto 50px auto; }
+  #container .left {
+    display: block;
+    float: left; }
+  #container .right {
+    display: block;
+    float: right; }
+  #container ul {
+    margin-left: 0;
+    padding-left: 1.5em; }
+
+footer {
+  text-align: center;
+  font-size: 0.8em;
+  width: 700px;
+  margin: 0 auto;
+  margin-bottom: 1em; }
+
+.clearfix {
+  zoom: 1; }
+  .clearfix:after {
+    content: "";
+    display: block;
+    clear: both; }
+
+pre, code {
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-size: 12px;
+  display: block;
+  padding: 9.5px;
+  margin: 20px 0;
+  background-color: #f5f5f5;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word; }
+
+blockquote {
+  display: block;
+  margin: 0;
+  padding: 1em;
+  background: #eee;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word; }
+  blockquote p {
+    margin: 0;
+    padding: 0; }
+
+/*--- fonts ---*/
+.bold {
+  font-weight: bold; }
+
+.italic {
+  font-style: italic; }
+
+@font-face {
+  font-family: 'LigatureSymbols';
+  src: url("/fonts/LigatureSymbols-2.11.eot");
+  src: url("/fonts/LigatureSymbols-2.11.eot?#iefix") format("embedded-opentype"), url("/fonts/LigatureSymbols-2.11.woff") format("woff"), url("/fonts/LigatureSymbols-2.11.ttf") format("truetype"), url("/fonts/LigatureSymbols-2.11.svg#LigatureSymbols") format("svg");
+  src: url("/fonts/LigatureSymbols-2.11.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+.symbol {
+  font-family: 'LigatureSymbols';
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-size: 1.3em;
+  line-height: 1.3em; }
+
+#me {
+  margin: 0;
+  color: #6a6a6a;
+  position: relative;
+  display: inline-block;
+  width: 94%;
+  padding: 3%;
+  min-width: 115px;
+  background: #fff;
+  border: 1px solid #dadada;
+  z-index: 0; }
+  #me:before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    margin-left: -9px;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 9px 9px 9px;
+    border-color: transparent transparent #fff transparent;
+    z-index: 0; }
+  #me:after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    margin-left: -10px;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #dadada transparent;
+    z-index: -1; }
+  #me dl:not(.entry-list) dt {
+    padding-top: 0.5em; }
+    #me dl:not(.entry-list) dt a {
+      font-weight: bold;
+      text-decoration: none; }
+  #me dl:not(.entry-list) dd {
+    margin: 0;
+    padding: 0 0 0.5em 0;
+    font-size: 0.8em;
+    color: #bababa; }
+  #me img.emoji {
+    height: 1em;
+    width: 1em;
+    margin: 0 .05em 0 .1em;
+    vertical-align: -0.1em; }
+
+/*--- responsive ---*/
+@media screen and (max-width: 767px) {
+  body {
+    width: 100%; }
+
+  #container, footer, nav {
+    padding: 0 5%;
+    width: 90%; }
+
+  header {
+    padding-right: 5%;
+    padding-left: 5%;
+    width: 90%; }
+    header #header-content {
+      width: 90%;
+      padding: 0 5%;
+      height: 90px; }
+
+  article .post img {
+    max-width: 100%;
+    height: auto; } }
