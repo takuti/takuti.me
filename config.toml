@@ -1,0 +1,15 @@
+contentdir = "content"
+layoutdir = "layouts"
+publishdir = "public"
+builddrafts = false
+canonifyurls = true
+
+baseurl = "http://takuti.me"
+title = "takuti.me"
+
+[permalinks]
+	note = "/note/:filename/"
+
+[params]
+  description = "Tesla's Awesome Hugo Site"
+  author = "Nikola Tesla"

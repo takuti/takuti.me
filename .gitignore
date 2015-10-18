@@ -3,7 +3,5 @@
 
 Rakefile
 
-_site/
-_drafts/
+public/
 images/
-.jekyll-metadata
