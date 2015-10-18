@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+    <title>How to Derive the Normal Equation | takuti.me</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://localhost:1313/style/style.css">
+    <link href="http://localhost:1313/google-code-prettify/tomorrow-night-eighties.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="http://localhost:1313/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="http://localhost:1313/feed/index.xml" />
+
+    <script src="//twemoji.maxcdn.com/twemoji.min.js"></script>
+    <script>
+      var emoji = function(unicode) { 
+        document.write(" <img src='http://twemoji.maxcdn.com/36x36/" + unicode + ".png' class='emoji' alt='emoji' /> "); 
+      };
+    </script>
+  </head>
+  <body>
+    <header>
+    <a href="http://localhost:1313/"><img src="http://localhost:1313/images/s9.jpg" /></a>
+    </header>
+
+    <div id="container">
+<article>
+  <p class="meta clearfix">
+    2015-04-21
+  </p>
+  <h2>How to Derive the Normal Equation</h2>
+
+  <div class="post">
+    
+
+<p>In the linear regression tasks, the normal equation is widely used to find optimal parameters. However, <a href="http://www.springer.com/gp/book/9780387310732">Pattern Recognition and Machine Learning</a> (RPML), one of the most popular machine learning textbooks, does not explain details of the derivation process. So, this article demonstrates how to derive the equation.</p>
+
+<h3 id="linear-regression-model:f59d7dc2b5df313553d7c92bd3c834b3">Linear regression model</h3>
+
+<p>We define linear regression model as:</p>
+
+<p>$$
+y = \textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x})
+$$</p>
+
+<p>for a input vector $\textbf{x}$, base function $\boldsymbol{\phi}$ and output $y$.</p>
+
+<p>The main task is to find an optimal parameter $\textbf{w}$ from $N$ learning data sets, $(\textbf{x}_1, t_1), (\textbf{x}_2, t_2), \ldots, (\textbf{x}_N, t_N)$. As a result of such learning step, we can predict output for any input $\textbf{x}$.</p>
+
+<h3 id="least-squares-method:f59d7dc2b5df313553d7c92bd3c834b3">Least squares method</h3>
+
+<p>How can we estimate an optimal parameter $\textbf{w}$? The answer is quite simple: minimization of the total prediction error. When we already have parameters, the total prediction error for the $N$ learning data may be computed by $\sum_{n=1}^{N} (t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x}_n))$. Is it correct?</p>
+
+<p>Unfortunately, this formula has two problems. First, if learning data such that $t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x}_n)&lt; 0$ exists, above formula does not represent &ldquo;total error&rdquo;. Second, since the formula is linear for $\textbf{w}$, we cannot minimize it. Thus, squared error function $E(\textbf{w})$ is considered as:</p>
+
+<p>$$
+E(\textbf{w}) = \sum_{n=1}^{N} (t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x}_n))^2.
+$$</p>
+
+<p>$E(\textbf{w})$ is a quadratic function, and it will be concave up. So, we can minimize it by finding $\textbf{w}$ which satisfies $\frac{\partial E}{\partial \textbf{w}} = 0$.</p>
+
+<p>Note that, in the PRML, squared error function is represented as $E(\textbf{w}) = \frac{1}{2} \sum_{n=1}^{N} (t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x}_n))^2$ with mysterious $\frac{1}{2}$, but it just deletes $2$ in $\frac{\partial E}{\partial \textbf{w}}$. Hence, the coefficient is not so important to understand the normal equation.</p>
+
+<h3 id="normal-equation:f59d7dc2b5df313553d7c92bd3c834b3">Normal equation</h3>
+
+<p>For the reasons that I mentioned above, we want to obtain $\frac{\partial E}{\partial \textbf{w}}$. For better understanding, I will first check the result of vector derivation for a small example. When we have just one learning data, and input vector has two dimensions, the squared error function is:</p>
+
+<p>$$
+E(\textbf{w}) = \sum_{n=1}^{1} (t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x}_n))^2
+= \left( t_1- \left(
+    \begin{array}{c}
+      w_0 \\
+      w_1
+    \end{array}
+  \right)^{\mathrm{T}}
+  \left(
+    \begin{array}{c}
+      \phi_0 \\
+      \phi_1
+    \end{array}
+  \right)\right)^2
+= (t_1 - w_0\phi_0 - w_1\phi_1)^2.
+$$</p>
+
+<p>Also,</p>
+
+<p>$$
+\frac{\partial E}{\partial \textbf{w}}
+= \left(
+    \begin{array}{c}
+      \frac{\partial E}{\partial w_0} \\
+      \frac{\partial E}{\partial w_1}
+    \end{array}
+  \right).
+$$</p>
+
+<p>For instance,</p>
+
+<p>$$
+\begin{array}{ccl}
+\frac{\partial E}{\partial w_0} &amp;=&amp; 2(t_1 - w_0\phi_0 - w_1\phi_1) \cdot \frac{\partial}{\partial w_0}(t_1 - w_0\phi_0 - w_1\phi_1) \\
+&amp;=&amp; 2(t_1 - w_0\phi_0 - w_1\phi_1) \cdot (-\phi_0).
+\end{array}
+$$</p>
+
+<p>As a consequence,</p>
+
+<p>$$
+\frac{\partial E}{\partial \textbf{w}}
+= -2(t_1 - w_0\phi_0 - w_1\phi_1) \left(
+    \begin{array}{c}
+      \phi_0 \\
+      \phi_1
+    \end{array}
+  \right).
+$$</p>
+
+<p>By extending this simple example to arbitrary $N$ and dimensions,</p>
+
+<p>$$
+\begin{array}{ccl}
+\frac{\partial E}{\partial \textbf{w}}
+&amp;=&amp; -2 \sum<em>{n=1}^{N} ((t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}_n)\cdot\boldsymbol{\phi}_n ) \\
+&amp;=&amp;-2 \sum</em>{n=1}^{N} ((t<em>n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}_n)\cdot\boldsymbol{\phi}_n ) \\
+&amp;=&amp; -2 \sum</em>{n=1}^{N} t<em>n\boldsymbol{\phi}_n +2 \sum</em>{n=1}^{N}(\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}<em>n ) \cdot \boldsymbol{\phi}_n \\
+&amp;=&amp; -2 \sum</em>{n=1}^{N} t<em>n\boldsymbol{\phi}_n +2 \left(\sum</em>{n=1}^{N}\boldsymbol{\phi}_n \boldsymbol{\phi}_n^{\mathrm{T}}\right)\textbf{w},
+\end{array}
+$$</p>
+
+<p>with $\boldsymbol{\phi}(\textbf{x}_n)=\boldsymbol{\phi}_n$. Importantly, since $\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}_n$ is scalar, exchangeable parts exist as: $\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}_n = \boldsymbol{\phi}_n^{\mathrm{T}}\textbf{w}$, and $(\boldsymbol{\phi}_n^{\mathrm{T}}\textbf{w})\cdot\boldsymbol{\phi}_n = \boldsymbol{\phi}_n \cdot (\boldsymbol{\phi}_n^{\mathrm{T}}\textbf{w}) = (\boldsymbol{\phi}_n\boldsymbol{\phi}_n^{\mathrm{T}})\cdot\textbf{w}$.</p>
+
+<p>Next, we solve the equation for $\textbf{w}$ as:</p>
+
+<p>$$
+\begin{array}{rcl}
+-2 \sum<em>{n=1}^{N} t_n\boldsymbol{\phi}_n +2 \left(\sum</em>{n=1}^{N}\boldsymbol{\phi}<em>n \boldsymbol{\phi}_n^{\mathrm{T}}\right)\textbf{w} &amp;=&amp; 0 \\
+\left(\sum</em>{n=1}^{N}\boldsymbol{\phi}<em>n \boldsymbol{\phi}_n^{\mathrm{T}}\right)\textbf{w} &amp;=&amp; \sum</em>{n=1}^{N} t<em>n\boldsymbol{\phi}_n \\
+\textbf{w} &amp;=&amp; \left(\sum</em>{n=1}^{N}\boldsymbol{\phi}<em>n \boldsymbol{\phi}_n^{\mathrm{T}}\right)^{-1}\sum</em>{n=1}^{N} t_n\boldsymbol{\phi}_n.
+\end{array}
+$$</p>
+
+<p>Additionally, the PRML introduces <strong>design matrix</strong> by:</p>
+
+<p>$$
+\boldsymbol{\Phi} = \left(
+    \begin{array}{cccc}
+      \phi<em>0(\textbf{x}_1) &amp; \phi_1(\textbf{x}_1) &amp; \ldots &amp; \phi</em>{M-1}(\textbf{x}<em>1) \\
+      \phi_0(\textbf{x}_2) &amp; \phi_1(\textbf{x}_2) &amp; \ldots &amp; \phi</em>{M-1}(\textbf{x}<em>2) \\
+      \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+      \phi_0(\textbf{x}_N) &amp; \phi_1(\textbf{x}_N) &amp; \ldots &amp; \phi</em>{M-1}(\textbf{x}_N)
+     \end{array}
+  \right)
+$$</p>
+
+<p>for $M$, dimensions of input vector. It can be simply written as
+$\boldsymbol{\Phi} = \left[
+\boldsymbol{\phi<em>1} \
+\boldsymbol{\phi_2}
+\ldots
+\boldsymbol{\phi_N}\right]$. Therefore, we can easily confirm $\sum</em>{n=1}^{N}\boldsymbol{\phi}<em>n \boldsymbol{\phi}_n^{\mathrm{T}} = \boldsymbol{\Phi}^{\mathrm{T}}\boldsymbol{\Phi}$, and $$\sum</em>{n=1}^{N} t_n\boldsymbol{\phi}_n = \boldsymbol{\Phi}^{\mathrm{T}}\textbf{t}$$.</p>
+
+<p>Finally, we get the normal equation with the design matrix:</p>
+
+<p>$$
+\textbf{w} = (\boldsymbol{\Phi}^{\mathrm{T}}\boldsymbol{\Phi})^{-1}\boldsymbol{\Phi}^{\mathrm{T}}\textbf{t}.
+$$</p>
+
+<p>Now, we can find an optimal parameter for any learning data $(\textbf{x}_1, t_1), (\textbf{x}_2, t_2), \dots, (\textbf{x}_N, t_N)$ by computing the equation.</p>
+
+<h3 id="conclusion:f59d7dc2b5df313553d7c92bd3c834b3">Conclusion</h3>
+
+<ul>
+<li>The PRML book does not explain details of derivation process of the normal equation.</li>
+<li>I derive the normal equation step-by-step from the definition of linear regression models.</li>
+<li>Since vector derivation is not easy to follow, checking the result with simple examples is good idea.</li>
+</ul>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+         
+        var disqus_shortname = 'takuti'; 
+
+         
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script src="http://localhost:1313/google-code-prettify/prettify.js"></script>
+		<script>prettyPrint();</script>
+
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			tex2jax: {
+				inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+				processEscapes: true
+			}
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-28919399-2', 'auto');
+			ga('send', 'pageview');
+
+		</script>
+	<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

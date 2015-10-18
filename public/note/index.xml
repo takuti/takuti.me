@@ -1,0 +1,1106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on takuti.me</title>
+    <link>http://localhost:1313/note/</link>
+    <description>Recent content in Notes on takuti.me</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 13 Oct 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/note/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>PyCon JP 2015 #pyconjp</title>
+      <link>http://localhost:1313/note/pyconjp-2015/</link>
+      <pubDate>Tue, 13 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/pyconjp-2015/</guid>
+      <description>&lt;p&gt;Following &lt;a href=&#34;http://phpcon.php.gr.jp/2015/&#34;&gt;phpcon2015&lt;/a&gt;, I have attended &lt;a href=&#34;https://pycon.jp/2015/en/&#34;&gt;PyCon JP 2015&lt;/a&gt; at the end of last week.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/jekyll/2015-10-13-pycon-entrance.jpg&#34; alt=&#34;pycon-entrance&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Although I have more than 8-year programming experience, I first write Python code only a year ago. However, despite the really short-term experience, now Python is definitely one of my most favorite programming languages. I use Python in many different purposes such as research, private projects, part-time job, and competitive programming.&lt;/p&gt;
+
+&lt;p&gt;My usage scenes of Python is really wide-ranging, right? Actually, the theme of PyCon JP 2015 was &lt;strong&gt;&lt;em&gt;Possibilities of Python&lt;/em&gt;&lt;/strong&gt;, and everyone agrees with its possibilities. Also, &lt;a href=&#34;https://pycon.jp/2015/en/schedule/&#34;&gt;the conference schedule&lt;/a&gt; clearly illustrates possibilities of Python; we can see a wide variety of talks: hardware-related (robotics, FPGA), web development, data science and machine learning.&lt;/p&gt;
+
+&lt;p&gt;Due to too much conference contents, summarizing them one-by-one is hard for me. So, I just list some GitHub repositories based on my stars during the conference:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/getsentry/sentry&#34;&gt;getsentry / sentry&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Keynote talk focused on Python technologies around error/crash reporting.&lt;/li&gt;
+&lt;li&gt;Highly practical and interesting keynote.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/JukkaL/mypy&#34;&gt;JukkaL / mypy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/python/typeshed&#34;&gt;python / typeshed&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Talk about Python 3.x and type hints (from 3.5).&lt;/li&gt;
+&lt;li&gt;I still use Python 2.7, but this talk made me want to use 3.x.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/google/protobuf&#34;&gt;google / protobuf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/grpc/grpc&#34;&gt;grpc / grpc&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Talk about gRPC and Kubernetes by Googler.&lt;/li&gt;
+&lt;li&gt;Good introduction to modern infrastructure, including concepts of containers.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mocobeta/janome&#34;&gt;mocobeta / janome&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Japanese morphological analyzer in Python.&lt;/li&gt;
+&lt;li&gt;Easy to follow the talk about how Japanese morphological analyzer works.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/renyuanL/pythonTurtleInChinese&#34;&gt;renyuanL / pythonTurtleInChinese&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Translate Python code into Chinese like &lt;em&gt;for i in 範囲(100):&lt;/em&gt; (&amp;ldquo;範囲&amp;rdquo; means &amp;ldquo;range&amp;rdquo; in English)&lt;/li&gt;
+&lt;li&gt;Thought-provoking talk on programming education.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/c-bata/pandas-validator&#34;&gt;c-bata / pandas-validator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/blaze/dask&#34;&gt;blaze / dask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/fabric/fabric&#34;&gt;fabric / fabric&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mitsuhiko/click&#34;&gt;mitsuhiko / click&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/airtoxin/pysqldf&#34;&gt;airtoxin / pysqldf&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Lightning talks by 10 speakers.&lt;/li&gt;
+&lt;li&gt;Some of them introduced very useful tools.&lt;/li&gt;
+&lt;li&gt;Especially, since I became curious about command-line tool development with &lt;a href=&#34;https://github.com/mitsuhiko/click&#34;&gt;Click&lt;/a&gt;, I have tried it by creating &lt;a href=&#34;https://github.com/takuti/hiss&#34;&gt;tiny twitter client&lt;/a&gt; after the talk.&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Of course, there were many other interesting talks. In particular, presentations about &lt;a href=&#34;http://www.youtube.com/watch?v=wO5qvjAFMyg&#34;&gt;tweet analysis&lt;/a&gt;, &lt;a href=&#34;http://intro2libsys.info/pycon-jp-2015&#34;&gt;semantic web&lt;/a&gt;, &lt;a href=&#34;https://speakerdeck.com/sinhrks/pyconjp-2015-pandas-internals&#34;&gt;pandas internals&lt;/a&gt; and &lt;a href=&#34;http://www.slideshare.net/hagino_3000/ss-53786917&#34;&gt;ad science&lt;/a&gt; were good because these topics were very close to my current interests.&lt;/p&gt;
+
+&lt;p&gt;Since I am working on data science and machine learning research, one of the most impressive things is that several talks mentioned &lt;a href=&#34;http://pandas.pydata.org/&#34;&gt;pandas&lt;/a&gt;, Python data analysis library. I have realized how pandas (and IPython notebooks) are important tools for data scientists.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/jekyll/2015-10-13-pycon-closing.png&#34; alt=&#34;pycon-closing&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;PyCon JP 2015 was really stimulating, and this was great opportunity to see &lt;strong&gt;possibilities of Python&lt;/strong&gt;. I like to learn more about Python and use this language and related tools more effectively. And, importantly, I will use Python 3.x starting today :)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Japan PHP Conference 2015 #phpcon2015</title>
+      <link>http://localhost:1313/note/phpcon-2015/</link>
+      <pubDate>Sun, 04 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/phpcon-2015/</guid>
+      <description>
+
+&lt;p&gt;I have attended &lt;a href=&#34;http://phpcon.php.gr.jp/2015/&#34;&gt;phpcon2015&lt;/a&gt;, Japan PHP Conference 2015, on October 3.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/jekyll/2015-10-04-phpcon.jpg&#34; alt=&#34;phpcon&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As you know, this year is very important for PHP users, because PHP7 will be released very soon. So, the theme of this PHP conference is &lt;strong&gt;&lt;em&gt;7&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Though this was my first experience of attending large-scale conference in a cool geek community, I really enjoyed many exciting talks. Basically, I listened invited foreign speakers&amp;rsquo; talk, and all of them provided super favorable knowledge.&lt;/p&gt;
+
+&lt;h3 id=&#34;performance-testing-modern-apps-dustinwhittle-https-twitter-com-dustinwhittle:36653e375f1ddd1f84a3919b920e6caa&#34;&gt;“Performance Testing Modern Apps” &lt;a href=&#34;https://twitter.com/dustinwhittle&#34;&gt;@dustinwhittle&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;He introduced many useful performance testing tools such as:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://testutils.org/multi-mechanize/&#34;&gt;Multi-Mechanize&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://locust.io&#34;&gt;LOCUST&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/newsapps/beeswithmachineguns&#34;&gt;Bees with Machine Guns&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/speed/pagespeed/insights/&#34;&gt;PageSpeed Insights&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webpagetest.org&#34;&gt;WEBPAGETEST&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.sitespeed.io&#34;&gt;sitespeed.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;ldquo;&lt;strong&gt;&lt;em&gt;Automate performance testing, and treat performance as a feature&lt;/em&gt;&lt;/strong&gt;&amp;ldquo;&lt;/p&gt;
+
+&lt;h3 id=&#34;from-php-to-machine-code-juokaz-https-twitter-com-juokaz:36653e375f1ddd1f84a3919b920e6caa&#34;&gt;“From PHP to Machine Code” &lt;a href=&#34;https://twitter.com/juokaz&#34;&gt;@juokaz&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Next, this was great introduction to how programming languages work (not only PHP). Today, a wide variety of engineers/designers use PHP, and some of them actually do not have computer science background. Hence, this kind of fundamental knowledge is valuable.&lt;/p&gt;
+
+&lt;p&gt;Also, we were really surprised his latest work in Python, called &lt;a href=&#34;https://github.com/juokaz/pyhp&#34;&gt;PyHP&lt;/a&gt;, to implement PHP with JIT support.&lt;/p&gt;
+
+&lt;h3 id=&#34;database-theory-models-and-abstractions-etc-https-twitter-com-etc:36653e375f1ddd1f84a3919b920e6caa&#34;&gt;“Database Theory Models and Abstractions” &lt;a href=&#34;https://twitter.com/etc&#34;&gt;@etc&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;His presentation was technologically and visually stimulating. Well-organized 20-minute talk and attractive pictures were effective way to tell confusing database theories.&lt;/p&gt;
+
+&lt;p&gt;I understood how learning theoretical aspects of database is an important thing to efficiently manage our massive, complex data.&lt;/p&gt;
+
+&lt;h3 id=&#34;keynote-speeding-up-the-web-with-php-7-rasmus-https-twitter-com-rasmus:36653e375f1ddd1f84a3919b920e6caa&#34;&gt;Keynote “Speeding up the Web with PHP 7” &lt;a href=&#34;https://twitter.com/rasmus&#34;&gt;@rasmus&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Previously, I was just curious about PHP as a tool to develop web applications. However, thanks to Rasmus&amp;rsquo;s passionate keynote and all contents in phpcon2015, now I am also interested in PHP as one programming language. Again, PHP7 will be released very soon, around the end of October or beginning of November!&lt;/p&gt;
+
+&lt;p&gt;In fact, I first used PHP more than 4 years before, but there are still lots of things I don&amp;rsquo;t know. Hence, this conference was good opportunity for me to understand past, present and future of PHP.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Machine Learning Summer School 2015 Kyoto #MLSSKYOTO</title>
+      <link>http://localhost:1313/note/mlss-kyoto-2015/</link>
+      <pubDate>Sat, 03 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/mlss-kyoto-2015/</guid>
+      <description>
+
+&lt;p&gt;Hi, I am takuti, a master&amp;rsquo;s student in Japan. Currently, I am working on matrix factorization and approximation. Also, my research interests are in web engineering, mining and their applications such as recommender systems.&lt;/p&gt;
+
+&lt;p&gt;I have attended to &lt;a href=&#34;http://www.iip.ist.i.kyoto-u.ac.jp/mlss15/&#34;&gt;Machine Learning Summer School 2015 Kyoto&lt;/a&gt; (MLSS&amp;rsquo;15) from August 23 to September 4. This entry briefly reviews each of 14 exciting lectures in the summer school. Note that there might be mistakes in the content. In that case, please let me know via comments or &lt;a href=&#34;http://twitter.com/takuti&#34;&gt;twitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Slides for the lectures are available at: &lt;a href=&#34;http://www.iip.ist.i.kyoto-u.ac.jp/mlss15/doku.php?id=schedule&#34;&gt;http://www.iip.ist.i.kyoto-u.ac.jp/mlss15/doku.php?id=schedule&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;tl-dr:06bfb1e2dd649f078c8fe1a902e1bf10&#34;&gt;TL;DR&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/takuti/status/636907107107803137&#34;&gt;https://twitter.com/takuti/status/636907107107803137&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;(with strong emphasis on regularization and LASSO)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/jekyll/2015-10-03-sensu.jpg&#34; alt=&#34;sensu&#34; /&gt;
+&lt;em&gt;MLSS Sensu&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;convex-optimization:06bfb1e2dd649f078c8fe1a902e1bf10&#34;&gt;Convex Optimization&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Stephen P. Boyd, Stanford&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This is one of the most impressive lectures in MLSS&amp;rsquo;15 because Prof. Boyd provided us really interesting and stimulating lecture; it was like a show. He interactively discussed key ideas and specific applications of convex optimization problems. Also, thanks to &lt;a href=&#34;http://stanford.edu/~boyd/papers/cvx_short_course.html&#34;&gt;Convex Optimization Short Course&lt;/a&gt;, we can easily learn and try to solve real convex optimization problems on our laptop after MLSS.&lt;/p&gt;
+
+&lt;p&gt;As mentioned in the above tweet, optimization problems are everywhere in machine learning field. How can we find optimal weights? Which cluster assignment is the best? What is the best approximation? All of the answers can be found from optimization problems. Hence, the MLSS&amp;rsquo;15 lecture schedule seems to be well-organized (that&amp;rsquo;s why this lecture is the first one in this summer school).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next&lt;/strong&gt;: Try &lt;a href=&#34;http://stanford.edu/~boyd/papers/cvx_short_course.html&#34;&gt;Convex Optimization Short Course&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;concentration-inequalities:06bfb1e2dd649f078c8fe1a902e1bf10&#34;&gt;Concentration Inequalities&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Gábor Lugosi, Pompeu Fabra&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This topic seemed to be super advanced mathematics, and the lecture was really hard to follow. In particular, computer scientists who are familiar with engineering aspects were easily left behind, because we were not able to imagine specific applications from lots of equations/proofs.&lt;/p&gt;
+
+&lt;p&gt;While at the same time, I can feel how concentration inequalities, inequalities for bounding random fluctuations $P\{Z \leq t\}$, are important in machine learning field. In fact, modern machine learning techniques strongly depend on probabilistic approaches (random fluctuations), so importance of guarantees for the fluctuations is clear.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next&lt;/strong&gt;: Read &lt;a href=&#34;http://www.amazon.com/Concentration-Inequalities-Nonasymptotic-Theory-Independence/dp/0199535256&#34;&gt;Concentration Inequalities: A Nonasymptotic Theory of Independence&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;topics-in-selective-inference:06bfb1e2dd649f078c8fe1a902e1bf10&#34;&gt;Topics in Selective Inference&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Emmanuel Candès, Stanford&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;His lecture started from a discussion about reliability of science. In my opinion, this was good introduction to show how selective inference can be an important field to discuss experimental results on so-called &amp;ldquo;BigData&amp;rdquo;. Currently, we will first collect huge data before asking questions and planning experiments, so reliability of inference from BigData is a crucial problem.&lt;/p&gt;
+
+&lt;p&gt;I am especially interested in &lt;strong&gt;Knockoff Machines&lt;/strong&gt;, a simple algorithm to select statistically favorable hypothesis from many different hypotheses. For the reliability of inference, we need to decrease &lt;strong&gt;false discovery rate&lt;/strong&gt; (FDR), and Knockoff Machines allow us to select hypotheses which give low FDR. This algorithm is also promising in terms of feature selection. When we would like to choose better features from many different features, Knockoff Machines-like algorithm can choose features which give low false positives. In the future, I would like to survey on this application.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next&lt;/strong&gt;: Learn more about Knockoff Machines from the lecture slide and related online sources&lt;/p&gt;
+
+&lt;h3 id=&#34;probabilistic-programming:06bfb1e2dd649f078c8fe1a902e1bf10&#34;&gt;Probabilistic Programming&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Luc De Raedt, KU Leuven&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This lecture was really different from the others. At first, I was afraid of a term &amp;ldquo;programming&amp;rdquo;; I imagined this indicates something like &amp;ldquo;linear programming&amp;rdquo; stuff, but this was not true. The content focused on writing probabilistic code, especially in &lt;strong&gt;ProbLog&lt;/strong&gt;, extension of Prolog. Since I am already familiar with Prolog, I really enjoyed the lecture.&lt;/p&gt;
+
+&lt;p&gt;One of the most important things of ProbLog is that this programming language can infer from predicates with uncertainty. When we tackle AI problems, programming languages need to deal uncertainty in it; that is, dealing uncertainty is important problem to represent human intuition.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next&lt;/strong&gt;: Try probabilistic programming in &lt;a href=&#34;https://dtai.cs.kuleuven.be/problog/&#34;&gt;ProbLog&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;submodular-functions:06bfb1e2dd649f078c8fe1a902e1bf10&#34;&gt;Submodular Functions&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Stefanie Jegelka, MIT&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I heard a term &lt;strong&gt;submodular&lt;/strong&gt; many times before, but I did not know what submodular actually is. The answer was in this lecture; this lecture started from definition of set functions and submodularity with good intuitive examples. After such introduction, she gradually moved to mathematical details, optimization and approximation of submodular functions.&lt;/p&gt;
+
+&lt;p&gt;One of the most interesting applications I have learnt from this lecture is summarization. This idea assumes that summarization is just choosing subset of words from target article; that is, we can summarize articles by maximizing set function for words in terms of coverage or relevance. This idea is very interesting, and I am also interested in incremental summary updating and application to recommender systems. I would like to learn more about this field.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next&lt;/strong&gt;: Read one curious paper found on the web &amp;ldquo;&lt;a href=&#34;http://las.ethz.ch/files/badanidiyuru14streaming.pdf&#34;&gt;Streaming Submodular Maximization:
+Massive Data Summarization on the Fly&lt;/a&gt;&amp;ldquo;&lt;/p&gt;
+
+&lt;h3 id=&#34;statistical-and-computational-aspects-of-high-dimensional-learning:06bfb1e2dd649f078c8fe1a902e1bf10&#34;&gt;Statistical and Computational Aspects of High-Dimensional Learning&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Philippe Rigollet, MIT&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We needed to highly focus on &lt;strong&gt;Statistical and Computational Aspects&lt;/strong&gt; in the title. The content consisted of mathematical discussion in these aspects. Even though the professor first introduced well-known technique, Principal Component Analysis, I was not able to follow the lecture due to difficult mathematical discussion.&lt;/p&gt;
+
+&lt;p&gt;I was only able to understand what &lt;strong&gt;high-dimensinal&lt;/strong&gt; setting is; high-dimensional setting is situation such that the number of parameters is much bigger than the number of observations. However, what is more concrete difference between high-dimensional learning and usual machine learning? What is the key idea in high-dimensional learning? Which points are new in the field? To grasp these points, I should learn more before listing this lecture.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next&lt;/strong&gt;: First and foremost, I need to review this lecture :(&lt;/p&gt;
+
+&lt;h3 id=&#34;learning-representations:06bfb1e2dd649f078c8fe1a902e1bf10&#34;&gt;Learning Representations&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Lorenzo Rosasco, MIT / Genoa&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Data representation $$\mathbf{\Phi}$$ is $$X \rightarrow F$$, mapping data space $$X$$ to representation space $$F$$. Keeping in mind this point really helps us to understand a wide variety of ideas in the field. This course was really well-organized because the professor taught several different representations one-by-one and summarized them from practical viewpoint.&lt;/p&gt;
+
+&lt;p&gt;Representations discussed in the lecture were: Dictionary, Random Projection, Kernel and Deep Representation. All of them were scientifically stimulating, but which representation is appropriate to my problem? This lecture covered such practical points, and important thing is &lt;strong&gt;&lt;em&gt;Good representation decreases complexity of samples&lt;/em&gt;&lt;/strong&gt;. Currently, I am curious about online dictionary learning, so this lecture was good introduction.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next&lt;/strong&gt;: Review dictionary learning from online sources such as &lt;a href=&#34;https://sites.google.com/site/kacstsparsecoding/&#34;&gt;Sparse Coding Course&lt;/a&gt;, and its online setting&lt;/p&gt;
+
+&lt;h3 id=&#34;scalable-machine-learning:06bfb1e2dd649f078c8fe1a902e1bf10&#34;&gt;Scalable Machine Learning&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Alexander J. Smola, CMU&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Are there anybody who are studying in engineering department? OK, it&amp;rsquo;s time for you!&lt;/p&gt;
+
+&lt;p&gt;Two-thirds of this lecture discussed computer and system architecture in the BigData era. Since I am definitely curious about engineering and applicational aspects in machine learning rather than theoretical, mathematical points, the lecture was quite exciting.&lt;/p&gt;
+
+&lt;p&gt;This course has three parts: (1) efficient machine learning on single machine, (2) distributed machine learning, and (3) system architecture for Deep Learning. The last part was pale compared to the others, because it was just overview of well-known recent studies on Deep Learning. During the introduction, the professor said things like &lt;strong&gt;&lt;em&gt;You don&amp;rsquo;t have to be a professional hardware researcher, but please care about the efficiency of memory usage&lt;/em&gt;&lt;/strong&gt;. This is very important point in recent large-scale machine learning.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next&lt;/strong&gt;: Check his lectures on &lt;a href=&#34;https://www.youtube.com/user/smolix&#34;&gt;YouTube channel&lt;/a&gt;, and try Deep Learning techniques by my hand on cloud environment&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/jekyll/2015-10-03-bamboo.jpg&#34; alt=&#34;bamboo&#34; /&gt;
+&lt;em&gt;In a weekend, I visited Arashiyama and saw famous bamboo forest.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;reinforcement-learning:06bfb1e2dd649f078c8fe1a902e1bf10&#34;&gt;Reinforcement Learning&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Csaba Szepesvári, Alberta&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Even though I can see many interesting articles and videos related to reinforcement learning on the web, I have never learnt about theoretical aspect of the technique. So, this field was a huge black box for me.&lt;/p&gt;
+
+&lt;p&gt;The professor said that reinforcement learning has all of machine learning problems such as regression, classification and density estimation. This is true; I confirmed this statement through the lecture. However, after taking this short course, my understanding of reinforcement learning is still unclear.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next&lt;/strong&gt;: Read &lt;a href=&#34;http://www.ualberta.ca/~szepesva/RLBook.html&#34;&gt;Algorithms for Rainforcement Learning&lt;/a&gt;, free pdf written by the lecturer&lt;/p&gt;
+
+&lt;h3 id=&#34;machine-learning-for-computer-vision:06bfb1e2dd649f078c8fe1a902e1bf10&#34;&gt;Machine Learning for Computer Vision&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Zaid Harchaoui, NYU/INRIA&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;What kind of lecture are you expect from this title? Your thought is probably wrong.&lt;/p&gt;
+
+&lt;p&gt;This lecture focused on some specific theories such as &lt;a href=&#34;http://arxiv.org/abs/1406.3332&#34;&gt;Convolutional Kernel Networks&lt;/a&gt; and Stochastic Gradient Descent, so we were not able to obtain practical techniques in computer vision. Of course, these theories are really important to realize better application, but the title &amp;ldquo;Machine Learning for Computer Vision&amp;rdquo; was definitely inappropriate.&lt;/p&gt;
+
+&lt;p&gt;After this course, I shortly discussed with one Japanese researcher who is working on computer vision in a research institute. He also said the same things, and he actually expected more practical topic like 3D reconstruction. Due to this disappointing situation, I was not able to enjoy this lecture.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next&lt;/strong&gt;: Learn and try Convolutional Neural Networks and Convolutional Kernel Networks&lt;/p&gt;
+
+&lt;h3 id=&#34;tensor-decompositions:06bfb1e2dd649f078c8fe1a902e1bf10&#34;&gt;Tensor Decompositions&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Ryota Tomioka, TTI Chicago&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;As I said at the beginning, I am currently working on machine learning for matrices, so I really looked forward to this lecture. And, this lecture was actually scientifically stimulating for me. Most importantly, the lecture was well-organized and really easy to follow. For example, he used enough time to explain what rank of matrices is, and he repeatedly emphasized this fundamental point is important to understand tensors.&lt;/p&gt;
+
+&lt;p&gt;However, tensor decomposition and its related theory/application are wide-ranging, and, in this lecture, the professor just focused on one of them, theoretical analysis of tensor decomposition. When we need to use tensors in a practical problem, you should learn more from different studies beyond this lecture.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next&lt;/strong&gt;: Try tensor decomposition on real-world data set and learn more applications&lt;/p&gt;
+
+&lt;h3 id=&#34;stochastic-optimization:06bfb1e2dd649f078c8fe1a902e1bf10&#34;&gt;Stochastic Optimization&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Taiji Suzuki, Tokyo Tech&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Since I am interested in online learning, Stochastic Gradient Descent is one of my curious topics. However, this lecture has too much mathematical formulas. I was not able to follow at all.&lt;/p&gt;
+
+&lt;p&gt;In fact, most lectures in MLSS strongly emphasized theoretical, mathematical aspects of recent machine learning studies, but this lecture was too much. I would like to learn more about this topic from the other sources.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next&lt;/strong&gt;: Understand Stochastic Gradient Descent theoretically&lt;/p&gt;
+
+&lt;h3 id=&#34;large-scale-deep-learning:06bfb1e2dd649f078c8fe1a902e1bf10&#34;&gt;Large Scale Deep Learning&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Vincent Vanhoucke, Google&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This was very good introductory lecture on Neural Networks and Deep Learning. We were able to obtain brief overview of recent significant achievements and theoretical basics in the field.&lt;/p&gt;
+
+&lt;p&gt;Most importantly, he first emphasized Deep Learning is not the only way to get sufficient results in real-world machine learning problems. Actually, on &lt;a href=&#34;https://www.kaggle.com/&#34;&gt;Kaggle&lt;/a&gt;, other techniques quite often win. So, try Rogistic Regression, Gradient Boosting and Random Forest first! This is the message from the lecture.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next&lt;/strong&gt;: Review basic techniques (rogistic regression, random forest, gradient boosting) and attend data competision with them :)&lt;/p&gt;
+
+&lt;h3 id=&#34;statistical-guarantees-in-optimization:06bfb1e2dd649f078c8fe1a902e1bf10&#34;&gt;Statistical Guarantees in Optimization&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Martin Wainwright, Berkeley&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The last lecture focused on sketching, and first started from &lt;strong&gt;Johnson–Lindenstrauss lemma&lt;/strong&gt;. During MLSS, since some professors introduced J-L lemma in their lecture, I understood how the lemma has an important role to approximate data. So, this notice strongly motives for learning these theoretical fundamentals.&lt;/p&gt;
+
+&lt;p&gt;He introduced his latest work called &lt;a href=&#34;http://arxiv.org/abs/1505.02250&#34;&gt;Newton Sketch&lt;/a&gt; in the lecture. This paper seems very interesting and exciting, so I would like to read later.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next&lt;/strong&gt;: Learn more about statistical guarantees with starting from Johnson–Lindenstrauss lemma, and read &lt;a href=&#34;http://arxiv.org/abs/1505.02250&#34;&gt;Newton Sketch&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;conclusion:06bfb1e2dd649f078c8fe1a902e1bf10&#34;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Overall, MLSS was really, really exciting two weeks. We were able to briefly see all of machine learning field, and these knowledge definitely leads a new research idea!&lt;/p&gt;
+
+&lt;p&gt;MLSS also posed a shade of anxiety to us by difficult math, but I guess we do not have to think too much about that. In machine learning, key ideas and essential problems we need to solve are usually quite simple. So, when we tackle own problem, let us start from the simplest approach, and gradually extend it.&lt;/p&gt;
+
+&lt;p&gt;Finally, one thing I would like to introduce is one cool podcast channel talking about machine learning called &lt;a href=&#34;http://www.thetalkingmachines.com/&#34;&gt;Talking Machines&lt;/a&gt;. I found this podcast after MLSS, and listening the excellent talks is intellectually stimulating. If you have not subscribed it yet, go ahead!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/jekyll/2015-10-03-masu.jpg&#34; alt=&#34;masu&#34; /&gt;
+&lt;em&gt;MLSS Masu, Japanese traditional sake glass&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to Derive the Normal Equation</title>
+      <link>http://localhost:1313/note/normal-equation/</link>
+      <pubDate>Tue, 21 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/normal-equation/</guid>
+      <description>
+
+&lt;p&gt;In the linear regression tasks, the normal equation is widely used to find optimal parameters. However, &lt;a href=&#34;http://www.springer.com/gp/book/9780387310732&#34;&gt;Pattern Recognition and Machine Learning&lt;/a&gt; (RPML), one of the most popular machine learning textbooks, does not explain details of the derivation process. So, this article demonstrates how to derive the equation.&lt;/p&gt;
+
+&lt;h3 id=&#34;linear-regression-model:f59d7dc2b5df313553d7c92bd3c834b3&#34;&gt;Linear regression model&lt;/h3&gt;
+
+&lt;p&gt;We define linear regression model as:&lt;/p&gt;
+
+&lt;p&gt;$$
+y = \textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x})
+$$&lt;/p&gt;
+
+&lt;p&gt;for a input vector $\textbf{x}$, base function $\boldsymbol{\phi}$ and output $y$.&lt;/p&gt;
+
+&lt;p&gt;The main task is to find an optimal parameter $\textbf{w}$ from $N$ learning data sets, $(\textbf{x}_1, t_1), (\textbf{x}_2, t_2), \ldots, (\textbf{x}_N, t_N)$. As a result of such learning step, we can predict output for any input $\textbf{x}$.&lt;/p&gt;
+
+&lt;h3 id=&#34;least-squares-method:f59d7dc2b5df313553d7c92bd3c834b3&#34;&gt;Least squares method&lt;/h3&gt;
+
+&lt;p&gt;How can we estimate an optimal parameter $\textbf{w}$? The answer is quite simple: minimization of the total prediction error. When we already have parameters, the total prediction error for the $N$ learning data may be computed by $\sum_{n=1}^{N} (t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x}_n))$. Is it correct?&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, this formula has two problems. First, if learning data such that $t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x}_n)&amp;lt; 0$ exists, above formula does not represent &amp;ldquo;total error&amp;rdquo;. Second, since the formula is linear for $\textbf{w}$, we cannot minimize it. Thus, squared error function $E(\textbf{w})$ is considered as:&lt;/p&gt;
+
+&lt;p&gt;$$
+E(\textbf{w}) = \sum_{n=1}^{N} (t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x}_n))^2.
+$$&lt;/p&gt;
+
+&lt;p&gt;$E(\textbf{w})$ is a quadratic function, and it will be concave up. So, we can minimize it by finding $\textbf{w}$ which satisfies $\frac{\partial E}{\partial \textbf{w}} = 0$.&lt;/p&gt;
+
+&lt;p&gt;Note that, in the PRML, squared error function is represented as $E(\textbf{w}) = \frac{1}{2} \sum_{n=1}^{N} (t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x}_n))^2$ with mysterious $\frac{1}{2}$, but it just deletes $2$ in $\frac{\partial E}{\partial \textbf{w}}$. Hence, the coefficient is not so important to understand the normal equation.&lt;/p&gt;
+
+&lt;h3 id=&#34;normal-equation:f59d7dc2b5df313553d7c92bd3c834b3&#34;&gt;Normal equation&lt;/h3&gt;
+
+&lt;p&gt;For the reasons that I mentioned above, we want to obtain $\frac{\partial E}{\partial \textbf{w}}$. For better understanding, I will first check the result of vector derivation for a small example. When we have just one learning data, and input vector has two dimensions, the squared error function is:&lt;/p&gt;
+
+&lt;p&gt;$$
+E(\textbf{w}) = \sum_{n=1}^{1} (t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}(\textbf{x}_n))^2
+= \left( t_1- \left(
+    \begin{array}{c}
+      w_0 \\
+      w_1
+    \end{array}
+  \right)^{\mathrm{T}}
+  \left(
+    \begin{array}{c}
+      \phi_0 \\
+      \phi_1
+    \end{array}
+  \right)\right)^2
+= (t_1 - w_0\phi_0 - w_1\phi_1)^2.
+$$&lt;/p&gt;
+
+&lt;p&gt;Also,&lt;/p&gt;
+
+&lt;p&gt;$$
+\frac{\partial E}{\partial \textbf{w}}
+= \left(
+    \begin{array}{c}
+      \frac{\partial E}{\partial w_0} \\
+      \frac{\partial E}{\partial w_1}
+    \end{array}
+  \right).
+$$&lt;/p&gt;
+
+&lt;p&gt;For instance,&lt;/p&gt;
+
+&lt;p&gt;$$
+\begin{array}{ccl}
+\frac{\partial E}{\partial w_0} &amp;amp;=&amp;amp; 2(t_1 - w_0\phi_0 - w_1\phi_1) \cdot \frac{\partial}{\partial w_0}(t_1 - w_0\phi_0 - w_1\phi_1) \\
+&amp;amp;=&amp;amp; 2(t_1 - w_0\phi_0 - w_1\phi_1) \cdot (-\phi_0).
+\end{array}
+$$&lt;/p&gt;
+
+&lt;p&gt;As a consequence,&lt;/p&gt;
+
+&lt;p&gt;$$
+\frac{\partial E}{\partial \textbf{w}}
+= -2(t_1 - w_0\phi_0 - w_1\phi_1) \left(
+    \begin{array}{c}
+      \phi_0 \\
+      \phi_1
+    \end{array}
+  \right).
+$$&lt;/p&gt;
+
+&lt;p&gt;By extending this simple example to arbitrary $N$ and dimensions,&lt;/p&gt;
+
+&lt;p&gt;$$
+\begin{array}{ccl}
+\frac{\partial E}{\partial \textbf{w}}
+&amp;amp;=&amp;amp; -2 \sum&lt;em&gt;{n=1}^{N} ((t_n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}_n)\cdot\boldsymbol{\phi}_n ) \\
+&amp;amp;=&amp;amp;-2 \sum&lt;/em&gt;{n=1}^{N} ((t&lt;em&gt;n-\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}_n)\cdot\boldsymbol{\phi}_n ) \\
+&amp;amp;=&amp;amp; -2 \sum&lt;/em&gt;{n=1}^{N} t&lt;em&gt;n\boldsymbol{\phi}_n +2 \sum&lt;/em&gt;{n=1}^{N}(\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}&lt;em&gt;n ) \cdot \boldsymbol{\phi}_n \\
+&amp;amp;=&amp;amp; -2 \sum&lt;/em&gt;{n=1}^{N} t&lt;em&gt;n\boldsymbol{\phi}_n +2 \left(\sum&lt;/em&gt;{n=1}^{N}\boldsymbol{\phi}_n \boldsymbol{\phi}_n^{\mathrm{T}}\right)\textbf{w},
+\end{array}
+$$&lt;/p&gt;
+
+&lt;p&gt;with $\boldsymbol{\phi}(\textbf{x}_n)=\boldsymbol{\phi}_n$. Importantly, since $\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}_n$ is scalar, exchangeable parts exist as: $\textbf{w}^{\mathrm{T}}\boldsymbol{\phi}_n = \boldsymbol{\phi}_n^{\mathrm{T}}\textbf{w}$, and $(\boldsymbol{\phi}_n^{\mathrm{T}}\textbf{w})\cdot\boldsymbol{\phi}_n = \boldsymbol{\phi}_n \cdot (\boldsymbol{\phi}_n^{\mathrm{T}}\textbf{w}) = (\boldsymbol{\phi}_n\boldsymbol{\phi}_n^{\mathrm{T}})\cdot\textbf{w}$.&lt;/p&gt;
+
+&lt;p&gt;Next, we solve the equation for $\textbf{w}$ as:&lt;/p&gt;
+
+&lt;p&gt;$$
+\begin{array}{rcl}
+-2 \sum&lt;em&gt;{n=1}^{N} t_n\boldsymbol{\phi}_n +2 \left(\sum&lt;/em&gt;{n=1}^{N}\boldsymbol{\phi}&lt;em&gt;n \boldsymbol{\phi}_n^{\mathrm{T}}\right)\textbf{w} &amp;amp;=&amp;amp; 0 \\
+\left(\sum&lt;/em&gt;{n=1}^{N}\boldsymbol{\phi}&lt;em&gt;n \boldsymbol{\phi}_n^{\mathrm{T}}\right)\textbf{w} &amp;amp;=&amp;amp; \sum&lt;/em&gt;{n=1}^{N} t&lt;em&gt;n\boldsymbol{\phi}_n \\
+\textbf{w} &amp;amp;=&amp;amp; \left(\sum&lt;/em&gt;{n=1}^{N}\boldsymbol{\phi}&lt;em&gt;n \boldsymbol{\phi}_n^{\mathrm{T}}\right)^{-1}\sum&lt;/em&gt;{n=1}^{N} t_n\boldsymbol{\phi}_n.
+\end{array}
+$$&lt;/p&gt;
+
+&lt;p&gt;Additionally, the PRML introduces &lt;strong&gt;design matrix&lt;/strong&gt; by:&lt;/p&gt;
+
+&lt;p&gt;$$
+\boldsymbol{\Phi} = \left(
+    \begin{array}{cccc}
+      \phi&lt;em&gt;0(\textbf{x}_1) &amp;amp; \phi_1(\textbf{x}_1) &amp;amp; \ldots &amp;amp; \phi&lt;/em&gt;{M-1}(\textbf{x}&lt;em&gt;1) \\
+      \phi_0(\textbf{x}_2) &amp;amp; \phi_1(\textbf{x}_2) &amp;amp; \ldots &amp;amp; \phi&lt;/em&gt;{M-1}(\textbf{x}&lt;em&gt;2) \\
+      \vdots &amp;amp; \vdots &amp;amp; \ddots &amp;amp; \vdots \\
+      \phi_0(\textbf{x}_N) &amp;amp; \phi_1(\textbf{x}_N) &amp;amp; \ldots &amp;amp; \phi&lt;/em&gt;{M-1}(\textbf{x}_N)
+     \end{array}
+  \right)
+$$&lt;/p&gt;
+
+&lt;p&gt;for $M$, dimensions of input vector. It can be simply written as
+$\boldsymbol{\Phi} = \left[
+\boldsymbol{\phi&lt;em&gt;1} \
+\boldsymbol{\phi_2}
+\ldots
+\boldsymbol{\phi_N}\right]$. Therefore, we can easily confirm $\sum&lt;/em&gt;{n=1}^{N}\boldsymbol{\phi}&lt;em&gt;n \boldsymbol{\phi}_n^{\mathrm{T}} = \boldsymbol{\Phi}^{\mathrm{T}}\boldsymbol{\Phi}$, and $$\sum&lt;/em&gt;{n=1}^{N} t_n\boldsymbol{\phi}_n = \boldsymbol{\Phi}^{\mathrm{T}}\textbf{t}$$.&lt;/p&gt;
+
+&lt;p&gt;Finally, we get the normal equation with the design matrix:&lt;/p&gt;
+
+&lt;p&gt;$$
+\textbf{w} = (\boldsymbol{\Phi}^{\mathrm{T}}\boldsymbol{\Phi})^{-1}\boldsymbol{\Phi}^{\mathrm{T}}\textbf{t}.
+$$&lt;/p&gt;
+
+&lt;p&gt;Now, we can find an optimal parameter for any learning data $(\textbf{x}_1, t_1), (\textbf{x}_2, t_2), \dots, (\textbf{x}_N, t_N)$ by computing the equation.&lt;/p&gt;
+
+&lt;h3 id=&#34;conclusion:f59d7dc2b5df313553d7c92bd3c834b3&#34;&gt;Conclusion&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The PRML book does not explain details of derivation process of the normal equation.&lt;/li&gt;
+&lt;li&gt;I derive the normal equation step-by-step from the definition of linear regression models.&lt;/li&gt;
+&lt;li&gt;Since vector derivation is not easy to follow, checking the result with simple examples is good idea.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hello English Entries</title>
+      <link>http://localhost:1313/note/hello-english/</link>
+      <pubDate>Sun, 09 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/hello-english/</guid>
+      <description>
+
+&lt;p&gt;Hi, I&amp;rsquo;m takuti.&lt;/p&gt;
+
+&lt;p&gt;Until now, this blog had only Japanese articles. However, from this post, &lt;strong&gt;blog.takuti.me&lt;/strong&gt; switches to an English blog. Previous Japanese articles are available here continuously, but I will not write any more Japanese posts. If you want to read my Japanese, you can see it on &lt;a href=&#34;http://takuti.hatenablog.com/&#34;&gt;my hatenablog&lt;/a&gt;, my Japanese blog on one of the most popular blog services in Japan.&lt;/p&gt;
+
+&lt;p&gt;Renewed &lt;strong&gt;blog.takuti.me&lt;/strong&gt; may cover following topics:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Several algorithms in Computer Science field (and their implenetations).&lt;/li&gt;
+&lt;li&gt;Applications developed by me.&lt;/li&gt;
+&lt;li&gt;Books and web sites which are technologically/scientifically stimulating.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Currently, you can see my implementations and specific applications on &lt;a href=&#34;https://github.com/takuti&#34;&gt;my github repositories&lt;/a&gt;. On this blog, I will explain about them more deeply.&lt;/p&gt;
+
+&lt;p&gt;Please send your comments freely! Everything is welcome. Thank you.&lt;/p&gt;
+
+&lt;h3 id=&#34;p-s-apr-18-2015:eb4bb2ad1e245408a1e50ff78875a337&#34;&gt;P.S. (Apr. 18, 2015)&lt;/h3&gt;
+
+&lt;p&gt;I said &lt;em&gt;&amp;ldquo;I will not write any more Japanese posts&amp;rdquo;&lt;/em&gt; in this entry, but I will change the opinion. I use this blog as a bilingual blog; more specifically, I will write articles both in English and Japanese.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>【実践 機械学習】レコメンデーションをシンプルに、賢く実現するための3か条</title>
+      <link>http://localhost:1313/note/practical-machine-learning/</link>
+      <pubDate>Mon, 01 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/practical-machine-learning/</guid>
+      <description>
+
+&lt;p&gt;Amazonの商品レコメンドやTwitterのオススメユーザ表示のような、アイテムを推薦してくれるシステムは便利だ。僕らユーザは新たな興味深い商品を簡単に発見できるし、システムを提供する側は場合によっては推薦そのものが効果的なマーケティングになる。&lt;/p&gt;
+
+&lt;p&gt;このような推薦システムは、機械学習を応用したアプリケーションの1つ。&lt;/p&gt;
+
+&lt;p&gt;機械学習と聞くと、それだけで複雑な数式をイメージして「無理無理、そんなのは専門家が考えてくれ」と言いたくなるかもしれない。でもこれから挙げる3か条を知れば、きっとそんな人でも推薦システムをつくることができる。ベイズの定理なんて出てこないから安心してほしい。&lt;/p&gt;
+
+&lt;h3 id=&#34;1-ユーザの評価ではなく-行動を見る:25cdf9391447727c734336a97ef76627&#34;&gt;1. ユーザの評価ではなく、行動を見る&lt;/h3&gt;
+
+&lt;p&gt;Amazonで★5つとか付けている奴も案外その基準はテキトーなもんだ。自分の好みを正確に自分で理解している人なんていない。&lt;/p&gt;
+
+&lt;p&gt;だからレコメンデーションのためにユーザの趣味・嗜好を知りたければ、行動履歴を探るのが良い。友達のブラウザの閲覧履歴を覗けば、たぶん彼の性癖の1つくらいは読み取れる。そんな感じだ。&lt;/p&gt;
+
+&lt;p&gt;大切なのは、ユーザが&lt;strong&gt;どう思ったか&lt;/strong&gt;ではなくて、&lt;strong&gt;何をしたか&lt;/strong&gt;。行動が全てを物語っている。&lt;/p&gt;
+
+&lt;h3 id=&#34;2-たくさんの行動履歴から傾向を見つけ出す:25cdf9391447727c734336a97ef76627&#34;&gt;2. たくさんの行動履歴から傾向を見つけ出す&lt;/h3&gt;
+
+&lt;p&gt;いくら行動が全てを物語っているとはいえ、1人の行動を熱心にウォッチし続けても意味はない。そこから何となく嗜好を予想してアイテムをオススメするなんて、そりゃ友達にマンガを貸すときの話だよ。&lt;/p&gt;
+
+&lt;p&gt;インターネット上のアプリケーションでそんな推薦を行うのは賢いとは言えない。せっかく日々膨大なデータが生まれているんだから、もっとたくさんのユーザの行動履歴を手に入れて、そこから有益な傾向を見つけ出すのが良い。&lt;/p&gt;
+
+&lt;p&gt;Amazonの &lt;strong&gt;この商品を見たお客様はこれも見ています&lt;/strong&gt; みたいなアイディアがまさにそれだ。あたかもコンピュータがデータ（履歴）を学習しているかのように推薦を行うから『機械学習』というわけだ。&lt;/p&gt;
+
+&lt;p&gt;行動履歴から傾向を見つけ出すときは&lt;a href=&#34;https://mahout.apache.org/&#34;&gt;Apache Mahout&lt;/a&gt;が役に立つ。というか、こいつが全てをやってくれる。だから僕らは数式など気にせず、ただログを手に入れさえすればいい。それで十分。&lt;/p&gt;
+
+&lt;p&gt;とはいえブラックボックスのままツールを乱用するのは言語道断なので、ここはひとつ、みんな大好きなアニメを例にとって履歴から傾向を見つけ出す方法を説明しよう。&lt;/p&gt;
+
+&lt;p&gt;3人のアニメファンをイメージする。タカシと、ヒロキと、ケン。彼らがこれまでにBDを購入したアニメのタイトルはこんな感じ。&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;きんモザ&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;ごちうさ&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Free!&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;タカシ&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;ヒロキ&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;ケン&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;BDの購入は、そのアニメを好んでいるが故の行動と言える。さて、このBD購入履歴から傾向を見つけて、ヒロキに新しいアニメをオススメしてみよう。&lt;/p&gt;
+
+&lt;p&gt;まず、タカシが&lt;strong&gt;きんモザ&lt;/strong&gt;と&lt;strong&gt;ごちうさ&lt;/strong&gt;を共に買っていることから、この2つのアニメは共に好まれやすいという傾向が予想できる。そこで、&lt;strong&gt;きんモザ&lt;/strong&gt;だけを買っているヒロキには&lt;strong&gt;ごちうさ&lt;/strong&gt;をオススメしよう、という話になる。これがAmazonも使っている &lt;strong&gt;協調フィルタリング&lt;/strong&gt; という考え方の基本だ。&lt;/p&gt;
+
+&lt;p&gt;今は3人だから微妙だけど、データが多ければ多いほどこのような &lt;strong&gt;共に好まれやすい傾向&lt;/strong&gt; が推薦の根拠になる。以下のような状況では、もはやヒロキに&lt;strong&gt;ごちうさ&lt;/strong&gt;を薦めない理由は無い。&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;きんモザ&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;ごちうさ&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Free!&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;タカシ&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;ヒロキ&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;タロウ&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;ミサ&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;シュン&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;ケン&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;これが行動履歴から傾向を判断し、推薦につなげていく基本的なアイディアになる。そして &lt;strong&gt;共に好まれやすい傾向&lt;/strong&gt; をログから数値的に見つけ出してくれる機能を備えたのが、Mahoutというライブラリだ。&lt;/p&gt;
+
+&lt;h3 id=&#34;3-高速な検索技術を活用する:25cdf9391447727c734336a97ef76627&#34;&gt;3. 高速な検索技術を活用する&lt;/h3&gt;
+
+&lt;p&gt;今、&lt;strong&gt;きんモザ&lt;/strong&gt;と&lt;strong&gt;ごちうさ&lt;/strong&gt;が共に好まれやすいという傾向がわかった。それでは、ここでもし新しい登場人物・サトシが &lt;strong&gt;&amp;ldquo;きんモザ　BD&amp;rdquo;&lt;/strong&gt; というキーワードでAmazonを検索していたら、Amazonのシステムはどう対応すべきだろう？&lt;/p&gt;
+
+&lt;p&gt;答えはシンプルだ。すかさず、&lt;strong&gt;ごちうさ&lt;/strong&gt;のBDも &lt;strong&gt;こんな商品もいかがですか？&lt;/strong&gt; と表示すればいい。&lt;/p&gt;
+
+&lt;p&gt;（ここまで書いてから確かめたら案の定そうなった）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/jekyll/2014-09-01-amazon.png&#34; alt=&#34;amazon&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;これが現実的なシーンでの推薦システムの動きになる。傾向に基づいた推薦は闇雲に広告を打つよりよっぽど賢いし、効果的だ。&lt;/p&gt;
+
+&lt;p&gt;ただし、「&lt;strong&gt;きんモザ&lt;/strong&gt;で検索していたら、すかさず&lt;strong&gt;ごちうさ&lt;/strong&gt;も表示する」という推薦処理は高速に行う必要がある。複雑なデータベースから&lt;strong&gt;きんモザ&lt;/strong&gt;を見つけて、そこから更に&lt;strong&gt;ごちうさ&lt;/strong&gt;と共に好まれやすいという傾向を引っ張ってきて、&lt;strong&gt;ごちうさ&lt;/strong&gt;を見つけて・・・とやっていては遅すぎる。&lt;/p&gt;
+
+&lt;p&gt;【Now Loading&amp;hellip;】とかActivity Indicatorでも画面に出すか？いや、ありえない。その間にサトシはcookpadへ移動してお昼ごはんのことを考え始めてしまう。&lt;/p&gt;
+
+&lt;p&gt;そんなときには&lt;a href=&#34;http://lucene.apache.org/solr/&#34;&gt;Apache Solr&lt;/a&gt;を活用したい。こいつはインデックスを利用した高速な検索を実現する検索エンジンだ。これによって、&lt;strong&gt;きんモザ&lt;/strong&gt;と&lt;strong&gt;ごちうさ&lt;/strong&gt;が共に好まれやすいという傾向を予め明示的に記憶した検索システムが構築できる。すると、&lt;strong&gt;きんモザ&lt;/strong&gt;が検索された時に即座に&lt;strong&gt;ごちうさ&lt;/strong&gt;という関連ワードを引くことができて、高速に推薦ができるというわけだ。&lt;/p&gt;
+
+&lt;p&gt;　&lt;/p&gt;
+
+&lt;p&gt;そんなわけで&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ユーザの評価ではなく、行動を見る&lt;/li&gt;
+&lt;li&gt;たくさんの行動履歴から傾向を見つけ出す&lt;/li&gt;
+&lt;li&gt;高速な検索技術を活用する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;この3か条が、たとえ数式が理解できなくても、強力な推薦システムを構築・運用することができるエッセンスになる。&lt;/p&gt;
+
+&lt;p&gt;まずはユーザの行動履歴を集めて、そこからMahoutを使って傾向を見つけ出す。そして検索エンジンSolrにその傾向を反映する。（こういうデータ処理は一日一回、夜中にまとめてやるのがいい）&lt;/p&gt;
+
+&lt;p&gt;あとはシステムを走らせておけば、ユーザが検索を行う度に関連する情報が素早く引き出され、レコメンドされるという流れだ。おめでとう、それは立派な推薦システムだよ。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;さて、無料で公開されている電子書籍『実践 機械学習』の原著のほうを読みました。ここまでに書いたものは一応その要点。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.oreilly.co.jp/editors/archives/2014/08/practical-machine-learning.html&#34;&gt;O&amp;rsquo;Reilly Village／オラの村 - 電子書籍『実践 機械学習』の無料ダウンロードが可能に！&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;著者は『Mahoutイン・アクション』の著作でもお馴染みのTed DunningとEllen Friedman。Apache Mahoutプロジェクトでプロジェクトマネジメント委員やコミッタとして活躍しながら、MapR社でチーフアプリケーションアーキテクトやコンサルタントを務めている両氏が、機械学習の初学者のために書き下ろしたの一冊です。50ページほどの手軽なボリュームながら、レコメンデーションを洗練させるための重要なエッセンスが詰まっています。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;とのこと。&lt;/p&gt;
+
+&lt;p&gt;なお原著は以下から。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.mapr.com/practical-machine-learning&#34;&gt;Practical Machine Learning | MapR&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;『実践』だから回帰とかニューラルネットとか、機械学習の基礎を学んだ人のための本・・・ではない。誰でもすぐにパワフルな推薦システムが作れるよ、という意味で『実践』。&lt;/p&gt;
+
+&lt;p&gt;確かにもっと複雑で凄そうな推薦システムもたくさん提案されているけど、本当にそれが『実践』的なのかという点は重要。Amazonの推薦にも、毎回同じ商品をオススメしてきてしつこいみたいな欠点はある。でも、なんだかんだでそれなりに上手く動いてるじゃないか。それでいいんだよ、それで。&lt;/p&gt;
+
+&lt;p&gt;『実践 機械学習』では、上に書いた3か条（かなり脚色してるけど大筋は外していないはず）を説明した上で、仮想の音楽視聴サービスを題材にして実際的な推薦システムの作り方を解説している。このとき、Map Reduce云々とかPython使うとか、かなり細部の構成や手段まで言及している印象。&lt;/p&gt;
+
+&lt;p&gt;さらに最後には、レコメンデーションのクオリティを上げるためのTipsも紹介している。&lt;/p&gt;
+
+&lt;p&gt;たとえば、もっと多様な行動履歴（動画見たり、商品買ったり、音楽聞いたりetc）を考慮して嗜好を判断してみましょう、とか。&lt;/p&gt;
+
+&lt;p&gt;50ページほどなので、読んですぐに推薦システムを作るのはさすがに難しいかもしれない。でも、次に学ぶべきことの指針になるし、実際にアプリケーションを作るときに考慮すべきこともクリアになる。&lt;/p&gt;
+
+&lt;p&gt;機械学習に興味を持った人が集合知プログラミングの前に読むとちょうど良さそうな、そんな感じ。&lt;/p&gt;
+
+&lt;div class=&#34;booklink-box&#34; style=&#34;text-align:left;padding-bottom:20px;font-size:small;/zoom: 1;overflow: hidden;&#34;&gt;&lt;div class=&#34;booklink-image&#34; style=&#34;float:left;margin:0 15px 10px 0;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/asin/4873113644/takuti-22/&#34; name=&#34;booklink&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51FgSThMzVL._SL160_.jpg&#34; style=&#34;border: none;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklink-info&#34; style=&#34;line-height:120%;/zoom: 1;overflow: hidden;&#34;&gt;&lt;div class=&#34;booklink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/asin/4873113644/takuti-22/&#34; rel=&#34;nofollow&#34; name=&#34;booklink&#34; target=&#34;_blank&#34;&gt;集合知プログラミング&lt;/a&gt;&lt;div class=&#34;booklink-powered-date&#34; style=&#34;font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted with &lt;a href=&#34;http://yomereba.com&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34;&gt;ヨメレバ&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklink-detail&#34; style=&#34;margin-bottom:5px;&#34;&gt;Toby Segaran オライリージャパン 2008-07-25    &lt;/div&gt;&lt;div class=&#34;booklink-link2&#34; style=&#34;margin-top:10px;&#34;&gt;&lt;div class=&#34;shoplinkamazon&#34; style=&#34;display:inline;margin-right:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/asin/4873113644/takuti-22/&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34; title=&#34;アマゾン&#34; &gt;Amazon&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;shoplinkkindle&#34; style=&#34;display:inline;margin-right:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/search?keywords=%8FW%8D%87%92m%83v%83%8D%83O%83%89%83~%83%93%83O&amp;__mk_ja_JP=%83J%83%5E%83J%83i&amp;url=node%3D2275256051&amp;tag=takuti-22&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34; &gt;Kindle&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;shoplinkrakuten&#34; style=&#34;display:inline;margin-right:5px&#34;&gt;&lt;a href=&#34;http://hb.afl.rakuten.co.jp/hgc/10952997.eae88ca3.10952998.38cdd415/?pc=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F5805670%2F%3Fscid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2Fev%2Fbook%2F&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34; title=&#34;楽天ブックス&#34; &gt;楽天ブックス&lt;/a&gt;&lt;/div&gt;                                &lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklink-footer&#34; style=&#34;clear: left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;無料にしてはなかなか濃い内容だっと思う。あと、原著で読むと読解力が足りなくて自然と細部が削ぎ落とされるので、内容を整理しやすいですね。（決して良いことではない）&lt;/p&gt;
+
+&lt;p&gt;※3か条の話は原著を一読しただけの理解で書いたので、間違いがあるかもしれません。特にMahoutやSolrは使ったことがないので、何かあればご指摘下さい。&lt;/p&gt;
+
+&lt;p&gt;僕もせっかく読んだので何か実際に推薦システム作ってみなきゃですね。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>はてなスター置いた</title>
+      <link>http://localhost:1313/note/hatena-star/</link>
+      <pubDate>Fri, 29 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/hatena-star/</guid>
+      <description>
+
+&lt;p&gt;はてなブログに帰ろうかという衝動に駆られたので、はてなスターの設置で気を紛らす事にした。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://d.hatena.ne.jp/hatenastar/20070707&#34;&gt;はてなスターをブログに設置するには - はてなスター日記&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;簡単だった。&lt;/p&gt;
+
+&lt;p&gt;ついでに&lt;a href=&#34;http://d.hatena.ne.jp/keyword/%BC%AB%CD%B3%A4%CB%BB%C8%A4%A8%A4%EB%A4%CF%A4%C6%A4%CA%A5%B9%A5%BF%A1%BC%C1%C7%BA%E0&#34;&gt;自由に使えるはてなスター素材&lt;/a&gt;から可愛いサンタさんを手に入れた。クリスマス近いからね。&lt;/p&gt;
+
+&lt;p&gt;積極的に押していこうと思う。&lt;/p&gt;
+
+&lt;div class=&#34;kaerebalink-box&#34; style=&#34;text-align:left;padding-bottom:20px;font-size:small;/zoom: 1;overflow: hidden;&#34;&gt;&lt;div class=&#34;kaerebalink-image&#34; style=&#34;float:left;margin:0 15px 10px 0;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B000BDH2FM/takuti-22/ref=nosim/&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/41Cm0jbnD%2BL._SL160_.jpg&#34; style=&#34;border: none;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;kaerebalink-info&#34; style=&#34;line-height:120%;/zoom: 1;overflow: hidden;&#34;&gt;&lt;div class=&#34;kaerebalink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B000BDH2FM/takuti-22/ref=nosim/&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34;&gt;POP STAR&lt;/a&gt;&lt;div class=&#34;kaerebalink-powered-date&#34; style=&#34;font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted with &lt;a href=&#34;http://kaereba.com&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34;&gt;カエレバ&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;kaerebalink-detail&#34; style=&#34;margin-bottom:5px;&#34;&gt;平井堅 DefSTAR RECORDS 2005-10-26    &lt;/div&gt;&lt;div class=&#34;kaerebalink-link1&#34; style=&#34;margin-top:10px;&#34;&gt;&lt;div class=&#34;shoplinkamazon&#34; style=&#34;display:inline;margin-right:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/search?keywords=%95%BD%88%E4%8C%98%20popstar&amp;__mk_ja_JP=%83J%83%5E%83J%83i&amp;tag=takuti-22&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34; title=&#34;アマゾン&#34; &gt;Amazon&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklink-footer&#34; style=&#34;clear: left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;2014-11-09-追記:86de4eb768d1e34025e72dedb3caea6c&#34;&gt;2014.11.09 追記&lt;/h3&gt;
+
+&lt;p&gt;満足したので消しました。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>思い出のマーニー</title>
+      <link>http://localhost:1313/note/marnie/</link>
+      <pubDate>Fri, 08 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/marnie/</guid>
+      <description>&lt;p&gt;ソロで観てきた。平日だったので両隣の人もソロプレイヤーだった。&lt;/p&gt;
+
+&lt;p&gt;杏奈（主人公）が反則的にかわいいし、マーニーとの絡みを見ている僕は終始ニヤけっぱなしだったし最高だった。完&lt;/p&gt;
+
+&lt;p&gt;・・・真面目に言うと、そりゃもう感動しましたよ。ええ。&lt;/p&gt;
+
+&lt;p&gt;いやね、途中までの展開は引いちゃうくらい単純なんですよ。ここは夢オチだなーと思えば本当に夢オチだし、あーここ絶対転ぶわと思えば本当に転ぶし、とにかく分かりやすい。登場人物も全体的にパッとしないし、こっちが疑問を抱くよりも前に話がスルスルと進んでいく。&lt;/p&gt;
+
+&lt;p&gt;それでも、終盤は鳥肌が止まらないんだよ。うるっと来ちゃうんだよ。杏奈が一言しゃべる度に鳥肌だよ、これでもかというくらい。&lt;/p&gt;
+
+&lt;p&gt;とっても綺麗なお話でありました。綺麗すぎるが故に、「もう1回観たい！」とは思わない。それがまた良い。（ヘアピンを付けた杏奈をもう一度観たいという気持ちはある）&lt;/p&gt;
+
+&lt;p&gt;というわけで、映画・思い出のマーニー、ニヤニヤうるうるでしたよ。ただ、今更ながら『思い出のマーニー』という邦題はどうなんだろう。原題の『When Marnie Was There』がハマりすぎていて、邦題がどうもしっくりこない。&lt;/p&gt;
+
+&lt;p&gt;あと、この作品はソロで観るのも結構良い感じですね。少なくとも男友達と見に行くよりは平和だと思う。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>twitterとfacebookやめたら人生楽しかったよって話の続き</title>
+      <link>http://localhost:1313/note/twitter-facebook-stop-cont/</link>
+      <pubDate>Wed, 23 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/twitter-facebook-stop-cont/</guid>
+      <description>
+
+&lt;p&gt;久しぶりにGoogle Analyticsを確認したら、検索ワードがなかなかアツかった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;twitter やめる&lt;/li&gt;
+&lt;li&gt;ツイッター やめる&lt;/li&gt;
+&lt;li&gt;twitter やめたい&lt;/li&gt;
+&lt;li&gt;facebook やめたら&lt;/li&gt;
+&lt;li&gt;twitter やめ方&lt;/li&gt;
+&lt;li&gt;ツイッター　やめる&lt;/li&gt;
+&lt;li&gt;facebook やめた&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;やめればいいじゃねぇか:4f90ad2b73a4605fcabf394b654aa869&#34;&gt;やめればいいじゃねぇか！！&lt;/h1&gt;
+
+&lt;p&gt;え？やめようと思ってやめられれば苦労しない？知らんが。それならその程度だったと割りきって、今までどおり使い続ければいい。Twitterに電車内で聞いたJKの会話でも投稿して、Facebookに最近の充実した毎日もしくは不満について軽くポエム書いときゃOKだ。別に酒やタバコと違って健康に直結するわけでも無いんだから、やめられなくても気楽に行こうぜ。&lt;/p&gt;
+
+&lt;p&gt;最近の僕→&lt;a href=&#34;http://blog.takuti.me/2014/07/20140713/&#34;&gt;インターネットが怖い&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>他を否定することの意味</title>
+      <link>http://localhost:1313/note/20140717/</link>
+      <pubDate>Thu, 17 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/20140717/</guid>
+      <description>&lt;p&gt;ふと、小学生のころ母親に便乗して習っていた生け花のことを思い出した。僕はその流派の一番下の伝位を持っているのだけど、その授与式で偉い人がこう言った。&lt;/p&gt;
+
+&lt;p&gt;「最近巷では假屋崎省吾さんのような邪道な生け花が横行しておりますが」（以下略）&lt;/p&gt;
+
+&lt;p&gt;小学生の僕は「なんかディスってるｗウケるｗ」という気持ちが強かったが、それでも何か胸の奥で引っかかるものを感じた記憶がある。&lt;/p&gt;
+
+&lt;p&gt;これは宗教でもよく見られる話だと思う。同じ日本の仏教の宗派でも、「自分の宗派が他とはこんな点で異なっておりベストだ」というような物言いのところと、「あなたがどの宗派であれ、この点はぜひ大切にしていただきたい」という一歩引いた姿勢のところ、両方を僕は見たことがある。（どちらもきちんと歴史の教科書に載っているところです）&lt;/p&gt;
+
+&lt;p&gt;まぁいずれも、単にその道の教えだけではなく、発言者の人柄も表れているとは思うが。&lt;/p&gt;
+
+&lt;p&gt;しかしこの『他を否定する』ということ、かなり無意味なことだと思う。自分たちの流派や宗派が最強だと思うのなら、その誇りを胸に、今後も粛々と磨き上げていけばいいじゃないか。なぜわざわざ他を引き合いに出して、否定する必要があるのか。それは価値観の押し付けではなかろうか。&lt;/p&gt;
+
+&lt;p&gt;ここ数年、ホットな人や偉い人の講演を聞く機会が多々あった。その中でどれだけステキな価値観を押し付けられてきたか、もはや分からない。「〜すべきだ」調で語られ、反対の人はさようならとでも言わんばかりの自慢話に興味はない。「そういう選択肢もある」ということを伝えてくれれば十分なのに。&lt;/p&gt;
+
+&lt;p&gt;「君だってこの記事の中で、例に挙げた宗派や偉い人たちを『否定』しているじゃないか」といわれると少し困ってしまう程度には浅い考えだし、そんな綺麗事で世の中が成り立つわけでもない。でも、『強い否定』と『弱い否定』ならば、後者を意識的に選択できる人間になりたい。&lt;/p&gt;
+
+&lt;p&gt;自分の世界の中心は自分自身であると同時に、目の前にいるあの人は、あの人自身が中心の世界に生きている。このことを忘れちゃいけないと思う。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>TOEFL iBT（2回目）＠田町テストセンター</title>
+      <link>http://localhost:1313/note/toefl-20140715/</link>
+      <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/toefl-20140715/</guid>
+      <description>
+
+&lt;p&gt;2度目のTOEFLである。スコアが8日間で出るという謎の早さ。&lt;/p&gt;
+
+&lt;h3 id=&#34;田町テストセンター:7488e60795cfcaddfcc70eb9230f4a8d&#34;&gt;＠田町テストセンター&lt;/h3&gt;
+
+&lt;p&gt;よかった。超良かった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;JR田町駅からはいくらか歩く＆ビルが分かりづらくて通り過ぎた&lt;/li&gt;
+&lt;li&gt;ロッカーあり&lt;/li&gt;
+&lt;li&gt;イヤーマフあり&lt;/li&gt;
+&lt;li&gt;トイレ1つ&lt;/li&gt;
+&lt;li&gt;左右前にしっかりとした仕切りがある&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;とっても集中できる。イヤーマフが神すぎた。なんだこれ、こんな便利なものが世の中にあったのか。&lt;a href=&#34;http://blog.takuti.me/2014/05/toefl/&#34;&gt;前回の早稲田大&lt;/a&gt;と比べ物にならない。&lt;/p&gt;
+
+&lt;h3 id=&#34;reading:7488e60795cfcaddfcc70eb9230f4a8d&#34;&gt;Reading&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;やはり時間切れで3パッセージ目の途中で終了&lt;/li&gt;
+&lt;li&gt;前回よりも自信を持って答えられたものが多かった&lt;/li&gt;
+&lt;li&gt;単語がいくらか簡単だった印象&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;結果：前回+3点&lt;/p&gt;
+
+&lt;h3 id=&#34;listening:7488e60795cfcaddfcc70eb9230f4a8d&#34;&gt;Listening&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ダミー問題はこっち&lt;/li&gt;
+&lt;li&gt;メモを本当に重要なとき以外取らない作戦&lt;/li&gt;
+&lt;li&gt;こちらも前回より自信を持って答えられたものが多かった&lt;/li&gt;
+&lt;li&gt;分からない問題はどれだけ考えても分からない作戦で時間内に全て回答できた&lt;/li&gt;
+&lt;li&gt;集中力が持たない&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;結果：前回+3点&lt;/p&gt;
+
+&lt;h3 id=&#34;休憩:7488e60795cfcaddfcc70eb9230f4a8d&#34;&gt;休憩&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;前回同様ウイダーとお茶で10秒メシ&lt;/li&gt;
+&lt;li&gt;メモ用紙交換の必要は無い&lt;/li&gt;
+&lt;li&gt;トイレの鏡に向かって「自信持って喋れ」と自己暗示&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;speaking:7488e60795cfcaddfcc70eb9230f4a8d&#34;&gt;Speaking&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Task1の問題が明らかに新傾向で、しかも超絶答えづらい質問&lt;/li&gt;
+&lt;li&gt;全ての問題でしゃべり続けることに成功&lt;/li&gt;
+&lt;li&gt;話したコンテンツのボリュームや文法・時制などの精度、あとイントネーションが課題&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;結果：前回から変わらず&lt;/p&gt;
+
+&lt;p&gt;Campus Conversationが下がって、Lectureが上がって、それでプラマイ0だった様子。うーん、前回よりもよく喋ることができた自信があったので、Conversationはなにか致命的な理解ミスを犯したのかも。&lt;/p&gt;
+
+&lt;h3 id=&#34;writing:7488e60795cfcaddfcc70eb9230f4a8d&#34;&gt;Writing&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;まだR/L力がチープなのでIntegratedが難しい&lt;/li&gt;
+&lt;li&gt;Independentは「Gymで仲間と野球やったぜ！」というヤバイ回答をしたがGood(4.0-5.0)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;結果：前回+1点&lt;/p&gt;
+
+&lt;p&gt;合計点は思っていたよりも低かったけど、きちんと上がっているので努力相応の結果かなぁと割りきって次へいきたい。R/Lは相対評価が入るため、簡単だったと思うときほど点数は伸びないらしい。&lt;/p&gt;
+
+&lt;p&gt;田町テストセンターの環境で文句無しだったけど、テンプル大学3階はこれ以上に快適だと言うんだから凄い。実は10月にテンプル大学3階会場が確保できたので、楽しみである。なお、9月にも受験する予定だが、横浜駅きた東口テストセンターという新しいところで未知。帰りに中華街いこう。&lt;/p&gt;
+
+&lt;p&gt;8月は受験するとすればお盆なのだが・・・ここは少し悩んでいる。悩んでいる間にも数少ない会場がどんどん埋まっていて、更に悩む。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>インターネットが怖い</title>
+      <link>http://localhost:1313/note/20140713/</link>
+      <pubDate>Sun, 13 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/20140713/</guid>
+      <description>&lt;p&gt;先を考えるために、少し過去を振り返ります。&lt;/p&gt;
+
+&lt;p&gt;---&lt;/p&gt;
+
+&lt;p&gt;小学生のころ、僕は学校のコンピュータで休み時間の度に数人の友達とおもしろフラッシュを見ていた。僕を含め、「父親の影響で小さい頃からプログラミング」みたいなスゴい人は周りにいなかったから、コンピュータはゲームボーイやテレビと大差ない『箱』だったし、おもしろフラッシュは『動く絵』だった。おもしろフラッシュをみんなで見る時間は大好きだったが、放課後は公園で遊ぶ方が楽しかったので、残念ながら技術への好奇心など持ち合わせていなかった。&lt;/p&gt;
+
+&lt;p&gt;中学生になり、コンピュータ部のようなものに入った。本当は卓球部に入りたかったのだが、そんな部はうちの中学には存在しなかった。この頃一番極めたのはタイピングだ。あの頃の速度にはもはや追いつけない。その次はワードやエクセルというものを覚えて、『箱』が思っていた以上に便利なものだと気づいた。&lt;/p&gt;
+
+&lt;p&gt;そしてついにはホームページビルダーとYahoo!ジオシティーズを駆使して初めてのWebページ・たくちのページを開設し、ついでにteacupで掲示板とチャットをレンタルして友達に紹介した。放課後、部活が終わって家に帰って晩ごはんをたべる。その後、チャットでもう一度みんなと集まって話ができる。これは最高に刺激的で楽しかった。だって、メールは一対一だし、送る理由が必要だ。そもそも携帯電話を持っている友達自体少なかったし。この頃はまだ『箱』はただの便利なものにすぎなかった。&lt;/p&gt;
+
+&lt;p&gt;しかし中学2年生のとき、世界が変わった。ブログ、オンラインゲーム、ニコニコ動画。僕が感じていた『箱』の可能性をはるかに凌駕する3つのコンテンツに出会ってしまった。そっちに気を取られたおかげで中二病らしい中二病を発症した記憶が無い。&lt;/p&gt;
+
+&lt;p&gt;当時ゲーセンの某ゲームにハマっていたこともあり、それに関連した内容＋日常を書くブログをYahoo!ブログで開設した。「先輩に勧められて最近プレイしている」という友達から勧められたMMORPGを始めた（ROじゃないです）。久しぶりにおもしろフラッシュサイトを物色していたら、コメントが書き込めてそれが動画の上に流れるというコンテンツを見つけた。&lt;/p&gt;
+
+&lt;p&gt;ブログでは多くの同じゲームのプレイヤーの人たちと交流した。記事やコメントで敬語を使うか、タメ口でいいか、悩んだものだ。オンラインゲームは友達に勧められたものだが、ギルドは自分で決めた。本当に良い人たちばかりで、今でもギルドのteacup掲示板にはたまに書き込みがある。ニコニコ動画はよく分からないが衝撃だった。まず動画が抜群に面白いし、その楽しい時間を見ず知らずの人と共有していると思うだけでワクワクした。&lt;/p&gt;
+
+&lt;p&gt;中学でもいわゆるコンピュータオタク的な人は周囲におらず、僕の中で『箱』は『箱』のままだったが、その奥行が想像もできないほど深いということは理解した。&lt;/p&gt;
+
+&lt;p&gt;（ちなみに、ブログ、オンラインゲーム、ニコニコ動画のおかげで、「県内の高校・高専ならどこでも問題ないでしょう」と担任にいわれていた僕の成績は急降下した。）&lt;/p&gt;
+
+&lt;p&gt;そんな中学時代を過ごした僕が入った（入ることができた）高校は工業高校だ。後悔は無駄なのでネガティブなことを書き連ねる気はないが、3年間の高校時代を振り返って言えることは「微妙だった」ということだ。ビールを飲んだらぬるかった、そんな感じ。&lt;/p&gt;
+
+&lt;p&gt;しかし仮にも専門高校だ。得たものはまぁまぁ大きかった。&lt;/p&gt;
+
+&lt;p&gt;今まで考えたこともなかった『箱』の中身や、その奥に広がるインターネットと呼ばれる世界とその仕組み、おもしろフラッシュ・ブログ・オンラインゲーム・ニコニコ動画のような今まで触れてきたモノの実態。全てが新鮮で、僕はますますその世界に惹かれた。が、技術的な視点で惹かれたわけではない。アプリケーションの可能性という点で、である。&lt;/p&gt;
+
+&lt;p&gt;反省する様子もなく、中学時代以上にいろいろなオンラインゲームで遊んだ。ボイスチャットは最初は随分緊張したものだ。いや、今でも結構緊張する。&lt;/p&gt;
+
+&lt;p&gt;高校2年生のころ、徐々にその中身が見えてきた『箱』の中で新しいものに出会う。Twitterだ。当時は第2次Twitterブームが到来する前で、フォロワーにリアルの友達はいなかった。&lt;/p&gt;
+
+&lt;p&gt;高校時代のTwitterはかなり思い出深い。今も昔もネットコミュ障みたいなところがあるので積極的にリプライを飛ばすタイプではないが、タイムラインに流れる他の人の日常を見ると、たとえ大雨の日でも楽しい気分になった。昼休みだ、あのアニメの最新話はヤバイ、こんなものを買った、ドロリッチなう。なかなか感慨深い。それに加えて、同じ目標や興味を持つ人とコミュニケーションができたことも嬉しかった。オンラインゲームやブログが備えていなかった、『場』としての雰囲気がTwitterにはあった。正直、Twitterが無ければ僕は応用情報技術者試験に合格などしていなかっただろう。インターネットとリアルが繋がるという確かな感覚があったのだ。&lt;/p&gt;
+
+&lt;p&gt;大学選択は迷わなかった。正確には、迷うことができないほど僕の視野は狭く、浅い知識と技術しか持ち合わせていなかった。&lt;/p&gt;
+
+&lt;p&gt;一応、高校から一足早く、そして今日まで大学でコンピュータサイエンスを学んできた僕ではあるが、今見る『箱』は小学生のころに見ていた以上に得体が知れない。怖い。だって、これはもはや『箱』では無いのだから。なんだろう、形容するとすれば・・・スライムだろうか。&lt;/p&gt;
+
+&lt;p&gt;街を歩く。誰かとご飯を食べる。ねぇ、右手に持っているものは何ですか？&lt;/p&gt;
+
+&lt;p&gt;Twitterを見る。Facebookを見る。僕の知らない君がいる。&lt;/p&gt;
+
+&lt;p&gt;小学生のころからずっと純粋に感動し、触れてきたインターネット上のコンテンツの数々。高校時代に感じた、インターネットとリアルが繋がる確かな感覚とワクワク。しかし同時に、いつでも現実は現実として区別できていた。だから、どっちも楽しかった。高校時代の1日あたりのツイート数はまぁまぁの量だ。&lt;/p&gt;
+
+&lt;p&gt;今はどうだろう？分からない。現実で面と向かって話をしていても、相手がどこを見ているのか、何者なのか、さっぱりだ。インターネットとリアルは『繋がる』というよりむしろ『溶け合う』状態になっている。もしかしたら、他人から見た僕自身もそうなのかもしれない。これは変な話だが、「Twitterとか最近は放置してるわ」という人や、そもそもそういうものには見向きもしない人と話すとすごく安心する。安心しすぎて何でも話してしまうので、むしろ注意が必要だが。&lt;/p&gt;
+
+&lt;p&gt;中身は読んでいないので謎だが、本屋で平積みにされていたうめけん氏の本のタイトルは、2014年上半期で最も共感した言葉である。&lt;/p&gt;
+
+&lt;div class=&#34;booklink-box&#34; style=&#34;text-align:left;padding-bottom:20px;font-size:small;/zoom: 1;overflow: hidden;&#34;&gt;&lt;div class=&#34;booklink-image&#34; style=&#34;float:left;margin:0 15px 10px 0;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/asin/4062728567/takuti-22/&#34; name=&#34;booklink&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51GC3QBHk-L._SL160_.jpg&#34; style=&#34;border: none;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklink-info&#34; style=&#34;line-height:120%;/zoom: 1;overflow: hidden;&#34;&gt;&lt;div class=&#34;booklink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/asin/4062728567/takuti-22/&#34; rel=&#34;nofollow&#34; name=&#34;booklink&#34; target=&#34;_blank&#34;&gt;ツイッターとフェイスブックそしてホリエモンの時代は終わった (講談社プラスアルファ新書)&lt;/a&gt;&lt;div class=&#34;booklink-powered-date&#34; style=&#34;font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted with &lt;a href=&#34;http://yomereba.com&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34;&gt;ヨメレバ&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklink-detail&#34; style=&#34;margin-bottom:5px;&#34;&gt;梅崎 健理 講談社 2014-06-20    &lt;/div&gt;&lt;div class=&#34;booklink-link2&#34; style=&#34;margin-top:10px;&#34;&gt;&lt;div class=&#34;shoplinkamazon&#34; style=&#34;display:inline;margin-right:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/asin/4062728567/takuti-22/&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34; title=&#34;アマゾン&#34; &gt;Amazon&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;shoplinkrakuten&#34; style=&#34;display:inline;margin-right:5px&#34;&gt;&lt;a href=&#34;http://hb.afl.rakuten.co.jp/hgc/10952997.eae88ca3.10952998.38cdd415/?pc=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F12776988%2F%3Fscid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2Fev%2Fbook%2F&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34; title=&#34;楽天ブックス&#34; &gt;楽天ブックス&lt;/a&gt;&lt;/div&gt;                                &lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklink-footer&#34; style=&#34;clear: left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;先日、一人寂しく映画館へ行き&lt;a href=&#34;http://transcendence.jp/&#34;&gt;トランセンデンス&lt;/a&gt;をみた。正確ではないが、その冒頭で字幕に映し出された台詞「インターネットによって世界は狭くなった。でも、無い方がもっと狭かった気がする。」これには衝撃を受けた。どんな英語の台詞を字幕に起こしたのか分からないが、見事だと思った。&lt;/p&gt;
+
+&lt;p&gt;インターネットは世の中を複雑にした。自由であり、なんでもできるということが実は一番難しいのだと思う。程度が違うけど、トランセンデンスでもジョニー・デップ演じるウィルはその自由さ故に（ネタバレ以下略）&lt;/p&gt;
+
+&lt;p&gt;ここ半年くらいだんだんと大きくなっている恐怖が一体なんなのか。良いことなのか、悪いことなのか。この感覚が正しいのか、間違っているのか。今の僕にはどうしても分からない。喉のすぐそこまで出かかっているような気もするのだけど。それとも、ただの懐古主義やネット疲れなのだろうか・・・いや、それはどうも腑に落ちない。&lt;/p&gt;
+
+&lt;p&gt;この気持ちを説明できるようになって、その向こうにある何かが掴めるまでもう少し、あと数年くらいはこの大きなスライムと向き合ってみたいと思う。&lt;/p&gt;
+
+&lt;p&gt;10年後には、もしかしたら地元・長野で農業でもやっているかもしれない。&lt;/p&gt;
+
+&lt;p&gt;---&lt;/p&gt;
+
+&lt;p&gt;こんなことを書いた僕自身がTwitterにうだうだと投稿を続けるのもおかしな話なので、しばらくはこのブログだけを発言の場としようと思う。いつもの記事投稿を報告するPostも今日はおあずけだ。&lt;/p&gt;
+
+&lt;p&gt;そんな閲覧者数を稼げない方法で記事を公開して意味はあるのか、と言われるかもしれないが、まぁなんというか、僕はインターネット上に何らかの形で足跡を残しておきたいだけなのだよ。&lt;del&gt;だからDisqus（コメント欄）も、日記カテゴリの記事には表示しないようにした。&lt;/del&gt;（わざわざif文で日記カテゴリだけコメント欄非表示するのが気持ち悪いのでやめました）&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>好きと嫌いのあいだにシャンプーを置く</title>
+      <link>http://localhost:1313/note/lovestory/</link>
+      <pubDate>Sat, 12 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/lovestory/</guid>
+      <description>&lt;div class=&#34;booklink-box&#34; style=&#34;text-align:left;padding-bottom:20px;font-size:small;/zoom: 1;overflow: hidden;&#34;&gt;&lt;div class=&#34;booklink-image&#34; style=&#34;float:left;margin:0 15px 10px 0;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/asin/4048914103/takuti-22/&#34; name=&#34;booklink&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51LJa-HsX9L._SL160_.jpg&#34; style=&#34;border: none;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklink-info&#34; style=&#34;line-height:120%;/zoom: 1;overflow: hidden;&#34;&gt;&lt;div class=&#34;booklink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/asin/4048914103/takuti-22/&#34; rel=&#34;nofollow&#34; name=&#34;booklink&#34; target=&#34;_blank&#34;&gt;好きと嫌いのあいだにシャンプーを置く (メディアワークス文庫)&lt;/a&gt;&lt;div class=&#34;booklink-powered-date&#34; style=&#34;font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted with &lt;a href=&#34;http://yomereba.com&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34;&gt;ヨメレバ&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklink-detail&#34; style=&#34;margin-bottom:5px;&#34;&gt;瀬那 和章 アスキーメディアワークス 2013-01-25    &lt;/div&gt;&lt;div class=&#34;booklink-link2&#34; style=&#34;margin-top:10px;&#34;&gt;&lt;div class=&#34;shoplinkamazon&#34; style=&#34;display:inline;margin-right:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/asin/4048914103/takuti-22/&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34; title=&#34;アマゾン&#34; &gt;Amazon&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;shoplinkrakuten&#34; style=&#34;display:inline;margin-right:5px&#34;&gt;&lt;a href=&#34;http://hb.afl.rakuten.co.jp/hgc/10952997.eae88ca3.10952998.38cdd415/?pc=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F12181959%2F%3Fscid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2Fev%2Fbook%2F&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34; title=&#34;楽天ブックス&#34; &gt;楽天ブックス&lt;/a&gt;&lt;/div&gt;                                &lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklink-footer&#34; style=&#34;clear: left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;こういうタイトルには弱い。少しライトな物語にすがりたいような気分も手伝って、衝動買いである。&lt;/p&gt;
+
+&lt;p&gt;恋をテーマにした物語を読んだのはいつぶりだろう、と&lt;a href=&#34;http://book.akahoshitakuya.com/u/26710&#34;&gt;読書メーター&lt;/a&gt;で読んだ本リストを確かめる。2年前に『うさぎパン』を読んでいるが、これは恋の話だったっけか・・・たぶん、きっとそうだ、うん。そうじゃなければ、その前はツルゲーネフの『はつ恋』だ。あとは『さよならピアノソナタ』、そして終盤の『文学少女シリーズ』。もちろん、ここで言う恋の物語とはリラックスして読めるストレートなものを指す。ドロドロしたり、深く重い恋愛はまた別の話だ。&lt;/p&gt;
+
+&lt;p&gt;恋のお話の魅力はその儚さにある、と滅多にそんな話を読まない者なりに考えてみる。それは心が満たされるようで、同時に大きな穴を空けられたような、そんな何とも言えない読了感を与える。にもかかわらず、その感覚は意外なほどにあっさりと消え去り、内容もすぐに記憶の片隅へと追いやられる。&lt;/p&gt;
+
+&lt;p&gt;本作『好きと嫌いのあいだにシャンプーを置く』でもその独特な読了感があった。なんだよこれ、こんな感覚だけ残して終わってしまうなんてズルいよ。でも、でもこの気持ちも明日にはきっと忘れているだろうから、今こうして読んだ後すぐにキーボードを叩いているわけです。&lt;/p&gt;
+
+&lt;p&gt;本作では三姉妹のやりとりから「言葉にする」「話す」ということの素晴らしさが伝わるが、一方で僕は誰にも話せないがゆえに、この本のページをめくることで悶々とした気持ちを誤魔化した。久しぶりに味わったこの読了感はもしかしたら恋というテーマではなく、単にこのギャップに起因しているのかもしれない。&lt;/p&gt;
+
+&lt;p&gt;いずれにせよ、素敵な1冊であったことに変わりはない。恋をして、いっぱいの悩みと愚痴を間に挟んで、いずれは結婚。本作に限った話ではないが、そんな&lt;strong&gt;よくあること&lt;/strong&gt;を魅力的に描ける人は本当に凄いと思う。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>TOEFL iBTを受けてきた＠早稲田大</title>
+      <link>http://localhost:1313/note/toefl-20140527/</link>
+      <pubDate>Tue, 27 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/toefl-20140527/</guid>
+      <description>
+
+&lt;p&gt;初めてTOEFL iBTを受けてきたのでメモ。&lt;/p&gt;
+
+&lt;h3 id=&#34;早稲田大:70f61f5d94873597643434f6eb81b7f3&#34;&gt;＠早稲田大&lt;/h3&gt;
+
+&lt;p&gt;初受験なので他会場との比較はできないが、以下のような雰囲気。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;大学の目の前にファミマ。&lt;/li&gt;
+&lt;li&gt;元気よく8時半に到着したが受付は9時からと言われ待つ。&lt;/li&gt;
+&lt;li&gt;同意書を書いて、9時から1人ずつ入室・写真撮影。でも開始はどんなに早くても9時半から。他会場では9時15分に始まったという人もいたがそんなことは無い。&lt;/li&gt;
+&lt;li&gt;隣との距離はとても近いが、仕切りが前と左右にしっかりとある。平日は早稲田大生のTOEFL用自習室として機能している部屋らしい。&lt;/li&gt;
+&lt;li&gt;初受験による不慣れさと隣の方の声が大きすぎたことを除けば、仕切りと耳栓代わりのヘッドセットのおかげて快適。&lt;/li&gt;
+&lt;li&gt;荷物は足元に。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;reading:70f61f5d94873597643434f6eb81b7f3&#34;&gt;Reading&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;3つ目のPassageの途中で時間切れ。&lt;/li&gt;
+&lt;li&gt;Vocabulary問題の紛らわしい選択肢辛い。&lt;/li&gt;
+&lt;li&gt;読み返し多発。（スラッシュリーディングの不慣れ故）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;listening:70f61f5d94873597643434f6eb81b7f3&#34;&gt;Listening&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ダミー問題はこっち。&lt;/li&gt;
+&lt;li&gt;1問目は時間の感覚が掴めずまさかの途中で時間切れ。&lt;/li&gt;
+&lt;li&gt;話しの大枠は掴めても、設問になると自信をもって回答できず。&lt;/li&gt;
+&lt;li&gt;メモ活用できず。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;休憩:70f61f5d94873597643434f6eb81b7f3&#34;&gt;休憩&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ウイダーとお茶。10秒メシ。&lt;/li&gt;
+&lt;li&gt;メモ用紙交換してもらう。&lt;/li&gt;
+&lt;li&gt;Speakingのイメトレ。周囲を気にするなと自己暗示。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;speaking:70f61f5d94873597643434f6eb81b7f3&#34;&gt;Speaking&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;自己暗示意味なし。テンパる。&lt;/li&gt;
+&lt;li&gt;隣の人声デカすぎ。要集中力。&lt;/li&gt;
+&lt;li&gt;とにかくしゃべり続けることを意識するも気が散って難しい。&lt;/li&gt;
+&lt;li&gt;Vocabularyが貧弱すぎて話が詰まる。&lt;/li&gt;
+&lt;li&gt;文法破綻。&lt;/li&gt;
+&lt;li&gt;強弱・抑揚なんて言ってる場合じゃない。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;writing:70f61f5d94873597643434f6eb81b7f3&#34;&gt;Writing&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;今回一番マシなSectionだった。&lt;/li&gt;
+&lt;li&gt;文章の構成、Word数、時間を意識して一応書ききる。&lt;/li&gt;
+&lt;li&gt;Integrated TaskはReading, Listeningが微妙な時点でお察し。&lt;/li&gt;
+&lt;li&gt;スペルや文法までは配慮しきれず。勿体無い。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;とりあえず一度受けてみないと、という気持ちだったので全体として「まぁこんなもんか」という感じ。70点取れてればいい方だろうなぁ。&lt;/p&gt;
+
+&lt;p&gt;次回は7月に田町のテストセンター。どうせ人気の御茶ノ水、茅場町、テンプル大学3階なんかは取れないので、田町が微妙だったらそれ以降は早稲田大固定でもいいかな。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ひとりじゃないっていう感覚</title>
+      <link>http://localhost:1313/note/only-is-not-lonely/</link>
+      <pubDate>Sat, 17 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/only-is-not-lonely/</guid>
+      <description>&lt;p&gt;ちょっと前にTwitterでこんなことを言った。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/takuti/status/433383335566393344&#34;&gt;https://twitter.com/takuti/status/433383335566393344&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;じゃあ、僕自身も深く関わっていて無難なリアクションでは片付かない時には？&lt;/p&gt;
+
+&lt;p&gt;具体的には家族や恋人の進路・将来のお話とか、研究や仕事、サークルなんかで誰かに役割を引き継いだりした場合。&lt;/p&gt;
+
+&lt;p&gt;そんな時は、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;本音を言う&lt;/li&gt;
+&lt;li&gt;ひとりじゃないっていう感覚を残す&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;この2つを特に意識する。&lt;/p&gt;
+
+&lt;p&gt;本音を言うってことは、些細な疑問とか不安をあまり深く考えずにぶつけてしまうということ。意見の衝突も歓迎。&lt;/p&gt;
+
+&lt;p&gt;それに加えて &lt;strong&gt;ひとりじゃないっていう感覚&lt;/strong&gt; 、これが僕的にかなり重要。&lt;/p&gt;
+
+&lt;p&gt;「がんばって」という言葉は無難でとっても使いやすい。でも、ある特殊な状況や特別な相手を考えると、この言葉はなんだか突き放すような印象。僕にはどうしても、相手がすごく遠くにいるような感じがしてしまう。&lt;/p&gt;
+
+&lt;p&gt;「がんばって」じゃなくて、「大変だねぇ」じゃなくて、「一緒にがんばろう」や「いつでも相談してね」なんだよ。&lt;/p&gt;
+
+&lt;p&gt;実際に立ちはだかる壁を乗り越えるのも、長くて面倒な道を歩いて行くのも君自身だけれども、別に孤独ではないから大丈夫。失敗しても死にゃあしないし、その時は僕と一緒にご飯でも食べに行こうよ。そんな気持ちで。&lt;/p&gt;
+
+&lt;p&gt;まぁ何より僕自身が、そう言ってもらえると心底嬉しいんです。別に形としてのサポートなんてなくたっていい。その一言でどれだけ救われることか。&lt;/p&gt;
+
+&lt;p&gt;「自分がやられて嫌なことは、他人にもやるな」理論の延長で、「自分がやられて嬉しいことは、意識的に他人にもやる」です。&lt;/p&gt;
+
+&lt;p&gt;ただ、そこに見返りを求めちゃいけない。みんながみんな、同じような状況で僕に対して「一緒にがんばろう」なんて言ってくれるわけじゃあない。&lt;/p&gt;
+
+&lt;p&gt;僕が本当にその言葉を欲している時に限って、家族以外からその言葉が出てくることってないんですよね。と、そんなことを思いながら今日も僕は精一杯の空元気で生きていくのでした。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

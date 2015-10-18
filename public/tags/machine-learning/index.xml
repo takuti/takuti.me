@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning on takuti.me</title>
+    <link>http://localhost:1313/tags/machine-learning/</link>
+    <description>Recent content in Machine Learning on takuti.me</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 01 Sep 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>【実践 機械学習】レコメンデーションをシンプルに、賢く実現するための3か条</title>
+      <link>http://localhost:1313/note/practical-machine-learning/</link>
+      <pubDate>Mon, 01 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/practical-machine-learning/</guid>
+      <description>
+
+&lt;p&gt;Amazonの商品レコメンドやTwitterのオススメユーザ表示のような、アイテムを推薦してくれるシステムは便利だ。僕らユーザは新たな興味深い商品を簡単に発見できるし、システムを提供する側は場合によっては推薦そのものが効果的なマーケティングになる。&lt;/p&gt;
+
+&lt;p&gt;このような推薦システムは、機械学習を応用したアプリケーションの1つ。&lt;/p&gt;
+
+&lt;p&gt;機械学習と聞くと、それだけで複雑な数式をイメージして「無理無理、そんなのは専門家が考えてくれ」と言いたくなるかもしれない。でもこれから挙げる3か条を知れば、きっとそんな人でも推薦システムをつくることができる。ベイズの定理なんて出てこないから安心してほしい。&lt;/p&gt;
+
+&lt;h3 id=&#34;1-ユーザの評価ではなく-行動を見る:25cdf9391447727c734336a97ef76627&#34;&gt;1. ユーザの評価ではなく、行動を見る&lt;/h3&gt;
+
+&lt;p&gt;Amazonで★5つとか付けている奴も案外その基準はテキトーなもんだ。自分の好みを正確に自分で理解している人なんていない。&lt;/p&gt;
+
+&lt;p&gt;だからレコメンデーションのためにユーザの趣味・嗜好を知りたければ、行動履歴を探るのが良い。友達のブラウザの閲覧履歴を覗けば、たぶん彼の性癖の1つくらいは読み取れる。そんな感じだ。&lt;/p&gt;
+
+&lt;p&gt;大切なのは、ユーザが&lt;strong&gt;どう思ったか&lt;/strong&gt;ではなくて、&lt;strong&gt;何をしたか&lt;/strong&gt;。行動が全てを物語っている。&lt;/p&gt;
+
+&lt;h3 id=&#34;2-たくさんの行動履歴から傾向を見つけ出す:25cdf9391447727c734336a97ef76627&#34;&gt;2. たくさんの行動履歴から傾向を見つけ出す&lt;/h3&gt;
+
+&lt;p&gt;いくら行動が全てを物語っているとはいえ、1人の行動を熱心にウォッチし続けても意味はない。そこから何となく嗜好を予想してアイテムをオススメするなんて、そりゃ友達にマンガを貸すときの話だよ。&lt;/p&gt;
+
+&lt;p&gt;インターネット上のアプリケーションでそんな推薦を行うのは賢いとは言えない。せっかく日々膨大なデータが生まれているんだから、もっとたくさんのユーザの行動履歴を手に入れて、そこから有益な傾向を見つけ出すのが良い。&lt;/p&gt;
+
+&lt;p&gt;Amazonの &lt;strong&gt;この商品を見たお客様はこれも見ています&lt;/strong&gt; みたいなアイディアがまさにそれだ。あたかもコンピュータがデータ（履歴）を学習しているかのように推薦を行うから『機械学習』というわけだ。&lt;/p&gt;
+
+&lt;p&gt;行動履歴から傾向を見つけ出すときは&lt;a href=&#34;https://mahout.apache.org/&#34;&gt;Apache Mahout&lt;/a&gt;が役に立つ。というか、こいつが全てをやってくれる。だから僕らは数式など気にせず、ただログを手に入れさえすればいい。それで十分。&lt;/p&gt;
+
+&lt;p&gt;とはいえブラックボックスのままツールを乱用するのは言語道断なので、ここはひとつ、みんな大好きなアニメを例にとって履歴から傾向を見つけ出す方法を説明しよう。&lt;/p&gt;
+
+&lt;p&gt;3人のアニメファンをイメージする。タカシと、ヒロキと、ケン。彼らがこれまでにBDを購入したアニメのタイトルはこんな感じ。&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;きんモザ&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;ごちうさ&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Free!&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;タカシ&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;ヒロキ&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;ケン&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;BDの購入は、そのアニメを好んでいるが故の行動と言える。さて、このBD購入履歴から傾向を見つけて、ヒロキに新しいアニメをオススメしてみよう。&lt;/p&gt;
+
+&lt;p&gt;まず、タカシが&lt;strong&gt;きんモザ&lt;/strong&gt;と&lt;strong&gt;ごちうさ&lt;/strong&gt;を共に買っていることから、この2つのアニメは共に好まれやすいという傾向が予想できる。そこで、&lt;strong&gt;きんモザ&lt;/strong&gt;だけを買っているヒロキには&lt;strong&gt;ごちうさ&lt;/strong&gt;をオススメしよう、という話になる。これがAmazonも使っている &lt;strong&gt;協調フィルタリング&lt;/strong&gt; という考え方の基本だ。&lt;/p&gt;
+
+&lt;p&gt;今は3人だから微妙だけど、データが多ければ多いほどこのような &lt;strong&gt;共に好まれやすい傾向&lt;/strong&gt; が推薦の根拠になる。以下のような状況では、もはやヒロキに&lt;strong&gt;ごちうさ&lt;/strong&gt;を薦めない理由は無い。&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;きんモザ&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;ごちうさ&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Free!&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;タカシ&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;ヒロキ&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;タロウ&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;ミサ&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;シュン&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;ケン&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;◯&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;これが行動履歴から傾向を判断し、推薦につなげていく基本的なアイディアになる。そして &lt;strong&gt;共に好まれやすい傾向&lt;/strong&gt; をログから数値的に見つけ出してくれる機能を備えたのが、Mahoutというライブラリだ。&lt;/p&gt;
+
+&lt;h3 id=&#34;3-高速な検索技術を活用する:25cdf9391447727c734336a97ef76627&#34;&gt;3. 高速な検索技術を活用する&lt;/h3&gt;
+
+&lt;p&gt;今、&lt;strong&gt;きんモザ&lt;/strong&gt;と&lt;strong&gt;ごちうさ&lt;/strong&gt;が共に好まれやすいという傾向がわかった。それでは、ここでもし新しい登場人物・サトシが &lt;strong&gt;&amp;ldquo;きんモザ　BD&amp;rdquo;&lt;/strong&gt; というキーワードでAmazonを検索していたら、Amazonのシステムはどう対応すべきだろう？&lt;/p&gt;
+
+&lt;p&gt;答えはシンプルだ。すかさず、&lt;strong&gt;ごちうさ&lt;/strong&gt;のBDも &lt;strong&gt;こんな商品もいかがですか？&lt;/strong&gt; と表示すればいい。&lt;/p&gt;
+
+&lt;p&gt;（ここまで書いてから確かめたら案の定そうなった）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/jekyll/2014-09-01-amazon.png&#34; alt=&#34;amazon&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;これが現実的なシーンでの推薦システムの動きになる。傾向に基づいた推薦は闇雲に広告を打つよりよっぽど賢いし、効果的だ。&lt;/p&gt;
+
+&lt;p&gt;ただし、「&lt;strong&gt;きんモザ&lt;/strong&gt;で検索していたら、すかさず&lt;strong&gt;ごちうさ&lt;/strong&gt;も表示する」という推薦処理は高速に行う必要がある。複雑なデータベースから&lt;strong&gt;きんモザ&lt;/strong&gt;を見つけて、そこから更に&lt;strong&gt;ごちうさ&lt;/strong&gt;と共に好まれやすいという傾向を引っ張ってきて、&lt;strong&gt;ごちうさ&lt;/strong&gt;を見つけて・・・とやっていては遅すぎる。&lt;/p&gt;
+
+&lt;p&gt;【Now Loading&amp;hellip;】とかActivity Indicatorでも画面に出すか？いや、ありえない。その間にサトシはcookpadへ移動してお昼ごはんのことを考え始めてしまう。&lt;/p&gt;
+
+&lt;p&gt;そんなときには&lt;a href=&#34;http://lucene.apache.org/solr/&#34;&gt;Apache Solr&lt;/a&gt;を活用したい。こいつはインデックスを利用した高速な検索を実現する検索エンジンだ。これによって、&lt;strong&gt;きんモザ&lt;/strong&gt;と&lt;strong&gt;ごちうさ&lt;/strong&gt;が共に好まれやすいという傾向を予め明示的に記憶した検索システムが構築できる。すると、&lt;strong&gt;きんモザ&lt;/strong&gt;が検索された時に即座に&lt;strong&gt;ごちうさ&lt;/strong&gt;という関連ワードを引くことができて、高速に推薦ができるというわけだ。&lt;/p&gt;
+
+&lt;p&gt;　&lt;/p&gt;
+
+&lt;p&gt;そんなわけで&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ユーザの評価ではなく、行動を見る&lt;/li&gt;
+&lt;li&gt;たくさんの行動履歴から傾向を見つけ出す&lt;/li&gt;
+&lt;li&gt;高速な検索技術を活用する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;この3か条が、たとえ数式が理解できなくても、強力な推薦システムを構築・運用することができるエッセンスになる。&lt;/p&gt;
+
+&lt;p&gt;まずはユーザの行動履歴を集めて、そこからMahoutを使って傾向を見つけ出す。そして検索エンジンSolrにその傾向を反映する。（こういうデータ処理は一日一回、夜中にまとめてやるのがいい）&lt;/p&gt;
+
+&lt;p&gt;あとはシステムを走らせておけば、ユーザが検索を行う度に関連する情報が素早く引き出され、レコメンドされるという流れだ。おめでとう、それは立派な推薦システムだよ。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;さて、無料で公開されている電子書籍『実践 機械学習』の原著のほうを読みました。ここまでに書いたものは一応その要点。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.oreilly.co.jp/editors/archives/2014/08/practical-machine-learning.html&#34;&gt;O&amp;rsquo;Reilly Village／オラの村 - 電子書籍『実践 機械学習』の無料ダウンロードが可能に！&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;著者は『Mahoutイン・アクション』の著作でもお馴染みのTed DunningとEllen Friedman。Apache Mahoutプロジェクトでプロジェクトマネジメント委員やコミッタとして活躍しながら、MapR社でチーフアプリケーションアーキテクトやコンサルタントを務めている両氏が、機械学習の初学者のために書き下ろしたの一冊です。50ページほどの手軽なボリュームながら、レコメンデーションを洗練させるための重要なエッセンスが詰まっています。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;とのこと。&lt;/p&gt;
+
+&lt;p&gt;なお原著は以下から。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.mapr.com/practical-machine-learning&#34;&gt;Practical Machine Learning | MapR&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;『実践』だから回帰とかニューラルネットとか、機械学習の基礎を学んだ人のための本・・・ではない。誰でもすぐにパワフルな推薦システムが作れるよ、という意味で『実践』。&lt;/p&gt;
+
+&lt;p&gt;確かにもっと複雑で凄そうな推薦システムもたくさん提案されているけど、本当にそれが『実践』的なのかという点は重要。Amazonの推薦にも、毎回同じ商品をオススメしてきてしつこいみたいな欠点はある。でも、なんだかんだでそれなりに上手く動いてるじゃないか。それでいいんだよ、それで。&lt;/p&gt;
+
+&lt;p&gt;『実践 機械学習』では、上に書いた3か条（かなり脚色してるけど大筋は外していないはず）を説明した上で、仮想の音楽視聴サービスを題材にして実際的な推薦システムの作り方を解説している。このとき、Map Reduce云々とかPython使うとか、かなり細部の構成や手段まで言及している印象。&lt;/p&gt;
+
+&lt;p&gt;さらに最後には、レコメンデーションのクオリティを上げるためのTipsも紹介している。&lt;/p&gt;
+
+&lt;p&gt;たとえば、もっと多様な行動履歴（動画見たり、商品買ったり、音楽聞いたりetc）を考慮して嗜好を判断してみましょう、とか。&lt;/p&gt;
+
+&lt;p&gt;50ページほどなので、読んですぐに推薦システムを作るのはさすがに難しいかもしれない。でも、次に学ぶべきことの指針になるし、実際にアプリケーションを作るときに考慮すべきこともクリアになる。&lt;/p&gt;
+
+&lt;p&gt;機械学習に興味を持った人が集合知プログラミングの前に読むとちょうど良さそうな、そんな感じ。&lt;/p&gt;
+
+&lt;div class=&#34;booklink-box&#34; style=&#34;text-align:left;padding-bottom:20px;font-size:small;/zoom: 1;overflow: hidden;&#34;&gt;&lt;div class=&#34;booklink-image&#34; style=&#34;float:left;margin:0 15px 10px 0;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/asin/4873113644/takuti-22/&#34; name=&#34;booklink&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51FgSThMzVL._SL160_.jpg&#34; style=&#34;border: none;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;booklink-info&#34; style=&#34;line-height:120%;/zoom: 1;overflow: hidden;&#34;&gt;&lt;div class=&#34;booklink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/asin/4873113644/takuti-22/&#34; rel=&#34;nofollow&#34; name=&#34;booklink&#34; target=&#34;_blank&#34;&gt;集合知プログラミング&lt;/a&gt;&lt;div class=&#34;booklink-powered-date&#34; style=&#34;font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted with &lt;a href=&#34;http://yomereba.com&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34;&gt;ヨメレバ&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklink-detail&#34; style=&#34;margin-bottom:5px;&#34;&gt;Toby Segaran オライリージャパン 2008-07-25    &lt;/div&gt;&lt;div class=&#34;booklink-link2&#34; style=&#34;margin-top:10px;&#34;&gt;&lt;div class=&#34;shoplinkamazon&#34; style=&#34;display:inline;margin-right:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/asin/4873113644/takuti-22/&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34; title=&#34;アマゾン&#34; &gt;Amazon&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;shoplinkkindle&#34; style=&#34;display:inline;margin-right:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/search?keywords=%8FW%8D%87%92m%83v%83%8D%83O%83%89%83~%83%93%83O&amp;__mk_ja_JP=%83J%83%5E%83J%83i&amp;url=node%3D2275256051&amp;tag=takuti-22&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34; &gt;Kindle&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;shoplinkrakuten&#34; style=&#34;display:inline;margin-right:5px&#34;&gt;&lt;a href=&#34;http://hb.afl.rakuten.co.jp/hgc/10952997.eae88ca3.10952998.38cdd415/?pc=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F5805670%2F%3Fscid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2Fev%2Fbook%2F&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34; title=&#34;楽天ブックス&#34; &gt;楽天ブックス&lt;/a&gt;&lt;/div&gt;                                &lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;booklink-footer&#34; style=&#34;clear: left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;無料にしてはなかなか濃い内容だっと思う。あと、原著で読むと読解力が足りなくて自然と細部が削ぎ落とされるので、内容を整理しやすいですね。（決して良いことではない）&lt;/p&gt;
+
+&lt;p&gt;※3か条の話は原著を一読しただけの理解で書いたので、間違いがあるかもしれません。特にMahoutやSolrは使ったことがないので、何かあればご指摘下さい。&lt;/p&gt;
+
+&lt;p&gt;僕もせっかく読んだので何か実際に推薦システム作ってみなきゃですね。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

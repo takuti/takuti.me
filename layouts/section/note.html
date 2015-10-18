@@ -1,0 +1,15 @@
+{{ partial "header.html" . }}
+<dl class="entry-list">
+{{ range .Data.Pages }}
+  <dt>
+  <span class="date">
+    {{ .Date.Format "2006-01-02" }}
+  </span>
+  </dt>
+  <dd>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </dd>
+  </span>
+{{ end }}
+</dl>
+{{ partial "footer.html" . }}

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en" ng-app>
+	<head>
+		<meta charset="utf-8" />
+		<title>Draw Bezier Curve</title>
+		<link rel="stylesheet" href="style.css" type="text/css" />
+	</head>
+	<body>
+		<div id="wrapper">
+			<span class="right">
+				<a href="http://takuti.me">takuti.me</a>
+			</span>
+			<h1>Draw Bezier Curve</h1>
+			<canvas id="canvas" height="500" width="500">
+				Sorry, your browser does NOT support HTML5 Canvas.
+			</canvas>
+			<form novalidate id="points-form" name="pointsForm" ng-controller="pointsController">
+				<span class="red">p0 = { x:<input type="range" min="0" max="500" step="1" ng-model="p0.x" ng-change="replot()" required />, y:<input type="range" min="0" max="500" ng-model="p0.y" ng-change="replot()" required /> }</span><br />
+
+				p1 = { x:<input type="range" min="0" max="500" step="1" ng-model="p1.x" ng-change="replot()" required />, y:<input type="range" min="0" max="500" ng-model="p1.y" ng-change="replot()" required /> }<br />
+
+				p2 = { x:<input type="range" min="0" max="500" step="1" ng-model="p2.x" ng-change="replot()" required />, y:<input type="range" min="0" max="500" ng-model="p2.y" ng-change="replot()" required /> }<br />
+
+				<span class="blue">p3 = { x:<input type="range" min="0" max="500" step="1" ng-model="p3.x" ng-change="replot()" required />, y:<input type="range" min="0" max="500" ng-model="p3.y" ng-change="replot()" required /> }</span><br />
+
+				<button ng-click="run()">Run</button> <button ng-click="replot()">Setting again</button><br />
+			</form>
+		</div>
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		<script src="script.js"></script>
+		<script type="text/javascript">
+	  var _gaq = _gaq || [];
+			  _gaq.push(['_setAccount', 'UA-28919399-2']);
+			  _gaq.push(['_setDomainName', 'takuti.me']);
+			  _gaq.push(['_trackPageview']);
+
+		  	(function() {
+		  	  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		  	  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+		</script>
+	</body>
+</html>

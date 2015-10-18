@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Natural Language Processing on takuti.me</title>
+    <link>http://localhost:1313/tags/natural-language-processing/</link>
+    <description>Recent content in Natural Language Processing on takuti.me</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 25 Jan 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/natural-language-processing/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>TF-IDFで文書内の単語の重み付け</title>
+      <link>http://localhost:1313/note/tf-idf/</link>
+      <pubDate>Sat, 25 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/tf-idf/</guid>
+      <description>&lt;p&gt;『いくつかの文書があったとき、それぞれの文書を特徴付ける単語はどれだろう？』こんなときに使われるのがTF-IDFという値。&lt;br /&gt;
+&lt;!--more--&gt;&lt;br /&gt;
+TFはTerm Frequencyで、それぞれの単語の文書内での出現頻度を表します。&lt;strong&gt;たくさん出てくる単語ほど重要！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;\[&lt;br /&gt;
+\displaystyle tf(t,d) = \frac{n_{t,d}}{\sum_{s \in d}n_{s,d}}&lt;br /&gt;
+\]&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;\(tf(t,d)\)&lt;/dt&gt;
+&lt;dd&gt;文書\(d\)内のある単語\(t\)のTF値&lt;/dd&gt;
+&lt;dt&gt;\(n_{t,d}\)&lt;/dt&gt;
+&lt;dd&gt;ある単語\(t\)の文書\(d\)内での出現回数&lt;/dd&gt;
+&lt;dt&gt;\(\sum_{s \in d}n_{s,d}\)&lt;/dt&gt;
+&lt;dd&gt;文書\(d\)内のすべての単語の出現回数の和&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;IDFはInverse Document Frequencyで、それぞれの単語がいくつの文書内で共通して使われているかを表します。&lt;strong&gt;いくつもの文書で横断的に使われている単語はそんなに重要じゃない！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;\[&lt;br /&gt;
+\displaystyle idf(t) = \log{\frac{N}{df(t)}} + 1&lt;br /&gt;
+\]&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;\(idf(t)\)&lt;/dt&gt;
+&lt;dd&gt;ある単語\(t\)のIDF値&lt;/dd&gt;
+&lt;dt&gt;\(N\)&lt;/dt&gt;
+&lt;dd&gt;全文書数&lt;/dd&gt;
+&lt;dt&gt;\(df(t)\)&lt;/dt&gt;
+&lt;dd&gt;ある単語\(t\)が出現する文書の数&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;対数をとっているのは、文書数の規模に応じた値の変化を小さくするためなんだとか。&lt;/p&gt;
+&lt;p&gt;この2つの値を掛けたものをそれぞれの単語の重みにすれば、その値が大きいほど各文書を特徴付ける単語だと言えるんじゃないか、という話。&lt;/p&gt;
+&lt;p&gt;例えば10日分のアメリカ旅行の日記で全体を通して「アメリカ」という単語が多く登場していてもそれは当然のこと。1日目の日記を特徴づけるのは「飛行機」であって欲しいし、2日目は「ハンバーガー」であって欲しいわけです。&lt;/p&gt;
+&lt;p&gt;頻出する単語だからその文書を特徴付ける単語になる！とは限らない。そこでTF-IDFの登場。&lt;/p&gt;
+&lt;h3&gt;具体例で見てみる&lt;/h3&gt;
+&lt;p&gt;具体的な例として以下の記事を参考に、２つの文書『&lt;strong&gt;リンゴとレモンとレモン&lt;/strong&gt;』（文書A）と『&lt;strong&gt;リンゴとミカン&lt;/strong&gt;』（文書B）を考えます。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://kitsunemimi9.blog89.fc2.com/blog-entry-20.html&#34;&gt;フツーって言うなぁ！ Pythonでtf-idf法を実装してみた&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;形態素解析を行うとき、特徴語になり得るのは名詞だけだと仮定して、それ以外の品詞は無視します。つまり文書Aは &lt;strong&gt;[リンゴ, レモン, レモン]&lt;/strong&gt; 、文書Bは &lt;strong&gt;[リンゴ, ミカン]&lt;/strong&gt; という単語の集合。&lt;/p&gt;
+&lt;p&gt;\(\displaystyle  tf(リンゴ,文書A) = \frac{1}{3} = 0.33\)&lt;/p&gt;
+&lt;p&gt;\(\displaystyle  tf(レモン,文書A) = \frac{2}{3} = 0.66\)&lt;br /&gt;
+&lt;br&gt;&amp;nbsp;&lt;br /&gt;
+\(\displaystyle  tf(リンゴ,文書B) = \frac{1}{2} = 0.5\)&lt;/p&gt;
+&lt;p&gt;\(\displaystyle  tf(ミカン,文書B) = \frac{1}{2} = 0.5\)&lt;br /&gt;
+&lt;br&gt;&amp;nbsp;&lt;br /&gt;
+\(\displaystyle  idf(リンゴ) = \log{\frac{2}{2}} + 1 = 1\)&lt;/p&gt;
+&lt;p&gt;\(\displaystyle  idf(レモン) = \log{\frac{2}{1}} + 1 = 1.3\)&lt;/p&gt;
+&lt;p&gt;\(\displaystyle  idf(ミカン) = \log{\frac{2}{1}} + 1 = 1.3\)&lt;/p&gt;
+&lt;p&gt;すると上記のようにTF値とIDF値がそれぞれ計算できて、積を求めれば、&lt;/p&gt;
+&lt;p&gt;\(tf(リンゴ,文書A)*idf(リンゴ) = 0.33\)&lt;br /&gt;
+\(tf(レモン,文書A)*idf(レモン) = 0.858\)&lt;/p&gt;
+&lt;p&gt;\(tf(リンゴ,文書B)*idf(リンゴ) = 0.5\)&lt;br /&gt;
+\(tf(ミカン,文書B)*idf(ミカン) = 0.65\)&lt;/p&gt;
+&lt;p&gt;両方の文書に登場している「リンゴ」という単語は、片方にしか登場していない「レモン」や「ミカン」よりも特徴語としての重みは小さいことが数値的に分かります。&lt;/p&gt;
+&lt;p&gt;実装はRubyです。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/takuti/Lab/blob/master/tf_idf.rb&#34;&gt;takuti / Lab / tf_idf.rb&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;参考&lt;/h3&gt;
+&lt;p&gt;徳永, &#34;情報検索と言語処理&#34;, 東京大学出版会, pp. 27-28, 1999.&lt;/p&gt;
+&lt;div class=&#34;booklink-box&#34; style=&#34;text-align:left;padding-bottom:20px;font-size:small;/zoom: 1;overflow: hidden;&#34;&gt;
+&lt;div class=&#34;booklink-image&#34; style=&#34;float:left;margin:0 15px 10px 0;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/asin/4130654055/takuti-22/&#34; name=&#34;booklink&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/41YVARP4HPL._SL160_.jpg&#34; style=&#34;border: none;&#34; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&#34;booklink-info&#34; style=&#34;line-height:120%;/zoom: 1;overflow: hidden;&#34;&gt;
+&lt;div class=&#34;booklink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/asin/4130654055/takuti-22/&#34; rel=&#34;nofollow&#34; name=&#34;booklink&#34; target=&#34;_blank&#34;&gt;情報検索と言語処理 (言語と計算)&lt;/a&gt;
+&lt;div class=&#34;booklink-powered-date&#34; style=&#34;font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted with &lt;a href=&#34;http://yomereba.com&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34;&gt;ヨメレバ&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;booklink-detail&#34; style=&#34;margin-bottom:5px;&#34;&gt;徳永 健伸 東京大学出版会 1999-11    &lt;/div&gt;
+&lt;div class=&#34;booklink-link2&#34; style=&#34;margin-top:10px;&#34;&gt;
+&lt;div class=&#34;shoplinkamazon&#34; style=&#34;display:inline;margin-right:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/asin/4130654055/takuti-22/&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34; title=&#34;アマゾン&#34; &gt;Amazon&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&#34;shoplinkkindle&#34; style=&#34;display:inline;margin-right:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/gp/search?keywords=%8F%EE%95%F1%8C%9F%8D%F5%82%C6%8C%BE%8C%EA%8F%88%97%9D%20%28%8C%BE%8C%EA%82%C6%8Cv%8EZ%29&amp;__mk_ja_JP=%83J%83%5E%83J%83i&amp;url=node%3D2275256051&amp;tag=takuti-22&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34; &gt;Kindle&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&#34;shoplinkrakuten&#34; style=&#34;display:inline;margin-right:5px&#34;&gt;&lt;a href=&#34;http://hb.afl.rakuten.co.jp/hgc/10952997.eae88ca3.10952998.38cdd415/?pc=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F1112471%2F%3Fscid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2Fev%2Fbook%2F&#34; rel=&#34;nofollow&#34; target=&#34;_blank&#34; title=&#34;楽天ブックス&#34; &gt;楽天ブックス&lt;/a&gt;&lt;/div&gt;
+&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;booklink-footer&#34; style=&#34;clear: left&#34;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>マルコフ連鎖によるツイートの文字数を考える</title>
+      <link>http://localhost:1313/note/twitter-bot-tweet-length/</link>
+      <pubDate>Wed, 25 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/twitter-bot-tweet-length/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://blog.takuti.me/twitter-bot/&#34;&gt;マルコフ連鎖でbotを作った&lt;/a&gt;けどちょっとお粗末な発言が多い。&lt;/p&gt;
+&lt;p&gt;https://twitter.com/yootakuti/status/413693204735606784&lt;/p&gt;
+&lt;p&gt;やる気が感じられない。つなげりゃいいってもんじゃあない。&lt;/p&gt;
+&lt;p&gt;というわけで、生成するツイートの文字数に上限を設けてしまえば少なくとも上のようなぶっ飛んだ発言はなくなるだろうという考えの下に対策を施します。&lt;/p&gt;
+&lt;p&gt;もちろん対策前の上限はツイートの最高文字数である140文字です。これを何文字に制限しようか。&lt;br /&gt;
+&lt;!--more--&gt;&lt;br /&gt;
+とりあえず僕自身 @&lt;a href=&#34;https://twitter.com/takuti/&#34;&gt;takuti&lt;/a&gt; のツイートの文字数がどんな感じになっているのか調べます。対象は過去47,812ツイート。&lt;/p&gt;
+&lt;p&gt;各ツイートには以下の様な前処理をかけています。&lt;/p&gt;
+&lt;pre class=&#34;prettyprint ruby&#34;&gt;
+# リプライをすべて削除
+tweet = tweet.gsub(/\.?\s*@[0-9A-Za-z_]+/, &#39;&#39;)
+# RT/QT以降行末まで削除
+tweet = tweet.gsub(/(RT|QT)\s*@?[0-9A-Za-z_]+.*$/, &#39;&#39;)
+# URLを削除 スペースが入るまで消える
+tweet = tweet.gsub(/http:\/\/\S+/, &#39;&#39;)
+# ハッシュタグを削除
+tweet = tweet.gsub(/#[0-9A-Za-z_]+/, &#39;&#39;)
+&lt;/pre&gt;
+&lt;p&gt;ツイートデータをダウンロードして前処理を行った後の文字数をそれぞれ数えてgnuplotでヒストグラムにすると以下のような結果に。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/wp/source-e1387890887456.png&#34; alt=&#34;source&#34; width=&#34;500&#34; height=&#34;375&#34; class=&#34;alignnone size-full wp-image-395&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;この結果から、僕のツイートは80%が30文字以内、90%が40文字以内であることが分かります。&lt;/p&gt;
+&lt;p&gt;一方、マルコフ連鎖で生成したツイートの文字数はどうでしょうか。&lt;/p&gt;
+&lt;p&gt;@&lt;a href=&#34;https://twitter.com/takuti/&#34;&gt;takuti&lt;/a&gt; のツイート数に合わせて、47,812個のサンプルツイートをマルコフ連鎖で生成します。デーモンを作って1日回しておけばOKです。そこから文字数のヒストグラムを作ると、&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/wp/markov-e1387896201933.png&#34; alt=&#34;markov&#34; width=&#34;500&#34; height=&#34;375&#34; class=&#34;alignnone size-full wp-image-396&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;ここまで綺麗な形になるとは思っていませんでしたが、やはり40文字以上の長いツイートが@&lt;a href=&#34;https://twitter.com/takuti/&#34;&gt;takuti&lt;/a&gt;より多いことが分かり、文字数の少ないツイートをもっと増やしたい感じですね。&lt;/p&gt;
+&lt;p&gt;とまぁこんな結果が見れて満足したところで、今はマルコフ連鎖によるツイート生成の文字数上限を40文字に設定した上でbotを稼働させています。単純に、@&lt;a href=&#34;https://twitter.com/takuti/&#34;&gt;takuti&lt;/a&gt; のツイートの90%が40文字以内ですからね。&lt;/p&gt;
+&lt;p&gt;短い発言なら支離滅裂でも結構なんとかなっちゃうものです。&lt;/p&gt;
+&lt;p&gt;https://twitter.com/yootakuti/status/415369180116811777&lt;/p&gt;
+&lt;p&gt;以上！&lt;del datetime=&#34;2013-12-25T04:18:49+00:00&#34;&gt;ヒストグラムにした意味は果たしてあったのか。&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;『&lt;strong&gt;いかに知的な発言をさせるか&lt;/strong&gt;』よりも前に、まずは『&lt;strong&gt;いかに知的っぽく見せることができるか&lt;/strong&gt;』という点を少しでもシンプルな方法で模索したいですね。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>はてなキーワードを使ってigo-ruby(MeCab)用の辞書をナウい感じにする</title>
+      <link>http://localhost:1313/note/hatena-keyword-to-ipadic/</link>
+      <pubDate>Mon, 29 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/hatena-keyword-to-ipadic/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://igo.sourceforge.jp/#mecab&#34;&gt;igo-ruby（辞書はMeCabとほぼ同じなのでMeCabのこととして読んでも可）の辞書&lt;/a&gt;はナウくないです。&lt;/p&gt;
+&lt;p&gt;「&lt;strong&gt;人工知能&lt;/strong&gt;」を分かち書きすると「&lt;strong&gt;人工　知能&lt;/strong&gt;」になっちゃいます。&lt;br /&gt;
+「&lt;strong&gt;ニコニコ動画&lt;/strong&gt;」を分かち書きすると「&lt;strong&gt;ニコニコ　動画&lt;/strong&gt;」になっちゃいます。&lt;br /&gt;
+「&lt;strong&gt;IPアドレス&lt;/strong&gt;」を分かち書きすると「&lt;strong&gt;IP　アドレス&lt;/strong&gt;」になっちゃいます。&lt;br /&gt;
+「&lt;strong&gt;ニューラルネットワーク&lt;/strong&gt;」を分かち書きすると「&lt;strong&gt;ニュー　ラ　ル　ネットワーク&lt;/strong&gt;」になっちゃいます。&lt;/p&gt;
+&lt;p&gt;形態素解析器の応用例が増えてくる中で必要となるのは、上記で挙げたようなナウいワードを1つの単語として扱ってくれることです。&lt;/p&gt;
+&lt;p&gt;例えば&lt;a href=&#34;http://buzztter.com/#/ja&#34;&gt;buzztter&lt;/a&gt;のようなサービスでは、「ニコニコ動画」は「ニコニコ動画」でいて欲しいし、「ニューラルネットワーク」は「ニューラルネットワーク」のままであってほしいわけですね。&lt;/p&gt;
+&lt;p&gt;僕も最近ちょっと辞書をナウくする必要が出たので、早速&lt;a href=&#34;http://developer.hatena.ne.jp/ja/documents/keyword/misc/catalog&#34;&gt;公開されているはてなキーワードのデータ&lt;/a&gt;を使ってやってみました。&lt;br /&gt;
+&lt;!--more--&gt;&lt;br /&gt;
+はてなキーワードのデータから辞書を作るコード（仮）は以下。&lt;br /&gt;
+&lt;strong&gt;&lt;a href=&#34;https://github.com/takuti/twitter_bot/blob/master/tool/hatena2dic.rb&#34;&gt;takuti / twitter_bot / tool / hatena2dic.rb&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;はてなキーワードのデータはキーワードそのものとふりがながタブ区切りで各行に書かれているので、それに合わせる形でそれぞれを読んであげる。元データの文字コードはEUC-JP。&lt;/p&gt;
+&lt;p&gt;そしてお好みの条件で辞書に加えたくないキーワードなんかも除外する。&lt;br /&gt;
+今回は、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;2009-09-04&lt;/strong&gt;のような年月日&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1945年&lt;/strong&gt;のような年&lt;/li&gt;
+&lt;li&gt;すでに1単語として判断されるもの&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;を除外しています。&lt;/p&gt;
+&lt;p&gt;ふりがなは&lt;a href=&#34;http://gimite.net/gimite/rubymess/moji.html&#34;&gt;Mojiモジュール&lt;/a&gt;を使ってカタカナ化しています。&lt;/p&gt;
+&lt;p&gt;加えて、辞書を作る時に大切なコスト計算もしています。MeCabだとコストに-1を指定すると自動でコストを割り振ってくれるみたいですが、igo-rubyにはそんな機能ありません。&lt;/p&gt;
+&lt;p&gt;辞書のコストについては以下を参考にさせていただきました。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.mwsoft.jp/programming/munou/mecab_nitteretou.html&#34;&gt;日本テレビ東京で学ぶMeCabのコスト計算 | mwSoft&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tmp.blogdns.org/archives/2009/12/mecabwikipediah.html&#34;&gt;mecabのユーザ辞書でwikipediaとhatenaキーワードを利用する - てんぷろぐ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.mwsoft.jp/programming/munou/mecab_hatena.html&#34;&gt;はてなキーワードからMecCab辞書を生成する（Ruby版）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://mecab.googlecode.com/svn/trunk/mecab/doc/dic-detail.html&#34;&gt;MeCab の辞書構造と汎用テキスト変換ツールとしての利用&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;最終的には2番目のリンク先に記載されていた、&lt;br /&gt;
+&lt;strong&gt;score = [-32768.0, (6000 - 200 *(title.size**1.3))].max.to_i&lt;/strong&gt;&lt;br /&gt;
+を利用させていただくことに。&lt;/p&gt;
+&lt;p&gt;各キーワードの情報はCSVに以下のような形で書き込んで、それを追加用辞書ファイルとする。既存の辞書ファイルの文字コードがすべてEUC-JPなのでこれもEUC-JPで。&lt;/p&gt;
+&lt;pre&gt;&lt;strong&gt;#{word}&lt;/strong&gt;,0,0,&lt;strong&gt;#{cost}&lt;/strong&gt;,名詞,一般,*,*,*,*,&lt;strong&gt;#{word}&lt;/strong&gt;,&lt;strong&gt;#{furigana}&lt;/strong&gt;,&lt;strong&gt;#{furigana}&lt;/strong&gt;&lt;/pre&gt;
+&lt;p&gt;最後に、追加用辞書ファイルをディレクトリ &lt;strong&gt;mecab-ipadic-2.7.0-20070801&lt;/strong&gt; 内に移動して、あとは通常の辞書生成と同じようにコマンドを叩いて終わり。&lt;/p&gt;
+&lt;pre&gt;java -Xmx1024m -cp igo-0.4.5.jar net.reduls.igo.bin.BuildDic ipadic mecab-ipadic-2.7.0-20070801 EUC-JP&lt;/pre&gt;
+&lt;p&gt;これで生成された辞書を使って形態素解析なんかを行えば、「人工知能」は「人工知能」のままで、「ニコニコ動画」は「ニコニコ動画」のままで解釈される！ぱちぱち。&lt;/p&gt;
+&lt;h3&gt;問題点&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1. カンマを含むキーワードが登録できない&lt;/strong&gt;&lt;br /&gt;
+カンマを含むキーワード（「NO MUSIC, NO LIFE.」とか）を今の実装で辞書に登録しようとすると、カンマそのものがCSVの区切り文字と判断されて上手くいきません。&lt;/p&gt;
+&lt;p&gt;これはMeCabの場合、そのキーワードをダブルクォーテーションで囲ってあげることで解決できます。&lt;/p&gt;
+&lt;p&gt;しかしigo-rubyの場合、&lt;a href=&#34;http://igo.sourceforge.jp/#mecab&#34;&gt;MeCabとの相違点&lt;/a&gt;として挙げられているように、&lt;/p&gt;
+&lt;pre&gt;&#34;組打ち&#34;,1285,1285,5622,名詞,一般,*,*,*,*,組打ち,クミウチ,クミウチ
+　※ ↑この単語の表層形は、&#39;組打ち&#39;ではなく&#39;&#34;組打ち&#34;&#39;となる&lt;/pre&gt;
+&lt;p&gt;と、ダブルクォーテーションそのものも単語の一部として解釈されてしまうらしく、しかしまぁさほど影響は無さそうなので今はカンマを含むキーワードを全てスキップすることで応急処置としています。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 文字コードCP51932の扱い&lt;/strong&gt;&lt;br /&gt;
+&lt;strong&gt;Ⅲ&lt;/strong&gt;や&lt;strong&gt;②&lt;/strong&gt;、&lt;strong&gt;㈱&lt;/strong&gt;といった機種依存文字を含むキーワードはデータから読み込んだときの文字コードがCP51932になっています。「東大理Ⅲ」とかですね。&lt;/p&gt;
+&lt;p&gt;それらを他のEUC-JPのキーワードと同じように扱うと、「人工知能」は「人工知能」のままになっても、「東大理Ⅲ」なんかは「東大理Ⅲ」のままにはならない。&lt;/p&gt;
+&lt;p&gt;困ったのでひとまず保留ということで、文字コードがCP51932のキーワードを全てスキップすることでこちらも応急処置としています。&lt;/p&gt;
+&lt;p&gt;CP51932がEUC-JPになればこの問題は解決するの？どうやってそれを確認するの（どうやってCP51932からEUC-JPへの変換を行うの）？&lt;/p&gt;
+&lt;p&gt;このあたりに答えを出す必要がありそう。&lt;/p&gt;
+&lt;h3&gt;というわけで&lt;/h3&gt;
+&lt;p&gt;問題点が残っていて未完成ではありますが、ひとまずある程度辞書がナウい感じになったということでまとめておきます。&lt;/p&gt;
+&lt;p&gt;今回ははてなキーワードでしたが、Wikipediaのタイトルでも元データがどんな規則で書かれているかに注意すれば同じ事は簡単にできますね。&lt;br /&gt;
+【参考】&lt;a href=&#34;http://www.mwsoft.jp/programming/munou/wikipedia_data_list.html&#34;&gt;Wikipediaのダウンロードできるデータファイル一覧 | mwSoft&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;その他参考にさせていただものは以下です。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://aidiary.hatenablog.com/entry/20101230/1293691668&#34;&gt;テキストからWikipedia見出し語を抽出 - 人工知能に関する断創録能に関する断創録&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://takemikami.com/technote/archives/845&#34;&gt;igo-rubyで形態素解析して、twitterの口癖分析もどきしてみた | Lightweight HackingLightweight Hacking&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>マルコフ連鎖でTwitter Botをつくりました</title>
+      <link>http://localhost:1313/note/twitter-bot/</link>
+      <pubDate>Sun, 28 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/note/twitter-bot/</guid>
+      <description>&lt;p&gt;ひとまず動けばいいや程度に作りました。 @&lt;a href=&#34;https://twitter.com/yootakuti&#34;&gt;yootakuti&lt;/a&gt; がそれですよろしくおねがいします。&lt;/p&gt;
+&lt;p&gt;Twitter公式から自分の過去ツイート5万弱をダウンロードして、そのCSVから&lt;a href=&#34;https://twitter.com/shuumai&#34;&gt;しゅうまい君&lt;/a&gt;で有名になったマルコフ連鎖（らしきこと）で文章を作ります。それを30分おきに行なって、しゃべります。&lt;/p&gt;
+&lt;p&gt;https://twitter.com/yootakuti/status/358134512208715776&lt;/p&gt;
+&lt;p&gt;我ながらおもしろい。&lt;br /&gt;
+&lt;!--more--&gt;&lt;/p&gt;
+&lt;h3&gt;マルコフ連鎖 is 何&lt;/h3&gt;
+&lt;p&gt;なんだかついったーbot界（？）では「マルコフ連鎖」というワードばかりが一人歩きしている印象を受けますが、そもそもマルコフ連鎖ってどんなものなんでしょうか。&lt;a href=&#34;http://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AB%E3%82%B3%E3%83%95%E9%80%A3%E9%8E%96&#34;&gt;Wikipedia先生に聞いてみましょう。&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;
+マルコフ連鎖は、&lt;strong&gt;未来の挙動が現在の値だけで決定され、過去の挙動と無関係である&lt;/strong&gt;（マルコフ性）。各時刻において起こる状態変化（遷移または推移）に関して、マルコフ連鎖は遷移確率が過去の状態によらず、現在の状態のみによる系列である。
+&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;ふむふむ。&lt;/p&gt;
+&lt;p&gt;そして一般に「マルコフ連鎖でついったーbot」と言われた時にみんながやっているのは（たぶん）下のようなこと。&lt;/p&gt;
+&lt;p&gt;まずはツイートひとつひとつを分かち書きする。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;私はヨーグルトが好きです。&lt;/strong&gt;&lt;br /&gt;
+を分かち書きすると&lt;br /&gt;
+&lt;strong&gt;私　は　ヨーグルト　が　好き　です　。&lt;/strong&gt;&lt;br /&gt;
+になる。&lt;/p&gt;
+&lt;p&gt;ここから1つずらしながら、3つずつの要素からなる塊を以下のようにたくさんつくる。&lt;/p&gt;
+&lt;pre&gt;
+（はじまり）　私　は
+私　は　ヨーグルト
+は　ヨーグルト　が
+ヨーグルト　が　好き
+が　好き　です
+好き　です　。
+です　。　（おわり）
+&lt;/pre&gt;
+&lt;p&gt;これを対象となるすべてのツイートに対して作ってあげる。&lt;/p&gt;
+&lt;p&gt;上の「私はヨーグルトが好きです。」の他にもう1つ、「ヨーグルトが嫌いだ」というフレーズに対しても同様に作れば、&lt;/p&gt;
+&lt;pre&gt;
+（はじまり）　ヨーグルト　が
+ヨーグルト　が　嫌い
+が　嫌い　だ
+嫌い　だ　（おわり）
+&lt;/pre&gt;
+&lt;p&gt;となる。&lt;/p&gt;
+&lt;p&gt;こんな中で、3つの要素の塊をつなげていくのがマルコフ連鎖。&lt;/p&gt;
+&lt;p&gt;ちなみに要素3つずつで塊を作っていくのは、Wikipedia先生によるところの「3階マルコフ連鎖」にあたるという認識で大丈夫なのかな。&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;次の状態が現在を含めた過去N個の状態履歴に依存して決まる確率過程を、&lt;strong&gt;N階マルコフ連鎖&lt;/strong&gt;（もしくは、N重マルコフ連鎖、N次マルコフ連鎖）という。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;階数が高いほど元の文章に近づいていって、低いほどめちゃめちゃになる。&lt;/p&gt;
+&lt;p&gt;さて、話を戻して「私はヨーグルトが好きです。」「ヨーグルトが嫌いだ」の2つの文章からマルコフ連鎖で新しいツイートを生成してみましょう。&lt;/p&gt;
+&lt;p&gt;例えば最初に&lt;br /&gt;
+&lt;strong&gt;（はじまり）　私　は&lt;/strong&gt;&lt;br /&gt;
+を選んだとしたら、次に来るのは「は」から始まる塊だけ。&lt;br /&gt;
+上で作った塊たちの中で、「は」から始まる塊は&lt;br /&gt;
+&lt;strong&gt;は　ヨーグルト　が&lt;/strong&gt;&lt;br /&gt;
+だけなのでこれを選択。この時点で、「私はヨーグルトが」となる。&lt;/p&gt;
+&lt;p&gt;その次に来るのは、先ほどと同様に、今度は「が」から始まる塊だけ。&lt;br /&gt;
+候補は、&lt;br /&gt;
+&lt;strong&gt;が　好き　です&lt;br /&gt;
+が　嫌い　だ&lt;/strong&gt;&lt;br /&gt;
+の2つ。このどちらかをランダムで選ぶ。&lt;/p&gt;
+&lt;p&gt;上が選ばれれば「私はヨーグルトが好きです」と連鎖するし、下が選ばれれば「私はヨーグルトが嫌いだ」と連鎖して、元々の文とは真逆の意味になっちゃったりして面白い。&lt;/p&gt;
+&lt;p&gt;更にこれを&lt;strong&gt;（おわり）&lt;/strong&gt;が来るまで繰り返していくと1つの文章が出来上がるという仕組み。元のツイートが多ければ多いほど3つずつの要素からなる塊はたくさんできて、最終的に生成される文章の幅も広がるというわけですね。&lt;/p&gt;
+&lt;p&gt;ここでWikipedia先生の教えに戻ると、マルコフ連鎖とは&lt;strong&gt;未来の挙動が現在の値だけで決定され、過去の挙動と無関係である&lt;/strong&gt;という、マルコフ性と呼ばれる特性に依るものでした。&lt;/p&gt;
+&lt;p&gt;つまり、&lt;br /&gt;
+&lt;strong&gt;は　ヨーグルト　が&lt;/strong&gt;の次に繋がる塊&lt;em&gt;（＝未来の挙動）&lt;/em&gt;　は&lt;br /&gt;
+&lt;strong&gt;は　ヨーグルト　が&lt;/strong&gt;&lt;em&gt;（＝現在の値）&lt;/em&gt;　だけで決定され、&lt;br /&gt;
+&lt;strong&gt;（はじまり）　私　は&lt;/strong&gt;&lt;em&gt;（＝過去の挙動）&lt;/em&gt;　と無関係である。&lt;br /&gt;
+ということ、なのかな・・・？&lt;/p&gt;
+&lt;p&gt;もし過去の挙動を見ていれば、どれだけ塊がたくさんあったとしても、「私はヨーグルトが」と始まってしまったら「私はヨーグルトが好きです」しかできあがらない。過去の挙動を無視するから、既存のツイートから新しいツイートが生み出せる。&lt;/p&gt;
+&lt;p&gt;というわけで、「マルコフ連鎖でついったーbot」なんだなぁと僕は解釈しました。しかしこのあたり、なんだかスッキリしないのでもっと理論的な話を近いうちに勉強できればと思います。&lt;/p&gt;
+&lt;p&gt;ここまでで何か間違いがあれば指摘していただけると嬉しいです。&lt;/p&gt;
+&lt;h3&gt;実装の話&lt;/h3&gt;
+&lt;p&gt;実装にあたり以下を参考にさせていただきました。コード面では、リプライのツイートに含まれるID（@なんちゃら）やRT/QT以降の文章、URLを除外する部分のみ参考にさせていただき、あとは上で書いたマルコフ連鎖をそのまま強引に自力で。&lt;/p&gt;
+&lt;p&gt;【参考】&lt;a href=&#34;http://d.hatena.ne.jp/tondol/20120311/1331470586&#34;&gt;マルコフ連鎖でTwitter BOTを作る - FLYING&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;このほかに、CSVの読み込みに関して以下を参考にさせていただきました。確かに最強な感じある。&lt;br /&gt;
+【参考】&lt;a href=&#34;http://melborne.github.io/2013/01/24/csv-table-method-is-awesome/&#34;&gt;Ruby標準添付ライブラリcsvのCSV.tableメソッドが最強な件について&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;実際に今 @&lt;a href=&#34;https://twitter.com/yootakuti&#34;&gt;yootakuti&lt;/a&gt; で動いてるものは以下より。&lt;br /&gt;
+&lt;strong&gt;&lt;a href=&#34;https://github.com/takuti/twitter_bot&#34;&gt;takuti/twitter_bot&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;改善すべき点は多々ありますがとりあえず動けばいいやーな気持ちです。徐々に改善して行く予定です。しかし予定は未定です。&lt;/p&gt;
+&lt;p&gt;これをさくらのVPS上でcrontabから30分に一度回してあげればオーケイ。このとき、ローカル(Mac)では問題なかったのですが、さくらVPS上だと文字コード関係で怒られるので &lt;em&gt;ruby&lt;/em&gt; のオプションに &lt;em&gt;-Ku&lt;/em&gt; を付けてあげます。&lt;br /&gt;
+【参考】&lt;a href=&#34;http://horahora.cocolog-nifty.com/blog/2011/06/ruby-my-dear-1-.html&#34;&gt;Ruby, My Dear? (1) 日本語処理でハマる: ほらかわブログ&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;botたのしい&lt;/h3&gt;
+&lt;p&gt;http://twitter.com/takuti/status/13602515900&lt;br /&gt;
+4年も前から同じような仕組みでしゅうまい君は動いてるっていうんだから、すごいですね。&lt;/p&gt;
+&lt;p&gt;前々から作ってみたかったついったーbotですが、実際に作ってみるとやっぱり面白いし可愛いですね。&lt;/p&gt;
+&lt;p&gt;そんなわけで、 @&lt;a href=&#34;https://twitter.com/yootakuti&#34;&gt;yootakuti&lt;/a&gt; よろしくおねがいします。（再）&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
