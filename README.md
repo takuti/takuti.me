@@ -55,6 +55,8 @@ export RSYNC_DEST_PORT=22
 export RSYNC_USER=username
 export RSYNC_HOST=example.com
 export RSYNC_DEST=/path/to/remote/document/root
+
+export HUGO_BASE_URL=http://example.com/
 ```
 
 Complete deploy procedure is:

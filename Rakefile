@@ -6,7 +6,9 @@ namespace :preview do
 
   desc "Generate public/ as production code (specifying baseUrl withou port)"
   task :production do
-    system "hugo server --baseUrl='http://takuti.me/' --appendPort=false"
+    system "direnv allow ."
+    base_url = ENV["HUGO_BASE_URL"]
+    system "hugo server --baseUrl='#{base_url}' --appendPort=false"
   end
 end
 
