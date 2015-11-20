@@ -109,7 +109,7 @@ BDの購入は、そのアニメを好んでいるが故の行動と言える。
 
 なお原著は以下から。
 
-[Practical Machine Learning | MapR](https://www.mapr.com/practical-machine-learning)
+[Practical Machine Learning - MapR](https://www.mapr.com/practical-machine-learning)
 
 『実践』だから回帰とかニューラルネットとか、機械学習の基礎を学んだ人のための本・・・ではない。誰でもすぐにパワフルな推薦システムが作れるよ、という意味で『実践』。
 
