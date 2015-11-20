@@ -55,7 +55,7 @@ namespace :converter do
       open(dst_path, "w") do |dst|
         puts dst_path
         content = open(src) { |f| f.read }
-        content = content.sub(/(---.*---\n)/m, "")
+        content = content.sub(/(---.*?---\n)/m, "")
         content = embedding_tweet(content)
 
         # write with concatinating front matter
