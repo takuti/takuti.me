@@ -168,6 +168,9 @@ header {
   ul {
     margin-left: 0;
     padding-left: 1.5em;
+    li {
+      margin-bottom: .2em;
+    }
   }
 }
 
@@ -304,7 +307,7 @@ blockquote {
     border-color: transparent transparent $sub-sub-sub-color transparent;
     z-index: -1;
   }
-  
+
   dl:not(.entry-list) {
     dt {
       padding-top: 0.5em;
@@ -320,7 +323,7 @@ blockquote {
       color: $sub-sub-color;
     }
   }
-  
+
   img.emoji {
    height: 1em;
    width: 1em;
