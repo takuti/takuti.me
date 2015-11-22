@@ -23,8 +23,18 @@ a {
 h3 {
   font-size: 1.1em;
   margin: 2em 0 1em 0;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #dadada; }
+  padding-bottom: 1em;
+  text-align: center;
+  position: relative;
+  z-index: 1; }
+  h3:before {
+    content: "";
+    position: absolute;
+    left: 47.5%;
+    bottom: 0;
+    height: 1px;
+    width: 5%;
+    border-bottom: 1px solid #bababa; }
   h3 .symbol {
     font-weight: normal; }
 
@@ -32,12 +42,12 @@ article {
   margin-bottom: 50px; }
   article .meta {
     font-size: 0.8em;
-    color: #9a9a9a; }
+    color: #9a9a9a;
+    text-align: center; }
   article h2 {
     font-size: 1.2em;
-    margin-bottom: 1em;
-    background: url(/images/line.gif) repeat-x bottom left;
-    padding-bottom: 15px; }
+    margin-top: 1em;
+    text-align: center; }
     article h2 a {
       text-decoration: none; }
   article .post a {
@@ -72,9 +82,6 @@ article {
       border: 1px solid #b9b9b9; }
   article #disqus_thread {
     margin-top: 50px; }
-
-h3.year {
-  cursor: pointer; }
 
 .entry-list .date {
   display: inline-block; }
