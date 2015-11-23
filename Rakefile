@@ -49,6 +49,7 @@ namespace :converter do
 
   desc "Converter: tweet urls -> twitter embedding card, Markdown+MathJax content -> html"
   task :content do
+    system "rm content/note/*"
     Dir::glob("_content/note/*").each do |src|
       dst_path = src[1..-1].sub(/(.*)\.md/, '\1.html')
       next if File.exist?(dst_path)
