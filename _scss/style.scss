@@ -39,19 +39,19 @@ a {
 
 h3 {
   font-size: 1.1em;
-  margin: 2em 0 1em 0;
-  padding-bottom: 1em;
+  margin: 2em 0 2em 0;
+  padding-top: 2em;
   text-align: center;
   position: relative;
   z-index: 1;
   &:before {
     content : "";
     position: absolute;
+    top: 0;
     left    : 50% - 2.5%;
-    bottom  : 0;
     height  : 1px;
     width   : 5%;
-    border-bottom: 1px solid $sub-sub-color;
+    border-top: 1px solid $sub-sub-color;
   }
   & .symbol {
     font-weight: normal;
