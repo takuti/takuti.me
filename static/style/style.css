@@ -74,16 +74,19 @@ article {
 
 .entry-list .date {
   display: inline-block; }
+
 .entry-list .tag {
   color: #9a9a9a;
   display: inline-block; }
   .entry-list .tag a {
     color: #9a9a9a;
     text-decoration: none; }
+
 .entry-list dt {
   padding-top: 0.5em;
   font-size: 0.8em;
   color: #bababa; }
+
 .entry-list dd {
   margin: 0;
   padding: 0 0 0.5em 0;
@@ -192,6 +195,7 @@ blockquote {
   src: url("/fonts/LigatureSymbols-2.11.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
+
 .symbol {
   font-family: 'LigatureSymbols';
   -webkit-text-rendering: optimizeLegibility;
@@ -264,11 +268,9 @@ blockquote {
 @media screen and (max-width: 767px) {
   body {
     width: 100%; }
-
   #container, footer, nav {
     padding: 0 5%;
     width: 90%; }
-
   header {
     padding-right: 5%;
     padding-left: 5%;
@@ -277,7 +279,6 @@ blockquote {
       width: 90%;
       padding: 0 5%;
       height: 90px; }
-
   article .post img {
     max-width: 100%;
     height: auto; } }
