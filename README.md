@@ -22,16 +22,46 @@ $ brew install direnv
 
 ### Ruby Gems
 
-To compile Sass files and Markdown files (including MathJax), we need to get two extra gems:
+To compile Markdown files (including MathJax), we need to get two extra gems:
 
 ```
-$ gem install sass
 $ gem install kramdown
+```
+
+### Gulp
+
+We will use gulp tasks to compile sass files, so required npm modules are:
+
+```
+$ npm install --global gulp
+$ npm install --save-dev gulp
+$ npm install gulp-sass
 ```
 
 ## Usage
 
-I should create new contents and Sass files in *_content/* and *_sass/* directories for `rake` commands.
+I should create new contents in *_content/* directory for `rake` command, and sass files in *_scss/* directory for `gulp` command.
+
+### Generate css from sass files
+
+Gulp default task converts all .scss files under *_scss/* to css files in *static/style/* by: 
+
+```
+$ gulp
+```
+
+If you want to track style modification in real-time, run
+
+```
+$ gulp watch
+```
+
+and
+
+```
+$ hugo server --watch
+```
+at the same time.
 
 ### Generate site and check on my local environment
 
@@ -42,7 +72,6 @@ $ rake
 What this command actually does are:
 
 - [Kramdown](https://github.com/gettalong/kramdown) converts new Markdown+MathJax contents in *_content/* to html files in *content/*.
-- Sass ruby gem converts *_scss/style.scss* files to a css file in *static/*.
 - Generate site contents and run Hugo server.
 
 ### Deploy generated site contents
