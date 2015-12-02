@@ -39,38 +39,24 @@ a {
 
 h3 {
   font-size: 1.1em;
-  margin: 2em 0 2em 0;
-  padding-top: 2em;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-  &:before {
-    content : "";
-    position: absolute;
-    top: 0;
-    left    : 50% - 2.5%;
-    height  : 1px;
-    width   : 5%;
-    border-top: 1px solid $sub-sub-color;
-  }
+  margin: 2em 0 1em 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid $sub-sub-sub-color;
   & .symbol {
     font-weight: normal;
   }
 }
 
 article {
-  margin-bottom: 50px;
+  margin: 50px auto;
   .meta {
     font-size: 0.8em;
     color: $sub-color;
-    text-align: center;
+    margin-bottom: 0;
   }
   h2 {
-    font-size: 1.2em;
-    margin-top: 1em;
-    text-align: center;
-    //background: url(/images/line.gif) repeat-x bottom left;
-    //padding-bottom: 15px;
+    font-size: 1.5em;
+    margin: 0 0 2em 0;
     a {
       text-decoration: none;
     }
