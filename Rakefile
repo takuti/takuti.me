@@ -64,13 +64,8 @@ namespace :converter do
       end
     end
   end
-
-  desc "Converter: sass -> css"
-  task :style do
-    system "sass -C --sourcemap=none _scss/style.scss static/style/style.css"
-  end
 end
 
-task :convert => ["converter:content", "converter:style"]
+task :convert => ["converter:content"]
 task :default => ["convert", "preview:local"]
 task :prepare => ["convert", "preview:production"]
