@@ -12,3 +12,5 @@ task :deploy do
   dest = ENV["RSYNC_DEST"]
   system "rsync --rsync-path=\"#{program}\" public/ -avz -e \"ssh -p #{port}\" --delete #{user}@#{host}:#{dest}"
 end
+
+task default: :deploy
