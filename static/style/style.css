@@ -2,16 +2,19 @@
 html, body {
   background: #fff;
   height: 100%;
-  color: #6a6a6a;
+  color: #333;
   font-family: 'Noto Sans', sans-serif;
   font-size: 14px;
   margin: 0px;
   padding: 0px; }
 
+h1, h2, h3 {
+  color: #00496E; }
+
 a {
-  color: #6a6a6a; }
+  color: #333; }
   a:visited {
-    color: #6a6a6a; }
+    color: #333; }
   a:hover {
     text-decoration: none; }
   a.bold {
@@ -24,7 +27,7 @@ h3 {
   font-size: 1.1em;
   margin: 2em 0 1em 0;
   padding-bottom: 5px;
-  border-bottom: 1px solid #dadada; }
+  border-bottom: 1px solid #cccccc; }
   h3 .symbol {
     font-weight: normal; }
 
@@ -32,7 +35,7 @@ article {
   margin: 50px auto; }
   article .meta {
     font-size: 0.8em;
-    color: #9a9a9a;
+    color: #666666;
     margin-bottom: 0; }
   article h2 {
     font-size: 1.5em;
@@ -53,7 +56,7 @@ article {
     max-width: 100%; }
   article .post hr {
     border: 0;
-    border-top: 1px solid #dadada; }
+    border-top: 1px solid #cccccc; }
   article .post table {
     margin: 0 auto;
     width: 100%;
@@ -75,17 +78,10 @@ article {
 .entry-list .date {
   display: inline-block; }
 
-.entry-list .tag {
-  color: #9a9a9a;
-  display: inline-block; }
-  .entry-list .tag a {
-    color: #9a9a9a;
-    text-decoration: none; }
-
 .entry-list dt {
   padding-top: 0.5em;
   font-size: 0.8em;
-  color: #bababa; }
+  color: #999999; }
 
 .entry-list dd {
   margin: 0;
@@ -213,14 +209,14 @@ blockquote {
 
 #me {
   margin: 0;
-  color: #6a6a6a;
+  color: #333;
   position: relative;
   display: inline-block;
   width: 94%;
   padding: 3%;
   min-width: 115px;
   background: #fff;
-  border: 1px solid #dadada;
+  border: 1px solid #cccccc;
   z-index: 0; }
   #me:before {
     content: "";
@@ -246,7 +242,7 @@ blockquote {
     height: 0px;
     border-style: solid;
     border-width: 0 10px 10px 10px;
-    border-color: transparent transparent #dadada transparent;
+    border-color: transparent transparent #cccccc transparent;
     z-index: -1; }
   #me dl:not(.entry-list) dt {
     padding-top: 0.5em; }
@@ -257,7 +253,7 @@ blockquote {
     margin: 0;
     padding: 0 0 0.5em 0;
     font-size: 0.8em;
-    color: #bababa; }
+    color: #999999; }
   #me img.emoji {
     height: 1em;
     width: 1em;
