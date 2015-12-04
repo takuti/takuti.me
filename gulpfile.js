@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var plumber = require('gulp-plumber');
 var sass = require('gulp-sass');
 var data = require('gulp-data');
 var kramdown = require('gulp-kramdown');
@@ -7,6 +8,7 @@ var request = require('sync-request');
 
 gulp.task('compile-sass', function() {
   gulp.src('_scss/*.scss')
+      .pipe(plumber())
       .pipe(sass())
       .pipe(gulp.dest('static/style/'));
 });
