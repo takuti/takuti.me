@@ -5,6 +5,11 @@ var data = require('gulp-data');
 var kramdown = require('gulp-kramdown');
 var wrapper = require('gulp-wrapper');
 var request = require('sync-request');
+var del = require('del');
+
+gulp.task('clean-content', function() {
+  return del(['content/**/*']);
+});
 
 gulp.task('compile-sass', function() {
   gulp.src('_scss/*.scss')
@@ -70,4 +75,4 @@ gulp.task('watch', function(){
   gulp.watch('_content/**/*.{md,html}', ['compile-md-preview']);
 });
 
-gulp.task('default', ['compile-sass', 'compile-md']);
+gulp.task('default', ['clean-content', 'compile-sass', 'compile-md']);

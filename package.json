@@ -2,6 +2,7 @@
   "name": "takuti.me",
   "version": "1.0.0",
   "dependencies": {
+    "del": "^2.2.1",
     "gulp": "^3.9.0",
     "gulp-data": "^1.2.1",
     "gulp-kramdown": "^0.5.1",
