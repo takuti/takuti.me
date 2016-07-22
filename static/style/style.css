@@ -93,9 +93,9 @@ article {
 
 header {
   width: 800px;
-  height: 45px;
+  height: 50px;
   margin: 0 auto;
-  padding-top: 22.5px;
+  padding-top: 25px;
   text-align: center; }
   header a {
     text-decoration: none; }
@@ -275,7 +275,7 @@ blockquote {
     header #header-content {
       width: 90%;
       padding: 0 5%;
-      height: 90px; }
+      height: 100px; }
   article .post img {
     max-width: 100%;
     height: auto; } }

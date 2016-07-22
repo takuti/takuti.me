@@ -6,7 +6,7 @@
 $tungsten: #333;
 $base: #00496E;
 $content-width: 800px;
-$header-height: 45px;
+$header-height: 50px;
 
 html, body {
   background: #fff;
@@ -136,10 +136,10 @@ header {
   text-align: center;
   a { text-decoration: none; }
   img {
-    width: 50px;
-    border-radius: 50px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
+    width: $header-height;
+    border-radius: $header-height;
+    -webkit-border-radius: $header-height;
+    -moz-border-radius: $header-height;
   }
 }
 
