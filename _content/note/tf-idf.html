@@ -10,28 +10,35 @@ date: 2014-01-25
 <p>『いくつかの文書があったとき、それぞれの文書を特徴付ける単語はどれだろう？』こんなときに使われるのがTF-IDFという値。<br />
 <!--more--><br />
 TFはTerm Frequencyで、それぞれの単語の文書内での出現頻度を表します。<strong>たくさん出てくる単語ほど重要！</strong></p>
-<p>\[<br />
-\displaystyle tf(t,d) = \frac{n_{t,d}}{\sum_{s \in d}n_{s,d}}<br />
-\]</p>
+<p>
+$$
+\textrm{tf}(t,d) = \frac{n_{t,d}}{\sum_{s \in d}n_{s,d}}
+$$
+</p>
 <dl>
-<dt>\(tf(t,d)\)</dt>
-<dd>文書\(d\)内のある単語\(t\)のTF値</dd>
-<dt>\(n_{t,d}\)</dt>
-<dd>ある単語\(t\)の文書\(d\)内での出現回数</dd>
-<dt>\(\sum_{s \in d}n_{s,d}\)</dt>
-<dd>文書\(d\)内のすべての単語の出現回数の和</dd>
+  <dt>$\textrm{tf}(t,d)$</dt>
+  <dd>文書 $d$ 内のある単語 $t$ のTF値</dd>
+
+  <dt>$n_{t,d}$</dt>
+  <dd>ある単語 $t$ の文書 $d$ 内での出現回数</dd>
+
+  <dt>$\sum\_{s \in d} n\_{s,d}$</dt>
+  <dd>文書$d$内のすべての単語の出現回数の和</dd>
 </dl>
 <p>IDFはInverse Document Frequencyで、それぞれの単語がいくつの文書内で共通して使われているかを表します。<strong>いくつもの文書で横断的に使われている単語はそんなに重要じゃない！</strong></p>
-<p>\[<br />
-\displaystyle idf(t) = \log{\frac{N}{df(t)}} + 1<br />
-\]</p>
+<p>
+$$
+\textrm{idf}(t) = \log{\frac{N}{df(t)}} + 1
+$$
 <dl>
-<dt>\(idf(t)\)</dt>
-<dd>ある単語\(t\)のIDF値</dd>
-<dt>\(N\)</dt>
-<dd>全文書数</dd>
-<dt>\(df(t)\)</dt>
-<dd>ある単語\(t\)が出現する文書の数</dd>
+  <dt>$\textrm{idf}(t)$</dt>
+  <dd>ある単語 $t$ のIDF値</dd>
+
+  <dt>$N$</dt>
+  <dd>全文書数</dd>
+
+  <dt>$\textrm{df}(t)$</dt>
+  <dd>ある単語 $t$ が出現する文書の数</dd>
 </dl>
 <p>対数をとっているのは、文書数の規模に応じた値の変化を小さくするためなんだとか。</p>
 <p>この2つの値を掛けたものをそれぞれの単語の重みにすれば、その値が大きいほど各文書を特徴付ける単語だと言えるんじゃないか、という話。</p>
@@ -41,20 +48,20 @@ TFはTerm Frequencyで、それぞれの単語の文書内での出現頻度を�
 <p>具体的な例として以下の記事を参考に、２つの文書『<strong>リンゴとレモンとレモン</strong>』（文書A）と『<strong>リンゴとミカン</strong>』（文書B）を考えます。</p>
 <p><a href="http://kitsunemimi9.blog89.fc2.com/blog-entry-20.html">フツーって言うなぁ！ Pythonでtf-idf法を実装してみた</a></p>
 <p>形態素解析を行うとき、特徴語になり得るのは名詞だけだと仮定して、それ以外の品詞は無視します。つまり文書Aは <strong>[リンゴ, レモン, レモン]</strong> 、文書Bは <strong>[リンゴ, ミカン]</strong> という単語の集合。</p>
-<p>\(\displaystyle  tf(リンゴ,文書A) = \frac{1}{3} = 0.33\)</p>
-<p>\(\displaystyle  tf(レモン,文書A) = \frac{2}{3} = 0.66\)<br />
+<p>$\textrm{tf}(\textrm{リンゴ}, \textrm{文書A}) = \frac{1}{3} = 0.33$</p>
+<p>$\textrm{tf}(\textrm{レモン}, \textrm{文書A}) = \frac{2}{3} = 0.66$</p>
 <br>&nbsp;<br />
-\(\displaystyle  tf(リンゴ,文書B) = \frac{1}{2} = 0.5\)</p>
-<p>\(\displaystyle  tf(ミカン,文書B) = \frac{1}{2} = 0.5\)<br />
+$\textrm{tf}(\textrm{リンゴ}, \textrm{文書B}) = \frac{1}{2} = 0.5$</p>
+<p>$\textrm{tf}(\textrm{ミカン}, \textrm{文書B}) = \frac{1}{2} = 0.5$<br />
 <br>&nbsp;<br />
-\(\displaystyle  idf(リンゴ) = \log{\frac{2}{2}} + 1 = 1\)</p>
-<p>\(\displaystyle  idf(レモン) = \log{\frac{2}{1}} + 1 = 1.3\)</p>
-<p>\(\displaystyle  idf(ミカン) = \log{\frac{2}{1}} + 1 = 1.3\)</p>
+$\textrm{idf}(\textrm{リンゴ}) = \log{\frac{2}{2}} + 1 = 1$</p>
+<p>$\textrm{idf}(\textrm{レモン}) = \log{\frac{2}{1}} + 1 = 1.3$</p>
+<p>$\textrm{idf}(\textrm{ミカン}) = \log{\frac{2}{1}} + 1 = 1.3$</p>
 <p>すると上記のようにTF値とIDF値がそれぞれ計算できて、積を求めれば、</p>
-<p>\(tf(リンゴ,文書A)*idf(リンゴ) = 0.33\)<br />
-\(tf(レモン,文書A)*idf(レモン) = 0.858\)</p>
-<p>\(tf(リンゴ,文書B)*idf(リンゴ) = 0.5\)<br />
-\(tf(ミカン,文書B)*idf(ミカン) = 0.65\)</p>
+<p>$\textrm{tf}(\textrm{リンゴ}, \textrm{文書A}) \* \textrm{idf}(\textrm{リンゴ}) = 0.33$<br />
+$\textrm{tf}(\textrm{レモン}, \textrm{文書A})\*\textrm{idf}(\textrm{レモン}) = 0.858$</p>
+<p>$\textrm{tf}(\textrm{リンゴ}, \textrm{文書B})\*\textrm{idf}(\textrm{リンゴ}) = 0.5$<br />
+$\textrm{tf}(\textrm{ミカン}, \textrm{文書B})\*\textrm{idf}(\textrm{ミカン}) = 0.65$</p>
 <p>両方の文書に登場している「リンゴ」という単語は、片方にしか登場していない「レモン」や「ミカン」よりも特徴語としての重みは小さいことが数値的に分かります。</p>
 <p>実装はRubyです。</p>
 <p><strong><a href="https://github.com/takuti/algorithms/blob/master/machine-learning/tf-idf/tf_idf.rb">tf_idf.rb</a></strong></p>
