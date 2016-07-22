@@ -37,6 +37,18 @@ a {
   &.nounderline {
   text-decoration: none;
   }
+
+  &.post-style {
+    color: #208DC3;
+    text-decoration: none;
+    &:visited {
+      color: #208DC3;
+    }
+    &:hover {
+      color: #006EA5;
+      text-decoration: underline;
+    }
+  }
 }
 
 h3 {

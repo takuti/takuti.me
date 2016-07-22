@@ -22,6 +22,14 @@ a {
     text-decoration: none; }
   a.nounderline {
     text-decoration: none; }
+  a.post-style {
+    color: #208DC3;
+    text-decoration: none; }
+    a.post-style:visited {
+      color: #208DC3; }
+    a.post-style:hover {
+      color: #006EA5;
+      text-decoration: underline; }
 
 h3 {
   font-size: 1.1em;
