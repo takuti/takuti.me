@@ -124,12 +124,7 @@ $$
   \right)
 $$
 
-for $M$, dimensions of input vector. It can be simply written as
-$\boldsymbol{\Phi} = \left[
-\boldsymbol{\phi_1} \
-\boldsymbol{\phi_2}
-\ldots
-\boldsymbol{\phi_N}\right]$. Therefore, we can easily confirm $\sum_{n=1}^{N}\boldsymbol{\phi}_n \boldsymbol{\phi}_n^{\mathrm{T}} = \boldsymbol{\Phi}^{\mathrm{T}}\boldsymbol{\Phi}$, and $$\sum_{n=1}^{N} t_n\boldsymbol{\phi}_n = \boldsymbol{\Phi}^{\mathrm{T}}\textbf{t}$$.
+for $M$, dimensions of input vector. It can be simply written as $\boldsymbol{\Phi} = \left[\boldsymbol{\phi\_1} \ \boldsymbol{\phi\_2} \ldots \boldsymbol{\phi\_N}\right]$. Therefore, we can easily confirm $\sum\_{n=1}^{N} \boldsymbol{\phi}\_n \boldsymbol{\phi}\_n^{\mathrm{T}} = \boldsymbol{\Phi}^{\mathrm{T}} \boldsymbol{\Phi}$, and $\sum\_{n=1}^{N} t\_n\boldsymbol{\phi}\_n = \boldsymbol{\Phi}^{\mathrm{T}} \textbf{t}$.
 
 Finally, we get the normal equation with the design matrix:
 
