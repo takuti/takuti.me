@@ -5,7 +5,7 @@
 // scss variable
 $tungsten: #333;
 $base: #00496E;
-$content-width: 700px;
+$content-width: 800px;
 $header-height: 45px;
 
 html, body {
@@ -145,6 +145,7 @@ header {
 
 #container {
   width: $content-width;
+  max-width: 90%;
   margin: 30px auto 50px auto;
   .left {
     display: block;

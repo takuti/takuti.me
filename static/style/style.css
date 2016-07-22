@@ -92,7 +92,7 @@ article {
     text-decoration: none; }
 
 header {
-  width: 700px;
+  width: 800px;
   height: 45px;
   margin: 0 auto;
   padding-top: 22.5px;
@@ -106,7 +106,8 @@ header {
     -moz-border-radius: 50px; }
 
 #container {
-  width: 700px;
+  width: 800px;
+  max-width: 90%;
   margin: 30px auto 50px auto; }
   #container .left {
     display: block;
@@ -123,7 +124,7 @@ header {
 footer {
   text-align: center;
   font-size: 0.8em;
-  width: 700px;
+  width: 800px;
   margin: 0 auto;
   margin-bottom: 1em; }
 
