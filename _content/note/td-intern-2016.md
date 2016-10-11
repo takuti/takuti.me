@@ -7,7 +7,7 @@ date: 2016-10-04
 
 8月1日から9月30日まで、大学院の同期で小学生時代は落ち着きがなかった [@ganmacs](https://twitter.com/ganmacs) と、小学校の給食ではソフト麺が出なかった [@amaya382](https://twitter.com/amaya382) と一緒に **Treasure Data** (TD) **Summer Internship** に参加した。
 
-- （ここに [@ganmacs](https://twitter.com/ganmacs) の記事がきます）
+- [Treasure Data インターンで最高の夏過ごしてきた  #td_intern - memo-mode](http://ganmacs.hatenablog.com/entry/2016/10/07/094427)
 - [トレジャーデータでインターンしてた話 #td_intern - 水底](http://amaya382.hatenablog.jp/entry/2016/10/01/210752)
 
 [インターンの途中で1週間アメリカへ行ってしまう](http://takuti.me/note/recsys-2016/)という事情を酌んだ上で採用していただき、限られた期間で物凄く適切な課題設定とメンタリングを行なってくださった[@myui](https://twitter.com/myui)さんには頭が上がらない。本当にありがとうございました。
