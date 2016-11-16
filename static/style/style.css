@@ -2,7 +2,7 @@
 html, body {
   background: #fff;
   height: 100%;
-  color: #444;
+  color: #333;
   font-family: 'Noto Sans', sans-serif;
   font-size: 14px;
   margin: 0px;
@@ -16,14 +16,14 @@ h3 {
   font-size: 1.1em;
   margin: 2em 0 1em 0;
   padding-bottom: 5px;
-  border-bottom: 1px solid #dddddd; }
+  border-bottom: 1px solid #cccccc; }
   h3 .symbol {
     font-weight: normal; }
 
 a {
-  color: #444; }
+  color: #333; }
   a:visited {
-    color: #444; }
+    color: #333; }
   a:hover {
     text-decoration: none; }
   a.bold {
@@ -41,10 +41,10 @@ a {
       text-decoration: underline; }
 
 article {
-  margin: 50px auto; }
+  margin: 0 auto 50px auto; }
   article .meta {
     font-size: 0.8em;
-    color: #777777;
+    color: #666666;
     margin-bottom: 0; }
   article h2 {
     font-size: 1.5em;
@@ -63,7 +63,7 @@ article {
     max-width: 100%; }
   article .post hr {
     border: 0;
-    border-top: 1px solid #dddddd; }
+    border-top: 1px solid #cccccc; }
   article .post table {
     margin: 0 auto;
     width: 100%;
@@ -72,12 +72,12 @@ article {
       padding: 6px;
       text-align: left;
       vertical-align: top;
-      background-color: #f7f7f7;
-      border: 1px solid #c4c4c4; }
+      background-color: #e6e6e6;
+      border: 1px solid #b3b3b3; }
     article .post table td {
       padding: 6px;
       background-color: #fff;
-      border: 1px solid #c4c4c4; }
+      border: 1px solid #b3b3b3; }
 
 dl.entry-list .date {
   display: inline-block; }
@@ -85,7 +85,7 @@ dl.entry-list .date {
 dl.entry-list dt {
   padding-top: 0.5em;
   font-size: 0.8em;
-  color: #aaaaaa; }
+  color: #999999; }
 
 dl.entry-list dd {
   margin: 0;
@@ -96,13 +96,21 @@ dl.entry-list dd {
     text-decoration: none; }
 
 header {
+  font-size: 1.1em;
   width: 800px;
-  height: 50px;
   margin: 0 auto;
-  padding-top: 25px;
-  text-align: center; }
-  header a {
+  padding-top: 25px; }
+  header .left a {
     text-decoration: none; }
+  header .right {
+    color: #999999; }
+    header .right a {
+      color: #999999;
+      text-decoration: none; }
+      header .right a:visited {
+        color: #999999; }
+      header .right a:hover {
+        color: #333; }
   header img {
     width: 50px;
     border-radius: 50px;
@@ -113,12 +121,6 @@ header {
   width: 800px;
   max-width: 90%;
   margin: 30px auto 50px auto; }
-  #container .left {
-    display: block;
-    float: left; }
-  #container .right {
-    display: block;
-    float: right; }
   #container ul {
     margin-left: 0;
     padding-left: 1.5em; }
@@ -131,6 +133,14 @@ footer {
   width: 800px;
   margin: 0 auto;
   margin-bottom: 1em; }
+
+.left {
+  display: inline-block;
+  float: left; }
+
+.right {
+  display: inline-block;
+  float: right; }
 
 .clearfix {
   zoom: 1; }
@@ -203,7 +213,9 @@ blockquote {
   -o-font-smoothing: antialiased;
   font-smoothing: antialiased;
   font-size: 1.3em;
-  line-height: 1.3em; }
+  line-height: 1.3em;
+  display: inline-block;
+  margin: 0 0.25em; }
 
 #me dl:not(.entry-list) dt {
   padding-top: 0.5em; }
@@ -215,7 +227,7 @@ blockquote {
   margin: 0;
   padding: 0 0 0.5em 0;
   font-size: 0.8em;
-  color: #aaaaaa; }
+  color: #999999; }
 
 #me img.emoji {
   height: 1em;

@@ -3,7 +3,7 @@
 @import 'normalize.css';
 
 // scss variable
-$color-black: #444;
+$color-black: #333;
 $color-dark-blue: #00496E;
 $content-width: 800px;
 $header-height: 50px;
@@ -63,7 +63,7 @@ a {
 }
 
 article {
-  margin: 50px auto;
+  margin: 0 auto 50px auto;
   .meta {
     font-size: 0.8em;
     color: lighten( $color-black, 20% );
@@ -135,12 +135,20 @@ dl.entry-list {
 }
 
 header {
+  font-size: 1.1em;
   width: $content-width;
-  height: $header-height;
   margin: 0 auto;
   padding-top: $header-height/2;
-  text-align: center;
-  a { text-decoration: none; }
+  .left a { text-decoration: none; }
+  .right {
+    color: lighten( $color-black, 40% );
+    a {
+      color: lighten( $color-black, 40% );
+      text-decoration: none;
+      &:visited { color: lighten( $color-black, 40% ); }
+      &:hover { color: $color-black; }
+    }
+  }
   img {
     width: $header-height;
     border-radius: $header-height;
@@ -153,14 +161,6 @@ header {
   width: $content-width;
   max-width: 90%;
   margin: 30px auto 50px auto;
-  .left {
-    display: block;
-    float: left;
-  }
-  .right {
-    display: block;
-    float: right;
-  }
   ul {
     margin-left: 0;
     padding-left: 1.5em;
@@ -178,6 +178,14 @@ footer {
   margin-bottom: 1em;
 }
 
+.left {
+  display: inline-block;
+  float: left;
+}
+.right {
+  display: inline-block;
+  float: right;
+}
 .clearfix {
   zoom:1;
   &:after {
@@ -260,6 +268,8 @@ blockquote {
   font-smoothing: antialiased;
   font-size: 1.3em;
   line-height: 1.3em;
+  display: inline-block;
+  margin: 0 0.25em;
 }
 
 #me {
