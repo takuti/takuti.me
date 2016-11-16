@@ -11,7 +11,7 @@
   <section>
     <h3><script>emoji('270f');</script>Recent Notes</h3>
     <dl class="entry-list">
-      {{ range first 5 .Data.Pages }}
+      {{ range first 5 (where .Data.Pages "Section" "note")}}
         <dt>
         <span class="date">
           {{ .Date.Format "2006-01-02" }}

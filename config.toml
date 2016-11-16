@@ -8,7 +8,7 @@ baseurl = "http://takuti.me"
 title = "takuti.me"
 
 [permalinks]
-	note = "/note/:filename/"
+  note = "/note/:filename/"
 
 [params]
   author = "takuti"

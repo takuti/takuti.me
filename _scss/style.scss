@@ -135,10 +135,10 @@ dl.entry-list {
 }
 
 header {
-  font-size: 1.1em;
+  font-size: 1.2em;
   width: $content-width;
   margin: 0 auto;
-  padding-top: $header-height/2;
+  padding-top: 30px;
   .left a { text-decoration: none; }
   .right {
     color: lighten( $color-black, 40% );
