@@ -2,19 +2,28 @@
 html, body {
   background: #fff;
   height: 100%;
-  color: #333;
+  color: #444;
   font-family: 'Noto Sans', sans-serif;
   font-size: 14px;
   margin: 0px;
-  padding: 0px; }
+  padding: 0px;
+  line-height: 1.5; }
 
 h1, h2, h3, h4 {
   color: #00496E; }
 
+h3 {
+  font-size: 1.1em;
+  margin: 2em 0 1em 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #dddddd; }
+  h3 .symbol {
+    font-weight: normal; }
+
 a {
-  color: #333; }
+  color: #444; }
   a:visited {
-    color: #333; }
+    color: #444; }
   a:hover {
     text-decoration: none; }
   a.bold {
@@ -23,43 +32,30 @@ a {
   a.nounderline {
     text-decoration: none; }
   a.post-style {
-    color: #208DC3;
+    color: #008dd4;
     text-decoration: none; }
     a.post-style:visited {
-      color: #208DC3; }
+      color: #008dd4; }
     a.post-style:hover {
-      color: #006EA5;
+      color: #006ba1;
       text-decoration: underline; }
-
-h3 {
-  font-size: 1.1em;
-  margin: 2em 0 1em 0;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #cccccc; }
-  h3 .symbol {
-    font-weight: normal; }
-
-h4 {
-  font-size: 1em; }
 
 article {
   margin: 50px auto; }
   article .meta {
     font-size: 0.8em;
-    color: #666666;
+    color: #777777;
     margin-bottom: 0; }
   article h2 {
     font-size: 1.5em;
     margin: 0 0 2em 0; }
-    article h2 a {
-      text-decoration: none; }
   article .post a {
-    color: #208DC3;
+    color: #008dd4;
     text-decoration: none; }
     article .post a:visited {
-      color: #208DC3; }
+      color: #008dd4; }
     article .post a:hover {
-      color: #006EA5;
+      color: #006ba1;
       text-decoration: underline; }
   article .post img {
     display: block;
@@ -67,7 +63,7 @@ article {
     max-width: 100%; }
   article .post hr {
     border: 0;
-    border-top: 1px solid #cccccc; }
+    border-top: 1px solid #dddddd; }
   article .post table {
     margin: 0 auto;
     width: 100%;
@@ -76,29 +72,26 @@ article {
       padding: 6px;
       text-align: left;
       vertical-align: top;
-      color: #333;
-      background-color: #eee;
-      border: 1px solid #b9b9b9; }
+      background-color: #f7f7f7;
+      border: 1px solid #c4c4c4; }
     article .post table td {
       padding: 6px;
       background-color: #fff;
-      border: 1px solid #b9b9b9; }
-  article #disqus_thread {
-    margin-top: 50px; }
+      border: 1px solid #c4c4c4; }
 
-.entry-list .date {
+dl.entry-list .date {
   display: inline-block; }
 
-.entry-list dt {
+dl.entry-list dt {
   padding-top: 0.5em;
   font-size: 0.8em;
-  color: #999999; }
+  color: #aaaaaa; }
 
-.entry-list dd {
+dl.entry-list dd {
   margin: 0;
   padding: 0 0 0.5em 0;
   font-size: 1.0em; }
-  .entry-list dd a {
+  dl.entry-list dd a {
     font-weight: bold;
     text-decoration: none; }
 
@@ -147,7 +140,7 @@ footer {
     clear: both; }
 
 pre {
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
   font-size: 12px;
   display: block;
   padding: 9.5px;
@@ -163,7 +156,7 @@ pre {
   word-wrap: break-word; }
 
 code {
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
   font-size: 12px;
   padding: 0 .5em;
   background-color: #f5f5f5;
@@ -188,13 +181,6 @@ blockquote {
   blockquote p {
     margin: 0;
     padding: 0; }
-
-/*--- fonts ---*/
-.bold {
-  font-weight: bold; }
-
-.italic {
-  font-style: italic; }
 
 @font-face {
   font-family: 'LigatureSymbols';
@@ -221,14 +207,14 @@ blockquote {
 
 #me {
   margin: 0;
-  color: #333;
+  color: #444;
   position: relative;
   display: inline-block;
   width: 94%;
   padding: 3%;
   min-width: 115px;
   background: #fff;
-  border: 1px solid #cccccc;
+  border: 1px solid #dddddd;
   z-index: 0; }
   #me:before {
     content: "";
@@ -254,7 +240,7 @@ blockquote {
     height: 0px;
     border-style: solid;
     border-width: 0 10px 10px 10px;
-    border-color: transparent transparent #cccccc transparent;
+    border-color: transparent transparent #dddddd transparent;
     z-index: -1; }
   #me dl:not(.entry-list) dt {
     padding-top: 0.5em; }
@@ -265,7 +251,7 @@ blockquote {
     margin: 0;
     padding: 0 0 0.5em 0;
     font-size: 0.8em;
-    color: #999999; }
+    color: #aaaaaa; }
   #me img.emoji {
     height: 1em;
     width: 1em;
@@ -282,11 +268,4 @@ blockquote {
   header {
     padding-right: 5%;
     padding-left: 5%;
-    width: 90%; }
-    header #header-content {
-      width: 90%;
-      padding: 0 5%;
-      height: 100px; }
-  article .post img {
-    max-width: 100%;
-    height: auto; } }
+    width: 90%; } }
