@@ -263,43 +263,6 @@ blockquote {
 }
 
 #me {
-  margin: 0;
-  color: $color-black;
-  position: relative;
-  display: inline-block;
-  width: 94%;
-  padding: 3%;
-  min-width: 115px;
-  background: #fff;
-  border: 1px solid lighten( $color-black, 60% );;
-  z-index: 0;
-  &:before {
-    content: "";
-    position: absolute;
-    top: -8px; left: 50%;
-    margin-left: -9px;
-    display: block;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 0 9px 9px 9px;
-    border-color: transparent transparent #fff transparent;
-    z-index: 0;
-  }
-  &:after {
-    content: "";
-    position: absolute;
-    top: -10px; left: 50%;
-    margin-left: -10px;
-    display: block;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 0 10px 10px 10px;
-    border-color: transparent transparent lighten( $color-black, 60% ) transparent;
-    z-index: -1;
-  }
-
   dl:not(.entry-list) {
     dt {
       padding-top: 0.5em;

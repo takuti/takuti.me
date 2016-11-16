@@ -205,58 +205,23 @@ blockquote {
   font-size: 1.3em;
   line-height: 1.3em; }
 
-#me {
+#me dl:not(.entry-list) dt {
+  padding-top: 0.5em; }
+  #me dl:not(.entry-list) dt a {
+    font-weight: bold;
+    text-decoration: none; }
+
+#me dl:not(.entry-list) dd {
   margin: 0;
-  color: #444;
-  position: relative;
-  display: inline-block;
-  width: 94%;
-  padding: 3%;
-  min-width: 115px;
-  background: #fff;
-  border: 1px solid #dddddd;
-  z-index: 0; }
-  #me:before {
-    content: "";
-    position: absolute;
-    top: -8px;
-    left: 50%;
-    margin-left: -9px;
-    display: block;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 0 9px 9px 9px;
-    border-color: transparent transparent #fff transparent;
-    z-index: 0; }
-  #me:after {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    margin-left: -10px;
-    display: block;
-    width: 0px;
-    height: 0px;
-    border-style: solid;
-    border-width: 0 10px 10px 10px;
-    border-color: transparent transparent #dddddd transparent;
-    z-index: -1; }
-  #me dl:not(.entry-list) dt {
-    padding-top: 0.5em; }
-    #me dl:not(.entry-list) dt a {
-      font-weight: bold;
-      text-decoration: none; }
-  #me dl:not(.entry-list) dd {
-    margin: 0;
-    padding: 0 0 0.5em 0;
-    font-size: 0.8em;
-    color: #aaaaaa; }
-  #me img.emoji {
-    height: 1em;
-    width: 1em;
-    margin: 0 .05em 0 .1em;
-    vertical-align: -0.1em; }
+  padding: 0 0 0.5em 0;
+  font-size: 0.8em;
+  color: #aaaaaa; }
+
+#me img.emoji {
+  height: 1em;
+  width: 1em;
+  margin: 0 .05em 0 .1em;
+  vertical-align: -0.1em; }
 
 /*--- responsive ---*/
 @media screen and (max-width: 767px) {
