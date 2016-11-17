@@ -152,8 +152,9 @@ header {
 }
 
 $icon-circle-size: 80px;
-img.icon {
+img.icon-circle {
   width: $icon-circle-size;
+  max-width: 80%;
   border-radius: $icon-circle-size;
   -webkit-border-radius: $icon-circle-size;
   -moz-border-radius: $icon-circle-size;
@@ -173,7 +174,6 @@ img.icon {
 }
 
 footer {
-  text-align: center;
   font-size: 0.8em;
   width: $content-width;
   margin: 0 auto;

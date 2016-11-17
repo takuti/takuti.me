@@ -112,8 +112,9 @@ header {
       header .right a:hover {
         color: #333; }
 
-img.icon {
+img.icon-circle {
   width: 80px;
+  max-width: 80%;
   border-radius: 80px;
   -webkit-border-radius: 80px;
   -moz-border-radius: 80px; }
@@ -129,7 +130,6 @@ img.icon {
       margin-bottom: .2em; }
 
 footer {
-  text-align: center;
   font-size: 0.8em;
   width: 800px;
   margin: 0 auto;
