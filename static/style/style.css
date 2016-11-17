@@ -132,8 +132,9 @@ img.icon-circle {
 footer {
   font-size: 0.8em;
   width: 800px;
+  height: 50px;
   margin: 0 auto;
-  margin-bottom: 1em; }
+  padding: 0; }
 
 .left {
   display: inline-block;
