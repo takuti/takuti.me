@@ -11,14 +11,14 @@ html, body {
 
 h1, h2, h3, h4 {
   color: #00496E; }
+  h1 .symbol, h2 .symbol, h3 .symbol, h4 .symbol {
+    font-weight: normal; }
 
 h3 {
   font-size: 1.1em;
   margin: 2em 0 1em 0;
   padding-bottom: 5px;
   border-bottom: 1px solid #cccccc; }
-  h3 .symbol {
-    font-weight: normal; }
 
 a {
   color: #333; }
@@ -111,11 +111,12 @@ header {
         color: #999999; }
       header .right a:hover {
         color: #333; }
-  header img {
-    width: 50px;
-    border-radius: 50px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px; }
+
+img.icon {
+  width: 80px;
+  border-radius: 80px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px; }
 
 #container {
   width: 800px;
@@ -136,11 +137,15 @@ footer {
 
 .left {
   display: inline-block;
-  float: left; }
+  float: left;
+  margin: 0;
+  padding: 0; }
 
 .right {
   display: inline-block;
-  float: right; }
+  float: right;
+  margin: 0;
+  padding: 0; }
 
 .clearfix {
   zoom: 1; }
@@ -217,26 +222,45 @@ blockquote {
   display: inline-block;
   margin: 0 0.25em; }
 
-#me dl:not(.entry-list) dt {
-  padding-top: 0.5em; }
-  #me dl:not(.entry-list) dt a {
-    font-weight: bold;
-    text-decoration: none; }
+#me h3 {
+  color: rgba(51, 51, 51, 0.3);
+  border: none;
+  padding: 0;
+  font-size: 1.5em; }
 
-#me dl:not(.entry-list) dd {
-  margin: 0;
-  padding: 0 0 0.5em 0;
-  font-size: 0.8em;
-  color: #999999; }
+#me h4 {
+  font-size: 1em;
+  margin: 0 0 0.5em 0;
+  color: #333;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #333; }
 
-#me img.emoji {
-  height: 1em;
-  width: 1em;
-  margin: 0 .05em 0 .1em;
-  vertical-align: -0.1em; }
+#me .self .right {
+  width: 70%;
+  margin-top: 1em; }
+
+#me .self .left {
+  width: 26%;
+  margin-top: 1em; }
+
+#me .projects .left {
+  width: 63%;
+  margin: 1em 0; }
+
+#me .projects .right {
+  text-align: center;
+  width: 33%;
+  margin: 1em 0; }
+
+#me ul {
+  margin-bottom: 0; }
+
+#me img {
+  max-width: 100%;
+  height: auto; }
 
 /*--- responsive ---*/
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 960px) {
   body {
     width: 100%; }
   #container, footer, nav {
@@ -246,3 +270,9 @@ blockquote {
     padding-right: 5%;
     padding-left: 5%;
     width: 90%; } }
+
+@media screen and (max-width: 600px) {
+  #me .projects .left {
+    width: 100%; }
+  #me .projects .right {
+    width: 100%; } }

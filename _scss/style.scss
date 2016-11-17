@@ -21,6 +21,9 @@ html, body {
 
 h1, h2, h3, h4 {
   color: $color-dark-blue;
+  & .symbol {
+    font-weight: normal;
+  }
 }
 
 h3 {
@@ -28,9 +31,6 @@ h3 {
   margin: 2em 0 1em 0;
   padding-bottom: 5px;
   border-bottom: 1px solid lighten( $color-black, 60% );
-  & .symbol {
-    font-weight: normal;
-  }
 }
 
 a {
@@ -149,12 +149,14 @@ header {
       &:hover { color: $color-black; }
     }
   }
-  img {
-    width: $header-height;
-    border-radius: $header-height;
-    -webkit-border-radius: $header-height;
-    -moz-border-radius: $header-height;
-  }
+}
+
+$icon-circle-size: 80px;
+img.icon {
+  width: $icon-circle-size;
+  border-radius: $icon-circle-size;
+  -webkit-border-radius: $icon-circle-size;
+  -moz-border-radius: $icon-circle-size;
 }
 
 #container {
@@ -181,10 +183,14 @@ footer {
 .left {
   display: inline-block;
   float: left;
+  margin: 0;
+  padding: 0;
 }
 .right {
   display: inline-block;
   float: right;
+  margin: 0;
+  padding: 0;
 }
 .clearfix {
   zoom:1;
@@ -273,32 +279,38 @@ blockquote {
 }
 
 #me {
-  dl:not(.entry-list) {
-    dt {
-      padding-top: 0.5em;
-      a {
-        font-weight: bold;
-        text-decoration: none;
-      }
-    }
-    dd {
-      margin: 0;
-      padding: 0 0 0.5em 0;
-      font-size: 0.8em;
-      color: lighten( $color-black, 40% );;
-    }
+  h3 {
+    color: rgba( $color-black, 0.3 );
+    border: none;
+    padding: 0;
+    font-size: 1.5em;
   }
 
-  img.emoji {
-   height: 1em;
-   width: 1em;
-   margin: 0 .05em 0 .1em;
-   vertical-align: -0.1em;
- }
+  h4 {
+    font-size: 1em;
+    margin: 0 0 0.5em 0;
+    color: $color-black;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid $color-black;
+  }
+
+  .self {
+    .right { width: 70%; margin-top: 1em; }
+    .left { width: 26%; margin-top: 1em; }
+  }
+
+  .projects {
+    .left { width: 63%; margin: 1em 0; }
+    .right { text-align: center; width: 33%; margin: 1em 0; }
+  }
+
+  ul { margin-bottom: 0; }
+
+  img { max-width: 100%; height: auto; }
 }
 
 /*--- responsive ---*/
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 960px) {
   body {
     width: 100%;
   }
@@ -310,5 +322,14 @@ blockquote {
     padding-right: 5%;
     padding-left: 5%;
     width: 90%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #me {
+    .projects {
+      .left { width: 100%; }
+      .right { width: 100%; }
+    }
   }
 }

@@ -2,14 +2,15 @@
 
 <div id="me">
 
-  <section>
-    <p>
-    <script>emoji('1f4db');</script>I'm <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a master's student at the University of Tokyo, Japan<script>emoji('1f363'); emoji('1f376');</script>
-    </p>
+  <section class="self clearfix">
+    <img src="/images/takuti.jpg" alt="takuti" class="left" />
+    <span class="right">
+      I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a master's student at the University of Tokyo, Japan<span class="symbol">twinkle</span><a href="/about">&raquo; more</a>
+    </span>
   </section>
 
   <section>
-    <h3><script>emoji('270f');</script>Recent Notes</h3>
+    <h3>Latest Notes</h3>
     <dl class="entry-list">
       {{ range first 5 (where .Data.Pages "Section" "note")}}
         <dt>
@@ -25,111 +26,76 @@
     <a href="/note">&raquo; more</a>
   </section>
 
-  <section>
-    <h3><script>emoji('1f517');</script>Links</h3>
-    <a href="http://twitter.com/takuti/" class="nounderline"><span class="symbol">twitter </span>&mdash; twitter.com/<b>takuti</b></a><br />
-    <a href="https://github.com/takuti" class="nounderline"><span class="symbol">github </span>&mdash; github.com/<b>takuti</b></a><br />
-    <a href="http://linkedin.com/in/takuti" class="nounderline"><span class="symbol">linkedin </span>&mdash; linkedin.com/in/<b>takuti</b></a><br />
-    <a href="https://instagram.com/takuti/" class="nounderline"><span class="symbol">instagram </span>&mdash; instagram.com/<b>takuti</b></a><br />
-    <a href="http://takuti.tumblr.com/" class="nounderline"><span class="symbol">tumblr </span>&mdash; <b>takuti</b>.tumblr.com</a><br />
-    <a href="http://takuti.hatenablog.com/" class="nounderline"><span class="symbol">rss </span>&mdash; <b>takuti</b>.hatenablog.com</a>
-  </section>
+  <section class="projects">
+    <h3>Projects</h3>
 
-  <section>
-    <h3><script>emoji('1f680');</script>Development</h3>
-    <dl>
-      <dt><a href="/dev/poisson/" class="bold">Poisson Image Blending</a></dt><dd>Web-based implementation of seamless image blending algorithm</dd>
-      <dt><a href="/dev/meltokei/" class="bold">Colorful Clock</a></dt><dd><a href="http://www.nicovideo.jp/watch/sm2671946">Mel-tokei</a> on the web</dd>
-      <dt><a href="/dev/bezier/" class="bold">Draw Bezier Curve</a></dt><dd>Visualization of Bezier curve drawing</dd>
-      <dt><a href="https://github.com/takuti/conversion-crx" class="bold">Conversion Guy</a></dt><dd>Google Chrome extention for the radix/rgb conversion</dd>
-      <dt><a href="/dev/binary2decimal2hex/" class="bold">Smooth Radix Converter</a></dt><dd>AngularJS practice application</dd>
-      <dt><a href="https://github.com/takuti/twitter-bot" class="bold">Twitter Bot</a></dt><dd>Markov chain-based Japanese twitter bot</dd>
-    </dl>
-  </section>
+    <div class="clearfix">
+      <span class="left">
+        <h4><span class="symbol">college</span>Streaming Recommender Systems</h4>
+        <ul>
+          <li>T. Kitazawa. <b>Sketching Dynamic User-Item Interactions for Online Item Recommendation</b>. <a class="post-style" href="http://sigir.org/chiir2017/" target="blank">CHIIR'17</a> (to appear).<br />
+            [paper] [slides] [github]
+          <li>T. Kitazawa. <b>Incremental Factorization Machines for Persistently Cold-starting Online Item Recommendation</b>. <a class="post-style" href="http://recprofile.org/index.html" target="blank">RecProfile'16</a> (in conjunction with <a class="post-style" href="https://recsys.acm.org/recsys16/" target="blank">RecSys'16</a>).<br />
+            [<a class="post-style" href="https://arxiv.org/abs/1607.02858" target="blank">paper</a>] [<a class="post-style" href="https://speakerdeck.com/takuti/incremental-factorization-machines" target="blank">slides</a>] [github]
 
-  <section>
-    <h3><script>emoji('1f4da');</script>Publications</h3>
-      <h4>International Conferences and Workshops (refereed)</h4>
+        </ul>
+      </span>
+      <span class="right">
+        <img src="/images/projects/online-recommender.png" alt="online-recommender" />
+      </span>
+    </div>
 
-      <ul>
-        <li><b><a class="post-style" href="https://arxiv.org/abs/1607.02858">Incremental Factorization Machines for Persistently Cold-starting Online Item Recommendation</a></b><br />
-            <u>T. Kitazawa</u><br />
-            <a class="nounderline" href="http://recprofile.org/index.html"><b><i>RecProfile'16</i></b></a> (in conjunction with <a class="nounderline" href="https://recsys.acm.org/recsys16/"><i>RecSys'16</i></a>)
-        <li><b><a class="post-style" href="http://dl.acm.org/citation.cfm?id=2797129">User Modeling in Folksonomies: Relational Clustering and Tag Weighting</a></b><br />
-            <u>T. Kitazawa</u> and M. Sugiyama<br />
-            <a class="nounderline" href="http://cyprusconferences.org/wims2015/"><b><i>WIMS'15</i></b></a>
-      </ul>
+    <div class="clearfix">
+      <span class="left">
+        <h4><span class="symbol">college</span>User Modeling in Folksonomies</h4>
+        <ul>
+          <li>T. Kitazawa and M. Sugiyama. <b>User Modeling in Folksonomies: Relational Clustering and Tag Weighting</b>. <a class="post-style" href="http://cyprusconferences.org/wims2015/" target="blank">WIMS'15</a>.<br />
+            [<a class="post-style" href="http://dl.acm.org/citation.cfm?id=2797129" target="blank">paper</a>] [<a class="post-style" href="https://speakerdeck.com/takuti/user-modeling-in-folksonomies" target="blank">slides</a>] [<a class="post-style" href="https://github.com/takuti/wims-2015" target="blank">github</a>]
 
-      <h4>Domestic Conferences (non-refereed)</h4>
+        </ul>
+      </span>
+      <span class="right">
+        <img src="/images/projects/irm.png" alt="irm" />
+      </span>
+    </div>
 
-      <ul>
-        <li><b>Incremental Item Recommendation Using a SVD-based Streaming Anomaly Detection Framework</b> (in Japanese)<br />
-            <u>T. Kitazawa</u><br />
-            <i>Numerical Analysis Symposium 2016</i>
-        <li><b>Incremental Factorization Machines for Item Recommendation in Data Streams</b><br />
-            <u>T. Kitazawa</u><br />
-            <i>The 30th Annual Conference of the Japanese Society for Artificial Intelligence</i>
-        <li><b>Incremental Approaches for Matrix Approximation: Performance Evaluations and Their Possible Applications</b> (in Japanese)<br />
-            <u>T. Kitazawa</u> and T. Matsuo<br />
-            <i>The Japanese Society for Artificial Intelligence SIG-FPAI-98</i>
-        <li><b>User Modeling through Relational Clustering on Folksonomy</b> (in Japanese)<br />
-            <u>T. Kitazawa</u> and M. Sugiyama<br />
-            <i>The 77th National Convention of Information Processing Society of Japan</i>
-        <li><b>Relational Clustering in Social Bookmark</b><br />
-            <u>T. Kitazawa</u> and M. Sugiyama<br />
-            <i>Tohoku-Section Joint Convention of Institutes of Electrical and Information Engineering 2014</i><br />
-            (IEEE Sendai Section Student Awards "<b>The Best Paper Prize</b>")
-      </ul>
-  </section>
+    <div class="clearfix">
+      <span class="left">
+        <h4><span class="symbol">code</span>Markov Chain Based Japanese Twitter Bot</h4>
+        <ul>
+          <li><a href="https://github.com/takuti/twitter-bot" class="bold">Twitter Bot</a><br />
+              Automatically generate tweets from the 3-gram model
+          <li><a href="https://github.com/takuti/kusari" class="bold">kusari</a><br />
+              A ruby gem for Markov-chain-based random sentence generation
+        </ul>
+      </span>
+      <span class="right">
+        <img src="/images/projects/bot.png" alt="bot" />
+      </span>
+    </div>
 
-  <section>
-    <h3><script>emoji('1f3c3');</script>Activities</h3>
-    <h4>Internships</h4>
-    <ul>
-      <li><b>Rakuten, Inc.</b>, Rakuten Institute of Technology, August to September 2015.
-      <ul><li>Recommender systems</ul>
-      <li><b>DWANGO Co., Ltd.</b>, July 2015.
-      <ul><li>iOS/watchOS application</ul>
-      <li><b>pixiv Inc.</b>, December 2014.
-      <ul><li>Web application</ul>
-      <li><b>Speee, Inc.</b>, September 2013.
-      <ul><li>iOS application</ul>
-    </ul>
+    <div class="clearfix">
+      <span class="left">
+        <h4><span class="symbol">code</span>Web Development</h4>
+        <ul>
+          <li><a href="/dev/poisson/" class="bold">Poisson Image Blending</a><br />
+              JavaScript implementation of a seamless image blending algorithm
+          <li><a href="/dev/meltokei/" class="bold">Colorful Clock</a><br />
+              <a href="http://www.nicovideo.jp/watch/sm2671946">Mel-tokei</a> on the web
+          <li><a href="/dev/bezier/" class="bold">Draw Bezier Curve</a><br />
+              Visualization of drawing the Bezier curve
+          <li><a href="https://github.com/takuti/conversion-crx" class="bold">Conversion Guy</a><br />
+              Google Chrome extention for the radix/rgb conversion
+          <li><a href="/dev/binary2decimal2hex/" class="bold">Smooth Radix Converter</a><br />
+              AngularJS practice application
+        </ul>
+      </span>
+      <span class="right">
+        <img src="/images/projects/monalisa.png" alt="monalisa" width="45%" />
+        <img src="/images/projects/meltokei.png" alt="meltokei" width="45%" />
+      </span>
+    </div>
 
-    <h4>Security</h4>
-    <ul>
-      <li><b>mixi, Inc.</b>, mixi Scrap Challenge for Security, January 2013.
-      <li><b>SECCON CTF Tsukuba</b> (team: 5a454e), May 2012.
-      <li><b>Security and Programming Camp 2011 Web Security Class</b>, August 2011.
-    </ul>
-  </section>
-
-  <section>
-    <h3><script>emoji('1f393');</script>Education</h3>
-    <ul>
-      <li><a class="nounderline" href="http://www.u-tokyo.ac.jp/en/index.html"><b>The University of Tokyo</b></a>, Japan<br />Master’s student at Graduate School of Information Science and Technology, from April 2015.
-      <li><a class="nounderline" href="http://www.u-aizu.ac.jp/en/"><b>The University of Aizu</b></a>, Japan<br />B.S. in Computer Science, March 2015.
-      <li>Others:
-      <ul>
-        <li><a class="nounderline" href="https://www.coursera.org/learn/machine-learning"><b>Coursera &quot;Machine Learning&quot;</b></a>, Stanford University, Andrew Ng, June 2014.
-        <li><a class="nounderline" href="http://www.iip.ist.i.kyoto-u.ac.jp/mlss15"><b>Machine Learning Summer School Kyoto</b></a>, August to September 2015.
-      </ul>
-    </ul>
-  </section>
-
-  <section>
-    <h3><script>emoji('1f3c6');</script>Awards</h3>
-    <ul>
-      <li><b>President's Award</b> (representative of the graduates, GPA 3.97), The University of Aizu, 2015.
-      <li><b>Dean's List of Distinguished Students</b>, The University of Aizu, 2012 to 2015.
-      <li><b>The Best Paper Prize</b>, IEEE Sendai Section Student Awards, 2014.
-      <li><b>Innovative Award</b>, TAC-Keio SFC Entrepreneurship Seminar and Business Plan Competition, 2012.
-    </ul>
-  </section>
-
-  <section>
-    <h3><script>emoji('2709');</script>Contact</h3>
-    <p><b>k.takuti</b>_at_<b>gmail.com</b> or <a href="http://twitter.com/takuti">@takuti</a></p>
   </section>
 
 </div>
