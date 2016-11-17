@@ -139,8 +139,13 @@ header {
   width: $content-width;
   margin: 0 auto;
   padding-top: 30px;
-  .left a { text-decoration: none; }
+  .left {
+    width: 50%;
+    a { text-decoration: none; }
+  }
   .right {
+    width: 50%;
+    text-align: right;
     color: lighten( $color-black, 40% );
     a {
       color: lighten( $color-black, 40% );
