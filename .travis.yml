@@ -1,12 +1,17 @@
-language: objective-c
+language: c
+os: osx
 
 before_script:
-  - brew update && brew upgrade
   - npm install -g gulp
   - npm install
-  - brew install hugo
+  - brew update && brew install hugo
+
 script:
   - gulp && hugo --baseUrl='http://takuti.me/'
+
 branches:
   only:
     - master
+
+notifications:
+  email: false
