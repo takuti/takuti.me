@@ -172,7 +172,7 @@ pre {
   border-radius: 4px;
   white-space: pre;
   white-space: pre-wrap;
-  word-break: break-all;
+  word-break: break-word;
   word-wrap: break-word; }
 
 code {
@@ -186,7 +186,7 @@ code {
   border-radius: 4px;
   white-space: pre;
   white-space: pre-wrap;
-  word-break: break-all;
+  word-break: break-word;
   word-wrap: break-word; }
 
 blockquote {
@@ -196,7 +196,7 @@ blockquote {
   background: #eee;
   white-space: pre;
   white-space: pre-wrap;
-  word-break: break-all;
+  word-break: break-word;
   word-wrap: break-word; }
   blockquote p {
     margin: 0;
