@@ -3,7 +3,8 @@
 <div id="me">
   <section>
     <dl class="entry-list">
-      {{ range first 10 (where .Data.Pages "Section" "note")}}
+      {{ range (where .Data.Pages "Section" "note")}}
+        {{ if eq (.Date.Format "2006") (.Now.Format "2006") }}
         <dt>
         <span class="date">
           {{ .Date.Format "2006-01-02" }}
@@ -12,6 +13,7 @@
         <dd>
           <a href="{{ .Permalink }}">{{ .Title }}</a>
         </dd>
+        {{ end }}
       {{ end }}
     </dl>
     <a href="/note">&raquo; more</a>
