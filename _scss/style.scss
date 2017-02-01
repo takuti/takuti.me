@@ -135,24 +135,19 @@ dl.entry-list {
 }
 
 header {
-  font-size: 1.2em;
   width: $content-width;
   margin: 0 auto;
   padding-top: 30px;
   .left {
+    font-size: 1.2em;
     width: 50%;
     a { text-decoration: none; }
   }
   .right {
+    font-size: 1em;
     width: 50%;
     text-align: right;
-    color: lighten( $color-black, 40% );
-    a {
-      color: lighten( $color-black, 40% );
-      text-decoration: none;
-      &:visited { color: lighten( $color-black, 40% ); }
-      &:hover { color: $color-black; }
-    }
+    a { text-decoration: none; }
   }
 }
 

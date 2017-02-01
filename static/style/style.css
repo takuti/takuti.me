@@ -96,25 +96,20 @@ dl.entry-list dd {
     text-decoration: none; }
 
 header {
-  font-size: 1.2em;
   width: 800px;
   margin: 0 auto;
   padding-top: 30px; }
   header .left {
+    font-size: 1.2em;
     width: 50%; }
     header .left a {
       text-decoration: none; }
   header .right {
+    font-size: 1em;
     width: 50%;
-    text-align: right;
-    color: #999999; }
+    text-align: right; }
     header .right a {
-      color: #999999;
       text-decoration: none; }
-      header .right a:visited {
-        color: #999999; }
-      header .right a:hover {
-        color: #333; }
 
 img.icon-circle {
   width: 80px;
