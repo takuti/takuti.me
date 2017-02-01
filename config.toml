@@ -9,6 +9,7 @@ title = "takuti.me"
 
 [permalinks]
   note = "/note/:filename/"
+  top = "/:filename/"
 
 [params]
   author = "takuti"
