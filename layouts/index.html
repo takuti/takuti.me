@@ -1,20 +1,18 @@
 {{ partial "header.html" . }}
 
-<div id="me">
-  <section>
-    <dl class="entry-list">
-      {{ range (where .Data.Pages "Section" "note")}}
-        <dt>
-        <span class="date">
-          {{ .Date.Format "2006-01-02" }}
-        </span>
-        </dt>
-        <dd>
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </dd>
-      {{ end }}
-    </dl>
-  </section>
-</div>
+<section>
+  <dl class="entry-list">
+    {{ range (where .Data.Pages "Section" "note")}}
+      <dt>
+      <span class="date">
+        {{ .Date.Format "2006-01-02" }}
+      </span>
+      </dt>
+      <dd>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </dd>
+    {{ end }}
+  </dl>
+</section>
 
 {{ partial "footer.html" . }}

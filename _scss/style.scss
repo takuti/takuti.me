@@ -284,35 +284,10 @@ blockquote {
   margin: 0 0.25em;
 }
 
-#me {
-  h3 {
-    color: rgba( $color-black, 0.3 );
-    border: none;
-    padding: 0;
-    font-size: 1.5em;
-  }
-
-  h4 {
-    font-size: 1em;
-    margin: 0 0 0.5em 0;
-    color: $color-black;
-    padding-bottom: 0.5em;
-    border-bottom: 1px solid $color-black;
-  }
-
-  .self {
-    .right { width: 70%; margin-top: 1em; }
-    .left { width: 26%; margin-top: 1em; }
-  }
-
-  .projects {
-    .left { width: 63%; margin: 1em 0; }
-    .right { text-align: center; width: 33%; margin: 1em 0; }
-  }
-
-  ul { margin-bottom: 0; }
-
-  img { max-width: 100%; height: auto; }
+.self {
+  & img { max-width: 100%; height: auto; }
+  .right { width: 70%; margin-top: 1em; }
+  .left { width: 26%; margin-top: 1em; }
 }
 
 /*--- responsive ---*/
