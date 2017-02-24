@@ -30,7 +30,7 @@ Matrix Factorizationよりも高い精度が出るという話をよく聞く **
 
 ### 定式化
 
-履歴に基づいて 1 もしくは整数値を要素にとるユーザ-アイテム行列 $A \in \mathbb{R}^{\textrm{#user } \times \textrm{ #item}}$ があったとき、未観測なユーザ-アイテムペア ($i$, $j$) の予測値 $\tilde{a}_{ij}$ を求めたい。
+履歴に基づいて 1 もしくは何か正の値を要素にとるユーザ-アイテム行列 $A \in \mathbb{R}^{\textrm{#user } \times \textrm{ #item}}$ があったとき、未観測なユーザ-アイテムペア ($i$, $j$) の予測値 $\tilde{a}_{ij}$ を求めたい。
 
 ここで、アイテム $j$ と他のアイテムの間の重みを表現する疎なベクトル $\mathbf{w}\_j \in \mathbb{R}^{\textrm{#item}}$ を考え、 $\tilde{a}_{ij} = \mathbf{a}^{\top}_i \mathbf{w}_j$ とする。（ $\mathbf{a}^{\top}_i \in \mathbb{R}^{1 \times \textrm{ #item}}$ は $A$ の第 $i$ 行）
 
