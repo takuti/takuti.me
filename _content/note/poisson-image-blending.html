@@ -68,29 +68,31 @@ date: 2013-12-08
 <p>今回利用している手法は<strong>Poisson Image Editing</strong>というタイトルの、「ポアソン方程式を解くことで画像補間をいい感じにできるよ」という内容の論文で提案されているものです。PDFは以下より。</p>
 <pre>P. Pérez, M. Gangnet, A. Blake. <strong><a href="http://xeds.eu/clone/poisson.pdf">Poisson Image Editing</a></strong>. ACM Transactions on Graphics (SIGGRAPH'03), 22(3):313-318, 2003.</pre>
 <p>いい感じの画像補完の具体例が今回実装したシームレスな画像合成で、これは論文の2章と3章にあたります。式の導出から書こうと思いましたがイマイチ自身無いのと実装で力尽きたのとでやめました。気になった方は原文読んで下さい。</p>
-<p>結論だけ書くと、論文内の式(7)を\(f_p=\)の形に変形して解けば終わりです。すなわち、すべての\(p \in \Omega\)に対して以下の式が成り立つような連立一次方程式を解くと言う問題。</p>
-<p>\[<br />
-f_p = \frac{\displaystyle \sum_{q \in N_p \cap \Omega}f_q + \sum_{q \in N_p \cap \partial \Omega}f^*_q + \sum_{q \in N_p}v_{pq}}{\displaystyle |N_p|}<br />
-\]</p>
+<p>結論だけ書くと、論文内の式(7)を $f_p=$ の形に変形して解けば終わりです。すなわち、すべての $p \in \Omega$ に対して以下の式が成り立つような連立一次方程式を解くと言う問題。</p>
+<p>
+$$
+f_p = \frac{\sum_{q \in N_p \cap \Omega}f_q + \sum_{q \in N_p \cap \partial \Omega}f^*_q + \sum_{q \in N_p}v_{pq}}{|N_p|}
+$$
+</p>
 <p>この式の意味するところは論文中の図1なんかを参照しながらイメージするしかありません。無理やり言葉で説明するとだいたい以下のような雰囲気です。</p>
 <p>※<strong>ベース画像＝合成先</strong>、<strong>ソース画像＝切り抜いて合成する方</strong>です。</p>
 <dl>
-<dt>\(\Omega\)</dt>
+<dt>$\Omega$</dt>
 <dd>合成結果の中で、切り抜いたソース画像が合成された領域</dd>
-<dt>\(f_p\)</dt>
-<dd>ある点\(p \in \Omega\)での\(f\)の値で、<strong>これを求めることが今回の目標</strong><br />\(f\)は\(\Omega\)内の各ピクセルのRGB値を示す関数</dd>
-<dt>\(f^*_p\)</dt>
-<dd>ある点\(p\)での\(f^*\)の値<br />\(f^*\)はベース画像内の各ピクセルのRGB値を示す関数（既知）</dd>
-<dt>\(N_p\)</dt>
-<dd>ある点\(p\)の近傍点の集合（今回はその点の上下左右、4近傍）</dd>
-<dt>\(\partial \Omega\)</dt>
-<dd>\(\Omega\)の境界領域<br />\(p \not\in \Omega\)を満たす点のうち、近傍点が1つでも領域\(\Omega\)に入っていれば\(p \in \partial \Omega\)<br /><strong>自分自身は入っていないけど近傍点のどれかは入っている</strong>という状態</dd>
-<dt>\(g_p\)</dt>
-<dd>ソース画像からマスクをかけて切り抜いた部分の中にある点\(p\)でのRGB値</dd>
-<dt>\(v_{pq}\)</dt>
-<dd>ある点\(p\)とその近傍点のうちの1つ\(q\)の間の勾配<br /><strong>Importing</strong> \(g_p-g_q\)<br /><strong>Mixing</strong> ベース画像の勾配の方が大きければ\(f^*_p-f^*_q\), そうじゃなければ\(g_p-g_q\)</dd>
+<dt>$f_p$</dt>
+<dd>ある点 $p \in \Omega$ での $f$ の値で、<strong>これを求めることが今回の目標</strong><br />$f$ は $\Omega$ 内の各ピクセルのRGB値を示す関数</dd>
+<dt>$f^*_p$</dt>
+<dd>ある点 $p$ での $f^*$ の値<br />$f^*$ はベース画像内の各ピクセルのRGB値を示す関数（既知）</dd>
+<dt>$N_p$</dt>
+<dd>ある点 $p$ の近傍点の集合（今回はその点の上下左右、4近傍）</dd>
+<dt>$\partial \Omega$</dt>
+<dd>$\Omega$ の境界領域<br />$p \not\in \Omega$ を満たす点のうち、近傍点が1つでも領域 $\Omega$ に入っていれば $p \in \partial \Omega$ <br /><strong>自分自身は入っていないけど近傍点のどれかは入っている</strong>という状態</dd>
+<dt>$g_p$</dt>
+<dd>ソース画像からマスクをかけて切り抜いた部分の中にある点 $p$ でのRGB値</dd>
+<dt>$v_{pq}$</dt>
+<dd>ある点 $p$ とその近傍点のうちの1つ $q$ の間の勾配<br /><strong>Importing</strong> $g_p-g_q$<br /><strong>Mixing</strong> ベース画像の勾配の方が大きければ $f^\*_p - f^\*_q$, そうじゃなければ $g_p-g_q$</dd>
 </dl>
-<p>これに沿って実際に合成を行っている（＝\(f_p\)を求めている）コードは、ざっくりと流れを追うと以下のような感じ。</p>
+<p>これに沿って実際に合成を行っている（＝$f_p$を求めている）コードは、ざっくりと流れを追うと以下のような感じ。</p>
 <pre class="prettyprint lang-js">
 do {
   // 全ピクセルを見る 今回は簡単のため画像の端のピクセルは考慮しない
@@ -128,16 +130,28 @@ do {
 } while(true);
 </pre>
 <p><a href="https://github.com/takuti/poisson-image-blending">takuti / poisson-image-blending</a></p>
-<p>(1)〜(3)は先に示した\(f_p = \)の式の右辺、分子の3つ項に対応します。</p>
+<p>(1)〜(3)は先に示した $f_p = $ の式の右辺、分子の3つ項に対応します。</p>
 <dl>
 <dt>(1)</dt>
-<dd>\(\displaystyle \sum_{q \in N_p \cap \Omega}f_q\)</dd>
+<dd>
+  $
+  \sum_{q \in N_p \cap \Omega}f_q
+  $
+</dd>
 <dt>(2)</dt>
-<dd>\(\displaystyle \sum_{q \in N_p \cap \partial \Omega}f^*_q\)</dd>
+<dd>
+  $
+  \sum_{q \in N_p \cap \partial \Omega}f^*_q
+  $
+</dd>
 <dt>(3)</dt>
-<dd>\(\displaystyle \sum_{q \in N_p}v_{pq}\)</dd>
+<dd>
+  $
+  \sum\_{q \in N\_p}v\_{pq}
+  $
+</dd>
 </dl>
-<p>今、すべての\(p \in \Omega\)に対して\(f_p\)を求めているため、連立一次方程式の未知数（＝合成される領域内の点の数）は\(|\Omega|\)です。\(|\Omega|\)個の未知の点を順番に推定していくことになりますが、推定途中でも(1)では\(f\)の値を利用しています。</p>
+<p>今、すべての $p \in \Omega$ に対して $f_p$ を求めているため、連立一次方程式の未知数（＝合成される領域内の点の数）は $|\Omega|$ です。$|\Omega|$ 個の未知の点を順番に推定していくことになりますが、推定途中でも(1)では $f$ の値を利用しています。</p>
 <p>このような、<strong>連立一次方程式の解の推定途中で推定済みの値とまだ推定されていない（過去の）値の両方を計算に利用する形</strong>は、ガウスサイデル法の漸化式そのままです。そこで上記簡易コードではガウスサイデル法による解の推定を行っており、推定値の収束を合成の終了としています。</p>
 <p>合成の軸になる処理はこのようなシンプルな数値計算で完結します。しかし実際はCanvasの操作なんかでコードの肥大化が深刻。</p>
 <h3>まとめ</h3>
