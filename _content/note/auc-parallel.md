@@ -5,6 +5,14 @@ lang: ja
 date: 2017-03-10
 ---
 
+### 追記 (2017/03/10)
+
+現在の内容は過度な簡略化と不完全な説明を含むので、それを踏まえて読んでいただけると幸いです。（後日更新予定）
+
+https://twitter.com/myui/status/840089982991708160
+
+---
+
 ひとつ前の記事で二値分類器の性能評価に用いられる **Area Under the ROC Curve (AUC)** の実装について書いた: [Area Under the ROC Curve (AUC) を実装する](/note/auc/)
 
 簡単にまとめると、

@@ -5,6 +5,14 @@ lang: ja
 date: 2017-03-04
 ---
 
+### 追記 (2017/03/10)
+
+現在の内容は過度な簡略化と不完全な説明を含むので、それを踏まえて読んでいただけると幸いです。（後日更新予定）
+
+https://twitter.com/myui/status/840089982991708160
+
+---
+
 二値分類器の評価指標として **Area Under the ROC Curve (AUC)** がある。これは Root Mean Squared Error (RMSE) が測る『誤差』や Precision, Recall で求める『正解率』のような直感的な指標ではないので、どうもイメージしづらい。
 
 というわけで実際に実装して「結局AUCって何？」を知る。詳しくは以下の論文を参照のこと。
@@ -82,7 +90,7 @@ def auc(pred, label):
 
 <img src="/images/auc/auc.001.png" alt="auc1" width=600 />
 
-▲ 初期状態。そもそも ROC Curve は横軸に False Positive Rate、縦軸に False Positive Rate をとったグラフなので、AUCの計算でも False Positive, True Positive の数をそれぞれの軸にとる。
+▲ 初期状態。そもそも ROC Curve は横軸に False Positive Rate、縦軸に True Positive Rate をとったグラフなので、AUCの計算でも False Positive, True Positive の数をそれぞれの軸にとる。
 
 <img src="/images/auc/auc.002.png" alt="auc2" width=600 />
 
