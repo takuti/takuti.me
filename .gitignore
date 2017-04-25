@@ -4,8 +4,6 @@
 .envrc
 
 public/
-images/
-docs/
 content/
 
 node_modules/
