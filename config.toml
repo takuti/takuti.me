@@ -4,7 +4,7 @@ publishdir = "public"
 builddrafts = false
 canonifyurls = true
 
-baseurl = "http://takuti.me"
+baseurl = "https://takuti.me"
 title = "takuti.me"
 
 [permalinks]
