@@ -12,7 +12,7 @@ Matrix Factorizationよりも高い精度が出るという話をよく聞く **
 ### 概要
 
 - Top-N推薦を高速に行う **Sparse Linear Method (SLIM)** を提案する。
-- ユーザ-アイテム行列 $A \in \mathbb{R}^{\textrm{#user } \times \textrm{ #item}}$ の未観測値を $\tilde{A} = AW$ のように補完する疎なアイテム-アイテム行列 $W \in \mathbb{R}^{\textrm{#item } \times \textrm{ #item}}$ を求める。
+- ユーザ-アイテム行列 $A \in \mathbb{R}^{\textrm{\\#user } \times \textrm{ \\#item}}$ の未観測値を $\tilde{A} = AW$ のように補完する疎なアイテム-アイテム行列 $W \in \mathbb{R}^{\textrm{\\#item } \times \textrm{ \\#item}}$ を求める。
 - L1+L2正則化つきの最適化問題をcoordinate descentで解けばよい。
 - $W$ が疎なので行列積 $AW$ が高速に計算できて、結果的にTop-Nのアイテム推薦が高速になる。
 
@@ -30,18 +30,18 @@ Matrix Factorizationよりも高い精度が出るという話をよく聞く **
 
 ### 定式化
 
-履歴に基づいて 1 もしくは何か正の値を要素にとるユーザ-アイテム行列 $A \in \mathbb{R}^{\textrm{#user } \times \textrm{ #item}}$ があったとき、未観測なユーザ-アイテムペア ($i$, $j$) の予測値 $\tilde{a}_{ij}$ を求めたい。
+履歴に基づいて 1 もしくは何か正の値を要素にとるユーザ-アイテム行列 $A \in \mathbb{R}^{\textrm{\\#user } \times \textrm{ \\#item}}$ があったとき、未観測なユーザ-アイテムペア ($i$, $j$) の予測値 $\tilde{a}_{ij}$ を求めたい。
 
-ここで、アイテム $j$ と他のアイテムの間の重みを表現する疎なベクトル $\mathbf{w}\_j \in \mathbb{R}^{\textrm{#item}}$ を考え、 $\tilde{a}_{ij} = \mathbf{a}^{\top}_i \mathbf{w}_j$ とする。（ $\mathbf{a}^{\top}_i \in \mathbb{R}^{1 \times \textrm{ #item}}$ は $A$ の第 $i$ 行）
+ここで、アイテム $j$ と他のアイテムの間の重みを表現する疎なベクトル $\mathbf{w}\_j \in \mathbb{R}^{\textrm{\\#item}}$ を考え、 $\tilde{a}_{ij} = \mathbf{a}^{\top}_i \mathbf{w}_j$ とする。（ $\mathbf{a}^{\top}_i \in \mathbb{R}^{1 \times \textrm{ \\#item}}$ は $A$ の第 $i$ 行）
 
 つまり、
 
-- ユーザ $i$ の全アイテムに対する履歴: $\mathbf{a}^{\top}_i \in \mathbb{R}^{1 \times \textrm{ #item}}$
-- アイテム $j$ の全アイテムに対する重み: $\mathbf{w}_j \in \mathbb{R}^{\textrm{#item}}$
+- ユーザ $i$ の全アイテムに対する履歴: $\mathbf{a}^{\top}_i \in \mathbb{R}^{1 \times \textrm{ \\#item}}$
+- アイテム $j$ の全アイテムに対する重み: $\mathbf{w}_j \in \mathbb{R}^{\textrm{\\#item}}$
 
 の積で未観測だった $a_{ij}$ を補完する。
 
-というわけで、全アイテムの $\mathbf{w}_j$ を並べた行列 $W \in \mathbb{R}^{\textrm{#item } \times \textrm{ #item}}$ を考えると、
+というわけで、全アイテムの $\mathbf{w}_j$ を並べた行列 $W \in \mathbb{R}^{\textrm{\\#item } \times \textrm{ \\#item}}$ を考えると、
 
 $$
 \tilde{A} = AW
@@ -51,7 +51,7 @@ $$
 
 実際の推薦は以下の手順で行う：
 
-1. 対象ユーザ $i$ の全アイテムに対する予測値（スコア）を計算する:  $\mathbf{a}_i^{\top} W \in \mathbb{R}^{1\times \textrm{ #item}}$
+1. 対象ユーザ $i$ の全アイテムに対する予測値（スコア）を計算する:  $\mathbf{a}_i^{\top} W \in \mathbb{R}^{1\times \textrm{ \\#item}}$
 2. 推薦候補のアイテムを予測値の降順でソートする
 3. 上位N個のアイテムを推薦する
 
@@ -75,7 +75,7 @@ SLIMの定式化のいいところは、アイテム $j$ ごとに問題が独�
 
 しかし欠点もあって、$A\mathbf{w}\_j$ の存在からお察しの通り、coordinate descentで素直に実装すると1アイテムにつき **（アイテム数 - 1）×（ユーザ数）回** のループが必要で重い。（無視できる1回は $w_{j,j}=0$ より）
 
-そこで、特徴選択（＝列のサンプリング）による学習の効率化も検討されている。あるアイテム $j$ の重みベクトル $\mathbf{w}_j$ を更新するときに、$A$ のすべての列を考えず、サンプリングした $k$ 本の列だけを考える ($k \leq \textrm{#item}$) 。サンプリング方法はいろいろ考えられるけど、この論文では特にアイテム間類似度に基づく方法を試している。
+そこで、特徴選択（＝列のサンプリング）による学習の効率化も検討されている。あるアイテム $j$ の重みベクトル $\mathbf{w}_j$ を更新するときに、$A$ のすべての列を考えず、サンプリングした $k$ 本の列だけを考える ($k \leq \textrm{\\#item}$) 。サンプリング方法はいろいろ考えられるけど、この論文では特にアイテム間類似度に基づく方法を試している。
 
 具体的には、協調フィルタリングのように事前に各アイテムペアについて類似度を計算しておく。そして、$\mathbf{w}_j$ を計算するときには、アイテム $j$ との類似度が大きい $k$ 個のアイテムに対応する列だけを $A$ からサンプリングして考える。
 
