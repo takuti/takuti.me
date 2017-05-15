@@ -421,3 +421,12 @@ td,
 th {
   padding: 0;
 }
+
+blockquote, q {
+    quotes: none;
+    margin: 0;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: none;
+}
