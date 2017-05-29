@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hugo + kramdown + KaTeX = :)"
+title: "Hugo meets kramdown + KaTeX #gohugo"
 lang: en
 date: 2017-05-28
 ---
@@ -19,7 +19,7 @@ This article describes how I have accomplished the modification.
 
 I started using [Hugo](https://gohugo.io/) 1+ years ago, and ever since then, this blog has utilized [kramdown](https://kramdown.gettalong.org/index.html) & [MathJax](https://www.mathjax.org/), one of the best combinations that allows us to naturally integrate Markdown and LaTeX syntax. Following article describes the details of motivation behind the choice: [Migrate to Hugo from Jekyll: Another Solution for the MathJax+Markdown Issue](/note/hugo-markdown-and-mathjax).
 
-As I discussed in the article, integrating Markdown and LaTeX syntax is essentially hard problem for static site generators, because `_` (underscore) plays an important role on the both syntax; many Markdown parsers including Hugo's default Markdown processor [Blackfriday](https://github.com/russross/blackfriday) mistakenly understand LaTeX's `_` (for subscripts) as an indicator of *italic*.
+As I discussed in the article, integrating Markdown and LaTeX syntax is essentially hard problem for static site generators, because `_` (underscore) plays an important role on the both syntax; many Markdown parsers (including Hugo's default Markdown processor [Blackfriday](https://github.com/russross/blackfriday)) mistakenly understand LaTeX's `_` (for subscripts) as an indicator of *italic*.
 
 In order to work around the issue, my previous article introduced how I utilized alternative Markdown processor, namely **kramdown**.
 
@@ -61,6 +61,8 @@ gulp.task('compile-md', function() {
       .pipe(gulp.dest('content/'));
 });
 </pre>
+
+Eventually, running `$ hugo server --watch` and `$ gulp watch` simultaneously enables me to preview rendered Markdown + LaTeX contents.
 
 ### Replace MathJax with KaTeX
 
@@ -111,4 +113,14 @@ For the reasons that I mentioned above, I like to use kramdown, but the Markdown
 
 In order to tackle the problem, [KaTeX officially provides workaround](https://kramdown.gettalong.org/math_engine/mathjax.html) which requires us to insert auxiliary JavaScript (jQuery) code after KaTeX itself is loaded. In my case, `var inlineMathArray = ...` and `var displayMathArray = ...` are modified version of the workaround code which does not depend on jQuery.
 
-### Limitations
+### Limitation
+
+Now, the entire content rendering flow works well with:
+
+- Static site generator **Hugo**
+- External Markdown processor **kramdown** for Markdown & LaTeX syntax compatibility
+- Fast math renderer **KaTeX**
+
+However, one thing I have noticed is that, available LaTeX command in KaTeX is limited compared to MathJax. For example, previously I used `$\boldsymbol{\phi}$` in "[How to Derive the Normal Equation](/note/normal-equation/)", but KaTeX does not support the `\boldsymbol{}` command. So, for now, it has just been replaced the unsupported command with plain `\phi`.
+  
+Anyway, even though KaTeX has some limitations that MathJax does support, its performance is definitely attractive. In particular, we frequently put a lot of equations in an article in a context of machine learning and data science, choosing "better" math rendering library is important. Therefore, I strongly recommend you to use KaTeX regardless of a way to create your website (e.g., Wordpress, Jekyll, Hexo).
