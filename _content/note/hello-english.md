@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Hello English Entries"
 lang: en
 tags:

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "MacのローカルにHivemallを導入してアイテム推薦をするまで"
 lang: ja
 date: 2017-02-11

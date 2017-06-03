@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Migrate to Hugo from Jekyll: Another Solution for the MathJax+Markdown Issue"
 lang: en
 date: 2015-10-19

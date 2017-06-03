@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "なぜSparkか"
 lang: ja
 date: 2017-04-09

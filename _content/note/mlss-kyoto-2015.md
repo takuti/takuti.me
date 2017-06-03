@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Machine Learning Summer School 2015 Kyoto #MLSSKYOTO"
 lang: en
 date: 2015-10-03

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Area Under the ROC Curve (AUC) を並列で計算するときに気をつけること"
 lang: ja
 date: 2017-03-10

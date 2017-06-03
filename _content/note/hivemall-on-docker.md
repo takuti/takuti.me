@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Hivemall on Dockerを試すぜ"
 lang: ja
 date: 2017-05-07

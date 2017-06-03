@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Japan PHP Conference 2015 #phpcon2015"
 lang: en
 date: 2015-10-04

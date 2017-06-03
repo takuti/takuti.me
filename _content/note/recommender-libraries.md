@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "推薦システムのためのOSSたち"
 lang: ja
 date: 2017-05-14

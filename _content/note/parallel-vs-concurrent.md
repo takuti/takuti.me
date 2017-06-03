@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Parallel Programming vs. Concurrent Programming"
 lang: en
 date: 2017-02-25

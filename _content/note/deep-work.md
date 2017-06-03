@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "\"Deep Work\"を読んだけど微妙だったから皆は\"How to Write a Lot\"と\"エッセンシャル思考\"を読めばいい"
 lang: ja
 date: 2017-03-25

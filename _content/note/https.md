@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "サイトをHTTPSにした"
 lang: ja
 date: 2017-02-04

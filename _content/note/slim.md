@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "\"SLIM: Sparse Linear Methods for Top-N Recommender Systems\"を読んだ"
 lang: ja
 date: 2017-02-18

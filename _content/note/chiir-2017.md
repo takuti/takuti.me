@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "情報検索・インタラクション系の国際会議 CHIIR2017 に参加した #chiir2017"
 lang: ja
 date: 2017-03-18

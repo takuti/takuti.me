@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Treasure Dataインターンにみる機械学習のリアル #td_intern"
 lang: ja
 date: 2016-10-04

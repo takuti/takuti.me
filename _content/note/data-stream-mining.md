@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "ストリームデータ解析の世界"
 lang: ja
 date: 2015-12-08

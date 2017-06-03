@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "My New Year's Resolution 2017: Write an Article Every Week"
 lang: en
 date: 2017-01-07

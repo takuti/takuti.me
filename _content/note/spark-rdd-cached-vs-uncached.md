@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Comparison of Running Time of Cached/Uncached Spark RDD"
 lang: en
 date: 2017-04-16

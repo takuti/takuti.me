@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Courseraの推薦システムのコースを修了した"
 lang: ja
 date: 2017-01-27

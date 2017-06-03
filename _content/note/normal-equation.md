@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "How to Derive the Normal Equation"
 lang: en
 date: 2015-04-21

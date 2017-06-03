@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "FluRS: A Python Library for Online Item Recommendation"
 lang: en
 date: 2017-01-21

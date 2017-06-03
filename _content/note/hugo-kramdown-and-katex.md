@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Hugo meets kramdown + KaTeX #gohugo"
 lang: en
 date: 2017-05-28

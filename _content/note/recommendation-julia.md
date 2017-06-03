@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Recommendation.jl: Building Recommender Systems in Julia"
 lang: en
 date: 2017-01-14

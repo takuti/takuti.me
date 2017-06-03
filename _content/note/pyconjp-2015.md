@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "PyCon JP 2015 #pyconjp"
 lang: en
 date: 2015-10-13

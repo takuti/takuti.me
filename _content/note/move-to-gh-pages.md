@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Moving to GitHub Pages"
 lang: en
 date: 2017-04-30

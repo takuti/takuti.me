@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "ブログをWordPressからJekyllに変えた"
 lang: ja
 tags:
