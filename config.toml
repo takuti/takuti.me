@@ -1,8 +1,6 @@
-contentdir = "content"
-layoutdir = "layouts"
-publishdir = "public"
-builddrafts = false
 canonifyurls = true
+
+disableKinds = ["taxonomy", "taxonomyTerm"]
 
 baseurl = "https://takuti.me"
 title = "takuti.me"
