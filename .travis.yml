@@ -7,7 +7,7 @@ before_script:
   - brew update && brew install hugo
 
 script:
-  - gulp && hugo --baseUrl='http://takuti.me/'
+  - gulp && hugo --baseUrl='https://takuti.me/'
 
 branches:
   only:
