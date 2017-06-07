@@ -8,7 +8,6 @@ before_script:
 
 script:
   - rake
-  - ls public
 
 branches:
   only:
@@ -16,3 +15,14 @@ branches:
 
 notifications:
   email: false
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: public
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  on:
+    branch: master
+  repo: takuti/takuti.github.io
+  target_branch: master
+  fqdn: takuti.me
