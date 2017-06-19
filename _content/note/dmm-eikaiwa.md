@@ -53,7 +53,7 @@ date: 2017-06-18
 	- これならデイリーニュースをやるかな、という印象
 4. **[テーマ別ディスカッション](http://eikaiwa.dmm.com/material/discussion/)**
 	- あるお題について同意・反対を主張しながら講師とディスカッションをする
-	- 教材には "Do you agree or disagree the statement?" が5つほど並んでいるだけなので、必然的に講師とのアドリブな対話が多くなる
+	- 教材には "Do you agree or disagree with the statement?" が5つほど並んでいるだけなので、必然的に講師とのアドリブな対話が多くなる
 	- なので個人的にはこれが一番好き
 
 ### 講師はピンキリ
