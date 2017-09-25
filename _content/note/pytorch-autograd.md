@@ -1,7 +1,7 @@
 ---
 title: "PyTorchのautogradと仲良くなりたい"
 lang: ja
-date: 2017-09-17
+date: 2017-09-23
 ---
 
 （希望）
