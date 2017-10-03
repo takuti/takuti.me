@@ -3,6 +3,10 @@
   "author": "takuti",
   "license": "MIT",
   "version": "1.0.0",
+  "scripts": {
+    "precommit": "lint-staged",
+    "lint:css": "stylelint --fix \"_scss/**/*.{css,scss}\""
+  },
   "dependencies": {},
   "devDependencies": {
     "del": "^3.0.0",
@@ -15,12 +19,18 @@
     "husky": "^0.14.3",
     "imagemin-cli": "^3.0.0",
     "lint-staged": "^4.2.3",
+    "stylelint": "^8.1.1",
+    "stylelint-config-standard": "^17.0.0",
     "sync-request": "^4.1.0"
   },
-  "scripts": {
-    "precommit": "lint-staged"
+  "stylelint": {
+    "extends": "stylelint-config-standard"
   },
   "lint-staged": {
+    "_scss/**/*.{css,scss}": [
+      "stylelint --fix",
+      "git add"
+    ],
     "*.{png,jpeg,jpg,gif}": [
       "node ./scripts/imagemin.js",
       "git add"

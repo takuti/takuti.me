@@ -4,23 +4,28 @@
 
 // scss variable
 $color-black: #555;
-$color-dark-blue: #00496E;
+$color-dark-blue: #00496e;
 $content-width: 800px;
 $header-height: 50px;
 
-html, body {
+html,
+body {
   background: #fff;
   height: 100%;
   color: $color-black;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
   font-size: 14px;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   line-height: 1.5;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   color: $color-dark-blue;
+
   & .symbol {
     font-weight: normal;
   }
@@ -29,86 +34,108 @@ h1, h2, h3, h4 {
 h3 {
   font-size: 1.2em;
 }
-h1, h3, h4, h5, p, pre {
-    margin-bottom: 20px;
+
+h1,
+h3,
+h4,
+h5,
+p,
+pre {
+  margin-bottom: 20px;
 }
 
 a {
   color: $color-black;
+
   &:visited {
     color: $color-black;
   }
+
   &:hover {
     text-decoration: none;
   }
+
   &.bold {
     font-weight: bold;
     text-decoration: none;
   }
+
   &.nounderline {
     text-decoration: none;
   }
 
   &.post-style {
-    color: lighten( $color-dark-blue, 20% );
+    color: lighten($color-dark-blue, 20%);
     text-decoration: none;
+
     &:visited {
-      color: lighten( $color-dark-blue, 20% );
+      color: lighten($color-dark-blue, 20%);
     }
+
     &:hover {
-      color: lighten( $color-dark-blue, 10% );
+      color: lighten($color-dark-blue, 10%);
       text-decoration: underline;
     }
   }
 }
 
 article {
-  margin: 0 auto 50px auto;
+  margin: 0 auto 50px;
+
   .meta {
     font-size: 0.8em;
-    color: lighten( $color-black, 20% );
+    color: lighten($color-black, 20%);
     margin-bottom: 0;
   }
+
   h2 { // title
     font-size: 1.5em;
-    margin: 0 0 2em 0;
+    margin: 0 0 2em;
   }
+
   .post {
     a {
-      color: lighten( $color-dark-blue, 20% );
+      color: lighten($color-dark-blue, 20%);
       text-decoration: none;
+
       &:visited {
-        color: lighten( $color-dark-blue, 20% );
+        color: lighten($color-dark-blue, 20%);
       }
+
       &:hover {
-        color: lighten( $color-dark-blue, 10% );
+        color: lighten($color-dark-blue, 10%);
         text-decoration: underline;
       }
     }
+
     img {
       display: block;
-      margin: .5em 0;
+      margin: 0.5em 0;
       max-width: 100%;
     }
+
     hr {
       border: 0;
-      border-top: 1px solid lighten( $color-black, 60% );;
+      border-top: 1px solid lighten($color-black, 60%);
     }
+
     table {
       margin: 0 auto;
       width: 100%;
       border-collapse: collapse;
-      th{
+
+      th {
         padding: 6px;
         text-align: left;
         vertical-align: top;
-        background-color: lighten( $color-black, 70% );
-        border: 1px solid lighten( $color-black, 50% );
+        background-color: lighten($color-black, 70%);
+        border: 1px solid lighten($color-black, 50%);
       }
-      td{
+
+      td {
         padding: 6px;
         background-color: #fff;
-        border: 1px solid lighten( $color-black, 50% );
+        border: 1px solid lighten($color-black, 50%);
       }
     }
   }
@@ -118,15 +145,18 @@ dl.entry-list {
   .date {
     display: inline-block;
   }
+
   dt {
     padding-top: 0.5em;
     font-size: 0.8em;
-    color: lighten( $color-black, 40% );
+    color: lighten($color-black, 40%);
   }
+
   dd {
     margin: 0;
-    padding: 0 0 0.5em 0;
-    font-size: 1.0em;
+    padding: 0 0 0.5em;
+    font-size: 1em;
+
     a {
       font-weight: bold;
       text-decoration: none;
@@ -138,11 +168,13 @@ header {
   width: $content-width;
   margin: 0 auto;
   padding-top: 30px;
+
   .left {
     font-size: 1.2em;
     width: 50%;
     a { text-decoration: none; }
   }
+
   .right {
     font-size: 1em;
     width: 50%;
@@ -152,6 +184,7 @@ header {
 }
 
 $icon-circle-size: 80px;
+
 img.icon-circle {
   width: $icon-circle-size;
   max-width: 80%;
@@ -163,12 +196,14 @@ img.icon-circle {
 #container {
   width: $content-width;
   max-width: 90%;
-  margin: 30px auto 50px auto;
+  margin: 30px auto 50px;
+
   ul {
     margin-left: 0;
     padding-left: 1.5em;
+
     li {
-      margin-bottom: .2em;
+      margin-bottom: 0.2em;
     }
   }
 }
@@ -187,15 +222,18 @@ footer {
   margin: 0;
   padding: 0;
 }
+
 .right {
   display: inline-block;
   float: right;
   margin: 0;
   padding: 0;
 }
+
 .clearfix {
-  zoom:1;
-  &:after {
+  zoom: 1;
+
+  &::after {
     content: "";
     display: block;
     clear: both;
@@ -203,48 +241,51 @@ footer {
 }
 
 code {
-    background: #fff;
-    font-size: 11px;
-    /*font-weight: 100;*/
-    padding: 4px;
-    border: none;
-    box-shadow: inset 0 0 0 1px #E4EBF2;
-    border-radius: 4px;
-    overflow: scroll;
-    font-family: 'Menlo', 'Monaco', Courier, monospace;
+  background: #fff;
+  font-size: 11px;
+
+  /* font-weight: 100; */
+  padding: 4px;
+  border: none;
+  box-shadow: inset 0 0 0 1px #e4ebf2;
+  border-radius: 4px;
+  overflow: scroll;
+  font-family: 'Menlo', 'Monaco', Courier, monospace;
 }
 
-pre code, .prettyprint {
-    font-size: 11px;
-    word-wrap: break-word;
-    -webkit-font-smoothing: subpixel-antialiased;
-    -moz-osx-font-smoothing: auto;
-    padding: 16px;
-    padding-bottom: 14px;
-    display: block;
-    color: $color-black;
-    background: #fff;
-    border: none;
-    box-shadow: inset 0 0 0 1px #E4EBF2;
-    border-radius: 4px;
-    overflow: auto;
+pre code,
+.prettyprint {
+  font-size: 11px;
+  word-wrap: break-word;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  padding: 16px;
+  padding-bottom: 14px;
+  display: block;
+  color: $color-black;
+  background: #fff;
+  border: none;
+  box-shadow: inset 0 0 0 1px #e4ebf2;
+  border-radius: 4px;
+  overflow: auto;
 }
 
 blockquote {
-    padding-left: 15px;
-    border-left: 3px solid #eee;
+  padding-left: 15px;
+  border-left: 3px solid #eee;
 }
 
 @font-face {
-    font-family: 'LigatureSymbols';
-    src: url('/fonts/LigatureSymbols-2.11.eot');
-    src: url('/fonts/LigatureSymbols-2.11.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/LigatureSymbols-2.11.woff') format('woff'),
-         url('/fonts/LigatureSymbols-2.11.ttf') format('truetype'),
-         url('/fonts/LigatureSymbols-2.11.svg#LigatureSymbols') format('svg');
-    src: url('/fonts/LigatureSymbols-2.11.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'LigatureSymbols';
+  src: url('/fonts/LigatureSymbols-2.11.eot');
+  src:
+    url('/fonts/LigatureSymbols-2.11.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/LigatureSymbols-2.11.woff') format('woff'),
+    url('/fonts/LigatureSymbols-2.11.ttf') format('truetype'),
+    url('/fonts/LigatureSymbols-2.11.svg#LigatureSymbols') format('svg');
+  src: url('/fonts/LigatureSymbols-2.11.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .symbol {
@@ -258,7 +299,6 @@ blockquote {
   -moz-font-smoothing: antialiased;
   -ms-font-smoothing: antialiased;
   -o-font-smoothing: antialiased;
-  font-smoothing: antialiased;
   font-size: 1.3em;
   line-height: 1.3em;
   display: inline-block;
@@ -266,20 +306,35 @@ blockquote {
 }
 
 .self {
-  & img { max-width: 100%; height: auto; }
-  .right { width: 70%; margin-top: 1em; }
-  .left { width: 26%; margin-top: 1em; }
+  & img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .right {
+    width: 70%;
+    margin-top: 1em;
+  }
+
+  .left {
+    width: 26%;
+    margin-top: 1em;
+  }
 }
 
-/*--- responsive ---*/
+/* responsive */
 @media screen and (max-width: 960px) {
   body {
     width: 100%;
   }
-  #container, footer, nav {
+
+  #container,
+  footer,
+  nav {
     padding: 0 5%;
     width: 90%;
   }
+
   header {
     padding-right: 5%;
     padding-left: 5%;
