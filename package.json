@@ -1,7 +1,10 @@
 {
   "name": "takuti.me",
+  "author": "takuti",
+  "license": "MIT",
   "version": "1.0.0",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-data": "^1.2.1",
@@ -9,14 +12,10 @@
     "gulp-plumber": "^1.1.0",
     "gulp-sass": "^3.1.0",
     "gulp-wrapper": "^1.0.0",
-    "sync-request": "^4.1.0"
-  },
-  "author": "takuti",
-  "license": "MIT",
-  "devDependencies": {
     "husky": "^0.14.3",
     "imagemin-cli": "^3.0.0",
-    "lint-staged": "^4.2.3"
+    "lint-staged": "^4.2.3",
+    "sync-request": "^4.1.0"
   },
   "scripts": {
     "precommit": "lint-staged"
