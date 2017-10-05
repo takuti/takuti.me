@@ -47,24 +47,6 @@ $ hugo server --watch
 
 at the same time.
 
-### Deploy
-
-```sh
-export RSYNC_PROGRAM=/path/to/remote/rsync/program
-export RSYNC_DEST_PORT=22
-export RSYNC_USER=username
-export RSYNC_HOST=example.com
-export RSYNC_DEST=/path/to/remote/document/root
-
-export HUGO_BASE_URL=http://example.com/
-```
-
-And you can deploy by:
-
-```
-$ rake 
-```
-
 ## License
 
 MIT
