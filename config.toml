@@ -14,3 +14,7 @@ title = "takuti.me"
 
 [params]
   author = "takuti"
+
+[blackfriday]
+  hrefTargetBlank = true
+  extensionsmask = ["autolink"]
