@@ -1,5 +1,8 @@
 canonifyurls = true
 
+pygmentsCodeFences = true
+pygmentsStyle = "colorful"
+
 disableKinds = ["taxonomy", "taxonomyTerm"]
 
 baseurl = "https://takuti.me"
