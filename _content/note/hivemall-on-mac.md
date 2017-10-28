@@ -18,9 +18,9 @@ $ brew install hadoop
 
 `/usr/local/Cellar/hadoop/{バージョン}` 以下を直接漁ることになるのでエイリアスを設定しておく。
 
-<pre class="prettyprint">
+```sh
 export HADOOP_DIR=/usr/local/Cellar/hadoop/{バージョン}
-</pre>
+```
 
 `${HADOOP_DIR}/libexec/etc/hadoop/core-site.xml` の `<configuration>` を編集：
 
@@ -62,10 +62,10 @@ Hadoopの設定おわり。
 
 起動・終了はエイリアスを設定しておくと便利：
 
-<pre class="prettyprint">
+```sh
 alias hstart=${HADOOP_DIR}/sbin/start-all.sh
 alias hstop=${HADOOP_DIR}/sbin/stop-all.sh
-</pre>
+```
 
 ```
 $ hstart
@@ -100,7 +100,7 @@ HadoopとHiveを起動する：
 ```
 $ hstart
 $ hive
-hive> 
+hive>
 ```
 
 ### Hivemallのインストール
@@ -133,20 +133,20 @@ Hivemall公式のチュートリアルは[ここ](https://hivemall.incubator.apa
 
 まずHiveでのDB、テーブル作成用スクリプトを `create_db.hive` のような名前で以下の中身で作って、Hiveの作業用ディレクトリで走らせる：
 
-<pre class="prettyprint">
+```sql
 create database movielens;
 use movielens;
 
 CREATE EXTERNAL TABLE ratings (
-  userid INT, 
+  userid INT,
   movieid INT,
-  rating INT, 
+  rating INT,
   tstamp STRING
 ) ROW FORMAT DELIMITED
 FIELDS TERMINATED BY '#' -- 適当な1文字のセパレータ
 STORED AS TEXTFILE
 LOCATION '/dataset/movielens/ratings';
-</pre>
+```
 
 ```
 $ hive < create_db.hive
@@ -195,7 +195,7 @@ Time taken: 1.36 seconds, Fetched: 5 row(s)
 
  **Matrix Factorizationでアイテム推薦** のために使う関数たちを読み込んであげる。Matrix Factorizationで2つ　( `mf_predict` , `train_mf_sgd` ) 、推薦リストの生成に1つ ( `each_top_k` )、そしてユーティリティ関数を2つ ( `array_avg` , `to_ordered_map` ) 読んでいる。
 
-```
+```sql
 create temporary function mf_predict as 'hivemall.mf.MFPredictionUDF';
 create temporary function train_mf_sgd as 'hivemall.mf.MatrixFactorizationSGDUDTF';
 create temporary function each_top_k as 'hivemall.tools.EachTopKUDTF';
@@ -241,7 +241,7 @@ set hivevar:k=10;
 WITH top_k AS (
   SELECT
     each_top_k(
-			${k}, u.userid, mf_predict(u.pu, i.qi, u.bu, i.bi),
+		  ${k}, u.userid, mf_predict(u.pu, i.qi, u.bu, i.bi),
       u.userid, movieid
 		) AS (rank, score, userid, movieid)
   FROM (

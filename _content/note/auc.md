@@ -44,7 +44,7 @@ https://twitter.com/myui/status/840089982991708160
 
 コードにすると以下のような雰囲気。
 
-<pre class="prettyprint lang-python">
+```py
 def trapezoid(x1, x2, y1, y2):
     """与えられた長方形（台形）の面積を求める
     """
@@ -68,7 +68,7 @@ def auc(pred, label):
         if pred[i] != score_prev:
             # True Positive (False Positive) の増分がつくる長方形の面積を加算
             a += trapezoid(fp, fp_prev, tp, tp_prev)
-						
+
             score_prev = pred[i]
             fp_prev = fp
             tp_prev = tp
@@ -80,10 +80,10 @@ def auc(pred, label):
             fp += 1
 
     a += trapezoid(fp, fp_prev, tp, tp_prev)
-    
+
     # 最大面積で正規化
     return a / (tp * fp)
-</pre>
+```
 
 やっていることを図で描くと以下のような感じ。False Positive-True Positive のグラフ上に作られる長方形の面積を足し合わせていく。
 

@@ -43,7 +43,7 @@ $ java -cp igo.jar net.reduls.igo.bin.BuildDic ipadic-neologd /path/to/neologd/m
 
 ### ためす
 
-<pre class="prettyprint">
+```rb
 require 'igo-ruby'
 
 tagger = Igo::Tagger.new('/path/to/ipadic-neologd')
@@ -56,7 +56,7 @@ p tagger.wakati('ニコニコ動画')
 
 p tagger.wakati('10日放送の「中居正広のミになる図書館」（テレビ朝日系）で、SMAPの中居正広が、篠原信一の過去の勘違いを明かす一幕があった。')
 # ["10日", "放送", "の", "「", "中居正広のミになる図書館", "」", "（", "テレビ朝日", "系", "）", "で", "、", "SMAP", "の", "中居正広", "が", "、", "篠原信一", "の", "過去", "の", "勘違い", "を", "明かす", "一幕", "が", "あっ", "た", "。"]
-</pre>
+```
 
 めでたい。
 

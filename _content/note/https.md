@@ -14,20 +14,20 @@ date: 2017-02-04
 
 certbotの導入は、適当な場所にwgetして実行権限を与えるだけ。
 
-<pre>
+```
 $ wget https://dl.eff.org/certbot-auto
 $ chmod a+x certbot-auto
-</pre>
+```
 
 あとはWebサーバのドキュメントルートとドメインを指定してcertbotを実行してあげればよい。
 
-<pre>
+```
 $ /path/to/certbot-auto certonly --webroot -w /var/www/example -d example.com
-</pre>
+```
 
 うちはNginxだけど、Apacheの頃の名残で `/var/www/html` をドキュメントルートにしている。`/etc/nginx/nginx.conf` は以下のような感じ。
 
-<pre class="prettyprint">
+```conf
 server {
 	listen 80;
 	server_name  takuti.me;
@@ -38,13 +38,13 @@ server {
 	}
 
 	# 以下略
-</pre>
+```
 
 なので叩いたコマンドは以下。
 
-<pre>
+```
 $ /path/to/certbot-auto certonly --webroot -w /var/www/html -d takuti.me
-</pre>
+```
 
 途中でメールアドレスなどを聞かれ、無事完了すると Congratulations と言われる。証明書の類は `/etc/letsencrypt/live/takuti.me` 以下に作成され、ドキュメントルート直下には認証用プラグインのために `.well-known` というディレクトリが作成される。
 
@@ -55,7 +55,7 @@ $ /path/to/certbot-auto certonly --webroot -w /var/www/html -d takuti.me
 
 について書き換えればよい。
 
-<pre class="prettyprint">
+```conf
 server {
 	listen 80;
 	listen [::]:80;
@@ -78,11 +78,11 @@ server {
 	}
 
 	# 以下略
-</pre>
+```
 
-<pre>
+```
 $ service nginx restart
-</pre>
+```
 
 簡単！
 
@@ -90,15 +90,15 @@ $ service nginx restart
 
 次に、 `/etc/sysconfig/iptables` に443番ポートを開ける記述を追加して、
 
-<pre class="prettyprint">
+```
 -A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
-</pre>
+```
 
 iptablesをrestartする。
 
-<pre>
+```
 $ service iptables restart
-</pre>
+```
 
 これでサイトのHTTPS化は完了。
 
@@ -106,15 +106,15 @@ $ service iptables restart
 
 最後に、証明書の自動更新を設定する。証明書の更新は、
 
-<pre>
+```
 $ /path/to/certbot-auto renew
-</pre>
+```
 
 これだけでできるので、このコマンドをcronに登録してあげればよい。ここでは毎月1日午前3時に更新をかけるようにした。
 
-<pre>
+```
 00 03 01 * * /path/to/certbot-auto renew --quiet
-</pre>
+```
 
 これでよし。
 
@@ -124,9 +124,9 @@ $ /path/to/certbot-auto renew
 
 Hugoはコンテンツ生成時に `--baseUrl` オプションを付与すると、HTML中のパスをURLに置換してくれる。たとえば、
 
-<pre>
+```
 $ hugo --baseUrl='http://takuti.me'
-</pre>
+```
 
 と叩いたならば、 `/style/style.css` といったパスによるアセットの指定は、URLによる指定 `http://takuti.me/style/style.css` に置換された上でサイトコンテンツが生成される。
 
@@ -136,9 +136,9 @@ HTTPS化以降はこの `--baseUrl` を **https://~** に書き換えなけれ�
 
 Hugoで生成したコンテンツは、
 
-<pre>
+```
 $ rsync （中略） --delete {ユーザ}@{ホスト}:{ドキュメントルート}
-</pre>
+```
 
 でサーバに転送しており、転送前にドキュメントルートの中身をすべて削除している。
 
@@ -146,9 +146,9 @@ $ rsync （中略） --delete {ユーザ}@{ホスト}:{ドキュメントルー�
 
 なので以後 `.well-known` をrsyncの対象から除外することを忘れずに。
 
-<pre>
+```
 $ rsync --exclude ".well-known" （中略） --delete {ユーザ}@{ホスト}:{ドキュメントルート}
-</pre>
+```
 
 そんなこんなでサイトのHTTPS化に成功した。
 

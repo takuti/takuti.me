@@ -20,7 +20,7 @@ date: 2017-07-22
 
 我々は `gensim.corpora.WikiCorpus` が内部的に使っている分かち書き用の関数 `gensim.corpora.wikicorpus.tokenize` を日本語向けに置き換えればよろしい：
 
-<pre class="prettyprint">
+```py
 import gensim.corpora.wikicorpus as wikicorpus
 import MeCab
 
@@ -45,7 +45,7 @@ def tokenize(content):
 
 
 wikicorpus.tokenize = tokenize
-</pre>
+```
 
 全貌は[gist](https://gist.github.com/takuti/356167894f454e4f28392a2cf8903b8d)にあげた。
 
@@ -57,9 +57,9 @@ $ python jawikicorpus.py /path/to/jawiki-latest-pages-articles.xml.bz2 jawiki
 
 コーパスをシリアライズするときに `metadata=True` をつけておくと、Wikipedia記事タイトルとそのインデックスのマッピングが保存できる。あとで便利なので保存しておこう：
 
-<pre class="prettyprint">
+```py
 MmCorpus.serialize(dst + '_bow.mm', wiki, progress_cnt=10000, metadata=True)
-</pre>
+```
 
 ### トピックモデリング
 
@@ -67,7 +67,7 @@ MmCorpus.serialize(dst + '_bow.mm', wiki, progress_cnt=10000, metadata=True)
 
 先ほど生成された `jawiki_wordids.txt.bz2`（単語-インデックスのマッピング）と `jawiki_tfidf.mm`（記事×単語の行列で要素にTF-IDF値をもつ）を読み込んで、`gensim.models.LdaModel` に渡してあげればよい：
 
-<pre class="prettyprint">
+```py
 from gensim.corpora import Dictionary, MmCorpus
 from gensim.models import LdaModel
 
@@ -75,7 +75,7 @@ dictionary = Dictionary.load_from_text('jawiki_wordids.txt.bz2')
 tfidf_corpus = MmCorpus('jawiki_tfidf.mm')
 lda = LdaModel(corpus=tfidf_corpus, id2word=dictionary, num_topics=100)
 lda.save('lda_100.model')
-</pre>
+```
 
 再び数時間待つ。トピック数はテキトーに100にしたけど、たぶん少ない。
 
@@ -83,33 +83,33 @@ lda.save('lda_100.model')
 
 モデルを読み込んで：
 
-<pre class="prettyprint">
+```py
 lda = LdaModel.load('lda_100.model')
-</pre>
+```
 
 コーパスも読み込んで：
 
-<pre class="prettyprint">
+```py
 tfidf = MmCorpus('jawiki_tfidf.mm')
-</pre>
+```
 
 `metadata=True` で保存した記事タイトル-インデックスのマッピングも読み込んだなら：
 
-<pre class="prettyprint">
+```py
 docno2metadata = unpickle('jawiki_bow.mm.metadata.cpickle')
 title2docno = {tup_title[1]: int(docno) for docno, tup_title in docno2metadata.items()}
-</pre>
+```
 
 夏！！！
 
-<pre class="prettyprint">
+```py
 for title in ['ビール', 'カブトムシ', '海', '夏祭り']:
     topics = lda[tfidf[title2docno[title]]]
     topic = sorted(topics, key=lambda t: t[1], reverse=True)[0][0]
     print('=== %s (topic %d) ===' % (title, topic))
     for word, p_word in lda.show_topic(topic, topn=10):
         print('%.5f\t%s' % (p_word, word))
-</pre>
+```
 
 ```
 === ビール (topic 99) ===

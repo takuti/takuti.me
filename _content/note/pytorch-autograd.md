@@ -12,56 +12,56 @@ date: 2017-09-23
 
 `x` という変数を `requires_grad=True` オプション付きで定義する。値は1：
 
-<pre class="prettyprint lang-python">
+```py
 import torch
 from torch.autograd import Variable
-</pre>
+```
 
-<pre class="prettyprint lang-python">
+```py
 # [x1, x2; x3, x4] = [1, 1; 1, 1]
 x = Variable(torch.ones(2, 2), requires_grad=True)
-</pre>
+```
 
 "PyTorch is numpy alternative" と言うだけあって、配列（テンソル）操作は困らない。
 
 そして一次関数 `y = x + 1` を定義：
 
-<pre class="prettyprint lang-python">
+```py
 # [y1, y2; y3, y4] = [x+2, x+2; x+2, x+2]
 y = x + 2
-</pre>
+```
 
 さらに `y` を使って二次関数をつくる：
 
-<pre class="prettyprint lang-python">
+```py
 # zi = 3 * (xi + 2)^2
 z = y * y * 3
-</pre>
+```
 
 コメントの通り、`z = y * y * 3` を展開すれば `z = (x + 2) * (x + 2) * 3` です。
 
 関数の出力値 `out` を適当な値 `z.mean()` とする。`z` の各要素が `zi = 3 * (xi + 2)^2` だったので、 その平均値は：
 
-<pre class="prettyprint lang-python">
+```py
 # out = 1/4 * (z1 + z2 + z3 + z4)
 #     = 1/4 * (3 * y1^2 + 3 * y2^2 + 3 * y3^2 + 3 * y4^2)
 #     = 1/4 * (3 * (x1 + 2)^2 + 3 * (x2 + 2)^2 + 3 * (x3 + 2)^2 + 3 * (x4 + 2)^2)
 out = z.mean()
-</pre>
+```
 
 `out` の勾配：
 
-<pre class="prettyprint lang-python">
+```py
 # d(out)
 out.backward()
-</pre>
+```
 
 `x` について：
 
-<pre class="prettyprint lang-python">
+```py
 # d(out) / d(xi) = 1/4 * 2 * 3 * (xi + 2) = 3/2 * (xi + 2)
 print(x.grad)  # => [4.5, 4.5; 4.5, 4.5]
-</pre>
+```
 
 最初に `xi = 1` としていたので、 `xi.grad = 3/2 * (xi + 2) = 3/2 * (1 + 2) = 4.5` ということになる。
 
@@ -71,7 +71,7 @@ print(x.grad)  # => [4.5, 4.5; 4.5, 4.5]
 
 詳細は割愛しつつ、肝心のSGDによる学習の部分のコードを抜き出してみる：
 
-<pre class="prettyprint lang-python linenums">
+{{< highlight py "linenos=table" >}}
 # this classifier outputs log probs for input Bag-of-Words vector
 model = BoWClassifier(NUM_LABELS, VOCAB_SIZE)
 
@@ -99,10 +99,10 @@ for epoch in range(100):
 
         # gradient of loss
         loss.backward()
-        
+
         # update model parameters
         optimizer.step()
-</pre>
+{{< /highlight >}}
 
 （変数名、コメントなど少し変えたり簡略化したりした）
 

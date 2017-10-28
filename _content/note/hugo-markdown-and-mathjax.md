@@ -32,7 +32,7 @@ Here, I have another solution. It just to use kramdown as a Hugo Markdown conver
 
 First, I create Rakefile and define a task as:
 
-<pre class="prettyprint lang-ruby">
+```rb
 require "kramdown"
 
 namespace :converter do
@@ -40,13 +40,13 @@ namespace :converter do
     Dir::glob("_content/*").each do |src|
       # destination path will be "content/{filename}.html"
       dst_path = src[1..-1].sub(/(.*)\.md/, '\1.html')
-			
+
       open(dst_path, "w") do |dst|
         content = open(src) { |f| f.read }
-				
+
         # keep front matter
         content = content.sub(/(---.*---\n)/m, "")
-				
+
         content = embedding_tweet(content)
 
         # write with concatenating front matter
@@ -55,7 +55,7 @@ namespace :converter do
     end
   end
 end
-</pre>
+```
 
 As I mentioned before, kramdown can correctly handle MathJax+Markdown mixed files in default setting, so it works.
 

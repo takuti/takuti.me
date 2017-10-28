@@ -36,7 +36,7 @@ Job Titleはユーザが好き勝手に入力したデータなので、表記�
 
 "[Mining LinkedIn: Faceting Job Titles, Clustering Colleagues, and More](http://chimera.labs.oreilly.com/books/1234000001583/ch03.html)" では、実際にLinkedInのデータを取得して前処理、可視化、クラスタリングする際の流れがPythonコードと共に紹介されている。Job Titleに対して行う前処理は、"President/CEO" といったスラッシュ区切りのTitleを分割して、略語をルールベースで展開するというもの：
 
-<pre class="prettyprint lang-python">
+```py
 transforms = [
     ('Sr.', 'Senior'),
     ('Sr', 'Senior'),
@@ -67,7 +67,7 @@ for contact in contacts:
 for i, _ in enumerate(titles):
     for transform in transforms:
         titles[i] = titles[i].replace(*transform)
-</pre>
+```
 
 そして前処理を終えたJob Titleを『Titleごと』および『単語ごと』にカウントして、“重要な特徴量”を探っている：
 
@@ -125,7 +125,7 @@ for i, _ in enumerate(titles):
 
 ここでもやはり、立場を表す *job level* と職務を表す *job category* を区別している。クラスタリングは完全にルールベースで、前処理済みのJob Title `$job` が、ある特定の単語を含んでいるか否かでクラスタを決める：
 
-<pre class="prettyprint lang-perl">
+```pl
 #---- Step 1: creating job level
 $level="Other";
 if ($job =~ "vice president") { $level="Executive"; }
@@ -169,7 +169,7 @@ if ($job =~ "lecturer") { $category="Trainer"; }
 if ($job =~ "professor") { $category="Trainer"; }
 if ($job =~ "student") { $category="Student"; }
 $ljob_category{$job}=$category;
-</pre>
+```
 
 もう少し機械学習っぽい方向性はどうだろう。さすがに「Titleの bag-of-words 表現を k-means に放り込んで、ユークリッド距離の意味でクラスタリング」というのは乱暴な気がする。ベクトルの表現や類似度を工夫して、近傍法ベースの（教師あり）分類アルゴリズムの適用も視野にいれたいものである[^1]。
 

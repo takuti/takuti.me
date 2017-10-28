@@ -17,7 +17,7 @@ postgres (PostgreSQL) 9.6.3
 
 お気に入りの[アメリカのクラフトビールデータセット](https://www.kaggle.com/nickhould/craft-cans)を使う。適当に `create table` してCSVからデータを読み込む：
 
-<pre class="prettyprint">
+```sql
 create table beers (
     key int,
     abv real,
@@ -29,7 +29,7 @@ create table beers (
     ounces real
 );
 \copy beers from 'beers.csv' with csv;
-</pre>
+```
 
 ```
 sample=# select * from beers limit 5;
@@ -63,7 +63,7 @@ sample=# select * from beers where name = 'Left of the Dial';
 
 ### LIKE と ILIKE
 
-そんなはずはない！というわけで、Fuzzy Search を試みる。 
+そんなはずはない！というわけで、Fuzzy Search を試みる。
 
 `LIKE` でビール名の前後に何らかの文字列があることを許容すれば：
 
@@ -164,7 +164,7 @@ sample=# select * from beers where levenshtein(lower(name), lower('Left of the D
 
 また、`levenshtein_less_equal(string 1, string 2, max distance)` は `max distance` より小さい編集距離の文字列に対してはその正確な編集距離を、それ以外については `max distance` より大きな適当な値（ここでは `max distance + 1`）を返す関数：
 
-<pre class="prettyprint">
+```sql
 select
     name,
     levenshtein(lower(name), lower('Left of the Dial')), /* 正確な編集距離 */
@@ -173,7 +173,7 @@ from
     beers
 limit
     5;
-</pre>
+```
 
 ```
         name         | levenshtein | levenshtein_less_equal
@@ -371,11 +371,11 @@ sample=# select * from beers where metaphone(name, 8) % metaphone('ipear', 8);
 
 そして複数の手法を組み合わせたハイブリッドFuzzy Searchも可能なので、さらに悩む。"Seven Databases in Seven Weeks" では次のようなクエリが紹介されている：
 
-<pre class="prettyprint">
+```sql
 select * from actors
-where metaphone(name,8) % metaphone('Robin Williams',8) 
+where metaphone(name,8) % metaphone('Robin Williams',8)
 order by levenshtein(lower('Robin Williams'), lower(name));
-</pre>
+```
 
 （Levenshtein Distance で `order by` とか絶対やりたくないけど…。）
 

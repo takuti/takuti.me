@@ -28,22 +28,22 @@ Mavenプロジェクトなら `dependency` に `net.librec` を入れればす�
 
 コードはデータモデルを生成するところから始まる:
 
-<pre class="prettyprint">
+```java
 // build data model
 Configuration conf = new Configuration();
 conf.set("dfs.data.dir", "/Users/takuti/src/github.com/guoguibing/librec/data");
 TextDataModel dataModel = new TextDataModel(conf);
 dataModel.buildDataModel();
-</pre>
+```
 
 読み込むデータは `user-id item-id rating`（スペース区切り）からなるテキストファイルと[WekaのARFF](http://www.cs.waikato.ac.nz/ml/weka/arff.html)をサポートしている。
 
 ファイルのパスやアルゴリズムのハイパーパラメータ（e.g., kNNの近傍数）はすべて `Configuration` 経由で設定する。その実体は [librec.properties](https://github.com/guoguibing/librec/blob/18176ed41027348ee2187d8686a1b2c0d4d39277/conf/librec.properties) で、この形式で記述した独自の設定をガッとまとめて読み込むことも可能:
 
-<pre class="prettyprint">
+```java
 Resource resource = new Resource("rec/cf/itemknn-test.properties");
 conf.addResource(resource);
-</pre>
+```
 
 `dataModel.buildDataModel()` では指定されたパス内のファイルをすべて読んで、train/testデータへの分割までやってくれる。このあたりの挙動もすべて [librec.properties](https://github.com/guoguibing/librec/blob/18176ed41027348ee2187d8686a1b2c0d4d39277/conf/librec.properties) に従っている。
 
@@ -51,22 +51,22 @@ conf.addResource(resource);
 
 さっき定義した `Configuration` と `dataModel` を使って、これから行うタスクのためのコンテキストを生成する:
 
-<pre class="prettyprint">
+```java
 // build recommender context
 RecommenderContext context = new RecommenderContext(conf, dataModel);
-</pre>
+```
 
 #### 3. Build similarity
 
 求めたい類似度を設定して、計算して、それをコンテキストにセットする:
 
-<pre class="prettyprint">
+```java
 // build similarity
 conf.set("rec.recommender.similarity.key" ,"item");
 RecommenderSimilarity similarity = new PCCSimilarity();
 similarity.buildSimilarityMatrix(dataModel);
 context.setSimilarity(similarity);
-</pre>
+```
 
 ここでは **アイテムに対して** (item-based)、**ピアソン相関係数** (PCC) に基づく類似度を計算させている。
 
@@ -74,31 +74,31 @@ context.setSimilarity(similarity);
 
 `Recommender` を生成してコンテキストを渡してあげる。ここでは近傍数 (`rec.neighbors.knn.number`) が5の `ItemKNNRecommender()` を生成:
 
-<pre class="prettyprint">
+```java
 // build recommender
 conf.set("rec.neighbors.knn.number", "5");
 Recommender recommender = new ItemKNNRecommender();
 recommender.setContext(context);
-</pre>
+```
 
 つまり、事前にコンテキストにセットしていた類似度の設定と合わせると、今回は『**ピアソン相関係数に基づく $k=5$ の item-based collaborative filtering**』を実行することになる。
 
 ここまで来れば、実行はワンライン:
 
-<pre class="prettyprint">
+```java
 // run recommender algorithm
 recommender.recommend(context);
-</pre>
+```
 
 #### 5. Evaluation
 
 `RMSEEvaluator` を生成して、それを `recommend()` 実行済の `recommender` の `evaluate()` に渡してあげることで評価が行われる:
 
-<pre class="prettyprint">
+```java
 // evaluate the recommended result
 RecommenderEvaluator evaluator = new RMSEEvaluator();
 System.out.println("RMSE:" + recommender.evaluate(evaluator)); // => RMSE:0.8352805769243591
-</pre>
+```
 
 #### 6. Get results
 
@@ -106,7 +106,7 @@ System.out.println("RMSE:" + recommender.evaluate(evaluator)); // => RMSE:0.8352
 
 取得対象の `RecommendedItem` にフィルターをかけることもできる。たとえば『**ユーザ#1またはアイテム#70を対象とする予測結果**』が見たければ、次のようにフィルターをかける:
 
-<pre class="prettyprint">
+```java
 // set id list of filter
 List&lt;String&gt; userIdList = new ArrayList&lt;String&gt;();
 List&lt;String&gt; itemIdList = new ArrayList&lt;String&gt;();
@@ -119,11 +119,11 @@ GenericRecommendedFilter filter = new GenericRecommendedFilter();
 filter.setUserIdList(userIdList);
 filter.setItemIdList(itemIdList);
 recommendedItemList = filter.filter(recommendedItemList);
-</pre>
+```
 
 あとは煮るなり焼くなり。表示してみる:
 
-<pre class="prettyprint">
+```java
 // print filter result
 for (RecommendedItem recommendedItem : recommendedItemList) {
     System.out.println(
@@ -141,7 +141,7 @@ user:1065 item:70 value:2.9759100334538178
 user:1 item:4 value:3.6802197608115867
 user:918 item:70 value:2.660444061555275
 */
-</pre>
+```
 
 確かにユーザ#1またはアイテム#70に対する結果のみが得られている。
 
@@ -173,11 +173,11 @@ Most Popular（ひたすら一番人気のアイテムを推薦する）のよ�
 
 これによって「さっきコンテキストをセットしたのにまた渡すの？」と思ってしまうような実装にはなるが、それはもはや些細な問題だと思う:
 
-<pre class="prettyprint">
+```java
 Recommender recommender = new ItemKNNRecommender();
 recommender.setContext(context);
 recommender.recommend(context);
-</pre>
+```
 
 推薦アルゴリズムを自分で実装したことがある人なら分かると思うけど、複数の手法に対して同一のインタフェースを提供するのは結構難しい。評価値 (rating) 情報とランキング情報に対するデータ構造の違い（e.g., 行列 or リスト）や、アルゴリズムごとに異なる大量のハイパーパラメータ…考えただけで頭が痛い。それにもかかわらず、推薦というタスクは様々な設定（アルゴリズム、評価指標、類似度、データ、etc...）の組み合わせの試行錯誤が当たり前という現実もある。
 

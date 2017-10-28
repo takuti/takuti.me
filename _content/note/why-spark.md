@@ -24,15 +24,15 @@ Spark上では（ほぼ）同一のインタフェースで分散データに対
 
 シングルノードのときの通常のScalaコレクションに対する処理が
 
-<pre class="prettyprint">
+```scala
 singleCollection.map(v => f(v))
-</pre>
+```
 
 だとすれば、同様の処理を Spark 上で書いても、それは
 
-<pre class="prettyprint">
+```scala
 distributedData.map(v => f(v))
-</pre> 
+```
 
 と書ける。ある大規模分散データに対して、**まるでそれがローカルデータであるかのようにインタラクティブに処理を適用できる**、これが Scala + Spark によって得られる生産性につながっているのだ。
 

@@ -66,7 +66,7 @@ SKOSカテゴリデータのRDFトリプルは `<カテゴリ, 関係, カテゴ
 
 というわけで、DBpediaが提供しているカテゴリの上下関係に関するトリプルをいい感じにパースしてあげればカテゴリの上下関係が得られる：
 
-<pre class="prettyprint">
+```py
 import re
 import bz2
 
@@ -94,7 +94,7 @@ for line in bz2.BZ2File('skos_categories_en.nt.bz2'):
     # 主語が下位カテゴリ (narrower)、目的語が上位カテゴリ (broader) に相当
     narrower = get_name(s)
     broader = get_name(o)
-</pre>
+```
 
 ### ローカルのRedisに保存
 
@@ -108,7 +108,7 @@ $ redis-server /usr/local/etc/redis.conf
 
 Python経由でRedisへ保存する。上位カテゴリなら `b:`、下位カテゴリなら `n:` というインデックスをつけておく：
 
-<pre class="prettyprint">
+```py
 import redis
 
 db = redis.Redis()
@@ -123,7 +123,7 @@ for line in bz2.BZ2File('skos_categories_en.nt.bz2'):
 
     db.sadd('b:%s' % narrower, broader)
     db.sadd('n:%s' % broader, narrower)
-</pre>
+```
 
 （ローカルへのRedisのインストールはMacなら `$ brew install redis` です）
 
@@ -154,21 +154,21 @@ $ redis-cli
 
 こんな関数を作ってあげれば、コネクション `db = redis.Redis()` 経由で簡単に上位・下位カテゴリの一覧が得られる：
 
-<pre class="prettyprint">
+```py
 def broader(db, cat):
     return list(map(lambda res: res.decode('utf-8'), db.smembers('b:%s' % cat)))
 
 def narrower(db, cat):
     return list(map(lambda res: res.decode('utf-8'), db.smembers('n:%s' % cat)))
-</pre>
+```
 
-<pre class="prettyprint">
+```py
 >>> db = redis.Redis()
 >>> broader(db, 'Functional programming')
 ['Declarative programming']
 >>> narrower(db, 'Functional programming')
 ['Lambda calculus', 'Combinatory logic', 'Recursion schemes', 'Functional data structures', 'Functional languages', 'Implementation of functional programming languages', 'Higher-order functions', 'Dependently typed programming']
-</pre>
+```
 
 ### 日本語版
 
@@ -180,7 +180,7 @@ def narrower(db, cat):
 
 幅優先でdigれば網羅的に子カテゴリを得ることができたりして便利：
 
-<pre class="prettyprint">
+```py
 from queue import Queue
 
 from fastcat import FastCat
@@ -206,11 +206,11 @@ def get_child_categories(category, max_depth=1):
         res += child_categories
 
     return res
-</pre>
+```
 
-<pre class="prettyprint">
+```py
 >>> get_child_categories('関数型プログラミング', max_depth=2)
 ['関数型言語', '高階関数', 'ラムダ計算']
-</pre>
+```
 
 異常なクロールをしないことは現代人のマナーである一方、公式が提供する生データだけを馬鹿正直に使って非生産的な時間を過ごす必要もない。いい話。卒論時代の自分に教えてあげたい。

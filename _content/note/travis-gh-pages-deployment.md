@@ -29,7 +29,7 @@ So, eventually deployment becomes easier thanks to the following guide:
 
 My current `.travis.yml` looks like:
 
-<pre class="prettyprint lang-yaml">
+```yml
 language: c
 os: osx
 
@@ -58,7 +58,7 @@ deploy:
   repo: takuti/takuti.github.io
   target_branch: master
   fqdn: takuti.me
-</pre>
+```
 
 Once you have set your `$GITHUB_TOKEN` to environment variables in [travis-ci.org](https://travis-ci.org/), CI on [source repository](https://github.com/takuti/takuti.me) automatically generates your site and pushes it to [GitHub Pages repository](https://github.com/takuti/takuti.github.io); now what we have to do is:
 
@@ -79,4 +79,4 @@ First, **Deployment Bot** removes all of your commit logs in `xxx.github.io` rep
 
 In addition, since installation such as `npm install` and `brew install` is necessaly for every time CI is launched, deployment usually takes more than 5 minutes.
 
-In fact, these are minor problems from a practical point of view, but I personally believe that deploying static site can be more efficient and technologically stimulating by different approach e.g., using Docker containers. So, I continuouslly try to update how to organize [takuti.me](https://takuti.me). 
+In fact, these are minor problems from a practical point of view, but I personally believe that deploying static site can be more efficient and technologically stimulating by different approach e.g., using Docker containers. So, I continuouslly try to update how to organize [takuti.me](https://takuti.me).

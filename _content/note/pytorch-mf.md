@@ -14,7 +14,7 @@ Matrix Factorizationは以前『[Courseraの推薦システムのコースを修
 
 これを二乗損失のSGDで素直に実装すると、`user_factors` と `item_factors` の更新や評価値予測はこんな感じ：
 
-<pre class="prettyprint lang-python">
+```py
 import numpy as np
 
 class MatrixFactorization(object):
@@ -38,7 +38,7 @@ class MatrixFactorization(object):
         self.user_factors[user], self.item_factors[item] = next_user_factor, next_item_factor
 
         return err
-</pre>
+```
 
 PyTorchを意識して、`__call__` で予測 `predict`（PyTorchの `forward` に相当）が呼ばれるようにした。あるユーザ・アイテムペアに対する予測値はその特徴を表すベクトルの内積で計算されて、それが `predict`。あと収束判定のために適当に `err` を返している。
 
@@ -48,7 +48,7 @@ PyTorchを意識して、`__call__` で予測 `predict`（PyTorchの `forward` �
 
 モデル本体は [`torch.nn.Module`](http://pytorch.org/docs/master/nn.html#torch.nn.Module) を継承して必要なパラメータを持たせた上で、予測関数 `forward` を定義すればよい：
 
-<pre class="prettyprint lang-python">
+```py
 from torch import nn
 
 class MatrixFactorizationPyTorch(nn.Module):
@@ -62,25 +62,25 @@ class MatrixFactorizationPyTorch(nn.Module):
     def forward(self, user, item):
         # inner product of 1xN and 1xM tensors
         return (self.user_factors(user) * self.item_factors(item)).sum(1)
-</pre>
+```
 
 モデルパラメータ（行列 $P, Q$）はPyTorchでどのように表現するのかというと、[`torch.nn.Embedding`](http://pytorch.org/docs/master/nn.html#torch.nn.Embedding) が正解。`Embedding` は各要素（ユーザやアイテム）を `k` 次元のベクトルで表現するもので、単語のベクトル表現を考える Word Embedding などで使われる。予測 `forward` は先ほどと同様に内積。
 
 そしてPyTorch流に“二乗損失のSGD”を準備する：
 
-<pre class="prettyprint lang-py">
+```py
 from torch import optim
 
 model = MatrixFactorizationPyTorch(n_user, n_item, k=20)
 loss_function = nn.MSELoss()
 optimizer = optim.SGD(model.parameters(), lr=1e-2)
-</pre>
+```
 
 SGDの学習率は `0.01` に設定して、正則化係数は[デフォルト値の0.0](https://github.com/pytorch/pytorch/blob/master/torch/optim/sgd.py#L50-L51)で今回は無視。
 
 いざ学習。
 
-<pre class="prettyprint lang-python">
+```py
 from torch import autograd
 
 def as_long_tensor(val):
@@ -122,7 +122,7 @@ for epoch in range(10):  # 最大10反復
     if abs(accum_loss - last_accum_loss) < 1e-3:  # 収束判定
         break
     last_accum_loss = accum_loss
-</pre>
+```
 
 （うーん、[Bag-of-WordsのLogistic Regression](/note/pytorch-autograd)でもそうだったけど、やっぱり `loss.backward()` => `optimizer.step()` でパラメータが更新されるのが違和感…セマンティクスはすごく分かりやすいんだけど…。）
 
@@ -130,7 +130,7 @@ Lossの収束判定は、なにかいい関数が用意されていたりしな�
 
 なにはともあれ、学習後はテスト用サンプルを `forward` に投げて評価してあげればよろしい：
 
-<pre class="prettyprint lang-python">
+```py
 accum_absolute_error, accum_squared_error = 0., 0.
 
 for u, i, r in samples_test:
@@ -145,13 +145,13 @@ for u, i, r in samples_test:
 mae = accum_absolute_error / len(samples_test)
 rmse = np.sqrt(accum_squared_error / len(samples_test))
 logger.info('mf_pytorch : MAE = {}, RMSE = {}'.format(mae, rmse))
-</pre>
+```
 
 ### MovieLens100kデータセットで評価
 
 `torch.nn.MSELoss` や `torch.optim.SGD` の内部実装が入り組んでいるので単純な比較はできないけど、 `MatrixFactorization` と `MatrixFactorizationPyTorch` を[MovieLens100kデータセット](https://grouplens.org/datasets/movielens/100k/)に対して並列に走らせてみる：
 
-<pre class="prettyprint lang-python">
+```py
 from concurrent import futures
 
 samples = load_ml100k()
@@ -172,7 +172,7 @@ with futures.ProcessPoolExecutor() as executor:
                          n_user, n_item)
     f1.result()
     f2.result()
-</pre>
+```
 
 （[ちゃっかり `concurrent.futures` をつかう](/note/python-concurrent-futures)）
 

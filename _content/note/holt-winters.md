@@ -28,7 +28,7 @@ date: 2017-08-26
 
 考えられる最も単純な手法のひとつ。見たものをそのまま返しているので、オウム返し的未来予測。これを `BaseDetector` と呼ぼう。
 
-<pre class="prettyprint">
+```py
 class BaseDetector(object):
 
     def __init__(self, observed_0, threshold=0.):
@@ -53,7 +53,7 @@ class BaseDetector(object):
             self.observed_last = observed
 
         return forecasted_series
-</pre>
+```
 
 時系列データの最初の1点 `observed_0` と、予測値に対する閾値 `threshold` を設定さえ渡せばよい。あとは新しいデータを読むたびに**直近の値**を更新・保持し続ける。
 
@@ -93,7 +93,7 @@ class BaseDetector(object):
 
 手法2から4を1つの `AverageDetector` としてまとめると、窓を `deque` で表現してこんな感じ：
 
-<pre class="prettyprint">
+```py
 from collections import deque
 
 
@@ -134,7 +134,7 @@ class AverageDetector(BaseDetector):
                 self.average = self.average + (observed - self.average) / self.num_observed
 
         return forecasted_series
-</pre>
+```
 
 `window_size` が与えられているか、 `weights` が与えられているか、に応じて手法2, 3, 4を切り替える。
 
@@ -156,9 +156,9 @@ class AverageDetector(BaseDetector):
 
 なおこの手法、数式上では『次の予測値』を求めるために『1つ前の予測値』を使っており、**予測値に関して再帰的な式**になっている。これが "Exponential" と呼ばれる理由：
 
-<pre class="prettyprint">
+```py
 forecasted = alpha * observed + (1. - alpha) * forecasted
-</pre>
+```
 
 ### 手法6: 予測値の変動の大きさから、データのトレンド（増加・減少傾向）をとらえる
 
@@ -168,26 +168,26 @@ Exponential Smoothing では『今』の観測点1つと『これまで』のバ
 
 そこで、手法5で『観測値（今）と予測値（これまで）の重み付き和』で求めていた値を新たに**レベル**と呼び、：
 
-<pre class="prettyprint">
+```py
 level_last = level
 level = alpha * observed + (1. - alpha) * forecasted
-</pre>
+```
 
 『一度の観測でレベルがどれだけ変動したか』、つまり `level - level_last` を（最新の）**トレンド**とみなすことにする。
 
 そして、『次のトレンド』を『最新のトレンド』と『これまでのトレンド』の重み付き和で計算する：
 
-<pre class="prettyprint">
+```py
 trend = beta * (level - level_last) + (1. - beta) * trend
-</pre>
+```
 
 （重み `beta` は0から1の間の値をとる）
 
 最終的に、レベルとトレンドの和を予測値とする。これが **Double Exponential Smoothing**：
 
-<pre class="prettyprint">
+```py
 forecasted = level + trend
-</pre>
+```
 
 最新のトレンド（増加・減少傾向）に敏感であってほしいなら `beta` を大きな値に設定すればよい。
 
@@ -207,30 +207,30 @@ forecasted = level + trend
 
 Holt-Winters Method は**季節性があると思われる時系列データ** `initial_series` と**季節の周期** `season_length` を入力とし、予め『周期上のこのタイミングなら予測値はこれくらい』という見積もりを1周期分たてておく：
 
-<pre class="prettyprint">
+```py
 def init_holt_winters(initial_series, season_length):
     # ...
     return seasonals  # [s_1, s_2, ..., s_{season_length}]
-</pre>
+```
 
-この周期上の予測値 `seasonals` は、適当な初期値と `initial_series` に基づいて計算される。具体的には、`initial_series[i]` は、`seasonals[i % season_length]` の更新に使われる。 
+この周期上の予測値 `seasonals` は、適当な初期値と `initial_series` に基づいて計算される。具体的には、`initial_series[i]` は、`seasonals[i % season_length]` の更新に使われる。
 
 まず、Double Exponential Smoothing と同様にレベルとトレンドを求める：
 
-<pre class="prettyprint">
+```py
 level_last = level
 level = alpha * (initial_series[i] - seasonals[i % season_length]) + (1. - alpha) * (level + trend)
 
 trend = beta * (level - level_last) + (1. - beta) * trend
-</pre>
+```
 
 ただし、ここでいう“観測値”は『観測値（今）と、対応する周期上での点の見積もり（これまで）の差 `initial_series[i] - seasonals[i % season_length]`』である。
 
 そして、周期上の予測値が次のように更新される：
 
-<pre class="prettyprint">
+```py
 seasonals[i % season_length] = gamma * (initial_series[i] - level) + (1. - gamma) * seasonals[i % season_length]
-</pre>
+```
 
 ここでも重み付き和が登場し、新たにパラメータ `gamma` が導入された。このパラメータは0から1の間で『`seasonals[i % season_length]` の値の更新で、どれだけ `initial_series[i]` を考慮するか』の重みとなる。
 
@@ -238,9 +238,9 @@ seasonals[i % season_length] = gamma * (initial_series[i] - level) + (1. - gamma
 
 さて、`initial_series` をすべて処理して最終的な `level` と `trend` の値、および見積もり `seasonals` が得られたら、あとは未来予測をするだけだ。第n点目の予測値は次で得られる：
 
-<pre class="prettyprint">
+```py
 forecasted = level + n * trend + seasonals[(n - 1) % season_length]
-</pre>
+```
 
 試しに、これまで使ってきたダミーの時系列データを周期3の季節性データとして読み込み、その先の予測値を出してみよう：
 

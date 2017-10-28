@@ -10,15 +10,15 @@ However, its functionality is still low, and I argued that implementing more pow
 
 The initial version (v0.0.1) of **FluRS** is already published to PyPI. You can install and use the library by:
 
-<pre class="prettyprint">
+```sh
 $ pip install flurs
-</pre>
+```
 
 This article simply describes basic ideas and concepts behind the implementation. See the README file to learn how to use the library.
 
 ### Python for recommendation
 
-In a context of recommendation, one of the most popular open-source libraries written in Python is [fastFM](https://github.com/ibayer/fastFM), a library for *factorization machine* (FM) which is a state-of-the-art flexible factorization model. However, fastFM is actually a more generic library for FM-based prediction; it can be used for various applications such as, but not limited to recommendation. 
+In a context of recommendation, one of the most popular open-source libraries written in Python is [fastFM](https://github.com/ibayer/fastFM), a library for *factorization machine* (FM) which is a state-of-the-art flexible factorization model. However, fastFM is actually a more generic library for FM-based prediction; it can be used for various applications such as, but not limited to recommendation.
 
 Although there are several recommender-specific packages in the other programming languages like [LensKit](https://github.com/lenskit/lenskit) and [LibRec](https://github.com/guoguibing/librec) running in the Java virtual machine, and [MyMediaLite](https://github.com/zenogantner/MyMediaLite) written in C\#, Python implementation and related research papers do not exist to the best of my knowledge. Furthermore, incremental updating (i.e., `update()` method) of recommendation engines is a less well-developed feature compared to batch training functions. Hence, I developed the new Python library for online, incremental recommendation named **FluRS**.
 
@@ -41,7 +41,7 @@ Currently, **FluRS** supports the following (incremental) recommendation algorit
 
 Similarly to **Recommendation.jl**, **FluRS** also encapsulates a user, item and corresponding event in entity classes as follows:
 
-<pre class="prettyprint">
+```py
 import numpy as np
 
 
@@ -66,7 +66,7 @@ class Event:
         self.item = item
         self.value = value
         self.context = context
-</pre>
+```
 
 `User` and `Item` can store their internal features as array (vector) representation for feature-based recommendation. An `Event` entity then consists of `user` and `item` entities, and `value` describing the feedback (e.g., rating). Additionally, `context` is an auxiliary vector which holds contextual information of the events such as time and location. Note that the features and contexts can be dummy 1-dimensional vectors in case the vectors are not explicitly specified by the arguments.
 
@@ -74,7 +74,7 @@ class Event:
 
 Most importantly, this library separates algorithms from recommender-specific implementations which depend on the `User`, `Item` and `Event` entities. In particular, I defined two types of base classes for each of algorithms and recommenders as follows:
 
-<pre class="prettyprint">
+```py
 class BaseModel:
 
     def __init__(self, *args):
@@ -91,9 +91,9 @@ class BaseModel:
         """Update model parameters.
         """
         pass
-</pre>
+```
 
-<pre class="prettyprint">
+```py
 class RecommenderMixin:
 
     def init_recommender(self, *args):
@@ -131,28 +131,28 @@ class RecommenderMixin:
 
     def recommend(self, user, candidates):
         return
-</pre>
+```
 
 The former only provides model-specific functions such as updating model parameters, and the latter extends it to incremental recommender systems by injecting additional functions which use the `User`, `Item` and/or `Event` entities. The properties defined in the latter mixin continuously track observed users and items, and, if new users (items) are arrived, a recommender registers them on the internal dictionaries.
 
-Generally speaking, performance of recommender systems is highly data-dependent, so we usually modify both underlying algorithms and recommenders' functionality depending on data. The separation in the library certainly makes the modifications easier. 
+Generally speaking, performance of recommender systems is highly data-dependent, so we usually modify both underlying algorithms and recommenders' functionality depending on data. The separation in the library certainly makes the modifications easier.
 
-In case we like to apply the dimensionality reduction techniques to input vectors, we only need to add some code to the recommender side's `update()` method and modify the entity-to-feature-vector converting procedure. Likewise, model-specific modification such as changing a loss function simply requires us to overwrite the `update_params()` method in a model class. 
+In case we like to apply the dimensionality reduction techniques to input vectors, we only need to add some code to the recommender side's `update()` method and modify the entity-to-feature-vector converting procedure. Likewise, model-specific modification such as changing a loss function simply requires us to overwrite the `update_params()` method in a model class.
 
 ### Example: Factorization machines on FluRS
 
 To give a concrete example, the **FluRS** library defines a FM-based recommender as follows:
 
-<pre class="prettyprint">
+```py
 class FMRecommender(FactorizationMachine, FeatureRecommenderMixin):
-</pre>
+```
 
 Base classes `FactorizationMachine` and `FeatureRecommenderMixin` respectively inherit `BaseModel` and `RecommenderMixin`. Unlike `RecommenderMixin`, `FeatureRecommenderMixin` takes an additional argument `context` in a `score()` and `recommend()` method, because feature-based techniques allow us to represent an event as a feature vector by encoding and concatenating arbitrary variables.
 
 ### Conclusion
 
-From a practical perspective, **FluRS** can be applicable to a wide variety of datasets thanks to the encapsulation of users, items and events; once the samples are converted into an array of `Event`, testing the online item recommendation techniques on own data should be easy for **FluRS**. In addition, since algorithms and recommenders are separately implemented in the library, both extending the ready-made techniques and implementing new kind of recommenders are straightforward on the library. 
+From a practical perspective, **FluRS** can be applicable to a wide variety of datasets thanks to the encapsulation of users, items and events; once the samples are converted into an array of `Event`, testing the online item recommendation techniques on own data should be easy for **FluRS**. In addition, since algorithms and recommenders are separately implemented in the library, both extending the ready-made techniques and implementing new kind of recommenders are straightforward on the library.
 
-In terms of evaluation and further modifications, our library equips several metrics and utility functions for the dimensionality reductions, so **FluRS** can also be a useful toolkit for feature-based and/or top-$N$ recommendation. 
+In terms of evaluation and further modifications, our library equips several metrics and utility functions for the dimensionality reductions, so **FluRS** can also be a useful toolkit for feature-based and/or top-$N$ recommendation.
 
 However, at the same time, efficiency of the library is still inadequate. Therefore, following [the fastFM's highly efficient core implementation written in C](https://github.com/ibayer/fastFM-core) is one possible future direction.

@@ -14,50 +14,50 @@ First and foremost, there are two different types of operations for RDD: ***tran
 
 In the Scala collections, this kind of operations return a new collection as:
 
-<pre class="prettyprint">
+```scala
 scala> Seq(1, 2, 3).map(_ * 10)
 res: Seq[Int] = List(10, 20, 30)
-</pre>
+```
 
-In RDDs, transformation similarly behaves; a new RDD will be returned as a result of transformation. 
+In RDDs, transformation similarly behaves; a new RDD will be returned as a result of transformation.
 
 However, there is a huge difference between Scala collections and RDDs: result of transformation is *NOT immediately* computed. That is, transformation stands on **laziness**.
 
 In case that we have a RDD which contains same values as the above example, `rdd.map()` does not return any "collections":
 
-<pre class="prettyprint">
+```scala
 scala> val rdd: RDD[Int] = sc.parallelize(Seq(1, 2, 3))
 rdd: org.apache.spark.rdd.RDD[Int] = ParallelCollectionRDD[5] at parallelize at <console>:20
 
 scala> rdd.map(_ * 10)
 res: org.apache.spark.rdd.RDD[Int] = MapPartitionsRDD[6] at map at <console>:22
-</pre>
+```
 
 Note that, if you want to compute RDD and convert it to Scala collection, you can use `collect()` operation as follows.
 
-<pre class="prettyprint">
+```scala
 scala> rdd.map(_ * 10).collect()
 res: Array[Int] = Array(10, 20, 30)
-</pre>
+```
 
 ### Type II: Action
 
-**Action** corresponds to Scala accessors e.g., `fold()` and `aggregate()`, and the usage is very similar to what Scala collections do. 
+**Action** corresponds to Scala accessors e.g., `fold()` and `aggregate()`, and the usage is very similar to what Scala collections do.
 
 Importantly, in contrast to transformations, actions return something like value.
 
-<pre class="prettyprint">
+```scala
 scala> Seq(1, 2, 3).fold(0)(_ + _)
 res: Int = 6
-</pre>
+```
 
-<pre class="prettyprint">
+```scala
 scala> val rdd: RDD[Int] = sc.parallelize(Seq(1, 2, 3))
 rdd: org.apache.spark.rdd.RDD[Int] = ParallelCollectionRDD[5] at parallelize at <console>:20
 
 scala> rdd.fold(0)(_ + _)
 res: Int = 6
-</pre>
+```
 
 It is obvious that actions are evaluated **eager**; result is *immediately* computed.
 
@@ -69,21 +69,21 @@ In a context of machine learning, since iteration over large-scale data is neces
 
 In order to run such repeatedly-computed transformations more efficiently, RDD has a special operation named `parallel()` (or, `persist()`). If you define a RDD with the `cache()` operation, RDD internally caches the result of transformations, and hence iterative `count()` operations should be much faster than the uncached case.
 
-<pre class="prettyprint">
+```scala
 val rddUncached = rdd.filter().map()
 for (i <- 0 to n) { // inefficient :(
 	// recompute `filter` -> `map` -> `count` in each time
 	rddUncached.count()
 }
-</pre>
+```
 
-<pre class="prettyprint">
+```scala
 val rddCached = rdd.filter().map().cache()
 for (i <- 0 to n) { // efficient :)
 	// result of `filter` -> `map` is internally cached
 	rddCached.count()
 }
-</pre>
+```
 
 ### Experiment
 
@@ -91,17 +91,17 @@ Let's finally check if cached RDD is truly faster than uncached one.
 
 1) Define a Spark context and dummy data `randomList` which consists of 10k random integers:
 
-<pre class="prettyprint">
+```scala
 val conf: SparkConf = new SparkConf().setMaster("local").setAppName("RDDTest")
 val sc: SparkContext = new SparkContext(conf)
 
 val rng: Random = new Random
 val randomList: List[Int] = (for (i <- 1 to 10000) yield rng.nextInt).toList
-</pre>
+```
 
 2) Create a function which measures running time (cf. [Easily measuring code execution time in Scala](http://biercoff.com/easily-measuring-code-execution-time-in-scala/)):
 
-<pre class="prettyprint">
+```scala
 def time[R](block: => R): R = {
 	val t0 = System.nanoTime()
 	val result = block
@@ -109,11 +109,11 @@ def time[R](block: => R): R = {
 	println("Elapsed time: " + ((t1 - t0) / 1000000000.0) + " sec")
 	result
 }
-</pre>
+```
 
 3) Compare running time of the same operations over cached/uncached RDD:
 
-<pre class="prettyprint">
+```scala
 for (i <- 1 to 3) { // try 3 times
 	println("========")
 	println("Uncached")
@@ -131,16 +131,16 @@ for (i <- 1 to 3) { // try 3 times
 		for (i <- 1 to 1000) rddCached.count()
 	}
 }
-</pre>
+```
 
 Here, mapped function `f` is a dummy function which takes a long-time:
 
-<pre class="prettyprint">
+```scala
 def f(v: Int): Int = {
 	for (i <- 1 to 10000) {}
 	v
 }
-</pre>
+```
 
 Note: In view of unrelated optimization done by Scala itself, our code tries the same procedure three times.
 

@@ -11,7 +11,7 @@ Recently, math rendering library in this page, **takuti.me**, has been switched 
   - [Poisson Image Editingでいい感じの画像合成ができるやつを作る on Web](/note/poisson-image-blending)
   - [TF-IDFで文書内の単語の重み付け](/note/tf-idf)
   - ["SLIM: Sparse Linear Methods for Top-N Recommender Systems"を読んだ](/note/slim)
-  
+
 This article describes how I have accomplished the modification.
 
 ### The Markdown + LaTeX syntax issue
@@ -24,7 +24,7 @@ In order to work around the issue, my previous article introduced how I utilized
 
 Note that, while originally kramdown was called in my local `Rakefile`, currently the Markdown processing code has been moved to `gulpfile.js` by taking advantage of [gulp-kramdown](https://www.npmjs.com/package/gulp-kramdown):
 
-<pre class="prettyprint">
+```js
 gulp.task('compile-md', function() {
   gulp.src('_content/**/*.{md,html}')
       // extract front matter as a string
@@ -59,24 +59,24 @@ gulp.task('compile-md', function() {
 
       .pipe(gulp.dest('content/'));
 });
-</pre>
+```
 
 Eventually, running `$ hugo server --watch` and `$ gulp watch` simultaneously enables me to preview rendered Markdown + LaTeX contents.
 
 ### Replace MathJax with KaTeX
 
-As many of you already noticed, math rendering of MathJax is surprisingly slow. Stressful "loading..." message always shows up on my browser! Thus, I decided to replace it with much faster alternative, [KaTeX](https://khan.github.io/KaTeX/). 
+As many of you already noticed, math rendering of MathJax is surprisingly slow. Stressful "loading..." message always shows up on my browser! Thus, I decided to replace it with much faster alternative, [KaTeX](https://khan.github.io/KaTeX/).
 
 Replacement itself was pretty easy; I just needed to replace MathJax's stylesheet and script definition in `<header>~</header>` (or `<footer>~</footer>`) with KaTeX's ones:
 
-<pre class="prettyprint">
-&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous"&gt;
-</pre>
+```html
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+```
 
-<pre class="prettyprint">
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"&gt;&lt;/script&gt;
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"&gt;&lt;/script&gt;
-&lt;script&gt;
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script>
   renderMathInElement(document.body,
     {
         delimiters: [
@@ -103,8 +103,8 @@ Replacement itself was pretty easy; I just needed to replace MathJax's styleshee
     replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
     displayMath.parentNode.replaceChild(replaced, displayMath);
   }
-&lt;/script&gt;
-</pre>
+</script>
+```
 
 Here, `var inlineMathArray = ...` and `var displayMathArray = ...` are the magic!
 
@@ -121,5 +121,5 @@ Now, the entire content rendering flow works well with:
 - Fast math renderer **KaTeX**
 
 However, one thing I have noticed is that, available LaTeX command in KaTeX is limited compared to MathJax. For example, previously I used `$\boldsymbol{\phi}$` in "[How to Derive the Normal Equation](/note/normal-equation/)", but KaTeX does not support the `\boldsymbol{}` command. So, for now, it has just been replaced the unsupported command with plain `\phi`.
-  
+
 Anyway, even though KaTeX has some limitations that MathJax does support, its performance is definitely attractive. In particular, we frequently put a lot of equations in an article in a context of machine learning and data science, choosing "better" math rendering library is important. Therefore, I strongly recommend you to use KaTeX regardless of a way to create your website (e.g., Wordpress, Jekyll, Hexo).

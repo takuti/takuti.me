@@ -19,7 +19,7 @@ date: 2017-07-28
 
 Wikipedia に書かれている擬似コードをそのまま実装すると次のような感じ：
 
-<pre class="prettyprint linenums">
+{{< highlight py "linenos=table" >}}
 def levenshtein(s1, s2):
     """
     >>> levenshtein('kitten', 'sitting')
@@ -47,7 +47,7 @@ def levenshtein(s1, s2):
                            dp[i - 1][j - 1] + cost)  # replacement
 
     return dp[n][m]
-</pre>
+{{< / highlight >}}
 
 二次元配列 `dp` の中身は、たとえば `levenshtein('kitten', 'sitting')` を実行した後だと：
 
@@ -70,13 +70,13 @@ def levenshtein(s1, s2):
 ```
    |  -  s  i  t  t  i  n  g
 ----------------------------
- - |                 .     
+ - |                 .
  k |                 .
  i |  .  .  .  .  .  4
- t |     
- t |    
- e |    
- n |    
+ t |
+ t |
+ e |
+ n |
 ```
 
 アルゴリズムでは、まず `dp` を次のように初期化する：
@@ -85,12 +85,12 @@ def levenshtein(s1, s2):
    |  -  s  i  t  t  i  n  g
 ----------------------------
  - |  0  1  2  3  4  5  6  7
- k |  1  
- i |  2  
- t |  3  
- t |  4 
- e |  5  
- n |  6 
+ k |  1
+ i |  2
+ t |  3
+ t |  4
+ e |  5
+ n |  6
 ```
 
 空文字列から `sitting` のx文字目までの編集距離と、`kitten`のy文字目から空文字列までの編集距離。これは自明。
@@ -103,11 +103,11 @@ def levenshtein(s1, s2):
    ----------------------------
     - |  0  1  2  3  4  5  6  7
 (i) k |  1  X
-    i |  2  
-    t |  3  
-    t |  4 
-    e |  5  
-    n |  6 
+    i |  2
+    t |  3
+    t |  4
+    e |  5
+    n |  6
 ```
 
 最初に書いたとおり可能な操作は『1文字の追加・削除・置換』で、`dp[i][j]`に隣接する既知の編集距離から：
@@ -120,7 +120,7 @@ def levenshtein(s1, s2):
 
 つまり、
 
-- `dp[i-1][j]` と `dp[i][j]` の差は**追加**操作1回分 
+- `dp[i-1][j]` と `dp[i][j]` の差は**追加**操作1回分
 - `dp[i][j]` と `dp[i][j-1]` の差は**削除**操作1回分
 - `dp[i-1][j-1]` と `dp[i][j]` の差は**置換**操作1回分
 
@@ -130,12 +130,12 @@ def levenshtein(s1, s2):
 
 以上が
 
-<pre class="prettyprint">
+```py
 cost = 0 if s1[i - 1] == s2[j - 1] else 1
 dp[i][j] = min(dp[i - 1][j] + 1,         # insertion
                dp[i][j - 1] + 1,         # deletion
                dp[i - 1][j - 1] + cost)  # replacement/noop
-</pre>
+```
 
 でやっていること。編集距離は最小の操作回数なので追加・削除・置換の `min` をとる。
 

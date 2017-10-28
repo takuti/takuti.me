@@ -34,7 +34,7 @@ Scalaなんかでおなじみの **Future** とは、並行処理の結果を参
 
 では、1秒wait()×2回をシングルスレッド、マルチスレッド、マルチプロセスそれぞれで試してみよう：
 
-<pre class="prettyprint lang-python">
+```py
 import time
 from concurrent import futures
 
@@ -67,7 +67,7 @@ if __name__ == '__main__':
         f2.result()
     end = time.time()
     print('Multi-process: elapsed time = {}'.format(end - start))
-</pre>
+```
 
 `executor.submit()` でタスクのスケジューリングをして、返ってきた `Future` オブジェクトが完了するまで `result()` で処理をブロックする。
 
@@ -84,7 +84,7 @@ Multi-process: elapsed time = 1.0193650722503662
 
 次に、[大きい数の素数判定を並列に行う公式ドキュメントの例](https://docs.python.org/3/library/concurrent.futures.html#processpoolexecutor-example)を試してみる：
 
-<pre class="prettyprint lang-python">
+```py
 import concurrent.futures
 import math
 
@@ -130,7 +130,7 @@ if __name__ == '__main__':
             print('%d is prime: %s' % (number, prime))
     end = time.time()
     print('Multi-process: elapsed time = {}'.format(end - start))
-</pre>
+```
 
 判定対象の数を `is_prime()` に `executor.map` して呼ぶ。使い方は通常の `map` や `multiprocessing.Pool.map` と同じ。
 
