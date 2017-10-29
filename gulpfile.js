@@ -70,7 +70,7 @@ gulp.task('compile-md-preview', function() {
       .pipe(gulp.dest('content/'));
 });
 
-gulp.task('watch', function(){
+gulp.task('watch', ['clean-content', 'compile-sass', 'compile-md-preview'], function(){
   gulp.watch('_scss/*.scss', ['compile-sass']);
   gulp.watch('_content/**/*.{md,html}', ['compile-md-preview']);
 });
