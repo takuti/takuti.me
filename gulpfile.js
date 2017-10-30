@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var sass = require('gulp-sass');
 var data = require('gulp-data');
-var kramdown = require('gulp-kramdown');
 var wrapper = require('gulp-wrapper');
 var request = require('sync-request');
 var del = require('del');
@@ -44,9 +43,6 @@ gulp.task('compile-md', function() {
         file.contents = new Buffer(content);
       }))
 
-      // convert markdown content into html (except for the front matter)
-      .pipe(kramdown())
-
       // insert the extracted front matter at the head of the converted html
       .pipe(wrapper({ header: function(file){ return file.frontMatter + '\n'; } }))
 
@@ -65,7 +61,6 @@ gulp.task('compile-md-preview', function() {
 
         file.contents = new Buffer(content);
       }))
-      .pipe(kramdown())
       .pipe(wrapper({ header: function(file){ return file.frontMatter + '\n'; } }))
       .pipe(gulp.dest('content/'));
 });
