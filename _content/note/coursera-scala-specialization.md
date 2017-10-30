@@ -1,5 +1,5 @@
 ---
-title: Courseraの“Functional Programming in Scala Specialization“を修了した
+title: Courseraの"Functional Programming in Scala Specialization"を修了した
 lang: ja
 date: 2017-10-28
 ---
