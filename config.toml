@@ -8,6 +8,8 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 baseurl = "https://takuti.me"
 title = "takuti.me"
 
+buildFuture = true
+
 [permalinks]
   note = "/note/:filename/"
   top = "/:filename/"
