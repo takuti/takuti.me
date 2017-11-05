@@ -72,7 +72,7 @@ $$
 p_s = \frac{\alpha \ p}{\alpha \ p + \beta \ (1-p)}
 $$
 
-※ $\alpha = p(s=1 \mid y=1)$、$\beta = p(s=1 \mid y=1)$ とおいた。
+※ $\alpha = p(s=1 \mid y=1)$、$\beta = p(s=1 \mid y=0)$ とおいた。
 
 $p_s \neq p$ であり、undersampling が予測確率それ自体にバイアスをかけているのだ。
 
