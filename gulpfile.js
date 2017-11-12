@@ -27,12 +27,12 @@ gulp.task('compile-md', function() {
           return '';
         });
 
-        var tweetUrls = content.match(/(https?:\/\/twitter\.com\/[a-zA-Z0-9_]+\/status\/([0-9]+)\/?)/g);
+        var tweetUrls = content.match(/(https?:\/\/twitter\.com\/[a-zA-Z0-9_]+\/status(es)?\/([0-9]+)\/?)/g);
 
         // convert all tweet urls into tweet cards
         if (tweetUrls !== null) {
           for (var url of tweetUrls) {
-            var id = /\/([0-9]+)\/?/g.exec(url)[1];
+            var id = /\/([0-9]+)\/?/g.exec(url)[2];
             var res = request('GET', 'https://api.twitter.com/1/statuses/oembed.json?id=' + id);
 
             var tweetCard = JSON.parse(res.getBody('utf8')).html;
