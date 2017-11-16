@@ -1,10 +1,12 @@
 language: c
-os: osx
+os: linux
+
+dist: trusty
 
 before_script:
   - npm install -g gulp
   - npm install
-  - brew update && brew install hugo
+  - sudo apt-get update -qq && sudo apt-get install -y hugo
 
 script:
   - gulp && hugo
