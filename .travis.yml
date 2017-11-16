@@ -6,10 +6,11 @@ dist: trusty
 before_script:
   - npm install -g gulp
   - npm install
-  - sudo apt-get update -qq && sudo apt-get install -y hugo
+  - sudo apt-get --yes install snapd
+  - sudo snap install hugo
 
 script:
-  - gulp && hugo
+  - gulp && /snap/bin/hugo
 
 branches:
   only:
