@@ -6,7 +6,7 @@ date: 2017-11-17
 
 推薦システムの業界で知らぬものはいない、ミネソタ大学のレジェンド級プロフェッサー[Joseph Konstan先生](http://konstan.umn.edu/)が Podcast "Data Skeptic" に出演していた：
 
-- [Recommender Systems (life from Farcon) | Data Skeptic](view-source:https://dataskeptic.com/blog/episodes/2017/recommender-systems-live-from-farcon)
+- [Recommender Systems (live from Farcon) | Data Skeptic](https://dataskeptic.com/blog/episodes/2017/recommender-systems-live-from-farcon)
 
 [Courseraの推薦システムのコース](/note/coursera-recommender-systems)でお世話になり、その後 [RecSys 2016](/note/recsys-2016) でユーモア満載の生Konstan先生を見たときはすごく感動したことを覚えている。
 
