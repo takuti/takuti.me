@@ -4,7 +4,7 @@ lang: ja
 date: 2017-12-16
 ---
 
-あるいは、論文 "**[Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)**" および "**[Good enough practices in scientific computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)**" について。
+あるいは、論文 "**[Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)**" および "**[Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)**" について。
 
 ### TL;DR
 
@@ -380,7 +380,7 @@ READMEから Cookiecutter 標準のディレクトリ構成を引用すると次
 
 ここまで見てきて、『なにが正解』という話ではなくて、みんな同じように悩んで試行錯誤してるんだなぁということが分かった。
 
-そして他人の例と "**[Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)**", "**[Good enough practices in scientific computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)**" から、ソフトウェア開発、つまり普段のコーディングと同様にデータサイエンスプロジェクトを扱うことの大切さを改めて気付かされた。
+そして他人の例と "**[Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)**", "**[Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)**" から、ソフトウェア開発、つまり普段のコーディングと同様にデータサイエンスプロジェクトを扱うことの大切さに改めて気付かされた。
 
 目の前のデータにばかり囚われてゴミを量産しないように生きてゆきましょう。
 
