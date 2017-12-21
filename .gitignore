@@ -2,6 +2,7 @@
 *.swp
 
 .envrc
+.python-version
 
 public/
 content/
