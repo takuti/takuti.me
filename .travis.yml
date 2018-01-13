@@ -24,8 +24,9 @@ deploy:
   skip_cleanup: true
   local_dir: public
   github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  keep-history: true
   on:
     branch: master
-  repo: takuti/takuti.github.io
-  target_branch: master
-  fqdn: takuti.me
+  target_branch: gh-pages
+  committer-from-gh: true
+  # fqdn: takuti.me
