@@ -29,4 +29,4 @@ deploy:
     branch: master
   target_branch: gh-pages
   committer-from-gh: true
-  # fqdn: takuti.me
+  fqdn: takuti.me
