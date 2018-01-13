@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        推薦システムのためのOSSたち | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-05-14
+  </p>
+  <h2>推薦システムのためのOSSたち</h2>
+
+  <div class="post">
+    
+
+<p><strong>情報推薦＝機械学習</strong> ではない。</p>
+
+<p>もちろん機械学習アルゴリズムを使えば精度は高くなるかもしれないが、実際は推薦理由の説明が必要であったり、膨大なデータサイズや要求されるパフォーマンスに応えるために、『いかに機械学習をしない選択をするか』も重要になる。</p>
+
+<p>さらに、<a href="https://takuti.me/note/recsys-2016/">RecSys2016のLinkedInとQuoraのチュートリアルで語られたように</a>、現実の推薦システムはヒューリスティクスに基づく単純な手法から深層学習まで、複数のものを組み合わせた <strong>ハイブリッド</strong> なものであることが多い。</p>
+
+<ul>
+<li>ヒューリスティクス/機械学習の混在したハイブリッドな推薦手法</li>
+<li>適切な指標による精度の評価とモデルの改善</li>
+<li>サービスごとに異なる多様なデータフォーマットの扱い</li>
+</ul>
+
+<p>ということを考えると、<strong>推薦システム専用の実装</strong> というものが必要になってくる。というわけで、推薦システム構築に使える/参考になるOSSをいくつか紹介する。</p>
+
+<p>※チョイスは個人の経験に拠るものなのであしからず。この他にもGitHub上には無数にライブラリが存在するので、他にイケてるものがあればぜひ教えてください。</p>
+
+<h3 id="mymedialite-c">MyMediaLite (C#)</h3>
+
+<ul>
+<li><a href="http://www.mymedialite.net/" target="_blank">公式サイト/ドキュメント</a></li>
+<li><a href="https://github.com/zenogantner/MyMediaLite" target="_blank">GitHubリポジトリ</a></li>
+<li><a href="https://www.ismll.uni-hildesheim.de/pub/pdfs/Gantner_et_al2011_MyMediaLite.pdf" target="_blank">論文</a></li>
+</ul>
+
+<p>実装が C# というのがネックだけど、推薦アルゴリズムのオープンソース実装で最も有名なのはおそらくこれ。2010年秋ごろから開発されていて、このあと挙げるような他のライブラリはみんな論文でMyMediaLiteを引用している。</p>
+
+<p>対応しているアルゴリズムは協調フィルタリング、Matrix Factorization系が中心。Average Rating や Most Popular のような機械学習をしないベースライン手法も選べる。</p>
+
+<p>他のライブラリの実装を見るとみんな似たり寄ったりな感じで、「このライブラリはMyMediaLiteチルドレンなんだなー」と気付くこともしばしば。</p>
+
+<p>残念ながらここ数年は開発が滞り気味。</p>
+
+<p>ちなみに論文は<a href="http://www.algo.uni-konstanz.de/members/rendle/pdf/Rendle2010FM.pdf" target="_blank">Factorization Machines</a>の作者の<a href="https://scholar.google.com/citations?user=yR-ugIoAAAAJ" target="_blank">Rendle先生</a>も共著者に入っている。</p>
+
+<h3 id="librec-java">LibRec (Java)</h3>
+
+<ul>
+<li><a href="https://www.librec.net/" target="_blank">公式サイト/ドキュメント</a></li>
+<li><a href="https://github.com/guoguibing/librec" target="_blank">GitHubリポジトリ</a></li>
+<li><a href="http://ceur-ws.org/Vol-1388/demo_paper1.pdf" target="_blank">論文</a></li>
+</ul>
+
+<p>2014年から開発されているJavaの推薦アルゴリズム実装で、先日『<a href="https://takuti.me/note/hello-librec">Java製の推薦システム用ライブラリ LibRec を動かしてみる</a>』でも言及した。</p>
+
+<p>僕が知る中で今最も盛んに開発が行われているライブラリで、つい最近 version 2.0 になってからはドキュメントとかもグッと良くなった。</p>
+
+<p>MyMediaLiteを参考にしつつも、よく練られた設計や豊富な対応アルゴリズムによって独自の地位を築いている印象がある。</p>
+
+<p>似たようなJava製ライブラリだと <a href="http://prea.gatech.edu/" target="_blank">PREA</a> があるけど、こっちはもう全く更新されていない様子。</p>
+
+<h3 id="lenskit-java">LensKit (Java)</h3>
+
+<ul>
+<li><a href="http://lenskit.org/" target="_blank">公式サイト/ドキュメント</a></li>
+<li><a href="https://github.com/lenskit/lenskit" target="_blank">GitHubリポジトリ</a></li>
+<li><a href="http://files.grouplens.org/papers/p133-ekstrand.pdf" target="_blank">論文</a></li>
+</ul>
+
+<p>2010年ごろから開発されているJava製のライブラリ。ミネソタ大学のチーム <a href="https://grouplens.org/" target="_blank">GroupLens</a> に以前在籍していた<a href="https://md.ekstrandom.net/" target="_blank">Michael Ekstrand先生</a>が中心になって開発している。これ自体が彼の博士研究の一貫でもあった。</p>
+
+<p>アルゴリズムは協調フィルタリングとMatrix Factorizationがメインで極めてシンプル。</p>
+
+<p>実装はともかく、論文に関しては一読の価値がある。（今やほとんど聞かないけど）Dependency Injection的な思想で、どのようにコンポーネントを切り分けて推薦ライブラリを実装するか、ということを解説している。このあたりはLibRecの設計に近い印象を受けた。</p>
+
+<p>なお、Ekstrand先生には<a href="https://takuti.me/note/coursera-recommender-systems/">Courseraの推薦システムのコース</a>で会えます。</p>
+
+<h3 id="apache-mahout-あるいは-hivemall-java">Apache Mahout あるいは Hivemall (Java)</h3>
+
+<p>先に挙げたライブラリとは少し毛色が違うけど、Spark, Hadoop上で情報推薦を実現する際は <a href="http://mahout.apache.org/" target="_blank">Apache Mahout</a> や <a href="https://hivemall.incubator.apache.org/" target="_blank">Hivemall</a> が選択肢になる。</p>
+
+<p>特にMahoutは推薦アルゴリズムの実装・利用に力を入れていて、『<a href="http://mahout.apache.org/users/algorithms/intro-cooccurrence-spark.html" target="_blank">Introduction to Cooccurrence Recommenders with Spark</a>』などにそのことが細かく紹介されている。そういえば、<a href="https://takuti.me/note/practical-machine-learning/">以前読んだフリー書籍の &ldquo;Practical Machine Learning&rdquo; </a>はMahoutを使った推薦システムの構築を激推しする内容だった。</p>
+
+<p>あと、つい先日開催された <strong>GPU Technology Conference Silicon Valley</strong> のセッション &ldquo;<a href="https://gputechconf2017.smarteventscloud.com/connect/sessionDetail.ww?SESSION_ID=118703" target="_blank">Apache Mahout&rsquo;s new recommendation algorithm and using GPUs to speed model creation</a>&rdquo; がすごく気になる。引き続きウォッチしていきたい。</p>
+
+<p>一方、Hivemallはクエリを組み上げていくことで<a href="https://hivemall.incubator.apache.org/userguide/recommend/item_based_cf.html" target="_blank">協調フィルタリング</a>、<a href="https://hivemall.incubator.apache.org/userguide/recommend/movielens_mf.html" target="_blank">Matrix Factorization</a>、<a href="https://hivemall.incubator.apache.org/userguide/recommend/movielens_fm.html" target="_blank">Factorization Machines</a>による推薦（予測）ができる。さらに、Factorization Machinesの拡張版で未だオープンソース実装が少ない<a href="https://www.csie.ntu.edu.tw/~r01922136/slides/ffm.pdf" target="_blank">Field-aware Factorization Machines</a>までサポートされている点はポイントが高い。しかし、『クエリで行う情報推薦』が嬉しいかどうかはあなた次第。</p>
+
+<p>なお、Hivemallでアイテム推薦については『<a href="https://takuti.me/note/hivemall-on-mac/">MacのローカルにHivemallを導入してアイテム推薦をするまで</a>』も参照されたい。</p>
+
+<p>そうそう、Sparkで推薦といえば <strong>MLlib</strong> を忘れてはいけない。Pythonインタフェースがあるのも嬉しい。これについては <a href="https://spark.apache.org/docs/2.1.0/mllib-collaborative-filtering.html" target="_blank">Collaborative Filtering - RDD-based API</a> から。</p>
+
+<h3 id="fastfm-python">fastFM (Python)</h3>
+
+<ul>
+<li><a href="http://ibayer.github.io/fastFM/" target="_blank">公式サイト/ドキュメント</a></li>
+<li><a href="https://github.com/ibayer/fastFM" target="_blank">GitHubリポジトリ</a></li>
+<li><a href="http://www.jmlr.org/papers/volume17/15-355/15-355.pdf" target="_blank">論文</a></li>
+</ul>
+
+<p>Factorization Machinesに特化したPythonライブラリで、Rendle先生の昔の所属先の博士学生（？）のBayer氏が開発している。</p>
+
+<p>scikit-learnに準ずるインタフェースを提供しつつ、<a href="https://github.com/ibayer/fastFM-core" target="_blank">コア部分を完全に分離してC言語 (Cython) で実装している点</a>はお見事。</p>
+
+<p>Factorization Machines自体は汎用的な予測モデルなので推薦限定というわけではないけれど、背景を鑑みると、やっぱりこのライブラリの主な用途は推薦になるんだと思う。</p>
+
+<p>評価値予測なら二乗損失によるRegression、アイテム推薦ならBayesian Personalized Rankingによるランキング予測を行う。</p>
+
+<p>実は、Python製のまともな推薦システム特化型ライブラリというのはかなりレアな存在。既存ライブラリの中で人気なのは <a href="http://surpriselib.com/" target="_blank">Surprise</a> だろうか。（お恥ずかしながら僕は最近これを知りました。）</p>
+
+<p>LL言語でみんな簡単に独自実装できるので、推薦システムという広い文脈では“全部入り”なライブラリの需要があまりないのかなぁ、と思う。推薦システム専用の実装が欲しければ自分で書けばいいじゃない、という空気感。</p>
+
+<p>Pythonなら、fastFMのようにあるアルゴリズムや機能に特化したライブラリのほうが使ってもらえそう。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>これまでに何度も実装を参考にしたり、頻繁に名前を聞いたようなOSSライブラリをまとめた。</p>
+
+<p>Spark, Hadoopは例外だけど、紹介したライブラリの主なユースケースは、</p>
+
+<ul>
+<li>プロダクション用の推薦ロジックの研究開発段階で利用する</li>
+<li>研究者が論文の評価実験のために使う</li>
+</ul>
+
+<p>になるんだろうなぁと思ってる。でも実際のところ、どうなんだろう。「LibRec使って書いたコードを夜間バッチで走らせてます」みたいな事例があったら知りたいけど。</p>
+
+<p>そして余談だけど、僕も修士研究のときに推薦アルゴリズムの実装をライブラリ化した：</p>
+
+<ul>
+<li><a href="https://takuti.me/note/recommendation-julia">Recommendation.jl: Building Recommender Systems in Julia</a> [<a href="https://github.com/takuti/Recommendation.jl" target="_blank">GitHub</a>]</li>
+<li><a href="https://takuti.me/note/flurs">FluRS: A Python Library for Online Item Recommendation</a> [<a href="https://github.com/takuti/flurs/" target="_blank">GitHub</a>]</li>
+</ul>
+
+<p>しかしこれらはまだまだ実用レベルに達していないので、もっと頑張る必要がある。</p>
+
+<p>推薦アルゴリズムの実装は、汎用的なものにしようとすると意外と考えることが多くて難しい。けどそれが楽しい :)</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

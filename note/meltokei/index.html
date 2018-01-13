@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        HTML5 CanvasでメルトPVに出てくるメル時計をつくった | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2013-08-04
+  </p>
+  <h2>HTML5 CanvasでメルトPVに出てくるメル時計をつくった</h2>
+
+  <div class="post">
+    <p>メルトといえばあのメルトです。恋に落ちる音がするやつです。冬に売ってる雪のような口どけのやつじゃないです。</p>
+<p>そのPVに、以下のようなものがあります。</p>
+<p><script type="text/javascript" src="http://ext.nicovideo.jp/thumb_watch/sm2671946"></script><br />
+<noscript><a href="http://www.nicovideo.jp/watch/sm2671946">【ニコニコ動画】メルトPV　shortバージョン（完成版）</a></noscript></p>
+<p>素敵ですね。</p>
+<p>このPVに出てくる時計が可愛いということで、アップロードされた当時は<strong>メル時計</strong>なんて呼ばれて、<a href="http://www.nicovideo.jp/watch/sm2146274">実際に作ってみた人</a>や<a href="http://www.nicovideo.jp/watch/sm2694098">Windows Vistaのサイドバーガジェットにした人</a>、<a href="http://www.nicovideo.jp/watch/sm2694098">Flashで作った人</a>なんかが現れたのは記憶に新し・・・くはないけれど、今でもよく覚えています。</p>
+<p>ふとHTML5 Canvasで何か作りたいなーと思って思い浮かんだのがこのメル時計だったので早速作ってみました。完成品は以下より。</p>
+<p><strong><a href="http://takuti.me/dev/meltokei/">メル時計</a></strong><br />
+<img src="https://takuti.me/images/wp/meltokei.png" alt="meltokei" width="428" height="420" class="alignnone size-full wp-image-236" /><br />
+<!--more--><br />
+秒針もつけました。いいかんじ。</p>
+<p>PVの時計のシーンを見ながら作って、サイズはそのままに、色もMacに標準で入っているカラーピッカー <strong>DigitalColor Meter</strong> を使ってできる限り再現したつもりです。もちろん画像は使ってません。</p>
+<p>PVでは左上から光が当たっているので影を付けたかったのですが、あまり綺麗にならなかったのでそれはボツ。</p>
+<p>実装に関しては、</p>
+<ol>
+<li>背景色でCanvas全体を塗りつぶし</li>
+<li>時計の円を色ごとに外側から順番に描画</li>
+<li>文字盤代わりの六角形たちを描画</li>
+<li>現在の時刻からそれぞれの針の角度を求めて描画</li>
+</ol>
+<p>を1秒間隔でやり続けるだけです。</p>
+<p>基本的にはただひたすらarcとかfillとかやればいいだけなので簡単ですが、Canvasビギナーの僕には回転 <strong>rotate()</strong> の扱い方と、長針・短針の角丸化が少しだけ厄介でした。勉強になった。</p>
+<p>これについては別記事でメモとして書きます。<br />
+<a href="http://blog.takuti.me/canvas-rotate-round/">HTML5 Canvasの回転と角丸についてメモ</a></p>
+<p>PV確認のついでにメルトを聴いてちょっと懐かしい気持ちになり、投稿日を確認したらもう5年も前で驚きを隠せなかった僕でした。おわり。</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

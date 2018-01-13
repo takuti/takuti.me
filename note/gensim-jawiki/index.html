@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        gensimでWikipedia日本語版からコーパスを作ってトピックモデリング | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-07-22
+  </p>
+  <h2>gensimでWikipedia日本語版からコーパスを作ってトピックモデリング</h2>
+
+  <div class="post">
+    
+
+<p>しましょう。</p>
+
+<p><a href="https://radimrehurek.com/gensim/" target="_blank">gensim</a> とは、人類が開発したトピックモデリング用のPythonライブラリです。</p>
+
+<p>良記事『<a href="http://blog.yuku-t.com/entry/20110623/1308810518" target="_blank">LSIやLDAを手軽に試せるGensimを使った自然言語処理入門</a>』のサンプルコードが少々古いので、最新版で改めてやってみる次第。</p>
+
+<h3 id="準備">準備</h3>
+
+<p><a href="https://dumps.wikimedia.org/jawiki/latest/" target="_blank">Index of /jawiki/latest/</a> から <strong>jawiki-latest-pages-articles.xml.bz2</strong> を入手する。下手すると数時間かかる。</p>
+
+<h3 id="コーパス">コーパス</h3>
+
+<p>基本的には<a href="https://github.com/RaRe-Technologies/gensim/blob/develop/gensim/scripts/make_wikicorpus.py" target="_blank">英語版Wikipediaからコーパスを作る公式サンプル</a>がそのまま使える。</p>
+
+<p>我々は <code>gensim.corpora.WikiCorpus</code> が内部的に使っている分かち書き用の関数 <code>gensim.corpora.wikicorpus.tokenize</code> を日本語向けに置き換えればよろしい：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">gensim.corpora.wikicorpus</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">wikicorpus</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">MeCab</span>
+
+
+tagger <span style="color:#333">=</span> MeCab<span style="color:#333">.</span>Tagger()
+tagger<span style="color:#333">.</span>parse(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;&#39;</span>)
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">tokenize_ja</span>(text):
+    node <span style="color:#333">=</span> tagger<span style="color:#333">.</span>parseToNode(to_unicode(text,  encoding<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;utf8&#39;</span>, errors<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;ignore&#39;</span>))
+    <span style="color:#080;font-weight:bold">while</span> node:
+        <span style="color:#080;font-weight:bold">if</span> node<span style="color:#333">.</span>feature<span style="color:#333">.</span>split(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;,&#39;</span>)[<span style="color:#00d;font-weight:bold">0</span>] <span style="color:#333">==</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;名詞&#39;</span>:
+            <span style="color:#080;font-weight:bold">yield</span> node<span style="color:#333">.</span>surface<span style="color:#333">.</span>lower()
+        node <span style="color:#333">=</span> node<span style="color:#333">.</span><span style="color:#007020">next</span>
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">tokenize</span>(content):
+    <span style="color:#080;font-weight:bold">return</span> [
+        to_unicode(token) <span style="color:#080;font-weight:bold">for</span> token <span style="color:#000;font-weight:bold">in</span> tokenize_ja(content)
+        <span style="color:#080;font-weight:bold">if</span> <span style="color:#00d;font-weight:bold">2</span> <span style="color:#333">&lt;=</span> <span style="color:#007020">len</span>(token) <span style="color:#333">&lt;=</span> <span style="color:#00d;font-weight:bold">15</span> <span style="color:#000;font-weight:bold">and</span> <span style="color:#000;font-weight:bold">not</span> token<span style="color:#333">.</span>startswith(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;_&#39;</span>)
+    ]
+
+
+wikicorpus<span style="color:#333">.</span>tokenize <span style="color:#333">=</span> tokenize</code></pre></div>
+<p>全貌は<a href="https://gist.github.com/takuti/356167894f454e4f28392a2cf8903b8d" target="_blank">gist</a>にあげた。</p>
+
+<p>このスクリプトを走らせて数時間待つとコーパスができる：</p>
+
+<pre><code>$ python jawikicorpus.py /path/to/jawiki-latest-pages-articles.xml.bz2 jawiki
+</code></pre>
+
+<p>コーパスをシリアライズするときに <code>metadata=True</code> をつけておくと、Wikipedia記事タイトルとそのインデックスのマッピングが保存できる。あとで便利なので保存しておこう：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">MmCorpus<span style="color:#333">.</span>serialize(dst <span style="color:#333">+</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;_bow.mm&#39;</span>, wiki, progress_cnt<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">10000</span>, metadata<span style="color:#333">=</span>True)</code></pre></div>
+<h3 id="トピックモデリング">トピックモデリング</h3>
+
+<p>作成したコーパスで、LDAによるトピックモデリングを試す。</p>
+
+<p>先ほど生成された <code>jawiki_wordids.txt.bz2</code>（単語-インデックスのマッピング）と <code>jawiki_tfidf.mm</code>（記事×単語の行列で要素にTF-IDF値をもつ）を読み込んで、<code>gensim.models.LdaModel</code> に渡してあげればよい：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">gensim.corpora</span> <span style="color:#080;font-weight:bold">import</span> Dictionary, MmCorpus
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">gensim.models</span> <span style="color:#080;font-weight:bold">import</span> LdaModel
+
+dictionary <span style="color:#333">=</span> Dictionary<span style="color:#333">.</span>load_from_text(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;jawiki_wordids.txt.bz2&#39;</span>)
+tfidf_corpus <span style="color:#333">=</span> MmCorpus(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;jawiki_tfidf.mm&#39;</span>)
+lda <span style="color:#333">=</span> LdaModel(corpus<span style="color:#333">=</span>tfidf_corpus, id2word<span style="color:#333">=</span>dictionary, num_topics<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">100</span>)
+lda<span style="color:#333">.</span>save(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;lda_100.model&#39;</span>)</code></pre></div>
+<p>再び数時間待つ。トピック数はテキトーに100にしたけど、たぶん少ない。</p>
+
+<p>保存したモデルで遊んでみる。</p>
+
+<p>モデルを読み込んで：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">lda <span style="color:#333">=</span> LdaModel<span style="color:#333">.</span>load(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;lda_100.model&#39;</span>)</code></pre></div>
+<p>コーパスも読み込んで：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">tfidf <span style="color:#333">=</span> MmCorpus(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;jawiki_tfidf.mm&#39;</span>)</code></pre></div>
+<p><code>metadata=True</code> で保存した記事タイトル-インデックスのマッピングも読み込んだなら：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">docno2metadata <span style="color:#333">=</span> unpickle(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;jawiki_bow.mm.metadata.cpickle&#39;</span>)
+title2docno <span style="color:#333">=</span> {tup_title[<span style="color:#00d;font-weight:bold">1</span>]: <span style="color:#007020">int</span>(docno) <span style="color:#080;font-weight:bold">for</span> docno, tup_title <span style="color:#000;font-weight:bold">in</span> docno2metadata<span style="color:#333">.</span>items()}</code></pre></div>
+<p>夏！！！</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">for</span> title <span style="color:#000;font-weight:bold">in</span> [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;ビール&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;カブトムシ&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;海&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;夏祭り&#39;</span>]:
+    topics <span style="color:#333">=</span> lda[tfidf[title2docno[title]]]
+    topic <span style="color:#333">=</span> <span style="color:#007020">sorted</span>(topics, key<span style="color:#333">=</span><span style="color:#080;font-weight:bold">lambda</span> t: t[<span style="color:#00d;font-weight:bold">1</span>], reverse<span style="color:#333">=</span>True)[<span style="color:#00d;font-weight:bold">0</span>][<span style="color:#00d;font-weight:bold">0</span>]
+    <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;=== </span><span style="background-color:#eee">%s</span><span style="background-color:#fff0f0"> (topic </span><span style="background-color:#eee">%d</span><span style="background-color:#fff0f0">) ===&#39;</span> <span style="color:#333">%</span> (title, topic))
+    <span style="color:#080;font-weight:bold">for</span> word, p_word <span style="color:#000;font-weight:bold">in</span> lda<span style="color:#333">.</span>show_topic(topic, topn<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">10</span>):
+        <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;</span><span style="background-color:#eee">%.5f</span><span style="color:#666;background-color:#fff0f0;font-weight:bold">\t</span><span style="background-color:#eee">%s</span><span style="background-color:#fff0f0">&#39;</span> <span style="color:#333">%</span> (p_word, word))</code></pre></div>
+<pre><code>=== ビール (topic 99) ===
+0.04528 植物
+0.02466 料理
+0.02348 栽培
+0.01843 品種
+0.01610 ビール
+0.01584 醸造
+0.01410 ワイン
+0.01373 kt
+0.01318 生産
+0.01272 農業
+=== カブトムシ (topic 46) ===
+0.00462 顕微鏡
+0.00352 地震
+0.00339 '''()
+0.00303 障害
+0.00268 生育
+0.00248 哲学
+0.00238 発生
+0.00236 意味
+0.00230 効果
+0.00224 患者
+=== 海 (topic 32) ===
+0.02139 フェリー
+0.01960 航路
+0.01791 就航
+0.01597 運航
+0.01130 建造
+0.01113 船舶
+0.00976 諸島
+0.00939 海洋
+0.00835 造船
+0.00803 ハワイ
+=== 夏祭り (topic 62) ===
+0.01825 寺院
+0.01744 日蓮宗
+0.01113 神社
+0.00987 文化財
+0.00772 大字
+0.00706 古墳
+0.00676 共編
+0.00670 辞典
+0.00647 学区
+0.00625 角川
+</code></pre>
+
+<p>（Wikipedia記事『ビール』『カブトムシ』『海』『夏祭り』が属するトピックとそのトピックワード上位10件）</p>
+
+<p><code>'''()</code> といった異物が混入している問題は、コーパス作成時に置き換えた <code>tokenize()</code> を工夫すれば解決すると思う。</p>
+
+<p>保存したモデルで他のドキュメントのトピックを推定したいときは、単語-インデックスのマッピング <code>jawiki_wordids.txt.bz2</code> を使ってそのドキュメントのBag-of-Wordsを適切に表現してあげればよい。</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        ストリームデータ解析の世界 | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2015-12-08
+  </p>
+  <h2>ストリームデータ解析の世界</h2>
+
+  <div class="post">
+    
+
+<p>【<strong><a href="http://qiita.com/advent-calendar/2015/machinelearning" target="_blank">機械学習アドベントカレンダー2015</a></strong> 8日目】</p>
+
+<p><strong>ストリームデータ解析</strong> という分野がある。ある生成元から絶えずデータが到来する環境で、いかにそれらを捌くかという話。「時間計算量はほぼ線形であって欲しいし、空間計算量も小さく抑えつつ精度を担保したいよね」ということを考える世界。個人的に最近はそのあたりの情報を追いかけていたので、整理も兼ねてその世界を俯瞰したい。</p>
+
+<h3 id="すごいリンク集">すごいリンク集</h3>
+
+<p>はじめに、この分野で外せないと思うリンクを3つ挙げておく。</p>
+
+<h4 id="sml-data-streams-http-alex-smola-org-teaching-berkeley2012-streams-html">■ <a href="http://alex.smola.org/teaching/berkeley2012/streams.html" target="_blank">SML: Data Streams</a></h4>
+
+<p>YahooやGoogleの研究所を経てCMUの教授をしているAlex Smola先生の講義の一部（スライド＋動画あり）。理論からシステムアーキテクチャまで包括した実際的な機械学習ならこの人。この人の機械学習サマースクールの講義は<a href="http://takuti.me/note/mlss-kyoto-2015/" target="_blank">最高</a>だった。</p>
+
+<p>古典的なものから最近のものまで、代表的なアルゴリズムについて直感的な説明といい感じの理論的な解析をしてくれる。</p>
+
+<h4 id="mining-of-massive-data-sets-http-www-mmds-org">■ <a href="http://www.mmds.org/" target="_blank">Mining of Massive Data Sets</a></h4>
+
+<p>スタンフォードの大規模データ解析に関する講義ページ。質の高いスライドや本が無料で提供されていて素晴らしい。<a href="https://www.coursera.org/course/mmds" target="_blank">Courseraでも開講されている</a>というのは知らなかったので、次に開講されたらぜひ受講したい。</p>
+
+<p>本の Chapter 4 で <em>Mining Data Streams</em> を扱っていて、こちらは読み物として楽しい感じ。どういう問題を考えて、いかにアプローチするか、という部分の気持ちが伝わる。</p>
+
+<h4 id="muthu-muthukrishnan-streaming-algorithms-research-http-www-cs-rutgers-edu-muthu-streams-html">■ <a href="http://www.cs.rutgers.edu/~muthu/streams.html" target="_blank">Muthu Muthukrishnan, Streaming Algorithms Research</a></h4>
+
+<p>ラトガース大学のアルゴリズム屋さん。理論から応用まで幅広く手がけていて<a href="http://dblp.uni-trier.de/pers/hd/m/Muthukrishnan:S=.html" target="_blank">dblp見ると威圧感ある</a>。自分のページでビートたけしの言葉を引用しているあたりも好感度高い。</p>
+
+<p>2010年以前の古典的なストリームデータ処理アルゴリズムの理論的解析はこの人のサーベイ論文が優秀。</p>
+
+<h3 id="ストリームデータとは">ストリームデータとは</h3>
+
+<p>そもそもどのようなデータを <strong>ストリームデータ</strong> と呼ぶのか？</p>
+
+<p>一般に、以下の性質を備えたものがストリームデータと呼ばれる。</p>
+
+<ul>
+<li>データが絶えず、急速に生成され続けている</li>
+<li>データの総量が有限ではない（無限に到来し続けるものとみなせる）</li>
+<li>時間経過とともにデータの性質・傾向が変動する</li>
+</ul>
+
+<p>Twitterのタイムラインがまさにそれで、「世界の全ツイートを対象にテキストマイニングだ！」と考えても、その作業をしている間にも新しいツイートが増え続けているので矛盾する。さらに流行り廃りで話題は時々刻々と変動するので、5年前のツイートだけを解析して「Twitterを使う日本人は皆ドロリッチが好き」と結論付けることはできない。</p>
+
+<p>ゆえに、ストリームデータを解析したい場合、以下のような要求を満たす手法が欲しい。それを考えるのがストリームデータ解析という分野。</p>
+
+<ol>
+<li>時間/空間に制約がある中で近似的にデータの性質を <strong>要約</strong> （近似）する
+
+<ul>
+<li>ほぼ線形な時間計算量。</li>
+<li>小さな空間計算量で近似誤差に対して筋の良い上界を与える。</li>
+</ul></li>
+<li>入力データは既知の解析結果を更新するために利用したら捨てる （on-the-fly, single-passな手法）</li>
+<li>データの性質の変動に対応できる（過去の解析結果にいつまでも引きずられない）
+
+<ul>
+<li>ストリームからデータをサンプリングしてランダム性も踏まえて考える。</li>
+<li>データ列に対して窓幅を決めて、その単位で解析を行う。</li>
+</ul></li>
+</ol>
+
+<p>1に関して、データの性質を限られた時間/空間で精度保証付きで近似することをデータの <strong>スケッチ</strong> とも呼ぶ。</p>
+
+<p>（この呼び方、本当にセンスがあると思うんですよね。スケッチですよスケッチ、美術の。）</p>
+
+<h3 id="具体的な問題と手法">具体的な問題と手法</h3>
+
+<p>「じゃあ何をスケッチしたいのか」という話になる。データ解析といっても得たい結果は様々で、特にストリーム上の近似的なデータ解析となるとあまり凝ったことはできない。</p>
+
+<p>（凝ったことを実現した上で計算量を軽くしたり、きっちりと精度の議論をするというのがこの分野の研究で一番チャレンジングな部分でもある。）</p>
+
+<p>これまで考えられてきた捉えたいデータの性質には以下のようなものがある。</p>
+
+<ul>
+<li>平均や分散</li>
+<li>出現頻度</li>
+<li>サンプル間の距離（類似度）</li>
+<li>Cardinality</li>
+</ul>
+
+<p>このような値が推定できればリアルタイムにストリームデータに対して意味のある処理・解析ができるよね、という想い。</p>
+
+<p>具体的な手法は1900年代中盤から2015年まで、アプリケーションとしての議論も含めて様々なものが提案されているが、ここでは個人的にお気に入りの資料たちを紹介するに留めたい。</p>
+
+<hr>
+
+<h4 id="今年のsigkddベストペーパーを実装-公開してみました-preferred-research-https-research-preferred-jp-2013-08-sketch">■ <a href="https://research.preferred.jp/2013/08/sketch/" target="_blank">今年のSIGKDDベストペーパーを実装・公開してみました | Preferred Research</a></h4>
+
+<p>PFNのHidoさんの記事。データのスケッチという考え方を知ったきっかけで、実装も公開されているので分かりやすい。</p>
+
+<p>2013年のKDDベストペーパーになった手法 <strong><em>Frequent Directions</em></strong> は、ベクトル列なデータの基底をコンパクトなスケッチ行列で表現する手法。小さい行列に対して繰り返し特異値分解を行うアルゴリズムなので計算量はそれほど重くならないし、行列の低ランク近似の文脈で誤差解析に関する知見は豊富にあるので議論がしやすい、というのがウリ。</p>
+
+<p>このアイディアの根幹は、数十年前から議論されてきたアイテムの出現頻度に関するスケッチ手法にある。</p>
+
+<p>Frequent Directions のアルゴリズムはとても単純で、説明されれば「まぁ確かにそうですよね」程度の内容。「これがデータ解析戦国時代のトップカンファレンスのベストペーパーか？」という気分にもなるが、計算量や精度にシビアなデータのスケッチという文脈から出発したことによって、手堅い理論的解析ができているところが見どころなんだと思う。</p>
+
+<hr>
+
+<h4 id="大規模グラフ解析のための乱択スケッチ技法-http-www-slideshare-net-iwiwi-ss-41752585">■ <a href="http://www.slideshare.net/iwiwi/ss-41752585" target="_blank">大規模グラフ解析のための乱択スケッチ技法</a></h4>
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/8ciBz7oZZmN3ou" width="510" height="420" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+
+<p>iwiwiさんの資料。乱択スケッチという、データのスケッチの議論にランダム性を取り入れた考え方に関する最新事情の紹介。グラフに対するスケッチのお話は知見がなかったので新鮮だった。</p>
+
+<p>Web上のデータを扱うとJaccard係数による類似度の議論は避けて通れない道であり、LSHやMinHashはそれを高速に実現する手法。派生手法がWWWでベストペーパーを取っていることからもそのアツさがうかがえる。</p>
+
+<p>なお集合の類似度推定に関しては以下がわかりやすい。</p>
+
+<p><a href="http://alpha.mixi.co.jp/entry/2010/10773/" target="_blank">LSH (Locality Sensitive Hashing) を用いた類似インスタンスペアの抽出 - mixi Engineers&#39; Blog</a></p>
+
+<hr>
+
+<h4 id="ak-data-science-summit-8211-streaming-and-sketching-8211-http-research-neustar-biz-ak-data-science-summit-june-20-2013">■ <a href="http://research.neustar.biz/ak-data-science-summit-june-20-2013/" target="_blank">AK Data Science Summit &#8211; Streaming and Sketching &#8211;</a></h4>
+
+<p>2013年に開催されたストリームデータ解析やデータのスケッチに関する某集会の資料がまとまっている。事例紹介や歴史を振り返るような内容が主なのでスライドだけ見ても楽しめる。</p>
+
+<p>冒頭の『すごいリンク集』で紹介した<a href="http://www.cs.rutgers.edu/~muthu/" target="_blank">Muthuさん</a>も登壇している。</p>
+
+<p>個人的にお気に入りなスライドは以下の2つ。</p>
+
+<div style="width: 100%;">
+<script async class="speakerdeck-embed" data-id="baddb7f0c0b1013039a5220f55e8ad8b" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+</div>
+
+<p>▲ SQLを介してデータにアクセスする、いわゆるRelational Databaseの誕生から近年主流のスケッチ手法 HyperLogLog の紹介まで、データのCardinality推定の歴史を見ることができる感動のシナリオ。</p>
+
+<p><br></p>
+
+<div style="width: 100%;">
+<script async class="speakerdeck-embed" data-id="db4ecfd0c0b001309432669adddd97a5" data-ratio="1.29456384323641" src="//speakerdeck.com/assets/embed.js"></script>
+</div>
+
+<p>▲ ツールとしてのデータのスケッチの話。最小二乗みたいなよくある問題でデータのスケッチを利用する場合の手続きとか、雰囲気を感じることができて楽しい。</p>
+
+<h3 id="アプリケーションとしてのストリームデータ解析">アプリケーションとしてのストリームデータ解析</h3>
+
+<p>先のTwitterの例からも、ストリームデータ解析がアプリケーションとしての応用可能性に富んだ分野であることは容易に想像できる。</p>
+
+<ul>
+<li>検索クエリ内の頻出語の推定</li>
+<li>クリック履歴からの異常検知</li>
+<li>その他ネットワーク上のパケットのモニタリング</li>
+</ul>
+
+<p>現実の問題で厳密解が必要なシチュエーションは少なく、スケッチ手法の応用で案外うまく動くため有名企業でも実用されていると聞く。</p>
+
+<p>さらに、ストリームデータ解析手法は規模に応じてスケールすることが容易であり、センサネットワークで複数のデータ生成元から得られたセンサデータのスケッチを統合する、といったことも可能になる。</p>
+
+<p>ここまで来ると、エンジニアリング的な挑戦も見えてくる。</p>
+
+<p>ストリームデータを捌く基盤として <strong><a href="http://www.fluentd.org/" target="_blank">Fluentd</a></strong> が考えられるし、<a href="http://docs.fluentd.org/articles/cep-norikra" target="_blank">合わせて使われる</a>ストリーム処理サーバ <strong><a href="http://norikra.github.io/" target="_blank">Norikra</a></strong> の土台となっているCEP (Complex Event Processing) はアカデミックでも議論される考え方だ。</p>
+
+<p>どう？おもしろい分野でしょう？（という気持ちが伝わっていることを願います。）</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>絶えず到来するデータを高速で処理し、近似的な値によってデータストリーム全体の性質を推定する <strong>ストリームデータ解析</strong> という分野を紹介した。</p>
+
+<p>アルゴリズムの提案と理論的解析というコンピュータサイエンスの本質的な面白さと同時に、それをアプリケーションに落とし込むエンジニアリング面での挑戦もあって最高に楽しいな、と思っている昨今。</p>
+
+<p>機械学習・データマイニング系の会議ではここ数年 &ldquo;Data Streams&rdquo; というセッションが設けられることも珍しくなく、基礎と応用の狭間を生きる人にとっては良い選択肢なのではないかと感じる。</p>
+
+<h3 id="よくある質問と答え">よくある質問と答え</h3>
+
+<p>Q. つまりオンライン学習だよね？</p>
+
+<p>A. はい。</p>
+
+<p>（スタンフォードの大規模データ解析の資料いわく &ldquo;Stochastic Gradient Descent (SGD) is an
+example of a stream algorithm&rdquo; とのこと）</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

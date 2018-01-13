@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Q&amp;Aサイトにおける質問推薦、そして Incremental Probabilistic Latent Semantic Analysis | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-06-04
+  </p>
+  <h2>Q&amp;Aサイトにおける質問推薦、そして Incremental Probabilistic Latent Semantic Analysis</h2>
+
+  <div class="post">
+    
+
+<p>トピックモデリングの一手法として有名な <strong>Probabilistic Latent Semantic Analysis (PLSA)</strong> を incremental（逐次更新可能, オンライン型）アルゴリズムに拡張して、Yahoo!知恵袋のようなQ&amp;Aサイトの質問推薦に応用した論文を読んだ：</p>
+
+<ul>
+<li>Hu Wu, et al. <strong><a href="http://dl.acm.org/citation.cfm?id=1454026" target="_blank">Incremental Probabilistic Latent Semantic Analysis for Automatic Question Recommendation</a></strong>. RecSys 2008.</li>
+</ul>
+
+<p>推薦システムのトップ会議 RecSys の2008年の採択論文なのでとても古く、アブストでは &ldquo;web 2.0&rdquo; という渋い記述も見られる。しかし、<strong>Latent Semantic Indexing (LSI) → PLSA → Latent Dirichlet Allocation (LDA)</strong> と発展してきたトピックモデリング業界、PLSAの研究は既に成熟しているので、比較的素直なオンライン拡張としてはこのあたりがstate-of-the-artだというのが個人的な認識。</p>
+
+<p>（さらに発展的な問題設定には、<a href="http://ieeexplore.ieee.org/document/6737290/" target="_blank">window sizeの概念を取り入れたonline PLSA</a>や、<a href="http://dl.acm.org/citation.cfm?id=2798027" target="_blank">トピック数の増減まで考えるincremental PLSA</a>がある。）</p>
+
+<h3 id="概要">概要</h3>
+
+<ul>
+<li>PLSAを応用してQ&amp;Aサイト上で質問推薦をしたい</li>
+<li>特に、推薦アルゴリズムが incremental なら嬉しいことがいろいろあるので &ldquo;incremental&rdquo; PLSA を使いたい
+
+<ul>
+<li>処理効率、新規ユーザへの推薦、ユーザ/アイテムデータの傾向の時間変化への適応など</li>
+</ul></li>
+<li>既存の incremental PLSA と呼ばれる手法は計算量や過去のパラメータへの依存性の面でイマイチだったので、まずは新しいタイプの incremental PLSA を提案して、それを質問推薦アルゴリズムに拡張する</li>
+<li>質問推薦アルゴリズムとしては、ユーザの長期的/短期的な関心の双方をモデリングできて、推薦結果に対する positive/negative なフィードバックを効果的に反映できるようなハイパーパラメータを導入したところが新しい</li>
+<li>既存の incremental PLSA やバッチ版PLSAよりも良いPerplexityと推薦精度が得られて、かつ効率的</li>
+</ul>
+
+<h3 id="q-aサイトにおける質問推薦">Q&amp;Aサイトにおける質問推薦</h3>
+
+<p>Yahoo!知恵袋のようなQ&amp;Aサイトでは、ユーザを適切な質問（回答）とマッチングさせることが重要。誰でも関心のない質問には答えないし、回答に興味のない質問を見ることはない。</p>
+
+<p>そのようなモチベーションから、著者たちは中国のQ&amp;Aサイト Wenda の質問推薦機能を実装した。推薦に至るまでのフローは単純：</p>
+
+<ol>
+<li>ユーザがある質問のページを閲覧する</li>
+<li>次の情報に基づいて、そのユーザにオススメの質問たちが画面に表示される
+
+<ul>
+<li>ユーザの質問/回答履歴</li>
+<li>閲覧中の質問</li>
+</ul></li>
+</ol>
+
+<p>この手の推薦システムには、（というか推薦システム全般に言えることだが、）</p>
+
+<ul>
+<li>Incrementalなアルゴリズムである
+
+<ul>
+<li>新規ユーザや新たな質問/回答が生まれるたびに推薦モデルをいい感じに更新したい</li>
+</ul></li>
+<li>ユーザの長期的/短期的な興味の両方を考慮したモデルである
+
+<ul>
+<li>長期的な興味は普遍的なもので、ある程度履歴が溜まっていれば割り出せる</li>
+<li>短期的な興味はサイトを訪問するたびに変わりうるので、『ユーザの直近の行動』のデータを効果的に利用したい</li>
+</ul></li>
+<li>ユーザの positive/negative なフィードバックを両方捉えられる
+
+<ul>
+<li>推薦した質問に positive なリアクション（クリックとか）があった場合、その特徴を積極的にモデルに取り込みたい</li>
+<li>逆に、ユーザが negative な反応を示したら、推薦が不適切だったものとしてモデルを修正したい</li>
+</ul></li>
+</ul>
+
+<p>といったことが要求される。</p>
+
+<h3 id="plsaを応用した質問推薦">PLSAを応用した質問推薦</h3>
+
+<p>ある文書集合 $\mathcal{D}$ があったとき、PLSAでは文書データの生成プロセスを、</p>
+
+<ol>
+<li>$P(d)$ に従ってある文書 $d \in \mathcal{D}$ が選択される</li>
+<li>選択された文書の潜在的なトピック $z \in \mathcal{Z}$ が $P(z|d)$ に従って決定される</li>
+<li>選択されたトピックに応じて、文書内の単語 $w \in \mathcal{W}$ が $P(w|z)$ に従って生成される</li>
+</ol>
+
+<p>というような形でモデル化する。</p>
+
+<p>EMアルゴリズムで推定されるパラメータを決定するPLSAの定式化には <em>Asymmetric Formulation</em> と <em>Symmetric Formulation</em> の2種類があり、それぞれ次のような雰囲気：</p>
+
+<ul>
+<li>Asymmetric Formulation
+
+<ul>
+<li>E-step
+
+<ul>
+<li>$P(z|d,w)$</li>
+</ul></li>
+<li>M-step
+
+<ul>
+<li>$P(w|z)$</li>
+<li>$P(z|d)$</li>
+</ul></li>
+</ul></li>
+<li>Symmetric Formulation
+
+<ul>
+<li>E-step
+
+<ul>
+<li>$P(z|d,w)$</li>
+</ul></li>
+<li>M-step
+
+<ul>
+<li>$P(w|z)$</li>
+<li>$P(d|z)$</li>
+<li>$P(z)$</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>一般的には、LSI（特異値分解）との関連を議論しやすく、文書/単語よりはるかに少ない“トピック”に関するパラメータ $P(z)$ の推定が独立している後者が好まれていると思う。</p>
+
+<p>しかし今回は特に前者の Asymmetric Formulation のほうに注目している。なぜか。</p>
+
+<p>まず、質問推薦の文脈では文書＝質問文（つまり $d = q \in \mathcal{Q}$ ）になる。そして、あるユーザ $u_i$ が質問 $q_c$ を閲覧しているときに、推薦候補の全質問 $q_j \in \mathcal{Q} \setminus \{ q_c \}$ に対して、類似度：</p>
+
+<ul>
+<li>question-question similarity: $S_{q_c, q_j}$</li>
+<li>user-question similarity: $S_{u_i, q_j}$</li>
+</ul>
+
+<p>を求めて、各推薦候補 $q_j$ を $S_{q_c, q_j} + S_{u_i, q_j}$ でスコアリングすることがゴールとなる。質問推薦とはすなわち、このスコアが高くなるような質問を対象ユーザに提示すること。</p>
+
+<p>そして、それぞれの類似度の計算でPLSAによって得られたパラメータを利用する：</p>
+
+<p>$$
+S_{q_c, q_j} = \sum_z P(z|q_c) P(z|q_j)
+$$</p>
+
+<p>$$
+S_{u_i, q_j} = \sum_z P(z|u_i) P(z|q_j)
+$$</p>
+
+<p>おわかりいただけただろうか。質問（文書）ごとのトピック分布 $P(z|q)$ を利用している。というわけで、EMアルゴリズムの結果として $P(z|d)$ が自然に得られる Asymmetric Formulation に限定して話を進めている（と解釈した）。</p>
+
+<p>ちなみに $P(z|u_i)$、すなわち『ユーザの関心』をいかにモデリングするかという話だが、これは『ユーザが過去に回答/質問した $N_u$ 個の質問文 $\{q_1, q_2, \cdots, q_{N_u}\}$ 』を対象として、次のように定義している：</p>
+
+<p>$$
+P(z|u) = \frac{1}{N<em>u} \sum</em>{i=1}^{N_u} P(z|q_i)
+$$</p>
+
+<h3 id="incremental-plsa-への拡張">Incremental PLSA への拡張</h3>
+
+<p>というわけで、PLSAを使うとそれっぽく質問推薦ができるので、PLSAを incremental にしてより良い推薦アルゴリズムにしましょう、という話になる。</p>
+
+<p>オンライン型のPLSAアルゴリズムは過去にいくつも提案されているけど、この論文で挙げている代表的なものは3種類：</p>
+
+<ul>
+<li><strong>Fold-In</strong>
+
+<ul>
+<li>PLSAの原論文で書かれている、新たな文書に対して $P(z|d)$ を得るための方法</li>
+<li>元々テストデータに対してトピックを推定するときの話なので、厳密には &ldquo;incremental&rdquo; とは言い難い</li>
+<li>単語についてはすべて学習済みと仮定していて $P(w|z)$ は更新されないので論外</li>
+</ul></li>
+<li><strong>IPLSA</strong>
+
+<ul>
+<li>PLSAの式変形から素直に得られるオンライン拡張版</li>
+<li>ちゃんと $P(z|d)$ と $P(w|z)$ の両方が更新される</li>
+<li>更新のたびにバッチ版PLSAと同じだけの計算量を要するので、重くて使いづらい</li>
+</ul></li>
+<li><strong>MAP-PLSA</strong>
+
+<ul>
+<li>MAP推定に基づいて既知のPLSAパラメータを更新する手法</li>
+<li>もちろん $P(z|d)$ と $P(w|z)$ の両方が更新できる</li>
+<li>計算量も IPLSA と比べると軽い</li>
+<li>&ldquo;But the results can also be biased, especially for $P(w|z)$&rdquo; と指摘しているけど、これが具体的に何を意味しているのかいまいち読み取れなかった
+
+<ul>
+<li>$P(w|z)$ が過去の値に強く引っ張られてしまうという意味かな</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>というわけで、既存の incremental PLSA と呼ばれる手法はイマイチなので、新たなアルゴリズムを提案する。手法は Generalized EM に基づいていて、対象となる質問 $q$ に対してパラメータを次のように更新する：</p>
+
+<h4 id="e-step">E-step</h4>
+
+<p>$$
+P(z|q,w) = \frac{P(z|q)P(w|z)}{\sum_{z&rsquo; \in \mathcal{Z}} P(z&rsquo;|q)P(w|z&rsquo;)}
+$$</p>
+
+<h4 id="m-step">M-step</h4>
+
+<p>$$
+P(z|q) = \frac{\sum<em>w n(q, w) \times P(z|q, w)}{\sum</em>{z&rsquo; \in \mathcal{Z}} \sum_w n(q, w) \times P(z&rsquo;|q, w)}
+$$</p>
+
+<p>$$
+P(w|z) = \frac{\sum<em>q n(q, w) \times P(z|q,w) + \alpha \times P(w|z)^{(n-1)}}{\sum</em>{w&rsquo; \in \mathcal{W}} n(q, w&rsquo;) \times P(z|q, w&rsquo;) + \alpha \times \sum_{w&rsquo; \in \mathcal{W}}P(w&rsquo;|z)^{(n-1)}}
+$$</p>
+
+<p>このとき $w$ は『質問 $q$ に含まれる単語』を意味していて、$n(q,w)$ は質問 $q$ 内の単語 $w$ の出現頻度。</p>
+
+<p>$P(w|z)$ を更新するとき、正規化のために全ての単語 $w&rsquo; \in \mathcal{W}$ を見ていることに注意。ただし、$w&rsquo;$ が質問 $q$ に存在しなければ $n(q, w&rsquo;) = 0$ となる。</p>
+
+<p>既存手法の問題だと指定していた（と思われる）『$P(w|z)$ が、更新しても過去の値に引っ張られる問題』については、Mステップで1つ古いパラメータ $P(w|z)^{(n-1)}$ を $\alpha$ 倍だけ取り込むという自由度を与えることで対処している。直感的には $\alpha$ が小さいほど、新しい質問 $q$ の中身を強く反映することになる。</p>
+
+<h3 id="incremental-plsa-を取り入れた質問推薦システム">Incremental PLSA を取り入れた質問推薦システム</h3>
+
+<p>PLSAがオンラインアルゴリズムになり、トピックやユーザの関心についてのパラメータを適応的に更新する準備が整った。これを用いると、質問推薦システムの一連の挙動が次のように書ける：</p>
+
+<ol>
+<li>ユーザ $u$ が新しい質問 $q$ を投稿した、または既存の質問 $q$ に回答した
+
+<ul>
+<li>$u$ について：
+
+<ul>
+<li>もし新規ユーザなら、$P(z|u)$ をランダムに初期化、正規化する</li>
+<li>既存ユーザなら、$P(z|q)$ を $P(z|u)$ で初期化する</li>
+</ul></li>
+<li>$q$ 内の各単語 $w$ について：
+
+<ul>
+<li>もしシステムに存在しない新たな単語なら、すべての $z \in \mathcal{Z}$ について $P(w|z)$ をランダムに初期化、正規化する</li>
+</ul></li>
+</ul></li>
+<li>$P(z|q)$ が収束するまで先のEMステップを回す</li>
+<li>質問 $q$ のすべての質問者/回答者 $u$ について：
+
+<ul>
+<li>（“新しい質問”に対する更新なら、これは投稿ユーザ1人のみ）</li>
+<li>$P(z|u)$ を $P(z|u) + \beta \times P(z|q)$ で更新、正規化する</li>
+</ul></li>
+</ol>
+
+<p>ここでポイントとなるのが Step 3。従来のPLSAを応用した質問推薦システムで $P(z|u) = \frac{1}{N_u} \sum_{i=1}^{N_u} P(z|q_i)$ と計算していた『ユーザの関心』に関するパラメータを、変化のあった質問 $q$ について重み $\beta$ で調整していることがわかる。</p>
+
+<p>このようなアルゴリズムにすることで、質問推薦システムの要求を $\beta$ の調整によって満たすことができる：</p>
+
+<ul>
+<li>ユーザの長期的/短期的な興味の両方を考慮したい
+
+<ul>
+<li>長期的に、つまりバランスよく $P(z|u)$ を設定したいなら、$\beta = \frac{1}{N_u + 1}$ にしておけばいい</li>
+<li>短期的な興味を反映したいなら、$\beta$ をそれよりも大きな値にして、注目している質問 $q$ の内容を強く反映させればいい
+
+<ul>
+<li>たとえば $q$ が新しい質問のときなど</li>
+</ul></li>
+</ul></li>
+<li>ユーザの positive/negative なフィードバックを両方捉えられる
+
+<ul>
+<li>$\beta$ が正の値なら、質問 $q$ に対する positive なフィードバックとしてその内容を $P(z|u)$ に反映することになる</li>
+<li>質問 $q$ に対する negative なフィードバックならば、$\beta$ を負の値にして $P(z|u)$ を更新すればよい
+
+<ul>
+<li>$P(z|u)$ が負になりうるので、その時は確率分布をシフトさせて正規化、などの対応が必要</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h3 id="実験">実験</h3>
+
+<p>質問サイト Wenda の38375件の質問に対して Incremental PLSA を適用する。そして得られたパラメータについて：</p>
+
+<ul>
+<li>Perplexity</li>
+<li>10人の被験者それぞれに20件の質問を推薦して relevant/irrelevant を評価してもらった結果の Precision</li>
+<li>質問1つあたり、および全体の処理時間</li>
+</ul>
+
+<p>の観点から、バッチ版PLSA、<strong>Fold-In</strong>、<strong>IPLSA</strong>、<strong>MAP-PLSA</strong> との比較評価を行う。</p>
+
+<p>ハイパーパラメータはトピック数が64、$\alpha=0.5$、$\beta$ は positive なフィードバックのとき0.5、negative なフィードバックのとき-0.5に設定。</p>
+
+<p>結果、Perplexity と Precision はいずれも提案手法が最良。処理時間はそもそも $P(w|z)$ を更新しない <strong>Fold-In</strong> には劣るものの、他の手法よりは短かった。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>PLSAを質問推薦システムに応用するときの気持ちはよく伝わった。</p>
+
+<p>この論文の成果としては、</p>
+
+<ul>
+<li>新しい Incremental PLSA のアルゴリズムを作ったこと</li>
+<li>質問推薦システムにハイパーパラメータ $\beta$ を導入したこと</li>
+</ul>
+
+<p>の2つがある。</p>
+
+<p>しかし質問推薦を対象としていない既存の Incremental PLSA たちを引き合いに出して、『これではユーザの長期的/短期的な関心を捉えられない』『positive/negativeなフィードバックの両方を反映できない』と主張している気がして、それはどうなんだ、と思った。</p>
+
+<p>定式化は「Generalized EM を元にして拡張した」とだけ書かれていて、導出がブラックボックス。しかも肝心なところでタイポなのか単に記述が紛らわしいだけなのか怪しいところがあり、アルゴリズムが本当に正しいのか正直判断が付かない。</p>
+
+<p>とはいえ、$\alpha$ を導入した柔軟な $P(w|z)$ の更新は Incremental PLSA 単体の研究として見て、十分価値がある話だと思う。そして実践的にはこういった自由度が大切だったりするので、<a href="https://github.com/apache/incubator-hivemall/pull/71" target="_blank">HivemallにPLSAを実装するにあたって、僕はこの手法を採用したのでした</a>。</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

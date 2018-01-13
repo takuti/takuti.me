@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Courseraの推薦システムのコースを修了した | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-01-27
+  </p>
+  <h2>Courseraの推薦システムのコースを修了した</h2>
+
+  <div class="post">
+    
+
+<p>昨年の話だけど、Courseraで開講されていた &ldquo;<strong>Introduction to Recommender Systems</strong>&rdquo; を履修・修了した。教えてくれたのはこの分野で知らぬ者はいない、ミネソタ大学の<a href="http://konstan.umn.edu/" target="_blank">Joseph Konstan先生</a>。2000年あたりの協調フィルタリングなど古典的な推薦手法に関する文献を漁ると、必ず彼のグループの論文にたどり着く。かの有名な<a href="https://grouplens.org/datasets/movielens/" target="_blank">MovieLensデータセット</a>（画像処理でいうMNIST的な、定番データセット）も、このグループが提供している。</p>
+
+<p>コースは全8回で内容は以下。</p>
+
+<ol>
+<li>Introduction to Recommender Systems
+
+<ul>
+<li>推薦システムの歴史やその背景</li>
+</ul></li>
+<li>Non-Personalized Recommenders
+
+<ul>
+<li>『最も人気のアイテムを常に推薦する』といった、個人化を行わない推薦手法</li>
+</ul></li>
+<li>Content-Based Recommenders
+
+<ul>
+<li><a href="http://takuti.me/note/tf-idf/" target="_blank">TF-IDF</a>に基づく推薦</li>
+</ul></li>
+<li>User-User Collaborative Filtering
+
+<ul>
+<li>ピアソン相関係数およびコサイン類似度に基づく類似度計算と正規化の重要性</li>
+<li>ユーザ・アイテム間の行列における、ユーザ側の類似度に基づく推薦</li>
+</ul></li>
+<li>Evaluation
+
+<ul>
+<li>精度からセレンディピティまで、いろいろな評価指標</li>
+</ul></li>
+<li>Item Based
+
+<ul>
+<li>ユーザ・アイテム間の行列における、アイテム側の類似度に基づく推薦</li>
+<li>ユーザベースとの比較</li>
+</ul></li>
+<li>Dimensionality Reduction
+
+<ul>
+<li>特異値分解、Matrix Factorizationによる行列補完</li>
+</ul></li>
+<li>Advanced Topics
+
+<ul>
+<li>Cold-start問題など</li>
+</ul></li>
+</ol>
+
+<p>※ 現在このコースはすでにCoursera上に存在せず、アップデート版の <a href="https://www.coursera.org/specializations/recommender-systems" target="_blank">Recommender Systems Specialization</a> が代わりに開講されている。しかし残念ながら有料なので、各トピックの詳細は上記目次を参考にしつつググってください :(</p>
+
+<p>全体として、コンパクトに推薦システムの世界がまとまった非常に良い内容だった。この分野は新しい手法が次から次へと生まれておりトレンドを追うのも一苦労だが、どのような手法でも基本は変わらない。このコースの内容さえ理解していればとりあえず推薦システムは作れるし、その良し悪しを議論することもできるだろう。</p>
+
+<p>各回には講義パートとインタビューパートがあり、インタビューパートではゲストを招いた対話形式のコンテンツが提供されていた。これがすごく良くて、例えばコンテキストを考慮した推薦 (context-aware recommendation) について話してくれたのは、 <a href="https://www.amazon.co.jp/Recommender-Systems-Handbook-Francesco-Ricci/dp/0387858199" target="_blank">Recommender Systems Handbook</a> の編集者・<a href="http://www.inf.unibz.it/~ricci/" target="_blank">Francesco Ricci先生</a>だった！業界のトッププレイヤーたちから基礎が学べるなんて、いい時代に生まれたものだと思う。</p>
+
+<p>推薦アルゴリズムの基本は、ユーザ・アイテム間の履歴（e.g., クリックした/してない、高評価/低評価）を以下のような行列のかたちで表現するところにある。なお、要素が取りうる値は0/1や実数値、具体的な5段階の評価値まで様々。</p>
+
+<p><img src="https://takuti.me/images/recommender/user-item-matrix.png" alt="User-Item Matrix" /></p>
+
+<p>そして、僕らが解くべき問題は行列の未観測値を予測することであり、予測値を元に「この人はどんなアイテムを好みそうか」という傾向を見つけていく。</p>
+
+<p>このコースでは最初に <strong>非個人化推薦</strong> (Non-Personalized Recommender) を扱う。具体的には、『最も人気のアイテムを常に推薦する』であったり、『行列の未観測値は、その行（列）の平均値で埋める』であったり、そんな頭の悪そうな手法。しかしこんな手法でも、データによっては高度なアルゴリズムよりも高い精度を叩き出すことがあるので侮れない。推薦システムを作りたいときはこういうナイーブなところから始めるのも悪くない。</p>
+
+<p>次に扱うのは <strong>個人化推薦</strong> (Personalized Recommender) で、数式や機械学習を使った賢そうな手法の多くはこれに該当する。中でも特に重要な手法は、Amazonの「この商品を買った人はこちらの商品も〜」で有名な <strong>協調フィルタリング</strong> (Collaborative Filtering) だろう。</p>
+
+<h3 id="協調フィルタリング">協調フィルタリング</h3>
+
+<p>協調フィルタリングにはユーザ間類似度に基づく方法 (user-based) とアイテム間類似度に基づく方法 (item-based) の二種類がある。どちらも基本は同じで、行（列）のペアに対して計算した類似度に基づいて未観測値を予測して、予測値の高いアイテムから上位N件を推薦する。以下は5段階の評価値行列に対する協調フィルタリングのイメージ。&rdquo;<a href="http://files.grouplens.org/papers/www10_sarwar.pdf" target="_blank">Item-Based Collaborative Filtering Recommendation Algorithms</a>&ldquo;の図1に倣って書いた。</p>
+
+<p><img src="https://takuti.me/images/recommender/cf.png" alt="Collaborative Filtering" /></p>
+
+<p>講義の中では「user-basedとitem-based、どちらが良いのか？」という問いにも答えていた。一般に、世の中のインターネットサービスは膨大なユーザを抱えており、各ユーザの趣味・嗜好は動的に変化する。ゆえに、ユーザ間類似度は計算が非効率で、かつ頻繁な再計算が必要となる。一方、アイテム数はユーザ数に比べると十分に少なく、それらの特徴はある程度静的だ。というわけで、user-basedよりもitem-basedのほうが現実的な選択と言える。</p>
+
+<p>類似度についてはピアソン相関係数から始まり、正規化、コサイン類似度との関連について丁寧に解説されていた。おかげで、「協調フィルタリングの”気持ち”は分かったけど、どうやって実装すれば良いのか…」ということにはならない。<a href="http://takuti.me/note/practical-machine-learning/" target="_blank">以前読んだ『実践 機械学習』</a>は、”気持ち”の解説に徹していて数学的な処理はブラックボックスのままだった。</p>
+
+<h3 id="次元削減-特異値分解-matrix-factorization">次元削減（特異値分解、Matrix Factorization）</h3>
+
+<p>ひと通り協調フィルタリングを解説すると、講義では以下のような問題点が指摘される。</p>
+
+<ul>
+<li>ユーザ・アイテム間行列が巨大すぎて、すべてのユーザ（アイテム）ペアについて類似度計算を行うのは非現実的</li>
+<li>この行列は一般に疎（スパース；要素の多くが未観測値）なので、計算された類似度が有意義だとは言い難い</li>
+</ul>
+
+<p>そこで「ユーザ・アイテム間の行列からできるだけ効率的に、より本質的なユーザの趣味・嗜好を抽出したい」というモチベーションから生まれた、協調フィルタリングの先にある推薦手法が <strong>特異値分解</strong> に基づくもの。</p>
+
+<p>特異値分解は与えられた行列 $A$ を $U$, $\Sigma$, $V$ の3つに分解する手続きで、$A$がユーザ・アイテム間行列だとすれば、$U$はユーザに関する特徴が詰まった行列、$V$はアイテムに関する特徴が詰まった行列、$\Sigma$はそれらに与える重み、に相当する。</p>
+
+<p><img src="https://takuti.me/images/recommender/svd.png" alt="SVD" /></p>
+
+<p>これらの積 $\hat{A} = U \Sigma V^{\mathrm{T}}$ は元の行列 $A$ の近似になっていて、$A$で未観測だった要素も$\hat{A}$ではなんらかの値が入っている。この値を予測値とみなして推薦をしましょう、というのが基本的なアイディア。</p>
+
+<p>ちなみにPython + numpyならこんな感じ。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy.linalg</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">ln</span>
+
+<span style="color:#888"># ユーザ5人、アイテム6つに対する行列（0は観測値）</span>
+A <span style="color:#333">=</span> np<span style="color:#333">.</span>array([[<span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">2</span>],
+              [<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">4</span>],
+              [<span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">2</span>],
+              [<span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">5</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">0</span>],
+              [<span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">0</span>, <span style="color:#00d;font-weight:bold">4</span>, <span style="color:#00d;font-weight:bold">4</span>]])
+
+U, s, V <span style="color:#333">=</span> ln<span style="color:#333">.</span>svd(A, full_matrices<span style="color:#333">=</span>False)
+
+<span style="color:#888"># どれくらいの粒度で近似するか</span>
+k <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">2</span>
+
+A_ <span style="color:#333">=</span> np<span style="color:#333">.</span>dot(np<span style="color:#333">.</span>dot(U[:, :k], np<span style="color:#333">.</span>diag(s[:k])), V[:k, :])
+<span style="color:#888"># [[ 3.19741238  1.98064059  0.19763307  0.50430074  1.04148574  2.47123826]</span>
+<span style="color:#888">#  [ 1.20450954  1.18625722  1.50361641  3.5812116   1.61569345  2.37803076]</span>
+<span style="color:#888">#  [ 4.36792826  2.68465163  0.20157659  0.52659617  1.36419993  3.30665072]</span>
+<span style="color:#888">#  [-0.94009727  0.07701659  2.08296828  4.93223799  1.52652414  1.44132726]</span>
+<span style="color:#888">#  [ 2.67985286  1.80342544  0.63125085  1.52750202  1.27145836  2.54266834]]</span></code></pre></div>
+<p>ただしこの手法には重大な問題があって、未観測値をゼロで埋めている。5段階の評価値行列で0とは、すなわち「全く興味がない」に相当する。しかし本来、<strong>行列の未観測値には2種類の意味ある</strong>。</p>
+
+<ol>
+<li>全く興味がないからスルーしていた</li>
+<li>そもそもユーザはそのアイテムの存在に気づいていなかった</li>
+</ol>
+
+<p>どちらの意味で”未観測”なのかが判断できない以上、テキトーな値で補完して処理を行うのはナンセンスだ。というわけで <strong>Matrix Factorization</strong> へと話が進む。これも行列を分解する手続きの一種で、$R$という行列を$P$と$Q$に分解する。</p>
+
+<p><img src="https://takuti.me/images/recommender/mf.png" alt="MF" /></p>
+
+<p>特異値分解と比較すると、$U$が$P$に相当して、$V$が$Q$に相当する。ただし、重み$\Sigma$は$P$, $Q$の内部に埋め込まれている、というイメージ。</p>
+
+<p>Matrix Factorizationのキモは、逐次的なアルゴリズムよって<strong>観測した値のみを使って行列を分解する</strong>ところにある。</p>
+
+<p>推薦の文脈での初出は<a href="http://www.netflixprize.com/" target="_blank">Netflix Prize</a>の最中に投稿された<a href="http://sifter.org/~simon/journal/20061211.html" target="_blank">Simon Funkのブログエントリ</a>で、これが学術論文でめちゃめちゃ引用されている！1ブログエントリから始まった手法は今や業界では定番中の定番な手法となり、その先にあるProbabilistic Matrix Factorization、Tensor Factorization、Factorization Machinesなど、すべてはここを土台に議論ができる。</p>
+
+<p>本当はこの先にあるもっと機械学習っぽい手法がアツくて面白いのだけど、そこは推薦システムの本質ではない。すべての基礎はこのコースで扱う話題の範囲内にあるのだと思う。ヒューリスティクスや非個人化手法が勝ることも十分ありうるわけだし。その意味で、Matrix Factorizationの導入までで講義を終え、より具体的かつ発展的な手法はすべてインタビューパートに回したコース構成はお見事だったと思う。</p>
+
+<p>また、最終回にはAdvanced topicsとして、cold-start問題（履歴が存在しない新規ユーザ・アイテムに対して推薦をするのが難しい問題）に関する議論や、実践的な視点でのインタビューがあった。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>協調フィルタリングが発明されてから、Netflix Prizeを経てMatrix Factorizationの登場に至るまでの経緯が整理されたとても良いコースだった。手法や事例が無数に存在する分野なので、書籍やサーベイ論文を読んでもこのあたりを順序立てて学ぶのは結構難しかったりする。</p>
+
+<p>インターン先のメンターにオススメされて受講しはじめたものの、すでに知っていることも多かったので途中サボったりして修了までに半年くらいかかってしまった。とはいえ、終えてみると得られたものは結構多かったなぁという実感がある。何より、このコースのおかげで推薦システムについて書いた僕の修士論文のBackgroundの章はものすごく充実した（と思う）。</p>
+
+<p>難点をあげるとすれば、課題がスプレッドシートの上で行うことを想定して作られていたことだろうか。これに素直に従うのは死ぬほど退屈なので、僕は与えられたデータをCSVに変換した後、Juliaで実装しながら課題を解いた。この実装たちは<a href="https://github.com/takuti/Recommendation.jl" target="_blank">ライブラリにまとめて公開した</a>ので、興味があればぜひ。<a href="http://takuti.me/note/recommendation-julia/" target="_blank">記事にもまとめました</a>。</p>
+
+<p>余談だけど、ちょうど受講中に<a href="http://takuti.me/note/recsys-2016/" target="_blank">学生ボランティアとしてRecSys 2016に参加して</a>、Konstan先生のユーモアや鋭い質問に間近で触れることができたのはマジ感動でした。さらに学生ボランティアの中にはKonstan先生のグループの学生もいて、その人は本会議に論文が採択されていて、ひょえ〜と思いつつ、とても高まった。</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

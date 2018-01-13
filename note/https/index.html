@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        サイトをHTTPSにした | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-02-04
+  </p>
+  <h2>サイトをHTTPSにした</h2>
+
+  <div class="post">
+    
+
+<p>今はとてもいい時代なので <strong><a href="https://letsencrypt.org/" target="_blank">Let&rsquo;s Encrypt</a></strong> が無料でSSL証明書を発行してくれる。というわけで、サイトのHTTPS化を行った。</p>
+
+<h3 id="証明書の発行と-nginx-conf-の変更">証明書の発行と nginx.conf の変更</h3>
+
+<p>作業自体はとても簡単で、証明書の発行に関する処理はすべて <strong><a href="https://certbot.eff.org/" target="_blank">certbot</a></strong> （旧名：letsencrypt）というツールがやってくれる。<a href="https://certbot.eff.org/" target="_blank">トップページ</a>からサーバとOSを選択すれば、それに応じたinstallationが表示される。どこまで親切なんだ！</p>
+
+<p>ここは <strong>CentOS 6</strong> 上の <strong>Nginx</strong> で動いているので、以下それに従う。</p>
+
+<p>certbotの導入は、適当な場所にwgetして実行権限を与えるだけ。</p>
+
+<pre><code>$ wget https://dl.eff.org/certbot-auto
+$ chmod a+x certbot-auto
+</code></pre>
+
+<p>あとはWebサーバのドキュメントルートとドメインを指定してcertbotを実行してあげればよい。</p>
+
+<pre><code>$ /path/to/certbot-auto certonly --webroot -w /var/www/example -d example.com
+</code></pre>
+
+<p>うちはNginxだけど、Apacheの頃の名残で <code>/var/www/html</code> をドキュメントルートにしている。<code>/etc/nginx/nginx.conf</code> は以下のような感じ。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-conf" data-lang="conf">server {
+	listen 80;
+	server_name  takuti.me;
+
+	location / {
+		root   /var/www/html;
+		index  index.html index.htm index.php;
+	}
+
+	# 以下略</code></pre></div>
+<p>なので叩いたコマンドは以下。</p>
+
+<pre><code>$ /path/to/certbot-auto certonly --webroot -w /var/www/html -d takuti.me
+</code></pre>
+
+<p>途中でメールアドレスなどを聞かれ、無事完了すると Congratulations と言われる。証明書の類は <code>/etc/letsencrypt/live/takuti.me</code> 以下に作成され、ドキュメントルート直下には認証用プラグインのために <code>.well-known</code> というディレクトリが作成される。</p>
+
+<p>あとは <code>/etc/nginx/nginx.conf</code> を、</p>
+
+<ul>
+<li>httpリクエストをすべてhttpsにリダイレクト</li>
+<li>SSLを有効にして証明書のパスを指定</li>
+</ul>
+
+<p>について書き換えればよい。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-conf" data-lang="conf">server {
+	listen 80;
+	listen [::]:80;
+	return 301 https://$host$request_uri;
+}
+
+server {
+	listen 443 default ssl;
+	server_name  takuti.me;
+
+	ssl on;
+
+	ssl_certificate /etc/letsencrypt/live/takuti.me/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/takuti.me/privkey.pem;
+	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+
+	location / {
+	   root   /var/www/html;
+	   index  index.html index.htm index.php;
+	}
+
+	# 以下略</code></pre></div>
+<pre><code>$ service nginx restart
+</code></pre>
+
+<p>簡単！</p>
+
+<h3 id="httpsポート443番の開放">HTTPSポート443番の開放</h3>
+
+<p>次に、 <code>/etc/sysconfig/iptables</code> に443番ポートを開ける記述を追加して、</p>
+
+<pre><code>-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+</code></pre>
+
+<p>iptablesをrestartする。</p>
+
+<pre><code>$ service iptables restart
+</code></pre>
+
+<p>これでサイトのHTTPS化は完了。</p>
+
+<h3 id="証明書の自動更新の設定">証明書の自動更新の設定</h3>
+
+<p>最後に、証明書の自動更新を設定する。証明書の更新は、</p>
+
+<pre><code>$ /path/to/certbot-auto renew
+</code></pre>
+
+<p>これだけでできるので、このコマンドをcronに登録してあげればよい。ここでは毎月1日午前3時に更新をかけるようにした。</p>
+
+<pre><code>00 03 01 * * /path/to/certbot-auto renew --quiet
+</code></pre>
+
+<p>これでよし。</p>
+
+<h3 id="おまけ1-静的サイトジェネレータ-hugo-の-baseurl-を-https-にする">おまけ1: 静的サイトジェネレータ Hugo の baseUrl を https:// にする</h3>
+
+<p>このサイトのコンテンツはGo製の静的サイトジェネレータ <strong><a href="https://gohugo.io/" target="_blank">Hugo</a></strong> で生成している。</p>
+
+<p>Hugoはコンテンツ生成時に <code>--baseUrl</code> オプションを付与すると、HTML中のパスをURLに置換してくれる。たとえば、</p>
+
+<pre><code>$ hugo --baseUrl='http://takuti.me'
+</code></pre>
+
+<p>と叩いたならば、 <code>/style/style.css</code> といったパスによるアセットの指定は、URLによる指定 <code>http://takuti.me/style/style.css</code> に置換された上でサイトコンテンツが生成される。</p>
+
+<p>HTTPS化以降はこの <code>--baseUrl</code> を <strong>https://~</strong> に書き換えなければならない点に注意。</p>
+
+<h3 id="おまけ2-サイトコンテンツのデプロイ時に-well-known-を消さないようにする">おまけ2: サイトコンテンツのデプロイ時に .well-known を消さないようにする</h3>
+
+<p>Hugoで生成したコンテンツは、</p>
+
+<pre><code>$ rsync （中略） --delete {ユーザ}@{ホスト}:{ドキュメントルート}
+</code></pre>
+
+<p>でサーバに転送しており、転送前にドキュメントルートの中身をすべて削除している。</p>
+
+<p>しかし今、certbotによって作成された <code>.well-known</code> というディレクトリがドキュメントルート直下にある。これは削除したくない。</p>
+
+<p>なので以後 <code>.well-known</code> をrsyncの対象から除外することを忘れずに。</p>
+
+<pre><code>$ rsync --exclude &quot;.well-known&quot; （中略） --delete {ユーザ}@{ホスト}:{ドキュメントルート}
+</code></pre>
+
+<p>そんなこんなでサイトのHTTPS化に成功した。</p>
+
+<p>HTTPS化に対する唯一の懸念事項は <strong>http://~</strong> でのはてブ数が残らないことだったけど、これはもう諦めた。仕方あるまい。</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

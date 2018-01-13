@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        MacのローカルにHivemallを導入してアイテム推薦をするまで | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-02-11
+  </p>
+  <h2>MacのローカルにHivemallを導入してアイテム推薦をするまで</h2>
+
+  <div class="post">
+    
+
+<p>昨年、Hive向けの機械学習ライブラリ <strong><a href="https://hivemall.incubator.apache.org/" target="_blank">Hivemall</a></strong> が<a href="http://itpro.nikkeibp.co.jp/atcl/column/15/061500148/100300084/" target="_blank">Apache Software Foundationのincubatorプロジェクトになった</a>。<a href="https://docs.treasuredata.com/articles/hive-hivemall" target="_blank">Treasure Dataがオフィシャルでサポートしている</a>ということもあり、名前くらいは聞いたことがあるという人も多いと思う。</p>
+
+<p>とはいえ、やれHadoopだHiveだとスケールの大きな話をされると、手元でちょっと試すなんて気分にはならないものである。というわけで、実際にMacのローカルでHadoop, Hiveの導入からHivemallを動かすまでをやってみた。</p>
+
+<h3 id="hadoopのインストール">Hadoopのインストール</h3>
+
+<pre><code>$ brew install hadoop
+</code></pre>
+
+<p>（今回のバージョンは 2.7.3）</p>
+
+<p><code>/usr/local/Cellar/hadoop/{バージョン}</code> 以下を直接漁ることになるのでエイリアスを設定しておく。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#007020">export</span> <span style="color:#963">HADOOP_DIR</span><span style="color:#333">=</span>/usr/local/Cellar/hadoop/<span style="color:#333">{</span>バージョン<span style="color:#333">}</span></code></pre></div>
+<p><code>${HADOOP_DIR}/libexec/etc/hadoop/core-site.xml</code> の <code>&lt;configuration&gt;</code> を編集：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#070">&lt;configuration&gt;</span>
+	<span style="color:#070">&lt;property&gt;</span>
+    <span style="color:#070">&lt;name&gt;</span>fs.defaultFS<span style="color:#070">&lt;/name&gt;</span>
+    <span style="color:#070">&lt;value&gt;</span>hdfs://localhost:9000<span style="color:#070">&lt;/value&gt;</span>
+  <span style="color:#070">&lt;/property&gt;</span>
+<span style="color:#070">&lt;/configuration&gt;</span></code></pre></div>
+<p><code>${HADOOP_DIR}/libexec/etc/hadoop/hdfs-site.xml</code> の <code>&lt;configuration&gt;</code> を編集：</p>
+
+<pre><code>&lt;configuration&gt;
+  &lt;property&gt;
+    &lt;name&gt;dfs.replication&lt;/name&gt;
+    &lt;value&gt;1&lt;/value&gt;
+  &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+
+<p>HDFSをフォーマット：</p>
+
+<pre><code>$ hdfs namenode -format
+</code></pre>
+
+<p>localhostへのSSH接続を許可する必要があるので、Macの <strong>システム環境設定 &gt; 共有</strong> からリモートログインを有効にする。さらに、SSH公開鍵を自身のauthorized_keysに追加する。</p>
+
+<pre><code>$ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+</code></pre>
+
+<p>これで <code>$ ssh localhost</code> ができる。</p>
+
+<p>Hadoopの設定おわり。</p>
+
+<p>起動・終了はエイリアスを設定しておくと便利：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#007020">alias</span> <span style="color:#963">hstart</span><span style="color:#333">=</span><span style="background-color:#eee">${</span><span style="color:#963">HADOOP_DIR</span><span style="background-color:#eee">}</span>/sbin/start-all.sh
+<span style="color:#007020">alias</span> <span style="color:#963">hstop</span><span style="color:#333">=</span><span style="background-color:#eee">${</span><span style="color:#963">HADOOP_DIR</span><span style="background-color:#eee">}</span>/sbin/stop-all.sh</code></pre></div>
+<pre><code>$ hstart
+</code></pre>
+
+<p>うごく。</p>
+
+<pre><code>$ hstop
+</code></pre>
+
+<p>とまる。</p>
+
+<h3 id="hiveのインストール">Hiveのインストール</h3>
+
+<pre><code>$ brew install hive
+</code></pre>
+
+<p>（今回のバージョンは 2.1.0）</p>
+
+<p>適当に作業用ディレクトリ（今回は <code>~/hive</code> ）を掘って、そこでスキーマを初期化する：</p>
+
+<pre><code>$ mkdir ~/hive
+$ cd ~/hive
+$ schematool -initSchema -dbType derby
+</code></pre>
+
+<p>HadoopとHiveを起動する：</p>
+
+<pre><code>$ hstart
+$ hive
+hive&gt;
+</code></pre>
+
+<h3 id="hivemallのインストール">Hivemallのインストール</h3>
+
+<p>基本は<a href="https://hivemall.incubator.apache.org/userguide/getting_started/installation.html" target="_blank">ここ</a>にある通り。</p>
+
+<p>まずビルド済みのHivemall <code>hivemall-core-xxx-with-dependencies.jar</code> を<a href="https://github.com/myui/hivemall/releases" target="_blank">GitHubリポジトリ</a>からダウンロードする。</p>
+
+<p>そしてHiveの起動時スクリプトとして以下を <code>~/.hiverc</code> に書いてあげる：</p>
+
+<pre><code>add jar /path/to/hivemall-core-xxx-with-dependencies.jar;
+</code></pre>
+
+<p>これだけ。</p>
+
+<p>Hivemallは機械学習に特化したHiveの関数セットなので、なにか仰々しいインストールスクリプトが走るというものではない。</p>
+
+<h3 id="hivemallでアイテム推薦">Hivemallでアイテム推薦</h3>
+
+<p>ここまででMacのローカルにHadoop、Hive、そしてHivemallが導入できた。最後に一例として、アイテム推薦をHivemall上でやってみよう。</p>
+
+<p>使うアルゴリズムは <strong>Matrix Factorization</strong> で、これや推薦手法全般の概略は「<a href="https://takuti.me/note/coursera-recommender-systems/" target="_blank">Courseraの推薦システムのコースを修了した</a>」を読んでほしい。</p>
+
+<p>Hivemall公式のチュートリアルは<a href="https://hivemall.incubator.apache.org/userguide/recommend/movielens_dataset.html" target="_blank">ここ</a>にある。</p>
+
+<h4 id="step-1-movielens-1mデータセットでhiveテーブルを作る">Step 1: MovieLens 1MデータセットでHiveテーブルを作る</h4>
+
+<p><a href="https://grouplens.org/datasets/movielens/1m/" target="_blank">MovieLens 1M</a>は推薦の分野では定番のデータセット。これを使って <strong>Matrix Factorizationでアイテム（映画）の推薦</strong> を成し遂げるべく、Hiveテーブルを作成していく。</p>
+
+<p>まずHiveでのDB、テーブル作成用スクリプトを <code>create_db.hive</code> のような名前で以下の中身で作って、Hiveの作業用ディレクトリで走らせる：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#080;font-weight:bold">create</span> <span style="color:#080;font-weight:bold">database</span> movielens;
+use movielens;
+
+<span style="color:#080;font-weight:bold">CREATE</span> <span style="color:#080;font-weight:bold">EXTERNAL</span> <span style="color:#080;font-weight:bold">TABLE</span> ratings (
+  userid <span style="color:#007020">INT</span>,
+  movieid <span style="color:#007020">INT</span>,
+  rating <span style="color:#007020">INT</span>,
+  tstamp STRING
+) <span style="color:#080;font-weight:bold">ROW</span> FORMAT DELIMITED
+FIELDS TERMINATED <span style="color:#080;font-weight:bold">BY</span> <span style="background-color:#fff0f0">&#39;#&#39;</span> <span style="color:#888">-- 適当な1文字のセパレータ
+</span><span style="color:#888"></span>STORED <span style="color:#080;font-weight:bold">AS</span> TEXTFILE
+<span style="color:#080;font-weight:bold">LOCATION</span> <span style="background-color:#fff0f0">&#39;/dataset/movielens/ratings&#39;</span>;</code></pre></div>
+<pre><code>$ hive &lt; create_db.hive
+</code></pre>
+
+<p>そしてデータをダウンロード：</p>
+
+<pre><code>$ curl -o ml-1m.zip -L http://files.grouplens.org/datasets/movielens/ml-1m.zip
+$ unzip ml-1m.zip
+$ cd ml-1m
+</code></pre>
+
+<p>使うのは <code>ratings.dat</code> で、ユーザごとのアイテム（映画）に対する評価値が入っている。このセパレータをテーブル作成時の適当な1文字にしておく（今回は <code>#</code> ）：</p>
+
+<pre><code>$ sed 's/::/#/g' ratings.dat &gt; ratings.t
+</code></pre>
+
+<p>そしてこのデータをHDFSにコピーする：</p>
+
+<pre><code>$ hadoop fs -put ratings.t /dataset/movielens/ratings
+</code></pre>
+
+<p>Hiveに入ってデータを確認する：</p>
+
+<pre><code>$ hive
+hive&gt; use movielens;
+hive&gt; select * from ratings limit 5;
+OK
+1       1193    5       978300760
+1       661     3       978302109
+1       914     3       978301968
+1       3408    4       978300275
+1       2355    5       978824291
+Time taken: 1.36 seconds, Fetched: 5 row(s)
+</code></pre>
+
+<p>よさそう。</p>
+
+<p>（以下、すべてHiveのインタラクティブシェル <code>hive&gt;</code> 上での入力）</p>
+
+<h4 id="step-2-hivemallから使う関数を呼び出す">Step 2: Hivemallから使う関数を呼び出す</h4>
+
+<p><strong>Matrix Factorizationでアイテム推薦</strong> のために使う関数たちを読み込んであげる。Matrix Factorizationで2つ　( <code>mf_predict</code> , <code>train_mf_sgd</code> ) 、推薦リストの生成に1つ ( <code>each_top_k</code> )、そしてユーティリティ関数を2つ ( <code>array_avg</code> , <code>to_ordered_map</code> ) 読んでいる。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#080;font-weight:bold">create</span> <span style="color:#080;font-weight:bold">temporary</span> <span style="color:#080;font-weight:bold">function</span> mf_predict <span style="color:#080;font-weight:bold">as</span> <span style="background-color:#fff0f0">&#39;hivemall.mf.MFPredictionUDF&#39;</span>;
+<span style="color:#080;font-weight:bold">create</span> <span style="color:#080;font-weight:bold">temporary</span> <span style="color:#080;font-weight:bold">function</span> train_mf_sgd <span style="color:#080;font-weight:bold">as</span> <span style="background-color:#fff0f0">&#39;hivemall.mf.MatrixFactorizationSGDUDTF&#39;</span>;
+<span style="color:#080;font-weight:bold">create</span> <span style="color:#080;font-weight:bold">temporary</span> <span style="color:#080;font-weight:bold">function</span> each_top_k <span style="color:#080;font-weight:bold">as</span> <span style="background-color:#fff0f0">&#39;hivemall.tools.EachTopKUDTF&#39;</span>;
+<span style="color:#080;font-weight:bold">create</span> <span style="color:#080;font-weight:bold">temporary</span> <span style="color:#080;font-weight:bold">function</span> array_avg <span style="color:#080;font-weight:bold">as</span> <span style="background-color:#fff0f0">&#39;hivemall.tools.array.ArrayAvgGenericUDAF&#39;</span>;
+<span style="color:#080;font-weight:bold">create</span> <span style="color:#080;font-weight:bold">temporary</span> <span style="color:#080;font-weight:bold">function</span> to_ordered_map <span style="color:#080;font-weight:bold">as</span> <span style="background-color:#fff0f0">&#39;hivemall.tools.map.UDAFToOrderedMap&#39;</span>;</code></pre></div>
+<p>ちなみに、これらを <code>~/.hiverc</code> の <code>add jar ...</code> の後に直接書いておけば、起動時に毎回関数を自動で読み込んでくれる。</p>
+
+<h4 id="step-3-クエリで-おすすめ映画リスト-をつくる">Step 3: クエリで「おすすめ映画リスト」をつくる</h4>
+
+<p>あとは中間テーブルを作成しつつクエリを実行していけば「おすすめ映画リスト」が得られる。</p>
+
+<p>まず <code>train_mf_sgd</code> にユーザIDと映画ID、評価値を渡せば、Matrix Factorizationが走ってモデルが返ってくる：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#080;font-weight:bold">CREATE</span> <span style="color:#080;font-weight:bold">TABLE</span> mf_model <span style="color:#080;font-weight:bold">AS</span>
+<span style="color:#080;font-weight:bold">SELECT</span>
+  idx,
+  array_avg(u_rank) <span style="color:#080;font-weight:bold">as</span> Pu,
+  array_avg(i_rank) <span style="color:#080;font-weight:bold">as</span> Qi,
+  <span style="color:#080;font-weight:bold">avg</span>(u_bias) <span style="color:#080;font-weight:bold">as</span> Bu,
+  <span style="color:#080;font-weight:bold">avg</span>(i_bias) <span style="color:#080;font-weight:bold">as</span> Bi
+<span style="color:#080;font-weight:bold">FROM</span> (
+  <span style="color:#080;font-weight:bold">SELECT</span>
+    train_mf_sgd(userid, movieid, rating) <span style="color:#080;font-weight:bold">AS</span> (idx, u_rank, i_rank, u_bias, i_bias)
+  <span style="color:#080;font-weight:bold">FROM</span> ratings
+) t
+<span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span> idx
+;</code></pre></div>
+<p>そして推薦対象のユーザID <code>userid</code> と、推薦リストのサイズ <code>k</code> を変数として設定して、</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#080;font-weight:bold">set</span> hivevar:userid<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>;
+<span style="color:#080;font-weight:bold">set</span> hivevar:k<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">10</span>;</code></pre></div>
+<p>対象ユーザに対して各映画の評価値を予測して、その上位k件の「おすすめ映画リスト」を返すクエリが以下：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#080;font-weight:bold">WITH</span> top_k <span style="color:#080;font-weight:bold">AS</span> (
+  <span style="color:#080;font-weight:bold">SELECT</span>
+    each_top_k(
+		  <span style="color:#f00;background-color:#faa">${</span>k<span style="color:#f00;background-color:#faa">}</span>, u.userid, mf_predict(u.pu, i.qi, u.bu, i.bi),
+      u.userid, movieid
+		) <span style="color:#080;font-weight:bold">AS</span> (rank, score, userid, movieid)
+  <span style="color:#080;font-weight:bold">FROM</span> (
+	  <span style="color:#080;font-weight:bold">SELECT</span> idx <span style="color:#080;font-weight:bold">AS</span> userid, pu, bu
+	  <span style="color:#080;font-weight:bold">FROM</span> mf_model m
+	  <span style="color:#080;font-weight:bold">WHERE</span> m.idx <span style="color:#333">=</span> <span style="color:#f00;background-color:#faa">${</span>userid<span style="color:#f00;background-color:#faa">}</span>
+	) u
+  <span style="color:#080;font-weight:bold">CROSS</span> <span style="color:#080;font-weight:bold">JOIN</span> (
+	  <span style="color:#080;font-weight:bold">SELECT</span> idx <span style="color:#080;font-weight:bold">AS</span> movieid, qi, bi
+	  <span style="color:#080;font-weight:bold">FROM</span> mf_model m
+	) i
+)
+<span style="color:#080;font-weight:bold">SELECT</span>
+  userid,
+  map_values(to_ordered_map(rank, movieid)) <span style="color:#080;font-weight:bold">AS</span> recommended_items
+<span style="color:#080;font-weight:bold">FROM</span>
+  top_k
+<span style="color:#080;font-weight:bold">GROUP</span> <span style="color:#080;font-weight:bold">BY</span>
+  userid
+;</code></pre></div>
+<p>結果はこんな感じで、ID=1のユーザはID=926とか905とかの映画が好きなんだなぁという気持ちになって無事目標達成。</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">userid</th>
+<th align="left">recommended_items</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="left">[926,905,922,3030,928,910,3022,904,909,916]</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>MacのローカルにHadoop, Hiveをインストールして、機械学習ライブラリHivemallを使ったアイテム推薦までやってみた。</p>
+
+<p>Hadoop, Hiveに必要な設定は思っていたよりも少なかった。</p>
+
+<p>アイテム推薦に関しては、「とりあえず動かす」ことに専念したので、</p>
+
+<ul>
+<li>精度の評価はどうするのか</li>
+<li>Matrix Factorizationのパラメータはどうするのか</li>
+<li>ユーザがすでに評価した、既知の映画まで推薦してしまって良いのか</li>
+</ul>
+
+<p>といった問題が残っている。このあたりはまたの機会に書こうと思う。</p>
+
+<h3 id="参考">参考</h3>
+
+<ul>
+<li><a href="https://amodernstory.com/2014/09/23/installing-hadoop-on-mac-osx-yosemite/" target="_blank">INSTALLING HADOOP ON MAC PART 1</a></li>
+<li><a href="http://qiita.com/zaburo/items/6086ded8cbb43e2ddd39" target="_blank">Macに10分でHadoop,Hive環境を作る</a></li>
+<li><a href="http://stackoverflow.com/questions/35655306/hive-installation-issues-hive-metastore-database-is-not-initialized" target="_blank">Hive installation issues: Hive metastore database is not initialized</a></li>
+</ul>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        はてなキーワードを使ってigo-ruby(MeCab)用の辞書をナウい感じにする | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2013-07-29
+  </p>
+  <h2>はてなキーワードを使ってigo-ruby(MeCab)用の辞書をナウい感じにする</h2>
+
+  <div class="post">
+    <p><a href="http://igo.sourceforge.jp/#mecab">igo-ruby（辞書はMeCabとほぼ同じなのでMeCabのこととして読んでも可）の辞書</a>はナウくないです。</p>
+<p>「<strong>人工知能</strong>」を分かち書きすると「<strong>人工　知能</strong>」になっちゃいます。<br />
+「<strong>ニコニコ動画</strong>」を分かち書きすると「<strong>ニコニコ　動画</strong>」になっちゃいます。<br />
+「<strong>IPアドレス</strong>」を分かち書きすると「<strong>IP　アドレス</strong>」になっちゃいます。<br />
+「<strong>ニューラルネットワーク</strong>」を分かち書きすると「<strong>ニュー　ラ　ル　ネットワーク</strong>」になっちゃいます。</p>
+<p>形態素解析器の応用例が増えてくる中で必要となるのは、上記で挙げたようなナウいワードを1つの単語として扱ってくれることです。</p>
+<p>例えば<a href="http://buzztter.com/#/ja">buzztter</a>のようなサービスでは、「ニコニコ動画」は「ニコニコ動画」でいて欲しいし、「ニューラルネットワーク」は「ニューラルネットワーク」のままであってほしいわけですね。</p>
+<p>僕も最近ちょっと辞書をナウくする必要が出たので、早速<a href="http://developer.hatena.ne.jp/ja/documents/keyword/misc/catalog">公開されているはてなキーワードのデータ</a>を使ってやってみました。<br />
+<!--more--><br />
+はてなキーワードのデータから辞書を作るコード（仮）は以下。<br />
+<strong><a href="https://github.com/takuti/twitter_bot/blob/master/tool/hatena2dic.rb">takuti / twitter_bot / tool / hatena2dic.rb</a></strong></p>
+<p>はてなキーワードのデータはキーワードそのものとふりがながタブ区切りで各行に書かれているので、それに合わせる形でそれぞれを読んであげる。元データの文字コードはEUC-JP。</p>
+<p>そしてお好みの条件で辞書に加えたくないキーワードなんかも除外する。<br />
+今回は、</p>
+<ul>
+<li><strong>2009-09-04</strong>のような年月日</li>
+<li><strong>1945年</strong>のような年</li>
+<li>すでに1単語として判断されるもの</li>
+</ul>
+<p>を除外しています。</p>
+<p>ふりがなは<a href="http://gimite.net/gimite/rubymess/moji.html">Mojiモジュール</a>を使ってカタカナ化しています。</p>
+<p>加えて、辞書を作る時に大切なコスト計算もしています。MeCabだとコストに-1を指定すると自動でコストを割り振ってくれるみたいですが、igo-rubyにはそんな機能ありません。</p>
+<p>辞書のコストについては以下を参考にさせていただきました。</p>
+<ul>
+<li><a href="http://www.mwsoft.jp/programming/munou/mecab_nitteretou.html">日本テレビ東京で学ぶMeCabのコスト計算 | mwSoft</a></li>
+<li><a href="http://tmp.blogdns.org/archives/2009/12/mecabwikipediah.html">mecabのユーザ辞書でwikipediaとhatenaキーワードを利用する - てんぷろぐ</a></li>
+<li><a href="http://www.mwsoft.jp/programming/munou/mecab_hatena.html">はてなキーワードからMecCab辞書を生成する（Ruby版）</a></li>
+<li><a href="http://mecab.googlecode.com/svn/trunk/mecab/doc/dic-detail.html">MeCab の辞書構造と汎用テキスト変換ツールとしての利用</a></li>
+</ul>
+<p>最終的には2番目のリンク先に記載されていた、<br />
+<strong>score = [-32768.0, (6000 - 200 *(title.size**1.3))].max.to_i</strong><br />
+を利用させていただくことに。</p>
+<p>各キーワードの情報はCSVに以下のような形で書き込んで、それを追加用辞書ファイルとする。既存の辞書ファイルの文字コードがすべてEUC-JPなのでこれもEUC-JPで。</p>
+<pre><strong>#{word}</strong>,0,0,<strong>#{cost}</strong>,名詞,一般,*,*,*,*,<strong>#{word}</strong>,<strong>#{furigana}</strong>,<strong>#{furigana}</strong></pre>
+<p>最後に、追加用辞書ファイルをディレクトリ <strong>mecab-ipadic-2.7.0-20070801</strong> 内に移動して、あとは通常の辞書生成と同じようにコマンドを叩いて終わり。</p>
+<pre>java -Xmx1024m -cp igo-0.4.5.jar net.reduls.igo.bin.BuildDic ipadic mecab-ipadic-2.7.0-20070801 EUC-JP</pre>
+<p>これで生成された辞書を使って形態素解析なんかを行えば、「人工知能」は「人工知能」のままで、「ニコニコ動画」は「ニコニコ動画」のままで解釈される！ぱちぱち。</p>
+<h3>問題点</h3>
+<p><strong>1. カンマを含むキーワードが登録できない</strong><br />
+カンマを含むキーワード（「NO MUSIC, NO LIFE.」とか）を今の実装で辞書に登録しようとすると、カンマそのものがCSVの区切り文字と判断されて上手くいきません。</p>
+<p>これはMeCabの場合、そのキーワードをダブルクォーテーションで囲ってあげることで解決できます。</p>
+<p>しかしigo-rubyの場合、<a href="http://igo.sourceforge.jp/#mecab">MeCabとの相違点</a>として挙げられているように、</p>
+<pre>"組打ち",1285,1285,5622,名詞,一般,*,*,*,*,組打ち,クミウチ,クミウチ
+　※ ↑この単語の表層形は、'組打ち'ではなく'"組打ち"'となる</pre>
+<p>と、ダブルクォーテーションそのものも単語の一部として解釈されてしまうらしく、しかしまぁさほど影響は無さそうなので今はカンマを含むキーワードを全てスキップすることで応急処置としています。</p>
+<p><strong>2. 文字コードCP51932の扱い</strong><br />
+<strong>Ⅲ</strong>や<strong>②</strong>、<strong>㈱</strong>といった機種依存文字を含むキーワードはデータから読み込んだときの文字コードがCP51932になっています。「東大理Ⅲ」とかですね。</p>
+<p>それらを他のEUC-JPのキーワードと同じように扱うと、「人工知能」は「人工知能」のままになっても、「東大理Ⅲ」なんかは「東大理Ⅲ」のままにはならない。</p>
+<p>困ったのでひとまず保留ということで、文字コードがCP51932のキーワードを全てスキップすることでこちらも応急処置としています。</p>
+<p>CP51932がEUC-JPになればこの問題は解決するの？どうやってそれを確認するの（どうやってCP51932からEUC-JPへの変換を行うの）？</p>
+<p>このあたりに答えを出す必要がありそう。</p>
+<h3>というわけで</h3>
+<p>問題点が残っていて未完成ではありますが、ひとまずある程度辞書がナウい感じになったということでまとめておきます。</p>
+<p>今回ははてなキーワードでしたが、Wikipediaのタイトルでも元データがどんな規則で書かれているかに注意すれば同じ事は簡単にできますね。<br />
+【参考】<a href="http://www.mwsoft.jp/programming/munou/wikipedia_data_list.html">Wikipediaのダウンロードできるデータファイル一覧 | mwSoft</a></p>
+<p>その他参考にさせていただものは以下です。</p>
+<ul>
+<li><a href="http://aidiary.hatenablog.com/entry/20101230/1293691668">テキストからWikipedia見出し語を抽出 - 人工知能に関する断創録能に関する断創録</a></li>
+<li><a href="http://takemikami.com/technote/archives/845">igo-rubyで形態素解析して、twitterの口癖分析もどきしてみた | Lightweight HackingLightweight Hacking</a></li>
+</ul>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Hugo meets kramdown &#43; KaTeX #gohugo | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-05-28
+  </p>
+  <h2>Hugo meets kramdown &#43; KaTeX #gohugo</h2>
+
+  <div class="post">
+    
+
+<p>Recently, math rendering library in this page, <strong>takuti.me</strong>, has been switched from MathJax to KaTex to improve performance. You can check KaTeX&rsquo;s fast, beautiful rendering in the following articles:</p>
+
+<ul>
+<li><a href="https://takuti.me/note/normal-equation/">How to Derive the Normal Equation</a></li>
+<li>(Japanese)
+
+<ul>
+<li><a href="https://takuti.me/note/poisson-image-blending">Poisson Image Editingでいい感じの画像合成ができるやつを作る on Web</a></li>
+<li><a href="https://takuti.me/note/tf-idf">TF-IDFで文書内の単語の重み付け</a></li>
+<li><a href="https://takuti.me/note/slim">&ldquo;SLIM: Sparse Linear Methods for Top-N Recommender Systems&rdquo;を読んだ</a></li>
+</ul></li>
+</ul>
+
+<p>This article describes how I have accomplished the modification.</p>
+
+<h3 id="the-markdown-latex-syntax-issue">The Markdown + LaTeX syntax issue</h3>
+
+<p>I started using <a href="https://gohugo.io/" target="_blank">Hugo</a> 1+ years ago, and ever since then, this blog has utilized <a href="https://kramdown.gettalong.org/index.html" target="_blank">kramdown</a> &amp; <a href="https://www.mathjax.org/" target="_blank">MathJax</a>, one of the best combinations that allows us to naturally integrate Markdown and LaTeX syntax. Following article describes the details of motivation behind the choice: <a href="https://takuti.me/note/hugo-markdown-and-mathjax">Migrate to Hugo from Jekyll: Another Solution for the MathJax+Markdown Issue</a>.</p>
+
+<p>As I discussed in the article, integrating Markdown and LaTeX syntax is essentially hard problem for static site generators, because <code>_</code> (underscore) plays an important role on the both syntax; many Markdown parsers (including Hugo&rsquo;s default Markdown processor <a href="https://github.com/russross/blackfriday" target="_blank">Blackfriday</a>) mistakenly understand LaTeX&rsquo;s <code>_</code> (for subscripts) as an indicator of <em>italic</em>.</p>
+
+<p>In order to work around the issue, my previous article introduced how I utilized alternative Markdown processor, namely <strong>kramdown</strong>.</p>
+
+<p>Note that, while originally kramdown was called in my local <code>Rakefile</code>, currently the Markdown processing code has been moved to <code>gulpfile.js</code> by taking advantage of <a href="https://www.npmjs.com/package/gulp-kramdown" target="_blank">gulp-kramdown</a>:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">gulp.task(<span style="background-color:#fff0f0">&#39;compile-md&#39;</span>, <span style="color:#080;font-weight:bold">function</span>() {
+  gulp.src(<span style="background-color:#fff0f0">&#39;_content/**/*.{md,html}&#39;</span>)
+      <span style="color:#888">// extract front matter as a string
+</span><span style="color:#888"></span>      .pipe(data(<span style="color:#080;font-weight:bold">function</span>(file) {
+        <span style="color:#080;font-weight:bold">var</span> contents <span style="color:#333">=</span> file.contents.toString();
+        <span style="color:#080;font-weight:bold">var</span> content <span style="color:#333">=</span> contents.replace(<span style="color:#000;background-color:#fff0ff">/(---[\s\S]*?\n---\n)/m</span>, <span style="color:#080;font-weight:bold">function</span>($1) {
+          file.frontMatter <span style="color:#333">=</span> $1;
+          <span style="color:#080;font-weight:bold">return</span> <span style="background-color:#fff0f0">&#39;&#39;</span>;
+        });
+
+        <span style="color:#080;font-weight:bold">var</span> tweetUrls <span style="color:#333">=</span> content.match(<span style="color:#000;background-color:#fff0ff">/(https?:\/\/twitter\.com\/[a-zA-Z0-9_]+\/status\/([0-9]+)\/?)/g</span>);
+
+        <span style="color:#888">// convert all tweet urls into tweet cards
+</span><span style="color:#888"></span>        <span style="color:#080;font-weight:bold">if</span> (tweetUrls <span style="color:#333">!==</span> <span style="color:#080;font-weight:bold">null</span>) {
+          <span style="color:#080;font-weight:bold">for</span> (<span style="color:#080;font-weight:bold">var</span> url <span style="color:#080;font-weight:bold">of</span> tweetUrls) {
+            <span style="color:#080;font-weight:bold">var</span> id <span style="color:#333">=</span> <span style="color:#000;background-color:#fff0ff">/\/([0-9]+)\/?/g</span>.exec(url)[<span style="color:#00d;font-weight:bold">1</span>];
+            <span style="color:#080;font-weight:bold">var</span> res <span style="color:#333">=</span> request(<span style="background-color:#fff0f0">&#39;GET&#39;</span>, <span style="background-color:#fff0f0">&#39;https://api.twitter.com/1/statuses/oembed.json?id=&#39;</span> <span style="color:#333">+</span> id);
+
+            <span style="color:#080;font-weight:bold">var</span> tweetCard <span style="color:#333">=</span> JSON.parse(res.getBody(<span style="background-color:#fff0f0">&#39;utf8&#39;</span>)).html;
+            content <span style="color:#333">=</span> content.replace(url, tweetCard);
+          }
+        }
+
+        file.contents <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Buffer(content);
+      }))
+
+      <span style="color:#888">// convert markdown content into html (except for the front matter)
+</span><span style="color:#888"></span>      .pipe(kramdown())
+
+      <span style="color:#888">// insert the extracted front matter at the head of the converted html
+</span><span style="color:#888"></span>      .pipe(wrapper({ header<span style="color:#333">:</span> <span style="color:#080;font-weight:bold">function</span>(file){ <span style="color:#080;font-weight:bold">return</span> file.frontMatter <span style="color:#333">+</span> <span style="background-color:#fff0f0">&#39;\n&#39;</span>; } }))
+
+      .pipe(gulp.dest(<span style="background-color:#fff0f0">&#39;content/&#39;</span>));
+});</code></pre></div>
+<p>Eventually, running <code>$ hugo server --watch</code> and <code>$ gulp watch</code> simultaneously enables me to preview rendered Markdown + LaTeX contents.</p>
+
+<h3 id="replace-mathjax-with-katex">Replace MathJax with KaTeX</h3>
+
+<p>As many of you already noticed, math rendering of MathJax is surprisingly slow. Stressful &ldquo;loading&hellip;&rdquo; message always shows up on my browser! Thus, I decided to replace it with much faster alternative, <a href="https://khan.github.io/KaTeX/" target="_blank">KaTeX</a>.</p>
+
+<p>Replacement itself was pretty easy; I just needed to replace MathJax&rsquo;s stylesheet and script definition in <code>&lt;header&gt;~&lt;/header&gt;</code> (or <code>&lt;footer&gt;~&lt;/footer&gt;</code>) with KaTeX&rsquo;s ones:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#070">link</span> <span style="color:#00c">rel</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;stylesheet&#34;</span> <span style="color:#00c">href</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css&#34;</span> <span style="color:#00c">integrity</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0&#34;</span> <span style="color:#00c">crossorigin</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;anonymous&#34;</span>&gt;</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#070">script</span> <span style="color:#00c">src</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js&#34;</span> <span style="color:#00c">integrity</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1&#34;</span> <span style="color:#00c">crossorigin</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;anonymous&#34;</span>&gt;&lt;/<span style="color:#070">script</span>&gt;
+&lt;<span style="color:#070">script</span> <span style="color:#00c">src</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js&#34;</span> <span style="color:#00c">integrity</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx&#34;</span> <span style="color:#00c">crossorigin</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;anonymous&#34;</span>&gt;&lt;/<span style="color:#070">script</span>&gt;
+&lt;<span style="color:#070">script</span>&gt;
+  renderMathInElement(<span style="color:#007020">document</span>.body,
+    {
+        delimiters<span style="color:#333">:</span> [
+            {left<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#34;$$&#34;</span>, right<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#34;$$&#34;</span>, display<span style="color:#333">:</span> <span style="color:#080;font-weight:bold">true</span>},
+            {left<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#34;$&#34;</span>, right<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#34;$&#34;</span>, display<span style="color:#333">:</span> <span style="color:#080;font-weight:bold">false</span>},
+        ]
+    }
+  );
+
+  <span style="color:#080;font-weight:bold">var</span> inlineMathArray <span style="color:#333">=</span> <span style="color:#007020">document</span>.querySelectorAll(<span style="background-color:#fff0f0">&#34;script[type=&#39;math/tex&#39;]&#34;</span>);
+  <span style="color:#080;font-weight:bold">for</span> (<span style="color:#080;font-weight:bold">var</span> i <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>; i <span style="color:#333">&lt;</span> inlineMathArray.length; i<span style="color:#333">++</span>) {
+    <span style="color:#080;font-weight:bold">var</span> inlineMath <span style="color:#333">=</span> inlineMathArray[i];
+    <span style="color:#080;font-weight:bold">var</span> tex <span style="color:#333">=</span> inlineMath.innerText <span style="color:#333">||</span> inlineMath.textContent;
+    <span style="color:#080;font-weight:bold">var</span> replaced <span style="color:#333">=</span> <span style="color:#007020">document</span>.createElement(<span style="background-color:#fff0f0">&#34;span&#34;</span>);
+    replaced.innerHTML <span style="color:#333">=</span> katex.renderToString(tex, {displayMode<span style="color:#333">:</span> <span style="color:#080;font-weight:bold">false</span>});
+    inlineMath.parentNode.replaceChild(replaced, inlineMath);
+  }
+
+  <span style="color:#080;font-weight:bold">var</span> displayMathArray <span style="color:#333">=</span> <span style="color:#007020">document</span>.querySelectorAll(<span style="background-color:#fff0f0">&#34;script[type=&#39;math/tex; mode=display&#39;]&#34;</span>);
+  <span style="color:#080;font-weight:bold">for</span> (<span style="color:#080;font-weight:bold">var</span> i <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>; i <span style="color:#333">&lt;</span> displayMathArray.length; i<span style="color:#333">++</span>) {
+    <span style="color:#080;font-weight:bold">var</span> displayMath <span style="color:#333">=</span> displayMathArray[i];
+    <span style="color:#080;font-weight:bold">var</span> tex <span style="color:#333">=</span> displayMath.innerHTML;
+    <span style="color:#080;font-weight:bold">var</span> replaced <span style="color:#333">=</span> <span style="color:#007020">document</span>.createElement(<span style="background-color:#fff0f0">&#34;span&#34;</span>);
+    replaced.innerHTML <span style="color:#333">=</span> katex.renderToString(tex.replace(<span style="color:#000;background-color:#fff0ff">/%.*/g</span>, <span style="background-color:#fff0f0">&#39;&#39;</span>), {displayMode<span style="color:#333">:</span> <span style="color:#080;font-weight:bold">true</span>});
+    displayMath.parentNode.replaceChild(replaced, displayMath);
+  }
+&lt;/<span style="color:#070">script</span>&gt;</code></pre></div>
+<p>Here, <code>var inlineMathArray = ...</code> and <code>var displayMathArray = ...</code> are the magic!</p>
+
+<p>For the reasons that I mentioned above, I like to use kramdown, but the Markdown processor is strongly optimized for MathJax. That is, all <code>$</code> or <code>$$</code> in article are automatically converted into <code>&lt;script[type='math/tex']&gt;</code> or <code>&lt;script[type='math/tex; mode=display']&gt;</code> by kramdown, and hence KaTeX cannot find any LaTeX statements.</p>
+
+<p>In order to tackle the problem, <a href="https://kramdown.gettalong.org/math_engine/mathjax.html" target="_blank">KaTeX officially provides workaround</a> which requires us to insert auxiliary JavaScript (jQuery) code after KaTeX itself is loaded. In my case, <code>var inlineMathArray = ...</code> and <code>var displayMathArray = ...</code> are modified version of the workaround code which does not depend on jQuery.</p>
+
+<h3 id="limitation">Limitation</h3>
+
+<p>Now, the entire content rendering flow works well with:</p>
+
+<ul>
+<li>Static site generator <strong>Hugo</strong></li>
+<li>External Markdown processor <strong>kramdown</strong> for Markdown &amp; LaTeX syntax compatibility</li>
+<li>Fast math renderer <strong>KaTeX</strong></li>
+</ul>
+
+<p>However, one thing I have noticed is that, available LaTeX command in KaTeX is limited compared to MathJax. For example, previously I used <code>$\boldsymbol{\phi}$</code> in &ldquo;<a href="https://takuti.me/note/normal-equation/">How to Derive the Normal Equation</a>&rdquo;, but KaTeX does not support the <code>\boldsymbol{}</code> command. So, for now, it has just been replaced the unsupported command with plain <code>\phi</code>.</p>
+
+<p>Anyway, even though KaTeX has some limitations that MathJax does support, its performance is definitely attractive. In particular, we frequently put a lot of equations in an article in a context of machine learning and data science, choosing &ldquo;better&rdquo; math rendering library is important. Therefore, I strongly recommend you to use KaTeX regardless of a way to create your website (e.g., Wordpress, Jekyll, Hexo).</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

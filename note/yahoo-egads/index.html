@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Yahoo!の異常検知フレームワーク&#34;EGADS&#34; | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-09-10
+  </p>
+  <h2>Yahoo!の異常検知フレームワーク&#34;EGADS&#34;</h2>
+
+  <div class="post">
+    
+
+<p>Yahoo!がOSSとして開発している異常検知フレームワーク &ldquo;<strong><a href="https://github.com/yahoo/egads" target="_blank">EGADS</a></strong>&rdquo; (<strong>E</strong>xtensible <strong>G</strong>eneric <strong>A</strong>nomaly <strong>D</strong>etection <strong>S</strong>ystem) について書いた次の論文を読んだ：</p>
+
+<ul>
+<li><a href="http://dl.acm.org/citation.cfm?id=2788611" target="_blank">Generic and Scalable Framework for Automated Time-series Anomaly Detection</a> (KDD 2015)</li>
+</ul>
+
+<p>リアルタイムなデータをモデリングする種のアルゴリズムの実装とはどうあるべきなのか、という話は難しい。</p>
+
+<p>僕も<a href="https://github.com/takuti/anompy" target="_blank">異常検知</a>や<a href="https://github.com/takuti/flurs" target="_blank">情報推薦</a>のためのアルゴリズムをパッケージ化してみてはいるものの、</p>
+
+<ul>
+<li>時系列データの入力、モデリング、予測、出力といったコンポーネントをいかに切り分けて実装するか</li>
+<li>バッチとオンラインアルゴリズムのバランスをいかに取るか</li>
+<li>どこまで自動化して、どこにヒューリスティクスを取り入れる余地を残すか</li>
+</ul>
+
+<p>といった点は本当に悩ましい。その点、この論文は1つの事例としてとても示唆的で、学びの多いものだった。</p>
+
+<h3 id="概要">概要</h3>
+
+<p>大規模な時系列データから自動的に異常を検知してくれる、汎用的かつスケーラブルなフレームワーク &ldquo;EGADS&rdquo; を開発した。これはYahoo!社内のモニタリングシステムの一部として実用されていて、複数データソースから流れ込む数百万の時系列データをさばいている。</p>
+
+<p>昨今の異常検知システムは特定のユースケースに最適化されたものであることが多く、素直に応用すると必ず大量のFalse Positiveとスケーラビリティの問題に直面する。</p>
+
+<p>その点EGADSはHadoopやStormを組み合わせた実践的、スケーラブルかつリアルタイムな異常検知システムであり、複数のアルゴリズム実装と機械学習による“異常”のフィルタリング機構によって幅広い応用が可能。</p>
+
+<h3 id="アーキテクチャ">アーキテクチャ</h3>
+
+<p>EGADSは大きく分けて3つのコンポーネントから成る：</p>
+
+<ol>
+<li><strong>Time-series modeling module</strong> (TMM)
+
+<ul>
+<li>時系列データをモデリングする</li>
+</ul></li>
+<li><strong>Anomaly detection module</strong> (ADM)
+
+<ul>
+<li>モデルに基づいて異常な入力データを検知する</li>
+</ul></li>
+<li><strong>Alerting module</strong> (AM)
+
+<ul>
+<li>検知された異常なデータをフィルタリングして、“ユーザが着目している異常”についてのみアラートを発する</li>
+</ul></li>
+</ol>
+
+<p><img src="https://takuti.me/images/egads/architecture.png" alt="architecture" /></p>
+
+<p>（原論文Fig. 1より）</p>
+
+<ul>
+<li>バッチ
+
+<ol>
+<li>観測した時系列データをHadoopクラスタ上で保持</li>
+<li>TMMが蓄積された観測データをバッチでモデリング</li>
+<li>モデルはModel DBに格納</li>
+</ol></li>
+<li>オンライン
+
+<ol>
+<li>Stormでリアルタイムにデータを見る</li>
+<li>Model DBのモデルを使って観測したデータが異常か否かを検知するモジュール (ADM) をかませる</li>
+<li>異常と判断されたデータはAMで更にフィルタリング、“ユーザが着目している異常”ならばアラート</li>
+</ol></li>
+</ul>
+
+<p>このバッチとオンライン処理の切り分けから、『モデリングに関する計算は可能な限り事前に済ませておく』というスループット/スケーラビリティ向上に対する強い意思がうかがえる。</p>
+
+<p>また、本文で言及されていることとして次のような視点もある：</p>
+
+<ul>
+<li>モデルはインメモリで保持したい
+
+<ul>
+<li>複数の類似する時系列データに対してモデルを共有すれば、余計なモデルを持たなくていい</li>
+</ul></li>
+<li>オンラインアルゴリズムを検討する
+
+<ul>
+<li>モデルのWrite回数が増えるのは注意</li>
+</ul></li>
+<li>サイズ、学習時間、精度のトレードオフを常に意識する</li>
+</ul>
+
+<h3 id="異常検知アルゴリズム">異常検知アルゴリズム</h3>
+
+<p>EGADSは豊富な異常検知アルゴリズムを実装しているが、一口に“異常“と言ってもいくつかのタイプが存在する：</p>
+
+<ul>
+<li>タイプ1: <strong>Outlier</strong>（外れ値）
+
+<ul>
+<li>モデルに基づく予測値から著しくかけ離れている観測<strong>点</strong></li>
+<li>手法1: plug-in method
+
+<ul>
+<li>正常な状態をモデリングして、そこからどれだけ外れているかをみる
+
+<ul>
+<li>ARIMA, Exponential Smoothing, カルマンフィルタなど</li>
+</ul></li>
+<li>「正常なら次の観測値はこれくらいのはず」という予測を機械学習的、もしくはルールベースに基づいて出力</li>
+<li>その結果をADMへ→観測値と予測値の相対誤差に対するthresholdingなどから異常を検知</li>
+</ul></li>
+<li>手法2: decomposition-based
+
+<ul>
+<li>時系列データを<strong>トレンド</strong>、<strong>季節性</strong>、<strong>ノイズ</strong>といったコンポーネントに分解する</li>
+<li>ノイズが通常よりも大きければそれは異常</li>
+</ul></li>
+</ul></li>
+<li>タイプ2: <strong>Change point</strong>（変化点）
+
+<ul>
+<li>データの傾向がその前後で大きく異なる<strong>時刻</strong></li>
+<li>Outlierとの違いは、Change-pointはもっと大域的かつ中長期的な変化を発見する点<br /></li>
+<li>手法としては、Kernel Density Estimationとか</li>
+<li>変化点検知とは「ここまでに作ったモデルで観測データが説明できなくなるタイミング」を見極めることであり、つまり「変化」の定義はどのモデルを使うかに大きく依存する</li>
+</ul></li>
+<li>タイプ3: <strong>Anomalous time-series</strong>
+
+<ul>
+<li>他とは大きく異なる挙動を示す<strong>時系列</strong></li>
+<li>時系列データに対する特徴量 (e.g., trend, seasonality, auto-correlation) から、時系列をクラスタリング</li>
+<li>各クラスタの中心値と観測した時系列の特徴量を比較して<strong>外れ時系列</strong>を発見</li>
+</ul></li>
+</ul>
+
+<h3 id="フィルタリング">フィルタリング</h3>
+
+<p>最適な異常検知アルゴリズムとはユースケース（時系列データ）依存であり、万能なものは存在しない。なのでEGADSはOutlier, Change-point, Anomalous time-seriesのそれぞれを対象とする複数のアルゴリズムからの出力を集約、フィルタリングする。そして、本当に捉えたい異常に対してのみアラートを発することで、False Positiveの削減をねらう。</p>
+
+<p>具体的には、与えられた時系列データに対してユーザが“異常”だと思った部分をマーキングできるインタフェースを提供しているという。このフィードバックとADMの出力ペアに対して『この異常はこのユーザが着目している異常か否か』の分類器を学習し、AMで異常のフィルターとしてつかう。分類器は、Yahoo!の場合はAdaBoost。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>バッチとオンライン処理を組み合わせた現実的なアーキテクチャには好感…というか、こうしないとproductionで実用可能なモノは作れないんだろうなぁ。アルゴリズム自体はオンラインなものも多いけれど、Stormのところでモデルの更新と異常の検知を同時にやっても、あまり嬉しいことは無さそう。</p>
+
+<p>多角的に異常検知を行って、最後に人のフィードバックを取り入れたフィルタリング機構を挟む発想は「なるほど」と思った。すべてを自動化せず、人間が取捨選択する余地を残すこと―機械学習アプリケーション一般に言える、大切な考え方ですね。</p>
+
+<p>なお、実験ではラベリング済みの人工データとYahoo!のユーザログインを集約した時系列のデータに対して、モデルのサイズ、学習時間、精度のトレードオフを確認している。異常検知アルゴリズムはRecallやPrecisionで精度評価して、時系列データの特徴に応じて最適なアルゴリズムが異なることを示している。だからこそ、EGADSは1つのフレームワーク上で複数のアルゴリズムを提供しているというわけだ。No free lunch!</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

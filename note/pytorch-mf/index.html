@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        PyTorchでもMatrix Factorizationがしたい！ | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-10-14
+  </p>
+  <h2>PyTorchでもMatrix Factorizationがしたい！</h2>
+
+  <div class="post">
+    
+
+<p>『<a href="https://takuti.me/note/pytorch-autograd">PyTorchのautogradと仲良くなりたい</a>』でPyTorchに入門したので、応用例としてMatrix FactorizationをPyTorchで実装してみようね <sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>。</p>
+
+<h3 id="matrix-factorization">Matrix Factorization</h3>
+
+<p>Matrix Factorizationは以前『<a href="https://takuti.me/note/coursera-recommender-systems">Courseraの推薦システムのコースを修了した</a>』でも触れたとおり、ユーザ-アイテム間の $m \times n$ 行列を、ユーザの特徴を表す行列 $P \in \mathbb{R}^{m \times k}$ (user factors) とアイテムの特徴を表す行列 $Q \in \mathbb{R}^{n \times k}$ (item factors) に分解する：</p>
+
+<p><img src="https://takuti.me/images/recommender/mf.png" alt="MF" /></p>
+
+<p>これを二乗損失のSGDで素直に実装すると、<code>user_factors</code> と <code>item_factors</code> の更新や評価値予測はこんな感じ：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">MatrixFactorization</span>(<span style="color:#007020">object</span>):
+
+    <span style="color:#080;font-weight:bold">def</span> __init__(self, n_user, n_item, k<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">20</span>, lr<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">1e-6</span>, weight_decay<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">0.</span>):
+        self<span style="color:#333">.</span>user_factors <span style="color:#333">=</span> np<span style="color:#333">.</span>random<span style="color:#333">.</span>rand(n_user, k)
+        self<span style="color:#333">.</span>item_factors <span style="color:#333">=</span> np<span style="color:#333">.</span>random<span style="color:#333">.</span>rand(n_item, k)
+        self<span style="color:#333">.</span>lr <span style="color:#333">=</span> lr
+        self<span style="color:#333">.</span>weight_decay <span style="color:#333">=</span> weight_decay
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">predict</span>(self, user, item):
+        <span style="color:#080;font-weight:bold">return</span> np<span style="color:#333">.</span>inner(self<span style="color:#333">.</span>user_factors[user], self<span style="color:#333">.</span>item_factors[item])
+
+    <span style="color:#080;font-weight:bold">def</span> __call__(self, user, item, rating):
+        err <span style="color:#333">=</span> rating <span style="color:#333">-</span> self<span style="color:#333">.</span>predict(user, item)
+
+        user_factor, item_factor <span style="color:#333">=</span> self<span style="color:#333">.</span>user_factors[user], self<span style="color:#333">.</span>item_factors[item]
+        next_user_factor <span style="color:#333">=</span> user_factor <span style="color:#333">-</span> self<span style="color:#333">.</span>lr <span style="color:#333">*</span> (<span style="color:#333">-</span><span style="color:#60e;font-weight:bold">2.</span> <span style="color:#333">*</span> (err <span style="color:#333">*</span> item_factor <span style="color:#333">-</span> self<span style="color:#333">.</span>weight_decay <span style="color:#333">*</span> user_factor))
+        next_item_factor <span style="color:#333">=</span> item_factor <span style="color:#333">-</span> self<span style="color:#333">.</span>lr <span style="color:#333">*</span> (<span style="color:#333">-</span><span style="color:#60e;font-weight:bold">2.</span> <span style="color:#333">*</span> (err <span style="color:#333">*</span> user_factor <span style="color:#333">-</span> self<span style="color:#333">.</span>weight_decay <span style="color:#333">*</span> item_factor))
+
+        self<span style="color:#333">.</span>user_factors[user], self<span style="color:#333">.</span>item_factors[item] <span style="color:#333">=</span> next_user_factor, next_item_factor
+
+        <span style="color:#080;font-weight:bold">return</span> err</code></pre></div>
+<p>PyTorchを意識して、<code>__call__</code> で予測 <code>predict</code>（PyTorchの <code>forward</code> に相当）が呼ばれるようにした。あるユーザ・アイテムペアに対する予測値はその特徴を表すベクトルの内積で計算されて、それが <code>predict</code>。あと収束判定のために適当に <code>err</code> を返している。</p>
+
+<h3 id="matrix-factorization-in-pytorch">Matrix Factorization in PyTorch</h3>
+
+<p>ではこれをPyTorchで実装するとどうなるか？</p>
+
+<p>モデル本体は <a href="http://pytorch.org/docs/master/nn.html#torch.nn.Module" target="_blank"><code>torch.nn.Module</code></a> を継承して必要なパラメータを持たせた上で、予測関数 <code>forward</code> を定義すればよい：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">torch</span> <span style="color:#080;font-weight:bold">import</span> nn
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">MatrixFactorizationPyTorch</span>(nn<span style="color:#333">.</span>Module):
+
+    <span style="color:#080;font-weight:bold">def</span> __init__(self, n_user, n_item, k<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">20</span>):
+        <span style="color:#007020">super</span>()<span style="color:#333">.</span>__init__()
+
+        self<span style="color:#333">.</span>user_factors <span style="color:#333">=</span> nn<span style="color:#333">.</span>Embedding(n_user, k, sparse<span style="color:#333">=</span>True)
+        self<span style="color:#333">.</span>item_factors <span style="color:#333">=</span> nn<span style="color:#333">.</span>Embedding(n_item, k, sparse<span style="color:#333">=</span>True)
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">forward</span>(self, user, item):
+        <span style="color:#888"># inner product of 1xN and 1xM tensors</span>
+        <span style="color:#080;font-weight:bold">return</span> (self<span style="color:#333">.</span>user_factors(user) <span style="color:#333">*</span> self<span style="color:#333">.</span>item_factors(item))<span style="color:#333">.</span><span style="color:#007020">sum</span>(<span style="color:#00d;font-weight:bold">1</span>)</code></pre></div>
+<p>モデルパラメータ（行列 $P, Q$）はPyTorchでどのように表現するのかというと、<a href="http://pytorch.org/docs/master/nn.html#torch.nn.Embedding" target="_blank"><code>torch.nn.Embedding</code></a> が正解。<code>Embedding</code> は各要素（ユーザやアイテム）を <code>k</code> 次元のベクトルで表現するもので、単語のベクトル表現を考える Word Embedding などで使われる。予測 <code>forward</code> は先ほどと同様に内積。</p>
+
+<p>そしてPyTorch流に“二乗損失のSGD”を準備する：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">torch</span> <span style="color:#080;font-weight:bold">import</span> optim
+
+model <span style="color:#333">=</span> MatrixFactorizationPyTorch(n_user, n_item, k<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">20</span>)
+loss_function <span style="color:#333">=</span> nn<span style="color:#333">.</span>MSELoss()
+optimizer <span style="color:#333">=</span> optim<span style="color:#333">.</span>SGD(model<span style="color:#333">.</span>parameters(), lr<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">1e-2</span>)</code></pre></div>
+<p>SGDの学習率は <code>0.01</code> に設定して、正則化係数は<a href="https://github.com/pytorch/pytorch/blob/master/torch/optim/sgd.py#L50-L51" target="_blank">デフォルト値の0.0</a>で今回は無視。</p>
+
+<p>いざ学習。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">torch</span> <span style="color:#080;font-weight:bold">import</span> autograd
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">as_long_tensor</span>(val):
+    <span style="color:#080;font-weight:bold">return</span> torch<span style="color:#333">.</span>LongTensor([np<span style="color:#333">.</span><span style="color:#007020">long</span>(val)])
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">as_float_tensor</span>(val):
+    <span style="color:#080;font-weight:bold">return</span> torch<span style="color:#333">.</span>FloatTensor([np<span style="color:#333">.</span><span style="color:#007020">long</span>(val)])
+
+last_accum_loss <span style="color:#333">=</span> <span style="color:#007020">float</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;inf&#39;</span>)
+<span style="color:#080;font-weight:bold">for</span> epoch <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">10</span>):  <span style="color:#888"># 最大10反復</span>
+    accum_loss <span style="color:#333">=</span> <span style="color:#60e;font-weight:bold">0.</span>
+
+    <span style="color:#888"># 学習データのシャッフル</span>
+    random<span style="color:#333">.</span>shuffle(samples_train)
+
+    <span style="color:#080;font-weight:bold">for</span> u, i, r <span style="color:#000;font-weight:bold">in</span> samples_train:
+        <span style="color:#888"># PyTorchでは勾配は累積するのでサンプルごとに初期化</span>
+        model<span style="color:#333">.</span>zero_grad()
+
+        <span style="color:#888"># 入力値を `torch.Tensor` でラップして `autograd.Variable` 化</span>
+        user <span style="color:#333">=</span> autograd<span style="color:#333">.</span>Variable(as_long_tensor(u))  <span style="color:#888"># user index</span>
+        item <span style="color:#333">=</span> autograd<span style="color:#333">.</span>Variable(as_long_tensor(i))  <span style="color:#888"># item index</span>
+        rating <span style="color:#333">=</span> autograd<span style="color:#333">.</span>Variable(as_float_tensor(r))  <span style="color:#888"># target</span>
+
+        <span style="color:#888"># forward pass (prediction)</span>
+        prediction <span style="color:#333">=</span> model(user, item)
+
+        <span style="color:#888"># compute loss</span>
+        loss <span style="color:#333">=</span> loss_function(prediction, rating)
+        accum_loss <span style="color:#333">+=</span> loss<span style="color:#333">.</span>data[<span style="color:#00d;font-weight:bold">0</span>]
+
+        <span style="color:#888"># gradient of loss</span>
+        loss<span style="color:#333">.</span>backward()
+
+        <span style="color:#888"># update model parameters</span>
+        optimizer<span style="color:#333">.</span>step()
+
+    <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;MF (PyTorch)&#39;</span>, epoch <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>, accum_loss)
+    <span style="color:#080;font-weight:bold">if</span> <span style="color:#007020">abs</span>(accum_loss <span style="color:#333">-</span> last_accum_loss) <span style="color:#333">&lt;</span> <span style="color:#60e;font-weight:bold">1e-3</span>:  <span style="color:#888"># 収束判定</span>
+        <span style="color:#080;font-weight:bold">break</span>
+    last_accum_loss <span style="color:#333">=</span> accum_loss</code></pre></div>
+<p>（うーん、<a href="https://takuti.me/note/pytorch-autograd">Bag-of-WordsのLogistic Regression</a>でもそうだったけど、やっぱり <code>loss.backward()</code> =&gt; <code>optimizer.step()</code> でパラメータが更新されるのが違和感…セマンティクスはすごく分かりやすいんだけど…。）</p>
+
+<p>Lossの収束判定は、なにかいい関数が用意されていたりしないのかしら？</p>
+
+<p>なにはともあれ、学習後はテスト用サンプルを <code>forward</code> に投げて評価してあげればよろしい：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">accum_absolute_error, accum_squared_error <span style="color:#333">=</span> <span style="color:#60e;font-weight:bold">0.</span>, <span style="color:#60e;font-weight:bold">0.</span>
+
+<span style="color:#080;font-weight:bold">for</span> u, i, r <span style="color:#000;font-weight:bold">in</span> samples_test:
+    user <span style="color:#333">=</span> autograd<span style="color:#333">.</span>Variable(as_long_tensor(u))
+    item <span style="color:#333">=</span> autograd<span style="color:#333">.</span>Variable(as_long_tensor(i))
+
+    prediction <span style="color:#333">=</span> model(user, item)
+
+    accum_absolute_error <span style="color:#333">+=</span> <span style="color:#007020">abs</span>(prediction<span style="color:#333">.</span>data[<span style="color:#00d;font-weight:bold">0</span>] <span style="color:#333">-</span> r)
+    accum_squared_error <span style="color:#333">+=</span> (prediction<span style="color:#333">.</span>data[<span style="color:#00d;font-weight:bold">0</span>] <span style="color:#333">-</span> r) <span style="color:#333">**</span> <span style="color:#00d;font-weight:bold">2</span>
+
+mae <span style="color:#333">=</span> accum_absolute_error <span style="color:#333">/</span> <span style="color:#007020">len</span>(samples_test)
+rmse <span style="color:#333">=</span> np<span style="color:#333">.</span>sqrt(accum_squared_error <span style="color:#333">/</span> <span style="color:#007020">len</span>(samples_test))
+logger<span style="color:#333">.</span>info(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;mf_pytorch : MAE = {}, RMSE = {}&#39;</span><span style="color:#333">.</span>format(mae, rmse))</code></pre></div>
+<h3 id="movielens100kデータセットで評価">MovieLens100kデータセットで評価</h3>
+
+<p><code>torch.nn.MSELoss</code> や <code>torch.optim.SGD</code> の内部実装が入り組んでいるので単純な比較はできないけど、 <code>MatrixFactorization</code> と <code>MatrixFactorizationPyTorch</code> を<a href="https://grouplens.org/datasets/movielens/100k/" target="_blank">MovieLens100kデータセット</a>に対して並列に走らせてみる：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">concurrent</span> <span style="color:#080;font-weight:bold">import</span> futures
+
+samples <span style="color:#333">=</span> load_ml100k()
+n_user, n_item <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">943</span>, <span style="color:#00d;font-weight:bold">1682</span>
+
+<span style="color:#888"># 8:2 train/test splitting</span>
+random<span style="color:#333">.</span>shuffle(samples)
+tail_train <span style="color:#333">=</span> <span style="color:#007020">int</span>(<span style="color:#007020">len</span>(samples) <span style="color:#333">*</span> <span style="color:#60e;font-weight:bold">0.8</span>)
+samples_train <span style="color:#333">=</span> samples[:tail_train]
+samples_test <span style="color:#333">=</span> samples[tail_train:]
+
+<span style="color:#080;font-weight:bold">with</span> futures<span style="color:#333">.</span>ProcessPoolExecutor() <span style="color:#080;font-weight:bold">as</span> executor:
+    f1 <span style="color:#333">=</span> executor<span style="color:#333">.</span>submit(run_mf,
+                         samples_train<span style="color:#333">.</span>copy(), samples_test<span style="color:#333">.</span>copy(),
+                         n_user, n_item)
+    f2 <span style="color:#333">=</span> executor<span style="color:#333">.</span>submit(run_mf_pytorch,
+                         samples_train<span style="color:#333">.</span>copy(), samples_test<span style="color:#333">.</span>copy(),
+                         n_user, n_item)
+    f1<span style="color:#333">.</span>result()
+    f2<span style="color:#333">.</span>result()</code></pre></div>
+<p>（<a href="https://takuti.me/note/python-concurrent-futures">ちゃっかり <code>concurrent.futures</code> をつかう</a>）</p>
+
+<p>サンプルをランダムに 8:2 に分割して学習→評価した結果のログをベタ貼り：</p>
+
+<pre><code>2017-10-15 11:18:47,507 : 56939 : mf : start training
+2017-10-15 11:18:47,562 : 56940 : mf_pytorch : start training
+2017-10-15 11:18:48,678 : 56939 : mf : epoch =  1, accum. error = -45789.66409319061
+2017-10-15 11:18:49,840 : 56939 : mf : epoch =  2, accum. error = -12041.007133098823
+2017-10-15 11:18:50,960 : 56939 : mf : epoch =  3, accum. error = -6923.305935895317
+2017-10-15 11:18:52,189 : 56939 : mf : epoch =  4, accum. error = -5214.0920045187595
+2017-10-15 11:18:53,321 : 56939 : mf : epoch =  5, accum. error = -4122.734085365226
+2017-10-15 11:18:54,488 : 56939 : mf : epoch =  6, accum. error = -3645.943440005198
+2017-10-15 11:18:55,552 : 56939 : mf : epoch =  7, accum. error = -3095.084360349924
+2017-10-15 11:18:56,579 : 56939 : mf : epoch =  8, accum. error = -2590.545763977188
+2017-10-15 11:18:57,615 : 56939 : mf : epoch =  9, accum. error = -2264.0065333911293
+2017-10-15 11:18:58,647 : 56939 : mf : epoch = 10, accum. error = -1896.1488359146224
+2017-10-15 11:18:58,689 : 56939 : mf : MAE = 0.7915793587489275, RMSE = 1.004901038047285
+2017-10-15 11:19:18,397 : 56940 : mf_pytorch : epoch =  1, accum. loss = 821542.0316947281
+2017-10-15 11:19:48,678 : 56940 : mf_pytorch : epoch =  2, accum. loss = 111527.39108898955
+2017-10-15 11:20:20,034 : 56940 : mf_pytorch : epoch =  3, accum. loss = 80923.26652375316
+2017-10-15 11:20:49,565 : 56940 : mf_pytorch : epoch =  4, accum. loss = 70970.1188818557
+2017-10-15 11:21:20,992 : 56940 : mf_pytorch : epoch =  5, accum. loss = 65501.150555915694
+2017-10-15 11:21:51,124 : 56940 : mf_pytorch : epoch =  6, accum. loss = 61922.87653761433
+2017-10-15 11:22:22,616 : 56940 : mf_pytorch : epoch =  7, accum. loss = 59274.52360257249
+2017-10-15 11:22:53,081 : 56940 : mf_pytorch : epoch =  8, accum. loss = 56991.90325296985
+2017-10-15 11:23:24,136 : 56940 : mf_pytorch : epoch =  9, accum. loss = 55083.32001617526
+2017-10-15 11:23:54,136 : 56940 : mf_pytorch : epoch = 10, accum. loss = 53449.870972165234
+2017-10-15 11:23:55,636 : 56940 : mf_pytorch : MAE = 0.9408608486979502, RMSE = 1.269512231434858
+</code></pre>
+
+<p><del>PyTorch遅ぇ！</del> <code>MatrixFactorizationPyTorch</code> が1エポックを終えるよりも前に、<code>MatrixFactorization</code> は評価まで終了してしまう。手計算可能なシンプルな勾配を無理矢理 <code>torch.autograd</code> に計算させているのだから、当然といえば当然の結果か。それとも何か勘違いがあるのかな。このあたりは <code>torch.nn</code> や <code>torch.optim</code> をさらに詳しく見る必要がありそう。</p>
+
+<p>精度はまぁこんなもんでしょう。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>ユーザ、アイテムの因子行列を <code>torch.nn.Embedding</code> で表現して、<code>torch.optim.SGD</code> と <code>torch.nn.MSELoss</code> を利用すればMatrix FactorizationもPyTorchで実装できた。この3点以外は<a href="https://takuti.me/note/pytorch-autograd">Bag-of-WordsのLogistic Regression</a>とほぼ変わらず。このようなコードフローの明解さがPyTorchの強みでもある。</p>
+
+<p>ただ、これはあくまでPyTorchの“気持ち”を知るための一例に留めておくべきだろう。MFのようなシンプルなアルゴリズムにわざわざPyTorchを利用するのは、処理の過度なブラックボックス化という点において、あまり現実的ではないと思う。</p>
+
+<p>とはいえ、少し設定（損失関数など）を変えれば発展的なMatrix Factorizationに化けたり、AdaGradやAdamのようなより良い最適化スキームをカジュアルに試せる点は魅力的である。このことは頭の片隅にしっかりおいておこう。</p>
+
+<p>今回に使ったコードは<a href="https://github.com/takuti-sandbox/tmp/blob/e84d8d2489eeb9f2eb9c8a09fb47f83f1f4af2e2/python/pytorch/mf.py" target="_blank">こちら</a>。</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1"><a href="http://blog.ethanrosenthal.com/2017/06/20/matrix-factorization-in-pytorch/" target="_blank">先駆者がいたので</a>大枠はそれに従っているけど、微妙なところもあったのでちょいちょい修正している。
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

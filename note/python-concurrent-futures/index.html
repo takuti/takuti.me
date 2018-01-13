@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Pythonのconcurrent.futuresを試す | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-10-01
+  </p>
+  <h2>Pythonのconcurrent.futuresを試す</h2>
+
+  <div class="post">
+    
+
+<p><a href="https://takuti.me/note/euroscipy-2017">EuroScipy 2017</a> でPythonの <a href="https://docs.python.org/3/library/concurrent.futures.html" target="_blank"><code>concurrent.futures</code></a> についての話を聞いたので、改めて調べてみた。</p>
+
+<p>2系まではPythonの並列処理といえば標準の <code>multiprocessing.Pool</code> が定番だったけど、3系からは新たなインタフェースとして <code>concurrent.futures</code> という選択肢もふえた。</p>
+
+<p>Scalaなんかでおなじみの <strong>Future</strong> とは、並行処理の結果を参照する存在。Pythonの Future <code>f = concurrent.futures.Future()</code> は処理の『実行中 <code>f.running()</code> 』『キャンセル済み <code>f.canceled()</code> 』『完了 <code>f.done()</code> 』といった“状態”を参照するメソッドを提供している。そして <code>f.result()</code> を呼べば完了までブロッキング。</p>
+
+<p>実際には、非同期処理は <code>Executor</code> オブジェクトによってスケジューリングされる。このときマルチスレッドなら <code>ThreadPoolExecutor</code>、マルチプロセスなら <code>ProcessPoolExecutor</code> を使う。</p>
+
+<h3 id="マルチスレッド-threadpoolexecutor">マルチスレッド: <code>ThreadPoolExecutor</code></h3>
+
+<p>スレッドプールを利用した並列化。</p>
+
+<p>重要なのは、たとえ複数スレッドで処理を実行しても、<strong>ワーカーたちは1つのインタプリタを共有している</strong>点。これによりメモリオーバーヘッドが小さい、spawnが早い、ワーカー間の同期が不要といった意味で、処理の効率的な非同期呼び出しが期待できる。</p>
+
+<p>しかし同時に、Pythonには <strong><a href="https://wiki.python.org/moin/GlobalInterpreterLock" target="_blank">Global Interpreter Lock</a></strong> (GIL) という mutex があり、1つのインタプリタ上では同時に1スレッドからしかリソースにアクセスできないという制約がある。なので <code>ThreadPoolExecutor</code> による並列化は、CPU-boundedな処理に対しては必ずしも有効とは言えない。</p>
+
+<p>これは過度な制約だという見方もあり、numpy, pandas, sklearn といった有名ライブラリは <code>with nogil</code> を付与したコンパイルによってGILフリーなマルチスレッド処理を（部分的に）行っていたりするらしい。</p>
+
+<h3 id="マルチプロセス-processpoolexecutor">マルチプロセス: <code>ProcessPoolExecutor</code></h3>
+
+<p>一方で、プロセスレベルの並列化では各ワーカーが自分だけのインタプリタを持つ。</p>
+
+<p>これによりマルチスレッドと比較するとspawnが遅く、メモリオーバーヘッドが大きく、プロセス間で同期をとる必要が生じてしまうが、GILに縛られない並列化が可能となる。</p>
+
+<p>従来 <code>multiprocessing.Pool()</code> でプロセスプールを作って実現していた並列化はこちらに相当する。</p>
+
+<h3 id="試す">試す</h3>
+
+<p>では、1秒wait()×2回をシングルスレッド、マルチスレッド、マルチプロセスそれぞれで試してみよう：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">time</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">concurrent</span> <span style="color:#080;font-weight:bold">import</span> futures
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">wait</span>():
+    time<span style="color:#333">.</span>sleep(<span style="color:#00d;font-weight:bold">1</span>)
+
+
+<span style="color:#080;font-weight:bold">if</span> __name__ <span style="color:#333">==</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;__main__&#39;</span>:
+    start <span style="color:#333">=</span> time<span style="color:#333">.</span>time()
+    wait()
+    wait()
+    end <span style="color:#333">=</span> time<span style="color:#333">.</span>time()
+    <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Single: elapsed time = {}&#39;</span><span style="color:#333">.</span>format(end <span style="color:#333">-</span> start))
+
+    start <span style="color:#333">=</span> time<span style="color:#333">.</span>time()
+    <span style="color:#080;font-weight:bold">with</span> futures<span style="color:#333">.</span>ThreadPoolExecutor() <span style="color:#080;font-weight:bold">as</span> executor:
+        f1 <span style="color:#333">=</span> executor<span style="color:#333">.</span>submit(wait)
+        f2 <span style="color:#333">=</span> executor<span style="color:#333">.</span>submit(wait)
+        f1<span style="color:#333">.</span>result()
+        f2<span style="color:#333">.</span>result()
+    end <span style="color:#333">=</span> time<span style="color:#333">.</span>time()
+    <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Multi-thread: elapsed time = {}&#39;</span><span style="color:#333">.</span>format(end <span style="color:#333">-</span> start))
+
+    start <span style="color:#333">=</span> time<span style="color:#333">.</span>time()
+    <span style="color:#080;font-weight:bold">with</span> futures<span style="color:#333">.</span>ProcessPoolExecutor() <span style="color:#080;font-weight:bold">as</span> executor:
+        f1 <span style="color:#333">=</span> executor<span style="color:#333">.</span>submit(wait)
+        f2 <span style="color:#333">=</span> executor<span style="color:#333">.</span>submit(wait)
+        f1<span style="color:#333">.</span>result()
+        f2<span style="color:#333">.</span>result()
+    end <span style="color:#333">=</span> time<span style="color:#333">.</span>time()
+    <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Multi-process: elapsed time = {}&#39;</span><span style="color:#333">.</span>format(end <span style="color:#333">-</span> start))</code></pre></div>
+<p><code>executor.submit()</code> でタスクのスケジューリングをして、返ってきた <code>Future</code> オブジェクトが完了するまで <code>result()</code> で処理をブロックする。</p>
+
+<p>結果：</p>
+
+<pre><code>$ python wait.py
+Single:        elapsed time = 2.0102460384368896
+Multi-thread:  elapsed time = 1.0070040225982666
+Multi-process: elapsed time = 1.0193650722503662
+</code></pre>
+
+<p>並列処理のパワーを感じる。</p>
+
+<p>次に、<a href="https://docs.python.org/3/library/concurrent.futures.html#processpoolexecutor-example" target="_blank">大きい数の素数判定を並列に行う公式ドキュメントの例</a>を試してみる：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">concurrent.futures</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">math</span>
+
+PRIMES <span style="color:#333">=</span> [
+    <span style="color:#00d;font-weight:bold">112272535095293</span>,
+    <span style="color:#00d;font-weight:bold">112582705942171</span>,
+    <span style="color:#00d;font-weight:bold">112272535095293</span>,
+    <span style="color:#00d;font-weight:bold">115280095190773</span>,
+    <span style="color:#00d;font-weight:bold">115797848077099</span>,
+    <span style="color:#00d;font-weight:bold">1099726899285419</span>]
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">is_prime</span>(n):
+    <span style="color:#080;font-weight:bold">if</span> n <span style="color:#333">%</span> <span style="color:#00d;font-weight:bold">2</span> <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">0</span>:
+        <span style="color:#080;font-weight:bold">return</span> False
+
+    sqrt_n <span style="color:#333">=</span> <span style="color:#007020">int</span>(math<span style="color:#333">.</span>floor(math<span style="color:#333">.</span>sqrt(n)))
+    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">3</span>, sqrt_n <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">2</span>):
+        <span style="color:#080;font-weight:bold">if</span> n <span style="color:#333">%</span> i <span style="color:#333">==</span> <span style="color:#00d;font-weight:bold">0</span>:
+            <span style="color:#080;font-weight:bold">return</span> False
+    <span style="color:#080;font-weight:bold">return</span> True
+
+
+<span style="color:#080;font-weight:bold">if</span> __name__ <span style="color:#333">==</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;__main__&#39;</span>:
+    <span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">time</span>
+
+    start <span style="color:#333">=</span> time<span style="color:#333">.</span>time()
+    <span style="color:#080;font-weight:bold">for</span> number, prime <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">zip</span>(PRIMES, <span style="color:#007020">map</span>(is_prime, PRIMES)):
+        <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;</span><span style="background-color:#eee">%d</span><span style="background-color:#fff0f0"> is prime: </span><span style="background-color:#eee">%s</span><span style="background-color:#fff0f0">&#39;</span> <span style="color:#333">%</span> (number, prime))
+    end <span style="color:#333">=</span> time<span style="color:#333">.</span>time()
+    <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Single:        elapsed time = {}&#39;</span><span style="color:#333">.</span>format(end <span style="color:#333">-</span> start))
+
+    start <span style="color:#333">=</span> time<span style="color:#333">.</span>time()
+    <span style="color:#080;font-weight:bold">with</span> concurrent<span style="color:#333">.</span>futures<span style="color:#333">.</span>ThreadPoolExecutor() <span style="color:#080;font-weight:bold">as</span> executor:
+        <span style="color:#080;font-weight:bold">for</span> number, prime <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">zip</span>(PRIMES, executor<span style="color:#333">.</span><span style="color:#007020">map</span>(is_prime, PRIMES)):
+            <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;</span><span style="background-color:#eee">%d</span><span style="background-color:#fff0f0"> is prime: </span><span style="background-color:#eee">%s</span><span style="background-color:#fff0f0">&#39;</span> <span style="color:#333">%</span> (number, prime))
+    end <span style="color:#333">=</span> time<span style="color:#333">.</span>time()
+    <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Multi-thread:  elapsed time = {}&#39;</span><span style="color:#333">.</span>format(end <span style="color:#333">-</span> start))
+
+    start <span style="color:#333">=</span> time<span style="color:#333">.</span>time()
+    <span style="color:#080;font-weight:bold">with</span> concurrent<span style="color:#333">.</span>futures<span style="color:#333">.</span>ProcessPoolExecutor() <span style="color:#080;font-weight:bold">as</span> executor:
+        <span style="color:#080;font-weight:bold">for</span> number, prime <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">zip</span>(PRIMES, executor<span style="color:#333">.</span><span style="color:#007020">map</span>(is_prime, PRIMES)):
+            <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;</span><span style="background-color:#eee">%d</span><span style="background-color:#fff0f0"> is prime: </span><span style="background-color:#eee">%s</span><span style="background-color:#fff0f0">&#39;</span> <span style="color:#333">%</span> (number, prime))
+    end <span style="color:#333">=</span> time<span style="color:#333">.</span>time()
+    <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Multi-process: elapsed time = {}&#39;</span><span style="color:#333">.</span>format(end <span style="color:#333">-</span> start))</code></pre></div>
+<p>判定対象の数を <code>is_prime()</code> に <code>executor.map</code> して呼ぶ。使い方は通常の <code>map</code> や <code>multiprocessing.Pool.map</code> と同じ。</p>
+
+<pre><code>$ python prime.py
+112272535095293 is prime: True
+112582705942171 is prime: True
+112272535095293 is prime: True
+115280095190773 is prime: True
+115797848077099 is prime: True
+1099726899285419 is prime: False
+Single:        elapsed time = 2.9173738956451416
+...
+Multi-thread:  elapsed time = 3.619951009750366
+...
+Multi-process: elapsed time = 1.7795209884643555
+</code></pre>
+
+<p>結果は、シングルスレッド vs マルチプロセスでは処理時間が期待通り短縮されているが、マルチスレッドはむしろシングルスレッドよりも遅い。これがGILの罠。CPU-boundedな処理の <code>ThreadPoolExecutor</code> による並列化は期待を裏切る。</p>
+
+<h3 id="q-結局どれを使って並列化すべきなのか">Q. 結局どれを使って並列化すべきなのか</h3>
+
+<p>（僕の観測範囲では）機械学習系の論文の<del>割と雑な</del>コードがGitHubで公開されていると、それはたいてい <code>multiprocessing.Pool</code> を使っている気がするけど、それで本当に良いのだろうか。</p>
+
+<p><code>concurrent.futures</code> を紹介してくれた EuroScipy 2017 のトークの本題は、<code>concurrent.futures</code> をロバストにした Executor <strong><a href="https://github.com/tomMoral/loky" target="_blank">loky</a></strong> の紹介だった <sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>。というわけで、この先は loky と <code>concurrent.futures</code> の違いを知った上で、未だに広く使われている <code>multiprocessing.Pool</code> も含めて、「結局どれを使うべきなのか」ということを考える必要がある <sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup>。</p>
+
+<p>というわけで、続きます。</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">なんと <a href="https://github.com/joblib/joblib/blob/master/joblib/parallel.py#L47" target="_blank"><code>joblib.Parallel</code> の正体は loky らしい</a>。知らなかった…。
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">まぁなんとなく、「joblibを使おう」みたいな結論になりそうな気がする。
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

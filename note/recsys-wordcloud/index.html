@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Understanding Research Trends in Recommender Systems from Word Cloud | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-11-11
+  </p>
+  <h2>Understanding Research Trends in Recommender Systems from Word Cloud</h2>
+
+  <div class="post">
+    
+
+<p>The field of recommender systems grows rapidly according to the recent development of practical intelligent systems. However, even though the field is exceptionally practical compared to the other computer-science-related topics, many researchers are actively studying recommendation techniques in their lab. Here is a question: <strong><em>what are the research trends in recommender systems?</em></strong></p>
+
+<p>I tried to understand the trends from word cloud by using abstract of papers accepted for <a href="https://recsys.acm.org/" target="_blank">ACM RecSys Conference</a>, one of the biggest major conferences on recommendation systems.</p>
+
+<h3 id="collecting-abstract-of-accepted-papers">Collecting abstract of accepted papers</h3>
+
+<p>Luckily, abstract of accepted RecSys papers are well-formatted on the web page in terms of HTML structure e.g., <a href="https://recsys.acm.org/recsys17/accepted-contributions/" target="_blank">RecSys 2017 Accepted Contributions</a>. So, first we collect the data in a text format by using a scraping tool, especially <a href="https://scrapy.org/" target="_blank">Scrapy</a> in this article:</p>
+
+<pre><code>$ pip install scrapy
+</code></pre>
+
+<p>Using Scrapy is quite easy; what I need to do is to implement a scraping module named &ldquo;Spider&rdquo;:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">scrapy</span>
+
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">RecSysSpider</span>(scrapy<span style="color:#333">.</span>Spider):
+    name <span style="color:#333">=</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;recsys-spider&#39;</span>
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">start_requests</span>(self):
+        self<span style="color:#333">.</span>abstract_index <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
+
+        <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> <span style="color:#007020">hasattr</span>(self, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;yy&#39;</span>):
+            self<span style="color:#333">.</span>yy <span style="color:#333">=</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;17&#39;</span>
+        <span style="color:#080;font-weight:bold">elif</span> self<span style="color:#333">.</span>yy <span style="color:#333">==</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;14&#39;</span>:
+            self<span style="color:#333">.</span>abstract_index <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">2</span>
+        <span style="color:#080;font-weight:bold">elif</span> self<span style="color:#333">.</span>yy <span style="color:#000;font-weight:bold">not</span> <span style="color:#000;font-weight:bold">in</span> [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;14&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;15&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;16&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;17&#39;</span>]:
+            <span style="color:#080;font-weight:bold">raise</span> <span style="color:#f00;font-weight:bold">ValueError</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Invalid year: &#39;</span> <span style="color:#333">+</span> self<span style="color:#333">.</span>yy)
+
+        url <span style="color:#333">=</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;https://recsys.acm.org/recsys{}/accepted-contributions/&#39;</span><span style="color:#333">.</span>format(self<span style="color:#333">.</span>yy)
+        <span style="color:#080;font-weight:bold">yield</span> scrapy<span style="color:#333">.</span>Request(url, self<span style="color:#333">.</span>parse)
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">parse</span>(self, response):
+        <span style="color:#080;font-weight:bold">for</span> elem <span style="color:#000;font-weight:bold">in</span> response<span style="color:#333">.</span>css(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;ul.accordion li&#39;</span>):
+            <span style="color:#080;font-weight:bold">yield</span> {<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;abstract&#39;</span>: elem<span style="color:#333">.</span>css(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;div p ::text&#39;</span>)<span style="color:#333">.</span>extract()[self<span style="color:#333">.</span>abstract_index]<span style="color:#333">.</span>strip()}</code></pre></div>
+<p>This Spider module allows users to pass an argument <code>yy</code> to specify which year&rsquo;s RecSys abstract you want to get.</p>
+
+<p>Once a user executes the module in a command-line, a list of abstract sentences is stored into a CSV file:</p>
+
+<pre><code>$ scrapy runspider recsys_spider.py -a yy=17 -o csv/recsys17.csv
+</code></pre>
+
+<p>Since the well-structured &ldquo;accepted contributions&rdquo; page only exists from RecSys 2014 to 2017, the argument <code>yy</code> simply has the 4 options. Note that utilizing <code>xargs</code> might be helpful to get all of the four years&rsquo; abstract of papers:</p>
+
+<pre><code>$ echo 14 15 16 17 | xargs -n 1 -I{} scrapy runspider recsys_spider.py -a yy={} -o out/recsys{}.csv
+</code></pre>
+
+<h3 id="creating-word-cloud">Creating word cloud</h3>
+
+<p><a href="https://github.com/amueller/word_cloud" target="_blank">A word cloud generator written in Python</a> provides us a really simple way to create visually stimulating word cloud from text data:</p>
+
+<pre><code>$ pip install wordcloud
+</code></pre>
+
+<p>In fact, the generator can be used inside of our Python code, but, in this article, we just use its command-line tool as follows, for the sake of simplicity:</p>
+
+<pre><code>$ wordcloud_cli.py --text input.csv --imagefile output.png
+</code></pre>
+
+<p>Let&rsquo;s create word cloud images from the aggregated abstract of 4 years&rsquo; RecSys papers:</p>
+
+<pre><code>$ echo 14 15 16 17 | xargs -n 1 -I{} wordcloud_cli.py --text csv/recsys{}.csv --imagefile png/recsys{}.png
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="center">Year</th>
+<th align="center">Word Cloud</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">2014</td>
+<td align="center"><img src="https://takuti.me/images/wordcloud/recsys2014-raw.png" alt="2014-raw" /></td>
+</tr>
+
+<tr>
+<td align="center">2015</td>
+<td align="center"><img src="https://takuti.me/images/wordcloud/recsys2015-raw.png" alt="2015-raw" /></td>
+</tr>
+
+<tr>
+<td align="center">2016</td>
+<td align="center"><img src="https://takuti.me/images/wordcloud/recsys2016-raw.png" alt="2016-raw" /></td>
+</tr>
+
+<tr>
+<td align="center">2017</td>
+<td align="center"><img src="https://takuti.me/images/wordcloud/recsys2017-raw.png" alt="2017-raw" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Okay&hellip;the result is trivial&hellip; Everyone commonly uses the terminology of this field such as &ldquo;recommendation,&rdquo; &ldquo;model,&rdquo; &ldquo;user,&rdquo; and &ldquo;item&rdquo; to write their abstract.</p>
+
+<p>In order to make the word cloud images more meaningful, we can use custom stop words, a list of words that we do not want to use to create the images. To give an example, below I list some frequently used terms which has to be omitted:</p>
+
+<pre><code>user
+users
+item
+items
+recommendation
+recommendations
+model
+models
+content
+based
+algorithm
+algorithms
+recommender
+system
+systems
+data
+method
+using
+new
+show
+use
+proposed
+result
+paper
+information
+propose
+approach
+approaches
+dataset
+technique
+techniques
+provide
+different
+problem
+methods
+method
+one
+two
+present
+work
+task
+results
+However
+feature
+preference
+preferences
+</code></pre>
+
+<p>(Complete list with more meaningless terms like preposition can be found <a href="https://github.com/takuti-sandbox/tmp/blob/12b2c4c1c1f60de05e78bb60fc8d84d99cf16385/python/recsys-word-cloud/stopwords.txt" target="_blank">here</a>.)</p>
+
+<p>Again, create word cloud images with <code>--stopwords</code> option:</p>
+
+<pre><code>$ echo 14 15 16 17 | xargs -n 1 -I{} wordcloud_cli.py --text csv/recsys{}.csv --imagefile png/recsys{}.png --stopwords stopwords.txt
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="center">Year</th>
+<th align="center">Word Cloud</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">2014</td>
+<td align="center"><img src="https://takuti.me/images/wordcloud/recsys2014.png" alt="2014" /></td>
+</tr>
+
+<tr>
+<td align="center">2015</td>
+<td align="center"><img src="https://takuti.me/images/wordcloud/recsys2015.png" alt="2015" /></td>
+</tr>
+
+<tr>
+<td align="center">2016</td>
+<td align="center"><img src="https://takuti.me/images/wordcloud/recsys2016.png" alt="2016" /></td>
+</tr>
+
+<tr>
+<td align="center">2017</td>
+<td align="center"><img src="https://takuti.me/images/wordcloud/recsys2017.png" alt="2017" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Yay, it looks much more interesting :)</p>
+
+<h3 id="trends-from-rating-to-more-realistic-scenario">Trends: From rating to more realistic scenario</h3>
+
+<p>Historically, the study on recommender systems starts from user-item rating matrix as what the <a href="https://movielens.org/" target="_blank">GroupLens</a> research group did on the <a href="https://movielens.org/" target="_blank">MovieLens</a> data. More specifically, a term &ldquo;recommender systems&rdquo; simply refers one well-known technique named <strong><a href="https://en.wikipedia.org/wiki/Collaborative_filtering" target="_blank">Collaborative Filtering</a></strong> (or <strong>Matrix Factorization</strong> in some sense).</p>
+
+<p>Here, see the word cloud from 2014 and 2015 papers; we can observe that research related to &ldquo;<strong>rating</strong>&rdquo; data played an important role until a couple of years ago.</p>
+
+<p>In addition, we can easily find the name of classical, powerful techniques, &ldquo;<strong>matrix factorization</strong>&rdquo; and &ldquo;<strong>collaborative filtering</strong>,&rdquo; in the images. (These are a little bit small and have unreadable dark colors, though.)</p>
+
+<p>On the other hand, in 2016 and 2017, &ldquo;<strong>rating</strong>&rdquo; gets much smaller than the past two years, and it is really hard (and impossible for me) to look for &ldquo;<strong>matrix factorization</strong>&rdquo; and/or &ldquo;<strong>collaborative filtering</strong>.&rdquo;</p>
+
+<p>Instead of the well-known type of data and techniques, words in the 2016 and 2017 images demonstrate how researchers focused more on realistic tasks:</p>
+
+<ul>
+<li><strong>Online</strong>
+
+<ul>
+<li>Online, incremental setting for building recommendation model</li>
+<li>Online services</li>
+</ul></li>
+<li><strong>Group</strong>
+
+<ul>
+<li>Group recommendation</li>
+</ul></li>
+<li><strong>Review</strong></li>
+<li><strong>Product</strong>
+
+<ul>
+<li>Data from real-world services such as e-commerce</li>
+</ul></li>
+</ul>
+
+<p>Of course, we cannot conclude by just using the limited amount of data, and some actual trends are very similar to the field of machine learning e.g., deep learning for recommender systems. However, at the same time, I strongly believe that recommender research focuses more and more on realistic scenarios in the future as the word cloud illustrates.</p>
+
+<p>Data for the highly practical applications always comes from a wide variety of real-world user-item interactions, and it is not limited to ratings on a 2-dimensional matrix.</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

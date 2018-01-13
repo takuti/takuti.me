@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        なぜSparkか | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-04-09
+  </p>
+  <h2>なぜSparkか</h2>
+
+  <div class="post">
+    
+
+<p>今週から Coursera の <a href="https://www.coursera.org/learn/scala-spark-big-data" target="_blank">Big Data Analysis with Scala and Spark</a> を受講している。その初回で出てきた &ldquo;<em>Why Scala? Why Spark?</em>&rdquo; に関する議論をざっくりとまとめる。（導入なので『RDDとは』みたいな話はしない）</p>
+
+<p><a href="http://stackoverflow.com/insights/survey/2016#technology-top-paying-tech" target="_blank">Stack Overflow Developer Survey 2016 &ldquo;Top Paying Tech in US&rdquo;</a> を見ると、なんと上位2つが Spark と Scala になっている：</p>
+
+<p><img src="https://takuti.me/images/why-spark/top-paying-tech.png" alt="top-paying-tech" /></p>
+
+<p>なぜこんなに人気なのか？</p>
+
+<p>時はビッグデータ戦国時代、もちろん「大規模データを効率的に処理できるから」という事実が一因であることは言うまでもない。しかし、それ以上に強調すべき点がある。</p>
+
+<h3 id="developer-productivity">Developer Productivity</h3>
+
+<p><a href="http://www.heather.miller.am/" target="_blank">Dr. Heather Miller</a> いわく Scala, Spark を選択する理由は、それらが <strong>開発者の生産性向上</strong> に寄与するから。ここで言う開発者とは、並列分散環境下にあるビッグデータを処理する、何らかのコードを書く人々を指す。</p>
+
+<p>実アプリケーションで Scala を選択するモチベーションとして、関数型パラダイムの恩恵を受けた豊富なコレクション操作 (e.g., <code>reduce()</code>, <code>fold()</code>, <code>map()</code>, <code>filter()</code>) とその表現力が挙げられると思う。</p>
+
+<p>Spark上では（ほぼ）同一のインタフェースで分散データに対する処理が記述できる。これが重要。</p>
+
+<p>シングルノードのときの通常のScalaコレクションに対する処理が</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">singleCollection<span style="color:#333">.</span>map<span style="color:#333">(</span>v <span style="color:#080;font-weight:bold">=&gt;</span> f<span style="color:#333">(</span>v<span style="color:#333">))</span></code></pre></div>
+<p>だとすれば、同様の処理を Spark 上で書いても、それは</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">distributedData<span style="color:#333">.</span>map<span style="color:#333">(</span>v <span style="color:#080;font-weight:bold">=&gt;</span> f<span style="color:#333">(</span>v<span style="color:#333">))</span></code></pre></div>
+<p>と書ける。ある大規模分散データに対して、<strong>まるでそれがローカルデータであるかのようにインタラクティブに処理を適用できる</strong>、これが Scala + Spark によって得られる生産性につながっているのだ。</p>
+
+<h3 id="データサイエンスとの親和性の高さ">データサイエンスとの親和性の高さ</h3>
+
+<p>ありがちな &ldquo;小規模な&rdquo; データサイエンス/解析業務は、R や Python, MATLAB で完結していた。アルゴリズム開発の段階ではそれで十分かもしれないが、それを実アプリケーションの上で実装しようとするとスケーラビリティが問題になる。つまり、<strong>いかに &ldquo;大規模な&rdquo; データサイエンスを実践するか</strong>、という話になる。</p>
+
+<p>ここでポイントとなるのが、機械学習アルゴリズムの多くが <strong>イテレーション</strong>（ループ）を必要とする点。線形回帰であれニューラルネットワークであれ、パラメータを求めて、誤差を計算して、誤差を小さくするようにパラメータを少しだけ更新して、という処理を繰り返すことになる。</p>
+
+<p>その点、通常のコレクション操作同様にコードが書ける Spark + Scala であれば恐れることは何も無い。</p>
+
+<p>一方、Hadoop/MapReduce はどうだろうか。Map と Reduce というシンプルな API は魅力的だが、そのパラダイム上での各種機械学習アルゴリズムの実装は自明ではない。これはデータサイエンスをスケールさせる上で好ましいとは言えない。</p>
+
+<h3 id="レイテンシで-hadoop-mapreduce-に勝る">レイテンシで Hadoop/MapReduce に勝る</h3>
+
+<p>僕らは大規模分散データを &ldquo;効率的に&rdquo; 処理したい。では、Spark と Hadoop/MapReduce はどちらが早いのか。このとき比較すべきは『耐障害性をどのように担保し、そのために必要な処理をどこで行っているのか』という点：</p>
+
+<ul>
+<li>インメモリの処理</li>
+<li>ディスクに対する処理（インメモリより100倍遅い）</li>
+<li>ネットワークを介した処理（インメモリより1,000,000倍遅い）</li>
+</ul>
+
+<p>処理を行うノードの数が何百何千と増えたとき、当然途中のノードが死ぬ可能性は高くなる。そのとき、どのように処理を復帰させるのか。</p>
+
+<p>Hadoop/MapReduce の場合、Map処理とReduce処理の間でデータをシャッフルして、<strong>中間データをディスクに書き出す</strong>ことで潜在的な処理の失敗に備えている。このディスクに対する処理の時間的コストは大きい。</p>
+
+<p>では Scala + Spark はどうか。このとき僕らは関数型パラダイムの恩恵を受け、<strong>データを immutable かつインメモリで処理する</strong>ことができる。つまり様々なデータ操作が、immutable なデータに対する変換操作のチェインで書ける。Spark は、仮にどこかのノードが死んだら対象データに対してそれらの変換操作を再実行すればよい、というアイディアで耐障害性を担保している。中間データのディスク書き出しなどは存在せず、すべてがインメモリで完結する。結果として、避けて通れないネットワークを介した処理も Spark のほうが少なく抑えることができる。</p>
+
+<p><a href="https://spark.apache.org/" target="_blank">Sparkのホームページ</a>のトップでは、Spark が Hadoop より遥かに早くロジスティック回帰を処理できると言っている。詳細は &ldquo;<a href="https://blog.cloudera.com/blog/2014/03/apache-spark-a-delight-for-developers/" target="_blank">Apache Spark: A Delight for Developers</a>&rdquo; に書かれていて、イテレーションあたりの処理時間を比較するとその差は歴然：</p>
+
+<p><img src="https://takuti.me/images/why-spark/lr-iterations.png" alt="lr-iterations" /></p>
+
+<p>（<a href="https://blog.cloudera.com/blog/2014/03/apache-spark-a-delight-for-developers/" target="_blank">Apache Spark: A Delight for Developers</a> より引用）</p>
+
+<p>イテレーションあたりの時間、つまり学習に要する時間が短いということは、同じ時間でもたくさんトライ＆エラーができるということで、やっぱり Spark + Scala は生産的だ、というのがこのコースの導入部分での結論。</p>
+
+<p><img src="https://takuti.me/images/why-spark/coffee.png" alt="coffee" /></p>
+
+<p>▲ 先生の「Hadoopでは半日待ってやっと処理が終わるけど、Sparkだとコーヒー淹れてる間に同じ処理ができるね」という微妙な例え。</p>
+
+<p><img src="https://takuti.me/images/why-spark/trend.png" alt="trend" /></p>
+
+<p>▲ そんな背景から、Google Trend ではもう Spark の圧勝という感じ。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>データサイエンスをスケールさせる上で、Spark は僕らの生産性を高めてくれる最高のソリューション（超意訳）。</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

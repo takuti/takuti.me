@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        AngularJSでさくさく進数相互変換をつくる | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2013-08-02
+  </p>
+  <h2>AngularJSでさくさく進数相互変換をつくる</h2>
+
+  <div class="post">
+    <p><a href="http://angularjs.org/">AngularJS</a>を使ってみました。MVCな雰囲気を取り入れたJavaScriptのフレームワークです。あんぎゅらーらしいです、あんぐらーじゃないです。</p>
+<p>この子、とんでもなく簡単で気持ちがいいですね。<strong>ng-app, ng-model, &#123;&#123;&#125;&#125;</strong>を追加するだけであっという間にさくさく！</p>
+<p>公式にある一番基本のアプリが以下。</p>
+<pre class="prettyprint">
+&lt;!DOCTYPE html&gt;
+&lt;html ng-app&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div&gt;
+      &lt;label&gt;Name:&lt;/label&gt;
+      &lt;input type=&quot;text&quot; ng-model=&quot;yourName&quot; placeholder=&quot;Enter a name here&quot;&gt;
+      &lt;hr&gt;
+      &lt;h1&gt;Hello {{yourName}}!&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>せっかくなので<a href="http://blog.takuti.me/hello-chrome-extension/">先日作った進数変換のできるChrome拡張</a>を流用して、入力したらすぐ進数変換されるものを作りました。よかったら使ってあげて下さい。</p>
+<p><strong><a href="http://takuti.me/dev/binary2decimal2hex/">さくさく進数相互変換</a></strong><br />
+<img src="https://takuti.me/images/wp/Screen-Shot-2013-08-01-at-11.38.37-PM-e1375367959918.png" alt="Screen Shot 2013-08-01 at 11.38.37 PM" width="500" height="398" class="alignnone size-full wp-image-232" /><br />
+<!--more--><br />
+AngularJSそのものに関する説明は他に譲りますが、バリデーションが特に簡単で嬉しかった印象です。</p>
+<pre class="prettyprint">
+&lt;p&gt;【2進数】　&lt;span class=&quot;error&quot; ng-show=&quot;num_form.binary.$error.pattern&quot;&gt;2進数は0と1だけだよ&lt;/span&gt;&lt;br /&gt;
+  &lt;input type=&quot;text&quot; name=&quot;binary&quot; placeholder=&quot;ここに2進数を入力&quot; ng-model=&quot;num.binary&quot; ng-pattern=&quot;binary_pattern&quot; ng-change=&quot;binary()&quot; /&gt;&lt;/p&gt;
+</pre>
+<p>見づらいですが、各進数あたり2行でバリデーションも含めて必要なことのほとんどが書けてしまいます。</p>
+<p>進数の変換処理も、<strong>ng-change</strong>からコントローラーの関数を適当に呼んであげればリアルタイムにできちゃったり。</p>
+<pre class="prettyprint">
+$scope.binary = function(){
+    if($scope.num.binary){
+        $scope.num.decimal = parseInt($scope.num.binary,2);
+        $scope.num.hex = parseInt($scope.num.binary,2).toString(16);
+    } else {
+        $scope.num.decimal = undefined;
+        $scope.num.hex = undefined;
+    }
+}
+</pre>
+<p>というわけで、AngularJSでした。開発はさくさく進んで、できるものはさくさく動いて、2さくさくですね。</p>
+<p>ちなみに今回作った<a href="http://takuti.me/dev/binary2decimal2hex/">さくさく進数相互変換</a>、無駄に入力スペース広いですが特に何も考えずにparseIntを使って変換しているだけなので、大きすぎる数だとおかしくなったりします。ま、まぁいいよね。</p>
+<h3>追記(2013.08.02)</h3>
+<p>大きすぎて対応できない数の場合には変換処理を行わないように修正しました。<br />
+【参考】<a href="http://liosk.blog103.fc2.com/blog-entry-197.html">JavaScript (ECMAScript) の整数の精度と乱数の精度について / LiosK-free Blog</a></p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

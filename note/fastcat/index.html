@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        ローカルのRedis上でWikipediaカテゴリをシュッとdigる | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-08-06
+  </p>
+  <h2>ローカルのRedis上でWikipediaカテゴリをシュッとdigる</h2>
+
+  <div class="post">
+    
+
+<p>Wikipediaは<a href="https://www.mediawiki.org/wiki/API:Main_page" target="_blank">APIがあったり</a>、<a href="https://dumps.wikimedia.org/enwiki/latest/" target="_blank">データのMySQLダンプを惜しみなく公開していたりする</a>。便利。しかし、いかんせん規模が大きいので、APIアクセスやRDBへの問い合わせに依存したデータ収集は辛いものがある。</p>
+
+<p>今回はWikipediaデータの中でも、特に『カテゴリ』を効率的にdigる方法を <strong><a href="https://github.com/edsu/fastcat" target="_blank">fastcat</a></strong> というPythonコードから学ぶ。</p>
+
+<h3 id="ゴール">ゴール</h3>
+
+<p>Wikipedia上の、あるカテゴリに対する上位・下位カテゴリの一覧を得る。</p>
+
+<p>たとえば、英語版Wikipediaの <code>Computers</code> というカテゴリには、</p>
+
+<ul>
+<li>上位カテゴリ
+
+<ul>
+<li><code>Office equipment</code></li>
+<li><code>Computing</code></li>
+</ul></li>
+<li>下位カテゴリ
+
+<ul>
+<li><code>Computer hardware companies</code></li>
+<li><code>Computer architecture</code></li>
+<li><code>Classes of computers</code></li>
+<li><code>Information appliances</code></li>
+<li><code>Computing by computer model</code></li>
+<li><code>Computer hardware</code></li>
+<li><code>Computer systems</code></li>
+<li><code>NASA computers</code></li>
+<li><code>Data centers</code></li>
+<li><code>Computers and the environment</code></li>
+</ul></li>
+</ul>
+
+<p>がある。</p>
+
+<p>これが得られると何が嬉しいかというと、たとえばカテゴリをある種の“概念”とみなせば、上位・下位概念の獲得、概念辞書の構築に使える。また、『各カテゴリに属する記事』がダンプ <a href="https://dumps.wikimedia.org/enwiki/latest/" target="_blank">enwiki-latest-categorylinks.sql.gz</a> から得られるので、これと組み合わせると、クラスタリングの教師データとしても使えるかもしれない。</p>
+
+<h3 id="データ">データ</h3>
+
+<p>さて、まずはこのカテゴリデータをゲットしよう。</p>
+
+<p>先述の通り、カテゴリに関するMySQLダンプが公式から提供されているので、これを使えばよさそう。しかし、これはこれで相当骨の折れる仕事になりそうだ。</p>
+
+<p>そこで、MySQLダンプを元に<a href="http://wiki.dbpedia.org/services-resources/documentation/datasets" target="_blank">DBpediaが独自に作成・公開</a>している<a href="http://downloads.dbpedia.org/3.9/en/skos_categories_en.nt.bz2" target="_blank">SKOS categories データセット</a>（※ファイル直リンク）を利用する。DBpediaはWikipediaの情報を構造的にアーカイブすることを目的としたプロジェクトで、様々なデータをRDFトリプル <code>&lt;主語, 述語, 目的語&gt;</code> の形で表現している。</p>
+
+<p>SKOSカテゴリデータのRDFトリプルは <code>&lt;カテゴリ, 関係, カテゴリ&gt;</code> を表現している：</p>
+
+<pre><code>&lt;http://dbpedia.org/resource/Category:Futurama&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2004/02/skos/core#Concept&gt; .
+&lt;http://dbpedia.org/resource/Category:Futurama&gt; &lt;http://www.w3.org/2004/02/skos/core#prefLabel&gt; &quot;Futurama&quot;@en .
+&lt;http://dbpedia.org/resource/Category:Futurama&gt; &lt;http://www.w3.org/2004/02/skos/core#broader&gt; &lt;http://dbpedia.org/resource/Category:Television_series_created_by_Matt_Groening&gt; .
+&lt;http://dbpedia.org/resource/Category:Futurama&gt; &lt;http://www.w3.org/2004/02/skos/core#broader&gt; &lt;http://dbpedia.org/resource/Category:Comic_science_fiction&gt; .
+&lt;http://dbpedia.org/resource/Category:Futurama&gt; &lt;http://www.w3.org/2004/02/skos/core#broader&gt; &lt;http://dbpedia.org/resource/Category:Wikipedia_categories_named_after_American_animated_television_series&gt; .
+&lt;http://dbpedia.org/resource/Category:World_War_II&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2004/02/skos/core#Concept&gt; .
+&lt;http://dbpedia.org/resource/Category:World_War_II&gt; &lt;http://www.w3.org/2004/02/skos/core#prefLabel&gt; &quot;World War II&quot;@en .
+&lt;http://dbpedia.org/resource/Category:World_War_II&gt; &lt;http://www.w3.org/2004/02/skos/core#broader&gt; &lt;http://dbpedia.org/resource/Category:Wikipedia_categories_named_after_wars&gt; .
+&lt;http://dbpedia.org/resource/Category:World_War_II&gt; &lt;http://www.w3.org/2004/02/skos/core#broader&gt; &lt;http://dbpedia.org/resource/Category:20th-century_conflicts&gt; .
+...
+</code></pre>
+
+<p>たとえば、次のトリプルは <code>World_War_II</code> の上位カテゴリ (<code>broader</code>) として <code>20th-century_conflicts</code> があることを意味する：</p>
+
+<pre><code>&lt;http://dbpedia.org/resource/Category:World_War_II&gt; &lt;http://www.w3.org/2004/02/skos/core#broader&gt; &lt;http://dbpedia.org/resource/Category:20th-century_conflicts&gt; .
+</code></pre>
+
+<h3 id="パース">パース</h3>
+
+<p>というわけで、DBpediaが提供しているカテゴリの上下関係に関するトリプルをいい感じにパースしてあげればカテゴリの上下関係が得られる：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">re</span>
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">bz2</span>
+
+ntriple_pattern <span style="color:#333">=</span> re<span style="color:#333">.</span><span style="color:#007020">compile</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;^&lt;(.+)&gt; &lt;(.+)&gt; &lt;(.+)&gt; \.</span><span style="color:#666;background-color:#fff0f0;font-weight:bold">\n</span><span style="background-color:#fff0f0">$&#39;</span>)
+category_pattern <span style="color:#333">=</span> re<span style="color:#333">.</span><span style="color:#007020">compile</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;^http://dbpedia.org/resource/Category:(.+)$&#39;</span>)
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">get_name</span>(url):
+    m <span style="color:#333">=</span> category_pattern<span style="color:#333">.</span>search(url)
+    <span style="color:#080;font-weight:bold">return</span> unquote(m<span style="color:#333">.</span>group(<span style="color:#00d;font-weight:bold">1</span>)<span style="color:#333">.</span>replace(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;_&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39; &#39;</span>))
+
+<span style="color:#080;font-weight:bold">for</span> line <span style="color:#000;font-weight:bold">in</span> bz2<span style="color:#333">.</span>BZ2File(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;skos_categories_en.nt.bz2&#39;</span>):
+    <span style="color:#888"># トリプルをパース</span>
+    m <span style="color:#333">=</span> ntriple_pattern<span style="color:#333">.</span>match(line<span style="color:#333">.</span>decode(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;utf-8&#39;</span>))
+
+    <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> m:
+        <span style="color:#080;font-weight:bold">continue</span>
+
+    <span style="color:#888"># 主語、述語、目的語</span>
+    s, p, o <span style="color:#333">=</span> m<span style="color:#333">.</span>groups()
+
+    <span style="color:#888"># 『カテゴリの上下関係』を表していないトリプルはスキップ</span>
+    <span style="color:#080;font-weight:bold">if</span> p <span style="color:#333">!=</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;http://www.w3.org/2004/02/skos/core#broader&#39;</span>:
+        <span style="color:#080;font-weight:bold">continue</span>
+
+    <span style="color:#888"># 主語が下位カテゴリ (narrower)、目的語が上位カテゴリ (broader) に相当</span>
+    narrower <span style="color:#333">=</span> get_name(s)
+    broader <span style="color:#333">=</span> get_name(o)</code></pre></div>
+<h3 id="ローカルのredisに保存">ローカルのRedisに保存</h3>
+
+<p><strong><a href="https://github.com/edsu/fastcat" target="_blank">fastcat</a></strong> のアイディアは、上位・下位カテゴリのlook upを効率的に行うために、パースした結果をローカルのRedisに保存しましょう、というもの。</p>
+
+<p>Redisサーバを起動して、</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ redis-server /usr/local/etc/redis.conf</code></pre></div>
+<p>Python経由でRedisへ保存する。上位カテゴリなら <code>b:</code>、下位カテゴリなら <code>n:</code> というインデックスをつけておく：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">redis</span>
+
+db <span style="color:#333">=</span> redis<span style="color:#333">.</span>Redis()
+
+<span style="color:#333">...</span>
+
+<span style="color:#080;font-weight:bold">for</span> line <span style="color:#000;font-weight:bold">in</span> bz2<span style="color:#333">.</span>BZ2File(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;skos_categories_en.nt.bz2&#39;</span>):
+    <span style="color:#333">...</span>
+
+    narrower <span style="color:#333">=</span> get_name(s)
+    broader <span style="color:#333">=</span> get_name(o)
+
+    db<span style="color:#333">.</span>sadd(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;b:</span><span style="background-color:#eee">%s</span><span style="background-color:#fff0f0">&#39;</span> <span style="color:#333">%</span> narrower, broader)
+    db<span style="color:#333">.</span>sadd(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;n:</span><span style="background-color:#eee">%s</span><span style="background-color:#fff0f0">&#39;</span> <span style="color:#333">%</span> broader, narrower)</code></pre></div>
+<p>（ローカルへのRedisのインストールはMacなら <code>$ brew install redis</code> です）</p>
+
+<p>ちゃんと登録されているか見てみる：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ redis-cli
+<span style="color:#60e;font-weight:bold">127</span>.0.0.1:6379&gt; smembers <span style="background-color:#fff0f0">&#39;n:World War II&#39;</span>
+ <span style="color:#60e;font-weight:bold">1</span><span style="color:#333">)</span> <span style="background-color:#fff0f0">&#34;World War II sites&#34;</span>
+ <span style="color:#60e;font-weight:bold">2</span><span style="color:#333">)</span> <span style="background-color:#fff0f0">&#34;People of World War II&#34;</span>
+ <span style="color:#60e;font-weight:bold">3</span><span style="color:#333">)</span> <span style="background-color:#fff0f0">&#34;Military equipment of World War II&#34;</span>
+ <span style="color:#60e;font-weight:bold">4</span><span style="color:#333">)</span> <span style="background-color:#fff0f0">&#34;Military units and formations of World War II&#34;</span>
+ <span style="color:#60e;font-weight:bold">5</span><span style="color:#333">)</span> <span style="background-color:#fff0f0">&#34;Military logistics of World War II&#34;</span>
+ ...
+<span style="color:#60e;font-weight:bold">127</span>.0.0.1:6379&gt; smembers <span style="background-color:#fff0f0">&#39;b:World War II&#39;</span>
+ <span style="color:#60e;font-weight:bold">1</span><span style="color:#333">)</span> <span style="background-color:#fff0f0">&#34;Wars involving Ecuador&#34;</span>
+ <span style="color:#60e;font-weight:bold">2</span><span style="color:#333">)</span> <span style="background-color:#fff0f0">&#34;Conflicts in 1943&#34;</span>
+ <span style="color:#60e;font-weight:bold">3</span><span style="color:#333">)</span> <span style="background-color:#fff0f0">&#34;Wars involving Nepal&#34;</span>
+ <span style="color:#60e;font-weight:bold">4</span><span style="color:#333">)</span> <span style="background-color:#fff0f0">&#34;Wars involving the Dominican Republic&#34;</span>
+ <span style="color:#60e;font-weight:bold">5</span><span style="color:#333">)</span> <span style="background-color:#fff0f0">&#34;Wars involving Denmark&#34;</span>
+ <span style="color:#60e;font-weight:bold">6</span><span style="color:#333">)</span> <span style="background-color:#fff0f0">&#34;Wars involving Canada&#34;</span>
+ ...</code></pre></div>
+<p>一瞬でズラッとでてくる。よさそう。</p>
+
+<h3 id="pythonからdigる">Pythonからdigる</h3>
+
+<p>こんな関数を作ってあげれば、コネクション <code>db = redis.Redis()</code> 経由で簡単に上位・下位カテゴリの一覧が得られる：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">broader</span>(db, cat):
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#007020">list</span>(<span style="color:#007020">map</span>(<span style="color:#080;font-weight:bold">lambda</span> res: res<span style="color:#333">.</span>decode(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;utf-8&#39;</span>), db<span style="color:#333">.</span>smembers(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;b:</span><span style="background-color:#eee">%s</span><span style="background-color:#fff0f0">&#39;</span> <span style="color:#333">%</span> cat)))
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">narrower</span>(db, cat):
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#007020">list</span>(<span style="color:#007020">map</span>(<span style="color:#080;font-weight:bold">lambda</span> res: res<span style="color:#333">.</span>decode(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;utf-8&#39;</span>), db<span style="color:#333">.</span>smembers(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;n:</span><span style="background-color:#eee">%s</span><span style="background-color:#fff0f0">&#39;</span> <span style="color:#333">%</span> cat)))</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#333">&gt;&gt;&gt;</span> db <span style="color:#333">=</span> redis<span style="color:#333">.</span>Redis()
+<span style="color:#333">&gt;&gt;&gt;</span> broader(db, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Functional programming&#39;</span>)
+[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Declarative programming&#39;</span>]
+<span style="color:#333">&gt;&gt;&gt;</span> narrower(db, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Functional programming&#39;</span>)
+[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Lambda calculus&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Combinatory logic&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Recursion schemes&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Functional data structures&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Functional languages&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Implementation of functional programming languages&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Higher-order functions&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Dependently typed programming&#39;</span>]</code></pre></div>
+<h3 id="日本語版">日本語版</h3>
+
+<p>以上がオリジナルの <strong><a href="https://github.com/edsu/fastcat" target="_blank">fastcat</a></strong> がやっていたこと。DBpediaデータとRedisを組み合わせた、よいソリューションだと思う。研究の現場ならPDCAを加速させてくれる。やったね。</p>
+
+<p>せっかくなので、これを日本語にも対応させて、パッケージ化してる： <strong><a href="https://github.com/takuti/fastcat" target="_blank">takuti/fastcat</a></strong></p>
+
+<p>とはいえ、基本的にはデータの取得元が<a href="http://ja.dbpedia.org/dumps/20160407/jawiki-20160407-skos-categories.ttl.bz2" target="_blank">日本語版SKOSカテゴリデータ</a>（※ファイル直リンク）に変わるだけである。日本語版DBpediaのコミュニティに感謝感謝。</p>
+
+<p>幅優先でdigれば網羅的に子カテゴリを得ることができたりして便利：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">queue</span> <span style="color:#080;font-weight:bold">import</span> Queue
+
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">fastcat</span> <span style="color:#080;font-weight:bold">import</span> FastCat
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">get_child_categories</span>(category, max_depth<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>):
+    f <span style="color:#333">=</span> FastCat()
+
+    q <span style="color:#333">=</span> Queue()
+    q<span style="color:#333">.</span>put((category, <span style="color:#00d;font-weight:bold">0</span>))
+
+    res <span style="color:#333">=</span> <span style="color:#007020">list</span>()
+
+    <span style="color:#080;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">not</span> q<span style="color:#333">.</span>empty():
+        cat, depth <span style="color:#333">=</span> q<span style="color:#333">.</span>get()
+        <span style="color:#080;font-weight:bold">if</span> depth <span style="color:#333">==</span> max_depth:
+            <span style="color:#080;font-weight:bold">break</span>
+
+        child_categories <span style="color:#333">=</span> f<span style="color:#333">.</span>narrower(cat)
+        <span style="color:#080;font-weight:bold">for</span> c <span style="color:#000;font-weight:bold">in</span> child_categories:
+            q<span style="color:#333">.</span>put((c, depth <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>))
+
+        res <span style="color:#333">+=</span> child_categories
+
+    <span style="color:#080;font-weight:bold">return</span> res</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#333">&gt;&gt;&gt;</span> get_child_categories(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;関数型プログラミング&#39;</span>, max_depth<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">2</span>)
+[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;関数型言語&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;高階関数&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;ラムダ計算&#39;</span>]</code></pre></div>
+<p>異常なクロールをしないことは現代人のマナーである一方、公式が提供する生データだけを馬鹿正直に使って非生産的な時間を過ごす必要もない。いい話。卒論時代の自分に教えてあげたい。</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

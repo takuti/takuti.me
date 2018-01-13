@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Leakage in Data Mining | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-07-16
+  </p>
+  <h2>Leakage in Data Mining</h2>
+
+  <div class="post">
+    
+
+<p>データマイニングの現場で頻発する <strong><a href="https://www.kaggle.com/wiki/Leakage" target="_blank">Leakage</a></strong> という問題について本気出して考えてみた、的な論文を読んだ：</p>
+
+<ul>
+<li><strong><a href="http://www.cs.umb.edu/~ding/history/470_670_fall_2011/papers/cs670_Tran_PreferredPaper_LeakingInDataMining.pdf" target="_blank">Leakage in Data Mining:
+Formulation, Detection, and Avoidance</a></strong>. KDD 2011.</li>
+</ul>
+
+<h3 id="概要">概要</h3>
+
+<ul>
+<li>Leakage とは、モデルを作るときに、本来知らないはずの情報（変数やデータ）を不当に使ってしまうこと
+
+<ul>
+<li>手元のデータではメッチャ高い精度が出たのに、本番環境ではまったく精度が出ない、といった事態になる</li>
+</ul></li>
+<li>その問題について定式化を試みると同時に、Leakage を検知・回避する方法を考える</li>
+<li>こういう議論がまじめにされてこなかったせいで、KDD Cup 2008 のようなプロが企画・主催したコンペでさえ、問題の不備による Leakage が発生している</li>
+</ul>
+
+<h3 id="おもしろ事例集">おもしろ事例集</h3>
+
+<p>はじめに、データマイニングコンペでの Leakage 事例が幾つか紹介されている。</p>
+
+<h4 id="kdd-cup-2007-https-www-cs-uic-edu-liub-netflix-kdd-cup-2007-html-netflix-rating-prediction">[KDD Cup 2007]((https://www.cs.uic.edu/~liub/Netflix-KDD-Cup-2007.html): Netflix Rating Prediction</h4>
+
+<p>Netflix 上での映画の評価値データを対象として、2つのタスクがあった：</p>
+
+<ol>
+<li><strong><em>Who Rated What:</em></strong> 2005年までのデータが与えられて、2006年に各ユーザが未評価の映画を評価するかどうか、を予測する</li>
+<li><strong><em>How Many Ratings:</em></strong> 同様に2005年までのデータがある状態で、2006年に各映画に集まるレビューの数を予測する</li>
+</ol>
+
+<p>データの混在を防ぐために、タスク1と2ではそれぞれ異なるタイトルの映画のデータが用意された。</p>
+
+<p>しかし、タスク2で優勝したチームのモデルは、なんとタスク1のテストデータをタスク2の教師データとして使っていた。</p>
+
+<pre><code>user, movie, rating
+A, X, 3 
+B, X, 1
+C, X, 5
+</code></pre>
+
+<p>というタスク1のテストデータ（＝2006年のレビュー履歴）があったとき、「2006年に movie X に集まるレビューは3件」と読み替えることができて、これはタスク2の学習に流用できるね、という話。</p>
+
+<h4 id="kdd-cup-2008-http-www-kdd-org-kdd-cup-view-kdd-cup-2008-tasks-マンモグラフィデータからの乳ガン検出">[KDD Cup 2008]((http://www.kdd.org/kdd-cup/view/kdd-cup-2008/Tasks): マンモグラフィデータからの乳ガン検出</h4>
+
+<p>普通は無視するはずの『患者ID』を特徴に使った結果、それがなぜかメッチャ予測に寄与した、という話。</p>
+
+<p>これは、患者IDが「病院での検査か研究機関での検査か」、または「どの機器で行われた検査か」といった検査環境に関する情報と暗に紐付いていたことが原因らしい。</p>
+
+<p>通常、患者の状態に応じて適切な検査施設や機器が決定される。IDがこれに紐付くということは、検査環境を決定する時点での事前知識がIDに反映されているということであり、目的変数と何らかの相関が見られても不思議ではない。</p>
+
+<h4 id="informs-data-mining-contest-2008-http-informsdataminingcontest-blogspot-jp-過去の診察履歴に基づく肺炎診断"><a href="http://informsdataminingcontest.blogspot.jp/" target="_blank">INFORMS Data Mining Contest 2008</a>: 過去の診察履歴に基づく肺炎診断</h4>
+
+<p>元データでは、ある特徴量が目的変数と直結していて Leakage の恐れがあった。なので主催者はその特徴量をデータから削除した上でコンペを開催した。</p>
+
+<p>しかし、参加者は与えられたデータの欠損からこの”削除された値”を推測することができた。</p>
+
+<p>結果として、主催者が防ごうとした Leakage は防げていなかったね、という話。</p>
+
+<h4 id="informs-data-mining-contest-2010-https-www-kaggle-com-c-informs2010-description-株価変動予測"><a href="https://www.kaggle.com/c/informs2010#description" target="_blank">INFORMS Data Mining Contest 2010</a>: 株価変動予測</h4>
+
+<p>株価の増減を予測する二値分類問題。</p>
+
+<p>なんと、30もの参加チームが AUC 0.9 以上を叩き出した。一番高いチームにいたっては AUC 0.99。</p>
+
+<p>株価という public なデータを扱うため、コンペのデータ元となっている銘柄は非公開にするなど、参加者が“答えを探す”ことのできない工夫はされていたが、これが不十分だった。</p>
+
+<p>どれだけ必死に隠しても Yahoo!/Google Finance などを見ればある程度察しがついてしまい、参加者は予測精度を不当に高めることができた。</p>
+
+<h4 id="ijcnn-2011-social-network-challenge-https-www-kaggle-com-c-socialnetwork-description-ソーシャルグラフのリンク存在予測"><a href="https://www.kaggle.com/c/socialNetwork#description" target="_blank">IJCNN 2011 Social Network Challenge</a>: ソーシャルグラフのリンク存在予測</h4>
+
+<p>“ある” SNS から得られたユーザ間の関係を表すグラフ（匿名、エッジは700万本以上）がある。さて、残りの約9000本の未接続エッジのうち、接続されるべき（実際には接続されている）エッジはどれか。</p>
+
+<p>なんと、このコンペの勝者はデータを頑張って調べて、データ元の SNS が Flickr だということを突き止めた。さらに、各ノードに紐付くユーザをある程度特定することに成功した。その結果、未接続エッジのうち6割以上については、“正解”を得ることができた。</p>
+
+<p>与えられた問題とは異なる問題を解いちゃいました、という心温まるお話。</p>
+
+<h3 id="formulation">Formulation</h3>
+
+<p>さて、Leakage があったコンペはそもそも何がダメだったのだろう？それを統一的に議論するために、Leakage の定式化を試みる。</p>
+
+<p>まず、ある学習データのモデリングを考える。</p>
+
+<p>このとき、モデルを『正当 (<strong>legitimate</strong>) なモデル』と『不当 (<strong>illegitimate</strong>) なモデル』に大別する。不当なモデルとは、特徴量が多すぎて高次元・複雑であったり、そもそも線形分離不能であったり、学習の結果得られる様々な“望ましくない”モデルを指す。</p>
+
+<p>Leakage を含むモデルは、そんな不当なモデルの一種である。</p>
+
+<p>もう少ししっかり『（Leakage という視点で）モデルが正当な状態』を表現するために、ある変数 $u$ を推定する際に事前に観測可能な変数の集合を $ legit\{u\}$ と書く。そして、たとえばある変数 $v$ が $u$ を推定するときに使えるのであれば『$v$ は $u$-legitimateである』と言って、$v \in legit\{u\}$ と書く。</p>
+
+<p>すなわち、ある目的変数 $y$ についてモデルを作ったとき、
+$$
+y \notin legit{y}
+$$
+でなければならない。先の Flickr のリンク予測の例では正解データを手に入れてしまったがゆえに、『$y$ の予測に $y$ が使える』状態にあり、これは $y \notin legit\{y\}$ という要件に反する。</p>
+
+<p>別の視点で見れば、目的変数 $y$ 以外のすべての変数 $x \in \mathcal{X}$ について Leakage が存在しないのならば、
+$$
+\forall x \in \mathcal{X}, \ x \in legit{y}
+$$
+でなければならない。</p>
+
+<p>論文ではこのような表現を土台として議論を進めている<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>。そして、具体的には『特徴量のLeakage』 と『学習データのLeakage』の2種類が定式化できるという。</p>
+
+<h4 id="特徴量のleakage">特徴量のLeakage</h4>
+
+<p>あらゆる特徴について &ldquo;<strong>no-time-machine requirement</strong>&rdquo; が存在する。これに尽きる。僕らはモデリングの際、目的変数が観測されるよりも前に得られる特徴のみを使わなければならない。</p>
+
+<p>変数 $x$ の観測時刻が $t_x$、目的変数 $y$ の値を予測する時刻が $t_y$ であったならば、
+$$
+legit{y} \subseteq {x \in \mathcal{X} \mid t_x &lt; t_y}
+$$
+で、これは『すべての $y$-legitimate な特徴は、時間的に $y$ よりも前に観測されるものに限る』ということ。</p>
+
+<p>たとえば、$y = \textrm{2017年7月16日は雨か}$ とおいた予測問題に対して、$x = \textrm{2017年7月16日は雨だったか}$ という特徴を使ってしまったら、タイムマシン的天気予報ということになってしまう。</p>
+
+<p>また、INFORMS 2008 の肺炎予測の例では、ある欠損コードの存在と他の特徴の組み合わせによって目的変数が予測可能だったが、これもタイムマシン的診断と言える。診断する時点では知らなかったはずの値（＝事前に削除したはずの値）を使ってモデルを立てているのだから。</p>
+
+<h4 id="学習データの-leakage">学習データの Leakage</h4>
+
+<p>一方で、KDD Cup 2007 (Netflix) で発生したタイプの Leakage は、タイムマシン的現象は発生していない。すべて過去（2005年）のデータを使って、未来（2006年）の映画の評価を予想している。このようなケースを議論するために、学習データの Leakage を考える。</p>
+
+<p>KDD Cup 2007 の主催者側の落ち度は、全く同じ時期（2005-2006年）のユーザ履歴から『誰がどの映画にレビューを投稿したか』と『どの映画が何件レビューを獲得したか』という非常に似た問題を作ってしまったことにある。</p>
+
+<p>そのような特徴選択以前の問題を避けるべく本論文が提示する要求は、テストデータ $y \in Y<em>{\textrm{test}}$ について、
+$$
+\forall \ \mathbf{x} \in X</em>{\textrm{train}}, \ \mathbf{x} \in legit{y} \ \wedge \ \forall \ \tilde{y} \in Y_{\textrm{train}}, \ \tilde{y} \in legit{y}
+$$
+を満たすというもの。</p>
+
+<p>すなわち、与えられたデータについて、</p>
+
+<ul>
+<li>学習データの入力（特徴ベクトル）は、テストデータの出力（目的変数）よりも前に観測可能</li>
+<li>学習データの出力は、テストデータの出力よりも前に観測可能</li>
+</ul>
+
+<p>と言えなければならない。</p>
+
+<p>これは『特徴量の Leakage』でみた変数の正当性に留まらず、データ全体の正当性を要求する。ということは、KDD Cup 2007 のように複数の問題があるならば、それらが混在する場合も考慮して正当性を判断すべき、ということを暗示している<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup>。</p>
+
+<p>データが相互に独立ならば問題ない。しかし全く同じサービスから収集した、全く同じ年のデータを複数の問題が使っていたとなると、それは問題、というわけだ。</p>
+
+<h3 id="avoidance">Avoidance</h3>
+
+<p>ではいかにして Leakage を防ぐのか。</p>
+
+<p>著者たちはまず、データに正当性をチェックするための『<strong>タグ</strong>』となる情報を付与すべきだと言っている。そして、データセットを学習用と評価用に分割するときは、以下の点に注意する：</p>
+
+<ol>
+<li>ある目的変数について、タグから明らかに正当だと判断できる特徴のみを使う</li>
+<li>すべての評価用データに対して、タグから明らかに正当だと判断できるサンプルのみを学習に用いる</li>
+</ol>
+
+<p>タグの最も一般的な例は『タイムスタンプ』だ。タイムスタンプを付与しておくことで、「この時刻のとき、この特徴（変数）は観測可能だったか？」「学習データは評価データよりも前に観測されたデータか？」ということが確認できる。</p>
+
+<p>結果として、特徴量と学習データに対する2種類の Leakage の予防につながるというわけだ。</p>
+
+<p>一方 KDD Cup 2007 のようなデータマイニングコンペの現場では、仮にタグ的には完璧に正当だったとしても、データの混在や意図せぬ外部データの使用によって引き起こされる Leakage もある。</p>
+
+<p>こういったケースは、「コンペの主催者がんばりましょう」という話になる。</p>
+
+<p>コンペ主催者には「参加者に不正はしてほしくない」という建前がある一方で、「いかなる形であれ、提供したデータに対する新たな知見が欲しい」という本音もある。もどかしい。</p>
+
+<p>まぁそれも踏まえて、近年よく見る『オフラインでの提出締め切りの後に、オンラインでの評価を行う』という形式がこの手の不正・Leakage 対策には有効だろう、と著者らは言っている。</p>
+
+<h3 id="detection">Detection</h3>
+
+<p>データ収集が僕ら（主催者）のあずかり知らぬところで行われる場合は、何が正当なのか判断できず、タグが付けられない。こんなときは、Leakage の発生を能動的に『検知』するしかない。</p>
+
+<p>そして最も有効な手段のひとつが、探索的にデータを解析してみること、いわゆる Exploratory data analysis だ。そして、探索的にいろいろ見ていると、“不思議な”結果に直面することがある。それはもしかしたら Leakage かもしれない。</p>
+
+<p>INFORMS 2008 の例では、患者IDという明らかに無意味な特徴が目的変数と強い相関を示した。これは見逃せない。</p>
+
+<p>また、異常に高い精度が出てしまったときも Leakage の可能性がある。素直に喜んではいけない。</p>
+
+<p>さらに、あまり現実的ではないが、『モデルをその都度本番環境で評価してみる』というのも手だろう。手元のデータで出た精度と、デプロイ後に未知のデータから得られる精度に大きな差があれば怪しい。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>以上が論文中で議論されている Leakage の Formulation, Avoidance, Detection の概要。</p>
+
+<p>最後に著者らは「Leakage を完全に消すのは難しい」という話をしている。そもそも仮に Leakage が存在しても、その予測モデルは『一応動く』もので、ランダムに予測するよりはずっとマシ。どうやって扱えば良いのだろう。</p>
+
+<p>そして、仮にひとつ明らかな Leakage の要因を潰したとして、「このモデルは Leakage-free だ」と断言していいのだろうか？</p>
+
+<p>理論的な定式化と合わせてこのあたりを議論するのは、大切かもしれないけど難しいよね〜と思った。</p>
+
+<p>全体として良い話ではあったけど、タイトルの割には当たり前のことばかり言っているなぁという印象もある。『タグ』の例はタイムスタンプ以外の例が思い浮かばない…。Leakage の事例集としては非常に面白かったので、一読の価値アリ。以下の Podcast エピソードも合わせてどうぞ：</p>
+
+<ul>
+<li><a href="http://lineardigressions.com/episodes/2016/7/30/data-contamination" target="_blank">Data Contamination — Linear Digressions</a></li>
+</ul>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">しかしフォントの異なる x と y が入り乱れていて異様に読みづらい。そのため、この記事では一部の表現・解釈を意図的に簡略化している。
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">…と思う。正直、このあたりの説明はいまいちピンときていない。
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

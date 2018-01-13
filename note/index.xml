@@ -1,0 +1,1445 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on takuti.me</title>
+    <link>https://takuti.me/note/</link>
+    <description>Recent content in Notes on takuti.me</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 30 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://takuti.me/note/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>&#34;Designing Data-Intensive Applications&#34;は濃密すぎる一冊だったので2018年の自分にも読んでもらいたい</title>
+      <link>https://takuti.me/note/designing-data-intensive-applications/</link>
+      <pubDate>Sat, 30 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/designing-data-intensive-applications/</guid>
+      <description>分散システムに関する理解を整理するための一冊として素晴らしい、という声があり気になっていた &amp;ldquo;Designing Data-Intensive Applications&amp;rdquo; を一通り読んだ：
+買った。分散システムの理解を整理する本として素晴らしい。一節を割いてMessagePackのフォーマットまで解説されている…！ &amp;quot;Designing Data-Intensive Applications&amp;quot; https://t.co/QCeoLraZOf
+&amp;mdash; Sadayuki Furuhashi (@frsyuki) March 27, 2017 
+僕のような「用語としては知っている」程度の新人に「なぜそれが大切なのか」「なにが難しいのか」といったポイントを丁寧に説明してくれる、学びの多い充実の一冊だった。
+冒頭では『早すぎる最適化（不要不急のスケーラブルなシステムの構築）は制約が増えてシステム設計が不自由になるだけなので無駄』という事実に触れ、適切なツールを選択することの重要性を説いている。本書が500項超を費やして伝えようとしているのは、そういったツールを取捨選択する際のエッセンスであり、具体的には、昨今の大規模なデータシステムを支える原理、モデル、ツール群の背景とその長所・短所である。
+※ ddia-references/ddia-poster.jpg より
+本書は大きくわけて &amp;ldquo;Foundations of Data Systems,&amp;rdquo; &amp;ldquo;Distributed Data,&amp;rdquo; &amp;ldquo;Derived Data&amp;rdquo; の3パートから構成される。
+Part I. Foundations of Data Systems 第1部では、データシステムの信頼性、スケーラビリティ、保全性を担保することの大切さと難しさを伝え（第1章）、特にストレージに焦点をあてて、データモデル（リレーショナルモデル vs ドキュメントモデル）と代表的なDB、クエリ言語を紹介していく（第2章）。このあたりの内容は &amp;ldquo;Seven Databases in Seven Weeks&amp;rdquo; に通じるところもあった。データの一対多 (one-to-many) と多対多 (many-to-many) の関係が丁寧に比較されていて、リレーショナルデータベース、ドキュメント指向データベース、列指向データベースそれぞれの必要性や強み、弱みについて直感的な理解を与えてくれる。
+いろいろなストレージの世界を俯瞰したら、次は実際にデータを保持・探索することを考える（第3章）。この章がまぁ素晴らしい。この本のインデックスの説明は、これまでに読んだいかなる解説よりも分かりすかったと言っても過言ではない。だって、&amp;ldquo;the world&amp;rsquo;s simplest databse&amp;rdquo; を作って $\mathcal{O}(n)$ で検索するところから話が始まるんですよ？
+#!/bin/bash  db_set() { echo &amp;#34;$1,$2&amp;#34; &amp;gt;&amp;gt; database } db_get() { grep &amp;#34;^$1,&amp;#34; database | sed -e &amp;#34;s/^$1,//&amp;#34; | tail -n 1 } $ db_set 123456 &#39;{&amp;quot;name&amp;quot;:&amp;quot;London&amp;quot;,&amp;quot;attractions&amp;quot;:[&amp;quot;Big Ben&amp;quot;,&amp;quot;London Eye&amp;quot;]}&#39; $ db_get 123456 {&amp;quot;name&amp;quot;:&amp;quot;London&amp;quot;,&amp;quot;attractions&amp;quot;:[&amp;quot;Big Ben&amp;quot;,&amp;quot;London Eye&amp;quot;]}  ここから議論を初めて、B-tree や Bloom filter といった具体的なデータ構造、アルゴリズムに言及していく。</description>
+    </item>
+    
+    <item>
+      <title>&#34;Dynamo-style&#34; に学ぶ Replication, Partitioning, Consistent Hashing の気持ち</title>
+      <link>https://takuti.me/note/dynamo-style/</link>
+      <pubDate>Fri, 22 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/dynamo-style/</guid>
+      <description>先日、DynamoDB設計の背景にあった可用性とスケーラビリティの両立に対するAmazonのアツい想いについて書いた：
+ AmazonのDynamoDB論文を眺めた  背景だけだと寂しいので、ここではもう少し詳しく、DynamoDBの実装を支える Replication と Partitioning の基本、そして Consistent Hashing について、&amp;rdquo;Designing Data-Intensive Applications&amp;rdquo; (DDIA) の解説も踏まえてまとめておく。
+Replication DynamoDB（分散DB）が考えるべき問題の1つに、データのコピーをネットワーク上の複数のマシン（ノード）で保持する Replication（レプリケーション）がある。
+データのレプリカを作成する目的はいくつかあって、DDIAのまとめを引用すると：
+ High availability  あるマシンが死んでもシステムを動かし続ける  Disconnected operation  1つのマシンのネットワークが途絶えてもアプリケーションは動き続ける  Latency  データをレプリカという形で地理的により近いところにおけば、ユーザはそのデータにより早くアクセスできる  Scalability  複数のレプリカに対してreadを実行することで、一台のときよりも多くのreadがさばける   などが挙げられる。
+そして、レプリケーションを実現する際の難しさは『いかにレプリカの変更を扱うか（同期するか）』という一点に集約されていると言っても過言ではない。
+複数のノードがあったとき、データの書き込みリクエストを特定のノード（リーダ; master）に集約して、リーダからその他のノードたち（フォロワー；slave）へ変更を通知する―これが Leader-based replication と呼ばれる考え方だ。
+対して、DynamoDBは特別な役割を担うノードを持たず、書き込み先やその順序について何ら制約を与えない Leaderless replication という方針をとった。DDIAによると、Leaderless replication は一度は廃れた手法だったものの、DynamoDBが採用したことで再び脚光を浴びたという。今ではRiak, Cassandra, Voldemortなど、多数のDynamoチルドレンが存在する。
+Quorum reads and writes 『データの変更をレプリカ間で適切に同期する』ということがどれだけ難しいかは、Leaderless replication では複数レプリカに対して並列にread/writeリクエストが投げられることを考えれば明らかだろう。たとえば、ある一台のレプリカへの読み込み/書き込みが失敗した場合はどうすればいいのか。そもそも、システムは何をもって「今読んだデータが確かに最新のものだ」と判断するのか。
+この点についてDynamoDB論文では、一般に &amp;ldquo;Quorum reads and writes&amp;rdquo; と呼ばれる考え方の下でシステムの動作保証を議論している1。
+いま、レプリカが n 台あって、read時には並列に r 台のノードに問い合わせを行い、write時は最低 w 台のノードに対して書き込みが完了して初めて『成功』とみなされるシステムを考える。</description>
+    </item>
+    
+    <item>
+      <title>データサイエンスプロジェクトのディレクトリ構成どうするか問題</title>
+      <link>https://takuti.me/note/data-science-project-structure/</link>
+      <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/data-science-project-structure/</guid>
+      <description>あるいは、論文 &amp;ldquo;Best Practices for Scientific Computing&amp;rdquo; および &amp;ldquo;Good Enough Practices in Scientific Computing&amp;rdquo; について。
+TL;DR  標題の件について、未だに答えは見えていないのだけど、自分の現状と他の人の例を文字で残しておく。 こういう話で「あーその手があったかー！」と知ったときの興奮はすごいので、みなさんもっとオープンにいきましょう。 大切なのは、ソフトウェア開発と同じ要領でデータサイエンスのプロジェクトを捉えて、分析と言う名の“開発”を行うつもりでディレクトリを掘ること。  必要なものリスト ナウいデータサイエンス/機械学習プロジェクトの中には（経験上、ぱっと思い浮かぶだけでも）次のようなファイル群があって、僕たちはそれらを良い感じに管理したい。
+ソースコード 役割がいろいろある：
+ 前処理（これが一番ヤバい） 実験 学習 予測 テスト  どの程度モジュール化するかという点は難しくて、Jupyter Notebookの中から特定のクラスを import して使いたいこともある。
+タスクランナー make でも rake でもいいし、エントリポイント的なCLIツールを1つ作ってもいい。
+いずれにせよ、コードが1つのパッケージとしてキレイにまとまっているわけではないので、各スクリプトの実行手続きが単純かつ明確でなければならない。
+設定ファイル ハイパーパラメータやイテレーション回数、データのパスなどは頻繁に変わる（切り替える）ので、ハードコードしないで外部から読み込みたい。
+Notebooks ソースコードとは別。探索的な解析や可視化で使う。ごちゃごちゃしがち。
+データ 生データと前処理済みデータがある。でかい。
+後者をしっかり保存しておくと、2回目以降が楽ちん。
+結果 .pkl などで出力されたモデル。ファイル名などによるバージョニングが重要で、いつでも過去の結果に戻れるようにしておきたい。各バージョンに対応する精度がどこかで参照できるとさらによい。
+あと、可視化したグラフなども重要な結果のひとつ。
+バージョン モデルのバージョンに限らず、ディレクトリ全体として「これはいつの状態か」が分かることが大切。
+依存 DBやライブラリをインストールする必要があるときはそれをREADMEに明記しておく。インストール用のスクリプトがあればなお丁寧。
+Pythonなら requirements.txt をきちんと置いておく。
+わたしの場合 以上を踏まえて、自分の現状はどうかというと、だいたいいつも修論のときのリポジトリのような構成になる1：
+. ├── README.md ├── config │ ├── LastFM │ ├── ML100k │ ├── ML1M │ ├── click │ └── example.</description>
+    </item>
+    
+    <item>
+      <title>AmazonのDynamoDB論文を眺めた</title>
+      <link>https://takuti.me/note/amazon-dynamo-paper/</link>
+      <pubDate>Sat, 09 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/amazon-dynamo-paper/</guid>
+      <description>&amp;ldquo;Seven Databases in Seven Weeks&amp;rdquo; や &amp;ldquo;Designing Data-Intensive Applications&amp;rdquo; でも度々参考文献に挙がっていたので、AmazonのDynamoDB論文を眺めて思いを馳せていた：
+ Dynamo: Amazon&amp;rsquo;s Highly Available Key-Value Store (SOSP 2007)  ここでは特に2章・バックグラウンドの内容を整理しつつ、AmazonがDynamoDBに込めた想いに触れてみる。拙記事『The Amazon Way on IoT - Amazonのビジネスから学ぶ、10の原則』でも紹介した、Amazonの &amp;ldquo;Customer Obsession&amp;rdquo;（お客様第一）という理念を踏まえて読むと大変味わい深くてよろしい。
+教訓: システムの Reliability と Scalability は、いかにアプリケーションの“状態”を管理するかに依る “状態”とは、Amazonの『ショッピングカートの中身』のようなものを指し、『カートへの商品の追加・削除』がその“管理”に相当する。このように、何らかのビジネスロジックに紐付くサービスは往々にしてステートフルとなり、その扱い方がサービスの信頼性のキモとなる1。
+そして、そのような“状態”を複雑なクエリで問い合わせるというケースはあまりなく、主キーで一意に定まるものをピックアップすることのほうが多いので、従来行われてきたRDBによる管理は過度な複雑化といえる。
+そこでAmazonは Dynamo というKVSを開発し、scalability と availability の両立を、2つの既存手法の組み合わせによって実現した：
+ データは consistent hashing によってパーティショニング、レプリケーション 一貫性は object versioning の下で“ゆるく”担保  この論文は、既存の技術の組み合わせでいかにプロダクションレベルのシステムを作っていくか、という点でひとつの例を示すもの。
+RDBではなくKVS 先述の通り、リレーショナルスキーマを要するデータ横断的な処理は状態の保持には不要だと経験的にわかっている。
+なので、Dynamoはデータをblobのようなバイナリオブジェクト (たいてい1MB以下) で保持し、ユニークなキーによって一意に取得可能にした。
+Eventual Consistencyでよい ACID (Atomicity, Consistency, Isolation, Durability) を満足させると可用性が低下することは経験的にわかっているので、Dynamoは可用性が向上するなら一貫性 (&amp;ldquo;C&amp;rdquo;; Consistency) を諦めても構わないという姿勢をとる。</description>
+    </item>
+    
+    <item>
+      <title>『Java本格入門』メモ</title>
+      <link>https://takuti.me/note/acroquest-javabook/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/acroquest-javabook/</guid>
+      <description>来月、ついに長い沈黙を破ってEffective Javaの第3版が発売される：Effective Java (3rd Edition)
+学生のときに第2版で読書会とかやってたタイプの人間なので感慨深い。
+それに先駆けて、一部で評判の良かったJava8対応の入門書『Java本格入門 ～モダンスタイルによる基礎からオブジェクト指向・実用ライブラリまで』を積読リストから引っ張り出して目を通してみた。サポートページはGitHubにある。
+コレクションの基本からStream、デザインパターンまで、最低限知っておくべきであろう内容がコンパクトにまとまっていて、『本格入門』の名に恥じない充実の一冊だったと思う。講義で習うような、文法レベルの入門の次の（次の）一冊にちょうど良さそう1。
+特に「著者はこうしている」「現場ではこういう場面で使う」という実際的な記述が多々あったのが個人的には高ポイント。
+強いて言えば、ライブラリや周辺ツールに関しては『使い方』の話が中心になっていたけど、ここでもっと「現場ではこういうプロジェクトでこんな使い方をしています」的な言及があれば嬉しかったかもしれない。
+あと、スレッドセーフに関しては、その重要性や難しさ、使い所を十分に書ききれていない感が強かった。もちろん入門書なのでそこまでゴリゴリの記述は期待していないけど、コードサンプルも説明不足感があり、やや物足りない。
+そんな感想を抱きつつ、以下、（教科書的な内容が中心だけど）いくつかポインタとしてメモを共有。
+追記 (2017/12/03) 紹介していただき、ありがとうございます！
+スレッドに関しては、今回は使う側の注意に焦点を当てており、スレッドを作る側、制御する側は特に踏み込めていないところです。
+&amp;mdash; MURA-K-METAL (@muraken720) December 1, 2017 
+とのことです！
+2. 基本的な書き方を身につける  変数名の前後に _ をつけるのはもはや不要  IDEで書くのが当たり前なので、フィールドとローカル変数の名前が一緒でも区別がつく フレームワークによっては末尾の _ によって変数のバインドに失敗するものもある  変数は名詞、メソッドは動詞で命名  booleanの変数名に isXxx とつけるのは違う  変数名は xxx で、問い合わせるメソッドが isXxx と命名されるべき    3. 型を極める  autoboxing, unboxing  原則としてautoboxing, unboxingは使用せず、明示的に変換 ファイル操作、DBアクセス、HTTPリクエストなどの結果得られる値を保持する場合はラッパークラスを使う 数値計算はプリミティブ型を使う 記述量の削減（型の変換を明記しないこと）が効果的な場合に限り、autoboxing, unboxingを利用  インタフェース  絶対publicになるが、著者は省略せずに public interface と書く   4.</description>
+    </item>
+    
+    <item>
+      <title>筋トレ、登山、昨今の推薦システムのトレンドなどについて話しました</title>
+      <link>https://takuti.me/note/trends-in-real-world-recommender-systems-2017/</link>
+      <pubDate>Thu, 23 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/trends-in-real-world-recommender-systems-2017/</guid>
+      <description>元インターン先であるシルバーエッグ・テクノロジーとのご縁があり、『ビッグデータ解析のためのAI技術の最新事情とビジネスへの応用』という名前だけ聞くと心配になるセミナーで講演の機会をいただき、昨今の推薦システムのトレンドについてお話してきました：
+  ※ 修士研究までの僕個人の経験に基づいた内容であり、これが世の中の全てではありません。 ※ 論文などですでに公開されている情報しか含んでいません。 ※ 内容は、過去および現在のいかなる所属の立場を代表するものでもありません。  はむかず先生が「趣味は筋トレです」と自己紹介していたので便乗したけど、ちゃんとジムに通っている先生に対して、僕は家でプッシュアップ、腹筋ローラー、チューブエクササイズ各3セットを週2〜3回やっているだけで、あとはそこにランニング（6-10km）またはプール（1時間弱）を加えている程度なので本気度が違う。
+セミナー後には、公営のジムは（ユーザ層的な意味で）安心できる、ゴールドジムなどはガチ勢ばかりで怖いという話で盛り上がった気がする。願わくばもっとたくさん筋トレトークを聞きたかった。
+なお、はむかず先生は糖質制限などはそんなに意識していないとのこと。僕も外ではそれほど気にせず好きなものを飲み食いしているけど、一方で、家ではお米や麺は控えて、プロテイン、ヨーグルト、納豆、豆腐、ささみ、チーズ、茹でて小分けにして冷凍した野菜各種のローテーションになっている。
+まぁ筋トレよりも登山のほうが最近は大事で、そうなると炭水化物が命なので糖質制限とか知るかという気分になる。
+今回のセミナー会場は大阪だったので、有給を取って前々日入りして伊吹山に登るなどした：
+ちょうど登った日が初冠雪だったらしく、4合目くらいまでは鮮やかな紅葉と琵琶湖を、それ以降は今シーズン初の雪の感触を楽しんだ。平日に登る混雑していない山の素晴らしさたるや…！
+そしてセミナー当日は早朝に京都の大文字山に登ってから大阪へ移動した：
+紅葉シーズンの京都を独り占めできて最高だった。八坂神社のほうから入って銀閣寺側に抜けるコースで、散歩感覚で行ったら思った以上にちゃんとした登山で笑った。下山後はタイミングよく銀閣寺開店(?)凸ができてすごく良い。
+日曜昼過ぎの開催だったセミナーには、エンジニアを中心に多くの方々の参加があった。ありがとうございました。（正直、大阪開催のミニセミナーでこんなに人が集まるとは思わなかった…。）
+僕の話の内容は、修士研究までの経験談を土台として「推薦システムのトレンドはどこにあるのか？」という問いに答えを求めるもの。
+協調フィルタリング、Matrix Factorization、レーティング予測の先にあるもの 昨今の推薦システムの理論と実践のトレンドを一言で表すと &amp;ldquo;Beyond collaborative filtering on rating&amp;rdquo; だろう。
+『Understanding Research Trends in Recommender Systems from Word Cloud』で推薦システムのトップカンファレンス RecSys の直近4年分の採択論文の概要からワードクラウドを作ったが、この分野の代名詞と言っても過言でない &amp;ldquo;Collaborative Filtering&amp;rdquo; や &amp;ldquo;Matrix Factorization&amp;rdquo; という手法、そしてこれまで広く議論されてきた &amp;ldquo;rating&amp;rdquo; という種のデータの存在感が明らかに薄くなっていた。
+一方で、近年目立つようになったのは &amp;ldquo;product&amp;rdquo; や &amp;ldquo;review,&amp;rdquo; &amp;ldquo;social&amp;rdquo; のような実アプリケーション寄りのデータを表す単語や &amp;ldquo;online,&amp;rdquo; &amp;ldquo;group&amp;rdquo; のような現実的な問題設定を示唆する単語だ 1。
+アカデミアで議論されてきた手法のアプリケーション応用が進むにつれて、理論 (Theory) と実践 (Practice) のギャップというものが明るみになった。その結果が、ワードクラウドにも現れた『協調フィルタリングのその先を考える』というトレンドなのだと思う。これは『推薦システムのトップ会議RecSys2016に参加した』のときに僕自身が肌で感じたことでもある。
+Netflixが自分たちの推薦アルゴリズムの精度向上に対して多額の賞金を出した Netflix Prize から8年、推薦システムを取り巻く環境は大きく変わった。
+彼ら自身、サービス形態そのものがアメリカ国内のDVDレンタルから世界規模の動画ストリーミングへと変化していく中で、システムのスケーラビリティという問題に直面した。その結果、今では Netflix Prize を勝ち取った手法それ自体はサービスでは使っていないという。</description>
+    </item>
+    
+    <item>
+      <title>Podcast &#34;Data Skeptic&#34; の推薦システム回が良すぎて3回聞いた</title>
+      <link>https://takuti.me/note/data-skeptic-recommender-systems/</link>
+      <pubDate>Fri, 17 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/data-skeptic-recommender-systems/</guid>
+      <description>推薦システムの業界で知らぬものはいない、ミネソタ大学のレジェンド級プロフェッサーJoseph Konstan先生が Podcast &amp;ldquo;Data Skeptic&amp;rdquo; に出演していた：
+ Recommender Systems (live from Farcon) | Data Skeptic  Courseraの推薦システムのコースでお世話になり、その後 RecSys 2016 でユーモア満載の生Konstan先生を見たときはすごく感動したことを覚えている。
+振り返れば、RecSys 2016 で他の発表者がアルゴリズム寄りの“普通”の話をしている中、先生のグループ (GroupLens) の研究は真剣に『ユーザ体験』『インタフェース』『HCI』という視点で議論を展開していて、やっぱりこの人はすごい…と感じたものである。推薦システム≠機械学習であり、非常に奥が深い分野なのだと改めて気付かされた。
+そんな先生が推薦システムについて語るPodcastエピソードは、とても示唆的で聞きごたえのある内容だった。みんなもぜひ聞いてほしい。
+以下、特に印象的だった話題についていくつか。
+“良い”推薦システムとは 「完璧な推薦システムってあるの？」という聞き手の質問に対して、「存在しないし、推薦システムの“良さ”をいかに測るかに依る」と答えるKonstan先生。
+従来、推薦システムの評価には機械学習的な方法が用いられてきた。ECサイトなら、ユーザの購入履歴のうち80%でモデルを作って、20%で評価、とった具合。しかし、そんな『放っておいてもいずれ買うような、絶対に好きなモノ』を正しく当てるシステムに意味があるのだろうか？
+推薦システムは薦められなければ絶対に買わなかったであろうモノの中で、ベストなモノを提示すべきであり、これは機械学習的な意味の“精度”などでは測れない。
+たとえばワインの推薦をするとして、既に好きなワインを正しく予測することがゴールではない。好きなワインに似ていて、より良いワイン―それを推薦して、ユーザの嗜好を広げることが推薦システム本来の役割だと言える。
+そのような考え方から、推薦システムの評価指標に関する議論はいまだに続いており、ゆえに『完璧な推薦システム』など定義することすらできないのだ。
+Serendipity = like + didn&amp;rsquo;t expect 既存の評価指標のなかで有望そうなもののひとつにセレンディピティがある。これはどうだろう？
+Konstan先生は Serendipity = like + didn&amp;rsquo;t expect の組み合わせで達成されるのだと言い、その意味を決して履き違えないことだと警笛を鳴らす。たとえセレンディピティを議論するのだとしても、まずはユーザの嗜好を正しくモデリングできることが前提だ。
+推薦システムの研究で、精度が出ないときに「セレンディピティ的には有望」という言い訳をするひとがいるが、精度が出ていないのなら嗜好 (like) のモデリングにはおそらく失敗しているわけで、それはセレンディピティでもなんでもない。bad + didn&amp;rsquo;t expect = just &amp;ldquo;BAD&amp;rdquo; である。
+Cycling and Serpentining 聞き手がKonstan先生のグループの CSCW2017 の論文 &amp;ldquo;Cycling and Serpentining Approaches for Top-N Item Lists&amp;rdquo; について質問していて、この研究がなかなか面白い。</description>
+    </item>
+    
+    <item>
+      <title>Understanding Research Trends in Recommender Systems from Word Cloud</title>
+      <link>https://takuti.me/note/recsys-wordcloud/</link>
+      <pubDate>Sat, 11 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/recsys-wordcloud/</guid>
+      <description>The field of recommender systems grows rapidly according to the recent development of practical intelligent systems. However, even though the field is exceptionally practical compared to the other computer-science-related topics, many researchers are actively studying recommendation techniques in their lab. Here is a question: what are the research trends in recommender systems?
+I tried to understand the trends from word cloud by using abstract of papers accepted for ACM RecSys Conference, one of the biggest major conferences on recommendation systems.</description>
+    </item>
+    
+    <item>
+      <title>Over-/Under-samplingをして学習した2クラス分類器の予測確率を調整する式</title>
+      <link>https://takuti.me/note/adjusting-for-oversampling-and-undersampling/</link>
+      <pubDate>Sat, 04 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/adjusting-for-oversampling-and-undersampling/</guid>
+      <description>不均衡データ (imbalanced data) からクラス分類を行うとき、マイナーなクラスに属するサンプルの oversampling や、メジャーなクラスに属するサンプルの undersampling (downsampling とも) が大切（cf.『不均衡データのクラス分類』）：
+（▲ Tom Fawcett氏による記事 &amp;ldquo;Learning from imbalanced data&amp;rdquo; 中の5番目の図を引用）
+このテクニックを使って学習した分類器による予測確率は、少し調整してから解釈したほうがいいらしい、という話。
+Imbalanced data と Oversampling/Undersampling たとえば2クラス分類をしたいとき、ラベル1のサンプル（正例）がわずか 0.01% しか存在せず、その他 99.99% のサンプルはラベル0（負例）、みたいな状況がある。
+そこまで顕著ではないにせよ、現実のデータは正例/負例いずれかに大きく偏ったものであることが多い。具体的には、オンライン広告のクリック（正例） or 非クリック（負例）など。表示される広告を律儀に全部クリックする人などいないわけで、わずかな正例と大量の負例から「この人がクリックしてくれそうな広告」を予測、配信している。
+正例 0.01%、負例 99.99% のときは、もはや機械学習なんかせず、常に「これは負例だ」と答える“分類器”を用意しても、評価段階では十分な精度が得られてしまうだろう。または、仮にそのサンプルで真面目に分類器を学習したとしても、正例はノイズ程度に扱われ、ほぼすべての入力に対して無条件に負例と予測する分類器になりかねない。
+というわけで、imbalanced data のクラス分類を行うためには、oversampling または undersampling によってサンプル数を均等にしてあげて、フェアな条件で分類器を学習することが有効なのである。わずかな例外的サンプルに振り回されることがなくなるので、早く収束することも期待できる。
+手法としては SMOTE (Synthetic Minority Oversampling Technique) などが有名だが、ここでは最も単純なランダムサンプリングだけを考える。メジャーなサンプルがマイナーなサンプルよりも $N$ 倍多いとき、
+ Oversampling: マイナーなサンプルを $N$ 倍 (oversampling rate) に複製する Undersampling: メジャーなサンプルを $1/N$ 倍 (undersampling rate) に間引く  という操作をランダムに選んだサンプルを使って行う。
+Undersampling時の予測確率の調整 引き続き2クラス分類を考える。</description>
+    </item>
+    
+    <item>
+      <title>Courseraの&#34;Functional Programming in Scala Specialization&#34;を修了した</title>
+      <link>https://takuti.me/note/coursera-scala-specialization/</link>
+      <pubDate>Sat, 28 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/coursera-scala-specialization/</guid>
+      <description>ここ1年くらい暇を見つけてちまちまと遊んでいたCourseraの &amp;ldquo;Functional Programming in Scala Specialization&amp;rdquo; という一連のプログラムを修了した。
+4つのコースから構成されていて、（修了証は出ないけど）課題を含めてすべて無料で受講できた。課題はスケルトンコードとデータが与えられて、指定されたメソッドを実装する、というよくある形式。
+ Functional Programming Principles in Scala  関数型プログラミングの基礎 パターンマッチとか高階関数とかImmutableなデータ構造の話とか  Functional Program Design in Scala  発展的な関数型プログラミングの概念いろいろ モナモナしたり、遅延評価したり  Parallel Programming  タスク並列化とデータ並列化 .par を付けるとできる、Scala の並列コレクションに対する操作いろいろ  Big Data Analysis with Scala and Spark  Sparkを使おう RDD, Dataset, DataFrame それぞれの操作   Functional Programming Principles in Scala では、var（と val ）を絶対に使わないという強い意志を持って、再帰を駆使してコードを書く。普段ノリでScalaを書いていると気がついたらJavaになっているが、このコースが最初にあったおかげで、始終冷静にScalaが書けた気がする。ハマりどころは特に無いけど、Scalaじゃなくても良いよね感がすごいので飽きる。
+Functional Program Design in Scala は講義が苦痛だが、どの資料をあたってもモナドとは常にそういうものである。諦めよう。課題では Stream や ScalaCheck が出てくる。遅延評価の話と Stream の導入はわかりやすくて良かった。</description>
+    </item>
+    
+    <item>
+      <title>ルールベースは『人工知能』か</title>
+      <link>https://takuti.me/note/rule-based-ai/</link>
+      <pubDate>Sat, 21 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/rule-based-ai/</guid>
+      <description>いま、世の中は空前の人工知能ブームである。あれもこれも人工知能、こっちだってAI、そっちはディープラーニング。『ファジィ』という言葉が流行り、ファジィ炊飯器などが大量に出回った90年代を想起する先輩方も多いらしい。
+一方で、バズワードとしての『人工知能』を鼻で笑うエンジニア、研究者、学生もいる。彼らは世間の期待と現実のギャップを理解している。だからこそ、そんなバズワードを安易には受け入れない。
+この現状に何を思うか。
+僕だって、会話の中で AI という単語がでると胸がザワザワするのが正直なところ。しかし、じゃあその言葉が使われなくなれば良いのかというと、それもちょっと違う気がする。
+はむかず先生の記事『「人工知能」という言葉について考える』を読んで触発されたので、この『人工知能』という言葉の使われ方・使い方について、個人的な気持ちを書きなぐってみる。
+言葉の定義は大きな問題ではない まず、『人工知能』という言葉の定義については僕も「何が人工知能であるかは、必ずしもはっきりと境界線を引けるものではないし、引く必要もない」と思う。
+もちろん定義がハッキリしていないと、お客さんの「AIでいい感じにやってほしい」という期待と、こちらがイメージする具体的な手法でできることの間にギャップが生じて危険だ。
+が、これは別に人工知能に限った話ではない。
+たとえばWeb制作の現場では、お客さんの要望は「いい感じのホームページが作りたい」であり、そこから製作者はデザインを考え、CMS利用やらJSのライブラリやら、具体案な実現手法をイメージしていく。詳しく話を聞いてみると、実は「ホームページで商品を売りたい」らしい・・・とか、日常茶飯事である。
+言葉の意味を予め明確にして、曖昧な言葉は使わない―それは素晴らしい姿勢だけど、使われたときにコンテキストを紐解き、具体的な他の言葉に噛み砕いていく過程のほうがはるかに重要。
+嫌でもその言葉を使わなければならないタイミングはある 「いやいや俺は曖昧な言葉は一切使わない主義だ」という方もいるでしょう。ただ、マジックワード『人工知能』が嫌いだろうが好きだろうが、それを使わなければならない、使うべきタイミングというものが存在するのもまた事実。
+たとえばセールストーク。どれほどハイレベルな技術スタックとアルゴリズムを組み合わせて作ったモノでも、使ってもらえなければ意味がない。そのためには、光り輝くマジックワードを織り交ぜた宣伝活動も時として重要である。それが競合との勝敗を分けることだってあるのだから。
+または、お偉いさんに提出する申請書類。なんの説明もなしに専門用語を並べて威圧したら申請却下待ったなしである。導入部分が「人工知能の活用」で始まるのは悪いことではない。そういう抽象的な話から、徐々に具体案を語っていけばよい。そのような書類から予算が生まれ、近年の周辺技術の発展が支えられているのも事実だしね。
+ただし限度はある。相手の無知を利用してマジックワードを乱用した文章で翻弄し、中身のないモノを作って売るのは詐欺と言っても過言ではない。
+ルールベースのような単純な処理を人工知能と呼んでいいのか？ ではその限度がどこにあるのか。ルールベースで動く製品を『人工知能』として売るのはどうなのか。
+個人的に、人工知能の本質はそこにはないと思っている。求められるのは常に“ふるまい”としての人工知能“らしさ”である。だからこそ、単純な処理だって人工知能になり得るという認識がもっと広がってほしい。
+マジックワードが使われたときにコンテキストを紐解き、具体的な他の言葉に噛み砕いていく過程が重要だと書いたけど、
+ 人工知能 → 機械学習 → （アルゴリズム名）  という変換が脳内で発生したら、「おっといけない。もっとシンプルな方法があるんじゃないか？」とブレーキをかけたい。
+ルールベースで対応できる案件かもしれないし、自然言語処理という名の正規表現で十分なときだってある。数式だって必ずしも微分積分する必要はない (&amp;rdquo;Do the Math&amp;rdquo;)。あなたの考える根拠のないファンシーな手法よりも、そっちのほうがずっと現実的で人工知能“らしい”ものになるかもしれませんよ。
+同様に、「いい感じのホームページが作りたい」という要望に対して、完成したものがどれだけ最新の技術的なトレンドを取り入れていようが、お客さんにとってそんなことはどうだったいい。成果物の“ふるまい”が全てである。
+結局『人工知能』とは何なのか この答えは人それぞれで、そこを見極めるためにはまず歴史を知ることも重要だろう。
+僕は『期待に応えて人工知能“らしい”出力をする、「おぉすごい」と思ってもらえるもの』が人工知能だというスタンスで、それを満足する限りルールベースだって正規表現だってAIの一部だと思っている。この点は以下の書籍に影響された部分も大きくて、昔ブログでもまとめた：
+ クラウドからAIへ アップル、グーグル、フェイスブックの次なる主戦場 (朝日新書) posted with ヨメレバ  小林雅一 朝日新聞出版 2013-07-12  Amazon Kindle 楽天ブックス     人工知能関連技術の発展、それすなわちUI革命  まったく新しいユーザ体験を提供する手段としてのAI、という考え方は大好き。Amazonの『IoT』というバズワードに対する見方も似ていた：
+ The Amazon Way on IoT - Amazonのビジネスから学ぶ、10の原則  まとめ 別に僕は「みんなもっとカジュアルに『人工知能』という言葉を使おう」とか思っているわけではない。けど、別にその言葉を毛嫌いする必要もないよなーという気持ち。それを書きたかった。案の定まとまりのない駄文となってしまったけど、たまにはこういうのもいいでしょう。</description>
+    </item>
+    
+    <item>
+      <title>PyTorchでもMatrix Factorizationがしたい！</title>
+      <link>https://takuti.me/note/pytorch-mf/</link>
+      <pubDate>Sat, 14 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/pytorch-mf/</guid>
+      <description>『PyTorchのautogradと仲良くなりたい』でPyTorchに入門したので、応用例としてMatrix FactorizationをPyTorchで実装してみようね 1。
+Matrix Factorization Matrix Factorizationは以前『Courseraの推薦システムのコースを修了した』でも触れたとおり、ユーザ-アイテム間の $m \times n$ 行列を、ユーザの特徴を表す行列 $P \in \mathbb{R}^{m \times k}$ (user factors) とアイテムの特徴を表す行列 $Q \in \mathbb{R}^{n \times k}$ (item factors) に分解する：
+これを二乗損失のSGDで素直に実装すると、user_factors と item_factors の更新や評価値予測はこんな感じ：
+import numpy as np class MatrixFactorization(object): def __init__(self, n_user, n_item, k=20, lr=1e-6, weight_decay=0.): self.user_factors = np.random.rand(n_user, k) self.item_factors = np.random.rand(n_item, k) self.lr = lr self.weight_decay = weight_decay def predict(self, user, item): return np.inner(self.user_factors[user], self.item_factors[item]) def __call__(self, user, item, rating): err = rating - self.</description>
+    </item>
+    
+    <item>
+      <title>The Amazon Way on IoT - Amazonのビジネスから学ぶ、10の原則</title>
+      <link>https://takuti.me/note/the-amazon-way-on-iot/</link>
+      <pubDate>Fri, 06 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/the-amazon-way-on-iot/</guid>
+      <description>Amazonのビジネスモデルから大切なことを学びましょう、といった趣旨の本を読んだ：
+ The Amazon Way on IoT: 10 Principles for Every Leader from the World&amp;rsquo;s Leading Internet of Things Strategies  いろいろなビジネス書やえらい人の講演で断片的に語られる、聞けば（フムフム）と思える程度の内容がコンパクトにまとまっていた。新しいことをはじめるときに、チェックリスト的に使えそう。
+ちなみにタイトルの &amp;ldquo;IoT&amp;rdquo; は釣りで、トレンドにのっただけのように思えた。読者の興味がIoTにあるか否かに依らず、広く応用できそうな真っ当な話が多い。
+Customer Obsession 前提知識として、Amazonでは &amp;ldquo;Customer Obsession&amp;ldquo;（お客様第一）という全社的な理念があることを覚えておきたい。どんなときも「なにがお客様のためになるか」という視点で会社（ビジネス）の向かう先や、社員の行動が決定される。この本で語られる成功のための10の法則も、究極的にはすべてこの考え方に通ずる。
+「そりゃお客様を大切にしない会社なんて無いだろう」という話ですが、こういうシンプルな基準を自分（自社）の中にしっかりと持っておくと、道に迷ったときに進むべき方角が明確なので大変よろしい。特に大規模な組織ともなれば、会議で意見がぶつかることや、事業が迷走することもあるだろうし。
+そんな Customer Obsession を（きっと）体現しているAmazonのビジネスモデルから学ぶ、10の法則の私的メモ。
+1. Reinvent Customer Experiences with Connected Devices  IoTの文脈でも「デバイス同士がつながることが、いかにお客様の問題解決の一助となるか」という視点を持ち続けたい しかしまぁ、まずは &amp;ldquo;with Connected Devices&amp;rdquo; (IoT) は忘れて、いまのサービスのユーザ体験をしっかり再設計・最適化することから始めようね そして、ひとつのサービスが地に足ついたところで、一歩引いた広い視野で次のステップを考えてみよう  AmazonはECの会社だけど、もはやECサイトのデザインや品揃えは最適化され尽くしていて、ユーザの大きな不満とはならない だから、その次は違うフィールドでイノベーションを起こした Amazonの場合は、そこで初めてドローンのような &amp;ldquo;Connected Devices&amp;rdquo; が出てきた 最適化し尽くしたかに思われた買い物体験は、これによって再び“再発明”されることになる   継続的に全く新しいユーザ体験を提供し続けることの大切さと、そのときに &amp;ldquo;Connected Devices&amp;rdquo; が非常にいい仕事をするという話。
+ただし、現実はそれほど単純でもない。ドローン配送に対するぼくらの驚きは、単なる『物珍しさ』に依る部分が大きいはず。物珍しいモノを“当たり前”にして、その後の世界で更なるイノベーションを起こす…終わりなき旅ですなぁ。
+こういう話があると、AWSの &amp;ldquo;re:Invent&amp;rdquo; というイベント名がとても味わい深いものになる。</description>
+    </item>
+    
+    <item>
+      <title>Pythonのconcurrent.futuresを試す</title>
+      <link>https://takuti.me/note/python-concurrent-futures/</link>
+      <pubDate>Sun, 01 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/python-concurrent-futures/</guid>
+      <description>EuroScipy 2017 でPythonの concurrent.futures についての話を聞いたので、改めて調べてみた。
+2系まではPythonの並列処理といえば標準の multiprocessing.Pool が定番だったけど、3系からは新たなインタフェースとして concurrent.futures という選択肢もふえた。
+Scalaなんかでおなじみの Future とは、並行処理の結果を参照する存在。Pythonの Future f = concurrent.futures.Future() は処理の『実行中 f.running() 』『キャンセル済み f.canceled() 』『完了 f.done() 』といった“状態”を参照するメソッドを提供している。そして f.result() を呼べば完了までブロッキング。
+実際には、非同期処理は Executor オブジェクトによってスケジューリングされる。このときマルチスレッドなら ThreadPoolExecutor、マルチプロセスなら ProcessPoolExecutor を使う。
+マルチスレッド: ThreadPoolExecutor スレッドプールを利用した並列化。
+重要なのは、たとえ複数スレッドで処理を実行しても、ワーカーたちは1つのインタプリタを共有している点。これによりメモリオーバーヘッドが小さい、spawnが早い、ワーカー間の同期が不要といった意味で、処理の効率的な非同期呼び出しが期待できる。
+しかし同時に、Pythonには Global Interpreter Lock (GIL) という mutex があり、1つのインタプリタ上では同時に1スレッドからしかリソースにアクセスできないという制約がある。なので ThreadPoolExecutor による並列化は、CPU-boundedな処理に対しては必ずしも有効とは言えない。
+これは過度な制約だという見方もあり、numpy, pandas, sklearn といった有名ライブラリは with nogil を付与したコンパイルによってGILフリーなマルチスレッド処理を（部分的に）行っていたりするらしい。
+マルチプロセス: ProcessPoolExecutor 一方で、プロセスレベルの並列化では各ワーカーが自分だけのインタプリタを持つ。
+これによりマルチスレッドと比較するとspawnが遅く、メモリオーバーヘッドが大きく、プロセス間で同期をとる必要が生じてしまうが、GILに縛られない並列化が可能となる。
+従来 multiprocessing.Pool() でプロセスプールを作って実現していた並列化はこちらに相当する。
+試す では、1秒wait()×2回をシングルスレッド、マルチスレッド、マルチプロセスそれぞれで試してみよう：
+import time from concurrent import futures def wait(): time.</description>
+    </item>
+    
+    <item>
+      <title>PyTorchのautogradと仲良くなりたい</title>
+      <link>https://takuti.me/note/pytorch-autograd/</link>
+      <pubDate>Sat, 23 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/pytorch-autograd/</guid>
+      <description>（希望）
+せっかくEuroScipy 2017でFacebook AI researchのSoumith Chintala氏から直に PyTorch のお話を聞いたので、触ってみるしかないぞ！と思いました。
+特に、PyTorchのウリだと言っていた autograd（自動微分）が気になるので、まずは公式チュートリアルから入門してみる。
+x という変数を requires_grad=True オプション付きで定義する。値は1：
+import torch from torch.autograd import Variable# [x1, x2; x3, x4] = [1, 1; 1, 1] x = Variable(torch.ones(2, 2), requires_grad=True) &amp;ldquo;PyTorch is numpy alternative&amp;rdquo; と言うだけあって、配列（テンソル）操作は困らない。
+そして一次関数 y = x + 1 を定義：
+# [y1, y2; y3, y4] = [x+2, x+2; x+2, x+2] y = x + 2 さらに y を使って二次関数をつくる：
+# zi = 3 * (xi + 2)^2 z = y * y * 3 コメントの通り、z = y * y * 3 を展開すれば z = (x + 2) * (x + 2) * 3 です。</description>
+    </item>
+    
+    <item>
+      <title>igo-rubyを新語辞書NEologdでナウい感じにする</title>
+      <link>https://takuti.me/note/igo-ruby-neologd/</link>
+      <pubDate>Sun, 17 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/igo-ruby-neologd/</guid>
+      <description>『はてなキーワードを使ってigo-ruby(MeCab)用の辞書をナウい感じにする』に4年ぶりの続編です。
+igo-ruby はJava製の形態素解析器 Igo のRuby版で、4年前から動いている僕のtwitter botでも使っている。
+4年前の記事では『人工知能』や『ニコニコ動画』といった新語をigo-rubyでナウく分かち書きするために、Wikipediaタイトルやはてなキーワードのデータを使って独自に辞書をカスタマイズした。
+今回はもっと簡単に、継続的にメンテナンスされている新語辞書 NEologd を使って同様のことを実現する。もはや最近はこっちのほうが自然なアプローチですなぁ。
+NEologdのビルド リポジトリを取ってきて、手順通りビルドする：
+$ cd /path/to/neologd/mecab-ipadic-neologd $ ./bin/install-mecab-ipadic-neologd -n  すると build/mecab-ipadic-2.7.0-20070801-neologd-YYYYMMDD といったディレクトリができる。
+これが4年前の記事で自前で生成した辞書を置いた mecab-ipadic-2.7.0-20070801 というディレクトリに対応していて、以後の手順は全く変わらない。外部データを整形して独自にコストを計算していた手間をNEologdが肩代わりしてくれた形。感謝〜。
+辞書生成 igo.jar を取ってきて：
+$ wget &#39;http://osdn.jp/frs/redir.php?m=jaist&amp;amp;f=%2Figo%2F52344%2Figo-0.4.3.jar&#39; -O igo.jar  igo用辞書 ipadic-neologd をつくる：
+$ java -cp igo.jar net.reduls.igo.bin.BuildDic ipadic-neologd /path/to/neologd/mecab-ipadic-neologd/build/mecab-ipadic-2.7.0-20070801-neologd-YYYYMMDD utf-8  オリジナルのIPA辞書のエンコーディングがEUCだったのに対し、NEologdはUTF-8であることに注意。
+ためす require &amp;#39;igo-ruby&amp;#39; tagger = Igo::Tagger.new(&amp;#39;/path/to/ipadic-neologd&amp;#39;) p tagger.wakati(&amp;#39;人工知能&amp;#39;) # [&amp;#34;人工知能&amp;#34;] p tagger.wakati(&amp;#39;ニコニコ動画&amp;#39;) # [&amp;#34;ニコニコ動画&amp;#34;] p tagger.wakati(&amp;#39;10日放送の「中居正広のミになる図書館」（テレビ朝日系）で、SMAPの中居正広が、篠原信一の過去の勘違いを明かす一幕があった。&amp;#39;) # [&amp;#34;10日&amp;#34;, &amp;#34;放送&amp;#34;, &amp;#34;の&amp;#34;, &amp;#34;「&amp;#34;, &amp;#34;中居正広のミになる図書館&amp;#34;, &amp;#34;」&amp;#34;, &amp;#34;（&amp;#34;, &amp;#34;テレビ朝日&amp;#34;, &amp;#34;系&amp;#34;, &amp;#34;）&amp;#34;, &amp;#34;で&amp;#34;, &amp;#34;、&amp;#34;, &amp;#34;SMAP&amp;#34;, &amp;#34;の&amp;#34;, &amp;#34;中居正広&amp;#34;, &amp;#34;が&amp;#34;, &amp;#34;、&amp;#34;, &amp;#34;篠原信一&amp;#34;, &amp;#34;の&amp;#34;, &amp;#34;過去&amp;#34;, &amp;#34;の&amp;#34;, &amp;#34;勘違い&amp;#34;, &amp;#34;を&amp;#34;, &amp;#34;明かす&amp;#34;, &amp;#34;一幕&amp;#34;, &amp;#34;が&amp;#34;, &amp;#34;あっ&amp;#34;, &amp;#34;た&amp;#34;, &amp;#34;。&amp;#34;] めでたい。</description>
+    </item>
+    
+    <item>
+      <title>Yahoo!の異常検知フレームワーク&#34;EGADS&#34;</title>
+      <link>https://takuti.me/note/yahoo-egads/</link>
+      <pubDate>Sun, 10 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/yahoo-egads/</guid>
+      <description>Yahoo!がOSSとして開発している異常検知フレームワーク &amp;ldquo;EGADS&amp;rdquo; (Extensible Generic Anomaly Detection System) について書いた次の論文を読んだ：
+ Generic and Scalable Framework for Automated Time-series Anomaly Detection (KDD 2015)  リアルタイムなデータをモデリングする種のアルゴリズムの実装とはどうあるべきなのか、という話は難しい。
+僕も異常検知や情報推薦のためのアルゴリズムをパッケージ化してみてはいるものの、
+ 時系列データの入力、モデリング、予測、出力といったコンポーネントをいかに切り分けて実装するか バッチとオンラインアルゴリズムのバランスをいかに取るか どこまで自動化して、どこにヒューリスティクスを取り入れる余地を残すか  といった点は本当に悩ましい。その点、この論文は1つの事例としてとても示唆的で、学びの多いものだった。
+概要 大規模な時系列データから自動的に異常を検知してくれる、汎用的かつスケーラブルなフレームワーク &amp;ldquo;EGADS&amp;rdquo; を開発した。これはYahoo!社内のモニタリングシステムの一部として実用されていて、複数データソースから流れ込む数百万の時系列データをさばいている。
+昨今の異常検知システムは特定のユースケースに最適化されたものであることが多く、素直に応用すると必ず大量のFalse Positiveとスケーラビリティの問題に直面する。
+その点EGADSはHadoopやStormを組み合わせた実践的、スケーラブルかつリアルタイムな異常検知システムであり、複数のアルゴリズム実装と機械学習による“異常”のフィルタリング機構によって幅広い応用が可能。
+アーキテクチャ EGADSは大きく分けて3つのコンポーネントから成る：
+ Time-series modeling module (TMM)  時系列データをモデリングする  Anomaly detection module (ADM)  モデルに基づいて異常な入力データを検知する  Alerting module (AM)  検知された異常なデータをフィルタリングして、“ユーザが着目している異常”についてのみアラートを発する   （原論文Fig. 1より）
+ バッチ  観測した時系列データをHadoopクラスタ上で保持 TMMが蓄積された観測データをバッチでモデリング モデルはModel DBに格納  オンライン  Stormでリアルタイムにデータを見る Model DBのモデルを使って観測したデータが異常か否かを検知するモジュール (ADM) をかませる 異常と判断されたデータはAMで更にフィルタリング、“ユーザが着目している異常”ならばアラート   このバッチとオンライン処理の切り分けから、『モデリングに関する計算は可能な限り事前に済ませておく』というスループット/スケーラビリティ向上に対する強い意思がうかがえる。</description>
+    </item>
+    
+    <item>
+      <title>EuroSciPy 2017に参加してしゃべってきた</title>
+      <link>https://takuti.me/note/euroscipy-2017/</link>
+      <pubDate>Sat, 02 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/euroscipy-2017/</guid>
+      <description>8月30, 31日にドイツのエルランゲンで開催された EuroSciPy 2017 に発表者として参加してきた。カンファレンス参加を積極的にサポートしてくれる弊社に感謝感謝。
+このカンファレンスは &amp;ldquo;Scientific Computing in Python&amp;rdquo; に関するあらゆる話題が対象で、numpy, scipy, matplotlib, pandas, Jupyter notebooks あたりが絡んでいればよろしい。SciPy Conference US のヨーロッパ版ということになる。本会議前2日間はチュートリアル、9月1日にはSprintもあったけど、そっちは不参加。
+全体で200名程度の参加があったらしい。思っていたよりもずっと賑やかな会議だったなーという印象がある。参加者のバックグラウンドは教授から学生、企業の研究者、データサイエンティスト、エンジニアまで様々。
+しゃべった 僕が発表した内容は、去年修士研究の片手間で作っていたオンライン型の推薦アルゴリズムのパッケージ FluRS について：
+ 実験をして論文を書くためのexperimentalなライブラリなので、本当の意味で &amp;ldquo;Streaming&amp;rdquo; な実装とは言えないのだけど…。
+Proposalで書いたトークの概要はここにある。Real-world machine learning と向き合い始めて半年、ここらで去年までやっていたことにもう一度向き合って整理して、次に繋げるいいきっかけになれば、と思って応募した。
+『行列計算の基本くらいは分かるけど、推薦アルゴリズムは何も知らない』という聴衆を想定して、古典的な推薦アルゴリズムから僕が修士研究で取り組んでいたオンライン型の推薦の話まで、理論と実装の雰囲気を15分で話した。「よかったよ！」とわざわざ声をかけてくれた人たちが何人もいて、短い説明から本質的な問題点を汲み取って鋭い質問を投げかけてくれた人たちがいて、とても優しい世界だった…うれしい…。
+そして何より「行ってよかった」と思えたのは、Amazon US で Senior Applied Scientist をやっている Federico Vaggi 氏やSonyで推薦関連のR&amp;amp;Dをしている某氏をはじめとする、非常に濃い人たちとこの話題について近い距離で議論できた点。こういう時間がこの先1年間くらいの糧になる。
+あと、2日目の最後にあったLT（ひとり2分！）は当日に発表者を募集していたので、勢いで td-client-python や pandas-td を絡めて（無理矢理）Hivemall や Treasure Data のことを話した。が、これは難しかった…参加者の興味も、HadoopやSparkとはかけ離れたところにある印象だった。
+エルランゲンという街 もうね、すごい。自然。森。会場だって森の中：
+airbnbから会場まで40分くらい、こんな道をずーっと歩いていると、なんかもう地元で散歩している気分になる：
+カンファレンスのソーシャルイベントでは、洞窟でビールをつくっている昔ながらのブルワリーが密集した高台のエリア（語彙力）で飲んで飲んでガイドツアーに参加して飲んで、という感じの素晴らしい時間を過ごした。水のようにビールを飲んで、でもどれ1つとして同じ味のビールは無くて、最高だったなァ：
+お世辞にももう一度来たいと思うような街ではなかったけど、よい2日間でした。
+前回のノルウェーからヨーロッパのカンファレンスが2回続いてしまったので、次はもう少し違う方角へ飛べたらいいですね。
+以下ほかの発表について、メモと感想をつらつらと。
+Keynote Keynote 1: How to fix a scientific culture  『報告されている心理学実験の結果の多くは、再現実験で有意だと示せないものばかりだ』という、論文 &amp;ldquo;Estimating the reproducibility of psychological science&amp;rdquo; に書いてあるような話題 みんな &amp;ldquo;noise mining&amp;rdquo;, &amp;ldquo;p-hack&amp;rdquo; をして、自分の喜ばしい、有意だと言えそうな結果を探しているだけだという悲しい現実 この世界をどうやって変えていくか？そもそも、データを扱うワークフロー上のすべてのステップ（仮説、実験、検証、…）で、我々は意識的・無意識的に“バイアス”をかけてしまっている アプローチ1: Pre-registration  実験の各ステップで、これまでやってきたことを peer-review する アイディアを元に実験を設計したらレビューを受ける、データを集めたらまたレビューを受ける…これを繰り返して、最後のレビューまでクリアしたら成果を公開してよい  アプローチ2: Open Science  Open science framework というプラットフォームもある データや手法、解析用スクリプトなど、様々な情報を公開してフェアな世界をつくろう   Pythonに直接関係のある話では無かったけど、同じ『データの上で仕事をする人間』として耳が痛い内容だった。僕らがいかにたやすく誤った結論を導いてしまうか、それを肝に銘じておかなければならない。</description>
+    </item>
+    
+    <item>
+      <title>異常検知のための未来予測：オウム返し的手法からHolt-Winters Methodまで</title>
+      <link>https://takuti.me/note/holt-winters/</link>
+      <pubDate>Sat, 26 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/holt-winters/</guid>
+      <description>Holt-Winters Method（別名: Triple Exponential Smoothing）というデータの予測手法がある。これについて素晴らしい解説記事があるので読みながら実装していた。
+コードは takuti/anompy にある。
+この手法、Graphite が実装しているということもあり、近年ではDevOpsコミュニティを中心に一躍有名になったんだとか。
+ここでは解説記事の内容に沿って、Holt-Winters Method に至るまでに知っておくべき手法たちの“気持ち”をまとめる。数式は元記事やWikipediaに譲る。
+問題 『連続するN点の時系列データを観測していたとき、N+1点目の値を予測する問題』を考える。
+もし次の瞬間の値が予測できれば、そこからデータの“異常”を察知することができる。
+たとえばDatadogなどで監視しているシステムのメトリクスを対象とすれば、予測結果からいち早くアラートを発することができる。
+以後、サンプルとして次のデータ列に対して観測→予測を繰り返すことを考えよう：
+手法1: 直近の観測値をそのまま予測値として返す 考えられる最も単純な手法のひとつ。見たものをそのまま返しているので、オウム返し的未来予測。これを BaseDetector と呼ぼう。
+class BaseDetector(object): def __init__(self, observed_0, threshold=0.): self.threshold = threshold self.observed_last = observed_0 def detect(self, observed_series): &amp;#34;&amp;#34;&amp;#34;Launch forecasting for each observed data point based on a model. Return labeled forecasted series if each observed data point is anomaly or not. Args: observed_series (list of float): Observed series. Returns: list of (float, boolean): Forecasted series with anomaly label.</description>
+    </item>
+    
+    <item>
+      <title>HiveでテキストのFuzzy Search</title>
+      <link>https://takuti.me/note/hive-fuzzy-search/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/hive-fuzzy-search/</guid>
+      <description>先週はPostgreSQL上でテキストのFuzzy Searchを試した。そのときは fuzzystrmatch や pg_trgm といったモジュールが活躍していた。
+では、同じことをHiveで実現するとどうなるだろう。
+データ 適当にテーブル sample をつくっておく：
+hive&amp;gt; CREATE TABLE sample AS &amp;gt; SELECT 1 AS id, &#39;I live in Tokyo.&#39; AS document &amp;gt; UNION ALL &amp;gt; SELECT 2 AS id, &#39;Are you happy?&#39; AS document &amp;gt; ;  hive&amp;gt; SELECT * FROM sample; OK sample.id sample.document 1 I live in Tokyo. 2 Are you happy? Time taken: 0.066 seconds, Fetched: 2 row(s)  なお、Hive環境のセットアップについては以下の記事も参考にされたい：</description>
+    </item>
+    
+    <item>
+      <title>あのときのビールをもう一度（PostgreSQLでFuzzy Searchを試す）</title>
+      <link>https://takuti.me/note/postgresql-fuzzy-search/</link>
+      <pubDate>Wed, 09 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/postgresql-fuzzy-search/</guid>
+      <description>Seven Databases in Seven Weeks を読んでいたら、PostgreSQLでテキスト検索をする話が出てきた。先日 Levenshtein Distance（編集距離）について書いたばかりでホットな話題なので、少し遊んでみよう。
+$ postgres --version postgres (PostgreSQL) 9.6.3 ※インデックスと英語以外の言語の場合については割愛。
+データ お気に入りのアメリカのクラフトビールデータセットを使う。適当に create table してCSVからデータを読み込む：
+create table beers ( key int, abv real, ibu real, id int, name varchar(128), style varchar(64), brewery_id int, ounces real ); \copy beers from &amp;#39;beers.csv&amp;#39; with csv; sample=# select * from beers limit 5; key | abv | ibu | id | name | style | brewery_id | ounces -----+-------+-----+------+---------------------+--------------------------------+------------+-------- 0 | 0.</description>
+    </item>
+    
+    <item>
+      <title>ローカルのRedis上でWikipediaカテゴリをシュッとdigる</title>
+      <link>https://takuti.me/note/fastcat/</link>
+      <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/fastcat/</guid>
+      <description>WikipediaはAPIがあったり、データのMySQLダンプを惜しみなく公開していたりする。便利。しかし、いかんせん規模が大きいので、APIアクセスやRDBへの問い合わせに依存したデータ収集は辛いものがある。
+今回はWikipediaデータの中でも、特に『カテゴリ』を効率的にdigる方法を fastcat というPythonコードから学ぶ。
+ゴール Wikipedia上の、あるカテゴリに対する上位・下位カテゴリの一覧を得る。
+たとえば、英語版Wikipediaの Computers というカテゴリには、
+ 上位カテゴリ  Office equipment Computing  下位カテゴリ  Computer hardware companies Computer architecture Classes of computers Information appliances Computing by computer model Computer hardware Computer systems NASA computers Data centers Computers and the environment   がある。
+これが得られると何が嬉しいかというと、たとえばカテゴリをある種の“概念”とみなせば、上位・下位概念の獲得、概念辞書の構築に使える。また、『各カテゴリに属する記事』がダンプ enwiki-latest-categorylinks.sql.gz から得られるので、これと組み合わせると、クラスタリングの教師データとしても使えるかもしれない。
+データ さて、まずはこのカテゴリデータをゲットしよう。
+先述の通り、カテゴリに関するMySQLダンプが公式から提供されているので、これを使えばよさそう。しかし、これはこれで相当骨の折れる仕事になりそうだ。
+そこで、MySQLダンプを元にDBpediaが独自に作成・公開しているSKOS categories データセット（※ファイル直リンク）を利用する。DBpediaはWikipediaの情報を構造的にアーカイブすることを目的としたプロジェクトで、様々なデータをRDFトリプル &amp;lt;主語, 述語, 目的語&amp;gt; の形で表現している。
+SKOSカテゴリデータのRDFトリプルは &amp;lt;カテゴリ, 関係, カテゴリ&amp;gt; を表現している：
+&amp;lt;http://dbpedia.org/resource/Category:Futurama&amp;gt; &amp;lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&amp;gt; &amp;lt;http://www.w3.org/2004/02/skos/core#Concept&amp;gt; . &amp;lt;http://dbpedia.</description>
+    </item>
+    
+    <item>
+      <title>いまさら編集距離 (Levenshtein Distance) を実装するぜ</title>
+      <link>https://takuti.me/note/levenshtein-distance/</link>
+      <pubDate>Fri, 28 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/levenshtein-distance/</guid>
+      <description>ある文字列Aに対して『1文字の追加・削除・置換』を何回繰り返せば他の文字列Bになるか。このときの最小回数を、文字列A, B間の編集距離 (Levenshtein Distance)と呼ぶ。
+ 花火 から 火花 までの編集距離は各文字の置換なので 2 クワガタ から カブトムシ までの編集距離はなんかもう全文字違うので総入れ替え＆文字『シ』の追加で 5  この編集距離、文字列の“類似度”と見ることができて、なかなか便利な子である。『Job Titleの前処理＆クラスタリングをどうやって実現するか問題』では、人々の肩書きを編集距離を使って前処理（クラスタリング）している事例も紹介した。
+さて、ここでは Levenshtein Distance を求めるアルゴリズムを実装して、備忘録として書き留めておく。ネット上にも多数の解説記事があり「今更ァ？」という話だが、正直どれを読んでもピンとこなかったのだ。
+アルゴリズム 動的計画法 (DP) です。おわり。
+Wikipedia に書かれている擬似コードをそのまま実装すると次のような感じ：
+123456789101112131415161718192021222324252627 def levenshtein(s1, s2): &amp;#34;&amp;#34;&amp;#34; &amp;gt;&amp;gt;&amp;gt; levenshtein(&amp;#39;kitten&amp;#39;, &amp;#39;sitting&amp;#39;) 3 &amp;gt;&amp;gt;&amp;gt; levenshtein(&amp;#39;あいうえお&amp;#39;, &amp;#39;あいうえお&amp;#39;) 0 &amp;gt;&amp;gt;&amp;gt; levenshtein(&amp;#39;あいうえお&amp;#39;, &amp;#39;かきくけこ&amp;#39;) 5 &amp;#34;&amp;#34;&amp;#34; n, m = len(s1), len(s2) dp = [[0] * (m + 1) for _ in range(n + 1)] for i in range(n + 1): dp[i][0] = i for j in range(m + 1): dp[0][j] = j for i in range(1, n + 1): for j in range(1, m + 1): cost = 0 if s1[i - 1] == s2[j - 1] else 1 dp[i][j] = min(dp[i - 1][j] + 1, # insertion dp[i][j - 1] + 1, # deletion dp[i - 1][j - 1] + cost) # replacement return dp[n][m]   二次元配列 dp の中身は、たとえば levenshtein(&#39;kitten&#39;, &#39;sitting&#39;) を実行した後だと：</description>
+    </item>
+    
+    <item>
+      <title>gensimでWikipedia日本語版からコーパスを作ってトピックモデリング</title>
+      <link>https://takuti.me/note/gensim-jawiki/</link>
+      <pubDate>Sat, 22 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/gensim-jawiki/</guid>
+      <description>しましょう。
+gensim とは、人類が開発したトピックモデリング用のPythonライブラリです。
+良記事『LSIやLDAを手軽に試せるGensimを使った自然言語処理入門』のサンプルコードが少々古いので、最新版で改めてやってみる次第。
+準備 Index of /jawiki/latest/ から jawiki-latest-pages-articles.xml.bz2 を入手する。下手すると数時間かかる。
+コーパス 基本的には英語版Wikipediaからコーパスを作る公式サンプルがそのまま使える。
+我々は gensim.corpora.WikiCorpus が内部的に使っている分かち書き用の関数 gensim.corpora.wikicorpus.tokenize を日本語向けに置き換えればよろしい：
+import gensim.corpora.wikicorpus as wikicorpus import MeCab tagger = MeCab.Tagger() tagger.parse(&amp;#39;&amp;#39;) def tokenize_ja(text): node = tagger.parseToNode(to_unicode(text, encoding=&amp;#39;utf8&amp;#39;, errors=&amp;#39;ignore&amp;#39;)) while node: if node.feature.split(&amp;#39;,&amp;#39;)[0] == &amp;#39;名詞&amp;#39;: yield node.surface.lower() node = node.next def tokenize(content): return [ to_unicode(token) for token in tokenize_ja(content) if 2 &amp;lt;= len(token) &amp;lt;= 15 and not token.startswith(&amp;#39;_&amp;#39;) ] wikicorpus.tokenize = tokenize 全貌はgistにあげた。</description>
+    </item>
+    
+    <item>
+      <title>Leakage in Data Mining</title>
+      <link>https://takuti.me/note/leakage/</link>
+      <pubDate>Sun, 16 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/leakage/</guid>
+      <description>データマイニングの現場で頻発する Leakage という問題について本気出して考えてみた、的な論文を読んだ：
+ Leakage in Data Mining: Formulation, Detection, and Avoidance. KDD 2011.  概要  Leakage とは、モデルを作るときに、本来知らないはずの情報（変数やデータ）を不当に使ってしまうこと  手元のデータではメッチャ高い精度が出たのに、本番環境ではまったく精度が出ない、といった事態になる  その問題について定式化を試みると同時に、Leakage を検知・回避する方法を考える こういう議論がまじめにされてこなかったせいで、KDD Cup 2008 のようなプロが企画・主催したコンペでさえ、問題の不備による Leakage が発生している  おもしろ事例集 はじめに、データマイニングコンペでの Leakage 事例が幾つか紹介されている。
+[KDD Cup 2007]((https://www.cs.uic.edu/~liub/Netflix-KDD-Cup-2007.html): Netflix Rating Prediction Netflix 上での映画の評価値データを対象として、2つのタスクがあった：
+ Who Rated What: 2005年までのデータが与えられて、2006年に各ユーザが未評価の映画を評価するかどうか、を予測する How Many Ratings: 同様に2005年までのデータがある状態で、2006年に各映画に集まるレビューの数を予測する  データの混在を防ぐために、タスク1と2ではそれぞれ異なるタイトルの映画のデータが用意された。
+しかし、タスク2で優勝したチームのモデルは、なんとタスク1のテストデータをタスク2の教師データとして使っていた。
+user, movie, rating A, X, 3 B, X, 1 C, X, 5  というタスク1のテストデータ（＝2006年のレビュー履歴）があったとき、「2006年に movie X に集まるレビューは3件」と読み替えることができて、これはタスク2の学習に流用できるね、という話。</description>
+    </item>
+    
+    <item>
+      <title>Job Titleの前処理＆クラスタリングをどうやって実現するか問題</title>
+      <link>https://takuti.me/note/job-title-normalization/</link>
+      <pubDate>Sun, 09 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/job-title-normalization/</guid>
+      <description>LinkedIn など、Job Title（職場での肩書き）をユーザに入力させるサービスは世の中にたくさんある。機械学習、データマイニングの文脈で、このデータをいかに扱うかという話。
+問題 手入力の雑多なJob Titleデータがある：
+   user id title     1 VP of Marketing   2 Eng. Mng.   3 Marketing Manager   4 Software Engineer and Entrepreneur   5 Founder and CTO   6 Chief Technology Officer   &amp;hellip; &amp;hellip;    このデータを各ユーザの demographics を表す特徴量（カテゴリ変数）として使いたい。
+大まかな流れは、
+ 前処理 クラスタリング（i.e., 次元削減 未知のJob Titleが属するクラスタの予測  こんな雰囲気。
+前処理 Job Titleはユーザが好き勝手に入力したデータなので、表記揺れが激しく前処理が必須。</description>
+    </item>
+    
+    <item>
+      <title>いまさら Soft Skills を読んだ</title>
+      <link>https://takuti.me/note/soft-skills/</link>
+      <pubDate>Sun, 02 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/soft-skills/</guid>
+      <description>昨年話題になった本『Soft Skills』を読んだ。
+ プログラマ向けに書かれた「Soft Skills」という本がすごいという話 Soft Skills を読んだ  ソフトウェアエンジニアとして大成するために、そして人生を豊かにするために、いかにしてスキルを磨き、仕事を得て、金を稼ぎ、健康かつマッチョな身体を手に入れるかを説いている。
+個人的に印象的だったのは、
+ 自分を戦略的にブランディング/マーケティングすることがチャンスを生む 正しいマインドセットを備えることが重要  自分はできると信じる プラスに考える 失敗を求める    このあたりの内容。
+前者について、プロとアマのミュージシャンの違いはマーケティングにすぎないと言い切っている点がおもしろい。パーソナルブランドとして成功するためには、ニッチな分野で一貫性を持ってしっかりとスキルを高め、メッセージを発信し続けることが重要。
+ 人は離婚弁護士に税や不動産の問題を持ちかけない。専門性は重要で、単なる“弁護士”になろうと思う人はいない。
+ こういったスペシャリティは経験からしか得られないわけで、要は戦略的に専門特化を図り、それについてアウトプットし続けることが大切だということ。
+その点、このブログは話題に一貫性が無く、反省せねばなるまい。
+だが著者よ、あなたのブログから漂う胡散臭さは一体何なんだ…せっかく良いことをいっているんだから、もっとシュッとしたブログなら説得力も増したのに…。
+マインドセットの話はほとんど自己啓発だけど、まぁ実際に“気の持ちよう”で世界の見え方は大きく変わるし、ウンウンと頷きながら読んだ。
+時間の使い方、運動と食事などに関してはすでに実践しているものが多かった。ただし、よく聞く「運動をしながらポッドキャストで勉強！」みたいな話には賛成できない。何度か試したことはあるけど、勉強を兼ねようと思った途端に運動が義務っぽくなって楽しくなくなる。音楽聴きながら頭空っぽにして走っている時間こそ至高。あと著者は強くハードワークを推しているけど、それは読者がどれだけ未来の『成功』に執着するかに拠ると思う。
+お金に関しては、不動産投資がアツいらしいが自分はなぜか読めば読むほど「まぁいいや…」という気分になった。給与交渉について、先に金額を言ったほうが負けという話はまぁその通りで、『エンジニアとして世界の最前線で働く選択肢』でも似たようなことを言っていたと記憶している。
+Soft Skills は基本的にすべて筆者の経験を元に書かれており、ソフトウェアエンジニアの生き方の一例として、ときに頷き、ときに失笑してしまうような内容の、とても濃い本だった。書かれていることをすべて真に受けて肯定するのではなく、きちんと咀嚼して、自分の生き方にあった部分をうまく拾い上げて実践しましょう。はい。</description>
+    </item>
+    
+    <item>
+      <title>Deploying Static Site to GitHub Pages via Travis CI</title>
+      <link>https://takuti.me/note/travis-gh-pages-deployment/</link>
+      <pubDate>Mon, 26 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/travis-gh-pages-deployment/</guid>
+      <description>As I repeatedly mentioned in this blog, takuti.me is currently generated by Hugo:
+ Migrate to Hugo from Jekyll: Another Solution for the MathJax+Markdown Issue Moving to GitHub Pages Hugo meets kramdown + KaTeX #gohugo  Manual deployment Until quite recently, my deployment workflow was not clever; I manually followed the steps as:
+ Write an article under takuti.me/_content directory Hit rake command and generate my site under the public/ directory Commit &amp;amp; push takuti.</description>
+    </item>
+    
+    <item>
+      <title>DMM英会話を1ヶ月間やってみて思う、オンライン英会話は『やらないよりマシ』なのか問題 #DMM英会話</title>
+      <link>https://takuti.me/note/dmm-eikaiwa/</link>
+      <pubDate>Sun, 18 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/dmm-eikaiwa/</guid>
+      <description>話の種にDMM英会話を1ヶ月間やってみた1。1日25分×30日間で5500円。安い。方針は次のような感じ：
+ 基本的にレッスンは朝、出社前に自宅で。たまに夜。寝ぼけてても酔ってても頑張る。 ネイティブオプション（課金）は使わない。 講師はリピートせず、多様な人と話す。 いろいろなレッスン内容を試す。  以下、自戒の念も込めつつこの1ヶ月を振り返る。
+序  はてな民なんてここ数年ずっと、英語の勉強のやり方の勉強ばっかりやってる。
+&amp;mdash; 【英語スレ】ネットでただで勉強できる教材教えてくれ とか | ライフハックちゃんねる弐式
+ 本記事は個人の感想をつらつらと書き連ねるだけのものですが、個人的にオンライン英会話は目的がハッキリしていれば『やらないよりマシ』だと思います。
+その上で、1ヶ月続けてみて、『やらない方がマシ』な場合もあるのではないか、という想いがある。
+続けるために 1日25分のオンライン英会話、そもそも毎日続かなければ意味が無いので、そこはがんばる。
+忘れないように、レッスン終了後に翌日の分を即予約する。そして Google Calendar と連携させた Todoist に &amp;ldquo;8:00 DMM&amp;rdquo; と入力。
+これは最重要なタスクのひとつとして扱うこと。何があってもその時間を死守して、“書き続ける”ことが大切 2。
+何を話すか レッスン内容はフリートークからオリジナル教材まで多彩。英検、IELTS対策もできる。TOEFLは無いのでそっちがよければレアジョブ推奨。
+個人的には自分の考えを整理してアウトプット＆会話をするのが好きなので、次の4種類のレッスンを複数回ずつ試した：
+ フリートーク  自己紹介から始まっていろいろと雑に話す 基本的に当たり障りのない話題で終わるのでつまらない  しかしこういう会話を切り抜ける力がソーシャルな人間になるためには重要…らしい  一度、相手がWebエンジニアだったときは異様に楽しかった  デイリーニュース  実際のニュースの記事をもとにvocabulary, reading, quiz, discussionができる人気コンテンツ バックグラウンドがあるIT系ニュースは話しやすすぎるので避けて、世界情勢や経済のような馴染みのない話題を積極的に選んだ 割と楽しいけど、vocabularyや内容理解に時間が取られてしまい25分では足りない感じ 予習、復習までしっかりやってこそ活きるコンテンツだと思った 自分の意見を述べるdiscussionパートの質問はライティングの練習にも使えそう  ディスカッション  体裁はデイリーニュースに似ていて、あるテーマについてvocabulary, reading, quiz, summary, discussionをする デイリーニュースよりも“教材”という感じがして個人的にはイマイチ これならデイリーニュースをやるかな、という印象  テーマ別ディスカッション  あるお題について同意・反対を主張しながら講師とディスカッションをする 教材には &amp;ldquo;Do you agree or disagree with the statement?</description>
+    </item>
+    
+    <item>
+      <title>Amazonの推薦システムの20年</title>
+      <link>https://takuti.me/note/two-decades-of-amazon-recommender/</link>
+      <pubDate>Sat, 10 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/two-decades-of-amazon-recommender/</guid>
+      <description>IEEE Internet Computingの2017年5・6月号に &amp;ldquo;Two Decades of Recommender Systems at Amazon.com&amp;rdquo; という記事が掲載された。
+2003年に同誌に掲載されたレポート &amp;ldquo;Amazon.com Recommendations: Item-to-Item Collaborative Filtering&amp;rdquo; が Test of Time、つまり『時代が証明したで賞』を受賞したことをうけての特別記事らしい 1。
+「この商品を買った人はこんな商品も買っています」という推薦で有名なAmazonが1998年にその土台となるアルゴリズムの特許を出願してから20年、彼らが
+ 推薦アルゴリズムをどのような視点で改良してきたのか 今、どのような未来を想像するのか  その一端を知ることができる記事だった。
+アイテムベース協調フィルタリング 20年前も現在も、Amazonの推薦を支えているアルゴリズムは アイテムベースの協調フィルタリング だ。
+協調フィルタリング (Collaborative Filtering; CF) とは、
+ 履歴に基づいてユーザ/アイテム間の類似度を計算して、 「あなたと似ている人が買ったアイテム」や「今閲覧しているアイテムと似ているアイテム」を推薦する  という手法で 2、たとえばレーティングを元にユーザ間・アイテム間の類似度を計算するなら次のようなイメージになる：
+特に、実サービスの上では、
+ ユーザ  総数が物凄いスピードで 増え続ける 一人ひとりの嗜好は 日々変動する  アイテム  ユーザ数に比べるとはるかに 少ない 「一緒に買われる傾向」のようなものはある程度 普遍的なもの    といった特徴から、アイテム間の類似度を利用した協調フィルタリング、すなわち「今閲覧しているアイテムと似ているアイテム」の推薦が精度、スケーラビリティ、計算効率などの面で好まれる。これが アイテムベースの 協調フィルタリング。
+今回『時代が証明したで賞』を受賞した記事は、まさにAmazonがこのアイテムベース協調フィルタリングについて書いたものである 3。
+一企業が実サービス上での推薦アルゴリズムについて公表したこの記事のインパクトは計り知れず、今や多くの有名サービスが類似アルゴリズムを実装している。そして、Microsoft ResearchいわくAmazonのページビューの3割は推薦によるものであり[1]、Netflixがストリーミングしている動画の再生時間の8割もまた推薦によってもたらされている[2] 4 らしい。</description>
+    </item>
+    
+    <item>
+      <title>Q&amp;Aサイトにおける質問推薦、そして Incremental Probabilistic Latent Semantic Analysis</title>
+      <link>https://takuti.me/note/incremental-plsa/</link>
+      <pubDate>Sun, 04 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/incremental-plsa/</guid>
+      <description>トピックモデリングの一手法として有名な Probabilistic Latent Semantic Analysis (PLSA) を incremental（逐次更新可能, オンライン型）アルゴリズムに拡張して、Yahoo!知恵袋のようなQ&amp;amp;Aサイトの質問推薦に応用した論文を読んだ：
+ Hu Wu, et al. Incremental Probabilistic Latent Semantic Analysis for Automatic Question Recommendation. RecSys 2008.  推薦システムのトップ会議 RecSys の2008年の採択論文なのでとても古く、アブストでは &amp;ldquo;web 2.0&amp;rdquo; という渋い記述も見られる。しかし、Latent Semantic Indexing (LSI) → PLSA → Latent Dirichlet Allocation (LDA) と発展してきたトピックモデリング業界、PLSAの研究は既に成熟しているので、比較的素直なオンライン拡張としてはこのあたりがstate-of-the-artだというのが個人的な認識。
+（さらに発展的な問題設定には、window sizeの概念を取り入れたonline PLSAや、トピック数の増減まで考えるincremental PLSAがある。）
+概要  PLSAを応用してQ&amp;amp;Aサイト上で質問推薦をしたい 特に、推薦アルゴリズムが incremental なら嬉しいことがいろいろあるので &amp;ldquo;incremental&amp;rdquo; PLSA を使いたい  処理効率、新規ユーザへの推薦、ユーザ/アイテムデータの傾向の時間変化への適応など  既存の incremental PLSA と呼ばれる手法は計算量や過去のパラメータへの依存性の面でイマイチだったので、まずは新しいタイプの incremental PLSA を提案して、それを質問推薦アルゴリズムに拡張する 質問推薦アルゴリズムとしては、ユーザの長期的/短期的な関心の双方をモデリングできて、推薦結果に対する positive/negative なフィードバックを効果的に反映できるようなハイパーパラメータを導入したところが新しい 既存の incremental PLSA やバッチ版PLSAよりも良いPerplexityと推薦精度が得られて、かつ効率的  Q&amp;amp;Aサイトにおける質問推薦 Yahoo!</description>
+    </item>
+    
+    <item>
+      <title>Hugo meets kramdown &#43; KaTeX #gohugo</title>
+      <link>https://takuti.me/note/hugo-kramdown-and-katex/</link>
+      <pubDate>Sun, 28 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/hugo-kramdown-and-katex/</guid>
+      <description>Recently, math rendering library in this page, takuti.me, has been switched from MathJax to KaTex to improve performance. You can check KaTeX&amp;rsquo;s fast, beautiful rendering in the following articles:
+ How to Derive the Normal Equation (Japanese)  Poisson Image Editingでいい感じの画像合成ができるやつを作る on Web TF-IDFで文書内の単語の重み付け &amp;ldquo;SLIM: Sparse Linear Methods for Top-N Recommender Systems&amp;rdquo;を読んだ   This article describes how I have accomplished the modification.
+The Markdown + LaTeX syntax issue I started using Hugo 1+ years ago, and ever since then, this blog has utilized kramdown &amp;amp; MathJax, one of the best combinations that allows us to naturally integrate Markdown and LaTeX syntax.</description>
+    </item>
+    
+    <item>
+      <title>『コンピュータシステムの理論と実装』は“娯楽”である</title>
+      <link>https://takuti.me/note/nand2tetris/</link>
+      <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/nand2tetris/</guid>
+      <description>途中長いこと放置していたせいで takuti/nand2tetris の initial commit から1年くらい経ってしまったけど、『コンピュータシステムの理論と実装』を読み終えた。
+内容 『コンピュータシステムの理論と実装』（通称 nand2tetris）は、その名の通りNANDのような論理演算からテトリスのようなアプリケーションの実装までを一気に学ぶことでコンピュータシステム全体を俯瞰しましょう、という一冊。
+章が進むにつれてハードウェアからソフトウェアへと話が進んでいき、各章には“プロジェクト”として何らかの実装パートがある。実装の結果は予め用意されたシミュレータやエミュレータを通して確認・デバッグできる。
+ 公式サイト  目次を見るとそれだけでワクワクする：
+ Boolean Logic  HDLでANDやORなどの論理ゲートを実装する  Boolean Arithmetic  HDLで加算器やALUを実装する  Sequential Logic  HDLでフリップフロップやレジスタ、（部品としての）メモリ、カウンタを実装する  Machine Language  アドレス指定方式やプロセッサ、レジスタの利用などについて、本書のためにデザインされた機械語（Hack機械語）に基づいて解説 乗算や入出力操作をHackのアセンブリで書く  Computer Architecture  HDLで、これまでに実装したコンポーネントを組み合わせて、Hack機械語のビット入力に対応するメモリやCPUを実装する これがハードウェアとしての“Hackコンピュータ”となる  Assembler  アセンブリ→機械語  VM  VMコード→アセンブリ  High Level Language  本書のためにデザインされた高水準言語Jackの紹介  Compiler  Jackプログラム→VMコード  Operating System  キーボード入力の処理やスクリーンへの描画、ひいてはメモリ操作など、OS的な機能をJack言語で実装する   （アセンブラ、VM変換器、コンパイラは好きな言語で実装してよい）
+しかし騙されることなかれ。これだけの話題を一冊（1つの授業）に詰め込んでいるので、各章の記述はとても浅い。
+著者も繰り返し述べている通り、最適化という最も重要な話題からはほぼ完全に目を背けているし、ネットワークはどこへ行ったという話もある。OSに至っては『OS的な機能をアプリケーションのレベルで擬似的に実装している』にすぎないので、実際の話とは大きくかけ離れている。</description>
+    </item>
+    
+    <item>
+      <title>推薦システムのためのOSSたち</title>
+      <link>https://takuti.me/note/recommender-libraries/</link>
+      <pubDate>Sun, 14 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/recommender-libraries/</guid>
+      <description>情報推薦＝機械学習 ではない。
+もちろん機械学習アルゴリズムを使えば精度は高くなるかもしれないが、実際は推薦理由の説明が必要であったり、膨大なデータサイズや要求されるパフォーマンスに応えるために、『いかに機械学習をしない選択をするか』も重要になる。
+さらに、RecSys2016のLinkedInとQuoraのチュートリアルで語られたように、現実の推薦システムはヒューリスティクスに基づく単純な手法から深層学習まで、複数のものを組み合わせた ハイブリッド なものであることが多い。
+ ヒューリスティクス/機械学習の混在したハイブリッドな推薦手法 適切な指標による精度の評価とモデルの改善 サービスごとに異なる多様なデータフォーマットの扱い  ということを考えると、推薦システム専用の実装 というものが必要になってくる。というわけで、推薦システム構築に使える/参考になるOSSをいくつか紹介する。
+※チョイスは個人の経験に拠るものなのであしからず。この他にもGitHub上には無数にライブラリが存在するので、他にイケてるものがあればぜひ教えてください。
+MyMediaLite (C#)  公式サイト/ドキュメント GitHubリポジトリ 論文  実装が C# というのがネックだけど、推薦アルゴリズムのオープンソース実装で最も有名なのはおそらくこれ。2010年秋ごろから開発されていて、このあと挙げるような他のライブラリはみんな論文でMyMediaLiteを引用している。
+対応しているアルゴリズムは協調フィルタリング、Matrix Factorization系が中心。Average Rating や Most Popular のような機械学習をしないベースライン手法も選べる。
+他のライブラリの実装を見るとみんな似たり寄ったりな感じで、「このライブラリはMyMediaLiteチルドレンなんだなー」と気付くこともしばしば。
+残念ながらここ数年は開発が滞り気味。
+ちなみに論文はFactorization Machinesの作者のRendle先生も共著者に入っている。
+LibRec (Java)  公式サイト/ドキュメント GitHubリポジトリ 論文  2014年から開発されているJavaの推薦アルゴリズム実装で、先日『Java製の推薦システム用ライブラリ LibRec を動かしてみる』でも言及した。
+僕が知る中で今最も盛んに開発が行われているライブラリで、つい最近 version 2.0 になってからはドキュメントとかもグッと良くなった。
+MyMediaLiteを参考にしつつも、よく練られた設計や豊富な対応アルゴリズムによって独自の地位を築いている印象がある。
+似たようなJava製ライブラリだと PREA があるけど、こっちはもう全く更新されていない様子。
+LensKit (Java)  公式サイト/ドキュメント GitHubリポジトリ 論文  2010年ごろから開発されているJava製のライブラリ。ミネソタ大学のチーム GroupLens に以前在籍していたMichael Ekstrand先生が中心になって開発している。これ自体が彼の博士研究の一貫でもあった。
+アルゴリズムは協調フィルタリングとMatrix Factorizationがメインで極めてシンプル。
+実装はともかく、論文に関しては一読の価値がある。（今やほとんど聞かないけど）Dependency Injection的な思想で、どのようにコンポーネントを切り分けて推薦ライブラリを実装するか、ということを解説している。このあたりはLibRecの設計に近い印象を受けた。
+なお、Ekstrand先生にはCourseraの推薦システムのコースで会えます。</description>
+    </item>
+    
+    <item>
+      <title>Hivemall on Dockerを試すぜ</title>
+      <link>https://takuti.me/note/hivemall-on-docker/</link>
+      <pubDate>Sun, 07 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/hivemall-on-docker/</guid>
+      <description>@amaya382くんが Hivemall on Docker についていろいろと整備してくれた。
+Hive環境が必要で敷居が高かった
+(当社比) Hivemallですが, 数コマンド叩くだけでdocker上で試せるようになりました！試す際に意外と厄介なサンプルデータの準備を全てやってくれるスクリプトもおまけで付いてます (※あくまで評価・開発用です) https://t.co/fiztEpicma
+&amp;mdash; amaya (@amaya382) April 25, 2017 
+一方、個人的には Hivemall on Mac について以前記事を書いた：『MacのローカルにHivemallを導入してアイテム推薦をするまで』
+だいたいHomebrewで完結するのでMacローカルだけを考えればこれでも問題ないけど、煩雑なインストール・設定無しでDockerコンテナで話が進むに越したことはない。というわけで先の記事のフォローアップとして Hivemall on Docker をMacのローカルで試してみる。環境は次の通り：
+ macOS Sierra 10.12.3 Docker for Mac Stable channel (version 17.03.1-ce-mac5)  $ docker -v Docker version 17.03.1-ce, build c6d412e $ docker-compose -v docker-compose version 1.11.2, build dfed245 $ docker-machine -v docker-machine version 0.10.0, build 76ed2a6  コンテナ起動まで 基本的にはドキュメントに従う。
+まずリポジトリを取ってきて、
+$ cd /path/to/incubator-hivemall  ビルドは docker-compose なら：</description>
+    </item>
+    
+    <item>
+      <title>Moving to GitHub Pages</title>
+      <link>https://takuti.me/note/move-to-gh-pages/</link>
+      <pubDate>Sun, 30 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/move-to-gh-pages/</guid>
+      <description>takuti.me is currently generated by Hugo, a fast static site generator written in Go, as I introduced a year and a half ago.
+Until this point, this site initially started as a WordPress blog in 2012, and I switched to create the contents by using a static site generator, Jekyll, from 2014 to 2015.
+In fact, all of the WordPress blog, Jekyll and Hugo sites were hosted on VPS having the basic CentOS + nginx (or Apache) environment.</description>
+    </item>
+    
+    <item>
+      <title>Java製の推薦システム用ライブラリ LibRec を動かしてみる</title>
+      <link>https://takuti.me/note/hello-librec/</link>
+      <pubDate>Sun, 23 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/hello-librec/</guid>
+      <description>LibRec というJava製の推薦システム用ライブラリがある。
+Treasure DataインターンのときやPython, Juliaで推薦アルゴリズムの実装をライブラリ化したとき (FluRS, Recommendation.jl) にはこの実装を大いに参考にした。
+しかし思い返すとこのライブラリ自体を実際に動かしたことがなかったので、documentationに従ってサンプルコードを読みつつ動かしてみる。
+雰囲気 CLIもあるらしいけど、今回は普通にJavaでコードを書くタイプの例を試す。
+Mavenプロジェクトなら dependency に net.librec を入れればすぐに使える:
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;net.librec&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;librec-core&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.0.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt;  1. Build data model コードはデータモデルを生成するところから始まる:
+// build data model Configuration conf = new Configuration(); conf.set(&amp;#34;dfs.data.dir&amp;#34;, &amp;#34;/Users/takuti/src/github.com/guoguibing/librec/data&amp;#34;); TextDataModel dataModel = new TextDataModel(conf); dataModel.buildDataModel(); 読み込むデータは user-id item-id rating（スペース区切り）からなるテキストファイルとWekaのARFFをサポートしている。
+ファイルのパスやアルゴリズムのハイパーパラメータ（e.g., kNNの近傍数）はすべて Configuration 経由で設定する。その実体は librec.properties で、この形式で記述した独自の設定をガッとまとめて読み込むことも可能:
+Resource resource = new Resource(&amp;#34;rec/cf/itemknn-test.properties&amp;#34;); conf.addResource(resource); dataModel.buildDataModel() では指定されたパス内のファイルをすべて読んで、train/testデータへの分割までやってくれる。このあたりの挙動もすべて librec.properties に従っている。
+2. Build recommender context さっき定義した Configuration と dataModel を使って、これから行うタスクのためのコンテキストを生成する:</description>
+    </item>
+    
+    <item>
+      <title>Comparison of Running Time of Cached/Uncached Spark RDD</title>
+      <link>https://takuti.me/note/spark-rdd-cached-vs-uncached/</link>
+      <pubDate>Sun, 16 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/spark-rdd-cached-vs-uncached/</guid>
+      <description>Resilient Distributed Dataset (RDD) is a distributed parallel data model in Spark. The model enables us to think of our distributed data like a single collection. In this article, I introduce some basics and show experimental result which clearly demonstrates the strength of RDD.
+First and foremost, there are two different types of operations for RDD: transformation and action.
+Type I: Transformation Transformation corresponds to Scala transformers such as map() and filter(); we can apply both map() and filter() operations for RDDs in a similar way to the standard Scala collections.</description>
+    </item>
+    
+    <item>
+      <title>なぜSparkか</title>
+      <link>https://takuti.me/note/why-spark/</link>
+      <pubDate>Sun, 09 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/why-spark/</guid>
+      <description>今週から Coursera の Big Data Analysis with Scala and Spark を受講している。その初回で出てきた &amp;ldquo;Why Scala? Why Spark?&amp;rdquo; に関する議論をざっくりとまとめる。（導入なので『RDDとは』みたいな話はしない）
+Stack Overflow Developer Survey 2016 &amp;ldquo;Top Paying Tech in US&amp;rdquo; を見ると、なんと上位2つが Spark と Scala になっている：
+なぜこんなに人気なのか？
+時はビッグデータ戦国時代、もちろん「大規模データを効率的に処理できるから」という事実が一因であることは言うまでもない。しかし、それ以上に強調すべき点がある。
+Developer Productivity Dr. Heather Miller いわく Scala, Spark を選択する理由は、それらが 開発者の生産性向上 に寄与するから。ここで言う開発者とは、並列分散環境下にあるビッグデータを処理する、何らかのコードを書く人々を指す。
+実アプリケーションで Scala を選択するモチベーションとして、関数型パラダイムの恩恵を受けた豊富なコレクション操作 (e.g., reduce(), fold(), map(), filter()) とその表現力が挙げられると思う。
+Spark上では（ほぼ）同一のインタフェースで分散データに対する処理が記述できる。これが重要。
+シングルノードのときの通常のScalaコレクションに対する処理が
+singleCollection.map(v =&amp;gt; f(v)) だとすれば、同様の処理を Spark 上で書いても、それは
+distributedData.map(v =&amp;gt; f(v)) と書ける。ある大規模分散データに対して、まるでそれがローカルデータであるかのようにインタラクティブに処理を適用できる、これが Scala + Spark によって得られる生産性につながっているのだ。</description>
+    </item>
+    
+    <item>
+      <title>修士課程で機械学習が専門ではない指導教員の下で機械学習を学ぶために</title>
+      <link>https://takuti.me/note/master-graduate/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/master-graduate/</guid>
+      <description>会津大学から東大情報理工へ進学して早2年、この春無事に修士号をゲットした。めでたい。
+この2年間はこれまでの人生で最も濃く、楽しい時間だった。関わったすべてのみなさんに感謝したい。積もる話は山ほどあるけど、ここでは研究活動でこの2年間を振り返ってみる。
+修士課程で僕が置かれた状況は標題の通りで、この分野の人気が高まっている昨今、卒業論文や修士論文のテーマ設定に際して同じような境遇のひとは少なくないと思う。この記事がひとつの事例として、そんなみなさんの参考になれば。
+※個人の経験を述べるだけで、『機械学習を学ぶ際のオススメテキスト』とか『数学の知識はこれさえあればOK!』といった内容ではない。
+TL;DR  大学院の外に“先生”を求める  ガチっぽい機械学習関連のインターンに参加する（3社；e.g., 『Treasure Dataインターンにみる機械学習のリアル』） 機械学習サマースクールに行く（『Machine Learning Summer School 2015 Kyoto』） たとえ単著でも論文を書いて発表する（国内会議3本、査読付き国際会議2本）  上記の経験から「自分はある程度“正しい”方向に進んでいる」ということを定期的に実感することが重要 とはいえ、指導教員の協力は必須  どんな2年間だったか M1  4月  機械学習サマースクールに応募 RSSリーダでコンテンツを消費する中で次の2つの研究が気になり始める  Frequent Directions（cf.『今年のSIGKDDベストペーパーを実装・公開してみました』） Factorization Machines（cf.『Factorization Machines (ICDM 2010) 読んだ』）   5-7月  Frequent Directions に焦点を絞ってサーベイ、追加実験 卒論の内容で初の国際会議  8-9月  Frequent Directions に関する追加実験結果を JSAI 人工知能基本問題研究会で発表 楽天技術研究所でインターン（以降、M2の6月までアルバイトとしてお世話になる） 機械学習サマースクールに参加  10-12月  テーマを『情報推薦』『オンラインアルゴリズム』に絞ってサーベイ 気になった論文はとりあえず雑に実装してみる姿勢  Incremental Singular Value Decomposition (Journal of Computer and System Sciences, 2015) Factorization Machines (ICDM 2010) Incremental Matrix Factorization (UMAP 2014) Unsupervised Feature Selection on Data Streams (CIKM 2015) Streaming Anomaly Detection (VLDB 2015)   1-2月  Factorization Machines のオンラインアルゴリズム化に取り組む この内容を JSAI2016 に投稿    M2  3-4月  ダメ元でオンライン版 Factorization Machines について RecSys2016（トップ会議）の Short Paper を執筆、投稿  5-6月  Factorization Machines の研究は一度やめて、Frequent Directions の情報推薦への応用を真面目に考える この内容を 数値解析シンポジウム2016 で発表 同時期に、JSAI2016 で先の Factorization Machines のオンラインアルゴリズム化について発表  7月  RecSys2016 は案の定 Reject だったので、レビューを元に修正してワークショップへ投稿、採択 勢いで RecSys2016 学生ボランティアにも応募、採択  8-9月  Treasure Data でインターン RecSys2016 でワークショップ発表＆学生ボランティア 年度内に開催される国際会議を探して、Frequent Directions の情報推薦応用について論文執筆、投稿 (CHIIR2017)  10月  修論を書き始める 背景知識を再確認するために Coursera &amp;ldquo;Introduction to Recommender Systems&amp;rdquo; を修了する  11月  ずっと修論書いてる CHIIR2017 採択  12月  修論がおおよそ書き上がる Silver Egg Technology でインターン Recommendation.</description>
+    </item>
+    
+    <item>
+      <title>&#34;Deep Work&#34;を読んだけど微妙だったから皆は&#34;How to Write a Lot&#34;と&#34;エッセンシャル思考&#34;を読めばいい</title>
+      <link>https://takuti.me/note/deep-work/</link>
+      <pubDate>Sat, 25 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/deep-work/</guid>
+      <description>―と思いました。
+MIT卒のコンピュータ科学者によって書かれた本『Deep Work: 大事なことに集中する』を読んだ。が、冗長かつ抽象的な内容で、非常に退屈な一冊だった。
+主張 「集中して長時間、中断することなく知的作業を続けること (Deep Work) が生産性を高め、大きな仕事を成し遂げることにつながる」ということを言っている。構成としては、成功者たちの実例を示して主張に説得力を持たせた上で、実践にあたってのTips的な部分を延々と述べている。ざっくりまとめると次のような感じ。
+ 『何かを作り出さなければ、成功しない』  自分のスキルは作り出した成果物で示せ 生産性を高めるためには『難しいが重要な知的作業をまとめて、長期間、中断することなくつづけること』が大切 『成果＝時間×集中度』であり、注意を集中する能力＝価値あることを成し遂げるスキル 以上が Deep Work（ディープワーク） の基本 例  SNSはやっていないし、メールの返事もほぼ返ってこないようなDeep Workerの教授は論文を1年で16本発表した 成績のいい学生にアンケートをとると、勉強時間は他の学生たちより少なかった   ディープワークの逆に Shallow Work（シャローワーク） がある  が、「ディープワークじゃない＝シャローワーク」ではない シャローワークは価値が低く、反復可能なもの 注意があちこちに移り変わるせわしない時間でも、価値があり、実り多い場合もある（特に企業のCEOなど）  Deep/Shallowの線引は難しい  生産的で価値がある、という状態を明確な指標で測ることが大切 さもないと『多忙に見える』だけの状態が続いて危険 指標は最も重要な、高レベルなものを設定  「年に論文6本」とか「売上高100万ドル」とか   ディープワークの実践  やり方の一例：予め決めた一定時間だけディープワークに打ち込んで、残りは他のすべてのための時間にする ディープワークの単位は1日未満〜年単位まで自由に設定してよい ポイント  ディープワークに費やした時間を見える化する ディープワーク時間の終わりを明確に定めて、ダラダラと作業を続けない  仕事のことはきっぱりと頭から追い出す シャットダウンの儀式（未完成の仕事や目標、プロジェクトを見直す時間）を設けると良い  オフラインになる  iPhoneの電源切ったり どうしてもググりたい、行き詰まるタイミングはあるけど…  できれば別のオフライン作業を行う 安易にオンラインに帰って来ないこと     日頃から集中力の訓練をするといい  行列に並んでいるときなど、すぐにスマホを見ないで、あえて『退屈』な状態で自分の思考と向き合う  生産的な瞑想ができるといい  歩きながら、シャワーを浴びながら、いま直面している問題について思考する  SNSは集中力を遮る最悪な存在  マイナスの影響を上回る、十分なプラスの影響があると判断したツールのみ使う  仕事外の時間はよく考えて使うべき  夜間や週末の時間の使い方を予めスケジューリングする 気を散らすもの（娯楽サイト）に抗う  シャローワークを減らすために  分刻みで1日の予定をたてて、惰性な日々に終止符を 一定時刻以上働かないという確固たる目標を定めて、逆算して働く メールは返信しなくていい    雑感 言っていることはどれも同意できるけど、具体性に乏しいので、読者は一時的に意識が高まるだけでそのうち元に戻るオチが見える。また、これらはいずれもどこかで読んだことのあるような内容で、日頃こういった話題に敏感な人にとっては目新しさがない。</description>
+    </item>
+    
+    <item>
+      <title>情報検索・インタラクション系の国際会議 CHIIR2017 に参加した #chiir2017</title>
+      <link>https://takuti.me/note/chiir-2017/</link>
+      <pubDate>Sat, 18 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/chiir-2017/</guid>
+      <description>2017年3月7日から10日までノルウェー・オスロで開催された情報検索・インタラクション系の国際会議 The ACM SIGIR Conference on Human Information Interaction &amp;amp; Retrieval 2017 （CHIIR2017; 「ちあー」と読む）にポスター発表者として参加した。
+▲ Chair氏「プログラム表紙の会議名が間違っていることになぜ誰も気づかなかったのか！」
+採択された僕の論文は以下:
+ Sketching Dynamic User-Item Interactions for Online Item Recommendation  相変わらずテーマは情報推薦だけど、今回は部分空間法や行列スケッチがキーワードになる。
+部分空間法を用いてユーザ・アイテムを表現した特徴ベクトルをフィルタリングする、というのが基本的なアイディアで、似たような手法は異常検知の分野で多く見られる。しかし情報推薦の文脈ではこの手のアプローチはあまり研究されていなかった。
+部分空間（観測したベクトル列の基底）は特異値分解によって得られる。そして、この基底をオンラインなアルゴリズムで効率的に更新するために行列スケッチを使う。
+このテーマ設定は、2年前にPFNの比戸さんのブログ記事を読んでから行列スケッチに興味が出て、なんとか応用研究に繋げられないかと考えた結果でもある。また、異常検知と情報推薦の接点という意味ではTreasure Dataインターンの経験が助けになった。
+ Presented my poster, seriously :)
+A post shared by @takuti on Mar 8, 2017 at 11:14am PST
+ 
+▲ ポスターセッションでは発表者含め、みんなビール片手に議論していて楽しかった。
+世界観 情報推薦 (recommender systems) はもともと情報検索 (information retrieval) から派生した分野なので、小さな会議だけど採択されたときはとても嬉しかったし、他の発表もかなり楽しみだった。しかし蓋を開けてみると &amp;ldquo;interaction&amp;rdquo; の色が強すぎて、全く違う分野の会議に来てしまった感じだった。
+会議参加者のバックグラウンドが思った以上に広い＆興味が超絶アプリケーション寄りで、線形計算, 機械学習的な話がほとんど通じないでござる…。
+&amp;mdash; たくち (@takuti) March 8, 2017</description>
+    </item>
+    
+    <item>
+      <title>Area Under the ROC Curve (AUC) を並列で計算するときに気をつけること</title>
+      <link>https://takuti.me/note/auc-parallel/</link>
+      <pubDate>Fri, 10 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/auc-parallel/</guid>
+      <description>追記 (2017/03/10) 現在の内容は過度な簡略化と不完全な説明を含むので、それを踏まえて読んでいただけると幸いです。（後日更新予定）
+台形の積分計算のはずなのでちょっと説明を簡単にしすぎですね。
+parallelでのmerge順序は変えても動くようにできるはずなのでticket切っておきます。
+&amp;mdash; myui (@myui) March 10, 2017 
+ひとつ前の記事で二値分類器の性能評価に用いられる Area Under the ROC Curve (AUC) の実装について書いた: Area Under the ROC Curve (AUC) を実装する
+簡単にまとめると、
+ AUCは『予測器がラベル 1 (True) のテストサンプルに正しく高スコアを与えるか』をみる。 それは予測スコアでサンプルをソートしたときに True Positive が False Positive より上位にランキングされるか、ということ。 実装する際はソート済みサンプル列を逐次的に見ていって、False Positive-True Positive グラフの下の面積を求める。  という話だった。
+AUC in Hivemall そして先日、Hive/Spark/Pig用の並列機械学習ライブラリHivemallにAUCを計算する関数を実装した。
+Supported parallel exact AUC computation ( https://t.co/nhBkBNj5SH ) in #hivemallhttps://t.co/GUAFf5jeBn (Kudos to @takuti )
+&amp;mdash; Apache Hivemall (@ApacheHivemall) February 28, 2017</description>
+    </item>
+    
+    <item>
+      <title>Area Under the ROC Curve (AUC) を実装する</title>
+      <link>https://takuti.me/note/auc/</link>
+      <pubDate>Sat, 04 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/auc/</guid>
+      <description>追記 (2017/03/10) 現在の内容は過度な簡略化と不完全な説明を含むので、それを踏まえて読んでいただけると幸いです。（後日更新予定）
+台形の積分計算のはずなのでちょっと説明を簡単にしすぎですね。
+parallelでのmerge順序は変えても動くようにできるはずなのでticket切っておきます。
+&amp;mdash; myui (@myui) March 10, 2017 
+二値分類器の評価指標として Area Under the ROC Curve (AUC) がある。これは Root Mean Squared Error (RMSE) が測る『誤差』や Precision, Recall で求める『正解率』のような直感的な指標ではないので、どうもイメージしづらい。
+というわけで実際に実装して「結局AUCって何？」を知る。詳しくは以下の論文を参照のこと。
+ Tom Fawcett. An introduction to ROC analysis. Pattern Recognition Letters 27 (2006) 861–874.  AUCとは結局なにを計算しているのか サンプルに対して 0から1の範囲でスコア（確率）を与える二値分類器 の精度を評価することを考える。
+このときAUCは『予測スコアでサンプルを（降順）ソートしたときに、True Positive となるサンプルが False Positive となるサンプルより上位にきているか』ということを測る。つまり、ラベル 1 のサンプルに正しく高スコアを与える予測器であるか を見ている。
+推薦などのランキング問題の評価でもAUCが登場するけど、イメージはそれとほぼ同じ。
+たとえば、以下のようなソート済スコアと真のラベルのペアがあったとき、真のラベルが 1,1,1,0,0 と並ぶことが理想。しかし今は 1,1,0,1,0 となっているので、このスコアリングは最高精度とは言えない。
+   予測スコア 真のラベル     0.</description>
+    </item>
+    
+    <item>
+      <title>Parallel Programming vs. Concurrent Programming</title>
+      <link>https://takuti.me/note/parallel-vs-concurrent/</link>
+      <pubDate>Sat, 25 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/parallel-vs-concurrent/</guid>
+      <description>What is the difference between parallel programming and concurrent programming? There is a lot of definitions in the literature.
+&amp;ldquo;Executing simultaneously&amp;rdquo; vs. &amp;ldquo;in progress at the same time&amp;rdquo; For instance, The Art of Concurrency defines the difference as follows:
+ A system is said to be concurrent if it can support two or more actions in progress at the same time. A system is said to be parallel if it can support two or more actions executing simultaneously.</description>
+    </item>
+    
+    <item>
+      <title>&#34;SLIM: Sparse Linear Methods for Top-N Recommender Systems&#34;を読んだ</title>
+      <link>https://takuti.me/note/slim/</link>
+      <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/slim/</guid>
+      <description>Matrix Factorizationよりも高い精度が出るという話をよく聞く Sparse Linear Method (SLIM) を提案した論文を読んだ。
+ Xia Ning and George Karypis. SLIM: Sparse Linear Methods for Top-N Recommender Systems. ICDM 2011.  概要  Top-N推薦を高速に行う Sparse Linear Method (SLIM) を提案する。 ユーザ-アイテム行列 $A \in \mathbb{R}^{\textrm{\#user } \times \textrm{ \#item}}$ の未観測値を $\tilde{A} = AW$ のように補完する疎なアイテム-アイテム行列 $W \in \mathbb{R}^{\textrm{\#item } \times \textrm{ \#item}}$ を求める。 L1+L2正則化つきの最適化問題をcoordinate descentで解けばよい。 $W$ が疎なので行列積 $AW$ が高速に計算できて、結果的にTop-Nのアイテム推薦が高速になる。  問題 あるユーザにアイテムを推薦したいとき、そのユーザの未観測（例：未購入、未評価、未視聴）アイテムに対して何らかの “スコア” を与えて、上位N個のアイテムを「おすすめリスト」として提示するのが Top-N推薦 というタスク。
+これを実現する手法は、近傍法ベースの手法とモデルベースの手法に大別できる。
+近傍法ベースの手法は協調フィルタリングとも呼ばれ、特にアイテムベースの協調フィルタリングは類似度計算が比較的軽く効率的。しかし既知のデータにoverfitしてしまって、推薦精度は悪くなりがち。
+一方、Matrix Factorization などのモデルベースの手法は近傍法と比較して推薦精度が良いことが知られている。しかしモデルの学習やスコアの計算には大規模な行列計算を要するため非効率である。</description>
+    </item>
+    
+    <item>
+      <title>MacのローカルにHivemallを導入してアイテム推薦をするまで</title>
+      <link>https://takuti.me/note/hivemall-on-mac/</link>
+      <pubDate>Sat, 11 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/hivemall-on-mac/</guid>
+      <description>昨年、Hive向けの機械学習ライブラリ Hivemall がApache Software Foundationのincubatorプロジェクトになった。Treasure Dataがオフィシャルでサポートしているということもあり、名前くらいは聞いたことがあるという人も多いと思う。
+とはいえ、やれHadoopだHiveだとスケールの大きな話をされると、手元でちょっと試すなんて気分にはならないものである。というわけで、実際にMacのローカルでHadoop, Hiveの導入からHivemallを動かすまでをやってみた。
+Hadoopのインストール $ brew install hadoop  （今回のバージョンは 2.7.3）
+/usr/local/Cellar/hadoop/{バージョン} 以下を直接漁ることになるのでエイリアスを設定しておく。
+export HADOOP_DIR=/usr/local/Cellar/hadoop/{バージョン} ${HADOOP_DIR}/libexec/etc/hadoop/core-site.xml の &amp;lt;configuration&amp;gt; を編集：
+&amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;name&amp;gt;fs.defaultFS&amp;lt;/name&amp;gt; &amp;lt;value&amp;gt;hdfs://localhost:9000&amp;lt;/value&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; ${HADOOP_DIR}/libexec/etc/hadoop/hdfs-site.xml の &amp;lt;configuration&amp;gt; を編集：
+&amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;name&amp;gt;dfs.replication&amp;lt;/name&amp;gt; &amp;lt;value&amp;gt;1&amp;lt;/value&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt;  HDFSをフォーマット：
+$ hdfs namenode -format  localhostへのSSH接続を許可する必要があるので、Macの システム環境設定 &amp;gt; 共有 からリモートログインを有効にする。さらに、SSH公開鍵を自身のauthorized_keysに追加する。
+$ cat ~/.ssh/id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys  これで $ ssh localhost ができる。
+Hadoopの設定おわり。
+起動・終了はエイリアスを設定しておくと便利：
+alias hstart=${HADOOP_DIR}/sbin/start-all.sh alias hstop=${HADOOP_DIR}/sbin/stop-all.sh $ hstart  うごく。</description>
+    </item>
+    
+    <item>
+      <title>サイトをHTTPSにした</title>
+      <link>https://takuti.me/note/https/</link>
+      <pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/https/</guid>
+      <description>今はとてもいい時代なので Let&amp;rsquo;s Encrypt が無料でSSL証明書を発行してくれる。というわけで、サイトのHTTPS化を行った。
+証明書の発行と nginx.conf の変更 作業自体はとても簡単で、証明書の発行に関する処理はすべて certbot （旧名：letsencrypt）というツールがやってくれる。トップページからサーバとOSを選択すれば、それに応じたinstallationが表示される。どこまで親切なんだ！
+ここは CentOS 6 上の Nginx で動いているので、以下それに従う。
+certbotの導入は、適当な場所にwgetして実行権限を与えるだけ。
+$ wget https://dl.eff.org/certbot-auto $ chmod a+x certbot-auto  あとはWebサーバのドキュメントルートとドメインを指定してcertbotを実行してあげればよい。
+$ /path/to/certbot-auto certonly --webroot -w /var/www/example -d example.com  うちはNginxだけど、Apacheの頃の名残で /var/www/html をドキュメントルートにしている。/etc/nginx/nginx.conf は以下のような感じ。
+server { listen 80; server_name takuti.me; location / { root /var/www/html; index index.html index.htm index.php; } # 以下略 なので叩いたコマンドは以下。
+$ /path/to/certbot-auto certonly --webroot -w /var/www/html -d takuti.me  途中でメールアドレスなどを聞かれ、無事完了すると Congratulations と言われる。証明書の類は /etc/letsencrypt/live/takuti.</description>
+    </item>
+    
+    <item>
+      <title>Courseraの推薦システムのコースを修了した</title>
+      <link>https://takuti.me/note/coursera-recommender-systems/</link>
+      <pubDate>Fri, 27 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/coursera-recommender-systems/</guid>
+      <description>昨年の話だけど、Courseraで開講されていた &amp;ldquo;Introduction to Recommender Systems&amp;rdquo; を履修・修了した。教えてくれたのはこの分野で知らぬ者はいない、ミネソタ大学のJoseph Konstan先生。2000年あたりの協調フィルタリングなど古典的な推薦手法に関する文献を漁ると、必ず彼のグループの論文にたどり着く。かの有名なMovieLensデータセット（画像処理でいうMNIST的な、定番データセット）も、このグループが提供している。
+コースは全8回で内容は以下。
+ Introduction to Recommender Systems  推薦システムの歴史やその背景  Non-Personalized Recommenders  『最も人気のアイテムを常に推薦する』といった、個人化を行わない推薦手法  Content-Based Recommenders  TF-IDFに基づく推薦  User-User Collaborative Filtering  ピアソン相関係数およびコサイン類似度に基づく類似度計算と正規化の重要性 ユーザ・アイテム間の行列における、ユーザ側の類似度に基づく推薦  Evaluation  精度からセレンディピティまで、いろいろな評価指標  Item Based  ユーザ・アイテム間の行列における、アイテム側の類似度に基づく推薦 ユーザベースとの比較  Dimensionality Reduction  特異値分解、Matrix Factorizationによる行列補完  Advanced Topics  Cold-start問題など   ※ 現在このコースはすでにCoursera上に存在せず、アップデート版の Recommender Systems Specialization が代わりに開講されている。しかし残念ながら有料なので、各トピックの詳細は上記目次を参考にしつつググってください :(
+全体として、コンパクトに推薦システムの世界がまとまった非常に良い内容だった。この分野は新しい手法が次から次へと生まれておりトレンドを追うのも一苦労だが、どのような手法でも基本は変わらない。このコースの内容さえ理解していればとりあえず推薦システムは作れるし、その良し悪しを議論することもできるだろう。
+各回には講義パートとインタビューパートがあり、インタビューパートではゲストを招いた対話形式のコンテンツが提供されていた。これがすごく良くて、例えばコンテキストを考慮した推薦 (context-aware recommendation) について話してくれたのは、 Recommender Systems Handbook の編集者・Francesco Ricci先生だった！業界のトッププレイヤーたちから基礎が学べるなんて、いい時代に生まれたものだと思う。</description>
+    </item>
+    
+    <item>
+      <title>FluRS: A Python Library for Online Item Recommendation</title>
+      <link>https://takuti.me/note/flurs/</link>
+      <pubDate>Sat, 21 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/flurs/</guid>
+      <description>Last week, I introduced a Julia package for recommender systems: Recommendation.jl: Building Recommender Systems in Julia.
+However, its functionality is still low, and I argued that implementing more powerful recommendation techniques and update() function is important. Thus, this article provides FluRS, another open-sourced library for recommendation. Unlike Recommendation.jl, this recommender-specific library is written in Python from a practical point of view.
+The initial version (v0.0.1) of FluRS is already published to PyPI.</description>
+    </item>
+    
+    <item>
+      <title>Recommendation.jl: Building Recommender Systems in Julia</title>
+      <link>https://takuti.me/note/recommendation-julia/</link>
+      <pubDate>Sat, 14 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/recommendation-julia/</guid>
+      <description>I have recently published Recommendation.jl, a Julia package for recommender systems. The package is already registered in METADATA.jl, so it can be installed by:
+$ julia julia&amp;gt; Pkg.add(&amp;quot;Recommendation&amp;quot;)  Last year, I took Introduction to Recommender Systems, an online course created by University of Minnesota, on Coursera. Although the course assignments originally require us to use spreadsheet (on Google Drive or MS Excel), I personally solved all of them by programming in Julia.</description>
+    </item>
+    
+    <item>
+      <title>My New Year&#39;s Resolution 2017: Write an Article Every Week</title>
+      <link>https://takuti.me/note/new-year-resolution-2017/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/new-year-resolution-2017/</guid>
+      <description>In this year, I focus on writing more and more articles on this blog. In particular, I write an article every week; 52 articles should be published until the end of 2017. Each post probably describes what I have created, read, and experienced in a week. Note that the articles will be written both in Japanese and English depending on the contents.
+Most importantly, taking full advantaged of a personal publishing tool is one of the best ways to enrich the quality and quantity of your portfolio.</description>
+    </item>
+    
+    <item>
+      <title>Treasure Dataインターンにみる機械学習のリアル #td_intern</title>
+      <link>https://takuti.me/note/td-intern-2016/</link>
+      <pubDate>Tue, 04 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/td-intern-2016/</guid>
+      <description>8月1日から9月30日まで、大学院の同期で小学生時代は落ち着きがなかった @ganmacs と、小学校の給食ではソフト麺が出なかった @amaya382 と一緒に Treasure Data (TD) Summer Internship に参加した。
+ Treasure Data インターンで最高の夏過ごしてきた #td_intern - memo-mode トレジャーデータでインターンしてた話 #td_intern - 水底  インターンの途中で1週間アメリカへ行ってしまうという事情を酌んだ上で採用していただき、限られた期間で物凄く適切な課題設定とメンタリングを行なってくださった@myuiさんには頭が上がらない。本当にありがとうございました。
+TDインターン全体としての見どころは、
+ 全方位ウルトラエンジニアで気を抜くと死ぬ環境 丸の内の一食1000円オーバーの飲食店事情 ラウンジの炭酸強めでおいしい炭酸水  にあったと思う。うん。
+※いろいろ書きますが、内容は全て僕個人の考えで、TDや@myuiさんの意見を代表するものではありません。念のため。
+Treasure Data Summer Internship 2016 6月ごろから募集が行われていて、選考やインターン中の雰囲気は基本的に以下の記事に書かれている通りだった。
+ Treasure Data Summer Intern 2015 - myui&amp;#39;s memo Treasure Data 2015サマーインターンに参加した  僕のインターンを通してのテーマは Real-world Machine Learning だったように思う。具体的にやったことを列挙すると以下のような感じで、1つの機能をじっくり腰を据えて実装する、というよりは様々な側面から現場での機械学習に触れるような内容だった。
+ Hivemallへのユーザ定義関数 (UDF) 実装  ランキング問題用の評価関数 6種類 #326 異常検知のフレームワーク 2種類  ChangeFinder #329, #333 （春のインターン生の実装の一部として） Singular Spectrum Transformation #356   TD社内のDatadogメトリクスからの異常検知  takuti/datadog-anomaly-detector  チュートリアル記事「Random Forestを用いたTreasure Data (Hivemall) 上でのサービス解約予測」の執筆  下書き  機械学習絡みのセールス/コンサル目的のミーティングへの同席  HivemallへのUDF実装 HiveのUDFを実装するのは最初&amp;rdquo;お作法&amp;rdquo;的なものがよくわからず戸惑ったけど、既存の実装やプログラミングHiveを参考にしつつ何とか進めた。少しだけお近づきになれた気がする。</description>
+    </item>
+    
+    <item>
+      <title>推薦システムのトップ会議RecSys2016に参加した #recsys2016</title>
+      <link>https://takuti.me/note/recsys-2016/</link>
+      <pubDate>Wed, 28 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/recsys-2016/</guid>
+      <description>推薦システムのトップ会議 RecSys2016 が9月15日から19日までアメリカのボストンで開催され、ワークショップ発表者＆学生ボランティアとして参加してきた。これまで学会発表はひとりで行くことが多く、今回も例外ではなかったが、ボランティアのおかげで他の学生との交流や伝説的な研究者との接触が多くてとても楽しめた。みんなもやると良いと思う。
+RecSys2016@Boston RecSysは今回で10回目を迎えた推薦システムのトップ会議で、本会議の採択率はショートペーパーでも20%という狭き門。僕はワークショップのひとつ Profiling User Preferences for Dynamic Online and Real-Time Recommendations（長い）で、ECサイトとかでよく見られる persistent cold-start という問題と、それに絡めて Factorization Machines の逐次更新アルゴリズムへの拡張について話した [Paper]。
+会議は前半2日間がワークショップ (at IBM) 、残りが本会議 (at MIT) に当てられていて、全ての発表を聞いたわけではないけれど、個人的には 深層学習の勢い と アプリケーションとしての推薦システムのあり方 が見どころだった。
+深層学習に対する注目はこの分野でも例外ではなく、ワークショップの1つ Deep Learning for Recommender Systems は座席が即完売の超人気セッションだったらしい。すごい。本会議でも Deep Learning というセッションが設けられ、CNNやword2vec絡みのどこかで聞いたことのあるような良い話が聞けた。ちなみに Convolutional Matrix Factorization の人のCNN実装はKerasらしいです。
+cnnとw2vの話聞き飽きすぎて吐きそう
+&amp;mdash; たくち (@takuti) September 18, 2016 
+一方で、 Deep learning is just one of the components for a hybrid recommender という世界であることも事実なのだ。LinkedInとQuoraのチュートリアルでは、「現実世界の推薦システムは、協調フィルタリングから深層学習まで、いろいろなものをケースバイケースで組み合わせたハイブリッドなものなんだぞ」というありがたいお話が聞けて泣けた。それも踏まえて、数学的にゴツいモデルやアルゴリズムで威圧するというよりは、もっとアプリケーション的な問題を重視する空気があったように思う。具体的には視線トラッキングや感情分析、推薦結果の説明生成など。
+推薦結果の見せ方、UIという点では Industry Session が抜群に良かった。</description>
+    </item>
+    
+    <item>
+      <title>ストリームデータ解析の世界</title>
+      <link>https://takuti.me/note/data-stream-mining/</link>
+      <pubDate>Tue, 08 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/data-stream-mining/</guid>
+      <description>【機械学習アドベントカレンダー2015 8日目】
+ストリームデータ解析 という分野がある。ある生成元から絶えずデータが到来する環境で、いかにそれらを捌くかという話。「時間計算量はほぼ線形であって欲しいし、空間計算量も小さく抑えつつ精度を担保したいよね」ということを考える世界。個人的に最近はそのあたりの情報を追いかけていたので、整理も兼ねてその世界を俯瞰したい。
+すごいリンク集 はじめに、この分野で外せないと思うリンクを3つ挙げておく。
+■ SML: Data Streams YahooやGoogleの研究所を経てCMUの教授をしているAlex Smola先生の講義の一部（スライド＋動画あり）。理論からシステムアーキテクチャまで包括した実際的な機械学習ならこの人。この人の機械学習サマースクールの講義は最高だった。
+古典的なものから最近のものまで、代表的なアルゴリズムについて直感的な説明といい感じの理論的な解析をしてくれる。
+■ Mining of Massive Data Sets スタンフォードの大規模データ解析に関する講義ページ。質の高いスライドや本が無料で提供されていて素晴らしい。Courseraでも開講されているというのは知らなかったので、次に開講されたらぜひ受講したい。
+本の Chapter 4 で Mining Data Streams を扱っていて、こちらは読み物として楽しい感じ。どういう問題を考えて、いかにアプローチするか、という部分の気持ちが伝わる。
+■ Muthu Muthukrishnan, Streaming Algorithms Research ラトガース大学のアルゴリズム屋さん。理論から応用まで幅広く手がけていてdblp見ると威圧感ある。自分のページでビートたけしの言葉を引用しているあたりも好感度高い。
+2010年以前の古典的なストリームデータ処理アルゴリズムの理論的解析はこの人のサーベイ論文が優秀。
+ストリームデータとは そもそもどのようなデータを ストリームデータ と呼ぶのか？
+一般に、以下の性質を備えたものがストリームデータと呼ばれる。
+ データが絶えず、急速に生成され続けている データの総量が有限ではない（無限に到来し続けるものとみなせる） 時間経過とともにデータの性質・傾向が変動する  Twitterのタイムラインがまさにそれで、「世界の全ツイートを対象にテキストマイニングだ！」と考えても、その作業をしている間にも新しいツイートが増え続けているので矛盾する。さらに流行り廃りで話題は時々刻々と変動するので、5年前のツイートだけを解析して「Twitterを使う日本人は皆ドロリッチが好き」と結論付けることはできない。
+ゆえに、ストリームデータを解析したい場合、以下のような要求を満たす手法が欲しい。それを考えるのがストリームデータ解析という分野。
+ 時間/空間に制約がある中で近似的にデータの性質を 要約 （近似）する  ほぼ線形な時間計算量。 小さな空間計算量で近似誤差に対して筋の良い上界を与える。  入力データは既知の解析結果を更新するために利用したら捨てる （on-the-fly, single-passな手法） データの性質の変動に対応できる（過去の解析結果にいつまでも引きずられない）  ストリームからデータをサンプリングしてランダム性も踏まえて考える。 データ列に対して窓幅を決めて、その単位で解析を行う。   1に関して、データの性質を限られた時間/空間で精度保証付きで近似することをデータの スケッチ とも呼ぶ。
+（この呼び方、本当にセンスがあると思うんですよね。スケッチですよスケッチ、美術の。）</description>
+    </item>
+    
+    <item>
+      <title>Migrate to Hugo from Jekyll: Another Solution for the MathJax&#43;Markdown Issue</title>
+      <link>https://takuti.me/note/hugo-markdown-and-mathjax/</link>
+      <pubDate>Mon, 19 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/hugo-markdown-and-mathjax/</guid>
+      <description>Migrate to Hugo from Jekyll I had used Jekyll to generate this site for 1+ years. However, recently generating site took more than 10 seconds due to increasing site contents; this was really stressful when I like to check the generated site continuously (e.g. style updating).
+Hence, from this article, I have migrated to Hugo, and this fast static site generator can build my site less than 1 second! Migrating to Hugo from Jekyll is not so difficult because there are many useful information on the Internet such as:</description>
+    </item>
+    
+    <item>
+      <title>PyCon JP 2015 #pyconjp</title>
+      <link>https://takuti.me/note/pyconjp-2015/</link>
+      <pubDate>Tue, 13 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/pyconjp-2015/</guid>
+      <description>Following phpcon2015, I have attended PyCon JP 2015 at the end of last week.
+Although I have more than 8-year programming experience, I first write Python code only a year ago. However, despite the really short-term experience, now Python is definitely one of my most favorite programming languages. I use Python in many different purposes such as research, private projects, part-time job, and competitive programming.
+My usage scenes of Python is really wide-ranging, right?</description>
+    </item>
+    
+    <item>
+      <title>Japan PHP Conference 2015 #phpcon2015</title>
+      <link>https://takuti.me/note/phpcon-2015/</link>
+      <pubDate>Sun, 04 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/phpcon-2015/</guid>
+      <description>I have attended phpcon2015, Japan PHP Conference 2015, on October 3.
+As you know, this year is very important for PHP users, because PHP7 will be released very soon. So, the theme of this PHP conference is 7.
+Though this was my first experience of attending large-scale conference in a cool geek community, I really enjoyed many exciting talks. Basically, I listened invited foreign speakers&amp;rsquo; talk, and all of them provided super favorable knowledge.</description>
+    </item>
+    
+    <item>
+      <title>Machine Learning Summer School 2015 Kyoto #MLSSKYOTO</title>
+      <link>https://takuti.me/note/mlss-kyoto-2015/</link>
+      <pubDate>Sat, 03 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/mlss-kyoto-2015/</guid>
+      <description>Hi, I am takuti, a master&amp;rsquo;s student in Japan. Currently, I am working on matrix factorization and approximation. Also, my research interests are in web engineering, mining and their applications such as recommender systems.
+I have attended to Machine Learning Summer School 2015 Kyoto (MLSS&amp;rsquo;15) from August 23 to September 4. This entry briefly reviews each of 14 exciting lectures in the summer school. Note that there might be mistakes in the content.</description>
+    </item>
+    
+    <item>
+      <title>How to Derive the Normal Equation</title>
+      <link>https://takuti.me/note/normal-equation/</link>
+      <pubDate>Tue, 21 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/normal-equation/</guid>
+      <description>In the linear regression tasks, the normal equation is widely used to find optimal parameters. However, Pattern Recognition and Machine Learning (RPML), one of the most popular machine learning textbooks, does not explain details of the derivation process. So, this article demonstrates how to derive the equation.
+Linear regression model We define linear regression model as:
+$$ y = \textbf{w}^{\mathrm{T}}\phi(\textbf{x}) $$
+for a input vector $\textbf{x}$, base function $\phi$ and output $y$.</description>
+    </item>
+    
+    <item>
+      <title>Hello English Entries</title>
+      <link>https://takuti.me/note/hello-english/</link>
+      <pubDate>Sun, 09 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/hello-english/</guid>
+      <description>Hi, I&amp;rsquo;m takuti.
+Until now, this blog had only Japanese articles. However, from this post, blog.takuti.me switches to an English blog. Previous Japanese articles are available here continuously, but I will not write any more Japanese posts. If you want to read my Japanese, you can see it on my hatenablog, my Japanese blog on one of the most popular blog services in Japan.
+Renewed blog.takuti.me may cover following topics:</description>
+    </item>
+    
+    <item>
+      <title>【実践 機械学習】レコメンデーションをシンプルに、賢く実現するための3か条</title>
+      <link>https://takuti.me/note/practical-machine-learning/</link>
+      <pubDate>Mon, 01 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/practical-machine-learning/</guid>
+      <description>Amazonの商品レコメンドやTwitterのオススメユーザ表示のような、アイテムを推薦してくれるシステムは便利だ。僕らユーザは新たな興味深い商品を簡単に発見できるし、システムを提供する側は場合によっては推薦そのものが効果的なマーケティングになる。
+このような推薦システムは、機械学習を応用したアプリケーションの1つ。
+機械学習と聞くと、それだけで複雑な数式をイメージして「無理無理、そんなのは専門家が考えてくれ」と言いたくなるかもしれない。でもこれから挙げる3か条を知れば、きっとそんな人でも推薦システムをつくることができる。ベイズの定理なんて出てこないから安心してほしい。
+1. ユーザの評価ではなく、行動を見る Amazonで★5つとか付けている奴も案外その基準はテキトーなもんだ。自分の好みを正確に自分で理解している人なんていない。
+だからレコメンデーションのためにユーザの趣味・嗜好を知りたければ、行動履歴を探るのが良い。友達のブラウザの閲覧履歴を覗けば、たぶん彼の性癖の1つくらいは読み取れる。そんな感じだ。
+大切なのは、ユーザがどう思ったかではなくて、何をしたか。行動が全てを物語っている。
+2. たくさんの行動履歴から傾向を見つけ出す いくら行動が全てを物語っているとはいえ、1人の行動を熱心にウォッチし続けても意味はない。そこから何となく嗜好を予想してアイテムをオススメするなんて、そりゃ友達にマンガを貸すときの話だよ。
+インターネット上のアプリケーションでそんな推薦を行うのは賢いとは言えない。せっかく日々膨大なデータが生まれているんだから、もっとたくさんのユーザの行動履歴を手に入れて、そこから有益な傾向を見つけ出すのが良い。
+Amazonの この商品を見たお客様はこれも見ています みたいなアイディアがまさにそれだ。あたかもコンピュータがデータ（履歴）を学習しているかのように推薦を行うから『機械学習』というわけだ。
+行動履歴から傾向を見つけ出すときはApache Mahoutが役に立つ。というか、こいつが全てをやってくれる。だから僕らは数式など気にせず、ただログを手に入れさえすればいい。それで十分。
+とはいえブラックボックスのままツールを乱用するのは言語道断なので、ここはひとつ、みんな大好きなアニメを例にとって履歴から傾向を見つけ出す方法を説明しよう。
+3人のアニメファンをイメージする。タカシと、ヒロキと、ケン。彼らがこれまでにBDを購入したアニメのタイトルはこんな感じ。
+    きんモザ ごちうさ Free!     タカシ ◯ ◯    ヒロキ ◯     ケン   ◯    BDの購入は、そのアニメを好んでいるが故の行動と言える。さて、このBD購入履歴から傾向を見つけて、ヒロキに新しいアニメをオススメしてみよう。
+まず、タカシがきんモザとごちうさを共に買っていることから、この2つのアニメは共に好まれやすいという傾向が予想できる。そこで、きんモザだけを買っているヒロキにはごちうさをオススメしよう、という話になる。これがAmazonも使っている 協調フィルタリング という考え方の基本だ。
+今は3人だから微妙だけど、データが多ければ多いほどこのような 共に好まれやすい傾向 が推薦の根拠になる。以下のような状況では、もはやヒロキにごちうさを薦めない理由は無い。
+    きんモザ ごちうさ Free!     タカシ ◯ ◯    ヒロキ ◯     タロウ ◯ ◯    ミサ ◯ ◯    シュン ◯ ◯    ケン   ◯    これが行動履歴から傾向を判断し、推薦につなげていく基本的なアイディアになる。そして 共に好まれやすい傾向 をログから数値的に見つけ出してくれる機能を備えたのが、Mahoutというライブラリだ。</description>
+    </item>
+    
+    <item>
+      <title>TOEFL iBT（2回目）＠田町テストセンター</title>
+      <link>https://takuti.me/note/toefl-20140715/</link>
+      <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/toefl-20140715/</guid>
+      <description>2度目のTOEFLである。スコアが8日間で出るという謎の早さ。
+＠田町テストセンター よかった。超良かった。
+ JR田町駅からはいくらか歩く＆ビルが分かりづらくて通り過ぎた ロッカーあり イヤーマフあり トイレ1つ 左右前にしっかりとした仕切りがある  とっても集中できる。イヤーマフが神すぎた。なんだこれ、こんな便利なものが世の中にあったのか。前回の早稲田大と比べ物にならない。
+Reading  やはり時間切れで3パッセージ目の途中で終了 前回よりも自信を持って答えられたものが多かった 単語がいくらか簡単だった印象  結果：前回+3点
+Listening  ダミー問題はこっち メモを本当に重要なとき以外取らない作戦 こちらも前回より自信を持って答えられたものが多かった 分からない問題はどれだけ考えても分からない作戦で時間内に全て回答できた 集中力が持たない  結果：前回+3点
+休憩  前回同様ウイダーとお茶で10秒メシ メモ用紙交換の必要は無い トイレの鏡に向かって「自信持って喋れ」と自己暗示  Speaking  Task1の問題が明らかに新傾向で、しかも超絶答えづらい質問 全ての問題でしゃべり続けることに成功 話したコンテンツのボリュームや文法・時制などの精度、あとイントネーションが課題  結果：前回から変わらず
+Campus Conversationが下がって、Lectureが上がって、それでプラマイ0だった様子。うーん、前回よりもよく喋ることができた自信があったので、Conversationはなにか致命的な理解ミスを犯したのかも。
+Writing  まだR/L力がチープなのでIntegratedが難しい Independentは「Gymで仲間と野球やったぜ！」というヤバイ回答をしたがGood(4.0-5.0)  結果：前回+1点
+合計点は思っていたよりも低かったけど、きちんと上がっているので努力相応の結果かなぁと割りきって次へいきたい。R/Lは相対評価が入るため、簡単だったと思うときほど点数は伸びないらしい。
+田町テストセンターの環境で文句無しだったけど、テンプル大学3階はこれ以上に快適だと言うんだから凄い。実は10月にテンプル大学3階会場が確保できたので、楽しみである。なお、9月にも受験する予定だが、横浜駅きた東口テストセンターという新しいところで未知。帰りに中華街いこう。
+8月は受験するとすればお盆なのだが・・・ここは少し悩んでいる。悩んでいる間にも数少ない会場がどんどん埋まっていて、更に悩む。</description>
+    </item>
+    
+    <item>
+      <title>インターネットが怖い</title>
+      <link>https://takuti.me/note/20140713/</link>
+      <pubDate>Sun, 13 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/20140713/</guid>
+      <description>先を考えるために、少し過去を振り返ります。
+---
+小学生のころ、僕は学校のコンピュータで休み時間の度に数人の友達とおもしろフラッシュを見ていた。僕を含め、「父親の影響で小さい頃からプログラミング」みたいなスゴい人は周りにいなかったから、コンピュータはゲームボーイやテレビと大差ない『箱』だったし、おもしろフラッシュは『動く絵』だった。おもしろフラッシュをみんなで見る時間は大好きだったが、放課後は公園で遊ぶ方が楽しかったので、残念ながら技術への好奇心など持ち合わせていなかった。
+中学生になり、コンピュータ部のようなものに入った。本当は卓球部に入りたかったのだが、そんな部はうちの中学には存在しなかった。この頃一番極めたのはタイピングだ。あの頃の速度にはもはや追いつけない。その次はワードやエクセルというものを覚えて、『箱』が思っていた以上に便利なものだと気づいた。
+そしてついにはホームページビルダーとYahoo!ジオシティーズを駆使して初めてのWebページ・たくちのページを開設し、ついでにteacupで掲示板とチャットをレンタルして友達に紹介した。放課後、部活が終わって家に帰って晩ごはんをたべる。その後、チャットでもう一度みんなと集まって話ができる。これは最高に刺激的で楽しかった。だって、メールは一対一だし、送る理由が必要だ。そもそも携帯電話を持っている友達自体少なかったし。この頃はまだ『箱』はただの便利なものにすぎなかった。
+しかし中学2年生のとき、世界が変わった。ブログ、オンラインゲーム、ニコニコ動画。僕が感じていた『箱』の可能性をはるかに凌駕する3つのコンテンツに出会ってしまった。そっちに気を取られたおかげで中二病らしい中二病を発症した記憶が無い。
+当時ゲーセンの某ゲームにハマっていたこともあり、それに関連した内容＋日常を書くブログをYahoo!ブログで開設した。「先輩に勧められて最近プレイしている」という友達から勧められたMMORPGを始めた（ROじゃないです）。久しぶりにおもしろフラッシュサイトを物色していたら、コメントが書き込めてそれが動画の上に流れるというコンテンツを見つけた。
+ブログでは多くの同じゲームのプレイヤーの人たちと交流した。記事やコメントで敬語を使うか、タメ口でいいか、悩んだものだ。オンラインゲームは友達に勧められたものだが、ギルドは自分で決めた。本当に良い人たちばかりで、今でもギルドのteacup掲示板にはたまに書き込みがある。ニコニコ動画はよく分からないが衝撃だった。まず動画が抜群に面白いし、その楽しい時間を見ず知らずの人と共有していると思うだけでワクワクした。
+中学でもいわゆるコンピュータオタク的な人は周囲におらず、僕の中で『箱』は『箱』のままだったが、その奥行が想像もできないほど深いということは理解した。
+（ちなみに、ブログ、オンラインゲーム、ニコニコ動画のおかげで、「県内の高校・高専ならどこでも問題ないでしょう」と担任にいわれていた僕の成績は急降下した。）
+そんな中学時代を過ごした僕が入った（入ることができた）高校は工業高校だ。後悔は無駄なのでネガティブなことを書き連ねる気はないが、3年間の高校時代を振り返って言えることは「微妙だった」ということだ。ビールを飲んだらぬるかった、そんな感じ。
+しかし仮にも専門高校だ。得たものはまぁまぁ大きかった。
+今まで考えたこともなかった『箱』の中身や、その奥に広がるインターネットと呼ばれる世界とその仕組み、おもしろフラッシュ・ブログ・オンラインゲーム・ニコニコ動画のような今まで触れてきたモノの実態。全てが新鮮で、僕はますますその世界に惹かれた。が、技術的な視点で惹かれたわけではない。アプリケーションの可能性という点で、である。
+反省する様子もなく、中学時代以上にいろいろなオンラインゲームで遊んだ。ボイスチャットは最初は随分緊張したものだ。いや、今でも結構緊張する。
+高校2年生のころ、徐々にその中身が見えてきた『箱』の中で新しいものに出会う。Twitterだ。当時は第2次Twitterブームが到来する前で、フォロワーにリアルの友達はいなかった。
+高校時代のTwitterはかなり思い出深い。今も昔もネットコミュ障みたいなところがあるので積極的にリプライを飛ばすタイプではないが、タイムラインに流れる他の人の日常を見ると、たとえ大雨の日でも楽しい気分になった。昼休みだ、あのアニメの最新話はヤバイ、こんなものを買った、ドロリッチなう。なかなか感慨深い。それに加えて、同じ目標や興味を持つ人とコミュニケーションができたことも嬉しかった。オンラインゲームやブログが備えていなかった、『場』としての雰囲気がTwitterにはあった。正直、Twitterが無ければ僕は応用情報技術者試験に合格などしていなかっただろう。インターネットとリアルが繋がるという確かな感覚があったのだ。
+大学選択は迷わなかった。正確には、迷うことができないほど僕の視野は狭く、浅い知識と技術しか持ち合わせていなかった。
+一応、高校から一足早く、そして今日まで大学でコンピュータサイエンスを学んできた僕ではあるが、今見る『箱』は小学生のころに見ていた以上に得体が知れない。怖い。だって、これはもはや『箱』では無いのだから。なんだろう、形容するとすれば・・・スライムだろうか。
+街を歩く。誰かとご飯を食べる。ねぇ、右手に持っているものは何ですか？
+Twitterを見る。Facebookを見る。僕の知らない君がいる。
+小学生のころからずっと純粋に感動し、触れてきたインターネット上のコンテンツの数々。高校時代に感じた、インターネットとリアルが繋がる確かな感覚とワクワク。しかし同時に、いつでも現実は現実として区別できていた。だから、どっちも楽しかった。高校時代の1日あたりのツイート数はまぁまぁの量だ。
+今はどうだろう？分からない。現実で面と向かって話をしていても、相手がどこを見ているのか、何者なのか、さっぱりだ。インターネットとリアルは『繋がる』というよりむしろ『溶け合う』状態になっている。もしかしたら、他人から見た僕自身もそうなのかもしれない。これは変な話だが、「Twitterとか最近は放置してるわ」という人や、そもそもそういうものには見向きもしない人と話すとすごく安心する。安心しすぎて何でも話してしまうので、むしろ注意が必要だが。
+中身は読んでいないので謎だが、本屋で平積みにされていたうめけん氏の本のタイトルは、2014年上半期で最も共感した言葉である。
+ツイッターとフェイスブックそしてホリエモンの時代は終わった (講談社プラスアルファ新書)posted with ヨメレバ梅崎 健理 講談社 2014-06-20 Amazon楽天ブックス  先日、一人寂しく映画館へ行きトランセンデンスをみた。正確ではないが、その冒頭で字幕に映し出された台詞「インターネットによって世界は狭くなった。でも、無い方がもっと狭かった気がする。」これには衝撃を受けた。どんな英語の台詞を字幕に起こしたのか分からないが、見事だと思った。
+インターネットは世の中を複雑にした。自由であり、なんでもできるということが実は一番難しいのだと思う。程度が違うけど、トランセンデンスでもジョニー・デップ演じるウィルはその自由さ故に（ネタバレ以下略）
+ここ半年くらいだんだんと大きくなっている恐怖が一体なんなのか。良いことなのか、悪いことなのか。この感覚が正しいのか、間違っているのか。今の僕にはどうしても分からない。喉のすぐそこまで出かかっているような気もするのだけど。それとも、ただの懐古主義やネット疲れなのだろうか・・・いや、それはどうも腑に落ちない。
+この気持ちを説明できるようになって、その向こうにある何かが掴めるまでもう少し、あと数年くらいはこの大きなスライムと向き合ってみたいと思う。
+10年後には、もしかしたら地元・長野で農業でもやっているかもしれない。
+---
+こんなことを書いた僕自身がTwitterにうだうだと投稿を続けるのもおかしな話なので、しばらくはこのブログだけを発言の場としようと思う。いつもの記事投稿を報告するPostも今日はおあずけだ。
+そんな閲覧者数を稼げない方法で記事を公開して意味はあるのか、と言われるかもしれないが、まぁなんというか、僕はインターネット上に何らかの形で足跡を残しておきたいだけなのだよ。だからDisqus（コメント欄）も、日記カテゴリの記事には表示しないようにした。（わざわざif文で日記カテゴリだけコメント欄非表示するのが気持ち悪いのでやめました）</description>
+    </item>
+    
+    <item>
+      <title>TOEFL iBTを受けてきた＠早稲田大</title>
+      <link>https://takuti.me/note/toefl-20140527/</link>
+      <pubDate>Tue, 27 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/toefl-20140527/</guid>
+      <description>&lt;p&gt;初めてTOEFL iBTを受けてきたのでメモ。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ブログをWordPressからJekyllに変えた</title>
+      <link>https://takuti.me/note/hello-jekyll/</link>
+      <pubDate>Mon, 31 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/hello-jekyll/</guid>
+      <description>変えた。気分転換。takuti.meも変わってます。
+いろいろ苦戦したんだけど、疲れちゃったのでそれはまたの機会に。リダイレクトさせたりしてるので、はてブやRSSフィードで変わることは無いと思います。
+そういえばIELTSとTOEFLの模試を受けたりで先日東京にいきました。春でした。
+新しい1年です。僕は大学4年生になります。</description>
+    </item>
+    
+    <item>
+      <title>岡本太郎に学ぶ、芸術と人生。</title>
+      <link>https://takuti.me/note/todays-art-taro/</link>
+      <pubDate>Fri, 28 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/todays-art-taro/</guid>
+      <description>今日の芸術―時代を創造するものは誰か (光文社知恵の森文庫) posted with ヨメレバ  岡本 太郎 光文社 1999-03  Amazon Kindle 楽天ブックス     岡本太郎の『今日の芸術』を読んだ。『自分の中に毒を持て』で衝撃を受けて以来、他の本も気になっていたので。
+
+タイトルの通り、今日の型にはまった芸術について意義を唱えるという内容。しかし、それらは芸術に限らず、僕らの生き方・考え方に対しても全く同じことが言える。
+芸術の真意は人間性にあり、だからこそ僕らは芸術に感動するのだと太郎は言う。
+芸術に絶対的な基準など無いのだから、描くか描かないかが問題なのだ。下手でもいいから描いてみる。すると、自分に対して正直に、自由でありさえすればそれが人間性として表れ、芸術が生まれる。確かに単純明快でしっくりとくる論理だ。
+しかしこの「下手でもいいから」とか「自分に対して正直に」とか、「自由で」みたいなのが実は一番難しい。たいてい、心の何処かで「恥ずかしい」みたいなブロックが掛かる。
+太郎やピカソの作品の凄さは理屈で語るものではなく、その中にある自由さだというわけだ。彼らは自分自身と闘い続け、自由であることに努めた。だから僕らは彼らの作品を見ると、言葉では表現できない迫力・凄みを感じる。
+生きることも同じだ。生き方に絶対的な基準など無いのだから、問題はやるかやらないかしかない。成功しようとか、選択を間違えないように・・・などと考えず、思ったままにやればそれが人生だ。しかしこれもまた難しい。僕らは無意識に、無駄な思考の末にもっともらしい理由を見つけて型にはまろうとしてしまう。
+人生はシンプルであり、感情に従えばそれだけでいいのに、それができない。
+年末年始に読んだファインマンさんは、自身の好奇心、すなわち感情に素直であった人間の1人だ。彼の凄さはそこにある。
+ ご冗談でしょう、ファインマンさん〈上〉 (岩波現代文庫) posted with ヨメレバ  リチャード P. ファインマン 岩波書店 2000-01-14  Amazon Kindle 楽天ブックス      ご冗談でしょう、ファインマンさん〈下〉 (岩波現代文庫) posted with ヨメレバ  リチャード P. ファインマン 岩波書店 2000-01-14  Amazon Kindle 楽天ブックス     太郎は、型にはまった芸術に現れる&#34;符丁&#34;の中に自己はあるか？とも問いかける。ここにも、生き方に対するメッセージがある。</description>
+    </item>
+    
+    <item>
+      <title>TF-IDFで文書内の単語の重み付け</title>
+      <link>https://takuti.me/note/tf-idf/</link>
+      <pubDate>Sat, 25 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/tf-idf/</guid>
+      <description>『いくつかの文書があったとき、それぞれの文書を特徴付ける単語はどれだろう？』こんなときに使われるのがTF-IDFという値。
+
+TFはTerm Frequencyで、それぞれの単語の文書内での出現頻度を表します。たくさん出てくる単語ほど重要！
+ $$ \textrm{tf}(t,d) = \frac{n_{t,d}}{\sum_{s \in d}n_{s,d}} $$  $\textrm{tf}(t,d)$ 文書 $d$ 内のある単語 $t$ のTF値 $n_{t,d}$ ある単語 $t$ の文書 $d$ 内での出現回数 $\sum\_{s \in d} n\_{s,d}$ 文書$d$内のすべての単語の出現回数の和  IDFはInverse Document Frequencyで、それぞれの単語がいくつの文書内で共通して使われているかを表します。いくつもの文書で横断的に使われている単語はそんなに重要じゃない！
+ $$ \textrm{idf}(t) = \log{\frac{N}{df(t)}} + 1 $$  $\textrm{idf}(t)$ ある単語 $t$ のIDF値 $N$ 全文書数 $\textrm{df}(t)$ ある単語 $t$ が出現する文書の数  対数をとっているのは、文書数の規模に応じた値の変化を小さくするためなんだとか。
+この2つの値を掛けたものをそれぞれの単語の重みにすれば、その値が大きいほど各文書を特徴付ける単語だと言えるんじゃないか、という話。
+例えば10日分のアメリカ旅行の日記で全体を通して「アメリカ」という単語が多く登場していてもそれは当然のこと。1日目の日記を特徴づけるのは「飛行機」であって欲しいし、2日目は「ハンバーガー」であって欲しいわけです。
+頻出する単語だからその文書を特徴付ける単語になる！とは限らない。そこでTF-IDFの登場。
+具体例で見てみる 具体的な例として以下の記事を参考に、２つの文書『リンゴとレモンとレモン』（文書A）と『リンゴとミカン』（文書B）を考えます。
+フツーって言うなぁ！ Pythonでtf-idf法を実装してみた
+形態素解析を行うとき、特徴語になり得るのは名詞だけだと仮定して、それ以外の品詞は無視します。つまり文書Aは [リンゴ, レモン, レモン] 、文書Bは [リンゴ, ミカン] という単語の集合。</description>
+    </item>
+    
+    <item>
+      <title>WordPressの新規投稿を決めた時間内でさっさと書かせるプラグイン</title>
+      <link>https://takuti.me/note/hurry-up-post/</link>
+      <pubDate>Mon, 09 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/hurry-up-post/</guid>
+      <description>を作った。
+記事１つ書いただけなのにもうこんな時間！という経験ありませんか？あ、ない・・・そうですか。
+まぁ僕はいつもそんな感じなので構わず話を続けます。
+WordPressのプラグイン作成が気になったので、お試しついでにそんな問題を解決する（かもしれない）超簡単なプラグインを作りました。Hurry Up Postというセンスの欠片も感じないネーミングです。
+
+ 新規投稿画面を開くとタイトル入力フィールドの下にこんなのが出ます。 記事を書き上げたい時間を分単位で指定して、Startボタンをクリックすることでカウントダウンがスタートします。 Stopボタンとか甘えたものはありません。自分の選択には責任を持ちましょう。 カウントダウンが終了すると、クリックイベントで勝手に『公開』ボタンをクリックします。  制限時間が表示されていることで効率的に記事をかけるようになる（かもしれない）。人間は追い込まれると謎の生産性を発揮するものです。
+この記事は30分以内で書き上げたいと思いました。何とかなりそうです。時間を意識することは大切ですね。
+プラグインはとりあえずgithubに上げています。使いたいという稀有な方がいましたら、ダウンロードしてWordPressのインストールディレクトリ内 wp-content/plugins 以下に置いた後、管理画面のインストール済みプラグインから有効化してください。
+takuti/hurry-up-post
+とっても分かりやすかったスライド   WordPressプラグイン作成入門  from Yuji Nojima  
+&amp;nbsp;
+WordPressのプラグインってこんなに簡単な仕組みだったんですねー。みなさんも欲しい機能があるときは、簡単なものなら数十分で作れちゃうので自作してみてはいかがでしょうか。</description>
+    </item>
+    
+    <item>
+      <title>Poisson Image Editingでいい感じの画像合成ができるやつを作る on Web</title>
+      <link>https://takuti.me/note/poisson-image-blending/</link>
+      <pubDate>Sun, 08 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/poisson-image-blending/</guid>
+      <description>Aizu Advent Calendar 2013 8日目の記事です。
+デモ まずは作ったやつ（デモ版）からどうぞ。
+【 Poisson Image Blending - Demo 】
+
+Step1はいじらなくていいので、Step2で適当にマスク領域を塗ってあげてください。
+こんな感じで塗れたら、HEREボタンをクリック。するとStep3にマスクをかけた領域だけ乗っかります。
+そうしたら矢印ボタンで位置を調整して、
+「ここで合成だー」と思ったところでOKボタンをクリックすれば、
+真顔モナリザの完成です。
+このようにいい感じの画像合成ができる手法は、ググればC++やPython、さらにHTML5 Canvasでの実装もすでに存在します。ま、まぁマスク領域自分で塗れるようにしたから新規性あるよね・・・。
+アプリ版 デモを利用して、合成したい2枚の画像を自分で選べるものを作りました。アプリ版です。
+【 Poisson Image Blending - App 】
+まずはベース画像（合成先）とソース画像（切り抜いて合成する方）をそれぞれ選択します。画像サイズはいずれも150ピクセル×150ピクセルに限定しています。それより大きい/小さい画像を選択すると縮小/拡大されます。
+ちゃんと両方選択できると、Start Appボタンが有効になるのでクリック。
+すると先ほどのデモ版と同様の画面が表示されるので、Step2でマスク領域を塗って、Step3で位置調整、合成という流れで遊んでください。
+こんな感じになります。アゴ
+実際に顔写真でやってみるのが個人的には一番おもしろいと思います。
+あ、フッターみたいな変な所に結構重要なボタンがあります。最悪ですね。
+Importing gradients と Mixing gradients ここで無視していたStep1の話をしましょう。
+いい感じの画像合成では画像の勾配(Gradients)が大切です。画像における勾配とは、隣り合っているピクセル同士でRGB値がどれだけ違うかということ。
+先ほどの合成結果を見ると、色はベース画像に馴染みつつも、どこに線があるかという情報はソース画像のものを受け継いでいます。このバランスがいい感じの合成を実現しているんですね。
+この線の情報（＝合成結果の勾配）の求め方は2通りあります。それがImporting gradientsとMixing gradientsです。
+Importing gradientsは先ほども例に挙げたように、ソース画像の勾配をそのまま合成結果に利用します。一方でMixing gradientsは、各ピクセルに対してベース画像とソース画像の勾配を比較して大きい方を採用するというものです。
+これを切り替えて試せるのが、デモ版にもアプリ版にもあるStep1のラジオボタンです。さらにデモ版ではFacesとHand&amp;amp;Signという2種類のベース画像・ソース画像の組み合わせを切り替え可能にしました。勾配の取り方2種類と画像セット2種類なので計4通りの合成を試すことができ、結果は以下のようになります。
+   Importing Mixing   Faces     Hand&amp;amp;Sign     見ての通り、Facesの場合はImportingのほうが期待通りの結果になっています。一方Hand&amp;amp;Signでは、Mixingのほうが手のシワを残しつつ文字を合成していて綺麗な結果になっています。文字上では手のシワよりも文字の勾配のほうが大きく、その他の部分は変化の少ない白い紙の写真なので手のシワの勾配のほうが大きかったというわけです。</description>
+    </item>
+    
+    <item>
+      <title>AngularJSでChromeExtension開発をするならCSPに気をつけよう</title>
+      <link>https://takuti.me/note/crx-dev-using-angularjs/</link>
+      <pubDate>Fri, 15 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/crx-dev-using-angularjs/</guid>
+      <description>初めてのChromeExtensionを作った後にAngularJSに触れて、最初は「ChromeExtensionをAngularJS使って作ることができたらChromeの右上ライフが捗る！？」なんて思って試したわけですが、何故かAngularJSが動かず諦めていました。
+それを最近ふと思い出したので調べてみたら、ChromeExtensionのCSP (Content Security Policy) が原因だったことがあっさりと分かって解決したのでメモ。
+結論 AngularJSでChromeExtension開発をするためにやるべきことは以下の2つ。
+ ng-appの横にng-cspと書いてあげる angular-csp.cssをローカルに持ってきてロードしてあげる  以下詳細。
+
+CSP (Content Security Policy) とは すごーくざっくりと言えば、XSSをはじめとする攻撃に利用されそうな機能に対して与える制限のこと。
+そのような機能の分かりやすい例としてはeval()でしょう。ご存知の通りevalは与えられた文字列をソースとしてなんでもかんでも解釈・実行してしまうため、脆弱性があった際に与える影響は絶大です。
+ 体系的に学ぶ 安全なWebアプリケーションの作り方　脆弱性が生まれる原理と対策の実践 posted with ヨメレバ  徳丸 浩 ソフトバンククリエイティブ 2011-03-03  Amazon Kindle 楽天ブックス     evalを使おう！とあなたが思った時、それは他の機能で代替可能ですので思い止まりましょう。というわけで、CSPでeval相当の記述を全て禁止にすることができたりするわけです。
+ChromeExtensionのCSPとAngularJSの使い方 ChromeExtensionでは、CSPがデフォルトで設定されています。
+Content Security Policy (CSP) - Google Chrome
+設定されている制限の内容は、
+ evalとそれに相当する記述の無効化 インライン（HTMLに埋め込む形）でのJavaScript実行の禁止 スクリプトファイルやその他リソースファイルの読み込みはローカルからのみ  の3つ。
+AngularJSでは実行速度向上のためにeval相当の記述を利用している箇所があり、そこがChromeExtensionのCSPに引っかかっているのです。10041行目(angular.js v1.2.0)から定義されているgetterFn関数です。これがChromeExtensionでAngularJSが動かなかった原因。
+そして、この問題への対処法はAngularJS公式で用意されています。やり方はng-appと一緒にng-cspと書いてあげるだけ。
+&amp;lt;html lang=&amp;quot;ja&amp;quot; ng-app ng-csp&amp;gt; これで、AngularJSが実行速度向上を諦めるモードになります。そんなわけですべての式の評価にかかる速度が30%減になってしまうようですが、仕方ない。
+しかしどうやら30%の速度だけでは等価交換にならなかったようで、CSPによって影響を受けたままのものがまだあります。それはCSSの一部。
+angular.js(v1.2.0)の最下部では、AngularJSの導入に伴って必要となるCSSをまとめてjQueryでhead要素の先頭に埋め込んでいます。これは例えばバリデーション時に表示するエラーメッセージのhidden制御なんかが関係してくる。
+その処理がChromeExtensionのCSPの1つ「インラインでのJavaScript実行の禁止」に引っかかってしまい、必要なCSSが埋め込まれない問題が発生します。実際、ng-cspを付けるだけだとバリデーションの結果に関係なくエラーメッセージが表示され続けます。</description>
+    </item>
+    
+    <item>
+      <title>「知の逆転」を読んだ</title>
+      <link>https://takuti.me/note/6brains-of-the-world/</link>
+      <pubDate>Tue, 29 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/6brains-of-the-world/</guid>
+      <description>知の逆転 (NHK出版新書 395) posted with ヨメレバ  ジャレド・ダイアモンド,ノーム・チョムスキー,オリバー・サックス,マービン・ミンスキー,トム・レイトン,ジェームズ・ワトソン NHK出版 2012-12-06  Amazon Kindle 楽天ブックス     サイエンスライターの吉成真由美さんが2010年4月から1年強の期間をかけて行った、6人の『世界の頭脳』に対するインタビューをまとめた一冊。
+超有名なあの人の最新の興味・考え方に触れられるのはもちろん、インタビュー形式なので人間性も読み取れて面白かったです。
+面白かったのは、6人全員が無宗教であるということと、多くがSF小説を好んでいるということ。食わず嫌いのSFを読んでみようかな・・・。
+
+&amp;nbsp;
+ジャレド・ダイアモンド あの名著「銃・病原菌・鉄」を執筆された進化生物学者。（僕も数カ月前に買ったけどなんかしっくりこなくて上巻すら読み終わっていません、ごめんなさい）
+ 文庫　銃・病原菌・鉄　（上）　1万3000年にわたる人類史の謎 (草思社文庫) posted with ヨメレバ  ジャレド・ダイアモンド 草思社 2012-02-02  Amazon Kindle 楽天ブックス     インタビューの中にあった、インターネット経由で得られる情報は実際に人に会って得られる情報にはとても敵わないという話。彼の子どもは13歳までに南極を除く全ての大陸を訪れたという部分が印象的。
+ふと高城剛さんを思い出したりもした。『百聞は一見に如かず』を実践する一生を送りたいものですね。
+92歳まで患者を診ていた父や１００歳まで本・論文の執筆を続けた友人の話なんかも出てきて、全体として生き方について考えさせられる内容だった気がする。
+&amp;nbsp;
+ノーム・チョムスキー  メディア・コントロール ―正義なき民主主義と国際社会 (集英社新書) posted with ヨメレバ  ノーム・チョムスキー 集英社 2003-04-17  Amazon Kindle 楽天ブックス     個人的には文法の人以上のイメージがなかったのだけど、今回の話題の中心は政治批評。そういった一面があるのは知らなかった。</description>
+    </item>
+    
+    <item>
+      <title>人工知能関連技術の発展、それすなわちUI革命</title>
+      <link>https://takuti.me/note/from-cloud-to-ai/</link>
+      <pubDate>Tue, 01 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/from-cloud-to-ai/</guid>
+      <description>クラウドからAIへ アップル、グーグル、フェイスブックの次なる主戦場 (朝日新書) posted with ヨメレバ  小林雅一 朝日新聞出版 2013-07-12  Amazon Kindle 楽天ブックス     読みました。
+人工知能の歴史と技術的背景を、Siriやセマンティック検索、自動運転自動車といった身近で心躍るトピックに沿わせて説明している一冊です。
+これだけの内容が新書一冊に詰まっているなんて、奥さんこれは買いですよ。
+
+一言で『人工知能』といっても、その分野は結構たくさんに枝分かれして自然言語処理や音声処理、機械学習なんかがあったりする。それら人工知能関連技術の研究と発展がSiriやセマンティック検索、自動運転自動車を生み出しているんですよね。
+そういった人工知能関連技術が実用化されている現在の世の中を見て著者が言っているのは、UI革命こそが人工知能の本質だということ。本書の中で一番印象に残ったのはこのことです。
+クールなアニメーションやデザインが素敵なUIを、素晴らしいUXを生み出すのはもちろんですが、人工知能関連技術の発展もまた革新的なUIと、あっと驚くUXを生み出すわけです。確かに、Siriなんかはその好例ですね。
+しかしその一方で、発展がどんどん進んでいくと、もはやインターフェースというレベルではなくなってしまうという不安もあります。機械が人間に取って代わる、なんていう映画の世界。
+ A.I. [DVD] posted with カエレバ  ハーレイ・ジョエル・オスメント ワーナー・ホーム・ビデオ 2003-12-06      そのような、人間と人工知能（機械）との間にある実際的・哲学的な諸問題についても本書ではしっかりと言及されています。
+近年の人工知能関連技術の実用化の背景にあるものとして本書で挙げられているのは、ビッグデータの登場です。そしてビッグデータ争奪戦とでも言うべき、AppleやGoogleの人工知能関連技術に対する取り組みが説明されています。このように、人工知能を身近な視点から易しく語っているのが何よりうれしいところだと思いました。
+書名になぜ『クラウド』と入れたのか、同じバズワードを使うのなら『ビッグデータ』のほうが良かったのでは、という謎は残りますが。</description>
+    </item>
+    
+    <item>
+      <title>書店へ行け。そして本を買え。</title>
+      <link>https://takuti.me/note/go-to-bookstore/</link>
+      <pubDate>Thu, 08 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/go-to-bookstore/</guid>
+      <description>10分あれば書店に行きなさい (メディアファクトリー新書) posted with ヨメレバ  齋藤孝 メディアファクトリー 2012-10-29  Amazon Kindle 楽天ブックス     明治大学の齋藤先生の著書、「10分あれば書店に行きなさい」を読みました。
+Amazonで本を買いたくなくなる。図書館で本を借りるくらいなら買っちまえと思うようになる。電子書籍とか興味も示さなくなる。そんな気持ちにさせる内容でした。
+あーこれのせいで今月から一段と出費が増えちゃうよ。どうしてくれるんだい。
+
+&amp;nbsp;
+本書の内容は書店の素晴らしさやその活用法を説くだけに留まらず、『読書』という広いテーマについて書かれているなぁという印象。
+先日読んだ「本を読む本」の点検読書の部分、つまり現代の読書においては最も基礎的かつ重要な部分だけをつまんで、そこがとても平易に説明されているようなイメージで「おっ」と思いました。
+本に書き込むこと、1冊の情報を短時間で吸収すること、そしてそれを人に説明できるようにすること。これらは「本を読む本」の点検読書のステップでも書かれていたことではありますが、新書という文庫本よりもライトな形で伝えてもらえると、より一層実践しやすくなりますね。
+もちろん本書のメインテーマである『書店』については、人生における書店滞在時間は世界トップクラスと自負する齋藤先生の教えだけあって説得力もあり、「なるほど」と思わされます。新書コーナーの見方が変わってしまった。
+また、書店に通うことに絡めて書かれている、本を買うことで書店を、著者を、日本を支えるといったお話にも納得させられました。
+さらに、家に帰る時に書店に寄るのと、まっすぐ家に帰ることの比較から書かれていた総ストレス量のお話は目からうろこ。確かに家にいると逆に疲れるという経験は少なくない。
+中身のある本を3冊読むことは、大学の講義を半年聞くことに匹敵する
+― 第1章より  ラーメン一杯やハンバーガーのセットくらいの値段で1冊の本が買えて、そこには先人たちの知恵や経験など、自分に刺激を与えてくれるエッセンスが凝縮されている。そしてそれがたくさんある、宝の山のような場所が書店なんだよ。
+そんなことに気付かせてくれた一冊でした。
+齋藤先生の所々でクスリと笑わせてくる読みやすい文章が本書の質をぐっと高めていることは言うまでもないですね。
+今度部屋を借りるときは書店の近く。そう決意した僕でした。</description>
+    </item>
+    
+    <item>
+      <title>HTML5 CanvasでメルトPVに出てくるメル時計をつくった</title>
+      <link>https://takuti.me/note/meltokei/</link>
+      <pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/meltokei/</guid>
+      <description>メルトといえばあのメルトです。恋に落ちる音がするやつです。冬に売ってる雪のような口どけのやつじゃないです。
+そのPVに、以下のようなものがあります。
+
+【ニコニコ動画】メルトPV　shortバージョン（完成版）
+素敵ですね。
+このPVに出てくる時計が可愛いということで、アップロードされた当時はメル時計なんて呼ばれて、実際に作ってみた人やWindows Vistaのサイドバーガジェットにした人、Flashで作った人なんかが現れたのは記憶に新し・・・くはないけれど、今でもよく覚えています。
+ふとHTML5 Canvasで何か作りたいなーと思って思い浮かんだのがこのメル時計だったので早速作ってみました。完成品は以下より。
+メル時計
+
+秒針もつけました。いいかんじ。
+PVの時計のシーンを見ながら作って、サイズはそのままに、色もMacに標準で入っているカラーピッカー DigitalColor Meter を使ってできる限り再現したつもりです。もちろん画像は使ってません。
+PVでは左上から光が当たっているので影を付けたかったのですが、あまり綺麗にならなかったのでそれはボツ。
+実装に関しては、
+ 背景色でCanvas全体を塗りつぶし 時計の円を色ごとに外側から順番に描画 文字盤代わりの六角形たちを描画 現在の時刻からそれぞれの針の角度を求めて描画  を1秒間隔でやり続けるだけです。
+基本的にはただひたすらarcとかfillとかやればいいだけなので簡単ですが、Canvasビギナーの僕には回転 rotate() の扱い方と、長針・短針の角丸化が少しだけ厄介でした。勉強になった。
+これについては別記事でメモとして書きます。
+HTML5 Canvasの回転と角丸についてメモ
+PV確認のついでにメルトを聴いてちょっと懐かしい気持ちになり、投稿日を確認したらもう5年も前で驚きを隠せなかった僕でした。おわり。</description>
+    </item>
+    
+    <item>
+      <title>HTML5 Canvasの回転と角丸についてメモ</title>
+      <link>https://takuti.me/note/canvas-rotate-round/</link>
+      <pubDate>Sat, 03 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/canvas-rotate-round/</guid>
+      <description>HTML5 CanvasでメルトPVに出てくるメル時計をつくったで、ビギナーの僕には少し厄介だった回転と角丸化についてメモメモ。
+
+回転 rotate() の扱い方 メル時計の文字盤代わりの六角形は、12時の位置に全ての時刻分を（色を変えながら）作りつつ、それらを30°ずつ回転させていくことで描画しました。
+1：てっぺんをスタートして右に8px、下に10pxの移動
+2：下に18pxの移動
+3：2の移動した先から、更に下に3px移動したところが、もう1つの六角形のてっぺん
+この3つさえ分かればあとは対称だったりするので、とりあえず12時の位置に色を変えながら量産することは問題なくできます。あとは30°ずつ回転をさせるだけです。
+しかし、rotate()はcanvasそのものの左上を中心とみて回転させるので、ふつうにrotate(Math.PI/6)とかやっても思うように回ってくれません。円（時計）の中心を回転の中心にしてほしい！
+そんなときは、「現時点でのcanvasそのものの左上を円の中心にズラしてから回転させる。回転が終わったらズラした分を元に戻す。」という方法をとるみたいです。
+【参考】今更聞けないcanvasの基礎の基礎 | tech.kayac.com - KAYAC engineers&#39; blog
+つまり、canvas全体を回転の中心にしたい座標（今回は400x400のcanvasに描画した半径200の円の中心なので(200,200)）の分だけ移動して、本来回転させたかった角度で回転させたら、移動させた分を元に戻す、と。
+ctx.translate(200,200); ctx.rotate(30*Math.PI/180); ctx.translate(-200,-200);  デキター！
+ちなみに、rotate()の状態を解除する方法も分からなくて悲しみました。
+rotate(θ)をした後に何もしないと、以後の描画処理が全て角度θだけ回転した状態で行われてしまうんですね。だから、もう回転の必要がなくなったらそれを解除して、全く回転していない状態に戻してあげる必要があるというわけなんだとか。
+そこでよく使われるのがsave()とrestore()で、これらを使うと描画状態（回転情報も含んでいる変換行列など）を保存して、復元することができる。
+全く回転していない状態をsave()して、回転の必要がなくなったところですぐrestore()してあげれば、その後もイメージどおりに描画できるんですね！
+ctx.save(); // 変換行列の初期状態（全く回転していない状態）を保存 rotateSomething(); // 回転を含む処理 // 回転を含む処理の後には必ず変換行列を初期状態に戻し、再度保存しておく ctx.restore(); ctx.save();  save()とrestore()はスタックのPushとPopに対応するので、一度restore()をしてしまうとせっかく保存していた初期状態の情報が消えてしまいます。そのため、restore()の直後にもう一度save()をして、次の回転を含む処理に備えます。
+というわけで、移動させてから回転させてまた戻すことと、回転した状態を解除することによって、イメージ通りの回転を含む描画処理いろいろができました。
+角丸な長方形 長方形を角丸にしたい場面はたくさんあるのに、Canvasではササッと角丸な長方形を作ってくれる機能などありません。
+そこで、角丸長方形は1/4の円弧を4つ描いてそれらを結ぶことによって実現します。
+これは円弧ひとつひとつに対してbeginPath(),stroke()をしたもの。
+これを、beginPath()を最初に一度だけ行い、円弧すべてのarc()を実行した後にclosePath()をしてあげるようにすれば、あとはstroke()なりfill()なりでお好みの角丸な長方形ができあがる。
+長方形の位置や幅、高さは4つの円弧の中心点に依存するわけですね。
+これについては、以下を参考にさせていただき解釈しました。
+[javascript]canvasで円や角丸の矩形を描画する
+以上、回転と角丸についてのメモでした。</description>
+    </item>
+    
+    <item>
+      <title>AngularJSでさくさく進数相互変換をつくる</title>
+      <link>https://takuti.me/note/hello-angularjs/</link>
+      <pubDate>Fri, 02 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/hello-angularjs/</guid>
+      <description>AngularJSを使ってみました。MVCな雰囲気を取り入れたJavaScriptのフレームワークです。あんぎゅらーらしいです、あんぐらーじゃないです。
+この子、とんでもなく簡単で気持ちがいいですね。ng-app, ng-model, &amp;#123;&amp;#123;&amp;#125;&amp;#125;を追加するだけであっという間にさくさく！
+公式にある一番基本のアプリが以下。
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html ng-app&amp;gt; &amp;lt;head&amp;gt; &amp;lt;script src=&amp;quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div&amp;gt; &amp;lt;label&amp;gt;Name:&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; ng-model=&amp;quot;yourName&amp;quot; placeholder=&amp;quot;Enter a name here&amp;quot;&amp;gt; &amp;lt;hr&amp;gt; &amp;lt;h1&amp;gt;Hello {{yourName}}!&amp;lt;/h1&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt;  せっかくなので先日作った進数変換のできるChrome拡張を流用して、入力したらすぐ進数変換されるものを作りました。よかったら使ってあげて下さい。
+さくさく進数相互変換
+
+AngularJSそのものに関する説明は他に譲りますが、バリデーションが特に簡単で嬉しかった印象です。
+&amp;lt;p&amp;gt;【2進数】　&amp;lt;span class=&amp;quot;error&amp;quot; ng-show=&amp;quot;num_form.binary.$error.pattern&amp;quot;&amp;gt;2進数は0と1だけだよ&amp;lt;/span&amp;gt;&amp;lt;br /&amp;gt; &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;binary&amp;quot; placeholder=&amp;quot;ここに2進数を入力&amp;quot; ng-model=&amp;quot;num.binary&amp;quot; ng-pattern=&amp;quot;binary_pattern&amp;quot; ng-change=&amp;quot;binary()&amp;quot; /&amp;gt;&amp;lt;/p&amp;gt;  見づらいですが、各進数あたり2行でバリデーションも含めて必要なことのほとんどが書けてしまいます。
+進数の変換処理も、ng-changeからコントローラーの関数を適当に呼んであげればリアルタイムにできちゃったり。
+$scope.binary = function(){ if($scope.num.binary){ $scope.num.decimal = parseInt($scope.num.binary,2); $scope.num.hex = parseInt($scope.num.binary,2).toString(16); } else { $scope.num.decimal = undefined; $scope.num.hex = undefined; } }  というわけで、AngularJSでした。開発はさくさく進んで、できるものはさくさく動いて、2さくさくですね。</description>
+    </item>
+    
+    <item>
+      <title>はてなキーワードを使ってigo-ruby(MeCab)用の辞書をナウい感じにする</title>
+      <link>https://takuti.me/note/hatena-keyword-to-ipadic/</link>
+      <pubDate>Mon, 29 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/hatena-keyword-to-ipadic/</guid>
+      <description>igo-ruby（辞書はMeCabとほぼ同じなのでMeCabのこととして読んでも可）の辞書はナウくないです。
+「人工知能」を分かち書きすると「人工　知能」になっちゃいます。
+「ニコニコ動画」を分かち書きすると「ニコニコ　動画」になっちゃいます。
+「IPアドレス」を分かち書きすると「IP　アドレス」になっちゃいます。
+「ニューラルネットワーク」を分かち書きすると「ニュー　ラ　ル　ネットワーク」になっちゃいます。
+形態素解析器の応用例が増えてくる中で必要となるのは、上記で挙げたようなナウいワードを1つの単語として扱ってくれることです。
+例えばbuzztterのようなサービスでは、「ニコニコ動画」は「ニコニコ動画」でいて欲しいし、「ニューラルネットワーク」は「ニューラルネットワーク」のままであってほしいわけですね。
+僕も最近ちょっと辞書をナウくする必要が出たので、早速公開されているはてなキーワードのデータを使ってやってみました。
+
+はてなキーワードのデータから辞書を作るコード（仮）は以下。
+takuti / twitter_bot / tool / hatena2dic.rb
+はてなキーワードのデータはキーワードそのものとふりがながタブ区切りで各行に書かれているので、それに合わせる形でそれぞれを読んであげる。元データの文字コードはEUC-JP。
+そしてお好みの条件で辞書に加えたくないキーワードなんかも除外する。
+今回は、
+ 2009-09-04のような年月日 1945年のような年 すでに1単語として判断されるもの  を除外しています。
+ふりがなはMojiモジュールを使ってカタカナ化しています。
+加えて、辞書を作る時に大切なコスト計算もしています。MeCabだとコストに-1を指定すると自動でコストを割り振ってくれるみたいですが、igo-rubyにはそんな機能ありません。
+辞書のコストについては以下を参考にさせていただきました。
+ 日本テレビ東京で学ぶMeCabのコスト計算 | mwSoft mecabのユーザ辞書でwikipediaとhatenaキーワードを利用する - てんぷろぐ はてなキーワードからMecCab辞書を生成する（Ruby版） MeCab の辞書構造と汎用テキスト変換ツールとしての利用  最終的には2番目のリンク先に記載されていた、
+score = [-32768.0, (6000 - 200 *(title.size**1.3))].max.to_i
+を利用させていただくことに。
+各キーワードの情報はCSVに以下のような形で書き込んで、それを追加用辞書ファイルとする。既存の辞書ファイルの文字コードがすべてEUC-JPなのでこれもEUC-JPで。
+#{word},0,0,#{cost},名詞,一般,*,*,*,*,#{word},#{furigana},#{furigana} 最後に、追加用辞書ファイルをディレクトリ mecab-ipadic-2.7.0-20070801 内に移動して、あとは通常の辞書生成と同じようにコマンドを叩いて終わり。
+java -Xmx1024m -cp igo-0.4.5.jar net.reduls.igo.bin.BuildDic ipadic mecab-ipadic-2.7.0-20070801 EUC-JP これで生成された辞書を使って形態素解析なんかを行えば、「人工知能」は「人工知能」のままで、「ニコニコ動画」は「ニコニコ動画」のままで解釈される！ぱちぱち。
+問題点 1.</description>
+    </item>
+    
+    <item>
+      <title>マルコフ連鎖でTwitter Botをつくりました</title>
+      <link>https://takuti.me/note/twitter-bot/</link>
+      <pubDate>Sun, 28 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/twitter-bot/</guid>
+      <description>ひとまず動けばいいや程度に作りました。 @yootakuti がそれですよろしくおねがいします。
+Twitter公式から自分の過去ツイート5万弱をダウンロードして、そのCSVからしゅうまい君で有名になったマルコフ連鎖（らしきこと）で文章を作ります。それを30分おきに行なって、しゃべります。
+久しぶりに出るとすごくいいぜ…しゅｗｗｗｗｗｗｗｗｗｗｗｗｗ
+&amp;mdash; ヨーグルト (@yootakuti) July 19, 2013  我ながらおもしろい。
+
+マルコフ連鎖 is 何 なんだかついったーbot界（？）では「マルコフ連鎖」というワードばかりが一人歩きしている印象を受けますが、そもそもマルコフ連鎖ってどんなものなんでしょうか。Wikipedia先生に聞いてみましょう。
+ マルコフ連鎖は、未来の挙動が現在の値だけで決定され、過去の挙動と無関係である（マルコフ性）。各時刻において起こる状態変化（遷移または推移）に関して、マルコフ連鎖は遷移確率が過去の状態によらず、現在の状態のみによる系列である。  ふむふむ。
+そして一般に「マルコフ連鎖でついったーbot」と言われた時にみんながやっているのは（たぶん）下のようなこと。
+まずはツイートひとつひとつを分かち書きする。
+私はヨーグルトが好きです。
+を分かち書きすると
+私　は　ヨーグルト　が　好き　です　。
+になる。
+ここから1つずらしながら、3つずつの要素からなる塊を以下のようにたくさんつくる。
+（はじまり）　私　は私　は　ヨーグルトは　ヨーグルト　がヨーグルト　が　好きが　好き　です好き　です　。です　。　（おわり） これを対象となるすべてのツイートに対して作ってあげる。
+上の「私はヨーグルトが好きです。」の他にもう1つ、「ヨーグルトが嫌いだ」というフレーズに対しても同様に作れば、
+（はじまり）　ヨーグルト　がヨーグルト　が　嫌いが　嫌い　だ嫌い　だ　（おわり） となる。</description>
+    </item>
+    
+    <item>
+      <title>本を読む本という本を読む</title>
+      <link>https://takuti.me/note/how-to-read-a-book/</link>
+      <pubDate>Tue, 16 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/how-to-read-a-book/</guid>
+      <description>本を読む本 (講談社学術文庫) posted with ヨメレバ  J・モーティマー・アドラー,V・チャールズ・ドーレン 講談社 1997-10-09  Amazon Kindle 楽天ブックス     本を読む本を読了しました。
+「本を読む」とは、程度の大小はあれど積極的な行為です。自分で読んで、学ぶ。
+しかしただなんとなく読む、速く読む（速読）、たくさん読む（多読）だけだと、内容がしっかりと自分の血肉になるような読書とは言えない。
+それじゃあ、一生をかけて様々な本から学び続けるためにはどうすればいいか、本書の言葉を借りると『いかにして書物を一生の師とするか』を知る必要があります。
+この本では、読者自身が本に対して問いかけ、そして著者と対話をするような読書―積極的読書の取り組み方を説明し、『いかにして書物を一生の師とするか』という問いに対する心得を説いています。
+原著のタイトルは &#34;How to read a book&#34; です。刊行は70年以上も前。すごい。
+僕史上最高に時間をかけてじっくりと読んだ一冊になったのですが、以下、思ったことの中からいくつかピックアップしてつらつらと。
+
+まずは本の表面だけをすくうように読む 著者が「本の読み方」を説く上で軸にしているのが、4つの読書レベル。
+ 初級読書：とりあえずたいていのものは読める高校生レベルの読書 点検読書：（短時間で）本の全体像をつかむことができる読書 分析読書：じっくりと時間をかけてその本に書かれていることを自分のものにできる読書 シントピカル読書：同一主題について複数の本を読んでいく並行的な読書（研究のときなど）  これら4つの読書レベルを順を追って説明しているのが本書のメインで、どれも目からうろこです。
+その中でも僕が特に注目したいのは、レベル2の点検読書。点検読書は2つの段階からなっています。
+ 下読み（本の品定め）  タイトル、序文、目次、カバーのうたい文句、本の議論の要になりそうな章のはじめや終わりの要約、本の最後2−3ページを拾い読みする それらに目を通せば本の雰囲気は何となくつかめるので、本屋さんなんかでどの本を買おうか悩んだ時に使うと効果的 特に見落としがちなのが目次  表面読み  とにかくその本を読み通して全体を見渡す（木を見て森を見ずはダメだよ）   世の中に本が増え続けている今、本屋さんで買う本を選ぶのも一苦労です。読みたい！とおもって買った本も読んでみたら微妙だった・・・ということもしばしば。
+また、今人気のあんなビジネス書、こんな新書の多くは、とってもとっても読みやすく書かれています。この「本を読む本」で例として取り上げられているように、昔の小難しい哲学書や科学書から自分の身になることを得るのとはわけが違うのです。EasyとLunaticくらい違うのです。
+そんな今だからこそ力を発揮するのがこの点検読書です。
+本一冊を最初から最後まで読み通すまえに、まずは限られた情報からある程度内容をつかむ『下読み』から入ることを心がけよう。
+それでもっと読みたいと思えたら、次に（本を買って）全体を読み通す『表面読み』をやろう。
+それでも「まだ何か得られそうだ」となんとなくでも思えたのであれば、そのときはこの本（本を読む本）を買って分析読書に挑戦してみよう。
+ただ1つ気をつけなければいけないことは、たとえ点検読書でも、それも積極的読書であるということ。必ず本に問いかけること。
+この本で挙げられていた点検読書の段階で問うべきことは以下の3つ。
+ どんな種類の本？ 全体としてこの本は何を言おうとしてるの？ そのために著者は、どんな構成で概念や知識を展開してるの？  これに答えられて、「それ以上この本を読む必要はない」と思えるのであればもうその本はクリアと見て良いでしょう。
+『良書』とその他多くの本 「読むに値する数千冊のうち、分析読書をするに値する正真正銘の良書となると100冊にも満たない」</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Courseraの&#34;Functional Programming in Scala Specialization&#34;を修了した | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-10-28
+  </p>
+  <h2>Courseraの&#34;Functional Programming in Scala Specialization&#34;を修了した</h2>
+
+  <div class="post">
+    
+
+<p>ここ1年くらい暇を見つけてちまちまと遊んでいたCourseraの &ldquo;<strong><a href="https://www.coursera.org/specializations/scala" target="_blank">Functional Programming in Scala Specialization</a></strong>&rdquo; という一連のプログラムを修了した。</p>
+
+<p>4つのコースから構成されていて、（修了証は出ないけど）課題を含めてすべて無料で受講できた。課題はスケルトンコードとデータが与えられて、指定されたメソッドを実装する、というよくある形式。</p>
+
+<ol>
+<li><strong>Functional Programming Principles in Scala</strong>
+
+<ul>
+<li>関数型プログラミングの基礎</li>
+<li>パターンマッチとか高階関数とかImmutableなデータ構造の話とか</li>
+</ul></li>
+<li><strong>Functional Program Design in Scala</strong>
+
+<ul>
+<li>発展的な関数型プログラミングの概念いろいろ</li>
+<li>モナモナしたり、遅延評価したり</li>
+</ul></li>
+<li><strong>Parallel Programming</strong>
+
+<ul>
+<li>タスク並列化とデータ並列化</li>
+<li><code>.par</code> を付けるとできる、Scala の並列コレクションに対する操作いろいろ</li>
+</ul></li>
+<li><strong>Big Data Analysis with Scala and Spark</strong>
+
+<ul>
+<li>Sparkを使おう</li>
+<li><code>RDD</code>, <code>Dataset</code>, <code>DataFrame</code> それぞれの操作</li>
+</ul></li>
+</ol>
+
+<p><strong>Functional Programming Principles in Scala</strong> では、<code>var</code>（と <code>val</code> ）を絶対に使わないという強い意志を持って、再帰を駆使してコードを書く。<del>普段ノリでScalaを書いていると気がついたらJavaになっているが、</del>このコースが最初にあったおかげで、始終冷静にScalaが書けた気がする。ハマりどころは特に無いけど、Scalaじゃなくても良いよね感がすごいので飽きる。</p>
+
+<p><strong>Functional Program Design in Scala</strong> は講義が苦痛だが、どの資料をあたってもモナドとは常にそういうものである。諦めよう。課題では <code>Stream</code> や <a href="https://github.com/rickynils/scalacheck" target="_blank">ScalaCheck</a> が出てくる。遅延評価の話と <code>Stream</code> の導入はわかりやすくて良かった。</p>
+
+<p>そして <strong>Parallel Programming</strong>。ここからがこのプログラムのメイン。まずは Parallel Programming（並列プログラミング）と Concurrent Programming（並行プログラミング）の違いから講義が始まる。受講当時ちょうど <a href="http://shop.oreilly.com/product/9780596521547.do" target="_blank">The Art of Concurrency</a> を読んでいたこともあって、この点は以前記事にもまとめた：</p>
+
+<ul>
+<li><strong><a href="https://takuti.me/note/parallel-vs-concurrent/">Parallel Programming vs. Concurrent Programming</a></strong></li>
+</ul>
+
+<p>call-by-nameで引数を評価することの重要性や、再帰的な処理・コレクション操作の並列化など、これまでの『関数型言語としてのScala』の講義を踏まえて教えてくれたのが印象的で、「あーここでその話が出てくるのかー」という体験が多くて良かった。</p>
+
+<p>課題では <a href="https://en.wikipedia.org/wiki/K-means_clustering" target="_blank">k-means</a> を実装したのが特に楽しかった。馴染みのある実用的なアルゴリズムが動くと嬉しくなる。</p>
+
+<p>最後のコース <strong>Big Data Analysis with Scala and Spark</strong> では、その名の通りSparkを学ぶ。Stack Overflowなどの実データ（？）を対象に課題に取り組めるのも嬉しい。</p>
+
+<p>このコースは『なぜSparkか』というところから話が始まる。わかりやすくて納得感があったので、記事でもまとめた：</p>
+
+<ul>
+<li><strong><a href="https://takuti.me/note/why-spark/">なぜSparkか</a></strong></li>
+</ul>
+
+<p>そして <code>RDD</code> の解説が始まる。キャッシュの重要性を口酸っぱく言われるので、これについてもブログでまとめておいた：</p>
+
+<ul>
+<li><strong><a href="https://takuti.me/note/spark-rdd-cached-vs-uncached/">Comparison of Running Time of Cached/Uncached Spark RDD</a></strong></li>
+</ul>
+
+<p>課題になると、<strong>Parallel Programming</strong> で実装した k-means を今度はSpark RDDを使って実装する。これがかなりハマって、しばらく放置していたら修了まで随分時間がかかってしまった…。</p>
+
+<p>そんな「RDDを効率的・効果的に扱うのは大変だよね？」という文脈から、<a href="https://databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimizer.html" target="_blank">Catalyst</a>による最適化の恩恵を受けるべく <code>DataFrame</code> が紹介される。そして最後には <code>RDD</code> と <code>DataFrame</code> のハイブリッド的存在として <code>Dataset</code> が登場して完結。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>『関数型言語としてのScala』から『Sparkによるビックデータ解析』までを学べる、楽しいプログラムだった。おすすめ。</p>
+
+<p>もっと効率よく学べる資料も世の中にたくさんあるんだろうけど、課題がかなりよくできていたので個人的には非常に満足度が高い。並列コレクションやRDDのキャッシュを適切に扱えないとタイムアウトやOOMで不合格になるので、あやふやな理解とノリで書いたコードでは通らない。厳しい。試行錯誤の末 Discussion Forum に助けを求めにいったこともしばしば。</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

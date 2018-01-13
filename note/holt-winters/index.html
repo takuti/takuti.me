@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        異常検知のための未来予測：オウム返し的手法からHolt-Winters Methodまで | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-08-26
+  </p>
+  <h2>異常検知のための未来予測：オウム返し的手法からHolt-Winters Methodまで</h2>
+
+  <div class="post">
+    
+
+<p><strong>Holt-Winters Method</strong>（別名: <strong>Triple Exponential Smoothing</strong>）というデータの予測手法がある。これについて<a href="https://grisha.org/blog/2016/01/29/triple-exponential-smoothing-forecasting/" target="_blank">素晴らしい解説記事</a>があるので読みながら実装していた。</p>
+
+<p>コードは <strong><a href="https://github.com/takuti/anompy" target="_blank">takuti/anompy</a></strong> にある。</p>
+
+<p>この手法、<a href="http://graphite.readthedocs.io/en/latest/functions.html?highlight=holtWinters#graphite.render.functions.holtWintersAberration" target="_blank">Graphite が実装している</a>ということもあり、近年ではDevOpsコミュニティを中心に一躍有名になったんだとか。</p>
+
+<p>ここでは解説記事の内容に沿って、Holt-Winters Method に至るまでに知っておくべき手法たちの“気持ち”をまとめる。数式は元記事や<a href="https://en.wikipedia.org/wiki/Exponential_smoothing" target="_blank">Wikipedia</a>に譲る。</p>
+
+<h3 id="問題">問題</h3>
+
+<p>『<strong>連続するN点の時系列データを観測していたとき、N+1点目の値を予測する問題</strong>』を考える。</p>
+
+<p>もし次の瞬間の値が予測できれば、そこからデータの“異常”を察知することができる。</p>
+
+<p>たとえばDatadogなどで監視しているシステムのメトリクスを対象とすれば、予測結果からいち早くアラートを発することができる。</p>
+
+<p>以後、サンプルとして次のデータ列に対して観測→予測を繰り返すことを考えよう：</p>
+
+<p><img src="https://takuti.me/images/holt-winters/series.png" alt="series" /></p>
+
+<h3 id="手法1-直近の観測値をそのまま予測値として返す">手法1: 直近の観測値をそのまま予測値として返す</h3>
+
+<p>考えられる最も単純な手法のひとつ。見たものをそのまま返しているので、オウム返し的未来予測。これを <code>BaseDetector</code> と呼ぼう。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">BaseDetector</span>(<span style="color:#007020">object</span>):
+
+    <span style="color:#080;font-weight:bold">def</span> __init__(self, observed_0, threshold<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">0.</span>):
+        self<span style="color:#333">.</span>threshold <span style="color:#333">=</span> threshold
+        self<span style="color:#333">.</span>observed_last <span style="color:#333">=</span> observed_0
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">detect</span>(self, observed_series):
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;&#34;&#34;Launch forecasting for each observed data point based on a model.
+</span><span style="background-color:#fff0f0">        Return labeled forecasted series if each observed data point is anomaly or not.
+</span><span style="background-color:#fff0f0">
+</span><span style="background-color:#fff0f0">        Args:
+</span><span style="background-color:#fff0f0">            observed_series (list of float): Observed series.
+</span><span style="background-color:#fff0f0">
+</span><span style="background-color:#fff0f0">        Returns:
+</span><span style="background-color:#fff0f0">            list of (float, boolean): Forecasted series with anomaly label.
+</span><span style="background-color:#fff0f0">
+</span><span style="background-color:#fff0f0">        &#34;&#34;&#34;</span>
+        forecasted_series <span style="color:#333">=</span> []
+
+        <span style="color:#080;font-weight:bold">for</span> observed <span style="color:#000;font-weight:bold">in</span> observed_series:
+            forecasted_series<span style="color:#333">.</span>append((self<span style="color:#333">.</span>observed_last, self<span style="color:#333">.</span>observed_last <span style="color:#333">&gt;</span> self<span style="color:#333">.</span>threshold))
+            self<span style="color:#333">.</span>observed_last <span style="color:#333">=</span> observed
+
+        <span style="color:#080;font-weight:bold">return</span> forecasted_series</code></pre></div>
+<p>時系列データの最初の1点 <code>observed_0</code> と、予測値に対する閾値 <code>threshold</code> を設定さえ渡せばよい。あとは新しいデータを読むたびに<strong>直近の値</strong>を更新・保持し続ける。</p>
+
+<p>当然、予測値のグラフは観測値を1時刻だけシフトさせたものになる：</p>
+
+<p><img src="https://takuti.me/images/holt-winters/base.png" alt="base" /></p>
+
+<h3 id="手法2-これまでの平均を予測値として返す">手法2: これまでの平均を予測値として返す</h3>
+
+<p>手法1はさすがに頭が悪すぎるので、もう少し工夫して、“データ列全体の傾向”を平均値という形でつかめるようにした。</p>
+
+<p>しかし異常と判断したい値の急激な変化も、大域的にみるとほぼ無意味。ゆえに、大きく予測を外すことはないが、有意義な予測もしてくれない、そんな難しい子：</p>
+
+<p><img src="https://takuti.me/images/holt-winters/simple_average.png" alt="simple_average" /></p>
+
+<h3 id="手法3-直近n点の平均を予測値として返す">手法3: 直近N点の平均を予測値として返す</h3>
+
+<p>ある窓幅を決めて、“データ列全体の傾向”（手法2）ではなく“最近の傾向”、すなわちトレンドを平均値という形でつかむ。</p>
+
+<p>直近3点を使った場合：</p>
+
+<p><img src="https://takuti.me/images/holt-winters/moving_average.png" alt="moving_average" /></p>
+
+<p>時刻6, 7の値の一時的な増加傾向を捉えて、時刻7, 8, 9あたりは高い予測値となっていることがわかる。</p>
+
+<h3 id="手法4-直近n点の重み付き平均を予測値として返す">手法4: 直近N点の重み付き平均を予測値として返す</h3>
+
+<p>直近N点の中でも、現在時刻の値に大きく寄与する点とそうでない点があるかもしれない。そんな事情も踏まえた、より柔軟な移動平均の計算。</p>
+
+<p>手法3と同様に、直近3点の平均を予測値とする。でも今度は、その3点に <code>[0.1, 0.1, 0.8]</code> という重みを付けて、直前の1点を特に重視してみる。そして、<code>[0.333, 0.333, 0.333]</code> という一様な重みと比較すると：</p>
+
+<p><img src="https://takuti.me/images/holt-winters/weighted_moving_average.png" alt="weighted_moving_average" /></p>
+
+<p><code>weights = [0.1, 0.1, 0.8]</code> のグラフは手法1（直近の観測値をそのまま使う）に近いものになっている。一方、一様な重み <code>weights = [0.333, 0.333, 0.333]</code> なら、それは手法3の結果（重み無し移動平均）にほぼ等しい。</p>
+
+<p>重みは何らかの仮説に基づいて決めればよい。万能な予測器など世の中に存在しないので、こういったヒューリスティクスを取り入れる余地のある直感的なアルゴリズムの設計は素晴らしい。平均値を求めているだけだからといって侮ってはいけない。</p>
+
+<p>手法2から4を1つの <code>AverageDetector</code> としてまとめると、窓を <code>deque</code> で表現してこんな感じ：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">collections</span> <span style="color:#080;font-weight:bold">import</span> deque
+
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">AverageDetector</span>(BaseDetector):
+
+    <span style="color:#080;font-weight:bold">def</span> __init__(self, observed_0, window_size<span style="color:#333">=</span>None, weights<span style="color:#333">=</span>None, threshold<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">0.</span>):
+        self<span style="color:#333">.</span>moving_average <span style="color:#333">=</span> window_size <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">not</span> None
+        self<span style="color:#333">.</span>weighted <span style="color:#333">=</span> weights <span style="color:#000;font-weight:bold">is</span> <span style="color:#000;font-weight:bold">not</span> None
+
+        <span style="color:#080;font-weight:bold">if</span> self<span style="color:#333">.</span>moving_average:
+            self<span style="color:#333">.</span>window <span style="color:#333">=</span> deque([observed_0], maxlen<span style="color:#333">=</span>window_size)
+
+            <span style="color:#080;font-weight:bold">if</span> self<span style="color:#333">.</span>weighted:
+                <span style="color:#080;font-weight:bold">assert</span> window_size <span style="color:#333">==</span> <span style="color:#007020">len</span>(weights)
+            self<span style="color:#333">.</span>weights <span style="color:#333">=</span> weights
+        <span style="color:#080;font-weight:bold">else</span>:
+            self<span style="color:#333">.</span>num_observed <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">1</span>
+
+        self<span style="color:#333">.</span>threshold <span style="color:#333">=</span> threshold
+        self<span style="color:#333">.</span>average <span style="color:#333">=</span> observed_0
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">detect</span>(self, observed_series):
+        forecasted_series <span style="color:#333">=</span> []
+
+        <span style="color:#080;font-weight:bold">for</span> observed <span style="color:#000;font-weight:bold">in</span> observed_series:
+            forecasted_series<span style="color:#333">.</span>append((self<span style="color:#333">.</span>average, self<span style="color:#333">.</span>average <span style="color:#333">&gt;</span> self<span style="color:#333">.</span>threshold))
+
+            <span style="color:#080;font-weight:bold">if</span> self<span style="color:#333">.</span>moving_average:  <span style="color:#888"># moving average</span>
+                self<span style="color:#333">.</span>window<span style="color:#333">.</span>appendleft(observed)
+                <span style="color:#080;font-weight:bold">if</span> self<span style="color:#333">.</span>weighted:
+                    self<span style="color:#333">.</span>average <span style="color:#333">=</span> <span style="color:#007020">sum</span>([vi <span style="color:#333">*</span> wi <span style="color:#080;font-weight:bold">for</span> vi, wi <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">zip</span>(self<span style="color:#333">.</span>window, self<span style="color:#333">.</span>weights)])
+                <span style="color:#080;font-weight:bold">else</span>:
+                    self<span style="color:#333">.</span>average <span style="color:#333">=</span> <span style="color:#007020">sum</span>(self<span style="color:#333">.</span>window) <span style="color:#333">/</span> <span style="color:#007020">len</span>(self<span style="color:#333">.</span>window)
+            <span style="color:#080;font-weight:bold">else</span>:  <span style="color:#888"># simple average</span>
+                <span style="color:#888"># m_{n} = ((n - 1) m_{n-1} + x_n) / n</span>
+                <span style="color:#888"># `(n - 1) m_{n-1}` returns sum of x_1, x_2, ..., x_{n-1}</span>
+                self<span style="color:#333">.</span>num_observed <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+                self<span style="color:#333">.</span>average <span style="color:#333">=</span> self<span style="color:#333">.</span>average <span style="color:#333">+</span> (observed <span style="color:#333">-</span> self<span style="color:#333">.</span>average) <span style="color:#333">/</span> self<span style="color:#333">.</span>num_observed
+
+        <span style="color:#080;font-weight:bold">return</span> forecasted_series</code></pre></div>
+<p><code>window_size</code> が与えられているか、 <code>weights</code> が与えられているか、に応じて手法2, 3, 4を切り替える。</p>
+
+<p>これも <code>BaseDetector</code> と同様で、最初の1点 <code>observed_0</code> と 閾値 <code>threshold</code> を与えれば、予測値を元に異常が検知できる。</p>
+
+<h3 id="手法5-直近の観測値-今-と予測値-これまでの積み重ね-の重み付き和で次の値を予測する">手法5: 直近の観測値（今）と予測値（これまでの積み重ね）の重み付き和で次の値を予測する</h3>
+
+<p>手法4はヒューリスティクスを<strong>窓幅</strong>と<strong>各点の重み</strong>という形で取り入れていて、これはなかなか筋がよかった。でも、実際にはそこまで厳密な仮説は立てられないことが多い。</p>
+
+<p>そこで、もう少し単純に『今』と『これまで』のバランスを取りながら予測する手法を考える。これが <strong>Exponential Smoothing</strong>。</p>
+
+<p>この手法では <code>alpha</code> という0から1の間の値をとるパラメータを導入する。そして、この値1つで<strong>予測値がどれだけ直近の観測値を重視するか</strong>をコントロールする。</p>
+
+<p>手法4の重み付き移動平均では <code>[0.1, 0.1, 0.8]</code> という重みで『直近の観測を特に重視する』という状態を表現した。Exponential Smoothing では、これは <code>alpha</code> に大きな値を設定することに等しい。</p>
+
+<p><code>alpha = 0.9</code> の結果は手法1（直近の値をそのまま使う）に近くなり、一方 <code>alpha = 0.1</code> とすれば、それは手法2（これまでの全観測値の平均を使う）と似た平坦な出力となる：</p>
+
+<p><img src="https://takuti.me/images/holt-winters/smoothing.png" alt="smoothing" /></p>
+
+<p>なおこの手法、数式上では『次の予測値』を求めるために『1つ前の予測値』を使っており、<strong>予測値に関して再帰的な式</strong>になっている。これが &ldquo;Exponential&rdquo; と呼ばれる理由：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">forecasted <span style="color:#333">=</span> alpha <span style="color:#333">*</span> observed <span style="color:#333">+</span> (<span style="color:#60e;font-weight:bold">1.</span> <span style="color:#333">-</span> alpha) <span style="color:#333">*</span> forecasted</code></pre></div>
+<h3 id="手法6-予測値の変動の大きさから-データのトレンド-増加-減少傾向-をとらえる">手法6: 予測値の変動の大きさから、データのトレンド（増加・減少傾向）をとらえる</h3>
+
+<p>Exponential Smoothing では『今』の観測点1つと『これまで』のバランスで予測値を求めていた。これは、手法4の重み付き移動平均から<strong>窓幅</strong>の概念が消え去った、単純化された手法ともいえる。</p>
+
+<p>一方で、より柔軟に、『これまで』がどれだけ最近（過去）を指すのか設定したい―つまりデータの“最近の傾向”をよしなにとらえたい、という要望もある。</p>
+
+<p>そこで、手法5で『観測値（今）と予測値（これまで）の重み付き和』で求めていた値を新たに<strong>レベル</strong>と呼び、：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">level_last <span style="color:#333">=</span> level
+level <span style="color:#333">=</span> alpha <span style="color:#333">*</span> observed <span style="color:#333">+</span> (<span style="color:#60e;font-weight:bold">1.</span> <span style="color:#333">-</span> alpha) <span style="color:#333">*</span> forecasted</code></pre></div>
+<p>『一度の観測でレベルがどれだけ変動したか』、つまり <code>level - level_last</code> を（最新の）<strong>トレンド</strong>とみなすことにする。</p>
+
+<p>そして、『次のトレンド』を『最新のトレンド』と『これまでのトレンド』の重み付き和で計算する：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">trend <span style="color:#333">=</span> beta <span style="color:#333">*</span> (level <span style="color:#333">-</span> level_last) <span style="color:#333">+</span> (<span style="color:#60e;font-weight:bold">1.</span> <span style="color:#333">-</span> beta) <span style="color:#333">*</span> trend</code></pre></div>
+<p>（重み <code>beta</code> は0から1の間の値をとる）</p>
+
+<p>最終的に、レベルとトレンドの和を予測値とする。これが <strong>Double Exponential Smoothing</strong>：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">forecasted <span style="color:#333">=</span> level <span style="color:#333">+</span> trend</code></pre></div>
+<p>最新のトレンド（増加・減少傾向）に敏感であってほしいなら <code>beta</code> を大きな値に設定すればよい。</p>
+
+<p><code>alpha = 0.5</code> に固定して <code>beta = 0.9</code> の場合と <code>beta = 0.1</code> の場合を比較すると、<code>beta</code> が大きいときのほうが実測値の増加・減少に敏感に反応した予測値を返すことがわかる：</p>
+
+<p><img src="https://takuti.me/images/holt-winters/double_smoothing.png" alt="double_smoothing" /></p>
+
+<p><code>forecasted = level + trend</code> を展開すると右辺に <code>forecasted</code> が2つ登場するので &ldquo;Double Exponential&rdquo; です。</p>
+
+<h3 id="手法7-データの季節性を考慮する">手法7: データの季節性を考慮する</h3>
+
+<p>現実世界の時系列データには、往々にしてある種の季節性 (seasonality) がみられる。</p>
+
+<p>たとえばバッチジョブは深夜〜早朝にかけてスケジューリングされることが多いので、システムのあるメトリクスは『毎日』『その時間帯』に似たような増加傾向を示すだろう。</p>
+
+<p>そのような時系列データに対して、Double Exponential Smoothing の予測値に季節性を加味した <strong>Triple Exponential Smoothing</strong> という手法を考える。これこそが <strong>Holt-Winters Method</strong> と呼ばれている手法の正体。</p>
+
+<p>Holt-Winters Method は<strong>季節性があると思われる時系列データ</strong> <code>initial_series</code> と<strong>季節の周期</strong> <code>season_length</code> を入力とし、予め『周期上のこのタイミングなら予測値はこれくらい』という見積もりを1周期分たてておく：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">init_holt_winters</span>(initial_series, season_length):
+    <span style="color:#888"># ...</span>
+    <span style="color:#080;font-weight:bold">return</span> seasonals  <span style="color:#888"># [s_1, s_2, ..., s_{season_length}]</span></code></pre></div>
+<p>この周期上の予測値 <code>seasonals</code> は、適当な初期値と <code>initial_series</code> に基づいて計算される。具体的には、<code>initial_series[i]</code> は、<code>seasonals[i % season_length]</code> の更新に使われる。</p>
+
+<p>まず、Double Exponential Smoothing と同様にレベルとトレンドを求める：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">level_last <span style="color:#333">=</span> level
+level <span style="color:#333">=</span> alpha <span style="color:#333">*</span> (initial_series[i] <span style="color:#333">-</span> seasonals[i <span style="color:#333">%</span> season_length]) <span style="color:#333">+</span> (<span style="color:#60e;font-weight:bold">1.</span> <span style="color:#333">-</span> alpha) <span style="color:#333">*</span> (level <span style="color:#333">+</span> trend)
+
+trend <span style="color:#333">=</span> beta <span style="color:#333">*</span> (level <span style="color:#333">-</span> level_last) <span style="color:#333">+</span> (<span style="color:#60e;font-weight:bold">1.</span> <span style="color:#333">-</span> beta) <span style="color:#333">*</span> trend</code></pre></div>
+<p>ただし、ここでいう“観測値”は『観測値（今）と、対応する周期上での点の見積もり（これまで）の差 <code>initial_series[i] - seasonals[i % season_length]</code>』である。</p>
+
+<p>そして、周期上の予測値が次のように更新される：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">seasonals[i <span style="color:#333">%</span> season_length] <span style="color:#333">=</span> gamma <span style="color:#333">*</span> (initial_series[i] <span style="color:#333">-</span> level) <span style="color:#333">+</span> (<span style="color:#60e;font-weight:bold">1.</span> <span style="color:#333">-</span> gamma) <span style="color:#333">*</span> seasonals[i <span style="color:#333">%</span> season_length]</code></pre></div>
+<p>ここでも重み付き和が登場し、新たにパラメータ <code>gamma</code> が導入された。このパラメータは0から1の間で『<code>seasonals[i % season_length]</code> の値の更新で、どれだけ <code>initial_series[i]</code> を考慮するか』の重みとなる。</p>
+
+<p>なお、Holt-Winters Method が &ldquo;Triple Exponential&rdquo; であるワケは、<code>seasonals[i % season_length] = ...</code> を展開すれば右辺に <code>seasonals[]</code> が3回登場するから。</p>
+
+<p>さて、<code>initial_series</code> をすべて処理して最終的な <code>level</code> と <code>trend</code> の値、および見積もり <code>seasonals</code> が得られたら、あとは未来予測をするだけだ。第n点目の予測値は次で得られる：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">forecasted <span style="color:#333">=</span> level <span style="color:#333">+</span> n <span style="color:#333">*</span> trend <span style="color:#333">+</span> seasonals[(n <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>) <span style="color:#333">%</span> season_length]</code></pre></div>
+<p>試しに、これまで使ってきたダミーの時系列データを周期3の季節性データとして読み込み、その先の予測値を出してみよう：</p>
+
+<p><img src="https://takuti.me/images/holt-winters/triple_smoothing.png" alt="triple_smoothing" /></p>
+
+<p>3時刻周期で予測値が得られている。</p>
+
+<p>予め計算された <code>trend</code> について、第n点目の予測では <code>n * trend</code> を周期上の点の見積もり値に加算するので、グラフは右上がり（または右下がり）となる。この上がり/下がり具合はパラメータ <code>alpha</code> や <code>beta</code> によってコントロールできるが、最適値を見つけるのはむずかしい。というか、そもそもどんな結果を“最適”とするのか、という問題がある。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>オウム返し的未来予測から出発して Holt-Winters Method まで、シンプルな予測手法の気持ちを感じた。</p>
+
+<p>この記事の主役は Holt-Winters Method だけど、季節性が顕著に現れない時系列データも世の中にはたくさん存在するし、（いずれも0-1の範囲とはいえ）3つのパラメータ <code>alpha</code>, <code>beta</code>, <code>gamma</code> の最適な値の組み合わせを発見するのは容易ではない。というわけで、個人的には Double Exponential Smoothing 推しです。はい。</p>
+
+<p>異常検知と聞いてステキな数式とゴツいアルゴリズムを持ち出したくなる気持ちも分かるけれど、「このユースケースでそれって本当に必要ですか？」という議論が大切だと思います。案外ここに書いてあることだけで十分かもね。</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

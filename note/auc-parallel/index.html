@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Area Under the ROC Curve (AUC) を並列で計算するときに気をつけること | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-03-10
+  </p>
+  <h2>Area Under the ROC Curve (AUC) を並列で計算するときに気をつけること</h2>
+
+  <div class="post">
+    
+
+<h3 id="追記-2017-03-10">追記 (2017/03/10)</h3>
+
+<p>現在の内容は過度な簡略化と不完全な説明を含むので、それを踏まえて読んでいただけると幸いです。（後日更新予定）</p>
+
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">台形の積分計算のはずなのでちょっと説明を簡単にしすぎですね。<br><br>parallelでのmerge順序は変えても動くようにできるはずなのでticket切っておきます。</p>&mdash; myui (@myui) <a href="https://twitter.com/myui/status/840089982991708160?ref_src=twsrc%5Etfw">March 10, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<hr />
+
+<p>ひとつ前の記事で二値分類器の性能評価に用いられる <strong>Area Under the ROC Curve (AUC)</strong> の実装について書いた: <a href="https://takuti.me/note/auc/">Area Under the ROC Curve (AUC) を実装する</a></p>
+
+<p>簡単にまとめると、</p>
+
+<ul>
+<li>AUCは『予測器がラベル <code>1</code> (True) のテストサンプルに正しく高スコアを与えるか』をみる。</li>
+<li>それは予測スコアでサンプルをソートしたときに True Positive が False Positive より上位にランキングされるか、ということ。</li>
+<li>実装する際はソート済みサンプル列を逐次的に見ていって、False Positive-True Positive グラフの下の面積を求める。</li>
+</ul>
+
+<p>という話だった。</p>
+
+<p><img src="https://takuti.me/images/auc/auc.007.png" alt="auc7" width=600 /></p>
+
+<h3 id="auc-in-hivemall">AUC in Hivemall</h3>
+
+<p>そして先日、Hive/Spark/Pig用の並列機械学習ライブラリ<a href="https://hivemall.incubator.apache.org/" target="_blank">Hivemall</a>にAUCを計算する関数を実装した。</p>
+
+<p><blockquote class="twitter-tweet"><p lang="fr" dir="ltr">Supported parallel exact AUC computation ( <a href="https://t.co/nhBkBNj5SH">https://t.co/nhBkBNj5SH</a> ) in <a href="https://twitter.com/hashtag/hivemall?src=hash&amp;ref_src=twsrc%5Etfw">#hivemall</a><a href="https://t.co/GUAFf5jeBn">https://t.co/GUAFf5jeBn</a> (Kudos to <a href="https://twitter.com/takuti?ref_src=twsrc%5Etfw">@takuti</a> )</p>&mdash; Apache Hivemall (@ApacheHivemall) <a href="https://twitter.com/ApacheHivemall/status/836526293927657472?ref_src=twsrc%5Etfw">February 28, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>実装にあたりAUCをMap-Reduceの枠組みの中で並列に計算する必要があった。</p>
+
+<p>たとえば2並列の場合を考えると、プロセス1と2でソート済みサンプルを分担することになる。</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">プロセス</th>
+<th align="center">予測スコア</th>
+<th align="center">真のラベル</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">0.8</td>
+<td align="center">1</td>
+</tr>
+
+<tr>
+<td align="center">1</td>
+<td align="center">0.7</td>
+<td align="center">1</td>
+</tr>
+
+<tr>
+<td align="center">1</td>
+<td align="center">0.5</td>
+<td align="center">0</td>
+</tr>
+
+<tr>
+<td align="center">2</td>
+<td align="center">0.3</td>
+<td align="center">1</td>
+</tr>
+
+<tr>
+<td align="center">2</td>
+<td align="center">0.2</td>
+<td align="center">0</td>
+</tr>
+</tbody>
+</table>
+
+<p>しかし先述の通りAUCの実装はソート済みサンプルを<strong>逐次的に</strong>見ていく（つまり1つ前の結果に依存する）ので、気をつけて実装しないと誤った結果になってしまう。</p>
+
+<h3 id="マージするときに長方形を底上げする">マージするときに長方形を底上げする</h3>
+
+<p>図で考えよう。先の例で各プロセスがTrue Positive, False Positiveカウントを独立して計算すると次のようになる。</p>
+
+<p><img src="https://takuti.me/images/auc/auc-partials.png" alt="auc-partials" width=400 /></p>
+
+<p>この2つの結果をマージしたいとき、単に両者の面積を足して 2+1=3 とはなりませんよ、というのが問題。正しいマージ後の面積は冒頭の図にある通り 5 になる。</p>
+
+<p>より具体的に、プロセス1の結果（マージ元）をプロセス2の結果（マージ先）にマージする場合を考える。このとき、補足情報としてマージ元のTrue Positiveのカウントをマージ先に教えてあげる。これがポイント。</p>
+
+<p>すると、マージ先ではマージ元の長方形の分だけ面積を底上げをすることができて、正しい面積が得られる。</p>
+
+<p><img src="https://takuti.me/images/auc/auc-merge.png" alt="auc-merge" width=300 /></p>
+
+<p>▲ こんな感じ。あとは『マージ元の面積』と『マージ先の底上げした面積』の和を求めて正規化すれば、それが正しいAUCとなる。</p>
+
+<p>ちなみに実際のHivemallのマージ部分の実装は<a href="https://github.com/apache/incubator-hivemall/blob/master/core/src/main/java/hivemall/evaluation/AUCUDAF.java#L251-L282" target="_blank">ここにある</a>。マージ元とマージ先が逆の場合にも対応できるように他の補足情報も渡しているけど、基本的な考え方は上記のものと変わらない。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>計算の前後に依存関係がある処理の並列化は往々にして困難だけど、AUC計算は長方形の面積の足し合わせという単純な処理なので少し補足情報を渡してあげるだけで並列実装も可能。</p>
+
+<p>ただし、マージ元とマージ先が隣接していないとダメな点に注意。たとえば以下のように3並列で計算した場合、プロセス1と3の結果を先にマージする、ということはできない。</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">プロセス</th>
+<th align="center">予測スコア</th>
+<th align="center">真のラベル</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">0.8</td>
+<td align="center">1</td>
+</tr>
+
+<tr>
+<td align="center">1</td>
+<td align="center">0.7</td>
+<td align="center">1</td>
+</tr>
+
+<tr>
+<td align="center">2</td>
+<td align="center">0.5</td>
+<td align="center">0</td>
+</tr>
+
+<tr>
+<td align="center">2</td>
+<td align="center">0.3</td>
+<td align="center">1</td>
+</tr>
+
+<tr>
+<td align="center">3</td>
+<td align="center">0.2</td>
+<td align="center">0</td>
+</tr>
+</tbody>
+</table>
+
+<p>すなわち、</p>
+
+<ul>
+<li>1と2の結果をマージ → それと3の結果をマージ</li>
+<li>2と3の結果をマージ → それと1の結果をマージ</li>
+</ul>
+
+<p>このいずれかの順序でマージされる必要がある。むずかしい。</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

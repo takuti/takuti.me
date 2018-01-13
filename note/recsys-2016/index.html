@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        推薦システムのトップ会議RecSys2016に参加した #recsys2016 | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2016-09-28
+  </p>
+  <h2>推薦システムのトップ会議RecSys2016に参加した #recsys2016</h2>
+
+  <div class="post">
+    
+
+<p>推薦システムのトップ会議 <a href="https://recsys.acm.org/recsys16/" target="_blank">RecSys2016</a> が9月15日から19日までアメリカのボストンで開催され、ワークショップ発表者＆学生ボランティアとして参加してきた。これまで学会発表はひとりで行くことが多く、今回も例外ではなかったが、ボランティアのおかげで他の学生との交流や伝説的な研究者との接触が多くてとても楽しめた。みんなもやると良いと思う。</p>
+
+<h3 id="recsys2016-boston">RecSys2016@Boston</h3>
+
+<p>RecSysは今回で10回目を迎えた推薦システムのトップ会議で、本会議の採択率はショートペーパーでも20%という狭き門。僕はワークショップのひとつ <a href="http://recprofile.org/index.html" target="_blank">Profiling User Preferences for Dynamic Online and Real-Time Recommendations</a>（長い）で、ECサイトとかでよく見られる <em>persistent cold-start</em> という問題と、それに絡めて Factorization Machines の逐次更新アルゴリズムへの拡張について話した <a href="https://arxiv.org/abs/1607.02858" target="_blank">[Paper]</a>。</p>
+
+<p><img src="https://takuti.me/images/recsys-2016/welcome.jpg" alt="welcome" /></p>
+
+<p>会議は前半2日間がワークショップ (at IBM) 、残りが本会議 (at MIT) に当てられていて、全ての発表を聞いたわけではないけれど、個人的には <strong>深層学習の勢い</strong> と <strong>アプリケーションとしての推薦システムのあり方</strong> が見どころだった。</p>
+
+<p>深層学習に対する注目はこの分野でも例外ではなく、ワークショップの1つ <a href="http://dlrs-workshop.org/" target="_blank">Deep Learning for Recommender Systems</a> は座席が即完売の超人気セッションだったらしい。すごい。<a href="https://recsys.acm.org/recsys16/session-8/" target="_blank">本会議でも <strong>Deep Learning</strong> というセッションが設けられ</a>、CNNやword2vec絡みのどこかで聞いたことのあるような良い話が聞けた。ちなみに Convolutional Matrix Factorization の人のCNN実装はKerasらしいです。</p>
+
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">cnnとw2vの話聞き飽きすぎて吐きそう</p>&mdash; たくち (@takuti) <a href="https://twitter.com/takuti/status/777534555494416384?ref_src=twsrc%5Etfw">September 18, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>一方で、 <strong><em>Deep learning is just one of the components for a hybrid recommender</em></strong> という世界であることも事実なのだ。<a href="https://recsys.acm.org/recsys16/tutorials/#content-tab-1-0-tab" target="_blank">LinkedInとQuoraのチュートリアル</a>では、「現実世界の推薦システムは、協調フィルタリングから深層学習まで、いろいろなものをケースバイケースで組み合わせたハイブリッドなものなんだぞ」というありがたいお話が聞けて泣けた。それも踏まえて、数学的にゴツいモデルやアルゴリズムで威圧するというよりは、もっとアプリケーション的な問題を重視する空気があったように思う。具体的には視線トラッキングや感情分析、推薦結果の説明生成など。</p>
+
+<p>推薦結果の見せ方、UIという点では <a href="https://recsys.acm.org/recsys16/industry-session-1/" target="_blank">Industry Session</a> が抜群に良かった。</p>
+
+<p>ニュースサイトの <a href="http://www.bloomberg.com/" target="_blank">Bloomberg</a> は記事の最後までスクロールすると、その下に自動で次の記事がロードされて無限スクロールっぽくなる。フロントエンジニアの腕が試されそうだけど、見せ方としてはかなりアリだと思う。あとtop-N推薦をするとき、フロント側ではあえてtop-Nをシャッフルして表示するという工夫もあるらしい。小粒でもぴりりと辛そうな話だね。</p>
+
+<p>Foursquareの新しいロケーション推薦bot <a href="https://marsbotapp.com/" target="_blank">Marsbot</a> の話は示唆的だった。今の世の中にあふれる「クリックしてくれ〜」という形の推薦を <strong>pull recommendation</strong> と位置づけて、それとの対比で俺たちはSMSを使った <strong>push recommendation</strong> をするんだ！という話だった。アツかった。プッシュのタイミングや頻度を間違えるとただのスパムだし、botというUIを通して対話的にモデルが学習できると言うが、それも yes/no question 以上のことがどこまでできるのかは謎。それでも、やっぱり推薦は今後こういう方向に行くんだろうなぁと納得せざるを得ない内容だった。</p>
+
+<p>他にも面白い発表はいくつかあったけどそれは割愛しつつ、まぁそんなこんなで、5日間を通して今の推薦システム研究のトレンドを感じることができたとても良い会議でしたよ。</p>
+
+<h3 id="student-volunteer">Student Volunteer</h3>
+
+<p>そんな楽しかったRecSysで、僕は今回学生ボランティアも務めた。</p>
+
+<p>ワークショップの採択通知が来たタイミングでWebページを見ると、ちょうど学生ボランティアの募集が行われていた。どうせひとりで行くと終盤とかホテルに引きこもって終わりそうだな、と思ったので試しに応募してみたら採用された。</p>
+
+<p>RecSysの学生ボランティアは <strong>会議5日間のうち20時間くらい運営に携わると会議参加費が全額無料になる</strong>（旅費は自分で何とかする）というもの。しかし実際は、同じ研究分野の学生と知り合って一緒に会議を楽しめる、というのが一番の利点だよね。</p>
+
+<p>申し込みから当日までの流れは、</p>
+
+<ul>
+<li>（7月）ボランティア採用のお知らせ</li>
+<li>（8月）タスクの希望調査</li>
+<li>（9月）ボランティアとしての活動スケジュールが確定</li>
+<li>（会議前日）ピザ食べながら全体ミーティング</li>
+<li>（会議中）割り当てられた仕事をこなす</li>
+<li>（終了後）めっちゃビールが豊富なパブで打ち上げ</li>
+</ul>
+
+<p>といった感じ。ボランティアの人数は20名強で、アメリカのPh.D.の学生が多かった印象。日本人は僕だけ。</p>
+
+<p>タスクの希望を聞いてもらえるのは重要だと思う。せっかくアメリカ行ったのに受付に座りっぱなしというのも寂しいので、僕は発表をきくことができる A/V assistant を迷わず希望した。そして無事、ほぼ普通に会議を楽しみつつ、割り当てられたセッションでQ&amp;Aのときのマイク係をやるだけでボランティア活動は終了した。</p>
+
+<p>活動の合間には他の学生と学んでいることや国のこと、他の発表の感想について雑談したり、ひとりでぶらぶらと観光したり、まぁ自由に楽しんだ。</p>
+
+<p>打ち上げのパブは良い雰囲気でご飯もおいしくて本当に良かった。</p>
+
+<p><img src="https://takuti.me/images/recsys-2016/beer.jpg" alt="beer" />
+△ ビールめっちゃある図</p>
+
+<p>最後は他のメンバーと See you in Tokyo!（<a href="http://sigir.org/sigir2017/" target="_blank">次のSIGIRが東京</a>）とか See you in Italy!（<a href="https://recsys.acm.org/recsys17/" target="_blank">来年のRecSysがイタリア</a>）とか言い合って別れた。</p>
+
+<p>他の国際会議の仕組みは分からないけど、そんな感じで学生ボランティア最高だったので学生の皆さんは機会があったらぜひ検討してみるとよいです。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>ひとりで行く2回目の国際会議、そして初めてのトップ会議だったけど、学生ボランティアのおかげもあってすごく楽しめた。発表のクオリティや参加者のレベルを見ると「これがトップ会議か…」とビビるのだけど、RecSysはコミュニティとしてすごくアットホームで良い雰囲気が形成されている印象も受けた。</p>
+
+<p>ちなみに日本からの参加者は10名程度だったかな、だいたい。お会いした方々、その節はお世話になりました。</p>
+
+<p>なおPoster Reception、BanquetではカジュアルにIPAなんかが振る舞われて&rdquo;&ldquo;&ldquo;最高&rdquo;&ldquo;&ldquo;以外の感情を失った。特にBanquetはGoogleがスポンサーで、科学博物館を貸し切って開催されていてすごかった。これがナイトミュージアムか…。</p>
+
+<p><img src="https://takuti.me/images/recsys-2016/museum.jpg" alt="museum" />
+△ <em>Night at the Museum</em></p>
+
+<p>ボストンはとても良いところだった。心地良い気候にチャールズ川沿いの素晴らしい景色、MIT/ハーバード周辺の活気と飽きない多様な街並み。無限に歩ける気がして、滞在中に合計何十キロ歩いたことか…。それくらい、ここなら住みたいと心から思えるような街だった。最近は住むには物価が高くなりすぎてしまったようだけど、機会があればまた来たい。</p>
+
+<p><img src="https://takuti.me/images/recsys-2016/view.jpg" alt="view" /></p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

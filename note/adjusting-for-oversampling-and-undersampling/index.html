@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Over-/Under-samplingをして学習した2クラス分類器の予測確率を調整する式 | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-11-04
+  </p>
+  <h2>Over-/Under-samplingをして学習した2クラス分類器の予測確率を調整する式</h2>
+
+  <div class="post">
+    
+
+<p>不均衡データ (<strong>imbalanced data</strong>) からクラス分類を行うとき、マイナーなクラスに属するサンプルの <strong>oversampling</strong> や、メジャーなクラスに属するサンプルの <strong>undersampling</strong> (downsampling とも) が大切（cf.『<a href="https://www.slideshare.net/sfchaos/ss-11307051" target="_blank">不均衡データのクラス分類</a>』）：</p>
+
+<p><img src="https://takuti.me/images/misc/oversampling_and_undersampling.jpg" alt="oversampling_and_undersampling" /></p>
+
+<p>（▲ Tom Fawcett氏による記事 &ldquo;<a href="https://svds.com/learning-imbalanced-classes/" target="_blank">Learning from imbalanced data</a>&rdquo; 中の5番目の図を引用）</p>
+
+<p>このテクニックを使って学習した分類器による予測確率は、少し調整してから解釈したほうがいいらしい、という話。</p>
+
+<h3 id="imbalanced-data-と-oversampling-undersampling">Imbalanced data と Oversampling/Undersampling</h3>
+
+<p>たとえば2クラス分類をしたいとき、ラベル1のサンプル（正例）がわずか 0.01% しか存在せず、その他 99.99% のサンプルはラベル0（負例）、みたいな状況がある。</p>
+
+<p>そこまで顕著ではないにせよ、現実のデータは正例/負例いずれかに大きく偏ったものであることが多い。具体的には、オンライン広告のクリック（正例） or 非クリック（負例）など。表示される広告を律儀に全部クリックする人などいないわけで、わずかな正例と大量の負例から「この人がクリックしてくれそうな広告」を予測、配信している。</p>
+
+<p>正例 0.01%、負例 99.99% のときは、もはや機械学習なんかせず、常に「これは負例だ」と答える“分類器”を用意しても、評価段階では十分な精度が得られてしまうだろう。または、仮にそのサンプルで真面目に分類器を学習したとしても、正例はノイズ程度に扱われ、ほぼすべての入力に対して無条件に負例と予測する分類器になりかねない。</p>
+
+<p>というわけで、imbalanced data のクラス分類を行うためには、oversampling または undersampling によってサンプル数を均等にしてあげて、フェアな条件で分類器を学習することが有効なのである。わずかな例外的サンプルに振り回されることがなくなるので、早く収束することも期待できる。</p>
+
+<p>手法としては <strong><a href="https://www.cs.cmu.edu/afs/cs/project/jair/pub/volume16/chawla02a-html/chawla2002.html" target="_blank">SMOTE</a></strong> (Synthetic Minority Oversampling Technique) などが有名だが、ここでは最も単純なランダムサンプリングだけを考える。メジャーなサンプルがマイナーなサンプルよりも $N$ 倍多いとき、</p>
+
+<ul>
+<li>Oversampling: マイナーなサンプルを $N$ 倍 (oversampling rate) に複製する</li>
+<li>Undersampling: メジャーなサンプルを $1/N$ 倍 (undersampling rate) に間引く</li>
+</ul>
+
+<p>という操作をランダムに選んだサンプルを使って行う。</p>
+
+<h3 id="undersampling時の予測確率の調整">Undersampling時の予測確率の調整</h3>
+
+<p>引き続き2クラス分類を考える。</p>
+
+<p>Facebookの広告クリック予測に関する論文を読むと、次のような記述がある：</p>
+
+<ul>
+<li><strong><a href="https://research.fb.com/publications/practical-lessons-from-predicting-clicks-on-ads-at-facebook/" target="_blank">Practical Lessons from Predicting Clicks on Ads at Facebook</a></strong></li>
+</ul>
+
+<blockquote>
+<p>Negative downsampling can speed up training and improve
+model performance. Note that, if a model is trained in a data set with negative downsampling, it also calibrates the prediction
+in the downsampling space.</p>
+</blockquote>
+
+<p>彼らのクリック予測モデルは決定木とロジスティック回帰を組み合わせたもの。その学習に際して、負例の undersampling (negative downsampling) を検討している<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>。先の引用で言っているのは、undersampling rate $w$ で学習したモデルによる予測確率 $p$ は、最終的に：</p>
+
+<p>$$
+\frac{p}{p + (1 - p) / w}
+$$</p>
+
+<p>このように調整してから使うと良いですよ、という話。直感的には、間引いた分だけ負例の予測確率 $1 - p$ が押し下げられているので、“間引き率”に基づいて上方修正してあげましょう、という気持ちだろうか。</p>
+
+<p>ちなみにこの式を真面目に導出することもできて、たとえば &ldquo;<strong><a href="https://link.springer.com/chapter/10.1007/978-3-319-23528-8_13" target="_blank">When is undersampling effective in unbalanced classification tasks?</a></strong>&rdquo; の2章なんかが参考になる<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup>。</p>
+
+<p>Imbalanced な元データ $(\mathcal{X}, \mathcal{Y})$ からメジャーなクラスを undersampling して学習データ $(X, Y)$ を得たとき<sup class="footnote-ref" id="fnref:3"><a rel="footnote" href="#fn:3">3</a></sup>、元の不均衡サンプル $(x,y) \in (\mathcal{X}, \mathcal{Y})$ が学習データに含まれているか否かを表すバイナリ変数 $s$ を考える。すると、</p>
+
+<ul>
+<li>$p(s=1 \mid y=1)$
+
+<ul>
+<li>= 元データの<strong>正例</strong>が undersampling された学習データに含まれる確率</li>
+<li>~ <strong>正例の</strong> undersampling rate</li>
+</ul></li>
+<li>$p(s=1 \mid y=0)$
+
+<ul>
+<li>= 元データの<strong>負例</strong>が undersampling された学習データに含まれる確率</li>
+<li>~ <strong>負例の</strong> undersampling rate</li>
+</ul></li>
+</ul>
+
+<p>ということになる。</p>
+
+<p>そして、undersampling によって作ったデータで学習された分類器が出力する確率は、データが均衡であることを仮定するので $p(y \mid x, s=1)$ と書ける。一方で何も仮定しない、任意のサンプルに対する予測確率は $p(y \mid x)$ である。</p>
+
+<p>ここで簡単のため、前者を $p_s = p(y=1 \mid x, s=1)$、後者を $p = p(y=1 \mid x)$ とおこう。つまり $p(y=0 \mid x) = 1 - p$ である。</p>
+
+<p>さて、先の論文によると、ベイズの定理から両者の間には次のような関係があることがわかる：</p>
+
+<p>$$
+p_s = \frac{\alpha \ p}{\alpha \ p + \beta \ (1-p)}
+$$</p>
+
+<p>※ $\alpha = p(s=1 \mid y=1)$、$\beta = p(s=1 \mid y=0)$ とおいた。</p>
+
+<p>$p_s \neq p$ であり、undersampling が予測確率それ自体にバイアスをかけているのだ。</p>
+
+<p>通常 undersampling の対象となるのは正例/負例のうちメジャーな一方のみなので、たとえば負例を undersampling したなら、先の関係式は $\alpha = 1$ で：</p>
+
+<p>$$
+p_s = \frac{p}{p + \beta \ (1-p)}
+$$</p>
+
+<p>となる。</p>
+
+<p>僕らは imbalanced data からいい感じの分類器を得るために undersampling をした。その結果、分類器は予測確率 $p_s$ を出力する。しかし本来、未知のデータはやっぱり imbalanced なのだから、真に知りたいのは $p$ である。というわけで、この式を変形して、$p_s$ から $p$ を求められるようにしよう：</p>
+
+<p>$$
+p = \frac{\beta \ p_s}{\beta \ p_s - p_s + 1} = \frac{p_s}{p_s + (1 - p_s) / \beta}
+$$</p>
+
+<p>おわかりいただけただろうか。負例の undersampling rate $w = \beta$ とすれば、Facebook論文の予測確率を調整する式になる。</p>
+
+<p>なお、正例のほうが多かった場合はそっちを rate $\alpha$ で undersampling するので、$\beta = 1$ となり：</p>
+
+<p>$$
+p = \frac{p_s / \alpha}{p_s / \alpha + (1-p_s)}
+$$</p>
+
+<p>こんな感じで調整できる。</p>
+
+<h3 id="oversamplingの場合">Oversamplingの場合</h3>
+
+<p>正例または負例の undersampling rate $0 \leq \alpha, \ \beta \leq 1$ を使って予測確率を調整する式：</p>
+
+<p>$$
+p = \frac{p_s / \alpha}{p_s / \alpha + (1-p_s) / \beta}
+$$</p>
+
+<p>が存在することが分かった。</p>
+
+<p>Oversampling の場合は対照的に、底上げされてしまった予測確率の下方修正をすることになる。</p>
+
+<p>つまり $\alpha, \beta$ が oversampling rate なら、$\alpha, \ \beta \geq 1$ なので、同じ調整式を使って $p_s / \alpha$ や $(1-p_s)/\beta$ でそのクラスの予測確率を“何倍に複製したか”に応じて小さめに調整することになる。</p>
+
+<p>ただ、これは確率としての undersampling rate $p(s \mid y)$ の議論から外れてしまう。Oversampling の場合で先の調整式を導出している論文はまだ発見できていないけど、あるのかな。ちなみに、以下のページには同様の式が登場するので、直感的な解釈としては割とよくある考え方らしい：</p>
+
+<ul>
+<li><a href="http://blog.data-miners.com/2009/09/adjusting-for-oversampling.html" target="_blank">Adjusting for Oversampling</a></li>
+<li><a href="http://www.listendata.com/2015/04/oversampling-for-rare-event.html" target="_blank">Oversampling for Rare Event</a></li>
+</ul>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>Oversampling/Undersampling によってマイナーなクラスも正しく分類できるようになる。しかし同時に、予測確率に若干バイアスがかかってしまう。</p>
+
+<p>単に『予測確率の上位k件』が得たいのであればそれでも問題ないけど、予測値そのものを使いたい場合は、over-/under-sampling rate に応じて値を調整してあげる必要がありますよ、というお話でした。</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">Imbalanced data であるか否かに依らず、そもそも彼らのデータは膨大すぎるので、学習コストを抑えるべく事前にある程度データを間引きたいというモチベーションがある。なので単にサンプル全体から学習データを uniform sampling をすることも検討されている。
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">Facebook論文にはreferenceがないけど、この予測確率を調整する式はそんなに当たり前のモノなんだろうか…。
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3">つまり $(X, Y) \subset (\mathcal{X}, \mathcal{Y})$
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

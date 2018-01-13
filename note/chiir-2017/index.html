@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        情報検索・インタラクション系の国際会議 CHIIR2017 に参加した #chiir2017 | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-03-18
+  </p>
+  <h2>情報検索・インタラクション系の国際会議 CHIIR2017 に参加した #chiir2017</h2>
+
+  <div class="post">
+    
+
+<p>2017年3月7日から10日までノルウェー・オスロで開催された情報検索・インタラクション系の国際会議 <a href="http://sigir.org/chiir2017/" target="_blank">The ACM SIGIR Conference on Human Information Interaction &amp; Retrieval 2017</a> （CHIIR2017;
+「ちあー」と読む）にポスター発表者として参加した。</p>
+
+<p><img src="https://takuti.me/images/chiir-2017/program.jpg" alt="program" /></p>
+
+<p>▲ Chair氏「プログラム表紙の会議名が間違っていることになぜ誰も気づかなかったのか！」</p>
+
+<p>採択された僕の論文は以下:</p>
+
+<ul>
+<li><strong><a href="http://dl.acm.org/citation.cfm?id=3022152" target="_blank">Sketching Dynamic User-Item Interactions for Online Item Recommendation</a></strong></li>
+</ul>
+
+<p>相変わらずテーマは情報推薦だけど、今回は<strong>部分空間法</strong>や<strong>行列スケッチ</strong>がキーワードになる。</p>
+
+<p>部分空間法を用いてユーザ・アイテムを表現した特徴ベクトルをフィルタリングする、というのが基本的なアイディアで、似たような手法は異常検知の分野で多く見られる。しかし情報推薦の文脈ではこの手のアプローチはあまり研究されていなかった。</p>
+
+<p>部分空間（観測したベクトル列の基底）は特異値分解によって得られる。そして、この基底をオンラインなアルゴリズムで効率的に更新するために行列スケッチを使う。</p>
+
+<p>このテーマ設定は、2年前に<a href="https://research.preferred.jp/2013/08/sketch/" target="_blank">PFNの比戸さんのブログ記事</a>を読んでから行列スケッチに興味が出て、なんとか応用研究に繋げられないかと考えた結果でもある。また、異常検知と情報推薦の接点という意味では<a href="https://takuti.me/note/td-intern-2016/" target="_blank">Treasure Dataインターンの経験</a>が助けになった。</p>
+
+<p><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:512px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BRY3QxTFPUH/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Presented my poster, seriously :)</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A post shared by @takuti on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2017-03-08T19:14:36+00:00">Mar 8, 2017 at 11:14am PST</time></p></div></blockquote> <script async defer src="//platform.instagram.com/en_US/embeds.js"></script></p>
+
+<p>▲ ポスターセッションでは発表者含め、みんなビール片手に議論していて楽しかった。</p>
+
+<h3 id="世界観">世界観</h3>
+
+<p>情報推薦 (recommender systems) はもともと情報検索 (information retrieval) から派生した分野なので、小さな会議だけど採択されたときはとても嬉しかったし、他の発表もかなり楽しみだった。しかし蓋を開けてみると &ldquo;interaction&rdquo; の色が強すぎて、全く違う分野の会議に来てしまった感じだった。</p>
+
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">会議参加者のバックグラウンドが思った以上に広い＆興味が超絶アプリケーション寄りで、線形計算, 機械学習的な話がほとんど通じないでござる…。</p>&mdash; たくち (@takuti) <a href="https://twitter.com/takuti/status/839460132950011908?ref_src=twsrc%5Etfw">March 8, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>「僕はもっと情報検索の理論的 (theoretical) な話を期待していたんだけど…」と漏らすと「あ〜ということは心理学とかに興味があるんだね？」と返ってくる、そんな世界。</p>
+
+<p>しかしまぁこれはこれで新鮮だった。たとえばLibrary Scienceって国内だと筑波大の図書館情報くらいしか思い浮かばないけど、実際は世界中にたくさん研究者がいて勢いのある分野だということを知った。そんな人たちの世界に触れて、ポスターセッションで議論ができたのは貴重な経験。</p>
+
+<p>CHIIR2017ではRecSys2016の<strong>Past, Present, Future Paper</strong>と似たような趣旨の<strong>Perspective Paper</strong>が別枠で募集・採択されていた。心理学、社会学、図書館情報学、コンピュータサイエンスなど、多くの分野が交わりつつある情報検索の世界、今がターニングポイントなのかな。SIGIR2018からは分野別（トラックごと）に論文募集が行われるという話もあるし。</p>
+
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">SIGIR 2018はトラック（分野）ごとの論文募集、レビューが行われるらしく、情報推薦のトラックもある。 <a href="https://t.co/QJ1Qi79pa8">https://t.co/QJ1Qi79pa8</a></p>&mdash; たくち (@takuti) <a href="https://twitter.com/takuti/status/839403781838225408?ref_src=twsrc%5Etfw">March 8, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>なお日本からの参加者は他に5,6名ほどいて、マイナーな小規模会議だと思っていた僕はとても驚きました。</p>
+
+<p><img src="https://takuti.me/images/chiir-2017/city-hall.jpg" alt="city-hall" /></p>
+
+<p>▲ Welcome Receptionはノーベル平和賞授与式の会場でもあるオスロ市庁舎で行われ、オスロ市長が直々に歓迎のスピーチをしてくれた。ヒトと情報の関わり方に関する研究の大切さを、専門家たちも笑っちゃうくらい詳細に語っていてすごかった。</p>
+
+<p>以下参加したセッションのメモ。</p>
+
+<h3 id="tutorial-1-interactive-search-in-video-lifelogging-repositories">Tutorial 1: Interactive Search in Video &amp; Lifelogging Repositories</h3>
+
+<p><img src="https://takuti.me/images/chiir-2017/tutorial1.jpg" alt="tutorial1" /></p>
+
+<h4 id="part-i-video-search">Part I: Video Search</h4>
+
+<ul>
+<li>情報検索の分野でこれまでやられてきたことと現実の間にはギャップがある
+
+<ul>
+<li>たとえば『クエリでキーワードやテキストを指定する』といってもユーザがそんなに明確なイメージを検索前に持っているわけではない</li>
+<li>『スケッチを描かせてそれで画像検索』といっても、ユーザはアーティストじゃない</li>
+</ul></li>
+<li>それも踏まえて動画検索という問題を考えると、これからは <strong>flexible interactive search</strong> を目指すべき
+
+<ul>
+<li>＝ハイブリッドな方法</li>
+<li>システムは複数の検索手段を用意しておいて、ユーザがそれをインタラクティブに適宜選択できるようにしたい</li>
+</ul></li>
+<li><strong>アプローチ1</strong>: ユーザが探索的に探しやすい動画ブラウザ・ナビゲーションの設計
+
+<ul>
+<li>例: <a href="http://ieeexplore.ieee.org/document/1521484/" target="_blank">ZoomSlider</a>
+
+<ul>
+<li>動画の上部をスライド or 下部をスライドでシークの粒度が変わる</li>
+<li>動画内の目的のシーンが近くなったら細かい粒度で探すことができて、</li>
+<li>遠いときは荒い留度でスキップしながら探すことができる</li>
+</ul></li>
+<li><strong>いかにユーザの探索的な動画視聴体験を支援するか</strong>、がポイント
+
+<ul>
+<li>どんな粒度（e.g., 時間/画像）で、</li>
+<li>どんな情報（e.g., 色、類似度、動きベクトル、隣接フレーム）を、</li>
+<li>どのようなインタフェースで提示するか</li>
+</ul></li>
+</ul></li>
+<li>どれだけ早く探している情報にたどり着けるか、が重要
+
+<ul>
+<li>良いインタフェースならユーザはいち早く結果にたどり着ける</li>
+</ul></li>
+<li><strong>アプローチ2</strong>: Region-of-Interest (ROI) サーチ
+
+<ul>
+<li>検索対象を動画内のある興味領域のみに限定する</li>
+<li>e.g., サッカー中継動画で、スコアが表示されているエリアに限定して検索すれば得点シーンが割り出しやすい</li>
+</ul></li>
+<li><strong>アプローチ3</strong>: サムネの可視化
+
+<ul>
+<li>時間軸、話題の移り変わりをいかにサムネイルという画像列で表現するか</li>
+<li>3Dで表現したり
+<br /></li>
+</ul></li>
+</ul>
+
+<p>何気なく使っている動画再生画面も多くの研究の積み重ねの上に成り立っているんだなーと思うと、先人に感謝しようという気持ちになる。</p>
+
+<h4 id="part-ii-lifelogging">Part II: Lifelogging</h4>
+
+<ul>
+<li>ライフログ検索の難しさ: <strong>たくさんのセンサから集められたヘテロな情報からいかに検索するか</strong></li>
+<li>ウェアラブル機器の発展によって、いろいろなログをアグリゲーションするサービスが増えた (e.g., <a href="https://exist.io/" target="_blank">exist.io</a>)</li>
+<li>Visual Lifelogging （画像によるライフログ）も増えてる
+
+<ul>
+<li>たとえば食事の写真を撮る行為
+
+<ul>
+<li>ちなみに食事の画像からカロリーを推定するのは今最もチャレンジングなタスクのひとつ</li>
+</ul></li>
+<li>画像で記録すると、データが多くなりすぎて探すのが大変
+
+<ul>
+<li>大量のライフログ画像をイベントごとにアノテーション＆セグメント化する、といった研究がある</li>
+<li>究極的にはその情報を使って1日を”要約”したい</li>
+</ul></li>
+</ul></li>
+<li>この分野の代表的なプロジェクトに Microsoft Research の <a href="https://www.microsoft.com/en-us/research/project/mylifebits/" target="_blank">MyLifeBits</a> というプロジェクトがある</li>
+</ul>
+
+<p>（このパートはひたすらライフログサービスの紹介を聞かされた感じで、正直微妙だった）</p>
+
+<p>個人的にはセンサデータの解析という文脈でデータストリームについて話してほしかったけど、Open Questionとしてサラッと流されてしまった。残念。</p>
+
+<p>ちなみに発表者の方は<a href="http://ntcir-lifelog.computing.dcu.ie/" target="_blank">NTCIRのLifelogタスク</a>の主催者のひとりなので、その宣伝もあった。</p>
+
+<h3 id="keynote-1-modeling-interactive-information-retrieval-as-a-stochastic-process">Keynote 1: Modeling interactive information retrieval as a stochastic process</h3>
+
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Keynoteが物凄く普通なマルコフモデルの話で、「これはこのコミュニティでは新しい話なの？」と他の人に聞いたところ「トレンドの interactive IR は (library|social) science の人も多くて、その人達にとっては新鮮な話」ということらしい。</p>&mdash; たくち (@takuti) <a href="https://twitter.com/takuti/status/839462163760693249?ref_src=twsrc%5Etfw">March 8, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<ul>
+<li>従来: Mean Average PrecisionなどをMetricとして用いる情報検索
+
+<ul>
+<li>「ユーザがドキュメントをひとつひとつ順番に見たとき」という状況を仮定している</li>
+<li>ユーザの行動の事前分布に一様分布を仮定しているようなもので、非現実的</li>
+</ul></li>
+<li>より現実的なのはランキングを考慮した予測モデルの構築
+
+<ul>
+<li>上位のドキュメントに大きな重みを与える</li>
+<li>たとえばNDCGなんかをMetricにすると、これになる</li>
+</ul></li>
+<li>情報検索、そしてインタラクティブ情報検索はユーザのSequential Decision Makingを適切にモデリングする必要がある
+
+<ul>
+<li>Google検索を例に取ると、
+
+<ul>
+<li>サジェストされた検索ワードの選択</li>
+<li>検索結果のタイプ（All, Movie, Image, &hellip;）の選択</li>
+<li>検索結果一覧からの選択&hellip;</li>
+</ul></li>
+<li>これらはすべてranked listからのsequentialなdecision makingと言える
+
+<ul>
+<li><strong>ユーザはランキング形式で提示される結果からの選択行動を連鎖的に繰り返している</strong></li>
+<li>いかにしてそのようなユーザのサーチパスを推定するか、という問題で<strong>マルコフモデル</strong>を考える
+
+<ul>
+<li>従来の直線的なユーザ行動ではない、より複雑な意思決定プロセスのモデリング</li>
+</ul></li>
+</ul></li>
+<li>Expected Gainの最大化によって推定を行うモデルとして <strong>The card model</strong> というものがある
+
+<ul>
+<li><a href="http://dl.acm.org/citation.cfm?id=2767761" target="_blank">Information Retrieval as Card Playing: A Formal Model for Optimizing Interactive Retrieval Interface</a></li>
+<li><a href="http://dl.acm.org/citation.cfm?id=2911543" target="_blank">A Sequential Decision Formulation of the Interface Card Model for Interactive IR</a></li>
+<li>後者でMarkov Decision Processへの言及</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>終盤には、書籍検索アプリのUIコンポーネント間の遷移確率をEye Trackingの結果を使ってモデリングしたという独自の実験結果が紹介された。しかし、そのモデルがどの程度現実に即しているのか謎だった。そもそもこのアプリのUIは実験のために作られたものだし…。</p>
+
+<p>と思っていたら、会場から「タイポグラフィや色などのUIデザインによってユーザの行動は変わるよね。それも踏まえて、あなたの実験結果を元に、具体的にUIデザイナーは何ができるのか教えて？」といった趣旨の質問が挙がった。それに対する回答は「自分はもっとFunctionalな部分をみているので、ガワのデザインはまた別の研究になっちゃうね」と。うーん…そんなもんかねぇ…。</p>
+
+<h3 id="keynote-3-css-and-user-adapted-web-presentation">Keynote 3: CSS and user-adapted web presentation</h3>
+
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">KeynoteがCSSのパパによるCSSの話でアツい。 <a href="https://t.co/rOnasyOWPG">pic.twitter.com/rOnasyOWPG</a></p>&mdash; たくち (@takuti) <a href="https://twitter.com/takuti/status/840118237819883520?ref_src=twsrc%5Etfw">March 10, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>会議4日間で一番よかったコンテンツは間違いなくこのKeynote。特別目新しい話はなかったけど、ユーモア満載でショーとして素直に楽しかった。</p>
+
+<ul>
+<li>Webの歴史から話は始まって、ブラウザが背景色（グレー）や文字色を勝手に決めてしまっていて辛かった時代を振り返る
+
+<ul>
+<li>そして人々（広告主）はきれいなページにするために、画像でいろいろなコンテンツを作成・公開するようになった</li>
+</ul></li>
+<li>そんな時代に、やっぱりきれいな見た目、美しさは大切だよね、という思いでWeb上のドキュメントの表現手法として提案したのがCSS
+
+<ul>
+<li>メディアや目的に応じたuser-adaptableな、シンプルな表現手法を提供する</li>
+</ul></li>
+<li>それまでブラウザで見る背景色はずっとグレーだったので <code>background: #...</code> とかCSSで書いた日にはそれはもうみんなテンション上がった</li>
+<li>Google検索はスタイルをindexingしないけど、人間は見ればその違いがわかる
+
+<ul>
+<li>Semanticsから分離された表現、これが大事<br /></li>
+</ul></li>
+<li>Web font は良いぞ
+
+<ul>
+<li>デザインの幅が広がったのはもちろんのこと、今ではPCに入っていない言語もWeb上で表示できる</li>
+<li>world-wideになったね、web</li>
+</ul></li>
+<li>標準化のつらさはどうしても付きまとう
+
+<ul>
+<li><a href="https://ja.wikipedia.org/wiki/Acid2" target="_blank">Acid2</a>　</li>
+<li>MicrosoftのIEを含めて、みんながんばってます</li>
+</ul></li>
+</ul>
+
+<p>終盤は彼が現在所属しているOperaの話が多かった。どれだけデータ量削減に力を入れているか、という話。</p>
+
+<p>あと、最近イースター島まで航海した話。完全にただの個人の日記だったけど、「実際にこの目でみるとWikipediaに書かれていることと異なる発見もあった」みたいなことを言っていて、なんか良い話っぽくなってた。ずるい。</p>
+
+<p>さらにWebの未来について、同じノルウェー国内でも地域ごとに新規ドメインを策定して、<a href="https://secure.edps.europa.eu/EDPSWEB/webdav/site/mySite/shared/Documents/EDPS/Events/16-09-29_BigData_Hakon-Wium-Lie_EN.pdf" target="_blank">Web上のZoneを分けていこうという話</a>があった。『広告の無いドメイン』とか作っていきましょう、みたいな雰囲気。なんでもできるようになった広い広いWebの世界をいかに“住みやすく”するか。</p>
+
+<p>この他に一般セッションもいくつか聞いたけど、そっちはあまり印象に残っていない。</p>
+
+<p>自分の見た限りでは、<strong>実験的にUXの有効性や検索行動の傾向を探る</strong>という共通目標がまずあって、<strong>どんな実験を設定して、結論が有意であることをいかに示すか</strong>が重視されている様子だった。</p>
+
+<h3 id="ノルウェー-オスロの良さ">ノルウェー・オスロの良さ</h3>
+
+<p><a href="https://takuti.me/note/recsys-2016/" target="_blank">前回のRecSys</a>同様ひとりぼっちの国際会議だったけど、たくさん歩いて、たくさん食べて、たくさんコーヒーとビールを飲んで、最高だった。</p>
+
+<p><img src="https://takuti.me/images/chiir-2017/instagram.png" alt="instagram" /></p>
+
+<p>▲ 滞在中に<a href="https://www.instagram.com/takuti/" target="_blank">Instagram</a>に上げた写真は8枚がビールで、あと1枚はオスロの<a href="http://www.fuglen.com/japanese/" target="_blank">Fuglen</a>に行ったときのもの。一番おいしかったのは乗り継ぎのヘルシンキ空港で飲んだ濃厚なフィンランドビール <strong>Karhu</strong>。ノルウェービールの定番 <strong>Ringnes</strong> はさっぱりしすぎていてつまらなかった。</p>
+
+<p>会議のオープニングでChairの人が「とても暖かくて物価の安いオスロへようこそ！」と自虐するくらい、寒くて、洒落にならないほど物価の高い街だった。（とはいえ、気候は3月のノルウェー＝2月の北陸や東北の都市部、くらいの印象なので恐れることはない。）物価に関してはペットボトルの水が1本で360円もするし、1回の支払いが500円以内におさまることはほぼ無い。</p>
+
+<p>そこさえ目をつぶると、人は穏やかで優しかったし、ご飯（特にチーズと穀類と魚）も美味しいし、彫刻が街にいっぱいあってテンションあがるし、朝はスズメじゃなくてカモメの鳴き声だし、なんだか全体的にとっても居心地がよかった。</p>
+
+<p><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:512px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BRxM_sCFBZL/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">そういえばノルウェーで泊まったホテルの朝食バイキングが爆発的に美味しかった。</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A post shared by @takuti on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2017-03-18T06:06:17+00:00">Mar 17, 2017 at 11:06pm PDT</time></p></div></blockquote> <script async defer src="//platform.instagram.com/en_US/embeds.js"></script></p>
+
+<p>観光地としての素晴らしさも文句なしで、きれいなオペラハウスやオスロ国立美術館（あのムンクの『叫び』が展示されていて館内撮影し放題！）、彫刻公園（広い敷地内に大量の彫刻があって面白い）などがあり飽きない。クルーズ船の運行日の都合でフィヨルドを見れなかったのが心残りだけど、それはまたの機会に。</p>
+
+<p>「修士課程を終えるまでにもう一度国際会議にいきたいなぁ」「できれば未経験のポスター発表がいいなぁ」と思っていたところで見つけたのがCHIIR2017だった。研究分野という意味では少し期待外れだったけど、それでも全体としてはとても充実した楽しい時間を過ごせた。</p>
+
+<p>ACM SIGIRの小規模会議として2016年にできたばかりのCHIIR、来年はアメリカ・ニュージャージー、再来年はスコットランド・グラスゴーでの開催がすでに決定している。参加者は多すぎず交流しやすいし、比較的採択されやすい会議でもあると思うので、情報検索、特にインタラクション(UI, UX)寄りの話題に興味がある方はぜひ。</p>
+
+<p><img src="https://takuti.me/images/chiir-2017/human.jpg" alt="human" /></p>
+
+<p>▲ 会場の大学内にあった彫刻です。</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

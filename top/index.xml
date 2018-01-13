@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tops on takuti.me</title>
+    <link>https://takuti.me/top/</link>
+    <description>Recent content in Tops on takuti.me</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://takuti.me/top/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>about</title>
+      <link>https://takuti.me/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/about/</guid>
+      <description>I am Takuya Kitazawa (a.k.a. takuti), a data science engineer at Treasure Data, Inc. and Apache Hivemall Committer. twitter &amp;mdash; twitter.com/takuti
+github &amp;mdash; github.com/takuti
+linkedin &amp;mdash; linkedin.com/in/takuti
+instagram &amp;mdash; instagram.com/takuti
+tumblr &amp;mdash; takuti.tumblr.com
+rss &amp;mdash; takuti.hatenablog.com
+mail &amp;mdash; k.takuti at gmail.com     Education  The University of Tokyo, Japan
+M.S. in Information Science and Technology, Mar 2017. The University of Aizu, Japan
+B.S. in Computer Science, Mar 2015.</description>
+    </item>
+    
+  </channel>
+</rss>

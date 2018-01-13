@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app>
+<head>
+	<meta charset="utf-8" />
+	<meta name=keywords content="進数変換,2進,10進,16進,進数" />
+	<meta name=description content="2進数、10進数、16進数の相互変換をさくさくとできます。" />
+	<title>さくさく進数相互変換</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+	<div id="wrapper">
+		<form novalidate name="num_form" ng-controller="numController">
+			<p>
+				【2進数】　<span class="error" ng-show="num_form.binary.$error.pattern">2進数は0と1だけだよ</span><br />
+				<input type="text" name="binary" placeholder="ここに2進数を入力" ng-model="num.binary" ng-pattern="binary_pattern" ng-change="binary()" />
+			</p>
+			<br />
+			<p>
+				【10進数】　<span class="error" ng-show="num_form.decimal.$error.pattern">ちゃんと10進数を入力してね</span><br />
+				<input type="text" name="decimal" placeholder="ここに10進数を入力" ng-model="num.decimal" ng-pattern="decimal_pattern" ng-change="decimal()" />
+			</p>
+			<br />
+			<p>
+				【16進数】　<span class="error" ng-show="num_form.hex.$error.pattern">ちゃんと16進数を入力してね</span><br />
+				<input type="text" name="hex" placeholder="ここに16進数を入力" ng-model="num.hex" ng-pattern="hex_pattern" ng-change="hex()" />
+			</p>
+		</form>
+	<footer id="footer">
+			0から9007199254740991(2^53-1)までの値が変換できます<br />
+			<a href="http://blog.takuti.me/hello-angularjs/" target="_blank">AngularJSでさくさく進数相互変換をつくる</a><br />
+		</footer>
+	</div>
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<script src="script.js"></script>
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+			  _gaq.push(['_setAccount', 'UA-28919399-2']);
+			  _gaq.push(['_setDomainName', 'takuti.me']);
+			  _gaq.push(['_trackPageview']);
+
+		  	(function() {
+		  	  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		  	  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+</body>
+</html>

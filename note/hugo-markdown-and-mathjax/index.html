@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Migrate to Hugo from Jekyll: Another Solution for the MathJax&#43;Markdown Issue | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2015-10-19
+  </p>
+  <h2>Migrate to Hugo from Jekyll: Another Solution for the MathJax&#43;Markdown Issue</h2>
+
+  <div class="post">
+    
+
+<h3 id="migrate-to-hugo-from-jekyll">Migrate to Hugo from Jekyll</h3>
+
+<p>I had used <a href="https://github.com/jekyll/jekyll" target="_blank">Jekyll</a> to generate this site for 1+ years. However, recently generating site took more than 10 seconds due to increasing site contents; this was really stressful when I like to check the generated site continuously (e.g. style updating).</p>
+
+<p>Hence, from this article, I have migrated to <a href="https://github.com/spf13/hugo" target="_blank">Hugo</a>, and this fast static site generator can build my site less than 1 second! Migrating to Hugo from Jekyll is not so difficult because there are many useful information on the Internet such as:</p>
+
+<ul>
+<li><a href="https://gohugo.io/tutorials/migrate-from-jekyll/" target="_blank">Migrating to Hugo From Octopress</a></li>
+<li><a href="http://nathanleclaire.com/blog/2014/12/22/migrating-to-hugo-from-octopress/" target="_blank">Migrate to Hugo from Jekyll</a></li>
+<li><a href="https://github.com/spf13/spf13.com" target="_blank">spf13/spf13.com</a></li>
+</ul>
+
+<p>In particular, <a href="https://github.com/spf13/spf13.com" target="_blank">spf13/spf13.com</a>, a repository of Hugo creator&rsquo;s website, is practically useful to understand what we have to do.</p>
+
+<h3 id="mathjax-markdwon-issue">MathJax+Markdwon issue</h3>
+
+<p>In the TeX syntax, we frequently use <code>_</code> (underline) to render subscripts. However, at the same time, underline also indicates <em>italic</em> font in Markdwon. This situation raises a mis-converting issue; when Markdown is first parsed, MathJax might not understand TeX formulas correctly.</p>
+
+<p>One solution for the issue is introduced in Hugo official support page: <a href="http://gohugo.io/tutorials/mathjax/#issues-with-markdown:d97e838dbdddd8f0d2665b07f195e51f" target="_blank">MathJax Support - Issues with Markdown</a></p>
+
+<p>OK, we can easily fix the issue, but I don&rsquo;t like this solution. Putting backticks (<code>`</code>) at the head/tail of every TeX code is so annoying&hellip;</p>
+
+<p>On that point, Jekyll is great; in Jekyll configuration, we can use <a href="http://kramdown.gettalong.org/" target="_blank">kramdown</a> (pure-Ruby Markdown convertor) as a Markdown parser, and it can correctly handle MathJax+Markdown mixed files.</p>
+
+<h3 id="using-kramdown-as-a-hugo-markdown-convertor">Using kramdown as a Hugo Markdown convertor</h3>
+
+<p>Here, I have another solution. It just to use kramdown as a Hugo Markdown convertor. Usually, Hugo requires us to put articles in <em>content/</em> directory, and it automatically converts them to .html files. However, we now create a intermediate directory like <em>_content/</em>.</p>
+
+<p>First, I create Rakefile and define a task as:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rb" data-lang="rb"><span style="color:#007020">require</span> <span style="background-color:#fff0f0">&#34;kramdown&#34;</span>
+
+namespace <span style="color:#a60;background-color:#fff0f0">:converter</span> <span style="color:#080;font-weight:bold">do</span>
+  task <span style="color:#a60;background-color:#fff0f0">:content</span> <span style="color:#080;font-weight:bold">do</span>
+    <span style="color:#036;font-weight:bold">Dir</span><span style="color:#333">::</span>glob(<span style="background-color:#fff0f0">&#34;_content/*&#34;</span>)<span style="color:#333">.</span>each <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>src<span style="color:#333">|</span>
+      <span style="color:#888"># destination path will be &#34;content/{filename}.html&#34;</span>
+      dst_path <span style="color:#333">=</span> src<span style="color:#333">[</span><span style="color:#00d;font-weight:bold">1</span><span style="color:#333">..-</span><span style="color:#00d;font-weight:bold">1</span><span style="color:#333">].</span>sub(<span style="color:#000;background-color:#fff0ff">/(.*)\.md/</span>, <span style="background-color:#fff0f0">&#39;\1.html&#39;</span>)
+
+      <span style="color:#007020">open</span>(dst_path, <span style="background-color:#fff0f0">&#34;w&#34;</span>) <span style="color:#080;font-weight:bold">do</span> <span style="color:#333">|</span>dst<span style="color:#333">|</span>
+        content <span style="color:#333">=</span> <span style="color:#007020">open</span>(src) { <span style="color:#333">|</span>f<span style="color:#333">|</span> f<span style="color:#333">.</span>read }
+
+        <span style="color:#888"># keep front matter</span>
+        content <span style="color:#333">=</span> content<span style="color:#333">.</span>sub(<span style="color:#000;background-color:#fff0ff">/(---.*---\n)/m</span>, <span style="background-color:#fff0f0">&#34;&#34;</span>)
+
+        content <span style="color:#333">=</span> embedding_tweet(content)
+
+        <span style="color:#888"># write with concatenating front matter</span>
+        dst<span style="color:#333">.</span>write(<span style="color:#d70;font-weight:bold">$1</span> <span style="color:#333">+</span> <span style="color:#036;font-weight:bold">Kramdown</span><span style="color:#333">::</span><span style="color:#036;font-weight:bold">Document</span><span style="color:#333">.</span>new(content)<span style="color:#333">.</span>to_html)
+      <span style="color:#080;font-weight:bold">end</span>
+    <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></code></pre></div>
+<p>As I mentioned before, kramdown can correctly handle MathJax+Markdown mixed files in default setting, so it works.</p>
+
+<p>Next, you just need to run converter before running Hugo server: <code>rake converter:content</code></p>
+
+<p>After the rake command, we do not have to think about Hugo Markdown converter. Even if there are some mixed articles, <code>hugo server</code> will generate your site correctly based on html files obtained by the rake command.</p>
+
+<p>Note that we can use this technique for the other preprocessing such as sass compiling. For more detail, you can see <a href="https://github.com/takuti/takuti.me/blob/master/Rakefile" target="_blank">my actual Rakefile</a>.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>I have shown you another solution for the MathJax+Markdown issue. However, since my technique requires to run preprocessing, we cannot take advantage of fast incremental building from Hugo.</p>
+
+<p>If we really want to fix the issue, we have to tackle Hugo original Markdown parser and develop Go implementation of kramdown.</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Podcast &#34;Data Skeptic&#34; の推薦システム回が良すぎて3回聞いた | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-11-17
+  </p>
+  <h2>Podcast &#34;Data Skeptic&#34; の推薦システム回が良すぎて3回聞いた</h2>
+
+  <div class="post">
+    
+
+<p>推薦システムの業界で知らぬものはいない、ミネソタ大学のレジェンド級プロフェッサー<a href="http://konstan.umn.edu/" target="_blank">Joseph Konstan先生</a>が Podcast &ldquo;Data Skeptic&rdquo; に出演していた：</p>
+
+<ul>
+<li><a href="https://dataskeptic.com/blog/episodes/2017/recommender-systems-live-from-farcon" target="_blank">Recommender Systems (live from Farcon) | Data Skeptic</a></li>
+</ul>
+
+<p><a href="https://takuti.me/note/coursera-recommender-systems">Courseraの推薦システムのコース</a>でお世話になり、その後 <a href="https://takuti.me/note/recsys-2016">RecSys 2016</a> でユーモア満載の生Konstan先生を見たときはすごく感動したことを覚えている。</p>
+
+<p>振り返れば、RecSys 2016 で他の発表者がアルゴリズム寄りの“普通”の話をしている中、先生のグループ (<a href="https://grouplens.org/" target="_blank">GroupLens</a>) の研究は真剣に『ユーザ体験』『インタフェース』『HCI』という視点で議論を展開していて、やっぱりこの人はすごい…と感じたものである。推薦システム≠機械学習であり、非常に奥が深い分野なのだと改めて気付かされた。</p>
+
+<p>そんな先生が推薦システムについて語るPodcastエピソードは、とても示唆的で聞きごたえのある内容だった。みんなもぜひ聞いてほしい。</p>
+
+<p>以下、特に印象的だった話題についていくつか。</p>
+
+<h3 id="良い-推薦システムとは">“良い”推薦システムとは</h3>
+
+<p>「完璧な推薦システムってあるの？」という聞き手の質問に対して、「存在しないし、推薦システムの“良さ”をいかに測るかに依る」と答えるKonstan先生。</p>
+
+<p>従来、推薦システムの評価には機械学習的な方法が用いられてきた。ECサイトなら、ユーザの購入履歴のうち80%でモデルを作って、20%で評価、とった具合。しかし、そんな『放っておいてもいずれ買うような、絶対に好きなモノ』を正しく当てるシステムに意味があるのだろうか？</p>
+
+<p>推薦システムは<strong>薦められなければ絶対に買わなかったであろうモノの中で、ベストなモノ</strong>を提示すべきであり、これは機械学習的な意味の“精度”などでは測れない。</p>
+
+<p>たとえばワインの推薦をするとして、既に好きなワインを正しく予測することがゴールではない。好きなワインに似ていて、より良いワイン―それを推薦して、ユーザの嗜好を広げることが推薦システム本来の役割だと言える。</p>
+
+<p>そのような考え方から、推薦システムの評価指標に関する議論はいまだに続いており、ゆえに『完璧な推薦システム』など定義することすらできないのだ。</p>
+
+<h3 id="serendipity-like-didn-t-expect">Serendipity = like + didn&rsquo;t expect</h3>
+
+<p>既存の評価指標のなかで有望そうなもののひとつに<strong>セレンディピティ</strong>がある。これはどうだろう？</p>
+
+<p>Konstan先生は <strong>Serendipity = like + didn&rsquo;t expect</strong> の組み合わせで達成されるのだと言い、その意味を決して履き違えないことだと警笛を鳴らす。たとえセレンディピティを議論するのだとしても、まずはユーザの嗜好を正しくモデリングできることが前提だ。</p>
+
+<p>推薦システムの研究で、精度が出ないときに「セレンディピティ的には有望」という言い訳をするひとがいるが、精度が出ていないのなら嗜好 (<strong>like</strong>) のモデリングにはおそらく失敗しているわけで、それはセレンディピティでもなんでもない。<strong>bad + didn&rsquo;t expect = just &ldquo;BAD&rdquo;</strong> である。</p>
+
+<h3 id="cycling-and-serpentining">Cycling and Serpentining</h3>
+
+<p>聞き手がKonstan先生のグループの <a href="https://cscw.acm.org/2017/" target="_blank">CSCW2017</a> の論文 &ldquo;<strong><a href="https://dl.acm.org/citation.cfm?id=2998211" target="_blank">Cycling and Serpentining Approaches for Top-N Item Lists</a></strong>&rdquo; について質問していて、この研究がなかなか面白い。</p>
+
+<p><iframe src="//www.slideshare.net/slideshow/embed_code/key/zjZEohHOa3yb9U" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/QianZhao12/toward-better-interactions-in-recommender-systems-cycling-and-serpentining-approaches-for-topn-item-lists" title="Toward Better Interactions in Recommender Systems: Cycling and Serpentining Approaches for Top-N Item Lists" target="_blank">Toward Better Interactions in Recommender Systems: Cycling and Serpentining Approaches for Top-N Item Lists</a> </strong> from <strong><a href="https://www.slideshare.net/QianZhao12" target="_blank">Qian Zhao</a></strong> </div></p>
+
+<p>この論文ではTop-N推薦の結果を表示する際のテクニックとして、2つの新しい考え方 &ldquo;<strong>Cycling</strong>&rdquo; と &ldquo;<strong>Serpentining</strong>&rdquo; を提案し、実験を行った：</p>
+
+<ul>
+<li><strong>Cycling</strong>
+
+<ul>
+<li>推薦結果を何回も見ているユーザに対してはTop-Nリストを回転させて、上から順に第5, 6, 7, 8, 9, 10, 1, 2, 3, 4位のような順番で表示させたりする</li>
+</ul></li>
+<li><strong>Serpentining</strong>
+
+<ul>
+<li>複数ページに渡って推薦結果が表示されるとき、予測の上位アイテムを各ページに分散させる</li>
+<li>たとえば、1ページ目には第1, 3, 5位のアイテム、2ページ目には第2, 4, 6位のアイテム…といった雰囲気</li>
+</ul></li>
+</ul>
+
+<p>Top-N推薦の結果を素直に第1, 2, 3, &hellip;, N位の順で表示していると、ユーザはいつも同じ推薦結果を見ることになって退屈だ。なので推薦リストの Cycling と Serpentining によって、ユーザにもっと目新しい推薦結果を提示しよう、という話<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>。聞き手はこの『目新しさ』の重要性をウィンドウショッピングで例えていて、なるほどと思った。</p>
+
+<p><a href="http://localhost:1313/note/recsys-2016/" target="_blank">RecSys 2016</a> の Industry Session で、ニュースサイト <a href="https://www.bloomberg.com/asia" target="_blank">Bloomberg</a> が「フロント側ではあえてTop-Nリストをシャッフルして表示している」という話をしていたけど、まさにそれと似たようなモチベーションだろう。</p>
+
+<p>『Top-Nアイテムをソートして表示する』という世の中の“当たり前”を疑い、HCIの文脈でその問題を真面目に考え、実サービスの上で実験を行う…この姿勢がこの分野を切り開いてきた <a href="https://grouplens.org/" target="_blank">GroupLens</a> というグループのカッコよさだと思う。</p>
+
+<p>推薦システムに限らず、昨今のアプリケーション寄りの研究は &ldquo;Online Experiment&rdquo; の有無が勝敗を分けることも多い。その点、自分たちの持つ <a href="https://movielens.org/" target="_blank">MovieLens</a> というサービスの上で多くのユーザを対象に実験ができる GroupLens は強い。そんな彼らならではの実験設計の際の心がけが聞けたのも面白かった。実験対象ユーザを幾つもの設定で細かくグループ分けするのではなく、2〜3の少ない要素でグループ分けして、あとは各ユーザの行動ログが全てを物語るのだという姿勢。</p>
+
+<h3 id="i-hate-amazon-s-first-page">&ldquo;I hate Amazon&rsquo;s first page&rdquo;</h3>
+
+<p>この Podcast エピソードで最高なのは、Konstan先生の口から出たこの一言。<a href="https://takuti.me/note/two-decades-of-amazon-recommender/">Amazonの推薦システムがこの業界で果たしてきた役割は大きい</a>が、いまのAmazonの推薦、特にトップページの推薦は大変お粗末なものである。</p>
+
+<p>サービスのトップページは、ユーザの興味を広げたり、なにか“新鮮”な情報を提示するのに最高の場所。なのに、Amazonは最近の閲覧履歴に基づいて類似商品を列挙しているだけで、なんの工夫も感じられない。</p>
+
+<p>この問題は、Konstan先生のレストランメニューの例えが分かりやすい。レストランのメニューには『固定メニュー』と『限定メニュー』（季節モノやランチメニューなど）があり、テーブルの上に置かれる際は一番上に限定メニュー、その下に固定メニューとなっていることが多い。なぜなら、一番上の一番目を引く場所は、お客さんに新しいモノを“オススメ”するには最高の場所だからだ。</p>
+
+<p>一方、個別の商品ページでは、類似品の中で（値段的、質的に）より良い他の選択肢を示すことに注力してほしい。こんな商品はどうですか？と無関係なモノを出すことは期待していない。</p>
+
+<p>Amazonの推薦を神格化する時代はすでに終わっており、大きなサービスのやっていることが常に“正解”とは限らない。1ユーザとして「この推薦ダメだな」と思ったのならその感覚はたぶん正しくて、そこにより良い推薦システム、新しい推薦のカタチのヒントがあるんだと思う。</p>
+
+<h3 id="これからの推薦システム">これからの推薦システム</h3>
+
+<p>業界のレジェンドは推薦システムの未来に何を見るのか。</p>
+
+<p>1つは教育分野への応用。コンピュータを使った授業も増え、（初等）教育のあり方が多様化しているにも関わらず、授業というものは未だにシーケンシャルに進行する。先生の教え方や教材はそれぞれ異なり、ひとりひとりに合った学習方法があるはずなのに、「5つの学習スタイルのうち好みのモノを1つ選択してください」というカタチの教育にはなっていない。今後はそういった方向に世の中が変わっていくはずで、そこに推薦手法が応用できるのではないか、という考え。</p>
+
+<p>また、GroupLens としては音声など異なるインタフェースを用いた際の推薦システムのあり方を考えている。</p>
+
+<p>そして、Konstan先生の個人的な興味は、今も昔も『正しい評価指標とはなにか』というところにある。</p>
+
+<p>いずれにせよ、&rdquo;Recommender Systems&rdquo; は &ldquo;Machine Learning&rdquo; や &ldquo;Artificial Intelligence&rdquo; のサブセットではなく、それらを手段とした個性的な分野であり、今後も多様な展開が期待できる。くれぐれも、この魅力的な分野をアルゴリズム的な側面だけで捉えないことだ。そんなことを改めて強く感じた、素敵なインタビューでした。</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">ただし検索エンジンは例外。検索結果第2位が10ページ目とかに存在するのが好ましいはずがない。
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Machine Learning Summer School 2015 Kyoto #MLSSKYOTO | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2015-10-03
+  </p>
+  <h2>Machine Learning Summer School 2015 Kyoto #MLSSKYOTO</h2>
+
+  <div class="post">
+    
+
+<p>Hi, I am takuti, a master&rsquo;s student in Japan. Currently, I am working on matrix factorization and approximation. Also, my research interests are in web engineering, mining and their applications such as recommender systems.</p>
+
+<p>I have attended to <a href="http://www.iip.ist.i.kyoto-u.ac.jp/mlss15/" target="_blank">Machine Learning Summer School 2015 Kyoto</a> (MLSS&rsquo;15) from August 23 to September 4. This entry briefly reviews each of 14 exciting lectures in the summer school. Note that there might be mistakes in the content. In that case, please let me know via comments or <a href="http://twitter.com/takuti" target="_blank">twitter</a>.</p>
+
+<p>Slides for the lectures are available at: http://www.iip.ist.i.kyoto-u.ac.jp/mlss15/doku.php?id=schedule</p>
+
+<h3 id="tl-dr">TL;DR</h3>
+
+<p><blockquote class="twitter-tweet"><p lang="en" dir="ltr">My current impression is that machine learning is actually optimization problems :p <a href="https://twitter.com/hashtag/MLSSKYOTO?src=hash&amp;ref_src=twsrc%5Etfw">#MLSSKYOTO</a></p>&mdash; たくち (@takuti) <a href="https://twitter.com/takuti/status/636907107107803137?ref_src=twsrc%5Etfw">August 27, 2015</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>(with strong emphasis on regularization and LASSO)</p>
+
+<p><img src="https://takuti.me/images/jekyll/2015-10-03-sensu.jpg" alt="sensu" />
+<em>MLSS Sensu</em></p>
+
+<h3 id="convex-optimization">Convex Optimization</h3>
+
+<p><strong>Stephen P. Boyd, Stanford</strong></p>
+
+<p>This is one of the most impressive lectures in MLSS&rsquo;15 because Prof. Boyd provided us really interesting and stimulating lecture; it was like a show. He interactively discussed key ideas and specific applications of convex optimization problems. Also, thanks to <a href="http://stanford.edu/~boyd/papers/cvx_short_course.html" target="_blank">Convex Optimization Short Course</a>, we can easily learn and try to solve real convex optimization problems on our laptop after MLSS.</p>
+
+<p>As mentioned in the above tweet, optimization problems are everywhere in machine learning field. How can we find optimal weights? Which cluster assignment is the best? What is the best approximation? All of the answers can be found from optimization problems. Hence, the MLSS&rsquo;15 lecture schedule seems to be well-organized (that&rsquo;s why this lecture is the first one in this summer school).</p>
+
+<p><strong>Next</strong>: Try <a href="http://stanford.edu/~boyd/papers/cvx_short_course.html" target="_blank">Convex Optimization Short Course</a></p>
+
+<h3 id="concentration-inequalities">Concentration Inequalities</h3>
+
+<p><strong>Gábor Lugosi, Pompeu Fabra</strong></p>
+
+<p>This topic seemed to be super advanced mathematics, and the lecture was really hard to follow. In particular, computer scientists who are familiar with engineering aspects were easily left behind, because we were not able to imagine specific applications from lots of equations/proofs.</p>
+
+<p>While at the same time, I can feel how concentration inequalities, inequalities for bounding random fluctuations $P\{Z \leq t\}$, are important in machine learning field. In fact, modern machine learning techniques strongly depend on probabilistic approaches (random fluctuations), so importance of guarantees for the fluctuations is clear.</p>
+
+<p><strong>Next</strong>: Read <a href="http://www.amazon.com/Concentration-Inequalities-Nonasymptotic-Theory-Independence/dp/0199535256" target="_blank">Concentration Inequalities: A Nonasymptotic Theory of Independence</a></p>
+
+<h3 id="topics-in-selective-inference">Topics in Selective Inference</h3>
+
+<p><strong>Emmanuel Candès, Stanford</strong></p>
+
+<p>His lecture started from a discussion about reliability of science. In my opinion, this was good introduction to show how selective inference can be an important field to discuss experimental results on so-called &ldquo;BigData&rdquo;. Currently, we will first collect huge data before asking questions and planning experiments, so reliability of inference from BigData is a crucial problem.</p>
+
+<p>I am especially interested in <strong>Knockoff Machines</strong>, a simple algorithm to select statistically favorable hypothesis from many different hypotheses. For the reliability of inference, we need to decrease <strong>false discovery rate</strong> (FDR), and Knockoff Machines allow us to select hypotheses which give low FDR. This algorithm is also promising in terms of feature selection. When we would like to choose better features from many different features, Knockoff Machines-like algorithm can choose features which give low false positives. In the future, I would like to survey on this application.</p>
+
+<p><strong>Next</strong>: Learn more about Knockoff Machines from the lecture slide and related online sources</p>
+
+<h3 id="probabilistic-programming">Probabilistic Programming</h3>
+
+<p><strong>Luc De Raedt, KU Leuven</strong></p>
+
+<p>This lecture was really different from the others. At first, I was afraid of a term &ldquo;programming&rdquo;; I imagined this indicates something like &ldquo;linear programming&rdquo; stuff, but this was not true. The content focused on writing probabilistic code, especially in <strong>ProbLog</strong>, extension of Prolog. Since I am already familiar with Prolog, I really enjoyed the lecture.</p>
+
+<p>One of the most important things of ProbLog is that this programming language can infer from predicates with uncertainty. When we tackle AI problems, programming languages need to deal uncertainty in it; that is, dealing uncertainty is important problem to represent human intuition.</p>
+
+<p><strong>Next</strong>: Try probabilistic programming in <a href="https://dtai.cs.kuleuven.be/problog/" target="_blank">ProbLog</a></p>
+
+<h3 id="submodular-functions">Submodular Functions</h3>
+
+<p><strong>Stefanie Jegelka, MIT</strong></p>
+
+<p>I heard a term <strong>submodular</strong> many times before, but I did not know what submodular actually is. The answer was in this lecture; this lecture started from definition of set functions and submodularity with good intuitive examples. After such introduction, she gradually moved to mathematical details, optimization and approximation of submodular functions.</p>
+
+<p>One of the most interesting applications I have learnt from this lecture is summarization. This idea assumes that summarization is just choosing subset of words from target article; that is, we can summarize articles by maximizing set function for words in terms of coverage or relevance. This idea is very interesting, and I am also interested in incremental summary updating and application to recommender systems. I would like to learn more about this field.</p>
+
+<p><strong>Next</strong>: Read one curious paper found on the web &ldquo;<a href="http://las.ethz.ch/files/badanidiyuru14streaming.pdf" target="_blank">Streaming Submodular Maximization:
+Massive Data Summarization on the Fly</a>&ldquo;</p>
+
+<h3 id="statistical-and-computational-aspects-of-high-dimensional-learning">Statistical and Computational Aspects of High-Dimensional Learning</h3>
+
+<p><strong>Philippe Rigollet, MIT</strong></p>
+
+<p>We needed to highly focus on <strong>Statistical and Computational Aspects</strong> in the title. The content consisted of mathematical discussion in these aspects. Even though the professor first introduced well-known technique, Principal Component Analysis, I was not able to follow the lecture due to difficult mathematical discussion.</p>
+
+<p>I was only able to understand what <strong>high-dimensinal</strong> setting is; high-dimensional setting is situation such that the number of parameters is much bigger than the number of observations. However, what is more concrete difference between high-dimensional learning and usual machine learning? What is the key idea in high-dimensional learning? Which points are new in the field? To grasp these points, I should learn more before listing this lecture.</p>
+
+<p><strong>Next</strong>: First and foremost, I need to review this lecture :(</p>
+
+<h3 id="learning-representations">Learning Representations</h3>
+
+<p><strong>Lorenzo Rosasco, MIT / Genoa</strong></p>
+
+<p>Data representation $$\mathbf{\Phi}$$ is $$X \rightarrow F$$, mapping data space $$X$$ to representation space $$F$$. Keeping in mind this point really helps us to understand a wide variety of ideas in the field. This course was really well-organized because the professor taught several different representations one-by-one and summarized them from practical viewpoint.</p>
+
+<p>Representations discussed in the lecture were: Dictionary, Random Projection, Kernel and Deep Representation. All of them were scientifically stimulating, but which representation is appropriate to my problem? This lecture covered such practical points, and important thing is <strong><em>Good representation decreases complexity of samples</em></strong>. Currently, I am curious about online dictionary learning, so this lecture was good introduction.</p>
+
+<p><strong>Next</strong>: Review dictionary learning from online sources such as <a href="https://sites.google.com/site/kacstsparsecoding/" target="_blank">Sparse Coding Course</a>, and its online setting</p>
+
+<h3 id="scalable-machine-learning">Scalable Machine Learning</h3>
+
+<p><strong>Alexander J. Smola, CMU</strong></p>
+
+<p>Are there anybody who are studying in engineering department? OK, it&rsquo;s time for you!</p>
+
+<p>Two-thirds of this lecture discussed computer and system architecture in the BigData era. Since I am definitely curious about engineering and applicational aspects in machine learning rather than theoretical, mathematical points, the lecture was quite exciting.</p>
+
+<p>This course has three parts: (1) efficient machine learning on single machine, (2) distributed machine learning, and (3) system architecture for Deep Learning. The last part was pale compared to the others, because it was just overview of well-known recent studies on Deep Learning. During the introduction, the professor said things like <strong><em>You don&rsquo;t have to be a professional hardware researcher, but please care about the efficiency of memory usage</em></strong>. This is very important point in recent large-scale machine learning.</p>
+
+<p><strong>Next</strong>: Check his lectures on <a href="https://www.youtube.com/user/smolix" target="_blank">YouTube channel</a>, and try Deep Learning techniques by my hand on cloud environment</p>
+
+<p><img src="https://takuti.me/images/jekyll/2015-10-03-bamboo.jpg" alt="bamboo" />
+<em>In a weekend, I visited Arashiyama and saw famous bamboo forest.</em></p>
+
+<h3 id="reinforcement-learning">Reinforcement Learning</h3>
+
+<p><strong>Csaba Szepesvári, Alberta</strong></p>
+
+<p>Even though I can see many interesting articles and videos related to reinforcement learning on the web, I have never learnt about theoretical aspect of the technique. So, this field was a huge black box for me.</p>
+
+<p>The professor said that reinforcement learning has all of machine learning problems such as regression, classification and density estimation. This is true; I confirmed this statement through the lecture. However, after taking this short course, my understanding of reinforcement learning is still unclear.</p>
+
+<p><strong>Next</strong>: Read <a href="http://www.ualberta.ca/~szepesva/RLBook.html" target="_blank">Algorithms for Rainforcement Learning</a>, free pdf written by the lecturer</p>
+
+<h3 id="machine-learning-for-computer-vision">Machine Learning for Computer Vision</h3>
+
+<p><strong>Zaid Harchaoui, NYU/INRIA</strong></p>
+
+<p>What kind of lecture are you expect from this title? Your thought is probably wrong.</p>
+
+<p>This lecture focused on some specific theories such as <a href="http://arxiv.org/abs/1406.3332" target="_blank">Convolutional Kernel Networks</a> and Stochastic Gradient Descent, so we were not able to obtain practical techniques in computer vision. Of course, these theories are really important to realize better application, but the title &ldquo;Machine Learning for Computer Vision&rdquo; was definitely inappropriate.</p>
+
+<p>After this course, I shortly discussed with one Japanese researcher who is working on computer vision in a research institute. He also said the same things, and he actually expected more practical topic like 3D reconstruction. Due to this disappointing situation, I was not able to enjoy this lecture.</p>
+
+<p><strong>Next</strong>: Learn and try Convolutional Neural Networks and Convolutional Kernel Networks</p>
+
+<h3 id="tensor-decompositions">Tensor Decompositions</h3>
+
+<p><strong>Ryota Tomioka, TTI Chicago</strong></p>
+
+<p>As I said at the beginning, I am currently working on machine learning for matrices, so I really looked forward to this lecture. And, this lecture was actually scientifically stimulating for me. Most importantly, the lecture was well-organized and really easy to follow. For example, he used enough time to explain what rank of matrices is, and he repeatedly emphasized this fundamental point is important to understand tensors.</p>
+
+<p>However, tensor decomposition and its related theory/application are wide-ranging, and, in this lecture, the professor just focused on one of them, theoretical analysis of tensor decomposition. When we need to use tensors in a practical problem, you should learn more from different studies beyond this lecture.</p>
+
+<p><strong>Next</strong>: Try tensor decomposition on real-world data set and learn more applications</p>
+
+<h3 id="stochastic-optimization">Stochastic Optimization</h3>
+
+<p><strong>Taiji Suzuki, Tokyo Tech</strong></p>
+
+<p>Since I am interested in online learning, Stochastic Gradient Descent is one of my curious topics. However, this lecture has too much mathematical formulas. I was not able to follow at all.</p>
+
+<p>In fact, most lectures in MLSS strongly emphasized theoretical, mathematical aspects of recent machine learning studies, but this lecture was too much. I would like to learn more about this topic from the other sources.</p>
+
+<p><strong>Next</strong>: Understand Stochastic Gradient Descent theoretically</p>
+
+<h3 id="large-scale-deep-learning">Large Scale Deep Learning</h3>
+
+<p><strong>Vincent Vanhoucke, Google</strong></p>
+
+<p>This was very good introductory lecture on Neural Networks and Deep Learning. We were able to obtain brief overview of recent significant achievements and theoretical basics in the field.</p>
+
+<p>Most importantly, he first emphasized Deep Learning is not the only way to get sufficient results in real-world machine learning problems. Actually, on <a href="https://www.kaggle.com/" target="_blank">Kaggle</a>, other techniques quite often win. So, try Rogistic Regression, Gradient Boosting and Random Forest first! This is the message from the lecture.</p>
+
+<p><strong>Next</strong>: Review basic techniques (rogistic regression, random forest, gradient boosting) and attend data competision with them :)</p>
+
+<h3 id="statistical-guarantees-in-optimization">Statistical Guarantees in Optimization</h3>
+
+<p><strong>Martin Wainwright, Berkeley</strong></p>
+
+<p>The last lecture focused on sketching, and first started from <strong>Johnson–Lindenstrauss lemma</strong>. During MLSS, since some professors introduced J-L lemma in their lecture, I understood how the lemma has an important role to approximate data. So, this notice strongly motives for learning these theoretical fundamentals.</p>
+
+<p>He introduced his latest work called <a href="http://arxiv.org/abs/1505.02250" target="_blank">Newton Sketch</a> in the lecture. This paper seems very interesting and exciting, so I would like to read later.</p>
+
+<p><strong>Next</strong>: Learn more about statistical guarantees with starting from Johnson–Lindenstrauss lemma, and read <a href="http://arxiv.org/abs/1505.02250" target="_blank">Newton Sketch</a></p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Overall, MLSS was really, really exciting two weeks. We were able to briefly see all of machine learning field, and these knowledge definitely leads a new research idea!</p>
+
+<p>MLSS also posed a shade of anxiety to us by difficult math, but I guess we do not have to think too much about that. In machine learning, key ideas and essential problems we need to solve are usually quite simple. So, when we tackle own problem, let us start from the simplest approach, and gradually extend it.</p>
+
+<p>Finally, one thing I would like to introduce is one cool podcast channel talking about machine learning called <a href="http://www.thetalkingmachines.com/" target="_blank">Talking Machines</a>. I found this podcast after MLSS, and listening the excellent talks is intellectually stimulating. If you have not subscribed it yet, go ahead!</p>
+
+<p><img src="https://takuti.me/images/jekyll/2015-10-03-masu.jpg" alt="masu" />
+<em>MLSS Masu, Japanese traditional sake glass</em></p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

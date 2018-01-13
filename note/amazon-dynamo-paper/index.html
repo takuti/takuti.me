@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        AmazonのDynamoDB論文を眺めた | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-12-09
+  </p>
+  <h2>AmazonのDynamoDB論文を眺めた</h2>
+
+  <div class="post">
+    
+
+<p>&ldquo;<a href="https://pragprog.com/book/rwdata/seven-databases-in-seven-weeks" target="_blank">Seven Databases in Seven Weeks</a>&rdquo; や &ldquo;<a href="https://dataintensive.net/" target="_blank">Designing Data-Intensive Applications</a>&rdquo; でも度々参考文献に挙がっていたので、AmazonのDynamoDB論文を眺めて思いを馳せていた：</p>
+
+<ul>
+<li><strong><a href="https://dl.acm.org/citation.cfm?id=1294281" target="_blank">Dynamo: Amazon&rsquo;s Highly Available Key-Value Store</a></strong> (SOSP 2007)</li>
+</ul>
+
+<p>ここでは特に2章・バックグラウンドの内容を整理しつつ、AmazonがDynamoDBに込めた想いに触れてみる。拙記事『<a href="https://takuti.me/note/the-amazon-way-on-iot/">The Amazon Way on IoT - Amazonのビジネスから学ぶ、10の原則</a>』でも紹介した、Amazonの &ldquo;Customer Obsession&rdquo;（お客様第一）という理念を踏まえて読むと大変味わい深くてよろしい。</p>
+
+<h3 id="教訓-システムの-reliability-と-scalability-は-いかにアプリケーションの-状態-を管理するかに依る">教訓: システムの Reliability と Scalability は、いかにアプリケーションの“状態”を管理するかに依る</h3>
+
+<p>“状態”とは、Amazonの『ショッピングカートの中身』のようなものを指し、『カートへの商品の追加・削除』がその“管理”に相当する。このように、何らかのビジネスロジックに紐付くサービスは往々にしてステートフルとなり、その扱い方がサービスの信頼性のキモとなる<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>。</p>
+
+<p>そして、そのような“状態”を複雑なクエリで問い合わせるというケースはあまりなく、主キーで一意に定まるものをピックアップすることのほうが多いので、従来行われてきたRDBによる管理は過度な複雑化といえる。</p>
+
+<p>そこでAmazonは <strong>Dynamo</strong> というKVSを開発し、scalability と availability の両立を、2つの既存手法の組み合わせによって実現した：</p>
+
+<ol>
+<li>データは <strong>consistent hashing</strong> によってパーティショニング、レプリケーション</li>
+<li>一貫性は <strong>object versioning</strong> の下で“ゆるく”担保</li>
+</ol>
+
+<p>この論文は、既存の技術の組み合わせでいかにプロダクションレベルのシステムを作っていくか、という点でひとつの例を示すもの。</p>
+
+<h3 id="rdbではなくkvs">RDBではなくKVS</h3>
+
+<p>先述の通り、リレーショナルスキーマを要するデータ横断的な処理は状態の保持には不要だと経験的にわかっている。</p>
+
+<p>なので、Dynamoはデータをblobのようなバイナリオブジェクト (たいてい1MB以下) で保持し、ユニークなキーによって一意に取得可能にした。</p>
+
+<h3 id="eventual-consistencyでよい">Eventual Consistencyでよい</h3>
+
+<p>ACID (Atomicity, Consistency, Isolation, Durability) を満足させると可用性が低下することは経験的にわかっているので、Dynamoは可用性が向上するなら一貫性 (&ldquo;C&rdquo;; Consistency) を諦めても構わないという姿勢をとる。</p>
+
+<p>そう、Eventual Consistency である。</p>
+
+<p>Dynamoは高可用性を担保するために <a href="https://en.wikipedia.org/wiki/Optimistic_replication" target="_blank">optimistic replication</a> (i.e., lazy replication) を採用しているため、処理のある時点においては容易に一貫性が壊れる。</p>
+
+<p>だが、競合解決処理を経ることで、いずれ (eventually) レプリカは何らかの状態に落ち着く (consistent)。</p>
+
+<p><a href="https://dataintensive.net/" target="_blank">Data-Intensive (ry</a> でも書かれいていたけど、昨今ではACIDを満足しないシステムを <strong>BASE</strong> (Basically Available, Soft state, and Eventual consistency) と呼ぶ風潮もあり、このような考え方は広く受け入れられている。</p>
+
+<p>ところで、『いずれ』とはいつなのか。どのタイミングで競合を解決するのか。</p>
+
+<p>従来のデータストアは書き込み時に競合の解決を行い、読み込みは極力シンプルに、という考えの下に成り立っていた。しかしこれは、場合によっては &ldquo;rejectされるwrite&rdquo; が存在するということ。</p>
+
+<p>ユーザにとって &ldquo;write reject&rdquo; は「クリックしたのに反映されない」的なシナリオであり、これはユーザ体験の低下に直結する。なのでDynamoは &ldquo;always writable&rdquo; を重視して、コンフリクト解決はread時に考え、writeでは行わない。</p>
+
+<p>少しくらいネットワークが途切れても、サーバが死んでても、ユーザはショッピングカートのアイテム (state) の変更 (write) が確実にできるように、というAmazonの強い想いがある。</p>
+
+<p>さらに、もうひとつ Eventual Consistency に際して考えるべきは『だれが（どこで）コンフリクトを解決するか』という点。</p>
+
+<p>データストア側で解決を試みる場合、我々は &ldquo;last write wins&rdquo; という単純な手段しか持ち合わせていない。</p>
+
+<p>しかし適切な競合解決プロセスというものはアプリケーション依存であり、たとえばショッピングカートの中身がコンフリクトしたら、両者をマージして1つのカートにして返すという明確なゴールがある。だから、Amazonはアプリケーション（クライアント）側での競合解決を重視する<sup class="footnote-ref" id="fnref:5"><a rel="footnote" href="#fn:5">2</a></sup>。</p>
+
+<h3 id="sla重要">SLA重要</h3>
+
+<p>Amazonのようなdecentrizedなサービスでは1リクエストに対して動くサービスが複数あり、相互依存が激しい。そんな環境下で各コンポーネントのchain時のパフォーマンス要求を明確にするために、SLA  (Service Level Agreement) は特に重視している。</p>
+
+<p>具体的には、Amazonには99.9パーセンタイルの値で処理効率を測るという厳密なSLAがある<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">3</a></sup>。</p>
+
+<p>サービスを提供する側 (Amazon) が本当に大切にしたいヘビーユーザはたくさんログを持っていて、往々にして一処理あたりの時間も長くなりがちだ。でもmean, median, expected varianceのような“平均値”に基づくSLAを設定してしまうと、この少数の大切なお客さんに対するパフォーマンスが多少悪くても「SLAを満たしている」となりかねない。</p>
+
+<p>Amazonは“大多数のお客さん”ではなく、“お客さん全員”が満足しうるサービスを目指したい。ゆえに、平均値で測るSLAでは不十分なのだ<sup class="footnote-ref" id="fnref:3"><a rel="footnote" href="#fn:3">4</a></sup>。</p>
+
+<p>一般に、サービス内のビジネスロジック（Amazonの“購買”のような）が比較的軽量なとき、ストレージはシステムのSLAを満足するために特に重要な要素だと言える。なのでDynamoは処理効率、コスト、可用性、耐障害性といったトレードオフをユースケースに応じて柔軟に選択（調整）できるように設計する。</p>
+
+<h3 id="dynamo-お客様第一で設計されたストレージ">Dynamo: お客様第一で設計されたストレージ</h3>
+
+<p>この他、Dynamoの設定に際して：</p>
+
+<ul>
+<li><strong>Incremental scalability</strong>
+
+<ul>
+<li>システムオペレータとシステム自体への影響を最小にしつつ、ノード単位でスケールアウトできる。</li>
+</ul></li>
+<li><strong>Symmetry</strong>
+
+<ul>
+<li>Dynamoのノードはみんな平等で、どれかが特別な役割、ということはない。</li>
+<li>経験的に、こうするとプロビジョニングやメンテナンスが単純化されてよい。</li>
+</ul></li>
+<li><strong>Decentralization</strong>
+
+<ul>
+<li>P2P的システムにする。Symmetryと同じ気持ち。</li>
+<li>centralizedなシステムは全体的なシステムダウンを招く。</li>
+</ul></li>
+<li><strong>Heterogeneity</strong>
+
+<ul>
+<li>各ノードがキャパに対してどの程度の仕事を割り振られているか、システムはそのバランスを常に考慮する。</li>
+<li>そうすれば、新しい大きなキャパのノードを追加したときに、全ノードの設定をアップグレードする必要がなくなる。</li>
+</ul></li>
+</ul>
+
+<p>といったことも考慮された。</p>
+
+<p>いずれにせよ、トレードオフのひとつひとつをcustomer obsession的な視点で選択し、合理的にシステムを設計していく姿勢が見て取れる濃厚な &ldquo;Background&rdquo; の章で、個人的にはここがこの論文の一番の見どころだと思った。もちろん後半の partitioning, replication, object versioning の実装に関する具体的な言及や、実験とそこから得た教訓の話が主役ではあるのだけど。</p>
+
+<p>体裁の整った本の記述からは得られない、広く使われるシステムの根底にあるアイディアに触れられるのはよいですね。なお、僕は若者なので、この論文が書かれた当時それがどれだけ革新的なことだったのかを測るものさしは持ち合わせていない。</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">一方、ステートレスなサービスとは、他のサービスたちのデータを集約するような内部コンポーネントなどを指す。
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:5">論文「まぁ、世の開発者たちは状況に応じたコンフリクト時の例外処理を考えるのが面倒なので &ldquo;last write wins&rdquo; だけになりがちだけど…。」
+ <a class="footnote-return" href="#fnref:5"><sup>[return]</sup></a></li>
+<li id="fn:2">もちろん具体的なパーセンタイルの設定はコストとのトレードオフ。
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3">これはAmazonの話。会社のゴール次第なので「平均値で測れば十分」という場合もありうる。
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

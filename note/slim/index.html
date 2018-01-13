@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        &#34;SLIM: Sparse Linear Methods for Top-N Recommender Systems&#34;を読んだ | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-02-18
+  </p>
+  <h2>&#34;SLIM: Sparse Linear Methods for Top-N Recommender Systems&#34;を読んだ</h2>
+
+  <div class="post">
+    
+
+<p>Matrix Factorizationよりも高い精度が出るという話をよく聞く <strong>Sparse Linear Method (SLIM)</strong> を提案した論文を読んだ。</p>
+
+<ul>
+<li>Xia Ning and George Karypis. <strong><a href="http://glaros.dtc.umn.edu/gkhome/node/774" target="_blank">SLIM: Sparse Linear Methods for Top-N Recommender Systems</a></strong>. ICDM 2011.</li>
+</ul>
+
+<h3 id="概要">概要</h3>
+
+<ul>
+<li>Top-N推薦を高速に行う <strong>Sparse Linear Method (SLIM)</strong> を提案する。</li>
+<li>ユーザ-アイテム行列 $A \in \mathbb{R}^{\textrm{\#user } \times \textrm{ \#item}}$ の未観測値を $\tilde{A} = AW$ のように補完する疎なアイテム-アイテム行列 $W \in \mathbb{R}^{\textrm{\#item } \times \textrm{ \#item}}$ を求める。</li>
+<li>L1+L2正則化つきの最適化問題をcoordinate descentで解けばよい。</li>
+<li>$W$ が疎なので行列積 $AW$ が高速に計算できて、結果的にTop-Nのアイテム推薦が高速になる。</li>
+</ul>
+
+<h3 id="問題">問題</h3>
+
+<p>あるユーザにアイテムを推薦したいとき、そのユーザの未観測（例：未購入、未評価、未視聴）アイテムに対して何らかの “スコア” を与えて、上位N個のアイテムを「おすすめリスト」として提示するのが <strong>Top-N推薦</strong> というタスク。</p>
+
+<p>これを実現する手法は、近傍法ベースの手法とモデルベースの手法に大別できる。</p>
+
+<p>近傍法ベースの手法は<strong>協調フィルタリング</strong>とも呼ばれ、特にアイテムベースの協調フィルタリングは類似度計算が比較的軽く<strong>効率的</strong>。しかし既知のデータにoverfitしてしまって、<strong>推薦精度は悪くなりがち</strong>。</p>
+
+<p>一方、<strong>Matrix Factorization</strong> などのモデルベースの手法は近傍法と比較して<strong>推薦精度が良い</strong>ことが知られている。しかしモデルの学習やスコアの計算には大規模な行列計算を要するため<strong>非効率</strong>である。</p>
+
+<p>そこで<strong>高精度</strong>かつ<strong>効率的</strong>なTop-N推薦を実現する新たな手法として <strong>SLIM</strong> を提案する。</p>
+
+<h3 id="定式化">定式化</h3>
+
+<p>履歴に基づいて 1 もしくは何か正の値を要素にとるユーザ-アイテム行列 $A \in \mathbb{R}^{\textrm{\#user } \times \textrm{ \#item}}$ があったとき、未観測なユーザ-アイテムペア ($i$, $j$) の予測値 $\tilde{a}_{ij}$ を求めたい。</p>
+
+<p>ここで、アイテム $j$ と他のアイテムの間の重みを表現する疎なベクトル $\mathbf{w}_j \in \mathbb{R}^{\textrm{\#item}}$ を考え、 $\tilde{a}_{ij} = \mathbf{a}^{\top}_i \mathbf{w}_j$ とする。（ $\mathbf{a}^{\top}_i \in \mathbb{R}^{1 \times \textrm{ \#item}}$ は $A$ の第 $i$ 行）</p>
+
+<p>つまり、</p>
+
+<ul>
+<li>ユーザ $i$ の全アイテムに対する履歴: $\mathbf{a}^{\top}_i \in \mathbb{R}^{1 \times \textrm{ \#item}}$</li>
+<li>アイテム $j$ の全アイテムに対する重み: $\mathbf{w}_j \in \mathbb{R}^{\textrm{\#item}}$</li>
+</ul>
+
+<p>の積で未観測だった $a_{ij}$ を補完する。</p>
+
+<p>というわけで、全アイテムの $\mathbf{w}_j$ を並べた行列 $W \in \mathbb{R}^{\textrm{\#item } \times \textrm{ \#item}}$ を考えると、</p>
+
+<p>$$
+\tilde{A} = AW
+$$</p>
+
+<p>とかける。</p>
+
+<p>実際の推薦は以下の手順で行う：</p>
+
+<ol>
+<li>対象ユーザ $i$ の全アイテムに対する予測値（スコア）を計算する:  $\mathbf{a}_i^{\top} W \in \mathbb{R}^{1\times \textrm{ \#item}}$</li>
+<li>推薦候補のアイテムを予測値の降順でソートする</li>
+<li>上位N個のアイテムを推薦する</li>
+</ol>
+
+<p>$\mathbf{w}_j$ は疎なベクトルであることを仮定したので行列 $W$ も疎で、おかげで $\mathbf{a}_i^{\top} W$ が効率的に計算できるのがSLIMのウリ。</p>
+
+<h3 id="w-の学習">$W$ の学習</h3>
+
+<p>二乗損失を考えて、各アイテム $j$ について $\mathbf{w}_j$ を求めるために次の最小化問題を解く：</p>
+
+<p>$$
+\min_{\mathbf{w}_j} \frac{1}{2} | \mathbf{a}_j - A\mathbf{w}_j |^2_2 + \frac{\beta}{2} | \mathbf{w}_j |^2_2 + \lambda | \mathbf{w}_j |_1
+$$</p>
+
+<p>ただし $\mathbf{w}_j \geq \mathbf{0}$ かつ $w_{j,j} = 0$ （i.e., 自分自身の重みは0） で、$\beta, \lambda$ は正則化係数。</p>
+
+<p>L1正則化で $\mathbf{w}_j$ を疎にして、L2正則化でoverfitを防ぐ。要するにElastic Net。この問題はcoordinate descentで解くことができて、そのアルゴリズムは次の論文が詳しい：</p>
+
+<ul>
+<li>Jerome Friedman, Trevor Hastie, and Rob Tibshirani. <strong><a href="https://core.ac.uk/download/pdf/6287975.pdf" target="_blank">Regularization Paths for Generalized Linear Models via Coordinate Descent</a></strong>. Journal of Statistical Software 33 (1), 2010.</li>
+</ul>
+
+<p>SLIMの定式化のいいところは、アイテム $j$ ごとに問題が独立していて並列化が容易である点。</p>
+
+<p>しかし欠点もあって、$A\mathbf{w}_j$ の存在からお察しの通り、coordinate descentで素直に実装すると1アイテムにつき <strong>（アイテム数 - 1）×（ユーザ数）回</strong> のループが必要で重い。（無視できる1回は $w_{j,j}=0$ より）</p>
+
+<p>そこで、特徴選択（＝列のサンプリング）による学習の効率化も検討されている。あるアイテム $j$ の重みベクトル $\mathbf{w}_j$ を更新するときに、$A$ のすべての列を考えず、サンプリングした $k$ 本の列だけを考える ($k \leq \textrm{\#item}$) 。サンプリング方法はいろいろ考えられるけど、この論文では特にアイテム間類似度に基づく方法を試している。</p>
+
+<p>具体的には、協調フィルタリングのように事前に各アイテムペアについて類似度を計算しておく。そして、$\mathbf{w}_j$ を計算するときには、アイテム $j$ との類似度が大きい $k$ 個のアイテムに対応する列だけを $A$ からサンプリングして考える。</p>
+
+<h3 id="評価">評価</h3>
+
+<p>ユーザ-アイテム行列 $A$ は0/1（例：クリックした/してない、買った/買ってない）でも実測値（例：評価値、視聴回数）でも、どちらでも良い。実験では両方のパターンでTop−N推薦のパフォーマンスを評価している。</p>
+
+<p>まずは二値データの場合。このとき本来実測値からなるデータは事前に二値化して使う。例として、Netflixの映画の評価値データを二値化したものでTop-N推薦を行った結果が以下（論文の表2を編集）：</p>
+
+<p><img src="https://takuti.me/images/slim/result.png" width=500 alt="result" /></p>
+
+<p>協調フィルタリング (*-kNN) やMatrix Factorization (*-MF) と比較して高い推薦精度を出しつつ、推薦にかかる時間は数秒台に抑えられており効率的。当初の狙い通りと言える。</p>
+
+<p>ここで注目すべきは学習にかかる時間。疎行列を扱っているとはいえ、先述の通り実装はアイテム数×アイテム数×ユーザ数のオーダーになるので、普通のSLIMだと約8時間かかってしまう。しかし列のサンプリングを行えば (fsSLIM)、たとえば各アイテムにつき $k=100$ で $A$ の列をサンプリングすると学習時間が6分程度まで短縮できて、かつ精度は維持できる。サンプリング重要。</p>
+
+<p>同様に、実測値データの場合もSLIMの精度が他手法を上回ることが示された。しかしこちらは実行時間に関する言及がない。二値データよりも実測値データの方が行列は密なはずなので、おそらく先の表以上の学習時間を要したのだとは思うけど。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>アイテムごとに独立した疎な重みベクトルを考えることでTop-N推薦を効率化する手法 <strong>SLIM</strong> について調べた。</p>
+
+<p>機械学習の文脈ではすごく当たり前のことをやっているように見えるんだけど、こんなことでも情報推薦という応用分野においては新規性になりうるのであります。</p>
+
+<p>SLIMの疎な出力はモデルの解釈という点で見ても嬉しいと思う。&rdquo;Explanation in Recommender Systems&rdquo; は重要なテーマ。</p>
+
+<p>そして冒頭でも書いた通り、どうやら実際に試してみると多くのケースで定番のMatrix Factorizationよりも良い精度が出るらしい。しかし具体的に何が精度向上に寄与しているのか。そこがイマイチつかめなかった。</p>
+
+<p>SLIMのまともな実装としては、 <a href="https://github.com/zenogantner/MyMediaLite/blob/7ad02ca0b23a6f926e61d389ec820bd7eaa234b3/src/MyMediaLite/ItemRecommendation/LeastSquareSLIM.cs" target="_blank">MyMediaLite</a> と <a href="https://github.com/guoguibing/librec/blob/18176ed41027348ee2187d8686a1b2c0d4d39277/core/src/main/java/net/librec/recommender/cf/ranking/SLIMRecommender.java" target="_blank">LibRec</a> が挙げられる。前者は二値の行列のみに対応しており、後者ではそのような縛りはない。なおMyMediaLiteでは二乗損失だけでなく<a href="https://github.com/zenogantner/MyMediaLite/blob/7ad02ca0b23a6f926e61d389ec820bd7eaa234b3/src/MyMediaLite/ItemRecommendation/BPRSLIM.cs" target="_blank">ランキング損失（BPR）によるSLIMの実装</a>も提供している。</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

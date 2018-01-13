@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Treasure Dataインターンにみる機械学習のリアル #td_intern | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2016-10-04
+  </p>
+  <h2>Treasure Dataインターンにみる機械学習のリアル #td_intern</h2>
+
+  <div class="post">
+    
+
+<p>8月1日から9月30日まで、大学院の同期で小学生時代は落ち着きがなかった <a href="https://twitter.com/ganmacs" target="_blank">@ganmacs</a> と、小学校の給食ではソフト麺が出なかった <a href="https://twitter.com/amaya382" target="_blank">@amaya382</a> と一緒に <strong>Treasure Data</strong> (TD) <strong>Summer Internship</strong> に参加した。</p>
+
+<ul>
+<li><a href="http://ganmacs.hatenablog.com/entry/2016/10/07/094427" target="_blank">Treasure Data インターンで最高の夏過ごしてきた  #td_intern - memo-mode</a></li>
+<li><a href="http://amaya382.hatenablog.jp/entry/2016/10/01/210752" target="_blank">トレジャーデータでインターンしてた話 #td_intern - 水底</a></li>
+</ul>
+
+<p><a href="http://takuti.me/note/recsys-2016/" target="_blank">インターンの途中で1週間アメリカへ行ってしまう</a>という事情を酌んだ上で採用していただき、限られた期間で物凄く適切な課題設定とメンタリングを行なってくださった<a href="https://twitter.com/myui" target="_blank">@myui</a>さんには頭が上がらない。本当にありがとうございました。</p>
+
+<p>TDインターン全体としての見どころは、</p>
+
+<ul>
+<li>全方位ウルトラエンジニアで気を抜くと死ぬ環境</li>
+<li>丸の内の一食1000円オーバーの飲食店事情</li>
+<li>ラウンジの炭酸強めでおいしい炭酸水</li>
+</ul>
+
+<p>にあったと思う。うん。</p>
+
+<p>※いろいろ書きますが、内容は全て僕個人の考えで、TDや<a href="https://twitter.com/myui" target="_blank">@myui</a>さんの意見を代表するものではありません。念のため。</p>
+
+<h3 id="treasure-data-summer-internship-2016">Treasure Data Summer Internship 2016</h3>
+
+<p>6月ごろから募集が行われていて、選考やインターン中の雰囲気は基本的に以下の記事に書かれている通りだった。</p>
+
+<ul>
+<li><a href="http://myui.hateblo.jp/entry/2015/10/06/Treasure_Data_Summer_Intern_2015" target="_blank">Treasure Data Summer Intern 2015 - myui&#39;s memo</a></li>
+<li><a href="http://qiita.com/NeokiStones/items/dde03c52623d4e657f46" target="_blank">Treasure Data 2015サマーインターンに参加した</a></li>
+</ul>
+
+<p>僕のインターンを通してのテーマは <strong><em>Real-world Machine Learning</em></strong> だったように思う。具体的にやったことを列挙すると以下のような感じで、1つの機能をじっくり腰を据えて実装する、というよりは様々な側面から現場での機械学習に触れるような内容だった。</p>
+
+<ul>
+<li><a href="https://github.com/myui/hivemall" target="_blank">Hivemall</a>へのユーザ定義関数 (UDF) 実装
+
+<ul>
+<li>ランキング問題用の評価関数 6種類 <a href="https://github.com/myui/hivemall/pull/326" target="_blank">#326</a></li>
+<li>異常検知のフレームワーク 2種類
+
+<ul>
+<li><strong>ChangeFinder</strong> <a href="https://github.com/myui/hivemall/pull/329" target="_blank">#329</a>, <a href="https://github.com/myui/hivemall/pull/333" target="_blank">#333</a> （春のインターン生の実装の一部として）</li>
+<li><strong>Singular Spectrum Transformation</strong> <a href="https://github.com/myui/hivemall/pull/356" target="_blank">#356</a></li>
+</ul></li>
+</ul></li>
+<li>TD社内のDatadogメトリクスからの異常検知
+
+<ul>
+<li><a href="https://github.com/takuti/datadog-anomaly-detector" target="_blank">takuti/datadog-anomaly-detector</a></li>
+</ul></li>
+<li>チュートリアル記事「<strong>Random Forestを用いたTreasure Data (Hivemall) 上でのサービス解約予測</strong>」の執筆
+
+<ul>
+<li><a href="https://gist.github.com/takuti/08f06176bff97f8b957d9b52537b1aa4" target="_blank">下書き</a></li>
+</ul></li>
+<li>機械学習絡みのセールス/コンサル目的のミーティングへの同席</li>
+</ul>
+
+<h3 id="hivemallへのudf実装">HivemallへのUDF実装</h3>
+
+<p>HiveのUDFを実装するのは最初&rdquo;お作法&rdquo;的なものがよくわからず戸惑ったけど、既存の実装や<a href="https://www.oreilly.co.jp/books/9784873116174/" target="_blank">プログラミングHive</a>を参考にしつつ何とか進めた。少しだけお近づきになれた気がする。</p>
+
+<p>ランキング問題用の評価関数というのは地味だけど、僕の興味と密接に関係していて、応用上重要な役割を果たす関数でもあるのでウキウキしながら実装した。（推薦とは多くの場合において本質的にはランキング問題となる。）理解不足だったり、そもそも間違えて解釈していたところが明らかになったのも良かった。（参考：<strong><a href="https://bmcfee.github.io/papers/mlr.pdf" target="_blank">Metric Learning to Rank</a></strong>）</p>
+
+<p>異常検知に関しては、線形計算が好物なので <strong>Singular Spectrum Transformation</strong> を論文読みながら実装してるときが一番ノリノリだった。<strong>ChangeFinder</strong> はハイパーパラメータの闇が深いので厳しい。</p>
+
+<p><img src="https://takuti.me/images/td/hivemall-icon.png" alt="hivemall" />
+▲ キメラ感の無いクールなHivemallロゴ</p>
+
+<p>Hivemallが実現した<a href="http://www.slideshare.net/myui/hivemall-hadoop-summit-2014-san-jose#7" target="_blank">クエリで記述するプログラミング不要の機械学習</a>というパラダイムを<a href="https://twitter.com/myui" target="_blank">@myui</a>さんは <strong>ポストMahout</strong> と位置づけている。しかし現実には「プログラミングのほうが楽だ」という意見もあるだろうし、最適解はデータの規模や解析基盤の構成、データサイエンティストの技量に応じて異なって然るべきだ。</p>
+
+<p>インターン参加中に<a href="http://itpro.nikkeibp.co.jp/atcl/column/15/061500148/100300084/" target="_blank">HivemallのApache Incubatorプロジェクト入り</a>が決定し、今後より多くの機能がサポートされていくことと思うが、機械学習戦国時代に生きる僕たちは常に <strong>ポストHivemall</strong> の可能性も見据える必要があるのだと思う。</p>
+
+<p>実際にHivemallを触りながら、漠然とそんなことを考えていた。</p>
+
+<h3 id="td社内のdatadogメトリクスからの異常検知">TD社内のDatadogメトリクスからの異常検知</h3>
+
+<p>Datadogは<a href="https://www.datadoghq.com/blog/introducing-outlier-detection-in-datadog/" target="_blank">公式でメトリックに対する外れ値スコア計算をサポート</a>していて、メトリックごとのスコアに閾値を設けてアラートを設定すれば、異常検知っぽいことができる。しかしDatadogのアラートは <em>AND</em> や <em>OR</em> のような演算を組み合わせた複雑な条件設定には対応していないので、大量のメトリクスを画面いっぱいに表示して監視するようなシーンで、複数メトリクスの状態から総合的に判断される異常みたいなものが定義できない。</p>
+
+<p>というわけでDatadogの外側にその機構を作ってみましょう、という話になり、インターンを通して以下のようなシステムをEC2上に作って評価・改善を行なった。</p>
+
+<p><img src="https://takuti.me/images/td/dd-anomaly.png" alt="dd-anomaly" /></p>
+
+<ol>
+<li>DatadogからAPI経由で指定メトリクスの値を取ってきて、</li>
+<li>複雑な入力にも対応できる異常検知フレームワーク <strong>ChangeFinder</strong> を実装したPythonデーモンが異常スコアを計算して、</li>
+<li>スコアをくっつけたレコードをFluentに投げて、</li>
+<li>Fluentは
+
+<ul>
+<li>異常スコアのモニタリング用にそれをDatadogにPOSTしつつ</li>
+<li>複数メトリクスに対する複雑な条件によるフィルタリング（検知）のためにComplex Event Processing (CEP) エンジンNorikraにも渡して、</li>
+</ul></li>
+<li>Norikra側で引っかかった異常はFluent経由でSlackに通知される。</li>
+</ol>
+
+<p>TDインターンは全てガチなので、当然これも「インターンの課題として作って終わり」的なモノではなくて、日常的なメトリクス監視業務の一部として実際に使うことを想定して作った。けれど、話はそんなに簡単ではなかった。</p>
+
+<p>まずDatadog APIに依存している時点でメトリクス収集の頻度には制限があるし、<strong>ChangeFinder</strong> は先述の通りハイパーパラメータの闇が深すぎて正直使いづらすぎる。そしてNorikra、これは良し悪し以前の議論の余地が多分に残されている。</p>
+
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr"><a href="https://t.co/DemfQFIVDX">https://t.co/DemfQFIVDX</a> この記事書いたとき結構ノリノリでCEPとか言ってたけど、実際に触ってみると「これいる？」という感情しか湧かなくなり震えながらCEPのサーベイ論文を再読したってワケ。</p>&mdash; たくち (@takuti) <a href="https://twitter.com/takuti/status/762199014863278080?ref_src=twsrc%5Etfw">August 7, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">スキーマレスなストリーム処理エンジンに、パラメータなし（か1）で使える異常値検出の組み合わせは、だいぶ使えるのでは <a href="https://twitter.com/hashtag/td_intern?src=hash&amp;ref_src=twsrc%5Etfw">#td_intern</a></p>&mdash; Sadayuki Furuhashi (@frsyuki) <a href="https://twitter.com/frsyuki/status/781722538887958528?ref_src=twsrc%5Etfw">September 30, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Norikraのpattern機能(Esperのだけど)を本当に使っている例を初めて見たぞ……！ <a href="https://twitter.com/hashtag/td_intern?src=hash&amp;ref_src=twsrc%5Etfw">#td_intern</a></p>&mdash; tagomoris (@tagomoris) <a href="https://twitter.com/tagomoris/status/781722722233561088?ref_src=twsrc%5Etfw">September 30, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>というわけで、経験値として得たものは多かったけど、やり残したことや反省点も多くあるので、これに関してはもう少し使いやすい形まで仕上げて後日改めてブログ記事にでもしたい。</p>
+
+<p>重要なのは、手法がどれほど理論的に素晴らしいものであっても、実際にはそれ以外の部分に様々な困難が存在するということ。そしてそれらに立ち向かうことがいかに難しいことであるか。</p>
+
+<h3 id="チュートリアル記事の執筆">チュートリアル記事の執筆</h3>
+
+<p>TDは「エンジニアがすごい会社」というイメージが強すぎて実際どんなビジネスをしているのか正直謎だったけど、<a href="https://www.treasuredata.com/jp/service" target="_blank">Data Management Platform (DMP) を提供する会社</a>ですよ、みなさん。ゆえに、お客様はデータに関する様々な課題を抱えていて、それに対してDMPの活用方法・事例を示すことが我々の重要な役割のひとつ。</p>
+
+<p>今回はその一例として、<a href="https://github.com/treasure-data/pandas-td" target="_blank">pandas-td</a> も利用しつつTD上でのサービス解約予測を行なった。データは<a href="http://www.dataminingconsultant.com/DKD.htm" target="_blank">これ</a>で、3333サンプルしかないのでscikit-learnとか使ったほうが全然楽なのだけど、そこはご愛嬌。</p>
+
+<p>機械学習・データサイエンスの文脈で第三者に手法の&rdquo;良さ&rdquo;を正しく伝えるためには、まず僕らが数式の気持ちになってあげることが大切だと思う。記事やスライドに数式をそのまま書いたら負け、でもモデルの裏側にある概念は正しく伝える…まぁこれが大変なのだけれども…。</p>
+
+<h3 id="セールス-コンサル目的のミーティングへの同席">セールス/コンサル目的のミーティングへの同席</h3>
+
+<p>こればかりは残念ながら詳細を書くことができないが、TDはセールスの会社（<a href="http://tenshoku.mynavi.jp/it-engineer/knowhow/naoya_sushi/12" target="_blank">CTO談</a>）であり、その一端を感じることのできる素晴らしい機会だった。</p>
+
+<p>「技術はユーザの存在があってこそ」という気持ちがずっとあって、これは機械学習も例外ではない。どのアルゴリズムを使うか？目的変数はなにか？ハイパーパラメータはどうするか？特徴ベクトルは？といったことは全てデータや目的、システム上の制約などに依存する。そしてユーザありきの機械学習では大抵の場合、目的を達成するためにヒューリスティクスが多分に投入される。そのあたり、バランスがとても重要なのだ。数学的に面白い方向性や、少し特殊な問題設定の大喜利的な提案、計算リソースにモノを言わせる手法はたくさんあるけれど、その点なんか違うよね〜と感じてしまう。むつかしい。</p>
+
+<p>そういった世界で&rdquo;ちょうどいい&rdquo;解決策を個々のユーザに示すためには、やっぱりコミュニケーションとか、経験に基づく勘とかが大事で、ミーティングへの同席はそれを再認識する良いきっかけになった。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>良くも悪くも、現実の機械学習は多様なスキルの組み合わせの上に成り立っている。TDインターンを通してその楽しさと難しさを痛感した。</p>
+
+<p>2ヶ月はあっという間だったけれど、楽しくて優秀な同期2人と、とても尊敬できるメンター、そして凄い（それ以外のうまい表現が見つからない）社員のみなさんのおかげで、濃密な時間を過ごすことができた。本当にありがとうございました。</p>
+
+<p>M2の夏休みをフルタイムインターンに捧げるというのは一見リスキーだけど、まぁ毎週ジムにいったり、途中で国際会議ショートペーパー1本書いて投稿するくらいの余裕はあったので、来年も募集があったらみなさん積極的に応募するとよいです。特に機械学習系のみなさん、研究所やデータサイエンティスト的なポジションのインターンも良いけれど、TDもかなり良いですよ。論文のIntroductionの説得力が増すと思います。</p>
+
+<p>最後に僕の最終発表のスライドを貼っておきます。何か変なことを言っていたり、俺ならこうする！みたいな話があったらぜひお聞かせください。</p>
+
+<script async class="speakerdeck-embed" data-id="60d7198f9d5048b6bb1187830c0357b2" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        FluRS: A Python Library for Online Item Recommendation | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-01-21
+  </p>
+  <h2>FluRS: A Python Library for Online Item Recommendation</h2>
+
+  <div class="post">
+    
+
+<p>Last week, I introduced a Julia package for recommender systems: <a href="http://takuti.me/note/recommendation-julia/" target="_blank">Recommendation.jl: Building Recommender Systems in Julia</a>.</p>
+
+<p>However, its functionality is still low, and I argued that implementing more powerful recommendation techniques and <code>update()</code> function is important. Thus, this article provides <strong><a href="https://github.com/takuti/flurs/" target="_blank">FluRS</a></strong>, another open-sourced library for recommendation. Unlike <strong>Recommendation.jl</strong>, this recommender-specific library is written in Python from a practical point of view.</p>
+
+<p>The initial version (v0.0.1) of <strong>FluRS</strong> is already published to PyPI. You can install and use the library by:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pip install flurs</code></pre></div>
+<p>This article simply describes basic ideas and concepts behind the implementation. See the README file to learn how to use the library.</p>
+
+<h3 id="python-for-recommendation">Python for recommendation</h3>
+
+<p>In a context of recommendation, one of the most popular open-source libraries written in Python is <a href="https://github.com/ibayer/fastFM" target="_blank">fastFM</a>, a library for <em>factorization machine</em> (FM) which is a state-of-the-art flexible factorization model. However, fastFM is actually a more generic library for FM-based prediction; it can be used for various applications such as, but not limited to recommendation.</p>
+
+<p>Although there are several recommender-specific packages in the other programming languages like <a href="https://github.com/lenskit/lenskit" target="_blank">LensKit</a> and <a href="https://github.com/guoguibing/librec" target="_blank">LibRec</a> running in the Java virtual machine, and <a href="https://github.com/zenogantner/MyMediaLite" target="_blank">MyMediaLite</a> written in C#, Python implementation and related research papers do not exist to the best of my knowledge. Furthermore, incremental updating (i.e., <code>update()</code> method) of recommendation engines is a less well-developed feature compared to batch training functions. Hence, I developed the new Python library for online, incremental recommendation named <strong>FluRS</strong>.</p>
+
+<h3 id="recommendation-algorithms">Recommendation algorithms</h3>
+
+<p>Currently, <strong>FluRS</strong> supports the following (incremental) recommendation algorithms.</p>
+
+<ul>
+<li><strong>Incremental Collaborative Filtering</strong> (UserKNN)
+
+<ul>
+<li>M. Pepagelis et al. <strong>Incremental Collaborative Filtering for Highly-Scalable Recommendation Algorithms</strong>. In <em>Foundations of Intelligent Systems</em>, pp. 553–561, Springer Berlin Heidelberg, 2005.</li>
+</ul></li>
+<li><strong>Incremental Matrix Factorization</strong> (MF)
+
+<ul>
+<li>J. Vinagre et al. **Fast Incremental Matrix Factorization for Recommendation with Positive-only **. In <em>Proc. of UMAP 2014</em>, pp. 459–470, July 2014.</li>
+</ul></li>
+<li><strong>Incremental Matrix Factorization with BPR optimization</strong> (BPRMF)
+
+<ul>
+<li>S. Rendle et al. <strong>BPR: Bayesian Personalized Ranking from Implicit Feedback</strong>. In <em>Proc. of UAI 2009</em>, pp. 452–461, June 2009.</li>
+</ul></li>
+<li><strong>Incremental Factorization Machines</strong> (FM)
+
+<ul>
+<li>T. Kitazawa. <strong>Incremental Factorization Machines for Persistently Cold-Starting Online Item Recommendation</strong>. <a href="https://arxiv.org/abs/1607.02858" target="_blank">arXiv:1607.02858 [cs.LG]</a>, July 2016.</li>
+</ul></li>
+<li><strong>Matrix Sketching</strong> (OnlineSketch)
+
+<ul>
+<li>T. Kitazawa. <strong>Sketching Dynamic User-Item Interactions for Online Item Recommendation</strong>. In <em>Proc. of CHIIR 2017</em>, March 2017. (to appear)</li>
+</ul></li>
+</ul>
+
+<h3 id="how-to-represent-users-items-and-events">How to represent users, items and events</h3>
+
+<p>Similarly to <strong>Recommendation.jl</strong>, <strong>FluRS</strong> also encapsulates a user, item and corresponding event in entity classes as follows:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">numpy</span> <span style="color:#080;font-weight:bold">as</span> <span style="color:#0e84b5;font-weight:bold">np</span>
+
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">User</span>:
+
+    <span style="color:#080;font-weight:bold">def</span> __init__(self, index, feature<span style="color:#333">=</span>np<span style="color:#333">.</span>array([<span style="color:#60e;font-weight:bold">0.</span>])):
+        self<span style="color:#333">.</span>index <span style="color:#333">=</span> index
+        self<span style="color:#333">.</span>feature <span style="color:#333">=</span> feature
+
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Item</span>:
+
+    <span style="color:#080;font-weight:bold">def</span> __init__(self, index, feature<span style="color:#333">=</span>np<span style="color:#333">.</span>array([<span style="color:#60e;font-weight:bold">0.</span>])):
+        self<span style="color:#333">.</span>index <span style="color:#333">=</span> index
+        self<span style="color:#333">.</span>feature <span style="color:#333">=</span> feature
+
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">Event</span>:
+
+    <span style="color:#080;font-weight:bold">def</span> __init__(self, user, item, value, context<span style="color:#333">=</span>np<span style="color:#333">.</span>array([<span style="color:#60e;font-weight:bold">0.</span>])):
+        self<span style="color:#333">.</span>user <span style="color:#333">=</span> user
+        self<span style="color:#333">.</span>item <span style="color:#333">=</span> item
+        self<span style="color:#333">.</span>value <span style="color:#333">=</span> value
+        self<span style="color:#333">.</span>context <span style="color:#333">=</span> context</code></pre></div>
+<p><code>User</code> and <code>Item</code> can store their internal features as array (vector) representation for feature-based recommendation. An <code>Event</code> entity then consists of <code>user</code> and <code>item</code> entities, and <code>value</code> describing the feedback (e.g., rating). Additionally, <code>context</code> is an auxiliary vector which holds contextual information of the events such as time and location. Note that the features and contexts can be dummy 1-dimensional vectors in case the vectors are not explicitly specified by the arguments.</p>
+
+<h3 id="separating-algorithms-from-recommender-specific-implementations">Separating algorithms from recommender-specific implementations</h3>
+
+<p>Most importantly, this library separates algorithms from recommender-specific implementations which depend on the <code>User</code>, <code>Item</code> and <code>Event</code> entities. In particular, I defined two types of base classes for each of algorithms and recommenders as follows:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">BaseModel</span>:
+
+    <span style="color:#080;font-weight:bold">def</span> __init__(self, <span style="color:#333">*</span>args):
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;&#34;&#34;Set the hyperparameters.
+</span><span style="background-color:#fff0f0">        &#34;&#34;&#34;</span>
+        <span style="color:#080;font-weight:bold">pass</span>
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">init_params</span>(self):
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;&#34;&#34;Initialize model parameters.
+</span><span style="background-color:#fff0f0">        &#34;&#34;&#34;</span>
+        <span style="color:#080;font-weight:bold">pass</span>
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">update_params</span>(self, <span style="color:#333">*</span>args):
+        <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;&#34;&#34;Update model parameters.
+</span><span style="background-color:#fff0f0">        &#34;&#34;&#34;</span>
+        <span style="color:#080;font-weight:bold">pass</span></code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">RecommenderMixin</span>:
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">init_recommender</span>(self, <span style="color:#333">*</span>args):
+        <span style="color:#888"># number of observed users</span>
+        self<span style="color:#333">.</span>n_user <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
+
+        <span style="color:#888"># store user data</span>
+        self<span style="color:#333">.</span>users <span style="color:#333">=</span> {}
+
+        <span style="color:#888"># number of observed items</span>
+        self<span style="color:#333">.</span>n_item <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
+
+        <span style="color:#888"># store item data</span>
+        self<span style="color:#333">.</span>items <span style="color:#333">=</span> {}
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">is_new_user</span>(self, u):
+        <span style="color:#080;font-weight:bold">return</span> u <span style="color:#000;font-weight:bold">not</span> <span style="color:#000;font-weight:bold">in</span> self<span style="color:#333">.</span>users
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">add_user</span>(self, user):
+        self<span style="color:#333">.</span>users[user<span style="color:#333">.</span>index] <span style="color:#333">=</span> {<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;known_items&#39;</span>: <span style="color:#007020">set</span>()}
+        self<span style="color:#333">.</span>n_user <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">is_new_item</span>(self, i):
+        <span style="color:#080;font-weight:bold">return</span> i <span style="color:#000;font-weight:bold">not</span> <span style="color:#000;font-weight:bold">in</span> self<span style="color:#333">.</span>items
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">add_item</span>(self, item):
+        self<span style="color:#333">.</span>items[item<span style="color:#333">.</span>index] <span style="color:#333">=</span> {}
+        self<span style="color:#333">.</span>n_item <span style="color:#333">+=</span> <span style="color:#00d;font-weight:bold">1</span>
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">update</span>(self, event):
+        <span style="color:#080;font-weight:bold">pass</span>
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">score</span>(self, user, candidates):
+        <span style="color:#080;font-weight:bold">return</span>
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">recommend</span>(self, user, candidates):
+        <span style="color:#080;font-weight:bold">return</span></code></pre></div>
+<p>The former only provides model-specific functions such as updating model parameters, and the latter extends it to incremental recommender systems by injecting additional functions which use the <code>User</code>, <code>Item</code> and/or <code>Event</code> entities. The properties defined in the latter mixin continuously track observed users and items, and, if new users (items) are arrived, a recommender registers them on the internal dictionaries.</p>
+
+<p>Generally speaking, performance of recommender systems is highly data-dependent, so we usually modify both underlying algorithms and recommenders&rsquo; functionality depending on data. The separation in the library certainly makes the modifications easier.</p>
+
+<p>In case we like to apply the dimensionality reduction techniques to input vectors, we only need to add some code to the recommender side&rsquo;s <code>update()</code> method and modify the entity-to-feature-vector converting procedure. Likewise, model-specific modification such as changing a loss function simply requires us to overwrite the <code>update_params()</code> method in a model class.</p>
+
+<h3 id="example-factorization-machines-on-flurs">Example: Factorization machines on FluRS</h3>
+
+<p>To give a concrete example, the <strong>FluRS</strong> library defines a FM-based recommender as follows:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">FMRecommender</span>(FactorizationMachine, FeatureRecommenderMixin):</code></pre></div>
+<p>Base classes <code>FactorizationMachine</code> and <code>FeatureRecommenderMixin</code> respectively inherit <code>BaseModel</code> and <code>RecommenderMixin</code>. Unlike <code>RecommenderMixin</code>, <code>FeatureRecommenderMixin</code> takes an additional argument <code>context</code> in a <code>score()</code> and <code>recommend()</code> method, because feature-based techniques allow us to represent an event as a feature vector by encoding and concatenating arbitrary variables.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>From a practical perspective, <strong>FluRS</strong> can be applicable to a wide variety of datasets thanks to the encapsulation of users, items and events; once the samples are converted into an array of <code>Event</code>, testing the online item recommendation techniques on own data should be easy for <strong>FluRS</strong>. In addition, since algorithms and recommenders are separately implemented in the library, both extending the ready-made techniques and implementing new kind of recommenders are straightforward on the library.</p>
+
+<p>In terms of evaluation and further modifications, our library equips several metrics and utility functions for the dimensionality reductions, so <strong>FluRS</strong> can also be a useful toolkit for feature-based and/or top-$N$ recommendation.</p>
+
+<p>However, at the same time, efficiency of the library is still inadequate. Therefore, following <a href="https://github.com/ibayer/fastFM-core" target="_blank">the fastFM&rsquo;s highly efficient core implementation written in C</a> is one possible future direction.</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

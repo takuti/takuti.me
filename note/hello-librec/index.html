@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Java製の推薦システム用ライブラリ LibRec を動かしてみる | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-04-23
+  </p>
+  <h2>Java製の推薦システム用ライブラリ LibRec を動かしてみる</h2>
+
+  <div class="post">
+    
+
+<p><strong><a href="http://www.librec.net/" target="_blank">LibRec</a></strong> というJava製の推薦システム用ライブラリがある。</p>
+
+<p><a href="https://takuti.me/note/td-intern-2016">Treasure Dataインターンのとき</a>やPython, Juliaで推薦アルゴリズムの実装をライブラリ化したとき (<a href="https://takuti.me/note/flurs">FluRS</a>, <a href="https://takuti.me/note/recommendation-julia">Recommendation.jl</a>) にはこの実装を大いに参考にした。</p>
+
+<p>しかし思い返すとこのライブラリ自体を実際に動かしたことがなかったので、<a href="http://wiki.librec.net/doku.php?id=introduction" target="_blank">documentation</a>に従ってサンプルコードを読みつつ動かしてみる。</p>
+
+<h3 id="雰囲気">雰囲気</h3>
+
+<p><a href="http://wiki.librec.net/doku.php?id=CLIWalkthrough" target="_blank">CLIもあるらしい</a>けど、今回は普通にJavaでコードを書くタイプの例を試す。</p>
+
+<p>Mavenプロジェクトなら <code>dependency</code> に <code>net.librec</code> を入れればすぐに使える:</p>
+
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;net.librec&lt;/groupId&gt;
+    &lt;artifactId&gt;librec-core&lt;/artifactId&gt;
+    &lt;version&gt;2.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h4 id="1-build-data-model">1. Build data model</h4>
+
+<p>コードはデータモデルを生成するところから始まる:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#888">// build data model
+</span><span style="color:#888"></span>Configuration conf <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Configuration<span style="color:#333">();</span>
+conf<span style="color:#333">.</span><span style="color:#00c">set</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;dfs.data.dir&#34;</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;/Users/takuti/src/github.com/guoguibing/librec/data&#34;</span><span style="color:#333">);</span>
+TextDataModel dataModel <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> TextDataModel<span style="color:#333">(</span>conf<span style="color:#333">);</span>
+dataModel<span style="color:#333">.</span><span style="color:#00c">buildDataModel</span><span style="color:#333">();</span></code></pre></div>
+<p>読み込むデータは <code>user-id item-id rating</code>（スペース区切り）からなるテキストファイルと<a href="http://www.cs.waikato.ac.nz/ml/weka/arff.html" target="_blank">WekaのARFF</a>をサポートしている。</p>
+
+<p>ファイルのパスやアルゴリズムのハイパーパラメータ（e.g., kNNの近傍数）はすべて <code>Configuration</code> 経由で設定する。その実体は <a href="https://github.com/guoguibing/librec/blob/18176ed41027348ee2187d8686a1b2c0d4d39277/conf/librec.properties" target="_blank">librec.properties</a> で、この形式で記述した独自の設定をガッとまとめて読み込むことも可能:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Resource resource <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Resource<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;rec/cf/itemknn-test.properties&#34;</span><span style="color:#333">);</span>
+conf<span style="color:#333">.</span><span style="color:#00c">addResource</span><span style="color:#333">(</span>resource<span style="color:#333">);</span></code></pre></div>
+<p><code>dataModel.buildDataModel()</code> では指定されたパス内のファイルをすべて読んで、train/testデータへの分割までやってくれる。このあたりの挙動もすべて <a href="https://github.com/guoguibing/librec/blob/18176ed41027348ee2187d8686a1b2c0d4d39277/conf/librec.properties" target="_blank">librec.properties</a> に従っている。</p>
+
+<h4 id="2-build-recommender-context">2. Build recommender context</h4>
+
+<p>さっき定義した <code>Configuration</code> と <code>dataModel</code> を使って、これから行うタスクのためのコンテキストを生成する:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#888">// build recommender context
+</span><span style="color:#888"></span>RecommenderContext context <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> RecommenderContext<span style="color:#333">(</span>conf<span style="color:#333">,</span> dataModel<span style="color:#333">);</span></code></pre></div>
+<h4 id="3-build-similarity">3. Build similarity</h4>
+
+<p>求めたい類似度を設定して、計算して、それをコンテキストにセットする:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#888">// build similarity
+</span><span style="color:#888"></span>conf<span style="color:#333">.</span><span style="color:#00c">set</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;rec.recommender.similarity.key&#34;</span> <span style="color:#333">,</span><span style="background-color:#fff0f0">&#34;item&#34;</span><span style="color:#333">);</span>
+RecommenderSimilarity similarity <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> PCCSimilarity<span style="color:#333">();</span>
+similarity<span style="color:#333">.</span><span style="color:#00c">buildSimilarityMatrix</span><span style="color:#333">(</span>dataModel<span style="color:#333">);</span>
+context<span style="color:#333">.</span><span style="color:#00c">setSimilarity</span><span style="color:#333">(</span>similarity<span style="color:#333">);</span></code></pre></div>
+<p>ここでは <strong>アイテムに対して</strong> (item-based)、<strong>ピアソン相関係数</strong> (PCC) に基づく類似度を計算させている。</p>
+
+<h4 id="4-build-run-recommender">4. Build &amp; run recommender</h4>
+
+<p><code>Recommender</code> を生成してコンテキストを渡してあげる。ここでは近傍数 (<code>rec.neighbors.knn.number</code>) が5の <code>ItemKNNRecommender()</code> を生成:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#888">// build recommender
+</span><span style="color:#888"></span>conf<span style="color:#333">.</span><span style="color:#00c">set</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;rec.neighbors.knn.number&#34;</span><span style="color:#333">,</span> <span style="background-color:#fff0f0">&#34;5&#34;</span><span style="color:#333">);</span>
+Recommender recommender <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> ItemKNNRecommender<span style="color:#333">();</span>
+recommender<span style="color:#333">.</span><span style="color:#00c">setContext</span><span style="color:#333">(</span>context<span style="color:#333">);</span></code></pre></div>
+<p>つまり、事前にコンテキストにセットしていた類似度の設定と合わせると、今回は『<strong>ピアソン相関係数に基づく $k=5$ の item-based collaborative filtering</strong>』を実行することになる。</p>
+
+<p>ここまで来れば、実行はワンライン:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#888">// run recommender algorithm
+</span><span style="color:#888"></span>recommender<span style="color:#333">.</span><span style="color:#00c">recommend</span><span style="color:#333">(</span>context<span style="color:#333">);</span></code></pre></div>
+<h4 id="5-evaluation">5. Evaluation</h4>
+
+<p><code>RMSEEvaluator</code> を生成して、それを <code>recommend()</code> 実行済の <code>recommender</code> の <code>evaluate()</code> に渡してあげることで評価が行われる:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#888">// evaluate the recommended result
+</span><span style="color:#888"></span>RecommenderEvaluator evaluator <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> RMSEEvaluator<span style="color:#333">();</span>
+System<span style="color:#333">.</span><span style="color:#00c">out</span><span style="color:#333">.</span><span style="color:#00c">println</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;RMSE:&#34;</span> <span style="color:#333">+</span> recommender<span style="color:#333">.</span><span style="color:#00c">evaluate</span><span style="color:#333">(</span>evaluator<span style="color:#333">));</span> <span style="color:#333">//</span> <span style="color:#333">=&gt;</span> <span style="color:#970;font-weight:bold">RMSE:</span>0<span style="color:#333">.</span><span style="color:#00c">8352805769243591</span></code></pre></div>
+<h4 id="6-get-results">6. Get results</h4>
+
+<p><code>recommender.recommend()</code> で得られた推薦（予測）結果を <code>RecommendedItem</code> というオブジェクトのリストとして取得することができる。</p>
+
+<p>取得対象の <code>RecommendedItem</code> にフィルターをかけることもできる。たとえば『<strong>ユーザ#1またはアイテム#70を対象とする予測結果</strong>』が見たければ、次のようにフィルターをかける:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#888">// set id list of filter
+</span><span style="color:#888"></span>List<span style="color:#333">&lt;</span>String<span style="color:#333">&gt;</span> userIdList <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> ArrayList<span style="color:#333">&lt;</span>String<span style="color:#333">&gt;();</span>
+List<span style="color:#333">&lt;</span>String<span style="color:#333">&gt;</span> itemIdList <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> ArrayList<span style="color:#333">&lt;</span>String<span style="color:#333">&gt;();</span>
+userIdList<span style="color:#333">.</span><span style="color:#00c">add</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;1&#34;</span><span style="color:#333">);</span>
+itemIdList<span style="color:#333">.</span><span style="color:#00c">add</span><span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;70&#34;</span><span style="color:#333">);</span>
+
+<span style="color:#888">// filter the recommended result
+</span><span style="color:#888"></span>List<span style="color:#333">&lt;</span>RecommendedItem<span style="color:#333">&gt;</span> recommendedItemList <span style="color:#333">=</span> recommender<span style="color:#333">.</span><span style="color:#00c">getRecommendedList</span><span style="color:#333">();</span>
+GenericRecommendedFilter filter <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> GenericRecommendedFilter<span style="color:#333">();</span>
+filter<span style="color:#333">.</span><span style="color:#00c">setUserIdList</span><span style="color:#333">(</span>userIdList<span style="color:#333">);</span>
+filter<span style="color:#333">.</span><span style="color:#00c">setItemIdList</span><span style="color:#333">(</span>itemIdList<span style="color:#333">);</span>
+recommendedItemList <span style="color:#333">=</span> filter<span style="color:#333">.</span><span style="color:#00c">filter</span><span style="color:#333">(</span>recommendedItemList<span style="color:#333">);</span></code></pre></div>
+<p>あとは煮るなり焼くなり。表示してみる:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#888">// print filter result
+</span><span style="color:#888"></span><span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span>RecommendedItem recommendedItem <span style="color:#333">:</span> recommendedItemList<span style="color:#333">)</span> <span style="color:#333">{</span>
+    System<span style="color:#333">.</span><span style="color:#00c">out</span><span style="color:#333">.</span><span style="color:#00c">println</span><span style="color:#333">(</span>
+            <span style="background-color:#fff0f0">&#34;user:&#34;</span> <span style="color:#333">+</span> recommendedItem<span style="color:#333">.</span><span style="color:#00c">getUserId</span><span style="color:#333">()</span> <span style="color:#333">+</span> <span style="background-color:#fff0f0">&#34; &#34;</span> <span style="color:#333">+</span>
+            <span style="background-color:#fff0f0">&#34;item:&#34;</span> <span style="color:#333">+</span> recommendedItem<span style="color:#333">.</span><span style="color:#00c">getItemId</span><span style="color:#333">()</span> <span style="color:#333">+</span> <span style="background-color:#fff0f0">&#34; &#34;</span> <span style="color:#333">+</span>
+            <span style="background-color:#fff0f0">&#34;value:&#34;</span> <span style="color:#333">+</span> recommendedItem<span style="color:#333">.</span><span style="color:#00c">getValue</span><span style="color:#333">()</span>
+    <span style="color:#333">);</span>
+<span style="color:#333">}</span>
+
+<span style="color:#888">/*
+</span><span style="color:#888">user:1 item:1 value:3.72186572013805
+</span><span style="color:#888">user:1 item:9 value:3.6660434401297843
+</span><span style="color:#888">user:659 item:70 value:2.381236774589509
+</span><span style="color:#888">user:1065 item:70 value:2.9759100334538178
+</span><span style="color:#888">user:1 item:4 value:3.6802197608115867
+</span><span style="color:#888">user:918 item:70 value:2.660444061555275
+</span><span style="color:#888">*/</span></code></pre></div>
+<p>確かにユーザ#1またはアイテム#70に対する結果のみが得られている。</p>
+
+<p>以上、チュートリアルでした。</p>
+
+<p>ここから先は、たとえばクエリを組み立ててDBに問い合わせる処理が来たりするのかな。</p>
+
+<h3 id="良さ">良さ</h3>
+
+<p>LibRecの強みは何と言っても豊富なアルゴリズム。</p>
+
+<p>Most Popular（ひたすら一番人気のアイテムを推薦する）のような <strong>Non-personalized Recommenders</strong> から、古典的な<strong>協調フィルタリング</strong>、そして新しいところでは <strong>Factorization Machines</strong> や <strong>Restricted Boltzmann Machine</strong> を使った手法まで、実に70種類以上の推薦手法をサポートしている (cf. <a href="http://wiki.librec.net/doku.php?id=AlgorithmList" target="_blank">Algorithm List</a>)。</p>
+
+<p>そして実装がシンプルで、とてもうまく設計されていると思う。</p>
+
+<p>先の例だけ見ても、推薦システム構築の際の &ldquo;<strong>チェックポイント</strong>&rdquo; となりうるパーツが綺麗に分離されていることがわかる:</p>
+
+<ul>
+<li>Recommender
+
+<ul>
+<li>Context
+
+<ul>
+<li>Configuration</li>
+<li>Data Model</li>
+<li>Similarity</li>
+</ul></li>
+<li>Evaluator</li>
+</ul></li>
+<li>Filter</li>
+</ul>
+
+<p>「アルゴリズムを切り替えたいな」と思えば <code>Recommender recommender = new ItemKNNRecommender();</code> を別の Recommender にすれば良いし、類似度や評価指標の変更も同様にできる。</p>
+
+<p>もちろん手法に応じて細かい設定項目は変わるけど、それらはすべて <code>Configuration</code> でラップしていて、手法にほぼ依存しないインタフェースを提供している。</p>
+
+<p>これによって「さっきコンテキストをセットしたのにまた渡すの？」と思ってしまうような実装にはなるが、それはもはや些細な問題だと思う:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Recommender recommender <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> ItemKNNRecommender<span style="color:#333">();</span>
+recommender<span style="color:#333">.</span><span style="color:#00c">setContext</span><span style="color:#333">(</span>context<span style="color:#333">);</span>
+recommender<span style="color:#333">.</span><span style="color:#00c">recommend</span><span style="color:#333">(</span>context<span style="color:#333">);</span></code></pre></div>
+<p>推薦アルゴリズムを自分で実装したことがある人なら分かると思うけど、複数の手法に対して同一のインタフェースを提供するのは結構難しい。評価値 (rating) 情報とランキング情報に対するデータ構造の違い（e.g., 行列 or リスト）や、アルゴリズムごとに異なる大量のハイパーパラメータ…考えただけで頭が痛い。それにもかかわらず、推薦というタスクは様々な設定（アルゴリズム、評価指標、類似度、データ、etc&hellip;）の組み合わせの試行錯誤が当たり前という現実もある。</p>
+
+<p>その点、LibRecの実装から学ぶべきことは多い。</p>
+
+<p>というわけで、突然中国語のdocumentが出てきたりしてたまに不安になるけど、これからも応援していきたいプロジェクト LibRec の話でした。</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

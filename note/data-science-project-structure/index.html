@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        データサイエンスプロジェクトのディレクトリ構成どうするか問題 | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-12-16
+  </p>
+  <h2>データサイエンスプロジェクトのディレクトリ構成どうするか問題</h2>
+
+  <div class="post">
+    
+
+<p>あるいは、論文 &ldquo;<strong><a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745" target="_blank">Best Practices for Scientific Computing</a></strong>&rdquo; および &ldquo;<strong><a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510" target="_blank">Good Enough Practices in Scientific Computing</a></strong>&rdquo; について。</p>
+
+<h3 id="tl-dr">TL;DR</h3>
+
+<ul>
+<li>標題の件について、未だに答えは見えていないのだけど、自分の現状と他の人の例を文字で残しておく。</li>
+<li>こういう話で「あーその手があったかー！」と知ったときの興奮はすごいので、みなさんもっとオープンにいきましょう。</li>
+<li>大切なのは、ソフトウェア開発と同じ要領でデータサイエンスのプロジェクトを捉えて、分析と言う名の“開発”を行うつもりでディレクトリを掘ること。</li>
+</ul>
+
+<h3 id="必要なものリスト">必要なものリスト</h3>
+
+<p>ナウいデータサイエンス/機械学習プロジェクトの中には（経験上、ぱっと思い浮かぶだけでも）次のようなファイル群があって、僕たちはそれらを良い感じに管理したい。</p>
+
+<h4 id="ソースコード">ソースコード</h4>
+
+<p>役割がいろいろある：</p>
+
+<ul>
+<li>前処理（これが一番ヤバい）</li>
+<li>実験</li>
+<li>学習</li>
+<li>予測</li>
+<li>テスト</li>
+</ul>
+
+<p>どの程度モジュール化するかという点は難しくて、Jupyter Notebookの中から特定のクラスを <code>import</code> して使いたいこともある。</p>
+
+<h4 id="タスクランナー">タスクランナー</h4>
+
+<p><code>make</code> でも <code>rake</code> でもいいし、エントリポイント的なCLIツールを1つ作ってもいい。</p>
+
+<p>いずれにせよ、コードが1つのパッケージとしてキレイにまとまっているわけではないので、各スクリプトの実行手続きが単純かつ明確でなければならない。</p>
+
+<h4 id="設定ファイル">設定ファイル</h4>
+
+<p>ハイパーパラメータやイテレーション回数、データのパスなどは頻繁に変わる（切り替える）ので、ハードコードしないで外部から読み込みたい。</p>
+
+<h4 id="notebooks">Notebooks</h4>
+
+<p>ソースコードとは別。探索的な解析や可視化で使う。ごちゃごちゃしがち。</p>
+
+<h4 id="データ">データ</h4>
+
+<p>生データと前処理済みデータがある。でかい。</p>
+
+<p>後者をしっかり保存しておくと、2回目以降が楽ちん。</p>
+
+<h4 id="結果">結果</h4>
+
+<p><code>.pkl</code> などで出力されたモデル。ファイル名などによるバージョニングが重要で、いつでも過去の結果に戻れるようにしておきたい。各バージョンに対応する精度がどこかで参照できるとさらによい。</p>
+
+<p>あと、可視化したグラフなども重要な結果のひとつ。</p>
+
+<h4 id="バージョン">バージョン</h4>
+
+<p>モデルのバージョンに限らず、ディレクトリ全体として「これはいつの状態か」が分かることが大切。</p>
+
+<h4 id="依存">依存</h4>
+
+<p>DBやライブラリをインストールする必要があるときはそれをREADMEに明記しておく。インストール用のスクリプトがあればなお丁寧。</p>
+
+<p>Pythonなら <code>requirements.txt</code> をきちんと置いておく。</p>
+
+<h3 id="わたしの場合">わたしの場合</h3>
+
+<p>以上を踏まえて、自分の現状はどうかというと、だいたいいつも<a href="https://github.com/takuti/stream-recommender" target="_blank">修論のときのリポジトリ</a>のような構成になる<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">1</a></sup>：</p>
+
+<pre><code>.
+├── README.md
+├── config
+│   ├── LastFM
+│   ├── ML100k
+│   ├── ML1M
+│   ├── click
+│   └── example.ini
+├── converter
+│   ├── LastFM.py
+│   ├── MovieLens100k.py
+│   ├── MovieLens1M.py
+│   ├── SyntheticClick.py
+│   ├── __init__.py
+│   └── converter.py
+├── data
+├── experiment.py
+├── notebook
+│   ├── LastFM.ipynb
+│   ├── claim-iMF.ipynb
+│   ├── paper-iFMs.ipynb
+│   └── paper-sketch.ipynb
+├── requirements.txt
+├── results
+└── tool
+    ├── clickgenerator.jl
+    └── parse_result.py
+</code></pre>
+
+<p>先の要件に沿ってこのディレクトリ構成を振り返ってみる。</p>
+
+<ul>
+<li>ソースコード
+
+<ul>
+<li>👍
+
+<ul>
+<li>アルゴリズム本体とその他の処理（前処理、実験など）を切り分けた
+
+<ul>
+<li>修論では途中から、アルゴリズム本体を別ライブラリ化した<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">2</a></sup>：<strong><a href="https://github.com/takuti/flurs" target="_blank">takuti/flurs</a></strong></li>
+<li>本質的な部分について、それ単体でテストしたりCIが回せるので安心感がある</li>
+</ul></li>
+<li>Data Converterを <code>converter/</code> 以下に作って、データセット間のフォーマット差異を前処理段階で吸収した</li>
+</ul></li>
+<li>👎
+
+<ul>
+<li>実験用コードのテストが無い
+
+<ul>
+<li>データを 8:2 に分けたり、精度を計算したりする部分はモジュール化して要テスト</li>
+</ul></li>
+<li>CI回してない
+
+<ul>
+<li>テストコードがなくても、最低限、各スクリプトの runability チェックは継続的にするべき</li>
+<li>秘密のリポジトリなら Circle CI がべんり</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>タスクランナー
+
+<ul>
+<li>👍
+
+<ul>
+<li>ルートに1つ <code>experiment.py</code> というエントリポイントになるCLIツールを作った
+
+<ul>
+<li>Pythonの <code>import</code> パスの闇からある程度開放されて精神衛生上よい</li>
+<li>コマンドライン引数のパースは <code>optparse</code> でも良いけど、多くなってきたら <a href="http://click.pocoo.org/5/" target="_blank">click</a> も便利</li>
+</ul></li>
+</ul></li>
+<li>👎
+
+<ul>
+<li>オレオレCLIツールは少し時間が経つと「どうやって使ったっけ？」となる
+
+<ul>
+<li><code>Makefile</code> のような標準的な形でタスクを定義できたほうが長い目で見ると良さそう</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>設定ファイル
+
+<ul>
+<li>👍
+
+<ul>
+<li>データごと、手法ごとに <code>.ini</code> ファイルを作った
+
+<ul>
+<li><code>experiment.py</code> の引数に設定ファイルのパスを渡して、所望のデータ・手法の組み合わせで実験を行う</li>
+<li>バージョン管理と組み合わせると『この実験結果が出たときのハイパーパラメータ』が残せてよい</li>
+</ul></li>
+</ul></li>
+<li>👎
+
+<ul>
+<li>より良い設定ファイルの設計があった気がする
+
+<ul>
+<li>たとえば
+
+<ul>
+<li>データセットは名前ではなくパスで設定</li>
+<li>テストデータ/学習データの割合を 8:2 固定ではなく、設定可能にする</li>
+<li>実験そのものの設定と手法のハイパーパラメータを異なるファイルで定義する</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Notebooks
+
+<ul>
+<li>👍
+
+<ul>
+<li>1つの論文（サブプロジェクト）につき 1 notebook、という分け方をした
+
+<ul>
+<li>雑多なNotebookはあえて残さないで、できるだけ早くコード (Data Converterなど) に落とし込む</li>
+</ul></li>
+</ul></li>
+<li>👎
+
+<ul>
+<li>バージョン管理がうまくできない
+
+<ul>
+<li>Notebook内の1セルが変わっただけでもgitにはaddを要求されるが、そこまで付き合いきれない</li>
+<li>結果として、テキトーなタイミングで最近の変更をガッとまとめて &ldquo;Update notebook&rdquo; みたいなコミットで片付けることが多くて、いざというときに戻りづらかった</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>データ
+
+<ul>
+<li>👍
+
+<ul>
+<li>生データは大きすぎるので <code>.gitignore</code>
+
+<ul>
+<li>まぁ当然ですね</li>
+</ul></li>
+</ul></li>
+<li>👎
+
+<ul>
+<li>データのごく一部を同じフォーマットで切り出しておいて（またはダミーデータを作っておいて）、最低限それはGitの管理下におけばよかった
+
+<ul>
+<li>「これってどんなフォーマットのデータだっけ？」というときにすぐ参照できる</li>
+<li>CIでも使える</li>
+<li>別リポジトリ <strong><a href="https://github.com/takuti/twitter-bot" target="_blank">takuti/twitter-bot</a></strong> では似たようなことをしている</li>
+</ul></li>
+<li><a href="http://scikit-learn.org/stable/datasets/index.html" target="_blank">scikit-learn のようなダウンロードスクリプト</a>があれば再現性の点でより良かった</li>
+<li>前処理済みデータを保存しておらず、実験実行のたびに Data Converter が生データを変換していて無駄</li>
+</ul></li>
+</ul></li>
+<li>結果
+
+<ul>
+<li>👍
+
+<ul>
+<li><code>experiment.py</code> の出力を <code>tool/parse_result.py</code> でパース→Notebook上でそれを可視化、という流れができていた</li>
+</ul></li>
+<li>👎
+
+<ul>
+<li>オンラインなアルゴリズムを扱っていたのでモデルの保存は諦めた
+
+<ul>
+<li>もう少し何とかならなかったかな…。</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>バージョン
+
+<ul>
+<li>👍
+
+<ul>
+<li>当然Git使うよね、というだけの話</li>
+<li>論文やレポートを提出したタイミングなど、プロジェクトの区切りでタグを付けておくと便利</li>
+</ul></li>
+<li>👎
+
+<ul>
+<li>実験結果はあまりちゃんと残していなくて、昔の結果が欲しいのにもう消していた、ということが多々あった</li>
+</ul></li>
+</ul></li>
+<li>依存
+
+<ul>
+<li>👍
+
+<ul>
+<li>（このリポジトリだと環境依存はあまりないのでアレだけど）READMEはちゃんと書く</li>
+<li><code>requirements.txt</code> を置いておく</li>
+</ul></li>
+<li>👎
+
+<ul>
+<li>（ディレクトリ構成とは直接関係ないけど）もっとミドルウェアを効果的に使えなかったものか
+
+<ul>
+<li>例：Redisを使った <a href="https://github.com/takuti/fastcat" target="_blank">fastcat</a> など</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>プロジェクトが異なれば、それはそれでまた違った 👍 と 👎 が出てきたりして、まぁ難しい。</p>
+
+<h3 id="みんなはどうしているのか">みんなはどうしているのか</h3>
+
+<p>そもそもこんな話を書き留めておこうと思ったのは、データサイエンスプロジェクトにおける <code>rails new</code> 的な立ち位置を目指している子 &ldquo;<strong><a href="https://github.com/drivendata/cookiecutter-data-science" target="_blank">Cookiecutter Data Science</a></strong>&rdquo; を見かけたから。</p>
+
+<p>READMEから Cookiecutter 標準のディレクトリ構成を引用すると次のような雰囲気：</p>
+
+<pre><code>├── LICENSE
+├── Makefile           &lt;- Makefile with commands like `make data` or `make train`
+├── README.md          &lt;- The top-level README for developers using this project.
+├── data
+│   ├── external       &lt;- Data from third party sources.
+│   ├── interim        &lt;- Intermediate data that has been transformed.
+│   ├── processed      &lt;- The final, canonical data sets for modeling.
+│   └── raw            &lt;- The original, immutable data dump.
+│
+├── docs               &lt;- A default Sphinx project; see sphinx-doc.org for details
+│
+├── models             &lt;- Trained and serialized models, model predictions, or model summaries
+│
+├── notebooks          &lt;- Jupyter notebooks. Naming convention is a number (for ordering),
+│                         the creator's initials, and a short `-` delimited description, e.g.
+│                         `1.0-jqp-initial-data-exploration`.
+│
+├── references         &lt;- Data dictionaries, manuals, and all other explanatory materials.
+│
+├── reports            &lt;- Generated analysis as HTML, PDF, LaTeX, etc.
+│   └── figures        &lt;- Generated graphics and figures to be used in reporting
+│
+├── requirements.txt   &lt;- The requirements file for reproducing the analysis environment, e.g.
+│                         generated with `pip freeze &gt; requirements.txt`
+│
+├── src                &lt;- Source code for use in this project.
+│   ├── __init__.py    &lt;- Makes src a Python module
+│   │
+│   ├── data           &lt;- Scripts to download or generate data
+│   │   └── make_dataset.py
+│   │
+│   ├── features       &lt;- Scripts to turn raw data into features for modeling
+│   │   └── build_features.py
+│   │
+│   ├── models         &lt;- Scripts to train models and then use trained models to make
+│   │   │                 predictions
+│   │   ├── predict_model.py
+│   │   └── train_model.py
+│   │
+│   └── visualization  &lt;- Scripts to create exploratory and results oriented visualizations
+│       └── visualize.py
+│
+└── tox.ini            &lt;- tox file with settings for running tox; see tox.testrun.org
+</code></pre>
+
+<p>個人的なポイント：</p>
+
+<ul>
+<li><code>LICENSE</code> 重要</li>
+<li>最初に挙げた要件の通り、データはimmutableな生データと前処理済みデータに分かれている</li>
+<li>READMEとは別でドキュメント <code>docs/</code> がきちんとある</li>
+<li><code>references/</code> はプロジェクトを通して何度も参照することになるので意外と重要</li>
+<li>ソースコードは <code>src/</code> 以下で一元管理
+
+<ul>
+<li>役割ごとにディレクトリにまとめて、ファイル名は <code>動詞_xxx</code> に統一することで何をするスクリプトかわかりやすくなっている</li>
+</ul></li>
+<li>テストには <code>tox</code>（テストコードは <code>src/</code> 以下に適宜置くのかな）
+
+<ul>
+<li>このあたりは好みの問題もあるけど、toxだと異なるバージョン間のテストが楽だった気がする<sup class="footnote-ref" id="fnref:3"><a rel="footnote" href="#fn:3">3</a></sup></li>
+</ul></li>
+</ul>
+
+<p>このような構成について、詳しくは &ldquo;<a href="https://towardsdatascience.com/structure-and-automated-workflow-for-a-machine-learning-project-2fa30d661c1e" target="_blank">Structure and automated workflow for a machine learning project — part 1</a>&rdquo; なども参照されたい。ここまで考え抜かないとディレクトリ構成のテンプレ化は困難か…。</p>
+
+<p>関連して、<a href="https://www.kaggle.com/general/4815" target="_blank">Kaggleのディスカッションフォーラムでも似たような議論がなされていた</a>。回答の一部を並べてみよう：</p>
+
+<pre><code>├── code
+├── data
+│   ├── input
+│   ├── working
+│   └── output
+├── demos
+└── tests
+</code></pre>
+
+<p>▲ <code>data/</code> 内で『どんなデータか』をディレクトリごと分けて保存している。</p>
+
+<pre><code>├── analysis
+├── data
+├── download
+├── features
+├── src (or &lt;method&gt;)
+├── logs
+└── submissions
+</code></pre>
+
+<p>▲ <code>download/</code> は生データ、<code>data/</code> は何らかの処理を施したデータ、さらに特徴量を作ったらそれは <code>features/</code> に保存。そして <code>logs/</code>！これ確かに一番大切だ…。</p>
+
+<pre><code>├── data
+├── util
+├── history (= submissions)
+└── &lt;method&gt;
+</code></pre>
+
+<p>▲ <code>data/</code> には生データだけでなく、train/test用に分割されたデータなど、いろいろ入る。データの前処理用スクリプトなどは <code>util/</code> に入る。メインのコードは手法や使用言語ごとにディレクトリを完全に分けているというのが面白い (e.g., <code>knn_R/</code> など)。</p>
+
+<pre><code>├── documentation
+├── data
+├── code
+├── submissions
+└── figures
+</code></pre>
+
+<p>▲ ドキュメントと図の管理が重要。</p>
+
+<p>人によって細かな配慮の差はあれど、大枠は共通していて、</p>
+
+<ul>
+<li>元データ</li>
+<li>前処理済みデータ</li>
+<li>実験結果の履歴 (＝ Kaggle の submissions 履歴)</li>
+<li>分析の足跡（ログ、あるいはソースコードそれ自体）</li>
+</ul>
+
+<p>これらをきちんと残すことが重要なんだと思う。</p>
+
+<p>ちなみに、このフォーラムで挙げられていた文献：</p>
+
+<ul>
+<li><strong><a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745" target="_blank">Best Practices for Scientific Computing</a></strong></li>
+</ul>
+
+<p>が良くて、著者たちは科学技術計算におけるソフトウェア開発のベストプラクティスとして次の8つを挙げている：</p>
+
+<ol>
+<li>Write programs for people, not computers.
+
+<ul>
+<li>リーダブルコードを読んで実践しましょう</li>
+</ul></li>
+<li>Let the computer do the work.
+
+<ul>
+<li>補助的なスクリプトと <code>make</code> などを利用して複雑な処理を単純化しましょう</li>
+</ul></li>
+<li>Make incremental changes.
+
+<ul>
+<li>可能な限りすべての中間成果物をバージョン管理して、再現可能な状態を保ちつつアジャイル的にプロジェクトを進めましょう</li>
+</ul></li>
+<li>Don’t repeat yourself (or others).
+
+<ul>
+<li>DRYです</li>
+</ul></li>
+<li>Plan for mistakes.
+
+<ul>
+<li>十分な <code>assert</code> とテストコードで保守的に実装を進めつつ、バグを踏んだらそれは即テストケースに追加しましょう</li>
+</ul></li>
+<li>Optimize software only after it works correctly.
+
+<ul>
+<li>プロファイラを使ったボトルネックの発見、C言語などのより低級な言語による実装といった最適化作業は、正しく動くものができた後で考えましょう</li>
+</ul></li>
+<li>Document design and purpose, not mechanics.
+
+<ul>
+<li>インタフェースの詳細やそのような実装になった背景など、非自明な点をしっかりドキュメント（コメント）に残しつつ、適宜リファクタリングを行って自己説明的なコードにしていきましょう</li>
+</ul></li>
+<li>Collaborate.
+
+<ul>
+<li>コードレビュー、ペアプロ、issue trackingなどを行いましょう</li>
+</ul></li>
+</ol>
+
+<p>何を当たり前のことを！という感じなんですが、こんな当たり前のことさえ実践できなくなってしまう恐ろしさをデータサイエンスのプロジェクトは孕んでいるのだと思います。様々なツールとデータに翻弄され、コードの質以前に前処理や泥臭いトライ＆エラーの壁が分厚くて、頭の使い所が普段と全く違う。結果として、ゴミ屋敷のようなディレクトリが大量生成される。</p>
+
+<p>だからこそ視点を変えて、データ分析を1つのソフトウェア開発として捉える必要があって、<code>Makefile</code> を作ることや、データ/コード/結果のバージョン管理、テスト、CIを行うことが大切。</p>
+
+<p>なお、&rdquo;Best Practices for Scientific Computing&rdquo; から4年後の今年、より実践的かつ最小限のポイントを伝える &ldquo;Good Enough Practices for Scientific Computing&rdquo; という論文が発表された：</p>
+
+<ul>
+<li><strong><a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510" target="_blank">Good Enough Practices in Scientific Computing</a></strong></li>
+</ul>
+
+<p>この詳細はリンク先に譲るが、個人的に注目したいのは以下の点で、先に挙げた複数のディレクトリ構成の実例と考えていることが合致する：</p>
+
+<ul>
+<li>データ管理
+
+<ul>
+<li>生データはそのままの状態で保存して、同時に複数の場所でバックアップをとっておくこと</li>
+<li>データの各処理過程で、その状態をしっかりと記録すること</li>
+</ul></li>
+<li>プロジェクト管理
+
+<ul>
+<li>Todoリストを作っておくこと</li>
+<li>ライセンスを明確にすること</li>
+<li>プロジェクトを他の人が引用しやすい状態にしておくこと（<code>LICENSE</code>と同じ要領で、<code>CITATION</code>みたいなファイルを作っておく）</li>
+</ul></li>
+<li>ディレクトリ構成
+
+<ul>
+<li><code>docs/</code> ディレクトリにドキュメントを残すこと</li>
+<li>そこに <code>CHANGELOG.txt</code> も作成して、変更をトラッキングすること</li>
+<li>各ステップで得られたデータやファイルは <code>data/</code> や <code>results/</code> といったディレクトリにしっかり保管すること</li>
+<li>ソースコードは <code>src/</code> にまとめること</li>
+<li>補助的なスクリプトやコンパイル結果は <code>bin/</code> にまとめること</li>
+<li>すべてに説明的なファイル名をつけること</li>
+</ul></li>
+</ul>
+
+<p>より具体的に、論文中で挙げられているディレクトリ構成の例は次のような感じ：</p>
+
+<pre><code>.
+|--CITATION
+|--README
+|--LICENSE
+|--requirements.txt
+|--data
+|  |--birds_count_table.csv
+|--doc
+|  |--notebook.md
+|  |--manuscript.md
+|  |--changelog.txt
+|--results
+|  |--summarized_results.csv
+|--src
+|  |--sightings_analysis.py
+|  |--runall.py
+...
+</code></pre>
+
+<p>さらに、大きな変更を行う際は、以下のようにプロジェクトの全ファイルをどこかにコピーする、ということを提案している：</p>
+
+<pre><code>.
+|--project_name
+|  |--current
+|  |  |--...projectcontentasdescribedearlier...
+|  |--2016-03-01
+|  |  |--...contentof'current'onMar1,2016
+|  |--2016-02-19
+|  |  |--...contentof'current'onFeb19,2016
+</code></pre>
+
+<p>これはKaggleのフォーラムで挙がっていた『メインのコードは <code>knn_R/</code> のように、手法や使用言語ごとにディレクトリを完全に分ける』という話に通じる。こうやって割り切ってバックアップをとっておくと安心感が違うよね。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>ここまで見てきて、『なにが正解』という話ではなくて、みんな同じように悩んで試行錯誤してるんだなぁということが分かった。</p>
+
+<p>そして他人の例と &ldquo;<strong><a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745" target="_blank">Best Practices for Scientific Computing</a></strong>&rdquo;, &ldquo;<strong><a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510" target="_blank">Good Enough Practices in Scientific Computing</a></strong>&rdquo; から、ソフトウェア開発、つまり普段のコーディングと同様にデータサイエンスプロジェクトを扱うことの大切さに改めて気付かされた。</p>
+
+<p>目の前のデータにばかり囚われてゴミを量産しないように生きてゆきましょう。</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:2">もちろん研究で行う『実験』と業務で行う『分析』は規模、秘匿性、環境、関わる人数などの点で大きく異なるけど、それでもディレクトリ構成の大枠は変わらないという認識。
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:1">公開したのは論文採択後。
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:3">データサイエンスのプロジェクトで複数のPythonのバージョンをサポートする必要があるのか、という説もあるけど。
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

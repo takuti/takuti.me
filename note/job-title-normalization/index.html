@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Job Titleの前処理＆クラスタリングをどうやって実現するか問題 | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-07-09
+  </p>
+  <h2>Job Titleの前処理＆クラスタリングをどうやって実現するか問題</h2>
+
+  <div class="post">
+    
+
+<p>LinkedIn など、<strong>Job Title</strong>（職場での肩書き）をユーザに入力させるサービスは世の中にたくさんある。機械学習、データマイニングの文脈で、このデータをいかに扱うかという話。</p>
+
+<h3 id="問題">問題</h3>
+
+<p>手入力の雑多なJob Titleデータがある：</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">user id</th>
+<th align="left">title</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="left">VP of Marketing</td>
+</tr>
+
+<tr>
+<td align="center">2</td>
+<td align="left">Eng. Mng.</td>
+</tr>
+
+<tr>
+<td align="center">3</td>
+<td align="left">Marketing Manager</td>
+</tr>
+
+<tr>
+<td align="center">4</td>
+<td align="left">Software Engineer and Entrepreneur</td>
+</tr>
+
+<tr>
+<td align="center">5</td>
+<td align="left">Founder and CTO</td>
+</tr>
+
+<tr>
+<td align="center">6</td>
+<td align="left">Chief Technology Officer</td>
+</tr>
+
+<tr>
+<td align="center">&hellip;</td>
+<td align="left">&hellip;</td>
+</tr>
+</tbody>
+</table>
+
+<p>このデータを各ユーザの demographics を表す特徴量（カテゴリ変数）として使いたい。</p>
+
+<p>大まかな流れは、</p>
+
+<ol>
+<li>前処理</li>
+<li>クラスタリング（i.e., 次元削減</li>
+<li>未知のJob Titleが属するクラスタの予測</li>
+</ol>
+
+<p>こんな雰囲気。</p>
+
+<h3 id="前処理">前処理</h3>
+
+<p>Job Titleはユーザが好き勝手に入力したデータなので、表記揺れが激しく前処理が必須。</p>
+
+<p>&ldquo;<a href="http://chimera.labs.oreilly.com/books/1234000001583/ch03.html" target="_blank">Mining LinkedIn: Faceting Job Titles, Clustering Colleagues, and More</a>&rdquo; では、実際にLinkedInのデータを取得して前処理、可視化、クラスタリングする際の流れがPythonコードと共に紹介されている。Job Titleに対して行う前処理は、&rdquo;President/CEO&rdquo; といったスラッシュ区切りのTitleを分割して、略語をルールベースで展開するというもの：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">transforms <span style="color:#333">=</span> [
+    (<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Sr.&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Senior&#39;</span>),
+    (<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Sr&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Senior&#39;</span>),
+    (<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Jr.&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Junior&#39;</span>),
+    (<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Jr&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Junior&#39;</span>),
+    (<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;CEO&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Chief Executive Officer&#39;</span>),
+    (<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;COO&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Chief Operating Officer&#39;</span>),
+    (<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;CTO&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Chief Technology Officer&#39;</span>),
+    (<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;CFO&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Chief Finance Officer&#39;</span>),
+    (<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;VP&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Vice President&#39;</span>),
+    ]
+
+csvReader <span style="color:#333">=</span> csv<span style="color:#333">.</span>DictReader(<span style="color:#007020">open</span>(CSV_FILE), delimiter<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;,&#39;</span>, quotechar<span style="color:#333">=</span><span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;&#34;&#39;</span>)
+contacts <span style="color:#333">=</span> [row <span style="color:#080;font-weight:bold">for</span> row <span style="color:#000;font-weight:bold">in</span> csvReader]
+
+<span style="color:#888"># Read in a list of titles and split apart</span>
+<span style="color:#888"># any combined titles like &#34;President/CEO&#34;</span>
+<span style="color:#888"># Other variations could be handled as well such</span>
+<span style="color:#888"># as &#34;President &amp; CEO&#34;, &#34;President and CEO&#34;, etc.</span>
+
+titles <span style="color:#333">=</span> []
+<span style="color:#080;font-weight:bold">for</span> contact <span style="color:#000;font-weight:bold">in</span> contacts:
+    titles<span style="color:#333">.</span>extend([t<span style="color:#333">.</span>strip() <span style="color:#080;font-weight:bold">for</span> t <span style="color:#000;font-weight:bold">in</span> contact[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Job Title&#39;</span>]<span style="color:#333">.</span>split(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;/&#39;</span>)
+                  <span style="color:#080;font-weight:bold">if</span> contact[<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Job Title&#39;</span>]<span style="color:#333">.</span>strip() <span style="color:#333">!=</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;&#39;</span>])
+
+<span style="color:#888"># Replace common/known abbreviations</span>
+
+<span style="color:#080;font-weight:bold">for</span> i, _ <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">enumerate</span>(titles):
+    <span style="color:#080;font-weight:bold">for</span> transform <span style="color:#000;font-weight:bold">in</span> transforms:
+        titles[i] <span style="color:#333">=</span> titles[i]<span style="color:#333">.</span>replace(<span style="color:#333">*</span>transform)</code></pre></div>
+<p>そして前処理を終えたJob Titleを『Titleごと』および『単語ごと』にカウントして、“重要な特徴量”を探っている：</p>
+
+<pre><code>+-------------------------------------+------+
+| Title                               | Freq |
++-------------------------------------+------+
+| Chief Executive Officer             | 19   |
+| Senior Software Engineer            | 17   |
+| President                           | 12   |
+| Founder                             | 9    |
+| ...                                 | ...  |
++-------------------------------------+------+
+
++---------------+------+
+| Token         | Freq |
++---------------+------+
+| Engineer      | 43   |
+| Chief         | 43   |
+| Senior        | 42   |
+| Officer       | 37   |
+| ...           | ...  |
++---------------+------+
+</code></pre>
+
+<p>この他には</p>
+
+<ul>
+<li>ストップワード (of, and, &hellip;) や記号の除去</li>
+<li>大文字・小文字の統一</li>
+<li>ステミング</li>
+</ul>
+
+<p>などが考えられる。<a href="http://www.nltk.org/index.html" target="_blank">NLTK</a>をバシバシ活用しましょう。</p>
+
+<h3 id="クラスタリング">クラスタリング</h3>
+
+<p>前処理を行ったJob Titleをクラスタリングすることでカテゴリ変数に落とし込んでいく。</p>
+
+<p>このとき、Job Titleはユーザの立場 (VP, Manager, Chief XXX, &hellip;) と職務 (Marketing, Engineer, Chief &ldquo;Technology&rdquo; Officer, &hellip;) の2つの情報を表現しうるので、それらを別々に扱いたい。</p>
+
+<p>すなわち、各ユーザのJob Titleデータを立場 (role) と職務 (function) の <strong>Category</strong> として再定義することがゴール：</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">user id</th>
+<th align="left">category: role</th>
+<th align="left">category: function</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="left">executive</td>
+<td align="left">marketing</td>
+</tr>
+
+<tr>
+<td align="center">2</td>
+<td align="left">manager</td>
+<td align="left">engineering</td>
+</tr>
+
+<tr>
+<td align="center">3</td>
+<td align="left">manager</td>
+<td align="left">marketing</td>
+</tr>
+
+<tr>
+<td align="center">4</td>
+<td align="left">entrepreneur</td>
+<td align="left">engineering</td>
+</tr>
+
+<tr>
+<td align="center">5</td>
+<td align="left">executive</td>
+<td align="left">engineering</td>
+</tr>
+
+<tr>
+<td align="center">6</td>
+<td align="left">executive</td>
+<td align="left">engineering</td>
+</tr>
+
+<tr>
+<td align="center">&hellip;</td>
+<td align="left">&hellip;</td>
+<td align="left">&hellip;</td>
+</tr>
+</tbody>
+</table>
+
+<p>この点は &ldquo;<a href="https://nation.marketo.com/thread/38762-normalizing-job-titles-vs-eliminating-them" target="_blank">Normalizing Job Titles vs. eliminating them</a>&rdquo; でもマーケティング畑の人たちが議論していて、人の立場を表す <em>hierarchy level</em> と職務を表す <em>functional role</em> を分けて考えよう、という話をしている。</p>
+
+<p>クラスタリング済みのJob Titleデータを提供している &ldquo;<a href="http://www.datasciencecentral.com/profiles/blogs/400-categorized-job-titles-for-data-scientists" target="_blank">400 Categorized Job Titles for Data Scientists</a>&rdquo; では、データ作成時に実際に行った処理の様子が示されている。</p>
+
+<p>ここでもやはり、立場を表す <em>job level</em> と職務を表す <em>job category</em> を区別している。クラスタリングは完全にルールベースで、前処理済みのJob Title <code>$job</code> が、ある特定の単語を含んでいるか否かでクラスタを決める：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-pl" data-lang="pl"><span style="color:#888">#---- Step 1: creating job level</span>
+<span style="color:#963">$level</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Other&#34;</span>;
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;vice president&#34;</span>) { <span style="color:#963">$level</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Executive&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;vp &#34;</span>) { <span style="color:#963">$level</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Executive&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;ceo&#34;</span>) { <span style="color:#963">$level</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Executive&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;executive&#34;</span>) { <span style="color:#963">$level</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Executive&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;officer&#34;</span>) { <span style="color:#963">$level</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Executive&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;chief&#34;</span>) { <span style="color:#963">$level</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Executive&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;partner&#34;</span>) { <span style="color:#963">$level</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Executive&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;president&#34;</span>) { <span style="color:#963">$level</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Executive&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;director&#34;</span>) { <span style="color:#963">$level</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Manager&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;manager&#34;</span>) { <span style="color:#963">$level</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Manager&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;lead&#34;</span>) { <span style="color:#963">$level</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Manager&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;consultant&#34;</span>) { <span style="color:#963">$level</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Consultant&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;principal&#34;</span>) { <span style="color:#963">$level</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Consultant&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;professor&#34;</span>) { <span style="color:#963">$level</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Professor&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;analyst&#34;</span>) { <span style="color:#963">$level</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Analyst&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;student&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Student&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;analyst&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Analyst&#34;</span>; }
+<span style="color:#963">$ljob_level</span>{<span style="color:#963">$job</span>}<span style="color:#333">=</span><span style="color:#963">$level</span>;
+
+<span style="color:#888">#---- Step 2: creating category</span>
+<span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Other&#34;</span>;
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;recruit&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Recruiter&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;talent&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Recruiter&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;engineer&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Engineering&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;software&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Developer&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;develop&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Developer&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;architect&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Data Plumbing&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;scientist&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Data Science&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;science&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Data Science&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;stat&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Statistician&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;research&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Research&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;marketing&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Business Analytics&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;analytics&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Business Analytics&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;business&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Business Analytics&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;operations&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Business Analytics&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;consultant&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Consultant&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;training&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Trainer&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;lecturer&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Trainer&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;professor&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Trainer&#34;</span>; }
+<span style="color:#080;font-weight:bold">if</span> (<span style="color:#963">$job</span> <span style="color:#333">=~</span> <span style="background-color:#fff0f0">&#34;student&#34;</span>) { <span style="color:#963">$category</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;Student&#34;</span>; }
+<span style="color:#963">$ljob_category</span>{<span style="color:#963">$job</span>}<span style="color:#333">=</span><span style="color:#963">$category</span>;</code></pre></div>
+<p>もう少し機械学習っぽい方向性はどうだろう。さすがに「Titleの bag-of-words 表現を k-means に放り込んで、ユークリッド距離の意味でクラスタリング」というのは乱暴な気がする。ベクトルの表現や類似度を工夫して、近傍法ベースの（教師あり）分類アルゴリズムの適用も視野にいれたいものである<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>。</p>
+
+<p>調べてみると、<a href="https://arxiv.org/abs/1609.06268" target="_blank">word2vecをJob Title分類に応用した話</a>が見つかる。ナウい。</p>
+
+<p>Title間の類似度としては、<a href="http://chimera.labs.oreilly.com/books/1234000001583/ch03.html#measuring-similarity" target="_blank">前処理のときにも紹介した記事</a>で、</p>
+
+<ul>
+<li>編集距離 (Levenshtein distance)</li>
+<li>n-gram similarity</li>
+<li>Jaccard distance</li>
+</ul>
+
+<p>を検討している。</p>
+
+<p>いずれにせよ、立場 (role) と職務 (function) を分けて考える場合は、より丁寧に前処理を行って、モデルを2つ作るという話になりそう。または role はルールベースで分類して、function は機械学習、といったハイブリッドな方法も考えられる。このあたりはどれだけ正確にクラスタリングしたいか、という要求次第ですね。</p>
+
+<h3 id="未知のjob-titleが属するクラスタの予測">未知のJob Titleが属するクラスタの予測</h3>
+
+<p>一度クラスタ（カテゴリ）が得られれば、次のような<strong>マッピングテーブル</strong>が作れる：</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">user id</th>
+<th align="left">raw title</th>
+<th align="left">category: role</th>
+<th align="left">category: function</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="left">VP of Marketing</td>
+<td align="left">executive</td>
+<td align="left">marketing</td>
+</tr>
+
+<tr>
+<td align="center">2</td>
+<td align="left">Eng. Mng.</td>
+<td align="left">manager</td>
+<td align="left">engineering</td>
+</tr>
+
+<tr>
+<td align="center">3</td>
+<td align="left">Marketing Manager</td>
+<td align="left">manager</td>
+<td align="left">marketing</td>
+</tr>
+
+<tr>
+<td align="center">4</td>
+<td align="left">Software Engineer and Entrepreneur</td>
+<td align="left">entrepreneur</td>
+<td align="left">engineering</td>
+</tr>
+
+<tr>
+<td align="center">5</td>
+<td align="left">Founder and CTO</td>
+<td align="left">executive</td>
+<td align="left">engineering</td>
+</tr>
+
+<tr>
+<td align="center">6</td>
+<td align="left">Chief Technology Officer</td>
+<td align="left">executive</td>
+<td align="left">engineering</td>
+</tr>
+
+<tr>
+<td align="center">&hellip;</td>
+<td align="left">&hellip;</td>
+<td align="left">&hellip;</td>
+<td align="left">&hellip;</td>
+</tr>
+</tbody>
+</table>
+
+<p>あとはマッピングテーブルの &ldquo;raw title&rdquo; との比較で、未知のJob Titleに対してもクラスタが割り当てられる。ここでいう“比較”とは、ルールベースな場合もあれば、（ベクトル化→）何らかの類似度に基づく場合もある。要は、似ているものが見つかればそれでよろしい。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>手入力によるユーザの肩書きデータを前処理＆クラスタリングして、カテゴリ変数にするための方法を探ってみた。</p>
+
+<p>更に調べると、次の2つの文献はRNNを利用していて、すごく頑張っている：</p>
+
+<ul>
+<li><a href="https://cs224d.stanford.edu/reports/BoucherEric.pdf" target="_blank">Job Classification Based on LinkedIn Summaries</a></li>
+<li><a href="http://www.aclweb.org/anthology/W/W16/W16-1617.pdf" target="_blank">Learning Text Similarity with Siamese Recurrent Networks</a></li>
+</ul>
+
+<p>特に後者は、ペアワイズの“似たJob Titleか否か”の学習を文字レベルで行っていて面白い。</p>
+
+<p>しかしまぁ結局は前処理が最も重要なステップであり、Job Titleという限定されたドメインの中での話なので、クラスタリングも単純なルールベースで案外十分だったりする。こういうとき、手法の取捨選択をもっと素早くできるとイイなぁと思う。精進します。</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">たとえば代表的なJob Titleに予めクラスタを（人力で）割り当てておき、その他のTitleは代表タイトルとの類似度を元に、“一番近いクラスタ”に割り当てる。
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

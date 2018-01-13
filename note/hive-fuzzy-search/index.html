@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        HiveでテキストのFuzzy Search | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-08-20
+  </p>
+  <h2>HiveでテキストのFuzzy Search</h2>
+
+  <div class="post">
+    
+
+<p>先週は<a href="https://takuti.me/note/postgresql-fuzzy-search">PostgreSQL上でテキストのFuzzy Searchを試した</a>。そのときは <a href="https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html" target="_blank">fuzzystrmatch</a> や <a href="https://www.postgresql.org/docs/9.6/static/pgtrgm.html" target="_blank">pg_trgm</a> といったモジュールが活躍していた。</p>
+
+<p>では、同じことをHiveで実現するとどうなるだろう。</p>
+
+<h3 id="データ">データ</h3>
+
+<p>適当にテーブル <code>sample</code> をつくっておく：</p>
+
+<pre><code>hive&gt; CREATE TABLE sample AS
+    &gt; SELECT 1 AS id, 'I live in Tokyo.' AS document
+    &gt; UNION ALL
+    &gt; SELECT 2 AS id, 'Are you happy?' AS document
+    &gt; ;
+</code></pre>
+
+<pre><code>hive&gt; SELECT * FROM sample;
+OK
+sample.id       sample.document
+1       I live in Tokyo.
+2       Are you happy?
+Time taken: 0.066 seconds, Fetched: 2 row(s)
+</code></pre>
+
+<p>なお、Hive環境のセットアップについては以下の記事も参考にされたい：</p>
+
+<ul>
+<li><a href="https://takuti.me/note/hivemall-on-mac">MacのローカルにHivemallを導入してアイテム推薦をするまで</a></li>
+<li><a href="https://takuti.me/note/hivemall-on-docker">Hivemall on Dockerを試すぜ</a></li>
+</ul>
+
+<h3 id="完全一致">完全一致</h3>
+
+<p><code>WHERE</code>句を使えばもちろん完全一致検索になる：</p>
+
+<pre><code>hive&gt; SELECT * FROM sample WHERE document = 'I live';
+OK
+sample.id       sample.document
+Time taken: 0.338 seconds
+</code></pre>
+
+<pre><code>hive&gt; SELECT * FROM sample WHERE document = 'I live in Tokyo.';
+OK
+sample.id       sample.document
+1       I live in Tokyo.
+Time taken: 0.079 seconds, Fetched: 1 row(s)
+</code></pre>
+
+<h3 id="like">LIKE</h3>
+
+<p><code>LIKE</code> も素直に使える：</p>
+
+<pre><code>hive&gt; SELECT * FROM sample WHERE document LIKE '%Tokyo%';
+OK
+sample.id       sample.document
+1       I live in Tokyo.
+Time taken: 0.093 seconds, Fetched: 1 row(s)
+</code></pre>
+
+<p>大文字・小文字を無視する <code>ILIKE</code> 相当の処理は明示的に小文字に変換してから：</p>
+
+<pre><code>hive&gt; SELECT * FROM sample WHERE lower(document) LIKE '%tokyo%';
+OK
+sample.id       sample.document
+1       I live in Tokyo.
+Time taken: 0.078 seconds, Fetched: 1 row(s)
+</code></pre>
+
+<h3 id="正規表現">正規表現</h3>
+
+<p><code>LIKE</code> の右辺値が正規表現になった、<code>RLIKE</code> がある。PostgreSQLの <code>~</code> 相当：</p>
+
+<pre><code>hive&gt; SELECT * FROM sample WHERE document RLIKE '.*Tokyo.*';
+OK
+sample.id       sample.document
+1       I live in Tokyo.
+Time taken: 0.075 seconds, Fetched: 1 row(s)
+</code></pre>
+
+<h3 id="編集距離">編集距離</h3>
+
+<p>みんな大好き<a href="https://takuti.me/note/levenshtein-distance">Levenshtein Distance</a>。</p>
+
+<p>PostgreSQLでは別途 <a href="https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html" target="_blank">fuzzystrmatch</a> というモジュールが必要だったけど、Hiveは<a href="https://issues.apache.org/jira/browse/HIVE-9556" target="_blank">1.2.0からこれを標準でサポートしている</a>。残念ながらPostgreSQLの <code>levenshtein_less_equal()</code> に相当する柔軟な関数はないけれど。</p>
+
+<p><code>I love Tokyo</code> からの編集距離を求めてみる：</p>
+
+<pre><code>hive&gt; SELECT id, levenshtein(document, 'I love Tokyo') FROM sample;
+OK
+id      c1
+1       5
+2       11
+Time taken: 0.068 seconds, Fetched: 2 row(s)
+</code></pre>
+
+<p><code>I love Tokyo</code> という“クエリ”から編集距離5以下のテキストのみをFuzzy Searchすると：</p>
+
+<pre><code>hive&gt; SELECT * FROM sample WHERE levenshtein(document, 'I love Tokyo') &lt;= 5;
+OK
+sample.id       sample.document
+1       I live in Tokyo.
+Time taken: 0.076 seconds, Fetched: 1 row(s)
+</code></pre>
+
+<p>イイね。</p>
+
+<h3 id="文字のn-gram">文字のn-gram</h3>
+
+<p>Hiveには配列のn-gramを出力する <code>ngrams(array, int n, int k)</code> という関数がある。<code>array</code> の <code>n</code>-gram を求めて、その頻度（近似値）の上位 <code>k</code> 件を出力する。たとえば、 <code>I live in Tokyo. You live in Osaka.</code> というテキスト内の単語について 2-gram を上位3件出力してみると：</p>
+
+<pre><code>hive&gt; SELECT ngrams(split('I live in Tokyo. You live in Osaka.', ' '), 2, 3);
+OK
+_c0
+[{&quot;ngram&quot;:[&quot;live&quot;,&quot;in&quot;],&quot;estfrequency&quot;:2.0},{&quot;ngram&quot;:[&quot;I&quot;,&quot;live&quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot;Tokyo.&quot;,&quot;You&quot;],&quot;estfrequency&quot;:1.0}]
+Time taken: 6.29 seconds, Fetched: 1 row(s)
+</code></pre>
+
+<p><code>[&quot;live&quot;,&quot;in&quot;]</code> という 2-gram が2回出現するため最上位に出力され、残りはすべて1回なので適当な2つが第2位、第3位として出力される。</p>
+
+<p>入力には <code>array</code> をとるので、単語の n-gram ならば先の例のようにスペース区切りで分割 <code>split(document, ' ')</code>、文字の n-gram ならば <code>split(document, '')</code> と分割したものを渡すことに注意。</p>
+
+<p>PostgreSQLはtri-gramに限定した検索機能をモジュール <a href="https://www.postgresql.org/docs/9.6/static/pgtrgm.html" target="_blank">pg_trgm</a> で提供していた。n-gram (n=3) に限定されてしまうが、検索に特化した <code>%</code> という演算子の存在は大きかった。</p>
+
+<p>一方、Hiveで文字のtri-gramを求めると次のような雰囲気（上位10件を出力）：</p>
+
+<pre><code>hive&gt; SELECT id, ngrams(split(document, ''), 3, 10) FROM sample GROUP BY id;
+OK
+id      c1
+1       [{&quot;ngram&quot;:[&quot; &quot;,&quot;T&quot;,&quot;o&quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot; &quot;,&quot;l&quot;,&quot;i&quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot;I&quot;,&quot; &quot;,&quot;l&quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot;T&quot;,&quot;o&quot;,&quot;k&quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot;i&quot;,&quot;n&quot;,&quot; &quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot;i&quot;,&quot;v&quot;,&quot;e&quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot;l&quot;,&quot;i&quot;,&quot;v&quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot;o&quot;,&quot;k&quot;,&quot;y&quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot;v&quot;,&quot;e&quot;,&quot; &quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot;y&quot;,&quot;o&quot;,&quot;.&quot;],&quot;estfrequency&quot;:1.0}]
+2       [{&quot;ngram&quot;:[&quot; &quot;,&quot;h&quot;,&quot;a&quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot; &quot;,&quot;y&quot;,&quot;o&quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot;e&quot;,&quot; &quot;,&quot;y&quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot;h&quot;,&quot;a&quot;,&quot;p&quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot;o&quot;,&quot;u&quot;,&quot; &quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot;p&quot;,&quot;p&quot;,&quot;y&quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot;p&quot;,&quot;y&quot;,&quot;?&quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot;u&quot;,&quot; &quot;,&quot;h&quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot;y&quot;,&quot;?&quot;,&quot;&quot;],&quot;estfrequency&quot;:1.0},{&quot;ngram&quot;:[&quot;y&quot;,&quot;o&quot;,&quot;u&quot;],&quot;estfrequency&quot;:1.0}]
+Time taken: 14.782 seconds, Fetched: 2 row(s)
+</code></pre>
+
+<p>ごちゃごちゃしてきた…。結果を <code>LATERAL VIEW explode()</code> で展開して、各テキストの tri-gram を列挙してみる：</p>
+
+<pre><code>hive&gt; WITH document_trigrams AS (
+    &gt;   SELECT
+    &gt;     id,
+    &gt;     ngrams(split(document, ''), 3, 10) AS trigrams_top10
+    &gt;   FROM
+    &gt;     sample
+    &gt;   GROUP BY
+    &gt;     id
+    &gt; )
+    &gt; SELECT
+    &gt;   id,
+    &gt;   concat_ws(',', trigram.ngram) AS trigram
+    &gt; FROM
+    &gt;   document_trigrams
+    &gt;   LATERAL VIEW explode(trigrams_top10) t AS trigram
+    &gt; ;
+OK
+id      trigram
+1        ,T,o
+1        ,l,i
+1       I, ,l
+1       T,o,k
+1       i,n,
+1       i,v,e
+1       l,i,v
+1       o,k,y
+1       v,e,
+1       y,o,.
+2        ,h,a
+2        ,y,o
+2       e, ,y
+2       h,a,p
+2       o,u,
+2       p,p,y
+2       p,y,?
+2       u, ,h
+2       y,?,
+2       y,o,u
+Time taken: 5.31 seconds, Fetched: 20 row(s)
+</code></pre>
+
+<p>これなら検索に使えそう。クエリの tri-gram も同様に求めて、各テキストの tri-gram とどれだけ一致するか見てあげればよい。</p>
+
+<p>たとえばtypoを含むクエリ <code>I live in Kyoto</code> からテキストを検索すると、<code>JOIN</code> + <code>count</code> で tri-gram の一致度が測れて：</p>
+
+<pre><code>hive&gt; WITH document_trigrams_exploded AS (
+    &gt;   SELECT
+    &gt;     id,
+    &gt;     concat_ws(',', trigram.ngram) AS trigram
+    &gt;   FROM (
+    &gt;     SELECT
+    &gt;       id,
+    &gt;       ngrams(split(document, ''), 3, 10) AS trigrams_top10
+    &gt;     FROM
+    &gt;       sample
+    &gt;     GROUP BY
+    &gt;       id
+    &gt;   ) t1
+    &gt;   LATERAL VIEW explode(trigrams_top10) t2 AS trigram
+    &gt; ),
+    &gt; query_trigrams_exploded AS (
+    &gt;   SELECT
+    &gt;     concat_ws(',', trigram.ngram) AS trigram
+    &gt;   FROM (
+    &gt;     SELECT ngrams(split('I live in Kyoto', ''), 3, 10) AS trigrams_top10
+    &gt;   ) t1
+    &gt;   LATERAL VIEW explode(trigrams_top10) t2 AS trigram
+    &gt; )
+    &gt; SELECT
+    &gt;   l.id,
+    &gt;   count(1) AS num_matched_trigrams
+    &gt; FROM
+    &gt;   document_trigrams_exploded l
+    &gt; JOIN
+    &gt;   query_trigrams_exploded r
+    &gt;   ON l.trigram = r.trigram
+    &gt; GROUP BY
+    &gt;   id
+    &gt; ;
+OK
+l.id    num_matched_trigrams
+1       6
+Time taken: 17.536 seconds, Fetched: 1 row(s)
+</code></pre>
+
+<p><code>I live in Tokyo.</code>（テキスト）と<code>I live in Kyoto</code>（クエリ）は上位10件の文字のtri-gramのうち6個が一致した、と分かる。逆に、<code>Are you happy?</code> とは1つも一致しない。</p>
+
+<p>このカウントを <code>HAVING</code> 句でフィルタリングしたり、その上位N件を出力したりすれば文字のtri-gramに基づくFuzzy Searchが実現できそう。</p>
+
+<p>PostgreSQLと比べると随分長い道のりになってしまった…。</p>
+
+<h3 id="postgresqlのtsvectorっぽい何か">PostgreSQLのTSVectorっぽい何か</h3>
+
+<p>PostgreSQLには、自然言語的にもっと直感に即した“それっぽさ”を見る <strong>TSVector</strong> という表現があった。stop word の除外や大文字・小文字の統一まですべてやってくれる便利な子だ：</p>
+
+<pre><code>sample=# select to_tsvector('Left of the Dial');
+    to_tsvector
+-------------------
+ 'dial':4 'left':1
+(1 row)
+</code></pre>
+
+<p>Hiveで同様のことを実現するには <code>split()</code> や <code>lower()</code> を組み合わせればよさそう：</p>
+
+<pre><code>hive&gt; SELECT collect_list(token) AS tokens
+    &gt; FROM (
+    &gt;   SELECT split(lower('Left of the Dial'), ' ') AS tokens
+    &gt; ) t1
+    &gt; LATERAL VIEW explode(tokens) t2 AS token
+    &gt; WHERE NOT array_contains(array('of', 'the', 'a', 'an'), token)
+    &gt; ;
+OK
+tokens
+[&quot;left&quot;,&quot;dial&quot;]
+Time taken: 12.633 seconds, Fetched: 1 row(s)
+</code></pre>
+
+<p>TSVectorと違って字句の出現位置は得られないけど、だいたい同じ雰囲気。<code>array('of', 'the', 'a', 'an')</code> は予め定義した stop word のリストで、本来はもっと多い。</p>
+
+<p>なお、Hivemallの <a href="https://hivemall.incubator.apache.org/userguide/misc/tokenizer.html" target="_blank"><code>tokenize()</code></a> と <a href="https://hivemall.incubator.apache.org/userguide/misc/generic_funcs.html#text-processing-functions" target="_blank"><code>is_stopword()</code></a> を使うともう少し楽です：</p>
+
+<pre><code>hive&gt; SELECT collect_list(token) AS tokens
+    &gt; FROM (
+    &gt;   SELECT tokenize('Left of the Dial', true) AS tokens
+    &gt; ) t1
+    &gt; LATERAL VIEW explode(tokens) t2 AS token
+    &gt; WHERE NOT is_stopword(token)
+    &gt; ;
+OK
+tokens
+[&quot;left&quot;,&quot;dial&quot;]
+Time taken: 5.168 seconds, Fetched: 1 row(s)
+</code></pre>
+
+<p>この結果を使えば、あとは n-gram の場合と同様に <code>JOIN</code> + <code>count</code>、そしてクエリの <code>token</code> とどれだけ一致するかによって字句レベルの検索が実現できる。</p>
+
+<h3 id="サウンド距離">サウンド距離</h3>
+
+<p>Levenshtein Distance同様、<a href="https://issues.apache.org/jira/browse/HIVE-9738" target="_blank">Hive1.2.0からサウンド距離を求めるために使える関数 <code>soundex()</code> がサポートされている</a>。この関数自体は、文字列を<a href="https://en.wikipedia.org/wiki/Soundex" target="_blank">Soundexと呼ばれる発音コード</a>に変換するだけのもの。『テキスト間のサウンド距離』を得るためには、その発音コードたちを比較する必要がある。</p>
+
+<p>テキスト内の単語をSoundexに変換してみる：</p>
+
+<pre><code>hive&gt; SELECT
+    &gt;   id,
+    &gt;   soundex(word)
+    &gt; FROM
+    &gt;   sample
+    &gt; LATERAL VIEW explode(split(document, ' ')) t AS word
+    &gt; ;
+OK
+id      _c1
+1       I000
+1       L100
+1       I500
+1       T200
+2       A600
+2       Y000
+2       H100
+Time taken: 0.038 seconds, Fetched: 7 row(s)
+</code></pre>
+
+<p><code>I live in Tokyo.</code> の発音コードは <code>Ixxx</code>, <code>Lxxx</code>, <code>Ixxx</code>, <code>Txxx</code> となっておりそれっぽい。</p>
+
+<p>では、クエリ <code>I live in Kyoto</code> の発音コードと比較してみよう：</p>
+
+<pre><code>hive&gt; WITH document_soundex AS (
+    &gt;   SELECT
+    &gt;     id,
+    &gt;     soundex(word) AS soundex
+    &gt;   FROM
+    &gt;     sample
+    &gt;   LATERAL VIEW explode(split(document, ' ')) t AS word
+    &gt; ),
+    &gt; query_soundex AS (
+    &gt;   SELECT
+    &gt;     soundex(word) AS soundex
+    &gt;   FROM (
+    &gt;     SELECT 'I live in Kyoto' AS query
+    &gt;   ) t1
+    &gt;   LATERAL VIEW explode(split(query, ' ')) t2 AS word
+    &gt; )
+    &gt; SELECT
+    &gt;   l.id,
+    &gt;   count(1) AS num_matched_soundex
+    &gt; FROM
+    &gt;   document_soundex l
+    &gt; JOIN
+    &gt;   query_soundex r
+    &gt;   ON l.soundex = r.soundex
+    &gt; GROUP BY
+    &gt;   id
+    &gt; ;
+OK
+l.id    num_matched_soundex
+1       3
+Time taken: 13.174 seconds, Fetched: 1 row(s)
+</code></pre>
+
+<p><code>I live in</code> の3つの発音コードが一致する。</p>
+
+<p>もちろんこのままだとFuzzy Searchにならないので、実際には<code>soundex()</code>を文字のn-gramに対して適用する、など工夫が必要。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p><a href="https://takuti.me/note/postgresql-fuzzy-search">PostgreSQLで試したFuzzy Search</a>と同等のことをHiveでやるとどうなるか、という話。それなりに同じような結果が再現できる。</p>
+
+<p>PostgreSQL同様、複数の方法を組み合わせたクエリも当然書ける。ただし、HiveではそれがMapReduceタスクとして処理されるということを忘れてはならない。</p>
+
+<p>MapReduceならではの制約というものは結構あって、たとえば <a href="https://stackoverflow.com/questions/31340218/hive-like-operator" target="_blank"><code>LIKE</code> によるJOINはできなかったりする</a>。</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

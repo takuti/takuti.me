@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        EuroSciPy 2017に参加してしゃべってきた | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-09-02
+  </p>
+  <h2>EuroSciPy 2017に参加してしゃべってきた</h2>
+
+  <div class="post">
+    
+
+<p>8月30, 31日にドイツのエルランゲンで開催された <strong><a href="https://www.euroscipy.org/2017/" target="_blank">EuroSciPy 2017</a></strong> に発表者として参加してきた。カンファレンス参加を積極的にサポートしてくれる弊社に感謝感謝。</p>
+
+<p>このカンファレンスは &ldquo;Scientific Computing in Python&rdquo; に関するあらゆる話題が対象で、numpy, scipy, matplotlib, pandas, Jupyter notebooks あたりが絡んでいればよろしい。<a href="https://scipy2017.scipy.org/ehome/220975/493388/" target="_blank">SciPy Conference US</a> のヨーロッパ版ということになる。本会議前2日間はチュートリアル、9月1日にはSprintもあったけど、そっちは不参加。</p>
+
+<p>全体で200名程度の参加があったらしい。思っていたよりもずっと賑やかな会議だったなーという印象がある。参加者のバックグラウンドは教授から学生、企業の研究者、データサイエンティスト、エンジニアまで様々。</p>
+
+<h3 id="しゃべった">しゃべった</h3>
+
+<p>僕が発表した内容は、去年修士研究の片手間で作っていたオンライン型の推薦アルゴリズムのパッケージ <a href="https://github.com/takuti/flurs" target="_blank">FluRS</a> について：</p>
+
+<script async class="speakerdeck-embed" data-id="f8e9917ab2cf46dfaba1be61b6e449cd" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+<p>実験をして論文を書くためのexperimentalなライブラリなので、本当の意味で &ldquo;Streaming&rdquo; な実装とは言えないのだけど…。</p>
+
+<p>Proposalで書いたトークの概要は<a href="https://www.euroscipy.org/2017/descriptions/19827.html" target="_blank">ここ</a>にある。Real-world machine learning と向き合い始めて半年、ここらで去年までやっていたことにもう一度向き合って整理して、次に繋げるいいきっかけになれば、と思って応募した。</p>
+
+<p>『行列計算の基本くらいは分かるけど、推薦アルゴリズムは何も知らない』という聴衆を想定して、古典的な推薦アルゴリズムから僕が修士研究で取り組んでいたオンライン型の推薦の話まで、理論と実装の雰囲気を15分で話した。「よかったよ！」とわざわざ声をかけてくれた人たちが何人もいて、短い説明から本質的な問題点を汲み取って鋭い質問を投げかけてくれた人たちがいて、とても優しい世界だった…うれしい…。</p>
+
+<p>そして何より「行ってよかった」と思えたのは、Amazon US で Senior Applied Scientist をやっている <a href="https://twitter.com/F_Vaggi" target="_blank">Federico Vaggi</a> 氏やSonyで推薦関連のR&amp;Dをしている某氏をはじめとする、非常に濃い人たちとこの話題について近い距離で議論できた点。こういう時間がこの先1年間くらいの糧になる。</p>
+
+<p>あと、2日目の最後にあったLT（ひとり2分！）は当日に発表者を募集していたので、勢いで <a href="https://github.com/treasure-data/td-client-python" target="_blank">td-client-python</a> や <a href="https://github.com/treasure-data/pandas-td" target="_blank">pandas-td</a> を絡めて（無理矢理）Hivemall や Treasure Data のことを話した。が、これは難しかった…参加者の興味も、HadoopやSparkとはかけ離れたところにある印象だった。</p>
+
+<h3 id="エルランゲンという街">エルランゲンという街</h3>
+
+<p>もうね、すごい。自然。森。会場だって森の中：</p>
+
+<p><img src="https://takuti.me/images/euroscipy-2017/venue.jpg" alt="venue" /></p>
+
+<p>airbnbから会場まで40分くらい、こんな道をずーっと歩いていると、なんかもう地元で散歩している気分になる：</p>
+
+<p><img src="https://takuti.me/images/euroscipy-2017/road.jpg" alt="road" /></p>
+
+<p>カンファレンスのソーシャルイベントでは、洞窟でビールをつくっている昔ながらのブルワリーが密集した高台のエリア（語彙力）で飲んで飲んでガイドツアーに参加して飲んで、という感じの素晴らしい時間を過ごした。水のようにビールを飲んで、でもどれ1つとして同じ味のビールは無くて、最高だったなァ：</p>
+
+<p><img src="https://takuti.me/images/euroscipy-2017/social.jpg" alt="social" /></p>
+
+<p>お世辞にももう一度来たいと思うような街ではなかったけど、よい2日間でした。</p>
+
+<p><a href="https://takuti.me/note/chiir-2017">前回のノルウェー</a>からヨーロッパのカンファレンスが2回続いてしまったので、次はもう少し違う方角へ飛べたらいいですね。</p>
+
+<p>以下ほかの発表について、メモと感想をつらつらと。</p>
+
+<h3 id="keynote">Keynote</h3>
+
+<h4 id="keynote-1-how-to-fix-a-scientific-culture-https-osf-io-n4ckd">Keynote 1: <a href="https://osf.io/n4ckd/" target="_blank">How to fix a scientific culture</a></h4>
+
+<ul>
+<li>『報告されている心理学実験の結果の多くは、再現実験で有意だと示せないものばかりだ』という、論文 &ldquo;<a href="http://science.sciencemag.org/content/349/6251/aac4716" target="_blank">Estimating the reproducibility of psychological science</a>&rdquo; に書いてあるような話題</li>
+<li>みんな &ldquo;noise mining&rdquo;, &ldquo;p-hack&rdquo; をして、自分の喜ばしい、有意だと言えそうな結果を探しているだけだという悲しい現実</li>
+<li>この世界をどうやって変えていくか？そもそも、データを扱うワークフロー上のすべてのステップ（仮説、実験、検証、…）で、我々は意識的・無意識的に“バイアス”をかけてしまっている</li>
+<li>アプローチ1: Pre-registration
+
+<ul>
+<li>実験の各ステップで、これまでやってきたことを peer-review する</li>
+<li>アイディアを元に実験を設計したらレビューを受ける、データを集めたらまたレビューを受ける…これを繰り返して、最後のレビューまでクリアしたら成果を公開してよい</li>
+</ul></li>
+<li>アプローチ2: Open Science
+
+<ul>
+<li><a href="https://osf.io/" target="_blank">Open science framework</a> というプラットフォームもある</li>
+<li>データや手法、解析用スクリプトなど、様々な情報を公開してフェアな世界をつくろう</li>
+</ul></li>
+</ul>
+
+<p>Pythonに直接関係のある話では無かったけど、同じ『データの上で仕事をする人間』として耳が痛い内容だった。僕らがいかにたやすく誤った結論を導いてしまうか、それを肝に銘じておかなければならない。</p>
+
+<h4 id="keynote-2-pytorch-https-www-euroscipy-org-2017-keynote-soumith-chintala-html">Keynote 2: <a href="https://www.euroscipy.org/2017/keynote_soumith_chintala.html" target="_blank">PyTorch</a></h4>
+
+<p>みなさんご存知、Deep Learning界隈で広く使われているPythonライブラリ <a href="https://github.com/pytorch/pytorch" target="_blank">PyTorch</a> について、Facebook AI research の <a href="https://twitter.com/soumithchintala" target="_blank">Soumith Chintala</a> 氏が話してくれた。</p>
+
+<ul>
+<li>PyTorchは &ldquo;<strong>numpy alternative</strong>&rdquo; という位置づけで、GPU上で使える <code>ndarray</code> 相当のものを提供する</li>
+<li><a href="http://pytorch.org/docs/master/autograd.html" target="_blank">Auto gradient</a>がウリ</li>
+<li><a href="http://pytorch.org/docs/master/data.html#torch.utils.data.DataLoader" target="_blank">Data loader</a>も頑張っていて、機械学習で一番面倒な前処理フェーズを手厚くサポートする</li>
+<li>PyTorchの思想
+
+<ul>
+<li>線形なコードフローを推奨する</li>
+<li>パーツのつなぎ合わせで機械学習のアルゴリズムが実装できる</li>
+<li>可能な限り高速化</li>
+</ul></li>
+<li>今後の予定
+
+<ul>
+<li>Distributed PyTorchを実現したい</li>
+<li>より高次の自動微分を可能にする</li>
+<li>JITサポート（<a href="https://github.com/pytorch/pytorch/pull/2565" target="_blank">#2565</a>で実装が進んでいる）</li>
+</ul></li>
+</ul>
+
+<p>これは &ldquo;Introduction to PyTorch&rdquo; 的な内容であまり面白くなかったかな。まぁKeynoteとは往々にしてそういうものである…。</p>
+
+<h3 id="他の発表にみる-possibilities-of-python-のタテ方向への広がり">他の発表にみる、&rdquo;Possibilities of Python&rdquo; のタテ方向への広がり</h3>
+
+<p>一般発表は（自分の発表も含め）いずれも、アカデミックカンファレンスほど理論理論していないし、techカンファレンスほど凝った実装の話というわけでもなく、広く浅い内容だった。発表時間もひとり15分〜30分なので、みんな詳細は削ぎ落としてしゃべる。そしてその分、コーヒーやビールを片手に発表の断片からはじまる議論が異様にヒートアップした感じ。</p>
+
+<p>特に印象的だった発表は次の3つ：</p>
+
+<ul>
+<li><a href="https://www.euroscipy.org/2017/descriptions/19633.html" target="_blank">Getting the hang of WASM</a>
+
+<ul>
+<li><a href="https://github.com/almarklein/wasmfun" target="_blank">wasmfum</a> というPythonでWASMを生成するパッケージについて</li>
+<li>いかにWASMベースのレンダリングが高速で安全か、という話</li>
+<li>Brainfuckのデモが盛り上がった</li>
+</ul></li>
+<li><a href="https://www.euroscipy.org/2017/descriptions/20514.html" target="_blank">Introduction into the ppci project</a>
+
+<ul>
+<li>ppci = pure python compiler infrastructure</li>
+<li>多様な言語のコンパイラをPythonで実装している話</li>
+<li>Pythonという言語のポータビリティを活かしたかった</li>
+</ul></li>
+<li><a href="https://www.euroscipy.org/2017/descriptions/19817.html" target="_blank">Tricks for efficient multi-core computing in Python</a>
+
+<ul>
+<li><code>multiprocessing.Pool</code> は古い</li>
+<li><code>concurrent.futures</code> がナウい</li>
+<li><code>concurrent.futures</code> をよりロバストにした <a href="https://github.com/tomMoral/loky" target="_blank">loky</a> というパッケージを作った</li>
+</ul></li>
+</ul>
+
+<p><a href="https://takuti.me/note/pyconjp-2015">2年前に参加した PyConJP 2015</a> のテーマは &ldquo;<strong>Possibilities of Python</strong>&rdquo; だった <sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>。このときの &ldquo;Possibilities&rdquo; は「Webアプリから数学、機械学習、DevOpsまで、Pythonでいろんなことができるよ！」という感覚で、いわばヨコ方向に広がった可能性。</p>
+
+<p>一方で近年のPythonのユースケースに目を向けると、低いレイヤでの最適化や高度なアプリケーションとそれを支える中間レイヤのパッケージ群が目につき、タテ方向にその可能性が広がっている印象をうける。</p>
+
+<p>あとエンジニアリング的に面白かった発表：</p>
+
+<ul>
+<li><a href="https://speakerdeck.com/jacobtomlinson/euroscipy17-distributed-compute-with-dask-kubernetes-and-aws" target="_blank">Autoscaling distributed compute with Dask, Kubernetes and AWS</a>
+
+<ul>
+<li>いかにDevOpsチームがデータサイエンティストの解析作業を支えているか</li>
+<li><a href="https://github.com/dask/dask" target="_blank">Dask</a> でタスクを並列実行できるようにしてあげる</li>
+<li>Daskは与えられたクラスタの上で可能な限り並列化してくれるので、タスクに応じて最適な規模のクラスタを立てておきたい → Autoscalingしましょう</li>
+</ul></li>
+</ul>
+
+<p>この他の発表は「つくってみた」「やってみた」的なものが多かったかな。</p>
+
+<p>というわけでEuroSciPy、ほどよい規模感でとても充実したいい会議だったけど、願わくばもう少しエンジニアリング寄りの話をたくさん (聞きたかった|したかった) なーとも思っている。</p>
+
+<p>そんな感じで、おつかれさまでした。</p>
+
+<p><img src="https://takuti.me/images/euroscipy-2017/name.jpg" alt="name" /></p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">そういえば今週は <a href="https://pycon.jp/2017/ja/" target="_blank">PyConJP 2017</a> らしいですね。
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

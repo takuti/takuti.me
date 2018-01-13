@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        あのときのビールをもう一度（PostgreSQLでFuzzy Searchを試す） | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-08-09
+  </p>
+  <h2>あのときのビールをもう一度（PostgreSQLでFuzzy Searchを試す）</h2>
+
+  <div class="post">
+    
+
+<p><strong><a href="https://pragprog.com/book/rwdata/seven-databases-in-seven-weeks" target="_blank">Seven Databases in Seven Weeks</a></strong> を読んでいたら、PostgreSQLでテキスト検索をする話が出てきた。<a href="https://takuti.me/note/levenshtein-distance">先日 Levenshtein Distance（編集距離）について書いたばかり</a>でホットな話題なので、少し遊んでみよう。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ postgres --version
+postgres <span style="color:#333">(</span>PostgreSQL<span style="color:#333">)</span> <span style="color:#60e;font-weight:bold">9</span>.6.3</code></pre></div>
+<p>※インデックスと英語以外の言語の場合については割愛。</p>
+
+<h3 id="データ">データ</h3>
+
+<p>お気に入りの<a href="https://www.kaggle.com/nickhould/craft-cans" target="_blank">アメリカのクラフトビールデータセット</a>を使う。適当に <code>create table</code> してCSVからデータを読み込む：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#080;font-weight:bold">create</span> <span style="color:#080;font-weight:bold">table</span> beers (
+    <span style="color:#080;font-weight:bold">key</span> <span style="color:#007020">int</span>,
+    abv <span style="color:#007020">real</span>,
+    ibu <span style="color:#007020">real</span>,
+    id <span style="color:#007020">int</span>,
+    name <span style="color:#007020">varchar</span>(<span style="color:#00d;font-weight:bold">128</span>),
+    style <span style="color:#007020">varchar</span>(<span style="color:#00d;font-weight:bold">64</span>),
+    brewery_id <span style="color:#007020">int</span>,
+    ounces <span style="color:#007020">real</span>
+);
+<span style="color:#f00;background-color:#faa">\</span><span style="color:#080;font-weight:bold">copy</span> beers <span style="color:#080;font-weight:bold">from</span> <span style="background-color:#fff0f0">&#39;beers.csv&#39;</span> <span style="color:#080;font-weight:bold">with</span> csv;</code></pre></div>
+<pre><code>sample=# select * from beers limit 5;
+ key |  abv  | ibu |  id  |        name         |             style              | brewery_id | ounces
+-----+-------+-----+------+---------------------+--------------------------------+------------+--------
+   0 |  0.05 |     | 1436 | Pub Beer            | American Pale Lager            |        408 |     12
+   1 | 0.066 |     | 2265 | Devil's Cup         | American Pale Ale (APA)        |        177 |     12
+   2 | 0.071 |     | 2264 | Rise of the Phoenix | American IPA                   |        177 |     12
+   3 |  0.09 |     | 2263 | Sinister            | American Double / Imperial IPA |        177 |     12
+   4 | 0.075 |     | 2262 | Sex and Candy       | American IPA                   |        177 |     12
+</code></pre>
+
+<p>やったぜ。</p>
+
+<p>今回は<a href="https://takuti.me/note/recsys-2016">RecSys2016に参加したとき</a>にいい感じのパブで飲んだ、<a href="http://www.notchbrewing.com/" target="_blank">Notch Brewing</a>（マサチューセッツ州）のビール &ldquo;<strong>Left of the Dial</strong>&rdquo; (ABV 4.3%) を当該データセットから探す。1年前の思い出をもう一度！<del>（そんなに好みのビールじゃなかったけど）</del></p>
+
+<p><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:512px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BKji_1DDncp/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">woo~🍺</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A post shared by @takuti on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2016-09-19T23:09:25+00:00">Sep 19, 2016 at 4:09pm PDT</time></p></div></blockquote> <script async defer src="//platform.instagram.com/en_US/embeds.js"></script></p>
+
+<h3 id="完全一致">完全一致</h3>
+
+<p>まずは愚直に <code>where</code> 句で完全一致検索をしてみよう：</p>
+
+<pre><code>sample=# select * from beers where name = 'Left of the Dial';
+ key | abv | ibu | id | name | style | brewery_id | ounces
+-----+-----+-----+----+------+-------+------------+--------
+(0 rows)
+</code></pre>
+
+<p>無い…。</p>
+
+<h3 id="like-と-ilike">LIKE と ILIKE</h3>
+
+<p>そんなはずはない！というわけで、Fuzzy Search を試みる。</p>
+
+<p><code>LIKE</code> でビール名の前後に何らかの文字列があることを許容すれば：</p>
+
+<pre><code>sample=# select * from beers where name LIKE '%Left of the Dial%';
+ key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+------+-------+-----+------+----------------------+--------------+------------+--------
+ 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
+(1 row)
+</code></pre>
+
+<p>あったー！ABVも記録と一致している。まさにこれだ。</p>
+
+<p><code>ILIKE</code> は <code>LIKE</code> の大文字・小文字を無視する版で、全部小文字で検索してもお目当てのビールがヒットするようになる：</p>
+
+<pre><code>sample=# select * from beers where name LIKE '%left of the dial%';
+ key | abv | ibu | id | name | style | brewery_id | ounces
+-----+-----+-----+----+------+-------+------------+--------
+(0 rows)
+
+sample=# select * from beers where name ILIKE '%left of the dial%';
+ key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+------+-------+-----+------+----------------------+--------------+------------+--------
+ 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
+(1 row)
+</code></pre>
+
+<h3 id="正規表現">正規表現</h3>
+
+<p>もう少し柔軟に、正規表現を使った検索も可能。</p>
+
+<p>先の <code>LIKE</code> 相当の正規表現マッチは <code>~</code> で探して次の通り：</p>
+
+<pre><code>sample=# select * from beers where name ~ '.*Left of the Dial.*';
+ key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+------+-------+-----+------+----------------------+--------------+------------+--------
+ 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
+(1 row)
+</code></pre>
+
+<p><code>~*</code> で探せば、大文字・小文字を無視してくれて <code>ILIKE</code> 相当の結果も得られる：</p>
+
+<pre><code>sample=# select * from beers where name ~ '.*left of the dial.*';
+ key | abv | ibu | id | name | style | brewery_id | ounces
+-----+-----+-----+----+------+-------+------------+--------
+(0 rows)
+
+sample=# select * from beers where name ~* '.*left of the dial.*';
+ key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+------+-------+-----+------+----------------------+--------------+------------+--------
+ 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
+(1 row)
+</code></pre>
+
+<h3 id="編集距離">編集距離</h3>
+
+<p>とはいえ、検索クエリは <code>LIKE</code> と正規表現だけでカバーできるほど単純なものではない。特にtypo、これが厄介。</p>
+
+<p>そこで<strong>編集距離</strong> (Levenshtein Distance) を使って、もう少しtypoにロバストなクエリにする。</p>
+
+<p>PostgreSQLでは <code>fuzzystrmatch</code> モジュールに関数 <code>levenshtein</code> などが含まれている：</p>
+
+<pre><code>sample=# create extension fuzzystrmatch;
+CREATE EXTENSION
+sample=# select levenshtein('kitten', 'sitting');
+ levenshtein
+-------------
+           3
+(1 row)
+</code></pre>
+
+<p>&ldquo;Left of the Dial&rdquo; からの編集距離が10以下のビールは結構ある：</p>
+
+<pre><code>sample=# select * from beers where levenshtein(lower(name), lower('Left of the Dial')) &lt;= 10;
+ key  |  abv  | ibu |  id  |         name         |          style           | brewery_id | ounces
+------+-------+-----+------+----------------------+--------------------------+------------+--------
+  274 | 0.054 |     | 1411 | Sawtooth Ale         | American Blonde Ale      |        407 |     12
+  383 | 0.072 |  60 | 1801 | Last Stop IPA        | American IPA             |        308 |     12
+  428 | 0.073 |     | 1785 | Le Flaneur Ale       | American Wild Ale        |         10 |     16
+  690 | 0.072 |     | 1623 | Lift Off IPA         | American IPA             |        358 |     16
+  695 |  0.06 |     | 2371 | Neato Bandito        | Euro Pale Lager          |        127 |     12
+ 1101 | 0.068 |  90 | 1903 | Let It Ride IPA      | American IPA             |        277 |     12
+ 1385 | 0.075 |  85 | 2159 | City of the Sun      | American IPA             |        209 |     16
+ 1493 | 0.045 |  50 | 2692 | Get Together         | American IPA             |          0 |     16
+ 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA             |        271 |     12
+ 1650 |  0.06 |  20 | 1791 | Hot Date Ale         | Chile Beer               |        314 |     16
+ 1658 | 0.065 |     | 2559 | Blood of the Unicorn | American Amber / Red Ale |         52 |     16
+ 1702 |  0.08 |     | 1375 | Nectar of the Hops   | Mead                     |        421 |     16
+ 2171 | 0.041 |     | 1780 | Rise to the Top      | Cream Ale                |        142 |     12
+ 2337 |       |     |  652 | West Sixth IPA       | American IPA             |        100 |     12
+(14 rows)
+</code></pre>
+
+<p>また、<code>levenshtein_less_equal(string 1, string 2, max distance)</code> は <code>max distance</code> より小さい編集距離の文字列に対してはその正確な編集距離を、それ以外については <code>max distance</code> より大きな適当な値（ここでは <code>max distance + 1</code>）を返す関数：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#080;font-weight:bold">select</span>
+    name,
+    levenshtein(<span style="color:#080;font-weight:bold">lower</span>(name), <span style="color:#080;font-weight:bold">lower</span>(<span style="background-color:#fff0f0">&#39;Left of the Dial&#39;</span>)), <span style="color:#888">/* 正確な編集距離 */</span>
+    levenshtein_less_equal(<span style="color:#080;font-weight:bold">lower</span>(name), <span style="color:#080;font-weight:bold">lower</span>(<span style="background-color:#fff0f0">&#39;Left of the Dial&#39;</span>), <span style="color:#00d;font-weight:bold">11</span>) <span style="color:#888">/* 編集距離11以下だけ真面目に計算する */</span>
+<span style="color:#080;font-weight:bold">from</span>
+    beers
+<span style="color:#080;font-weight:bold">limit</span>
+    <span style="color:#00d;font-weight:bold">5</span>;</code></pre></div>
+<pre><code>        name         | levenshtein | levenshtein_less_equal
+---------------------+-------------+------------------------
+ Pub Beer            |          14 |                     12
+ Devil's Cup         |          14 |                     12
+ Rise of the Phoenix |          11 |                     11
+ Sinister            |          14 |                     12
+ Sex and Candy       |          13 |                     12
+(5 rows)
+
+</code></pre>
+
+<p>これいいですね。『<a href="https://takuti.me/note/levenshtein-distance">いまさら編集距離 (Levenshtein Distance) を実装するぜ</a>』でも書いたとおり Levenshtein Distance は動的計画法によって計算されるので、明らかに <code>max distance</code> より距離が大きくなるケースをさっさと切り捨てるのは小粒でぴりりと辛い工夫。</p>
+
+<p>編集距離6以下を探せば、&rdquo;Left of the Dial IPA&rdquo; のみがヒットするようになる：</p>
+
+<pre><code>sample=# select * from beers where levenshtein_less_equal(lower(name), lower('Left of the Dial'), 6) &lt;= 6;
+ key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+------+-------+-----+------+----------------------+--------------+------------+--------
+ 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
+(1 row)
+</code></pre>
+
+<p>そして問題のtypoだが、この通り <code>Dial</code> を <code>Daniel</code> にtypoしても問題ない：</p>
+
+<pre><code>sample=# select * from beers where levenshtein_less_equal(lower(name), lower('Left of the Dniel'), 6) &lt;= 6;
+ key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+------+-------+-----+------+----------------------+--------------+------------+--------
+ 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
+(1 row)
+</code></pre>
+
+<p>『どの程度typoを許容するか』と『ヒットする件数』はトレードオフの関係にあるので、閾値を定めるのは結構大変。</p>
+
+<h3 id="文字のtri-gram">文字のtri-gram</h3>
+
+<p>編集距離以上にtypoにロバストなのが、文字の<strong>tri-gram</strong>による検索。</p>
+
+<p>文字のtri-gramは<a href="https://takuti.me/note/twitter-bot">単語のマルコフ連鎖</a>の文字版、のようなイメージ。PostgreSQLでは <code>pg_trgm</code> モジュールをいれることでtri-gramのマッチ（文字列の部分的な一致）による柔軟な検索ができる。</p>
+
+<p>たとえば <code>Avatar</code> という文字列からは <code>av</code> や <code>ata</code> のようなtri-gramが得られて、我々はそのtri-gramの意味で一致する文字列を探すことができる：</p>
+
+<pre><code>sample=# create extension pg_trgm;
+CREATE EXTENSION
+sample=# select show_trgm('Avatar');
+              show_trgm
+-------------------------------------
+ {&quot;  a&quot;,&quot; av&quot;,&quot;ar &quot;,ata,ava,tar,vat}
+(1 row)
+</code></pre>
+
+<p>実際には、<code>where</code> 句の <code>=</code> や <code>~</code> を <code>%</code> に置き換えるだけでtri-gramベースの検索が走る。</p>
+
+<p>末尾の <code>IPA</code> が抜け落ちたくらいは問題ない：</p>
+
+<pre><code>sample=# select * from beers where name % 'Left of the Dial';
+ key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+------+-------+-----+------+----------------------+--------------+------------+--------
+ 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
+(1 row)
+</code></pre>
+
+<p><code>Dial</code> が <code>Dia</code> になっちゃっててもOK：</p>
+
+<pre><code>sample=# select * from beers where name % 'Left of the Dia';
+ key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+------+-------+-----+------+----------------------+--------------+------------+--------
+ 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
+(1 row)
+</code></pre>
+
+<p><code>Dial</code> が完全に抜け落ちていると、tri-gramに <code>of</code> や <code>the</code> を含む他のビールまでヒットするようになる：</p>
+
+<pre><code>sample=# select * from beers where name % 'Left of the';
+ key  |  abv  | ibu |  id  |         name         |          style          | brewery_id | ounces
+------+-------+-----+------+----------------------+-------------------------+------------+--------
+ 1047 |  0.07 |  68 | 2294 | The Power of Zeus    | American Pale Ale (APA) |        168 |     12
+ 1385 | 0.075 |  85 | 2159 | City of the Sun      | American IPA            |        209 |     16
+ 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA            |        271 |     12
+(3 rows)
+</code></pre>
+
+<p>大文字・小文字や <code>Dial</code> のtypoくらいじゃへこたれない：</p>
+
+<pre><code>sample=# select * from beers where name % 'left of the daniel';
+ key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+------+-------+-----+------+----------------------+--------------+------------+--------
+ 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
+(1 row)
+</code></pre>
+
+<h3 id="tsvector">TSVector</h3>
+
+<p>自然言語として、もっと直感に即した“それっぽさ”を見たければ <strong>TSVector</strong> という表現が使える。</p>
+
+<p>&ldquo;Left of the Dial&rdquo; のTSVector表現はこんな感じ：</p>
+
+<pre><code>sample=# select to_tsvector('Left of the Dial');
+    to_tsvector
+-------------------
+ 'dial':4 'left':1
+(1 row)
+</code></pre>
+
+<p>これによって語順に依存しない、字句（トークン）の存在有無に基づく検索が可能。<code>of</code> や <code>the</code> のような stop word の除外、大文字・小文字の統一といった基本的な前処理は勝手にやってくれる。</p>
+
+<p>ビール名のTSVector <code>to_tsvector(name)</code> について、<code>left</code> と <code>ipa</code> を含むものを列挙すれば期待通り &ldquo;Left of the Dial&rdquo; が得られる：</p>
+
+<pre><code>sample=# select * from beers where to_tsvector(name) @@ to_tsquery('english', 'left &amp; ipa');
+ key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+------+-------+-----+------+----------------------+--------------+------------+--------
+ 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
+(1 row)
+</code></pre>
+
+<p>なお、<code>to_tsvector() @@ to_tsquery()</code> は次の構文と等価：</p>
+
+<pre><code>sample=# select * from beers where name @@ 'left &amp; ipa';
+ key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+------+-------+-----+------+----------------------+--------------+------------+--------
+ 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
+(1 row)
+</code></pre>
+
+<p>残念ながらtypoはカバーできない：</p>
+
+<pre><code>sample=# select * from beers where name @@ 'left &amp; daniel';
+ key | abv | ibu | id | name | style | brewery_id | ounces
+-----+-----+-----+----+------+-------+------------+--------
+(0 rows)
+</code></pre>
+
+<h3 id="サウンド距離">サウンド距離</h3>
+
+<p>「なんとなく覚えているけど、正確には書けない！」というときのために、システムはtypoにロバストであってほしい。ここまで見てきたのは、そのためのスペルに基づく様々なFuzzy Search手法。</p>
+
+<p>一方、スペルではなく“発音の近さ”（<strong>サウンド距離</strong>）で検索する方法もある。</p>
+
+<p>この機能は <code>levenshtein</code> のときにいれた <code>fuzzystrmatch</code> モジュールに含まれている。</p>
+
+<p><code>IPA</code>（あいぴーえー）を <code>ipear</code>（あいぺあー）と読んでみよう。 <code>ipear</code> の発音は次のように記号化される：</p>
+
+<pre><code>sample=# select dmetaphone('ipear'), dmetaphone_alt('ipear'), metaphone('ipear', 8), soundex('ipear');
+ dmetaphone | dmetaphone_alt | metaphone | soundex
+------------+----------------+-----------+---------
+ APR        | APR            | IPR       | I160
+(1 row)
+</code></pre>
+
+<p>明らかにtypoの域を越えているので、素のtri-gramでは何もヒットしない：</p>
+
+<pre><code>sample=# select * from beers where name % 'ipear';
+ key | abv | ibu | id | name | style | brewery_id | ounces
+-----+-----+-----+----+------+-------+------------+--------
+(0 rows)
+</code></pre>
+
+<p>しかし（記号化された）<strong>発音のtri-gram</strong>を比較すれば：</p>
+
+<pre><code>sample=# select * from beers where metaphone(name, 8) % metaphone('ipear', 8);
+ key  |  abv  | ibu |  id  |   name   |    style     | brewery_id | ounces
+------+-------+-----+------+----------+--------------+------------+--------
+   97 | 0.065 |     | 2578 | IPA      | American IPA |         35 |     12
+  591 | 0.057 |  58 | 2380 | IPA #11  | American IPA |        121 |     16
+  892 | 0.074 |  74 | 1777 | 2020 IPA | American IPA |        240 |     16
+ 1114 | 0.068 |  55 |  558 | I-10 IPA | American IPA |        527 |     12
+ 1192 | 0.068 |     | 2493 | I.P. Eh! | American IPA |         59 |     12
+ 1906 |  0.07 | 113 |   24 | 113 IPA  | American IPA |        371 |     12
+(6 rows)
+
+</code></pre>
+
+<p>おぉーIPAめっちゃ出てくるー。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p>以上、柔軟な検索を実現するためのFuzzy Search手法たちでした。</p>
+
+<p>実際のところ、RDB上でのFuzzy Searchって世の中ではどれだけ実用されているんだろうか。アルゴリズムの計算量、インデックスがどれだけ効果的に使えるか、期待する出力、etc..に応じて適切な検索手法を選択する必要があるので、なかなか難しい話題だと思う。</p>
+
+<p>そして複数の手法を組み合わせたハイブリッドFuzzy Searchも可能なので、さらに悩む。&rdquo;Seven Databases in Seven Weeks&rdquo; では次のようなクエリが紹介されている：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#080;font-weight:bold">select</span> <span style="color:#333">*</span> <span style="color:#080;font-weight:bold">from</span> actors
+<span style="color:#080;font-weight:bold">where</span> metaphone(name,<span style="color:#00d;font-weight:bold">8</span>) <span style="color:#333">%</span> metaphone(<span style="background-color:#fff0f0">&#39;Robin Williams&#39;</span>,<span style="color:#00d;font-weight:bold">8</span>)
+<span style="color:#080;font-weight:bold">order</span> <span style="color:#080;font-weight:bold">by</span> levenshtein(<span style="color:#080;font-weight:bold">lower</span>(<span style="background-color:#fff0f0">&#39;Robin Williams&#39;</span>), <span style="color:#080;font-weight:bold">lower</span>(name));</code></pre></div>
+<p>（Levenshtein Distance で <code>order by</code> とか絶対やりたくないけど…。）</p>
+
+<p>まぁ細かいことは気にせず、みんなも思い出のビールを検索してみよう！（？）</p>
+
+<ul>
+<li><a href="https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html" target="_blank">fuzzystrmatch</a></li>
+<li><a href="https://www.postgresql.org/docs/9.6/static/pgtrgm.html" target="_blank">pg_trgm</a></li>
+</ul>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

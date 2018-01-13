@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Comparison of Running Time of Cached/Uncached Spark RDD | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-04-16
+  </p>
+  <h2>Comparison of Running Time of Cached/Uncached Spark RDD</h2>
+
+  <div class="post">
+    
+
+<p><strong>Resilient Distributed Dataset</strong> (RDD) is a distributed parallel data model in Spark. The model enables us to think of our distributed data like a single collection. In this article, I introduce some basics and show experimental result which clearly demonstrates the strength of RDD.</p>
+
+<p>First and foremost, there are two different types of operations for RDD: <strong><em>transformation</em></strong> and <strong><em>action</em></strong>.</p>
+
+<h3 id="type-i-transformation">Type I: Transformation</h3>
+
+<p><strong>Transformation</strong> corresponds to Scala transformers such as <code>map()</code> and <code>filter()</code>; we can apply both <code>map()</code> and <code>filter()</code> operations for RDDs in a similar way to the standard Scala collections.</p>
+
+<p>In the Scala collections, this kind of operations return a new collection as:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">scala<span style="color:#333">&gt;</span> <span style="color:#b06;font-weight:bold">Seq</span><span style="color:#333">(</span><span style="color:#00d;font-weight:bold">1</span><span style="color:#333">,</span> <span style="color:#00d;font-weight:bold">2</span><span style="color:#333">,</span> <span style="color:#00d;font-weight:bold">3</span><span style="color:#333">).</span>map<span style="color:#333">(</span><span style="color:#080;font-weight:bold">_</span> <span style="color:#333">*</span> <span style="color:#00d;font-weight:bold">10</span><span style="color:#333">)</span>
+res<span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">Seq</span><span style="color:#333">[</span><span style="color:#339;font-weight:bold">Int</span><span style="color:#333">]</span> <span style="color:#080;font-weight:bold">=</span> <span style="color:#b06;font-weight:bold">List</span><span style="color:#333">(</span><span style="color:#00d;font-weight:bold">10</span><span style="color:#333">,</span> <span style="color:#00d;font-weight:bold">20</span><span style="color:#333">,</span> <span style="color:#00d;font-weight:bold">30</span><span style="color:#333">)</span></code></pre></div>
+<p>In RDDs, transformation similarly behaves; a new RDD will be returned as a result of transformation.</p>
+
+<p>However, there is a huge difference between Scala collections and RDDs: result of transformation is <em>NOT immediately</em> computed. That is, transformation stands on <strong>laziness</strong>.</p>
+
+<p>In case that we have a RDD which contains same values as the above example, <code>rdd.map()</code> does not return any &ldquo;collections&rdquo;:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">scala<span style="color:#333">&gt;</span> <span style="color:#080;font-weight:bold">val</span> rdd<span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">RDD</span><span style="color:#333">[</span><span style="color:#339;font-weight:bold">Int</span><span style="color:#333">]</span> <span style="color:#080;font-weight:bold">=</span> sc<span style="color:#333">.</span>parallelize<span style="color:#333">(</span><span style="color:#b06;font-weight:bold">Seq</span><span style="color:#333">(</span><span style="color:#00d;font-weight:bold">1</span><span style="color:#333">,</span> <span style="color:#00d;font-weight:bold">2</span><span style="color:#333">,</span> <span style="color:#00d;font-weight:bold">3</span><span style="color:#333">))</span>
+rdd<span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">org.apache.spark.rdd.RDD</span><span style="color:#333">[</span><span style="color:#339;font-weight:bold">Int</span><span style="color:#333">]</span> <span style="color:#080;font-weight:bold">=</span> <span style="color:#b06;font-weight:bold">ParallelCollectionRDD</span><span style="color:#333">[</span><span style="color:#f00;background-color:#faa">5</span><span style="color:#333">]</span> at parallelize at <span style="color:#333">&lt;</span>console<span style="color:#080;font-weight:bold">&gt;:</span><span style="color:#00d;font-weight:bold">20</span>
+
+scala<span style="color:#333">&gt;</span> rdd<span style="color:#333">.</span>map<span style="color:#333">(</span><span style="color:#080;font-weight:bold">_</span> <span style="color:#333">*</span> <span style="color:#00d;font-weight:bold">10</span><span style="color:#333">)</span>
+res<span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">org.apache.spark.rdd.RDD</span><span style="color:#333">[</span><span style="color:#339;font-weight:bold">Int</span><span style="color:#333">]</span> <span style="color:#080;font-weight:bold">=</span> <span style="color:#b06;font-weight:bold">MapPartitionsRDD</span><span style="color:#333">[</span><span style="color:#f00;background-color:#faa">6</span><span style="color:#333">]</span> at map at <span style="color:#333">&lt;</span>console<span style="color:#080;font-weight:bold">&gt;:</span><span style="color:#00d;font-weight:bold">22</span></code></pre></div>
+<p>Note that, if you want to compute RDD and convert it to Scala collection, you can use <code>collect()</code> operation as follows.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">scala<span style="color:#333">&gt;</span> rdd<span style="color:#333">.</span>map<span style="color:#333">(</span><span style="color:#080;font-weight:bold">_</span> <span style="color:#333">*</span> <span style="color:#00d;font-weight:bold">10</span><span style="color:#333">).</span>collect<span style="color:#333">()</span>
+res<span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">Array</span><span style="color:#333">[</span><span style="color:#339;font-weight:bold">Int</span><span style="color:#333">]</span> <span style="color:#080;font-weight:bold">=</span> <span style="color:#b06;font-weight:bold">Array</span><span style="color:#333">(</span><span style="color:#00d;font-weight:bold">10</span><span style="color:#333">,</span> <span style="color:#00d;font-weight:bold">20</span><span style="color:#333">,</span> <span style="color:#00d;font-weight:bold">30</span><span style="color:#333">)</span></code></pre></div>
+<h3 id="type-ii-action">Type II: Action</h3>
+
+<p><strong>Action</strong> corresponds to Scala accessors e.g., <code>fold()</code> and <code>aggregate()</code>, and the usage is very similar to what Scala collections do.</p>
+
+<p>Importantly, in contrast to transformations, actions return something like value.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">scala<span style="color:#333">&gt;</span> <span style="color:#b06;font-weight:bold">Seq</span><span style="color:#333">(</span><span style="color:#00d;font-weight:bold">1</span><span style="color:#333">,</span> <span style="color:#00d;font-weight:bold">2</span><span style="color:#333">,</span> <span style="color:#00d;font-weight:bold">3</span><span style="color:#333">).</span>fold<span style="color:#333">(</span><span style="color:#00d;font-weight:bold">0</span><span style="color:#333">)(</span><span style="color:#080;font-weight:bold">_</span> <span style="color:#333">+</span> <span style="color:#080;font-weight:bold">_</span><span style="color:#333">)</span>
+res<span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">Int</span> <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">6</span></code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">scala<span style="color:#333">&gt;</span> <span style="color:#080;font-weight:bold">val</span> rdd<span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">RDD</span><span style="color:#333">[</span><span style="color:#339;font-weight:bold">Int</span><span style="color:#333">]</span> <span style="color:#080;font-weight:bold">=</span> sc<span style="color:#333">.</span>parallelize<span style="color:#333">(</span><span style="color:#b06;font-weight:bold">Seq</span><span style="color:#333">(</span><span style="color:#00d;font-weight:bold">1</span><span style="color:#333">,</span> <span style="color:#00d;font-weight:bold">2</span><span style="color:#333">,</span> <span style="color:#00d;font-weight:bold">3</span><span style="color:#333">))</span>
+rdd<span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">org.apache.spark.rdd.RDD</span><span style="color:#333">[</span><span style="color:#339;font-weight:bold">Int</span><span style="color:#333">]</span> <span style="color:#080;font-weight:bold">=</span> <span style="color:#b06;font-weight:bold">ParallelCollectionRDD</span><span style="color:#333">[</span><span style="color:#f00;background-color:#faa">5</span><span style="color:#333">]</span> at parallelize at <span style="color:#333">&lt;</span>console<span style="color:#080;font-weight:bold">&gt;:</span><span style="color:#00d;font-weight:bold">20</span>
+
+scala<span style="color:#333">&gt;</span> rdd<span style="color:#333">.</span>fold<span style="color:#333">(</span><span style="color:#00d;font-weight:bold">0</span><span style="color:#333">)(</span><span style="color:#080;font-weight:bold">_</span> <span style="color:#333">+</span> <span style="color:#080;font-weight:bold">_</span><span style="color:#333">)</span>
+res<span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">Int</span> <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">6</span></code></pre></div>
+<p>It is obvious that actions are evaluated <strong>eager</strong>; result is <em>immediately</em> computed.</p>
+
+<h3 id="uncached-vs-cached">Uncached vs Cached</h3>
+
+<p>Even though you applied transformations for RDD, nothing happens until actions are kicked because transformations are lazy operations. This fact indicates that actions could be a bottleneck in code which handles RDDs.</p>
+
+<p>In a context of machine learning, since iteration over large-scale data is necessary, same operations are repeatedly executed until convergence. To give an example, for an algorithm which iteratively runs <code>rdd.filter().map().count()</code>, all of three operations <code>filter()</code>, <code>map()</code> and <code>count()</code> are internally repeated. So, when size of data in RDD is huge, this iterations will be surprisingly slow.</p>
+
+<p>In order to run such repeatedly-computed transformations more efficiently, RDD has a special operation named <code>parallel()</code> (or, <code>persist()</code>). If you define a RDD with the <code>cache()</code> operation, RDD internally caches the result of transformations, and hence iterative <code>count()</code> operations should be much faster than the uncached case.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#080;font-weight:bold">val</span> rddUncached <span style="color:#080;font-weight:bold">=</span> rdd<span style="color:#333">.</span>filter<span style="color:#333">().</span>map<span style="color:#333">()</span>
+<span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span>i <span style="color:#080;font-weight:bold">&lt;-</span> <span style="color:#00d;font-weight:bold">0</span> to n<span style="color:#333">)</span> <span style="color:#333">{</span> <span style="color:#888">// inefficient :(
+</span><span style="color:#888"></span>	<span style="color:#888">// recompute `filter` -&gt; `map` -&gt; `count` in each time
+</span><span style="color:#888"></span>	rddUncached<span style="color:#333">.</span>count<span style="color:#333">()</span>
+<span style="color:#333">}</span></code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#080;font-weight:bold">val</span> rddCached <span style="color:#080;font-weight:bold">=</span> rdd<span style="color:#333">.</span>filter<span style="color:#333">().</span>map<span style="color:#333">().</span>cache<span style="color:#333">()</span>
+<span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span>i <span style="color:#080;font-weight:bold">&lt;-</span> <span style="color:#00d;font-weight:bold">0</span> to n<span style="color:#333">)</span> <span style="color:#333">{</span> <span style="color:#888">// efficient :)
+</span><span style="color:#888"></span>	<span style="color:#888">// result of `filter` -&gt; `map` is internally cached
+</span><span style="color:#888"></span>	rddCached<span style="color:#333">.</span>count<span style="color:#333">()</span>
+<span style="color:#333">}</span></code></pre></div>
+<h3 id="experiment">Experiment</h3>
+
+<p>Let&rsquo;s finally check if cached RDD is truly faster than uncached one.</p>
+
+<p>1) Define a Spark context and dummy data <code>randomList</code> which consists of 10k random integers:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#080;font-weight:bold">val</span> conf<span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">SparkConf</span> <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#b06;font-weight:bold">SparkConf</span><span style="color:#333">().</span>setMaster<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;local&#34;</span><span style="color:#333">).</span>setAppName<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;RDDTest&#34;</span><span style="color:#333">)</span>
+<span style="color:#080;font-weight:bold">val</span> sc<span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">SparkContext</span> <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#b06;font-weight:bold">SparkContext</span><span style="color:#333">(</span>conf<span style="color:#333">)</span>
+
+<span style="color:#080;font-weight:bold">val</span> rng<span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">Random</span> <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#b06;font-weight:bold">Random</span>
+<span style="color:#080;font-weight:bold">val</span> randomList<span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">List</span><span style="color:#333">[</span><span style="color:#339;font-weight:bold">Int</span><span style="color:#333">]</span> <span style="color:#080;font-weight:bold">=</span> <span style="color:#333">(</span><span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span>i <span style="color:#080;font-weight:bold">&lt;-</span> <span style="color:#00d;font-weight:bold">1</span> to <span style="color:#00d;font-weight:bold">10000</span><span style="color:#333">)</span> <span style="color:#080;font-weight:bold">yield</span> rng<span style="color:#333">.</span>nextInt<span style="color:#333">).</span>toList</code></pre></div>
+<p>2) Create a function which measures running time (cf. <a href="http://biercoff.com/easily-measuring-code-execution-time-in-scala/" target="_blank">Easily measuring code execution time in Scala</a>):</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#080;font-weight:bold">def</span> time<span style="color:#333">[</span><span style="color:#339;font-weight:bold">R</span><span style="color:#333">](</span>block<span style="color:#080;font-weight:bold">:</span> <span style="color:#333">=&gt;</span> R<span style="color:#333">)</span><span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">R</span> <span style="color:#333">=</span> <span style="color:#333">{</span>
+	<span style="color:#080;font-weight:bold">val</span> t0 <span style="color:#080;font-weight:bold">=</span> <span style="color:#b06;font-weight:bold">System</span><span style="color:#333">.</span>nanoTime<span style="color:#333">()</span>
+	<span style="color:#080;font-weight:bold">val</span> result <span style="color:#080;font-weight:bold">=</span> block
+	<span style="color:#080;font-weight:bold">val</span> t1 <span style="color:#080;font-weight:bold">=</span> <span style="color:#b06;font-weight:bold">System</span><span style="color:#333">.</span>nanoTime<span style="color:#333">()</span>
+	println<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;Elapsed time: &#34;</span> <span style="color:#333">+</span> <span style="color:#333">((</span>t1 <span style="color:#333">-</span> t0<span style="color:#333">)</span> <span style="color:#333">/</span> <span style="color:#60e;font-weight:bold">1000000000.0</span><span style="color:#333">)</span> <span style="color:#333">+</span> <span style="background-color:#fff0f0">&#34; sec&#34;</span><span style="color:#333">)</span>
+	result
+<span style="color:#333">}</span></code></pre></div>
+<p>3) Compare running time of the same operations over cached/uncached RDD:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span>i <span style="color:#080;font-weight:bold">&lt;-</span> <span style="color:#00d;font-weight:bold">1</span> to <span style="color:#00d;font-weight:bold">3</span><span style="color:#333">)</span> <span style="color:#333">{</span> <span style="color:#888">// try 3 times
+</span><span style="color:#888"></span>	println<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;========&#34;</span><span style="color:#333">)</span>
+	println<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;Uncached&#34;</span><span style="color:#333">)</span>
+	println<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;========&#34;</span><span style="color:#333">)</span>
+	time <span style="color:#333">{</span>
+		<span style="color:#080;font-weight:bold">val</span> rdd<span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">RDD</span><span style="color:#333">[</span><span style="color:#339;font-weight:bold">Int</span><span style="color:#333">]</span> <span style="color:#080;font-weight:bold">=</span> sc<span style="color:#333">.</span>parallelize<span style="color:#333">(</span>randomList<span style="color:#333">).</span>map<span style="color:#333">(</span>f<span style="color:#333">)</span>
+		<span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span>i <span style="color:#080;font-weight:bold">&lt;-</span> <span style="color:#00d;font-weight:bold">1</span> to <span style="color:#00d;font-weight:bold">1000</span><span style="color:#333">)</span> rdd<span style="color:#333">.</span>count<span style="color:#333">()</span>
+	<span style="color:#333">}</span>
+
+	println<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;========&#34;</span><span style="color:#333">)</span>
+	println<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;Cached&#34;</span><span style="color:#333">)</span>
+	println<span style="color:#333">(</span><span style="background-color:#fff0f0">&#34;========&#34;</span><span style="color:#333">)</span>
+	time <span style="color:#333">{</span>
+		<span style="color:#080;font-weight:bold">val</span> rddCached<span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">RDD</span><span style="color:#333">[</span><span style="color:#339;font-weight:bold">Int</span><span style="color:#333">]</span> <span style="color:#080;font-weight:bold">=</span> sc<span style="color:#333">.</span>parallelize<span style="color:#333">(</span>randomList<span style="color:#333">).</span>map<span style="color:#333">(</span>f<span style="color:#333">).</span>cache<span style="color:#333">()</span>
+		<span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span>i <span style="color:#080;font-weight:bold">&lt;-</span> <span style="color:#00d;font-weight:bold">1</span> to <span style="color:#00d;font-weight:bold">1000</span><span style="color:#333">)</span> rddCached<span style="color:#333">.</span>count<span style="color:#333">()</span>
+	<span style="color:#333">}</span>
+<span style="color:#333">}</span></code></pre></div>
+<p>Here, mapped function <code>f</code> is a dummy function which takes a long-time:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#080;font-weight:bold">def</span> f<span style="color:#333">(</span>v<span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">Int</span><span style="color:#333">)</span><span style="color:#080;font-weight:bold">:</span> <span style="color:#339;font-weight:bold">Int</span> <span style="color:#333">=</span> <span style="color:#333">{</span>
+	<span style="color:#080;font-weight:bold">for</span> <span style="color:#333">(</span>i <span style="color:#080;font-weight:bold">&lt;-</span> <span style="color:#00d;font-weight:bold">1</span> to <span style="color:#00d;font-weight:bold">10000</span><span style="color:#333">)</span> <span style="color:#333">{}</span>
+	v
+<span style="color:#333">}</span></code></pre></div>
+<p>Note: In view of unrelated optimization done by Scala itself, our code tries the same procedure three times.</p>
+
+<p>Woo-hoo! As a consequence, we can observe that the cached RDD is much more efficient even for the same data and same number of iterations:</p>
+
+<pre><code>========
+Uncached
+========
+Elapsed time: 40.727146166 sec
+========
+Cached
+========
+Elapsed time: 3.947885796 sec
+</code></pre>
+
+<pre><code>========
+Uncached
+========
+Elapsed time: 37.857984933 sec
+========
+Cached
+========
+Elapsed time: 3.149896662 sec
+</code></pre>
+
+<pre><code>========
+Uncached
+========
+Elapsed time: 35.778371576 sec
+========
+Cached
+========
+Elapsed time: 3.6294217 sec
+</code></pre>
+
+<p>Complete code is available at: <a href="https://github.com/takuti-sandbox/tmp/blob/644d7c6e85c7f111b0f340ece37bc1d4434bb5e5/scala/src/main/scala/rdd/RDDTest.scala" target="_blank">RDDTest.scala</a>.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Spark optimization basically relies on laziness, and caching transformation is one of the simplest and most effective ways to optimize your code utilizing RDDs.</p>
+
+<p>The contents of this article is based on an online course &ldquo;<a href="https://www.coursera.org/learn/scala-spark-big-data" target="_blank">Big Data Analysis with Scala and Spark</a>&rdquo;. This well-structured course is really interesting and exciting from a practical point of view :)</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

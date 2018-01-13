@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Recommendation.jl: Building Recommender Systems in Julia | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-01-14
+  </p>
+  <h2>Recommendation.jl: Building Recommender Systems in Julia</h2>
+
+  <div class="post">
+    
+
+<p>I have recently published <a href="https://github.com/takuti/Recommendation.jl" target="_blank">Recommendation.jl</a>, a Julia package for recommender systems. The package is already registered in <a href="https://github.com/JuliaLang/METADATA.jl" target="_blank">METADATA.jl</a>, so it can be installed by:</p>
+
+<pre><code>$ julia
+julia&gt; Pkg.add(&quot;Recommendation&quot;)
+</code></pre>
+
+<p>Last year, I took <strong><em>Introduction to Recommender Systems</em></strong>, an online course created by University of Minnesota, on Coursera. Although the course assignments originally require us to use spreadsheet (on Google Drive or MS Excel), I personally solved all of them by programming in Julia. Recommendation.jl is created as a result of the coursework assignments.</p>
+
+<p>This article explains about the details of Recommendation.jl. If you are interested in functionality and usage, you can refer to README of the repository. In case you have comments or suggestions for future update, issues and/or pull requests are very welcome!</p>
+
+<p><em>Note: The online course is now opening as <a href="https://www.coursera.org/specializations/recommender-systems" target="_blank">Recommender Systems Specialization</a>. Course contents might be different from the previous version that I have completed.</em></p>
+
+<h3 id="why-julia">Why Julia?</h3>
+
+<p><a href="http://julialang.org/" target="_blank">Julia</a> is a relatively new programming language developed by computer scientists at MIT, and the language mainly focuses on high-performance scientific computing by utilizing the just-in-time compiler. Conventionally, <a href="http://www.mathworks.com/" target="_blank">MATLAB</a> has been widely used for numerical computing, but it is in some sense inefficient proprietary software. Thus, open-sourced Julia&rsquo;s efficient implementation is getting the attention of research communities in these days: <em><a href="https://sinews.siam.org/Details-Page/julia-a-fast-language-for-numerical-computing-1" target="_blank">Julia: A Fast Language for Numerical Computing</a></em>.</p>
+
+<p>We can readily use various scientific algorithms on MATLAB and Julia by integrating third-party packages, and their syntax dedicated to vector and matrix computations definitely accelerates algorithm development both in industry and academia. However, in terms of recommender systems, there are currently no effective Julia packages which enable us to make fundamental CF, SVD and MF-based recommendation. Therefore, I developed a basic toolkit for recommender systems in Julia.</p>
+
+<p>Static analysis on a local machine with classical techniques is essentially important as the first step for building your own recommender systems, and the package helps you to analyze own user-item data. Additionally, since the implementation and Julia itself are highly flexible, implementing new algorithms on the package should be easy.</p>
+
+<h3 id="basic-structure">Basic structure</h3>
+
+<p>In general, recommender systems somehow handle a number of events which represents user-item interactions. So, our package describes each event as an <code>Event</code> composite type:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jl" data-lang="jl"><span style="color:#080;font-weight:bold">type</span> Event
+    user<span style="color:#333">::</span><span style="color:#339;font-weight:bold">Int</span>
+    item<span style="color:#333">::</span><span style="color:#339;font-weight:bold">Int</span>
+    value<span style="color:#333">::</span><span style="color:#339;font-weight:bold">Float64</span>
+<span style="color:#080;font-weight:bold">end</span></code></pre></div>
+<p>A field <code>value</code> can be unary or arbitrary real number depending on the feedback types.</p>
+
+<p>In order to represent a series of <code>Event</code>, we define a data accessor as follows:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jl" data-lang="jl"><span style="color:#080;font-weight:bold">immutable</span> DataAccessor
+    events<span style="color:#333">::</span><span style="color:#339;font-weight:bold">Array</span>{Event,<span style="color:#00d;font-weight:bold">1</span>}
+    R<span style="color:#333">::</span><span style="color:#339;font-weight:bold">AbstractMatrix</span>
+    user_attributes<span style="color:#333">::</span><span style="color:#339;font-weight:bold">Dict</span>{<span style="color:#339;font-weight:bold">Int</span>,<span style="color:#339;font-weight:bold">Any</span>} <span style="color:#888"># user =&gt; attributes</span>
+    item_attributes<span style="color:#333">::</span><span style="color:#339;font-weight:bold">Dict</span>{<span style="color:#339;font-weight:bold">Int</span>,<span style="color:#339;font-weight:bold">Any</span>} <span style="color:#888"># item =&gt; attributes</span>
+<span style="color:#080;font-weight:bold">end</span></code></pre></div>
+<p>This abstraction allows us to interchangeably access to an array of <code>Event</code> and user-item matrix. Notice that user and item attributes can be stored as key-value pairs on <code>DataAccessor</code> for content-based and feature-based recommenders.</p>
+
+<p>Once a dataset is converted into a data accessor, we can launch various kinds of recommenders on the package. Importantly, all of the recommendation techniques implemented in the package are based on an abstract base type <code>Recommender</code>, and the following functions should be implemented on each recommender:</p>
+
+<ul>
+<li><code>build(rec::Recommender; kwargs...)</code>
+
+<ul>
+<li>Building a recommendation engine from a data accessor.</li>
+</ul></li>
+<li><code>check_build_status(rec::Recommender)</code>
+
+<ul>
+<li>Check whether recommender is already built before making recommendation.</li>
+</ul></li>
+<li><code>predict(rec::Recommender, u::Int, i::Int)</code>
+
+<ul>
+<li>Making prediction for a given user-item pair.</li>
+</ul></li>
+<li><code>ranking(rec::Recommender, u::Int, i::Int)</code>
+
+<ul>
+<li>Computing a ranking score for a given user-item pair.</li>
+</ul></li>
+<li><code>recommend(rec::Recommender, u::Int, k::Int, candidates::Array{Int})</code>
+
+<ul>
+<li>Making top-$k$ recommendation for a given user from a list of item candidates.</li>
+</ul></li>
+</ul>
+
+<p>In particular, what <code>recommend()</code> does is to compute ranking scores for all possible user-item pairs and return top-$k$ highest-ranked items. Since this recommendation procedure is always same regardless of recommenders, the function is precomposed in the package:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jl" data-lang="jl"><span style="color:#080;font-weight:bold">function</span> recommend(rec<span style="color:#333">::</span>Recommender, u<span style="color:#333">::</span><span style="color:#339;font-weight:bold">Int</span>, k<span style="color:#333">::</span><span style="color:#339;font-weight:bold">Int</span>, candidates<span style="color:#333">::</span><span style="color:#339;font-weight:bold">Array</span>{<span style="color:#339;font-weight:bold">Int</span>})
+    d <span style="color:#333">=</span> <span style="color:#339;font-weight:bold">Dict</span>{<span style="color:#339;font-weight:bold">Int</span>,<span style="color:#339;font-weight:bold">Float64</span>}()
+    <span style="color:#080;font-weight:bold">for</span> candidate <span style="color:#038;font-weight:bold">in</span> candidates
+        score <span style="color:#333">=</span> ranking(rec, u, candidate)
+        d[candidate] <span style="color:#333">=</span> score
+    <span style="color:#080;font-weight:bold">end</span>
+    sort(collect(d), by<span style="color:#333">=</span>tuple<span style="color:#333">-&gt;</span>last(tuple), rev<span style="color:#333">=</span><span style="color:#080;font-weight:bold">true</span>)[<span style="color:#00d;font-weight:bold">1</span><span style="color:#333">:</span>k]
+<span style="color:#080;font-weight:bold">end</span></code></pre></div>
+<p>The <code>recommend()</code> function actually works correctly, but the implementation is not efficient enough; computing the ranking scores one-by-one might be computationally expensive, especially for the massive item candidates. Hence, the function should be improved in the future by taking more efficient approaches such as parallelization.</p>
+
+<p>Another common function is <code>check_build_status()</code>. The function checks a recommenders&rsquo; build state and throws an error if it is still not built:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jl" data-lang="jl"><span style="color:#080;font-weight:bold">function</span> check_build_status(rec<span style="color:#333">::</span>Recommender)
+    <span style="color:#080;font-weight:bold">if</span> <span style="color:#333">!</span>haskey(rec<span style="color:#333">.</span>states, <span style="color:#333">:</span>is_built) <span style="color:#333">||</span> <span style="color:#333">!</span>rec<span style="color:#333">.</span>states[<span style="color:#333">:</span>is_built]
+        error(<span style="background-color:#fff0f0">&#34;Recommender </span><span style="background-color:#eee">$</span>(typeof(rec))<span style="background-color:#fff0f0"> is not built before making recommendation&#34;</span>)
+    <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></code></pre></div>
+<h3 id="implementing-a-recommendation-algorithm-on-recommendation-jl">Implementing a recommendation algorithm on Recommendation.jl</h3>
+
+<p>To give an example, the following code demonstrates implementation of the simple popularity-based recommender:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jl" data-lang="jl"><span style="color:#080;font-weight:bold">immutable</span> MostPopular <span style="color:#333">&lt;:</span> Recommender
+    da<span style="color:#333">::</span>DataAccessor
+    scores<span style="color:#333">::</span><span style="color:#339;font-weight:bold">AbstractVector</span>
+    states<span style="color:#333">::</span>States
+<span style="color:#080;font-weight:bold">end</span>
+
+MostPopular(da<span style="color:#333">::</span>DataAccessor, hyperparams<span style="color:#333">::</span>Parameters<span style="color:#333">=</span>Parameters()) <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">begin</span>
+    n_item <span style="color:#333">=</span> size(da<span style="color:#333">.</span>R, <span style="color:#00d;font-weight:bold">2</span>)
+    MostPopular(da, zeros(n_item), States(<span style="color:#333">:</span>is_built <span style="color:#333">=&gt;</span> <span style="color:#080;font-weight:bold">false</span>))
+<span style="color:#080;font-weight:bold">end</span>
+
+<span style="color:#080;font-weight:bold">function</span> build(rec<span style="color:#333">::</span>MostPopular)
+    n_item <span style="color:#333">=</span> size(rec<span style="color:#333">.</span>da<span style="color:#333">.</span>R, <span style="color:#00d;font-weight:bold">2</span>)
+
+    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#038;font-weight:bold">in</span> <span style="color:#00d;font-weight:bold">1</span><span style="color:#333">:</span>n_item
+        rec<span style="color:#333">.</span>scores[i] <span style="color:#333">=</span> countnz(rec<span style="color:#333">.</span>da<span style="color:#333">.</span>R[<span style="color:#333">:</span>, i])
+    <span style="color:#080;font-weight:bold">end</span>
+
+    rec<span style="color:#333">.</span>states[<span style="color:#333">:</span>is_built] <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span>
+<span style="color:#080;font-weight:bold">end</span>
+
+<span style="color:#080;font-weight:bold">function</span> ranking(rec<span style="color:#333">::</span>MostPopular, u<span style="color:#333">::</span><span style="color:#339;font-weight:bold">Int</span>, i<span style="color:#333">::</span><span style="color:#339;font-weight:bold">Int</span>)
+    check_build_status(rec)
+    rec<span style="color:#333">.</span>scores[i]
+<span style="color:#080;font-weight:bold">end</span></code></pre></div>
+<p>The <code>MostPopular</code> recommender type is initialized by a data accessor, and a recommendation engine can be built by counting the number of nonzero elements in each column (i.e., item) of a user-item matrix. Ultimately, the frequency is the ranking scores which determine the most promising items.</p>
+
+<p>It should be noticed that <code>predict()</code> does not necessarily to be implemented because <code>recommend()</code> internally uses scores obtained from <code>ranking()</code>. In case only <code>predict()</code> is implemented on a recommender, <code>ranking()</code> works as an alias of the <code>predict()</code> function by default:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jl" data-lang="jl"><span style="color:#080;font-weight:bold">function</span> predict(rec<span style="color:#333">::</span>Recommender, u<span style="color:#333">::</span><span style="color:#339;font-weight:bold">Int</span>, i<span style="color:#333">::</span><span style="color:#339;font-weight:bold">Int</span>)
+    error(<span style="background-color:#fff0f0">&#34;predict is not implemented for recommender type </span><span style="background-color:#eee">$</span>(typeof(rec))<span style="background-color:#fff0f0">&#34;</span>)
+<span style="color:#080;font-weight:bold">end</span>
+
+<span style="color:#080;font-weight:bold">function</span> ranking(rec<span style="color:#333">::</span>Recommender, u<span style="color:#333">::</span><span style="color:#339;font-weight:bold">Int</span>, i<span style="color:#333">::</span><span style="color:#339;font-weight:bold">Int</span>)
+    check_build_status(rec)
+    predict(rec, u, i)
+<span style="color:#080;font-weight:bold">end</span></code></pre></div>
+<p>The separation of <code>predict()</code> and <code>ranking()</code> functions is based on <a href="http://www.librec.net/" target="_blank">LibRec</a>, a Java library for recommender systems.</p>
+
+<p>Consequently, when researchers and engineers like to implement new recommendation techniques in Julia by using the Recommendation.jl library, they simply need to care about the following three points:</p>
+
+<ul>
+<li>How to build a recommender from a data accessor,</li>
+<li>How to make prediction for a given user-item pair,</li>
+<li>How to compute a ranking score for a given user-item pair,</li>
+</ul>
+
+<p>in addition to converting own data into a data accessor. The flexible data accessors and Julia&rsquo;s dynamic type systems clearly make the package extensible. Note that the idea of the flexible implementation originally comes from <a href="http://lenskit.org/" target="_blank">LensKit</a>, a recommender-specific toolkit running in JVM. LensKit is fully taking advantage of flexibility achieved by dependency injection.</p>
+
+<h3 id="example-of-matrix-factorization-based-recommendation">Example of matrix-factorization-based recommendation</h3>
+
+<p>Integrating a data accessor, recommender and metric eventually enable us to compute the accuracy of recommendation. Here, I give an example of the whole procedure using Recommendation.jl:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jl" data-lang="jl"><span style="color:#080;font-weight:bold">using</span> Recommendation
+
+<span style="color:#080;font-weight:bold">const</span> n_user <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">5</span>
+<span style="color:#080;font-weight:bold">const</span> n_item <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">10</span>
+
+<span style="color:#888"># Create a data accessor from events</span>
+events <span style="color:#333">=</span> [Event(<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">1</span>), Event(<span style="color:#00d;font-weight:bold">3</span>, <span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">1</span>), Event(<span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">6</span>, <span style="color:#00d;font-weight:bold">4</span>)]
+da <span style="color:#333">=</span> DataAccessor(events, n_user, n_item)
+
+<span style="color:#888"># Initialize a MF-based recommender with the data accessor</span>
+<span style="color:#888"># The number of latent factors is set to 2</span>
+recommender <span style="color:#333">=</span> MF(da, Parameters(<span style="color:#333">:</span>k <span style="color:#333">=&gt;</span> <span style="color:#00d;font-weight:bold">2</span>))
+
+<span style="color:#888"># Build the MF-based recommender based on the SGD optimization</span>
+build(recommender, learning_rate<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">15e-4</span>, max_iter<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">100</span>)
+
+<span style="color:#888"># Make top-k recommendation for a user from a set of item candidates</span>
+u <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">4</span>
+k <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">2</span>
+candidates <span style="color:#333">=</span> [i <span style="color:#080;font-weight:bold">for</span> i <span style="color:#038;font-weight:bold">in</span> <span style="color:#00d;font-weight:bold">1</span><span style="color:#333">:</span>n_item] <span style="color:#888"># all items</span>
+recommend(recommender, u, k, candidates)</code></pre></div>
+<p><code>recommend()</code> eventually returns tuples of sorted item IDs and their scores.</p>
+
+<h3 id="what-s-next">What&rsquo;s next</h3>
+
+<p>This article has introduced the basic concept underlying my new Julia package for recommender systems.</p>
+
+<p>Currently, the package has very limited functions what I have learnt from the &ldquo;Introduction to Recommender Systems&rdquo; course. More powerful recommendation techniques (e.g., Tensor Factorization, Factorization Machines) should be implemented in the future. Moreover, creating <code>update()</code> method is another promising direction in order to test recommendation algorithms in an incremental fashion.</p>
+
+<p>In terms of efficiency, current implementation is naive and does not take advantage of Julia&rsquo;s performance. This view should be considered more to improve feasibility of the package. Meanwhile, comparison with the other recommender-specific libraries is important.</p>
+
+<p>Recommendation.jl is still in version 0.0.1. Keep waiting till new releases and further improvements!</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

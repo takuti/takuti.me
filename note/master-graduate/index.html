@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        修士課程で機械学習が専門ではない指導教員の下で機械学習を学ぶために | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-03-31
+  </p>
+  <h2>修士課程で機械学習が専門ではない指導教員の下で機械学習を学ぶために</h2>
+
+  <div class="post">
+    
+
+<p><a href="http://takuti.hatenablog.com/entry/2015/03/06/210735" target="_blank">会津大学から東大情報理工へ進学</a>して早2年、この春無事に修士号をゲットした。めでたい。</p>
+
+<p>この2年間はこれまでの人生で最も濃く、楽しい時間だった。関わったすべてのみなさんに感謝したい。積もる話は山ほどあるけど、ここでは研究活動でこの2年間を振り返ってみる。</p>
+
+<p>修士課程で僕が置かれた状況は標題の通りで、この分野の人気が高まっている昨今、卒業論文や修士論文のテーマ設定に際して同じような境遇のひとは少なくないと思う。この記事がひとつの事例として、そんなみなさんの参考になれば。</p>
+
+<p>※個人の経験を述べるだけで、『機械学習を学ぶ際のオススメテキスト』とか『数学の知識はこれさえあればOK!』といった内容ではない。</p>
+
+<h3 id="tl-dr">TL;DR</h3>
+
+<ul>
+<li>大学院の外に“先生”を求める
+
+<ul>
+<li>ガチっぽい機械学習関連のインターンに参加する（3社；e.g., 『<a href="https://takuti.me/note/td-intern-2016/" target="_blank">Treasure Dataインターンにみる機械学習のリアル</a>』）</li>
+<li>機械学習サマースクールに行く（『<a href="https://takuti.me/note/mlss-kyoto-2015/" target="_blank">Machine Learning Summer School 2015 Kyoto</a>』）</li>
+<li>たとえ単著でも論文を書いて発表する（国内会議3本、査読付き国際会議2本）</li>
+</ul></li>
+<li>上記の経験から「自分はある程度“正しい”方向に進んでいる」ということを定期的に実感することが重要</li>
+<li>とはいえ、指導教員の協力は必須</li>
+</ul>
+
+<h3 id="どんな2年間だったか">どんな2年間だったか</h3>
+
+<h4 id="m1">M1</h4>
+
+<ul>
+<li>4月
+
+<ul>
+<li>機械学習サマースクールに応募</li>
+<li>RSSリーダでコンテンツを消費する中で次の2つの研究が気になり始める
+
+<ul>
+<li><strong>Frequent Directions</strong>（cf.『<a href="https://research.preferred.jp/2013/08/sketch/" target="_blank">今年のSIGKDDベストペーパーを実装・公開してみました</a>』）</li>
+<li><strong>Factorization Machines</strong>（cf.『<a href="http://d.hatena.ne.jp/repose/20150402/1427982066" target="_blank">Factorization Machines (ICDM 2010) 読んだ</a>』）</li>
+</ul></li>
+</ul></li>
+<li>5-7月
+
+<ul>
+<li>Frequent Directions に焦点を絞ってサーベイ、追加実験</li>
+<li>卒論の内容で初の国際会議</li>
+</ul></li>
+<li>8-9月
+
+<ul>
+<li>Frequent Directions に関する追加実験結果を JSAI 人工知能基本問題研究会で発表</li>
+<li>楽天技術研究所でインターン（以降、M2の6月までアルバイトとしてお世話になる）</li>
+<li><a href="https://takuti.me/note/mlss-kyoto-2015/" target="_blank">機械学習サマースクールに参加</a></li>
+</ul></li>
+<li>10-12月
+
+<ul>
+<li>テーマを『情報推薦』『オンラインアルゴリズム』に絞ってサーベイ</li>
+<li>気になった論文はとりあえず雑に実装してみる姿勢
+
+<ul>
+<li><a href="https://github.com/takuti/incremental-approsvd" target="_blank">Incremental Singular Value Decomposition</a> (Journal of Computer and System Sciences, 2015)</li>
+<li><a href="https://github.com/takuti/factorization-machines" target="_blank">Factorization Machines</a> (ICDM 2010)</li>
+<li><a href="https://github.com/takuti/incremental-sgd" target="_blank">Incremental Matrix Factorization</a> (UMAP 2014)</li>
+<li><a href="https://github.com/takuti/stream-feature-selection" target="_blank">Unsupervised Feature Selection on Data Streams</a> (CIKM 2015)</li>
+<li><a href="https://github.com/takuti/stream-anomaly-detect" target="_blank">Streaming Anomaly Detection</a> (VLDB 2015)</li>
+</ul></li>
+</ul></li>
+<li>1-2月
+
+<ul>
+<li>Factorization Machines のオンラインアルゴリズム化に取り組む</li>
+<li>この内容を JSAI2016 に投稿
+<br /></li>
+</ul></li>
+</ul>
+
+<h4 id="m2">M2</h4>
+
+<ul>
+<li>3-4月
+
+<ul>
+<li>ダメ元でオンライン版 Factorization Machines について RecSys2016（トップ会議）の Short Paper を執筆、投稿</li>
+</ul></li>
+<li>5-6月
+
+<ul>
+<li>Factorization Machines の研究は一度やめて、Frequent Directions の情報推薦への応用を真面目に考える</li>
+<li>この内容を 数値解析シンポジウム2016 で発表</li>
+<li>同時期に、JSAI2016 で先の Factorization Machines のオンラインアルゴリズム化について発表</li>
+</ul></li>
+<li>7月
+
+<ul>
+<li>RecSys2016 は案の定 Reject だったので、レビューを元に修正してワークショップへ投稿、採択</li>
+<li>勢いで RecSys2016 学生ボランティアにも応募、採択</li>
+</ul></li>
+<li>8-9月
+
+<ul>
+<li><a href="https://takuti.me/note/td-intern-2016/" target="_blank">Treasure Data でインターン</a></li>
+<li><a href="https://takuti.me/note/recsys-2016/" target="_blank">RecSys2016 でワークショップ発表＆学生ボランティア</a></li>
+<li>年度内に開催される国際会議を探して、Frequent Directions の情報推薦応用について論文執筆、投稿 (CHIIR2017)</li>
+</ul></li>
+<li>10月
+
+<ul>
+<li>修論を書き始める</li>
+<li>背景知識を再確認するために <a href="https://takuti.me/note/coursera-recommender-systems/" target="_blank">Coursera &ldquo;Introduction to Recommender Systems&rdquo; を修了する</a></li>
+</ul></li>
+<li>11月
+
+<ul>
+<li>ずっと修論書いてる</li>
+<li>CHIIR2017 採択</li>
+</ul></li>
+<li>12月
+
+<ul>
+<li>修論がおおよそ書き上がる</li>
+<li>Silver Egg Technology でインターン</li>
+<li><a href="https://github.com/takuti/Recommendation.jl" target="_blank">Recommendation.jl</a>（メジャーな推薦アルゴリズムのJuliaパッケージ）と <a href="https://github.com/takuti/flurs" target="_blank">FluRS</a>（オンライン推薦アルゴリズムのPythonライブラリ）を公開
+
+<ul>
+<li><a href="https://takuti.me/note/recommendation-julia/" target="_blank">Recommendation.jl: Building Recommender Systems in Julia</a></li>
+<li><a href="https://takuti.me/note/flurs/" target="_blank">FluRS: A Python Library for Online Item Recommendation</a></li>
+</ul></li>
+</ul></li>
+<li>1-2月
+
+<ul>
+<li>修論発表、提出</li>
+</ul></li>
+<li>3月
+
+<ul>
+<li><a href="https://takuti.me/note/chiir-2017/" target="_blank">CHIIR2017 でポスター発表</a></li>
+<li>修了</li>
+</ul></li>
+</ul>
+
+<h3 id="テーマを決めるまでの流れ">テーマを決めるまでの流れ</h3>
+
+<p>次の3ステップで進めた：</p>
+
+<ol>
+<li><strong>分野全体を俯瞰する</strong>
+
+<ul>
+<li>自分の場合は機械学習サマースクールへの参加がこれ</li>
+<li>関連する講義の聴講や、ネットに上がっているスライド等を眺めるのも良かった</li>
+</ul></li>
+<li><strong>ある程度“世界地図”ができたらサーベイを行う</strong>
+
+<ul>
+<li>論文の大枠をつかんで、その参考文献欄から次に読む論文を芋づる式に探す（cf.『<a href="http://lafrenze.hatenablog.com/entry/2015/08/04/120205" target="_blank">高速で論文がバリバリ読める落合先生のフォーマットがいい感じだったのでメモ</a>』）</li>
+<li>気になった手法は実装してみる</li>
+</ul></li>
+<li><strong>締め切りドリブンで何らかの成果をコンスタントに出す</strong>
+
+<ul>
+<li>常に次の学会の投稿締め切りを見据える
+<br /></li>
+</ul></li>
+</ol>
+
+<p>一度実装すれば、独自の入力データでの実験やアルゴリズムの改良、性能評価もすぐにできる。数式の理解が深まるのもよい。手を動かすことはとても大切で、論文をひたすら“消費”しているだけでテーマがひらめくことはまずない。</p>
+
+<p>ただ、論文を読んで実装する日々はとても楽しいので、油断すると興味がどんどん発散してしまい、テーマが具体化せず、自分の論文が書けない。そこで僕は常にどこかの学会の投稿締め切りを見据えて、締め切りドリブンで、小さくてもいいから何らかの成果を定期的にアウトプットするようにしていた。</p>
+
+<p>ここで大切なのは学会の開催情報をウォッチすること。指導教員と専門分野が異なると「この学会に出してみようか」みたいな話は降ってこないので自分で探して投稿する。国内会議の情報は人工知能学会のメーリングリストから、国際会議は <a href="http://www.wikicfp.com/cfp/" target="_blank">WikiCFP</a> から。注意事項として、たとえ小さな成果でも、プライドを捨ててよくわからない会議に投稿するのは避ける。どうせ質の低いフィードバックしか得られない。少なくともIEEE, ACMの会議であることが条件。</p>
+
+<h3 id="機械学習サマースクールが良かった">機械学習サマースクールが良かった</h3>
+
+<p><a href="http://takuti.hatenablog.com/entry/2015/03/06/210735" target="_blank">合格エントリ</a>にも書いたとおり、大学院入学前の段階で、自分のやりたい分野（機械学習）と指導教員の専門分野がズレていることは分かっていた。もちろん相談には乗ってもらえるが、サーベイや最終的なテーマ設定は自力で行わなければならない。</p>
+
+<p>そんな中、入学直後に幸いにも機械学習サマースクール (MLSS) の参加募集を見かけ、この分野を俯瞰する絶好の機会だと思って応募した。（入学直後の他大学出身の学生の推薦書を書かされる先生の気持ち…。）</p>
+
+<p>その後無事にMLSS参加が決定し、M1の最高のタイミングで最高の夏を京都で<a href="https://takuti.me/note/mlss-kyoto-2015/" target="_blank">過ごした</a>。</p>
+
+<ul>
+<li>「機械学習全体のトレンドはどこにあるのか？」</li>
+<li>「この分野はいま本当にディープラーニング一色なのか？」</li>
+</ul>
+
+<p>といった漠然とした疑問を抱えて参加したMLSSで得たものの大きさは計り知れない。</p>
+
+<p>これまで何となく「機械学習について研究できれば…」と考えていた自分に、ストリームデータ解析、Scalable machine learning という心ときめく分野の存在を示してくれたのもMLSSだった。（『<a href="https://takuti.me/note/data-stream-mining/" target="_blank">ストリームデータ解析の世界</a>』）</p>
+
+<p>さらに、『機械学習とは最適化問題を解くことにほかならない』という事実を理解したのもこのタイミングだった。これに気がつくと、いろいろな手法がぐっと身近に感じられるようになる。</p>
+
+<p><blockquote class="twitter-tweet"><p lang="en" dir="ltr">My current impression is that machine learning is actually optimization problems :p <a href="https://twitter.com/hashtag/MLSSKYOTO?src=hash&amp;ref_src=twsrc%5Etfw">#MLSSKYOTO</a></p>&mdash; たくち (@takuti) <a href="https://twitter.com/takuti/status/636907107107803137?ref_src=twsrc%5Etfw">August 27, 2015</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>そして何より、MLSSで出会った世界中の研究者・学生たちの熱量がその先のモチベーションになった。</p>
+
+<p>MLSSでの経験に加え、3ヶ月ほどかけて行ったサーベイ作業を経て、M1の秋頃に自分の研究テーマを機械学習の中でも特に『情報推薦』と『オンラインアルゴリズム』に定めたのであった。</p>
+
+<h3 id="研究テーマの-正しさ-を確認するために学会やインターンに行く">研究テーマの“正しさ”を確認するために学会やインターンに行く</h3>
+
+<p>サーベイやMLSS参加から大まかなテーマが見えてくると、次に関連する学会発表やインターンの機会を探した。研究者未満のひよっこ学生が自力でテーマを具現化するためには、「<strong>自分はある程度“正しい”方角に進んでいる</strong>」<strong>という安心感が何より重要なのだ</strong> と声を大にして言いたい。“正しさ”とはすなわち、</p>
+
+<ul>
+<li>極端に時代遅れなテーマではないか</li>
+<li>先行研究や提案手法に関して、致命的な誤解をしていないか</li>
+<li>アプリケーションとして、現実のニーズを捉えられているか</li>
+</ul>
+
+<p>ということ。これらは研究発表やインターンを通してある程度推し量ることができる。</p>
+
+<p>僕は楽天技術研究所, Treasure Data, Silver Egg Technology の計3社に2ヶ月間ずつインターンとして受け入れていただいた。各社でお世話になった方々には感謝してもしきれない。本当にありがとうございました。</p>
+
+<p>そして、インターンの傍らで修士課程在籍中に執筆、発表した原稿は国内会議3本、査読付き国際会議2本の計5本。詳細は <a href="https://takuti.me/about">ABOUT</a> より、どうぞ。</p>
+
+<p>共同研究のような話にはならなかったけど、インターンで Real-world machine learning に触れて、そこで得た問題意識から論文の Introduction, Experiment, Discussion を組み立てる、という好循環が自分の中にあった。</p>
+
+<p>学会発表はいずれも非常に有意義で、「今更その方向性は古いのでは…」という厳しいコメントを頂いたこともあれば、企業の研究者が何人も食いついてくれたこともあった。その都度関連論文を読み漁り、方向修正をした。また、Reject された RecSys2016 も含め、査読付き国際会議のレビューコメントは無償で得られる最高のフィードバックだった。</p>
+
+<p>そしてそれまでの学会発表、インターン経験の集大成として修論を執筆し、無事に修了したのでした。</p>
+
+<h3 id="振り返り">振り返り</h3>
+
+<ul>
+<li>指導教員が味方になってくれることが大前提で、その点自分はとても幸運だった
+
+<ul>
+<li>学会とか、先生の協力無しでは行けない</li>
+<li>専門分野が異なるとはいえ、遠からず近からずなところではあったので、かなり本質的な部分でのフィードバック、指導までしていただいた実感がある</li>
+</ul></li>
+<li>精度やスループットなど様々な面で、サーベイから思いつく研究テーマと実アプリケーションでの応用可能性のギャップはヤバいので、機械学習の応用研究は企業(で|と)やるべきだと強く思う</li>
+<li>好き勝手に修士論文を書いたけど、やっぱり細部はツッコミどころ満載で、専門家から見ると「やってみた」感の強い安直なテーマに終わってしまった点はふつうに努力不足</li>
+</ul>
+
+<p>以上、僕の修士課程2年間でした。</p>
+
+<p>もちろん自身のバックグラウンドや指導教員の指導方針など、様々な要因によって状況は大きく異なる。また、僕は卒論も好き勝手なテーマで自由に執筆させていただいたため、ここまで書いた研究への取り組み方がどれだけ一般的なのか、それは知らない。しかし個人的にはこの2年間、与えられた（手に入れた？）環境の中でできることは8割くらいやり切ったかな、という感じ。至らなかった点も含め、得たものを今後につなげていくことができれば。</p>
+
+<p>まぁいろいろとあったけど、この2年間で本当に大切だと思ったのは運動と睡眠、そして<a href="https://takuti.me/note/deep-work/" target="_blank">消極的に、それでも着実に書き続けるという姿勢を維持すること</a>、それだけ。それさえできれば、あとはどこへでも行ける。</p>
+
+<h3 id="これから">これから</h3>
+
+<p>このご時世、機械学習ほど実世界応用が身近な研究分野も珍しい。なので大学院に入学する前からずっと、修了後はまず一度企業でエンジニアとして &ldquo;Real-world machine learning&rdquo; に向き合おうと決めていた。そして、気が向いたら数年後にどこか他の国でPh.D.コースに入ろうかなぁ、などとゆるく考えている。予定は未定だけど。</p>
+
+<p>そんなわけで、（地味に2月からアルバイトとしてお世話になっていましたが）ひとまず4月からは Treasure Data の東京オフィスで Data Science Engineer になります。よろしくお願いします。</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

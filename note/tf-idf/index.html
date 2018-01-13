@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        TF-IDFで文書内の単語の重み付け | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2014-01-25
+  </p>
+  <h2>TF-IDFで文書内の単語の重み付け</h2>
+
+  <div class="post">
+    <p>『いくつかの文書があったとき、それぞれの文書を特徴付ける単語はどれだろう？』こんなときに使われるのがTF-IDFという値。<br />
+<!--more--><br />
+TFはTerm Frequencyで、それぞれの単語の文書内での出現頻度を表します。<strong>たくさん出てくる単語ほど重要！</strong></p>
+<p>
+$$
+\textrm{tf}(t,d) = \frac{n_{t,d}}{\sum_{s \in d}n_{s,d}}
+$$
+</p>
+<dl>
+  <dt>$\textrm{tf}(t,d)$</dt>
+  <dd>文書 $d$ 内のある単語 $t$ のTF値</dd>
+
+  <dt>$n_{t,d}$</dt>
+  <dd>ある単語 $t$ の文書 $d$ 内での出現回数</dd>
+
+  <dt>$\sum\_{s \in d} n\_{s,d}$</dt>
+  <dd>文書$d$内のすべての単語の出現回数の和</dd>
+</dl>
+<p>IDFはInverse Document Frequencyで、それぞれの単語がいくつの文書内で共通して使われているかを表します。<strong>いくつもの文書で横断的に使われている単語はそんなに重要じゃない！</strong></p>
+<p>
+$$
+\textrm{idf}(t) = \log{\frac{N}{df(t)}} + 1
+$$
+<dl>
+  <dt>$\textrm{idf}(t)$</dt>
+  <dd>ある単語 $t$ のIDF値</dd>
+
+  <dt>$N$</dt>
+  <dd>全文書数</dd>
+
+  <dt>$\textrm{df}(t)$</dt>
+  <dd>ある単語 $t$ が出現する文書の数</dd>
+</dl>
+<p>対数をとっているのは、文書数の規模に応じた値の変化を小さくするためなんだとか。</p>
+<p>この2つの値を掛けたものをそれぞれの単語の重みにすれば、その値が大きいほど各文書を特徴付ける単語だと言えるんじゃないか、という話。</p>
+<p>例えば10日分のアメリカ旅行の日記で全体を通して「アメリカ」という単語が多く登場していてもそれは当然のこと。1日目の日記を特徴づけるのは「飛行機」であって欲しいし、2日目は「ハンバーガー」であって欲しいわけです。</p>
+<p>頻出する単語だからその文書を特徴付ける単語になる！とは限らない。そこでTF-IDFの登場。</p>
+<h3>具体例で見てみる</h3>
+<p>具体的な例として以下の記事を参考に、２つの文書『<strong>リンゴとレモンとレモン</strong>』（文書A）と『<strong>リンゴとミカン</strong>』（文書B）を考えます。</p>
+<p><a href="http://kitsunemimi9.blog89.fc2.com/blog-entry-20.html">フツーって言うなぁ！ Pythonでtf-idf法を実装してみた</a></p>
+<p>形態素解析を行うとき、特徴語になり得るのは名詞だけだと仮定して、それ以外の品詞は無視します。つまり文書Aは <strong>[リンゴ, レモン, レモン]</strong> 、文書Bは <strong>[リンゴ, ミカン]</strong> という単語の集合。</p>
+<p>$\textrm{tf}(\textrm{リンゴ}, \textrm{文書A}) = \frac{1}{3} = 0.33$</p>
+<p>$\textrm{tf}(\textrm{レモン}, \textrm{文書A}) = \frac{2}{3} = 0.66$</p>
+<br>&nbsp;<br />
+$\textrm{tf}(\textrm{リンゴ}, \textrm{文書B}) = \frac{1}{2} = 0.5$</p>
+<p>$\textrm{tf}(\textrm{ミカン}, \textrm{文書B}) = \frac{1}{2} = 0.5$<br />
+<br>&nbsp;<br />
+$\textrm{idf}(\textrm{リンゴ}) = \log{\frac{2}{2}} + 1 = 1$</p>
+<p>$\textrm{idf}(\textrm{レモン}) = \log{\frac{2}{1}} + 1 = 1.3$</p>
+<p>$\textrm{idf}(\textrm{ミカン}) = \log{\frac{2}{1}} + 1 = 1.3$</p>
+<p>すると上記のようにTF値とIDF値がそれぞれ計算できて、積を求めれば、</p>
+<p>$\textrm{tf}(\textrm{リンゴ}, \textrm{文書A}) \* \textrm{idf}(\textrm{リンゴ}) = 0.33$<br />
+$\textrm{tf}(\textrm{レモン}, \textrm{文書A})\*\textrm{idf}(\textrm{レモン}) = 0.858$</p>
+<p>$\textrm{tf}(\textrm{リンゴ}, \textrm{文書B})\*\textrm{idf}(\textrm{リンゴ}) = 0.5$<br />
+$\textrm{tf}(\textrm{ミカン}, \textrm{文書B})\*\textrm{idf}(\textrm{ミカン}) = 0.65$</p>
+<p>両方の文書に登場している「リンゴ」という単語は、片方にしか登場していない「レモン」や「ミカン」よりも特徴語としての重みは小さいことが数値的に分かります。</p>
+<p>実装はRubyです。</p>
+<p><strong><a href="https://github.com/takuti/algorithms/blob/master/machine-learning/tf-idf/tf_idf.rb">tf_idf.rb</a></strong></p>
+<h3>参考</h3>
+<p>徳永, "情報検索と言語処理", 東京大学出版会, pp. 27-28, 1999.</p>
+<div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom: 1;overflow: hidden;">
+<div class="booklink-image" style="float:left;margin:0 15px 10px 0;"><a href="http://www.amazon.co.jp/exec/obidos/asin/4130654055/takuti-22/" name="booklink" rel="nofollow" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41YVARP4HPL._SL160_.jpg" style="border: none;" /></a></div>
+<div class="booklink-info" style="line-height:120%;/zoom: 1;overflow: hidden;">
+<div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/asin/4130654055/takuti-22/" rel="nofollow" name="booklink" target="_blank">情報検索と言語処理 (言語と計算)</a>
+<div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div>
+</div>
+<div class="booklink-detail" style="margin-bottom:5px;">徳永 健伸 東京大学出版会 1999-11    </div>
+<div class="booklink-link2" style="margin-top:10px;">
+<div class="shoplinkamazon" style="display:inline;margin-right:5px"><a href="http://www.amazon.co.jp/exec/obidos/asin/4130654055/takuti-22/" rel="nofollow" target="_blank" title="アマゾン" >Amazon</a></div>
+<div class="shoplinkkindle" style="display:inline;margin-right:5px"><a href="http://www.amazon.co.jp/gp/search?keywords=%8F%EE%95%F1%8C%9F%8D%F5%82%C6%8C%BE%8C%EA%8F%88%97%9D%20%28%8C%BE%8C%EA%82%C6%8Cv%8EZ%29&__mk_ja_JP=%83J%83%5E%83J%83i&url=node%3D2275256051&tag=takuti-22" rel="nofollow" target="_blank" >Kindle</a></div>
+<div class="shoplinkrakuten" style="display:inline;margin-right:5px"><a href="http://hb.afl.rakuten.co.jp/hgc/10952997.eae88ca3.10952998.38cdd415/?pc=http%3A%2F%2Fbooks.rakuten.co.jp%2Frb%2F1112471%2F%3Fscid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2Fev%2Fbook%2F" rel="nofollow" target="_blank" title="楽天ブックス" >楽天ブックス</a></div>
+</p></div>
+</div>
+<div class="booklink-footer" style="clear: left"></div>
+</div>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

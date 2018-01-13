@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        How to Derive the Normal Equation | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2015-04-21
+  </p>
+  <h2>How to Derive the Normal Equation</h2>
+
+  <div class="post">
+    
+
+<p>In the linear regression tasks, the normal equation is widely used to find optimal parameters. However, <a href="http://www.springer.com/gp/book/9780387310732" target="_blank">Pattern Recognition and Machine Learning</a> (RPML), one of the most popular machine learning textbooks, does not explain details of the derivation process. So, this article demonstrates how to derive the equation.</p>
+
+<h3 id="linear-regression-model">Linear regression model</h3>
+
+<p>We define linear regression model as:</p>
+
+<p>$$
+y = \textbf{w}^{\mathrm{T}}\phi(\textbf{x})
+$$</p>
+
+<p>for a input vector $\textbf{x}$, base function $\phi$ and output $y$.</p>
+
+<p>The main task is to find an optimal parameter $\textbf{w}$ from $N$ learning data sets, $(\textbf{x}_1, t_1), (\textbf{x}_2, t_2), \ldots, (\textbf{x}_N, t_N)$. As a result of such learning step, we can predict output for any input $\textbf{x}$.</p>
+
+<h3 id="least-squares-method">Least squares method</h3>
+
+<p>How can we estimate an optimal parameter $\textbf{w}$? The answer is quite simple: minimization of the total prediction error. When we already have parameters, the total prediction error for the $N$ learning data may be computed by $\sum_{n=1}^{N} (t_n-\textbf{w}^{\mathrm{T}}\phi(\textbf{x}_n))$. Is it correct?</p>
+
+<p>Unfortunately, this formula has two problems. First, if learning data such that $t_n-\textbf{w}^{\mathrm{T}}\phi(\textbf{x}_n)&lt; 0$ exists, above formula does not represent &ldquo;total error&rdquo;. Second, since the formula is linear for $\textbf{w}$, we cannot minimize it. Thus, squared error function $E(\textbf{w})$ is considered as:</p>
+
+<p>$$
+E(\textbf{w}) = \sum_{n=1}^{N} (t_n-\textbf{w}^{\mathrm{T}}\phi(\textbf{x}_n))^2.
+$$</p>
+
+<p>$E(\textbf{w})$ is a quadratic function, and it will be concave up. So, we can minimize it by finding $\textbf{w}$ which satisfies $\frac{\partial E}{\partial \textbf{w}} = 0$.</p>
+
+<p>Note that, in the PRML, squared error function is represented as $E(\textbf{w}) = \frac{1}{2} \sum_{n=1}^{N} (t_n-\textbf{w}^{\mathrm{T}}\phi(\textbf{x}_n))^2$ with mysterious $\frac{1}{2}$, but it just deletes $2$ in $\frac{\partial E}{\partial \textbf{w}}$. Hence, the coefficient is not so important to understand the normal equation.</p>
+
+<h3 id="normal-equation">Normal equation</h3>
+
+<p>For the reasons that I mentioned above, we want to obtain $\frac{\partial E}{\partial \textbf{w}}$. For better understanding, I will first check the result of vector derivation for a small example. When we have just one learning data, and input vector has two dimensions, the squared error function is:</p>
+
+<p>$$
+E(\textbf{w}) = \sum_{n=1}^{1} (t_n-\textbf{w}^{\mathrm{T}}\phi(\textbf{x}_n))^2
+= \left( t_1- \left(
+    \begin{array}{c}
+      w_0 \<br />
+      w_1
+    \end{array}
+  \right)^{\mathrm{T}}
+  \left(
+    \begin{array}{c}
+      \phi_0 \<br />
+      \phi_1
+    \end{array}
+  \right)\right)^2
+= (t_1 - w_0\phi_0 - w_1\phi_1)^2.
+$$</p>
+
+<p>Also,</p>
+
+<p>$$
+\frac{\partial E}{\partial \textbf{w}}
+= \left(
+    \begin{array}{c}
+      \frac{\partial E}{\partial w_0} \<br />
+      \frac{\partial E}{\partial w_1}
+    \end{array}
+  \right).
+$$</p>
+
+<p>For instance,</p>
+
+<p>$$
+\begin{array}{ccl}
+\frac{\partial E}{\partial w_0} &amp;=&amp; 2(t_1 - w_0\phi_0 - w_1\phi_1) \cdot \frac{\partial}{\partial w_0}(t_1 - w_0\phi_0 - w_1\phi_1) \<br />
+&amp;=&amp; 2(t_1 - w_0\phi_0 - w_1\phi_1) \cdot (-\phi_0).
+\end{array}
+$$</p>
+
+<p>As a consequence,</p>
+
+<p>$$
+\frac{\partial E}{\partial \textbf{w}}
+= -2(t_1 - w_0\phi_0 - w_1\phi_1) \left(
+    \begin{array}{c}
+      \phi_0 \<br />
+      \phi_1
+    \end{array}
+  \right).
+$$</p>
+
+<p>By extending this simple example to arbitrary $N$ and dimensions,</p>
+
+<p>$$
+\begin{array}{ccl}
+\frac{\partial E}{\partial \textbf{w}}
+&amp;=&amp; -2 \sum_{n=1}^{N} ((t_n-\textbf{w}^{\mathrm{T}}\phi_n)\cdot\phi<em>n ) \<br />
+&amp;=&amp;-2 \sum</em>{n=1}^{N} ((t_n-\textbf{w}^{\mathrm{T}}\phi_n)\cdot\phi<em>n ) \<br />
+&amp;=&amp; -2 \sum</em>{n=1}^{N} t_n\phi<em>n +2 \sum</em>{n=1}^{N}(\textbf{w}^{\mathrm{T}}\phi_n ) \cdot \phi<em>n \<br />
+&amp;=&amp; -2 \sum</em>{n=1}^{N} t_n\phi<em>n +2 \left(\sum</em>{n=1}^{N}\phi_n \phi_n^{\mathrm{T}}\right)\textbf{w},
+\end{array}
+$$</p>
+
+<p>with $\phi(\textbf{x}_n)=\phi_n$. Importantly, since $\textbf{w}^{\mathrm{T}}\phi_n$ is scalar, exchangeable parts exist as: $\textbf{w}^{\mathrm{T}}\phi_n = \phi_n^{\mathrm{T}}\textbf{w}$, and $(\phi_n^{\mathrm{T}}\textbf{w})\cdot\phi_n = \phi_n \cdot (\phi_n^{\mathrm{T}}\textbf{w}) = (\phi_n\phi_n^{\mathrm{T}})\cdot\textbf{w}$.</p>
+
+<p>Next, we solve the equation for $\textbf{w}$ as:</p>
+
+<p>$$
+\begin{array}{rcl}
+-2 \sum_{n=1}^{N} t_n\phi<em>n +2 \left(\sum</em>{n=1}^{N}\phi_n \phi<em>n^{\mathrm{T}}\right)\textbf{w} &amp;=&amp; 0 \<br />
+\left(\sum</em>{n=1}^{N}\phi_n \phi<em>n^{\mathrm{T}}\right)\textbf{w} &amp;=&amp; \sum</em>{n=1}^{N} t_n\phi<em>n \<br />
+\textbf{w} &amp;=&amp; \left(\sum</em>{n=1}^{N}\phi_n \phi<em>n^{\mathrm{T}}\right)^{-1}\sum</em>{n=1}^{N} t_n\phi_n.
+\end{array}
+$$</p>
+
+<p>Additionally, the PRML introduces <strong>design matrix</strong> by:</p>
+
+<p>$$
+\phi = \left(
+    \begin{array}{cccc}
+      \phi_0(\textbf{x}_1) &amp; \phi_1(\textbf{x}<em>1) &amp; \ldots &amp; \phi</em>{M-1}(\textbf{x}_1) \<br />
+      \phi_0(\textbf{x}_2) &amp; \phi_1(\textbf{x}<em>2) &amp; \ldots &amp; \phi</em>{M-1}(\textbf{x}_2) \<br />
+      \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br />
+      \phi_0(\textbf{x}_N) &amp; \phi_1(\textbf{x}<em>N) &amp; \ldots &amp; \phi</em>{M-1}(\textbf{x}_N)
+     \end{array}
+  \right)
+$$</p>
+
+<p>for $M$, dimensions of input vector. It can be simply written as $\phi = \left[\phi_1 \ \phi_2 \ldots \phi_N \right]$. Therefore, we can easily confirm $\sum_{n=1}^{N} \phi_n \phi_n^{\mathrm{T}} = \phi^{\mathrm{T}} \phi$, and $\sum_{n=1}^{N} t_n\phi_n = \phi^{\mathrm{T}} \textbf{t}$.</p>
+
+<p>Finally, we get the normal equation with the design matrix:</p>
+
+<p>$$
+\textbf{w} = (\phi^{\mathrm{T}}\phi)^{-1}\phi^{\mathrm{T}}\textbf{t}.
+$$</p>
+
+<p>Now, we can find an optimal parameter for any learning data $(\mathbf{x}_1, t_1), (\mathbf{x}_2, t_2), \cdots, (\mathbf{x}_N, t_N)$ by computing the equation.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<ul>
+<li>The PRML book does not explain details of derivation process of the normal equation.</li>
+<li>I derive the normal equation step-by-step from the definition of linear regression models.</li>
+<li>Since vector derivation is not easy to follow, checking the result with simple examples is good idea.</li>
+</ul>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

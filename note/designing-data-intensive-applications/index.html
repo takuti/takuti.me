@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        &#34;Designing Data-Intensive Applications&#34;は濃密すぎる一冊だったので2018年の自分にも読んでもらいたい | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-12-30
+  </p>
+  <h2>&#34;Designing Data-Intensive Applications&#34;は濃密すぎる一冊だったので2018年の自分にも読んでもらいたい</h2>
+
+  <div class="post">
+    
+
+<p>分散システムに関する理解を整理するための一冊として素晴らしい、という声があり気になっていた &ldquo;<strong><a href="https://dataintensive.net/" target="_blank">Designing Data-Intensive Applications</a></strong>&rdquo; を一通り読んだ：</p>
+
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">買った。分散システムの理解を整理する本として素晴らしい。一節を割いてMessagePackのフォーマットまで解説されている…！ &quot;Designing Data-Intensive Applications&quot; <a href="https://t.co/QCeoLraZOf">https://t.co/QCeoLraZOf</a></p>&mdash; Sadayuki Furuhashi (@frsyuki) <a href="https://twitter.com/frsyuki/status/846431130437890049?ref_src=twsrc%5Etfw">March 27, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>僕のような「用語としては知っている」程度の新人に「なぜそれが大切なのか」「なにが難しいのか」といったポイントを丁寧に説明してくれる、学びの多い充実の一冊だった。</p>
+
+<p>冒頭では『早すぎる最適化（不要不急のスケーラブルなシステムの構築）は制約が増えてシステム設計が不自由になるだけなので無駄』という事実に触れ、適切なツールを選択することの重要性を説いている。本書が500項超を費やして伝えようとしているのは、そういったツールを取捨選択する際のエッセンスであり、具体的には、昨今の大規模なデータシステムを支える原理、モデル、ツール群の背景とその長所・短所である。</p>
+
+<p><img src="https://takuti.me/images/ddia/poster.png" alt="ddia-poster" /></p>
+
+<p>※ <a href="https://github.com/ept/ddia-references/blob/master/ddia-poster.jpg" target="_blank">ddia-references/ddia-poster.jpg</a> より</p>
+
+<p>本書は大きくわけて &ldquo;<strong>Foundations of Data Systems</strong>,&rdquo; &ldquo;<strong>Distributed Data</strong>,&rdquo; &ldquo;<strong>Derived Data</strong>&rdquo; の3パートから構成される。</p>
+
+<h3 id="part-i-foundations-of-data-systems">Part I. Foundations of Data Systems</h3>
+
+<p>第1部では、データシステムの信頼性、スケーラビリティ、保全性を担保することの大切さと難しさを伝え（第1章）、特にストレージに焦点をあてて、データモデル（リレーショナルモデル vs ドキュメントモデル）と代表的なDB、クエリ言語を紹介していく（第2章）。このあたりの内容は &ldquo;<strong><a href="https://pragprog.com/book/rwdata/seven-databases-in-seven-weeks" target="_blank">Seven Databases in Seven Weeks</a></strong>&rdquo; に通じるところもあった。データの一対多 (one-to-many) と多対多 (many-to-many) の関係が丁寧に比較されていて、リレーショナルデータベース、ドキュメント指向データベース、列指向データベースそれぞれの必要性や強み、弱みについて直感的な理解を与えてくれる。</p>
+
+<p>いろいろなストレージの世界を俯瞰したら、次は実際にデータを保持・探索することを考える（第3章）。この章がまぁ素晴らしい。この本のインデックスの説明は、これまでに読んだいかなる解説よりも分かりすかったと言っても過言ではない。だって、<em>&ldquo;the world&rsquo;s simplest databse&rdquo;</em> を作って $\mathcal{O}(n)$ で検索するところから話が始まるんですよ？</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#579">#!/bin/bash
+</span><span style="color:#579"></span>
+db_set<span style="color:#333">()</span> <span style="color:#333">{</span>
+  <span style="color:#007020">echo</span> <span style="background-color:#fff0f0">&#34;</span><span style="color:#963">$1</span><span style="background-color:#fff0f0">,</span><span style="color:#963">$2</span><span style="background-color:#fff0f0">&#34;</span> &gt;&gt; database
+<span style="color:#333">}</span>
+
+db_get<span style="color:#333">()</span> <span style="color:#333">{</span>
+  grep <span style="background-color:#fff0f0">&#34;^</span><span style="color:#963">$1</span><span style="background-color:#fff0f0">,&#34;</span> database | sed -e <span style="background-color:#fff0f0">&#34;s/^</span><span style="color:#963">$1</span><span style="background-color:#fff0f0">,//&#34;</span> | tail -n <span style="color:#60e;font-weight:bold">1</span>
+<span style="color:#333">}</span></code></pre></div>
+<pre><code>$ db_set 123456 '{&quot;name&quot;:&quot;London&quot;,&quot;attractions&quot;:[&quot;Big Ben&quot;,&quot;London Eye&quot;]}'
+$ db_get 123456
+{&quot;name&quot;:&quot;London&quot;,&quot;attractions&quot;:[&quot;Big Ben&quot;,&quot;London Eye&quot;]}
+</code></pre>
+
+<p>ここから議論を初めて、B-tree や Bloom filter といった具体的なデータ構造、アルゴリズムに言及していく。</p>
+
+<p>データの保持に関しては、高可用性やレイテンシがキモでサービスの核を担う OLTP (On-line transaction processing) と、ETLや分析用途で利用される集約操作が主の OLAP (On-line analytical processing; データウェアハウス) の比較が易しい。</p>
+
+<p>そして第1部を締めくくるのは、保持され、やり取りされるデータの“実体”、すなわちデータのシリアライズ（エンコーディング）とメッセージパッシングに関する話題（第4章）。<a href="https://msgpack.org/index.html" target="_blank">MessagePack</a>がシリアライゼーションフォーマットの1つとしてしっかり取り上げているのをみてニヤニヤしたり、<a href="https://grpc.io/" target="_blank">gRPC</a>への言及から今っぽい流れを感じたりできて楽しい。</p>
+
+<p>データシステムの構築に際して、第1章で挙げたデータシステムの信頼性、スケーラビリティ、保全性の点で、それぞれの選択肢がどのように優れて（劣って）いて、各々の使いドコロはどこなのか。本書では、最初から最後まで一貫してこのような流れで話が進む。</p>
+
+<h3 id="part-ii-distributed-data">Part II. Distributed Data</h3>
+
+<p>第2部の話題はデータの分散処理。個人的には、ここが一番「用語としては知っているけど、理解が及んでいない」というポイントだったので、舐めるように読んだ。</p>
+
+<p>特に、Replication, Partitioning, Consistent Hashing などについては、並行して読んでいたAmazonのDynamoDBの原論文の内容と絡めて別の記事でまとめた：</p>
+
+<ul>
+<li><a href="https://takuti.me/note/amazon-dynamo-paper">AmazonのDynamoDB論文を眺めた</a></li>
+<li><a href="https://takuti.me/note/dynamo-style">&ldquo;Dynamo-style&rdquo; に学ぶ Replication, Partitioning, Consistent Hashing の気持ち</a></li>
+</ul>
+
+<p>このような話題に加えて、（まだ十分に咀嚼できていないけれど）トランザクション、Consensusアルゴリズム、Linearizability などを解説しているのがこの第2部。『分散システムの難しさ（＝面白さ！）』がギュッと凝縮されているところだと言えよう。</p>
+
+<h3 id="part-iii-derived-data">Part III. Derived Data</h3>
+
+<p>第3部では、ここまでの内容を総合してデータシステムを構築することと、その際のアーキテクチャについて考える。</p>
+
+<p>バッチ処理 (MapReduce) と、ストリーム処理（イベント処理）の2つの切り口から、HDFSやメッセージブローカについてかなり踏み込んだところまで解説を試みている印象があった。</p>
+
+<p>ここまで打ってきた布石の上に成り立つ重厚なパートであることは確かなのだけど、エッセンスを上手く伝えてくれた第1部、第2部と比較すると、中途半端に踏み込みすぎている感が否めなかった。これなら他の文献をあたるかな、という気分。</p>
+
+<p>ちなみに、ストリーム処理の“気持ち”は以前まとめたことがある：</p>
+
+<ul>
+<li><a href="https://takuti.me/note/data-stream-mining">ストリームデータ解析の世界</a></li>
+</ul>
+
+<p>このときの知識と、その実践の間にあるエンジニアリング的な部分とのギャップを埋めるのがココ（第11章）の内容だろう。</p>
+
+<p>そして最終章 &ldquo;<strong>The Future of Data Systems</strong>&rdquo; ではデータシステムの一部としての機械学習に触れ、なかなかエモい話が展開されていた：</p>
+
+<blockquote>
+<p><em>Data and models should be our tools, not our masters.</em></p>
+</blockquote>
+
+<p>（思わず赤線でマークしてしまった。）</p>
+
+<h3 id="全体として">全体として</h3>
+
+<p>緻密なサーベイと丁寧な構成の上に成り立っている一冊であることが手に取るように分かり、安心して読み進められる。</p>
+
+<p>なにより、この本はリファレンスがすごい。ブログ記事からGitHubリポジトリ、論文まで、大量の外部ソースを逐一参照しているので説得力がある。さすが、<a href="http://martin.kleppmann.com/" target="_blank">著者が現役の研究者</a>だけのことはある。すべての参考文献は <a href="https://github.com/ept/ddia-references" target="_blank">github.com/ept/ddia-references</a> にもまとまっている。</p>
+
+<p>そして、進化の早い分野なので &ldquo;At the time of writing, &hellip;&rdquo; といった記述が多々あったのも印象的。データシステムの“イマ”のスナップショットとして、素直にワクワクできる一冊でした。</p>
+
+<p>あと余談ですが、同時期にこの本を読んでいたエンジニアの友人が2〜3人いて、話題の一冊という感じでした。それぞれ会社も役割も違うのに、飲んだときにこの本の内容についてイロイロ話すことができた、というのは嬉しい体験だった。それくらい、広く程よく書かれた、次の一歩につながる有意義な本だったということ。</p>
+
+<h3 id="2018年-もう一度読みたい">2018年、もう一度読みたい</h3>
+
+<p>2017年ももう終わりです。<a href="https://takuti.me/note/master-graduate/">Data Science Engineerというポジションで働き始めて</a>9ヶ月、良かったこと、悪かったこと、達成感、焦燥感いろいろありましたが、この本の内容を『自分ごと』として読めるようになったことが何よりの収穫であり、喜びでもあります。</p>
+
+<p>学生のときはスケーラビリティに言及した本や論文を読んでも、どこか他の世界の話のように感じていたのです。もちろん、それが大切だということは頭ではわかっているのだけど。</p>
+
+<p>2018年は、こうして現実感をもって向き合うことが出来るようになった文献やコードをさらに深掘りしてゆきましょう。</p>
+
+<p>そのために、一度では消化しきれないほどの充実っぷりだった本書ももう一度（二度、三度）読んで、<a href="https://www.oreilly.com/ideas/drawing-a-map-of-distributed-data-systems" target="_blank">世界地図</a>を頭に焼き付けたいですね。</p>
+
+<p>おつかれさまでした。</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

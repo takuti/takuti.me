@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Hivemall on Dockerを試すぜ | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-05-07
+  </p>
+  <h2>Hivemall on Dockerを試すぜ</h2>
+
+  <div class="post">
+    
+
+<p><a href="https://twitter.com/amaya382" target="_blank">@amaya382</a>くんが Hivemall on Docker についていろいろと整備してくれた。</p>
+
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Hive環境が必要で敷居が高かった<br> (当社比) Hivemallですが, 数コマンド叩くだけでdocker上で試せるようになりました！試す際に意外と厄介なサンプルデータの準備を全てやってくれるスクリプトもおまけで付いてます (※あくまで評価・開発用です) <a href="https://t.co/fiztEpicma">https://t.co/fiztEpicma</a></p>&mdash; amaya (@amaya382) <a href="https://twitter.com/amaya382/status/856860886807568384?ref_src=twsrc%5Etfw">April 25, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>一方、個人的には Hivemall on Mac について以前記事を書いた：『<a href="https://takuti.me/note/hivemall-on-mac/">MacのローカルにHivemallを導入してアイテム推薦をするまで</a>』</p>
+
+<p>だいたいHomebrewで完結するのでMacローカルだけを考えればこれでも問題ないけど、煩雑なインストール・設定無しでDockerコンテナで話が進むに越したことはない。というわけで先の記事のフォローアップとして Hivemall on Docker をMacのローカルで試してみる。環境は次の通り：</p>
+
+<ul>
+<li>macOS Sierra 10.12.3</li>
+<li><a href="https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac" target="_blank">Docker for Mac</a> Stable channel (version 17.03.1-ce-mac5)</li>
+</ul>
+
+<pre><code>$ docker -v
+Docker version 17.03.1-ce, build c6d412e
+$ docker-compose -v
+docker-compose version 1.11.2, build dfed245
+$ docker-machine -v
+docker-machine version 0.10.0, build 76ed2a6
+</code></pre>
+
+<h3 id="コンテナ起動まで">コンテナ起動まで</h3>
+
+<p>基本的には<a href="https://hivemall.incubator.apache.org/userguide/docker/getting_started.html" target="_blank">ドキュメント</a>に従う。</p>
+
+<p>まず<a href="https://github.com/apache/incubator-hivemall" target="_blank">リポジトリ</a>を取ってきて、</p>
+
+<pre><code>$ cd /path/to/incubator-hivemall
+</code></pre>
+
+<p>ビルドは <code>docker-compose</code> なら：</p>
+
+<pre><code>$ docker-compose -f resources/docker/docker-compose.yml build
+</code></pre>
+
+<p><code>docker build</code> なら：</p>
+
+<pre><code>$ docker build -f resources/docker/Dockerfile .
+</code></pre>
+
+<p>筋トレしながら待つ。</p>
+
+<p>おわったら、コンテナ起動は <code>docker-compose</code> なら：</p>
+
+<pre><code>$ docker-compose -f resources/docker/docker-compose.yml up -d &amp;&amp; docker attach hivemall
+</code></pre>
+
+<p><code>docker run</code> なら：</p>
+
+<pre><code>$ docker run -it \
+	-p 8088:8088 \
+	-p 19888:19888 \
+	-p 50070:50070 \
+	hivemall
+</code></pre>
+
+<p>このとき、</p>
+
+<ul>
+<li><code>docker-compose.yml</code> で <code>volumes: &quot;../../:/opt/hivemall/&quot;</code> を指定する</li>
+<li><code>docker run</code> にオプション <code>--volume $(pwd):/opt/hivemall</code> を渡す</li>
+</ul>
+
+<p>のいずれかでホストの <code>/path/to/incubator-hivemall</code> をコンテナ上の <code>/opt/hivemall</code> (<code>$HIVEMALL_PATH</code>) にマウントできる。</p>
+
+<p>すると、ローカルで開発→ビルド→コンテナ起動＆マウント、という感じでスムーズにHivemall開発ができます。やったね。</p>
+
+<h3 id="hivemallのビルド-データセット準備">Hivemallのビルド＆データセット準備</h3>
+
+<p>コンテナに入ったならば、とりあえずHiveを起動してみる：</p>
+
+<pre><code># hive
+</code></pre>
+
+<p>このとき、<code>/opt/hivemall</code> に存在するHivemallがビルド済みである（i.e., <code>/opt/hivemall/target/hivemall-core-(バージョン)-with-dependencies.jar</code> が存在する）必要がある。もしビルドされていなければ、（コンテナ内から）ビルドをしてあげる：</p>
+
+<pre><code># cd $HIVEMALL_PATH &amp;&amp; ./bin/build.sh
+</code></pre>
+
+<p>準備OK。</p>
+
+<p>ここで、分類問題のテストデータとして有名な <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set" target="_blank">Iris データセット</a> をHDFSに読み込んでくれるスクリプトがおまけとして <code>$HOME/bin/prepare_iris.sh</code> に用意されているので、これを使ってみる：</p>
+
+<pre><code># cd $HOME &amp;&amp; ./bin/prepare_iris.sh
+</code></pre>
+
+<p>Hiveに入って、読み込んだばかりの Iris データセットを確認：</p>
+
+<pre><code># hive
+hive&gt; use iris;
+hive&gt; select * from iris_raw limit 5;
+OK
+1       Iris-setosa     [5.1,3.5,1.4,0.2]
+2       Iris-setosa     [4.9,3.0,1.4,0.2]
+3       Iris-setosa     [4.7,3.2,1.3,0.2]
+4       Iris-setosa     [4.6,3.1,1.5,0.2]
+5       Iris-setosa     [5.0,3.6,1.4,0.2]
+</code></pre>
+
+<p>よさそう。</p>
+
+<p>ここまでくれば、<a href="https://hivemall.incubator.apache.org/userguide/multiclass/iris_dataset.html" target="_blank">HivemallのIrisチュートリアルのData preparation</a>は終わっているので、RandomForestなり何なりで分類を試すことができる。</p>
+
+<p>便利な時代になりました。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<ul>
+<li>Hivemall on Docker が整備されている。</li>
+<li>Dockerコンテナで話が進むので「ちょっとHivemall試したい」というときの汎用的かつ簡単な方法としてGood。</li>
+<li>『<a href="https://takuti.me/note/hivemall-on-mac/">MacのローカルにHivemallを導入してアイテム推薦をするまで</a>』と比較すると、導入までのステップ数は激減。</li>
+</ul>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

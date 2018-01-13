@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        &#34;Dynamo-style&#34; に学ぶ Replication, Partitioning, Consistent Hashing の気持ち | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-12-22
+  </p>
+  <h2>&#34;Dynamo-style&#34; に学ぶ Replication, Partitioning, Consistent Hashing の気持ち</h2>
+
+  <div class="post">
+    
+
+<p>先日、DynamoDB設計の背景にあった可用性とスケーラビリティの両立に対するAmazonのアツい想いについて書いた：</p>
+
+<ul>
+<li><strong><a href="https://takuti.me/note/amazon-dynamo-paper">AmazonのDynamoDB論文を眺めた</a></strong></li>
+</ul>
+
+<p>背景だけだと寂しいので、ここではもう少し詳しく、DynamoDBの実装を支える <strong>Replication</strong> と <strong>Partitioning</strong> の基本、そして <strong>Consistent Hashing</strong> について、&rdquo;<a href="https://dataintensive.net/" target="_blank">Designing Data-Intensive Applications</a>&rdquo; (DDIA) の解説も踏まえてまとめておく。</p>
+
+<h3 id="replication">Replication</h3>
+
+<p>DynamoDB（分散DB）が考えるべき問題の1つに、データのコピーをネットワーク上の複数のマシン（ノード）で保持する <strong>Replication</strong>（レプリケーション）がある。</p>
+
+<p>データのレプリカを作成する目的はいくつかあって、DDIAのまとめを引用すると：</p>
+
+<ol>
+<li><strong>High availability</strong>
+
+<ul>
+<li>あるマシンが死んでもシステムを動かし続ける</li>
+</ul></li>
+<li><strong>Disconnected operation</strong>
+
+<ul>
+<li>1つのマシンのネットワークが途絶えてもアプリケーションは動き続ける</li>
+</ul></li>
+<li><strong>Latency</strong>
+
+<ul>
+<li>データをレプリカという形で地理的により近いところにおけば、ユーザはそのデータにより早くアクセスできる</li>
+</ul></li>
+<li><strong>Scalability</strong>
+
+<ul>
+<li>複数のレプリカに対してreadを実行することで、一台のときよりも多くのreadがさばける</li>
+</ul></li>
+</ol>
+
+<p>などが挙げられる。</p>
+
+<p>そして、レプリケーションを実現する際の難しさは『<strong>いかにレプリカの変更を扱うか</strong>（同期するか）』という一点に集約されていると言っても過言ではない。</p>
+
+<p>複数のノードがあったとき、データの書き込みリクエストを特定のノード（リーダ; master）に集約して、リーダからその他のノードたち（フォロワー；slave）へ変更を通知する―これが <em>Leader-based replication</em> と呼ばれる考え方だ。</p>
+
+<p>対して、DynamoDBは特別な役割を担うノードを持たず、書き込み先やその順序について何ら制約を与えない <em>Leaderless replication</em> という方針をとった。DDIAによると、Leaderless replication は一度は廃れた手法だったものの、DynamoDBが採用したことで再び脚光を浴びたという。今ではRiak, Cassandra, Voldemortなど、多数のDynamoチルドレンが存在する。</p>
+
+<h3 id="quorum-reads-and-writes">Quorum reads and writes</h3>
+
+<p>『データの変更をレプリカ間で適切に同期する』ということがどれだけ難しいかは、Leaderless replication では複数レプリカに対して並列にread/writeリクエストが投げられることを考えれば明らかだろう。たとえば、ある一台のレプリカへの読み込み/書き込みが失敗した場合はどうすればいいのか。そもそも、システムは何をもって「今読んだデータが確かに最新のものだ」と判断するのか。</p>
+
+<p>この点についてDynamoDB論文では、一般に &ldquo;<strong>Quorum</strong> reads and writes&rdquo; と呼ばれる考え方の下でシステムの動作保証を議論している<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>。</p>
+
+<p>いま、レプリカが <code>n</code> 台あって、read時には並列に <code>r</code> 台のノードに問い合わせを行い、write時は最低 <code>w</code> 台のノードに対して書き込みが完了して初めて『成功』とみなされるシステムを考える。</p>
+
+<p>ここで Quorum reads &amp; writes を考えると、システムは <code>w + r &gt; n</code> を満たす限り、readリクエスト時に最新のデータがいずれかのレプリカから得られることを“保証”する。</p>
+
+<p>この不等式は移項するとイメージしやすいと思う。<code>w + r &gt; n</code> とは <code>r &gt; n - w</code> であり、<code>w</code> はシステムが書き込み操作を『成功』と判断する最低ラインだった。つまり、システムへの書き込み操作が『成功』したのなら、最低でも <code>w</code> 台のレプリカは確実に最新のデータを持っている。逆に言えば、<code>n - w</code> 台のレプリカに関しては、何らかの理由で最新のデータが書き込まれていない可能性があり、<code>n - w = # of potentially legacy nodes</code> といえる。</p>
+
+<p>すなわち <code>r &gt; n - w</code> とは、想定しうる『データが最新ではないノード』の最大数 <code>n - w</code> よりも多くのノードに毎回readリクエストを投げれば、少なくとも1台のレプリカからは最新のデータが得られるハズ、という話。</p>
+
+<p>この考え方のポイントは、ユーザがパラメータ <code>n</code>, <code>w</code>, <code>r</code> を自由に調整できる点にある。『<a href="https://takuti.me/note/amazon-dynamo-paper">AmazonのDynamoDB論文を眺めた</a>』でも書いたとおりAmazonはSLAを超重視するので、サービスに応じてトレードオフが調整可能であることはとても重要だった。</p>
+
+<p>たとえばwriteよりもreadが圧倒的に多いサービスの場合、究極的には <code>w = n</code>, <code>r = 1</code> とすると、readは1台だけ読めばいいので高速になる。しかしその分、書き込みの際は全ノードに確実に最新のデータを書き込まねばならず、これは並列分散環境下では最高に厳しい条件といえる。</p>
+
+<p>なお、DDIAによると、<code>n</code> は 3, 5 あたりの奇数、<code>w = r = (n+1)/2</code>（＝半分より多い）くらいに設定されることが多いらしい。なぜなら、<code>w = r = (n+1)/2</code> なら、最大で <code>n/2</code> 台まではノードが死んでいても書き込み、読み込みが成功するから。これが &ldquo;Quorum&rdquo; という概念が“多数決”に例えられるゆえんかな。</p>
+
+<p>ちなみに、Dynamo論文ではノード単位の一時的な障害によってread/writeがコケないように <strong>Hinted Handoff</strong> というアイディアも取り入れている。</p>
+
+<p>これは、あるノードに対するread/writeが失敗した際、データを「本来どのノード（レプリカ）が受け取るべきだったか」という情報（ヒント）付きで別ノードのローカルストレージに一旦保存しておくというもの。そしてシステムはこれを定期的に監視して、本来受け取るべきだったひとが復旧したところで、ヒント付きのオブジェクトの再送、破棄を行う。</p>
+
+<p>つまり、Hinted Handoffを実装することで、一時的な障害、ダウンによって生じるread/writeの損失が防げる。</p>
+
+<p>ヒント付きオブジェクトの存在も踏まえて Quorum を議論するのが <strong>Sloppy Quorum</strong> というものだ。これは相変わらず <code>r + w &gt; n</code> という要件は必須で、最低でも <code>w</code>, <code>r</code> 台のノードから成功レスポンスを受け取る必要があるが、ローカルストレージに一時保存しているread/writeリクエストも『成功』としてカウントする、ゆるい制約。</p>
+
+<h3 id="versioning">Versioning</h3>
+
+<p>DynamoDBは Eventual Consistency <sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">2</a></sup> なスタンスなので、レプリカの更新は非同期に行われる。そのためQuorumだけでデータの“正しさ”を完全に保証することは難しく、readで古いデータが返ってくる可能性は未だ排除しきれない<sup class="footnote-ref" id="fnref:3"><a rel="footnote" href="#fn:3">3</a></sup>。</p>
+
+<p>しかし、たとえある時点では最新でなくとも、ユーザが実行した処理の結果はいずれ (eventual) 確実に反映したい。そこで、オブジェクトの <strong>Versioning</strong>（バージョニング）によって各変更をimmutableな形で保持して、順次反映していく戦略をとる。</p>
+
+<p>たとえば、ひとつのオブジェクトが複数のバージョンを持っていてコンフリクトが発生した場合、両者をマージすることでゆるゆると一貫性を担保する方向へ進んでいくことになる。</p>
+
+<h3 id="partitioning">Partitioning</h3>
+
+<p>レプリケーションと並んで議論されるテクニックに、膨大なデータを複数ディスクに分散させる <strong>Partitioning</strong>（パーティショニング）がある。これにより、ロードを各ノードのプロセッサで分散してさばくことができるので、スケーラビリティ向上が期待できる。</p>
+
+<p>もっと言えば、通常はパーティショニングを行い、各パーティションについてレプリカをつくる、という組み合わせ的アプローチがとられる。</p>
+
+<p>パーティショニングの難しさは『<strong>いかにロードが偏り無く分散するようにパーティションを切るか</strong>』という点にある。たとえデータを分散させても、ある特定のディスク上のデータにアクセスが集中すると、そこがホットスポットとなってスケーラビリティ的に嬉しくない。</p>
+
+<p>考えうる最もナイーブな分割方法のひとつとしてDDIAで挙げられているのは、キーが取りうる値をソートして並べて、それを分割して各パーティションに割り当てる方法。</p>
+
+<p>たとえばタイムスタンプをキーに、各時刻でのデータ（値）を複数ディスクに保存するとき、『1日単位』でパーティションを切れば：</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Partition 1</th>
+<th align="center">Partition 2</th>
+<th align="center">Partition 3</th>
+<th align="center">&hellip;</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">2017/12/01<br/>00:00:00 - 23:59:59</td>
+<td align="center">2017/12/02<br/>00:00:00 - 23:59:59</td>
+<td align="center">2017/12/03<br/>00:00:00 - 23:59:59</td>
+<td align="center">&hellip;</td>
+</tr>
+</tbody>
+</table>
+
+<p>システムは各パーティションに属するキーの境界値、すなわち yyyy年MM月DD日 00:00:00 と 23:59:59 というタイムスタンプを覚えておけばよい。</p>
+
+<p>ただし、この方法ではホットスポットを作りかねない。たとえば保存するデータがログのような現在時刻に対応して書き込まれるものなら、writeは確実に『今日』や『昨日』のパーティションに偏ってしまう。</p>
+
+<p>このような状況を避けるべく、DynamoDB（分散DB）はキーのハッシュ値によってパーティションを決定する。“良い”ハッシュ関数を使えば、たとえ生のキーの出現パターンが偏っていても、それらを一様にパーティションに分配してくれるはず。</p>
+
+<p>あるハッシュ関数 $h$ を使ってキーを $n$ 個のパーティションに分散させるなら、単純には $h(\textrm{key})\mod{n}$ に基づいてパーティションを割り当てればよさそうだ：</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Partition 1</th>
+<th align="center">Partition 2</th>
+<th align="center">Partition 3</th>
+<th align="center">&hellip;</th>
+<th align="center">Partition $n$</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">$\mod{n} = 0$</td>
+<td align="center">$\mod{n} = 1$</td>
+<td align="center">$\mod{n} = 2$</td>
+<td align="center">&hellip;</td>
+<td align="center">$\mod{n} = n - 1$</td>
+</tr>
+</tbody>
+</table>
+
+<p>しかし実際にはこれでは困る。</p>
+
+<p>分散システムにおいて、スループットを上げるためにCPUを増やしたり、データサイズが増えたのでディスクを増やしたり、マシンが死んだので他のマシンが仕事を肩代わりするといったことは日常茶飯事で、パーティションの構成、すなわち $n$ の値はその都度変わりうる。</p>
+
+<p>このような変化に対して、システムは適応的にデータの保存場所やリクエストを向ける先を変えていく必要があるが、$n$ が $n + 1$ になっただけでパーティションの配置 $h(\textrm{key})\mod{}$ はすべて1ずつズレることになり、その都度全データを再配置する必要が生じてしまう。</p>
+
+<p>なので、剰余を使わずハッシュ値そのものでパーティションを切ったほうが、$n$ が増減したときに再配置されるデータが少なくなる。たとえば $h(\textrm{key}) \in [1, m]$ なら、$n$ 個のパーティションそれぞれの上界 $b_{n_i} = \frac{m}{n} n_i$ について：</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Partition 1</th>
+<th align="center">Partition 2</th>
+<th align="center">Partition 3</th>
+<th align="center">&hellip;</th>
+<th align="center">Partition $n$</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">$h(\cdot) \in (0, b_1]$</td>
+<td align="center">$h(\cdot) \in (b_1, b_2]$</td>
+<td align="center">$h(\cdot) \in (b_2, b_3]$</td>
+<td align="center">&hellip;</td>
+<td align="center">$h(\cdot) \in (b_{n-1}, m]$</td>
+</tr>
+</tbody>
+</table>
+
+<p>このように分割すればよい。</p>
+
+<p>では具体的に、ノードの再配置はどのように行われるのか。ノード単位でのスケールアウト (incremental scalability) の実現を目標としていたDynamoDBにとって、効率的かつ効果的な再配置の手続き、すなわち、より良い動的なパーティショニング手法の実装は必須だった。</p>
+
+<p>ここで登場するのが Consistent Hashing だ。</p>
+
+<h3 id="consistent-hashing">Consistent Hashing</h3>
+
+<p><strong>Consistent Hashing</strong> は、もともとはCDNのようなネットワーク規模のキャッシュに対してロードを均等に分散させる一手段として提案された (cf. &ldquo;<a href="http://www8.org/w8-papers/2a-webserver/caching/paper2.html" target="_blank">Web Caching with Consistent Hashing</a>&rdquo;)。</p>
+
+<p>パーティショニングの文脈で、先の『ハッシュ値に応じてパーティションを均等に（いい感じに）割り当てる』というタスクにこれを応用する。</p>
+
+<p>具体的には、ハッシュ関数の値域をあるリングで表現し、各ハッシュ値をリング内のブロックにマッピングしていく：</p>
+
+<p><img src="https://takuti.me/images/dynamo-style/consistent-hashing.png" alt="Consistent Hashing" /></p>
+
+<p>（図は &ldquo;<a href="http://www.paperplanes.de/2011/12/9/the-magic-of-consistent-hashing.html" target="_blank">The Simple Magic of Consistent Hashing</a>&rdquo; より引用）</p>
+
+<p>あるキーが与えられたとき、そのハッシュ値からリング内の場所を引く。そのキーに対応するデータは、その場所から時計回りに、次のキーの割り当て箇所までの間の数ブロック分に格納されるというワケ。</p>
+
+<p>この挙動はコードを書いてみるとイメージしやすい (cf. &ldquo;<a href="http://michaelnielsen.org/blog/consistent-hashing/" target="_blank">Consistent hashing | Michael Nielsen</a>&rdquo;)。</p>
+
+<p>まず、キーが与えられたときにリング内のある一点を返す関数 <code>my_hash</code> を実装する。先の表や図ではハッシュ値をそのまま使っているように見えたが、ここではMD5ハッシュの剰余を $[0, 1)$ の範囲内で正規化した値を用いる：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">hashlib</span>
+
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">my_hash</span>(key):
+    <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;&#34;&#34;Returns a hash value in a [0, 1) range.
+</span><span style="background-color:#fff0f0">    &#34;&#34;&#34;</span>
+    md5_hash_int <span style="color:#333">=</span> <span style="color:#007020">int</span>(hashlib<span style="color:#333">.</span>md5(key<span style="color:#333">.</span>encode(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;ascii&#39;</span>))<span style="color:#333">.</span>hexdigest(), <span style="color:#00d;font-weight:bold">16</span>)
+    n <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">1000000</span>
+    mod <span style="color:#333">=</span> md5_hash_int <span style="color:#333">%</span> n
+    <span style="color:#080;font-weight:bold">return</span> mod <span style="color:#333">/</span> <span style="color:#007020">float</span>(n)  <span style="color:#888"># scale in a [0, 1) range</span></code></pre></div>
+<p>いま <code>num_machines</code> 台のマシンがあり、それぞれの <code>num_replicas</code> 台のレプリカをリング上に配置する場合、Consistent Hashing の挙動は次のようなコードで書き表せる：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">bisect</span>
+
+
+<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">ConsistentHash</span>(<span style="color:#007020">object</span>):
+
+    <span style="color:#080;font-weight:bold">def</span> __init__(self, num_machines<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>, num_replicas<span style="color:#333">=</span><span style="color:#00d;font-weight:bold">1</span>):
+        self<span style="color:#333">.</span>num_machines <span style="color:#333">=</span> num_machines
+        self<span style="color:#333">.</span>num_replicas <span style="color:#333">=</span> num_replicas
+
+        <span style="color:#888"># Allocate each replica (machine) onto a point of the unit circle</span>
+        hash_tuples <span style="color:#333">=</span> [(mi, ri, my_hash(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;{}_{}&#39;</span><span style="color:#333">.</span>format(mi, ri)))
+                       <span style="color:#080;font-weight:bold">for</span> mi <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(self<span style="color:#333">.</span>num_machines)
+                       <span style="color:#080;font-weight:bold">for</span> ri <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(self<span style="color:#333">.</span>num_replicas)]
+
+        <span style="color:#888"># Sort replica assignment information based on its hash value</span>
+        hash_tuples<span style="color:#333">.</span>sort(key<span style="color:#333">=</span><span style="color:#080;font-weight:bold">lambda</span> t: t[<span style="color:#00d;font-weight:bold">2</span>])
+        self<span style="color:#333">.</span>hash_tuples <span style="color:#333">=</span> hash_tuples
+
+    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">get_machine</span>(self, key):
+        h <span style="color:#333">=</span> my_hash(key)
+
+        <span style="color:#888"># If a hash value is greater than the largest one (i.e., very close to</span>
+        <span style="color:#888"># 1.0 on the unit circle), cyclically back to 0.0.</span>
+        <span style="color:#080;font-weight:bold">if</span> h <span style="color:#333">&gt;</span> self<span style="color:#333">.</span>hash_tuples[<span style="color:#333">-</span><span style="color:#00d;font-weight:bold">1</span>][<span style="color:#00d;font-weight:bold">2</span>]:
+            <span style="color:#080;font-weight:bold">return</span> self<span style="color:#333">.</span>hash_tuples[<span style="color:#00d;font-weight:bold">0</span>][<span style="color:#00d;font-weight:bold">0</span>]
+        hash_values <span style="color:#333">=</span> [t[<span style="color:#00d;font-weight:bold">2</span>] <span style="color:#080;font-weight:bold">for</span> t <span style="color:#000;font-weight:bold">in</span> self<span style="color:#333">.</span>hash_tuples]
+
+        <span style="color:#888"># Find the closest hash value and use corresponding machine (replica)</span>
+        <span style="color:#888"># to store a value of the key</span>
+        index <span style="color:#333">=</span> bisect<span style="color:#333">.</span>bisect_left(hash_values, h)
+        <span style="color:#080;font-weight:bold">return</span> self<span style="color:#333">.</span>hash_tuples[index][<span style="color:#00d;font-weight:bold">0</span>]</code></pre></div>
+<p>まず各マシン-レプリカのペアについて &ldquo;[machine]-[replica]&rdquo; という文字列をキーにハッシュ値を求め、<code>(machine, replica, hash)</code> のペアをハッシュ値順にソートして保持しておく。これがリング上での（時計回りに見たときの）ノードの割り当てに相当する。</p>
+
+<p>そして、<code>get_machine()</code> は与えられた任意のキーのデータを保存すべきレプリカを見つけて返す。具体的には、与えられたキーのハッシュ値に最も近いハッシュ値を持つレプリカをリングから時計回りに探索して、その情報を返す（＝ソート済み <code>(machine, replica, hash)</code> ペアの二分探索に相当）。</p>
+
+<p>以上を利用すれば、7台のマシンについて、各3台のレプリカを用意した場合の Consistent Hashing は次のようにシミュレーション可能：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">main</span>():
+    <span style="color:#888"># Consistent Hashing over 7 machines and 3 replicas for each of them</span>
+    ch <span style="color:#333">=</span> ConsistentHash(<span style="color:#00d;font-weight:bold">7</span>, <span style="color:#00d;font-weight:bold">3</span>)
+
+    <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Allocation:</span><span style="color:#666;background-color:#fff0f0;font-weight:bold">\n</span><span style="background-color:#fff0f0">(machine, replica, hash)&#39;</span>)
+    <span style="color:#080;font-weight:bold">for</span> mi, ri, h <span style="color:#000;font-weight:bold">in</span> ch<span style="color:#333">.</span>hash_tuples:
+        <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;({}, {}, {})&#39;</span><span style="color:#333">.</span>format(mi, ri, h))
+
+    <span style="color:#080;font-weight:bold">while</span> True:
+        key <span style="color:#333">=</span> <span style="color:#007020">input</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Enter a key: &#39;</span>)
+        <span style="color:#080;font-weight:bold">print</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Key `</span><span style="background-color:#eee">%s</span><span style="background-color:#fff0f0">` is mapped onto a (scaled) hash value `</span><span style="background-color:#eee">%f</span><span style="background-color:#fff0f0">`, and its value would be stored into a machine `</span><span style="background-color:#eee">%d</span><span style="background-color:#fff0f0">`&#39;</span> <span style="color:#333">%</span> (key, my_hash(key), ch<span style="color:#333">.</span>get_machine(key)))
+
+
+<span style="color:#080;font-weight:bold">if</span> __name__ <span style="color:#333">==</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;__main__&#39;</span>:
+    main()</code></pre></div>
+<p>課題だったノード（パーティション）の増減に関しては、隣接するキー（ハッシュ値）が担当する領域を拡大/縮小させるだけで対応でき。剰余で発生した『すべて再配置』よりもはるかに筋の良い手法だと言える。また、これならレプリカ間の境界値をその都度考えたり覚えたりする中心的な役割を担うノードも不要。</p>
+
+<p>上の図ではリング状の一区画が &ldquo;a single vnode/partition&rdquo; と呼ばれているが、ここで言う vnode とは、Dynamo論文でも1つの“工夫”として導入されている<strong>バーチャルノード</strong>と呼ばれるアイディア。</p>
+
+<p>オリジナルの Consistent Hashing は、ハッシュ値が（たまたま）偏ってしまうと特定のノードが担当する値域が極端に多く/少なくなってしまう。これはロードバランシング的に微妙だし、そもそも理想的にはノードごとのパフォーマンスの差異も考慮してパーティションを割り当てたい。</p>
+
+<p>そこでDynamoでは、各ノードを円状の区画に一対一対応させず、追加のバーチャルノードというものを導入して、各ノードが円状の複数点に分散配置されるような仕組みを実装した。これについては『<a href="https://www.slideshare.net/seki_intheforest/virtual-node" target="_blank">Virtual nodeについて</a>』なども参照されたい。</p>
+
+<p>レプリケーションで <code>n</code>, <code>w</code>, <code>r</code> がパラメータとして調整可能だったのと同様に、このバーチャルノードをいくつ用意するかはカスタマイズ可能であり、やはりこれもAmazonの思想、サービス形態的に嬉しいソリューションだと言える。</p>
+
+<p>なおDDIAでは、このようなDBに対する Consistent Hashing の応用はそれほどうまく動かないことが既に知られており、（未だ話題になることは多いが）実際に使われることは稀だと言っている。そして、<em>&ldquo;Consistent&rdquo; Hashing</em> といわれると一貫性の話と混同しがちで紛らわしいので、単に <em>Hash Partitioning</em> と呼べば良いだろうに、とのこと。たしかに。</p>
+
+<h3 id="まとめ">まとめ</h3>
+
+<p><a href="https://takuti.me/note/amazon-dynamo-paper">AmazonのDynamo論文</a>の実装パートに焦点をあてて、Replication, Versioning, Partitioning の概要と Consistent Hashing の挙動についてまとめた。</p>
+
+<p>この手の話は概念的な部分と現実的な課題のギャップが掴みづらいので、論文だけだと腑に落ちない部分が多々あった。</p>
+
+<p>そんな折、ちょうど &ldquo;<a href="https://dataintensive.net/" target="_blank">Designing Data-Intensive Applications</a>&rdquo; を読んで、この本が論文の行間を手厚く補ってくれたことに感動。結果としてつい長々と書いてしまったけど、乱暴に使いがちな『レプリカ』や『パーティション』という“当たり前”な用語・技術がなぜ大切か、なにが難しいか、という点をおさらいできたので満足です。</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">&ldquo;Quorum&rdquo; という概念はとても奥が深いらしい：『<a href="https://qiita.com/everpeace/items/632831371da5ff215995" target="_blank">最近よく聞くQuorumは過半数(多数決)よりも一般的でパワフルな概念だった</a>』
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2">あわせて読みたい：『<a href="https://qiita.com/kumagi/items/3867862c6be65328f89c" target="_blank">Eventual Consistencyまでの一貫性図解大全</a>』
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:3">DDIAでは、より強い保証がほしければトランザクションやコンセンサスといった話題も組み合わせて考えてね、と言っている。
+ <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

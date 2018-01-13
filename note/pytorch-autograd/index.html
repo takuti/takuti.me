@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        PyTorchのautogradと仲良くなりたい | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-09-23
+  </p>
+  <h2>PyTorchのautogradと仲良くなりたい</h2>
+
+  <div class="post">
+    <p>（希望）</p>
+
+<p>せっかく<a href="https://takuti.me/note/euroscipy-2017">EuroScipy 2017</a>でFacebook AI researchの<a href="https://twitter.com/soumithchintala" target="_blank">Soumith Chintala</a>氏から直に <strong><a href="https://github.com/pytorch/pytorch" target="_blank">PyTorch</a></strong> のお話を聞いたので、触ってみるしかないぞ！と思いました。</p>
+
+<p>特に、PyTorchのウリだと言っていた <strong>autograd</strong>（自動微分）が気になるので、まずは<a href="http://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html" target="_blank">公式チュートリアル</a>から入門してみる。</p>
+
+<p><code>x</code> という変数を <code>requires_grad=True</code> オプション付きで定義する。値は1：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">torch</span>
+<span style="color:#080;font-weight:bold">from</span> <span style="color:#0e84b5;font-weight:bold">torch.autograd</span> <span style="color:#080;font-weight:bold">import</span> Variable</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#888"># [x1, x2; x3, x4] = [1, 1; 1, 1]</span>
+x <span style="color:#333">=</span> Variable(torch<span style="color:#333">.</span>ones(<span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">2</span>), requires_grad<span style="color:#333">=</span>True)</code></pre></div>
+<p>&ldquo;PyTorch is numpy alternative&rdquo; と言うだけあって、配列（テンソル）操作は困らない。</p>
+
+<p>そして一次関数 <code>y = x + 1</code> を定義：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#888"># [y1, y2; y3, y4] = [x+2, x+2; x+2, x+2]</span>
+y <span style="color:#333">=</span> x <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">2</span></code></pre></div>
+<p>さらに <code>y</code> を使って二次関数をつくる：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#888"># zi = 3 * (xi + 2)^2</span>
+z <span style="color:#333">=</span> y <span style="color:#333">*</span> y <span style="color:#333">*</span> <span style="color:#00d;font-weight:bold">3</span></code></pre></div>
+<p>コメントの通り、<code>z = y * y * 3</code> を展開すれば <code>z = (x + 2) * (x + 2) * 3</code> です。</p>
+
+<p>関数の出力値 <code>out</code> を適当な値 <code>z.mean()</code> とする。<code>z</code> の各要素が <code>zi = 3 * (xi + 2)^2</code> だったので、 その平均値は：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#888"># out = 1/4 * (z1 + z2 + z3 + z4)</span>
+<span style="color:#888">#     = 1/4 * (3 * y1^2 + 3 * y2^2 + 3 * y3^2 + 3 * y4^2)</span>
+<span style="color:#888">#     = 1/4 * (3 * (x1 + 2)^2 + 3 * (x2 + 2)^2 + 3 * (x3 + 2)^2 + 3 * (x4 + 2)^2)</span>
+out <span style="color:#333">=</span> z<span style="color:#333">.</span>mean()</code></pre></div>
+<p><code>out</code> の勾配：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#888"># d(out)</span>
+out<span style="color:#333">.</span>backward()</code></pre></div>
+<p><code>x</code> について：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#888"># d(out) / d(xi) = 1/4 * 2 * 3 * (xi + 2) = 3/2 * (xi + 2)</span>
+<span style="color:#080;font-weight:bold">print</span>(x<span style="color:#333">.</span>grad)  <span style="color:#888"># =&gt; [4.5, 4.5; 4.5, 4.5]</span></code></pre></div>
+<p>最初に <code>xi = 1</code> としていたので、 <code>xi.grad = 3/2 * (xi + 2) = 3/2 * (1 + 2) = 4.5</code> ということになる。</p>
+
+<p>なるほど、<code>autograd.Variable.backward()</code> がキモらしい。そしてこのチュートリアルだけでも、PyTorchの『線形なコードフローを推奨する』という思想が強く実感できる。</p>
+
+<p>ここでもうひとつ、実践的な例として<a href="http://pytorch.org/tutorials/beginner/nlp/deep_learning_tutorial.html#example-logistic-regression-bag-of-words-classifier" target="_blank">ロジスティック回帰による Bag-of-Words の二値分類</a>を試してみる。</p>
+
+<p>詳細は割愛しつつ、肝心のSGDによる学習の部分のコードを抜き出してみる：</p>
+
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 7</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 8</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 9</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">10</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">11</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">12</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">13</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">14</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">15</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">16</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">17</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">18</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">19</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">20</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">21</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">22</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">23</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">24</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">25</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">26</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">27</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">28</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">29</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">30</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#888"># this classifier outputs log probs for input Bag-of-Words vector</span>
+model <span style="color:#333">=</span> BoWClassifier(NUM_LABELS, VOCAB_SIZE)
+
+<span style="color:#888"># negative log likelihood loss</span>
+<span style="color:#888"># input will be a pair of &amp;lt;log probs computed by model, target label&amp;gt;</span>
+loss_function <span style="color:#333">=</span> nn<span style="color:#333">.</span>NLLLoss()
+
+<span style="color:#888"># SGD optimizer for model parameters</span>
+optimizer <span style="color:#333">=</span> optim<span style="color:#333">.</span>SGD(model<span style="color:#333">.</span>parameters(), lr<span style="color:#333">=</span><span style="color:#60e;font-weight:bold">0.1</span>)
+
+<span style="color:#080;font-weight:bold">for</span> epoch <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">100</span>):
+    <span style="color:#080;font-weight:bold">for</span> sentence, label <span style="color:#000;font-weight:bold">in</span> train:
+        <span style="color:#888"># clear accumulated gradients</span>
+        model<span style="color:#333">.</span>zero_grad()
+
+        <span style="color:#888"># create input BoW vector and target variable as torch.autograd.Variable</span>
+        bow_vec <span style="color:#333">=</span> autograd<span style="color:#333">.</span>Variable(make_bow_vector(sentence))
+        target <span style="color:#333">=</span> autograd<span style="color:#333">.</span>Variable(make_target(label))
+
+        <span style="color:#888"># run forward pass (i.e., prediction)</span>
+        log_probs <span style="color:#333">=</span> model(bow_vec)
+
+        <span style="color:#888"># compute loss</span>
+        loss <span style="color:#333">=</span> loss_function(log_probs, target)
+
+        <span style="color:#888"># gradient of loss</span>
+        loss<span style="color:#333">.</span>backward()
+
+        <span style="color:#888"># update model parameters</span>
+        optimizer<span style="color:#333">.</span>step()</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>（変数名、コメントなど少し変えたり簡略化したりした）</p>
+
+<ul>
+<li>BoWベクトルの入力に対して log Softmax を予測値として返す分類モデル <code>model</code> を、</li>
+<li>負の対数尤度 <code>nn.NLLLoss()</code> を損失関数として、</li>
+<li>確率的勾配降下法 <code>optim.SGD()</code> によって学習している。</li>
+</ul>
+
+<p>勾配降下法なので、パラメータは損失 <code>loss</code> の偏微分に基づいて毎ステップ更新される。これが27行目 <code>loss.backward()</code> の仕事ということに。わかってきた。</p>
+
+<p>しかし線形なコードフロー、気持ちはとてもよく分かるんだけど、<code>optimizer</code> に <code>loss</code> を渡したわけでもないのに <code>loss.backward()</code> =&gt; <code>optimizer.step()</code> でパラメータが更新されるのが気持ち悪い…。</p>
+
+<p>EuroSciPy 2017のKeynoteで語られていたことの背景はここまでの内容で十分つかめるけど <sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>、autogradと仲良くなれる日はまだまだ遠そうだなぁと思うのでした。</p>
+
+<p>次のステップはなんだろう。PyTorch + autograd で <a href="https://takuti.me/note/coursera-recommender-systems/">Matrix Factorization</a> でも実装してみましょうか。</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">PyTorchの思想や、高階微分の実装といった今後の計画など、実際に触ってみて「確かにそうだよね」という気持ちになった。
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

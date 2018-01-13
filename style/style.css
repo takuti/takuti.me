@@ -1,0 +1,254 @@
+@import url(normalize.css);
+html,
+body {
+  background: #fff;
+  height: 100%;
+  color: #555;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5; }
+
+h1,
+h2,
+h3,
+h4 {
+  color: #00496e; }
+  h1 .symbol,
+  h2 .symbol,
+  h3 .symbol,
+  h4 .symbol {
+    font-weight: normal; }
+
+h3 {
+  font-size: 1.2em; }
+
+h1,
+h3,
+h4,
+h5,
+p,
+pre {
+  margin-bottom: 20px; }
+
+a {
+  color: #555; }
+  a:visited {
+    color: #555; }
+  a:hover {
+    text-decoration: none; }
+  a.bold {
+    font-weight: bold;
+    text-decoration: none; }
+  a.nounderline {
+    text-decoration: none; }
+  a.post-style {
+    color: #008dd4;
+    text-decoration: none; }
+    a.post-style:visited {
+      color: #008dd4; }
+    a.post-style:hover {
+      color: #006ba1;
+      text-decoration: underline; }
+
+article {
+  margin: 0 auto 50px; }
+  article .meta {
+    font-size: 0.8em;
+    color: #888888;
+    margin-bottom: 0; }
+  article h2 {
+    font-size: 1.5em;
+    margin: 0 0 2em; }
+  article .post a {
+    color: #008dd4;
+    text-decoration: none; }
+    article .post a:visited {
+      color: #008dd4; }
+    article .post a:hover {
+      color: #006ba1;
+      text-decoration: underline; }
+  article .post img {
+    display: block;
+    margin: 0.5em 0;
+    max-width: 100%; }
+  article .post hr {
+    border: 0;
+    border-top: 1px solid #eeeeee; }
+  article .post table {
+    margin: 0 auto;
+    width: 100%;
+    border-collapse: collapse; }
+    article .post table th {
+      padding: 6px;
+      text-align: left;
+      vertical-align: top;
+      background-color: white;
+      border: 1px solid #d5d5d5; }
+    article .post table td {
+      padding: 6px;
+      background-color: #fff;
+      border: 1px solid #d5d5d5; }
+
+dl.entry-list .date {
+  display: inline-block; }
+
+dl.entry-list dt {
+  padding-top: 0.5em;
+  font-size: 0.8em;
+  color: #bbbbbb; }
+
+dl.entry-list dd {
+  margin: 0;
+  padding: 0 0 0.5em;
+  font-size: 1em; }
+  dl.entry-list dd a {
+    font-weight: bold;
+    text-decoration: none; }
+
+header {
+  width: 800px;
+  margin: 0 auto;
+  padding-top: 30px; }
+  header .left {
+    font-size: 1.2em;
+    width: 50%; }
+    header .left a {
+      text-decoration: none; }
+  header .right {
+    font-size: 1em;
+    width: 50%;
+    text-align: right; }
+    header .right a {
+      text-decoration: none; }
+
+img.icon-circle {
+  width: 80px;
+  max-width: 80%;
+  border-radius: 80px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px; }
+
+#container {
+  width: 800px;
+  max-width: 90%;
+  margin: 30px auto 50px; }
+  #container ul {
+    margin-left: 0;
+    padding-left: 1.5em; }
+    #container ul li {
+      margin-bottom: 0.2em; }
+
+footer {
+  font-size: 0.8em;
+  width: 800px;
+  height: 50px;
+  margin: 0 auto;
+  padding: 0; }
+
+.left {
+  display: inline-block;
+  float: left;
+  margin: 0;
+  padding: 0; }
+
+.right {
+  display: inline-block;
+  float: right;
+  margin: 0;
+  padding: 0; }
+
+.clearfix {
+  zoom: 1; }
+  .clearfix::after {
+    content: "";
+    display: block;
+    clear: both; }
+
+code {
+  background: #fff;
+  font-size: 11px;
+  /* font-weight: 100; */
+  padding: 4px;
+  border: none;
+  box-shadow: inset 0 0 0 1px #e4ebf2;
+  border-radius: 4px;
+  overflow: scroll;
+  font-family: 'Menlo', 'Monaco', Courier, monospace; }
+
+pre code,
+.prettyprint {
+  font-size: 11px;
+  word-wrap: break-word;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  padding: 16px;
+  padding-bottom: 14px;
+  display: block;
+  color: #555;
+  background: #fff;
+  border: none;
+  box-shadow: inset 0 0 0 1px #e4ebf2;
+  border-radius: 4px;
+  overflow: auto; }
+
+blockquote {
+  padding-left: 15px;
+  border-left: 3px solid #eee; }
+
+@font-face {
+  font-family: 'LigatureSymbols';
+  src: url("/fonts/LigatureSymbols-2.11.eot");
+  src: url("/fonts/LigatureSymbols-2.11.eot?#iefix") format("embedded-opentype"), url("/fonts/LigatureSymbols-2.11.woff") format("woff"), url("/fonts/LigatureSymbols-2.11.ttf") format("truetype"), url("/fonts/LigatureSymbols-2.11.svg#LigatureSymbols") format("svg");
+  src: url("/fonts/LigatureSymbols-2.11.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+.symbol {
+  font-family: 'LigatureSymbols';
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-size: 1.3em;
+  line-height: 1.3em;
+  display: inline-block;
+  margin: 0 0.25em; }
+
+.self img {
+  max-width: 100%;
+  height: auto; }
+
+.self .right {
+  width: 70%;
+  margin-top: 1em; }
+
+.self .left {
+  width: 26%;
+  margin-top: 1em; }
+
+/* responsive */
+@media screen and (max-width: 960px) {
+  body {
+    width: 100%; }
+  #container,
+  footer,
+  nav {
+    padding: 0 5%;
+    width: 90%; }
+  header {
+    padding-right: 5%;
+    padding-left: 5%;
+    width: 90%; } }
+
+@media screen and (max-width: 600px) {
+  #me .projects .left {
+    width: 100%; }
+  #me .projects .right {
+    width: 100%; } }

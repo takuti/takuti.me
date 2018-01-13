@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        igo-rubyを新語辞書NEologdでナウい感じにする | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-09-17
+  </p>
+  <h2>igo-rubyを新語辞書NEologdでナウい感じにする</h2>
+
+  <div class="post">
+    
+
+<p>『<a href="https://takuti.me/note/hatena-keyword-to-ipadic/">はてなキーワードを使ってigo-ruby(MeCab)用の辞書をナウい感じにする</a>』に4年ぶりの続編です。</p>
+
+<p><strong><a href="https://github.com/kyow/igo-ruby" target="_blank">igo-ruby</a></strong> はJava製の形態素解析器 <a href="http://igo.osdn.jp/" target="_blank">Igo</a> のRuby版で、4年前から動いている僕の<a href="https://github.com/takuti/twitter-bot" target="_blank">twitter bot</a>でも使っている。</p>
+
+<p>4年前の記事では『人工知能』や『ニコニコ動画』といった新語をigo-rubyでナウく分かち書きするために、Wikipediaタイトルやはてなキーワードのデータを使って独自に辞書をカスタマイズした。</p>
+
+<p>今回はもっと簡単に、継続的にメンテナンスされている新語辞書 <strong><a href="https://github.com/neologd/mecab-ipadic-neologd" target="_blank">NEologd</a></strong> を使って同様のことを実現する。もはや最近はこっちのほうが自然なアプローチですなぁ。</p>
+
+<h3 id="neologdのビルド">NEologdのビルド</h3>
+
+<p><a href="https://github.com/neologd/mecab-ipadic-neologd" target="_blank">リポジトリ</a>を取ってきて、手順通りビルドする：</p>
+
+<pre><code>$ cd /path/to/neologd/mecab-ipadic-neologd
+$ ./bin/install-mecab-ipadic-neologd -n
+</code></pre>
+
+<p>すると <code>build/mecab-ipadic-2.7.0-20070801-neologd-YYYYMMDD</code> といったディレクトリができる。</p>
+
+<p>これが4年前の記事で自前で生成した辞書を置いた <code>mecab-ipadic-2.7.0-20070801</code> というディレクトリに対応していて、以後の手順は全く変わらない。外部データを整形して独自にコストを計算していた手間をNEologdが肩代わりしてくれた形。感謝〜。</p>
+
+<h3 id="辞書生成">辞書生成</h3>
+
+<p><code>igo.jar</code> を取ってきて：</p>
+
+<pre><code>$ wget 'http://osdn.jp/frs/redir.php?m=jaist&amp;f=%2Figo%2F52344%2Figo-0.4.3.jar' -O igo.jar
+</code></pre>
+
+<p>igo用辞書 <code>ipadic-neologd</code> をつくる：</p>
+
+<pre><code>$ java -cp igo.jar net.reduls.igo.bin.BuildDic ipadic-neologd /path/to/neologd/mecab-ipadic-neologd/build/mecab-ipadic-2.7.0-20070801-neologd-YYYYMMDD utf-8
+</code></pre>
+
+<p>オリジナルのIPA辞書のエンコーディングがEUCだったのに対し、NEologdはUTF-8であることに注意。</p>
+
+<h3 id="ためす">ためす</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rb" data-lang="rb"><span style="color:#007020">require</span> <span style="background-color:#fff0f0">&#39;igo-ruby&#39;</span>
+
+tagger <span style="color:#333">=</span> <span style="color:#036;font-weight:bold">Igo</span><span style="color:#333">::</span><span style="color:#036;font-weight:bold">Tagger</span><span style="color:#333">.</span>new(<span style="background-color:#fff0f0">&#39;/path/to/ipadic-neologd&#39;</span>)
+
+<span style="color:#007020">p</span> tagger<span style="color:#333">.</span>wakati(<span style="background-color:#fff0f0">&#39;人工知能&#39;</span>)
+<span style="color:#888"># [&#34;人工知能&#34;]</span>
+
+<span style="color:#007020">p</span> tagger<span style="color:#333">.</span>wakati(<span style="background-color:#fff0f0">&#39;ニコニコ動画&#39;</span>)
+<span style="color:#888"># [&#34;ニコニコ動画&#34;]</span>
+
+<span style="color:#007020">p</span> tagger<span style="color:#333">.</span>wakati(<span style="background-color:#fff0f0">&#39;10日放送の「中居正広のミになる図書館」（テレビ朝日系）で、SMAPの中居正広が、篠原信一の過去の勘違いを明かす一幕があった。&#39;</span>)
+<span style="color:#888"># [&#34;10日&#34;, &#34;放送&#34;, &#34;の&#34;, &#34;「&#34;, &#34;中居正広のミになる図書館&#34;, &#34;」&#34;, &#34;（&#34;, &#34;テレビ朝日&#34;, &#34;系&#34;, &#34;）&#34;, &#34;で&#34;, &#34;、&#34;, &#34;SMAP&#34;, &#34;の&#34;, &#34;中居正広&#34;, &#34;が&#34;, &#34;、&#34;, &#34;篠原信一&#34;, &#34;の&#34;, &#34;過去&#34;, &#34;の&#34;, &#34;勘違い&#34;, &#34;を&#34;, &#34;明かす&#34;, &#34;一幕&#34;, &#34;が&#34;, &#34;あっ&#34;, &#34;た&#34;, &#34;。&#34;]</span></code></pre></div>
+<p>めでたい。</p>
+
+<p>僕の子 @<a href="https://twitter.com/yootakuti" target="_blank">yootakuti</a> が動いているさくらVPSから契約更新の案内が届いて、久しぶりに存在を思い出していろいろ振り返っていた次第。辞書をNEologdに変えて、久しぶりにコードを更新して賢くしてあげても良いかもしれない。<a href="https://github.com/takuti/kusari" target="_blank">マルコフ連鎖生成用ライブラリ</a>もNEologd対応させてみたりしてね。</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

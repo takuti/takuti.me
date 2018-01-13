@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://takuti.me/note/designing-data-intensive-applications/</loc>
+    <lastmod>2017-12-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/dynamo-style/</loc>
+    <lastmod>2017-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/data-science-project-structure/</loc>
+    <lastmod>2017-12-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/amazon-dynamo-paper/</loc>
+    <lastmod>2017-12-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/acroquest-javabook/</loc>
+    <lastmod>2017-12-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/trends-in-real-world-recommender-systems-2017/</loc>
+    <lastmod>2017-11-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/data-skeptic-recommender-systems/</loc>
+    <lastmod>2017-11-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/recsys-wordcloud/</loc>
+    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/adjusting-for-oversampling-and-undersampling/</loc>
+    <lastmod>2017-11-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/coursera-scala-specialization/</loc>
+    <lastmod>2017-10-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/rule-based-ai/</loc>
+    <lastmod>2017-10-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/pytorch-mf/</loc>
+    <lastmod>2017-10-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/the-amazon-way-on-iot/</loc>
+    <lastmod>2017-10-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/python-concurrent-futures/</loc>
+    <lastmod>2017-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/pytorch-autograd/</loc>
+    <lastmod>2017-09-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/igo-ruby-neologd/</loc>
+    <lastmod>2017-09-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/yahoo-egads/</loc>
+    <lastmod>2017-09-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/euroscipy-2017/</loc>
+    <lastmod>2017-09-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/holt-winters/</loc>
+    <lastmod>2017-08-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/hive-fuzzy-search/</loc>
+    <lastmod>2017-08-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/postgresql-fuzzy-search/</loc>
+    <lastmod>2017-08-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/fastcat/</loc>
+    <lastmod>2017-08-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/levenshtein-distance/</loc>
+    <lastmod>2017-07-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/gensim-jawiki/</loc>
+    <lastmod>2017-07-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/leakage/</loc>
+    <lastmod>2017-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/job-title-normalization/</loc>
+    <lastmod>2017-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/soft-skills/</loc>
+    <lastmod>2017-07-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/travis-gh-pages-deployment/</loc>
+    <lastmod>2017-06-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/dmm-eikaiwa/</loc>
+    <lastmod>2017-06-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/two-decades-of-amazon-recommender/</loc>
+    <lastmod>2017-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/incremental-plsa/</loc>
+    <lastmod>2017-06-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/hugo-kramdown-and-katex/</loc>
+    <lastmod>2017-05-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/nand2tetris/</loc>
+    <lastmod>2017-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/recommender-libraries/</loc>
+    <lastmod>2017-05-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/hivemall-on-docker/</loc>
+    <lastmod>2017-05-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/move-to-gh-pages/</loc>
+    <lastmod>2017-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/hello-librec/</loc>
+    <lastmod>2017-04-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/spark-rdd-cached-vs-uncached/</loc>
+    <lastmod>2017-04-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/why-spark/</loc>
+    <lastmod>2017-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/master-graduate/</loc>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/deep-work/</loc>
+    <lastmod>2017-03-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/chiir-2017/</loc>
+    <lastmod>2017-03-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/auc-parallel/</loc>
+    <lastmod>2017-03-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/auc/</loc>
+    <lastmod>2017-03-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/parallel-vs-concurrent/</loc>
+    <lastmod>2017-02-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/slim/</loc>
+    <lastmod>2017-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/hivemall-on-mac/</loc>
+    <lastmod>2017-02-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/https/</loc>
+    <lastmod>2017-02-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/coursera-recommender-systems/</loc>
+    <lastmod>2017-01-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/flurs/</loc>
+    <lastmod>2017-01-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/recommendation-julia/</loc>
+    <lastmod>2017-01-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/new-year-resolution-2017/</loc>
+    <lastmod>2017-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/td-intern-2016/</loc>
+    <lastmod>2016-10-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/recsys-2016/</loc>
+    <lastmod>2016-09-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/data-stream-mining/</loc>
+    <lastmod>2015-12-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/hugo-markdown-and-mathjax/</loc>
+    <lastmod>2015-10-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/pyconjp-2015/</loc>
+    <lastmod>2015-10-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/phpcon-2015/</loc>
+    <lastmod>2015-10-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/mlss-kyoto-2015/</loc>
+    <lastmod>2015-10-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/normal-equation/</loc>
+    <lastmod>2015-04-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/hello-english/</loc>
+    <lastmod>2014-11-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/practical-machine-learning/</loc>
+    <lastmod>2014-09-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/toefl-20140715/</loc>
+    <lastmod>2014-07-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/20140713/</loc>
+    <lastmod>2014-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/toefl-20140527/</loc>
+    <lastmod>2014-05-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/hello-jekyll/</loc>
+    <lastmod>2014-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/todays-art-taro/</loc>
+    <lastmod>2014-02-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/tf-idf/</loc>
+    <lastmod>2014-01-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/hurry-up-post/</loc>
+    <lastmod>2013-12-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/poisson-image-blending/</loc>
+    <lastmod>2013-12-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/crx-dev-using-angularjs/</loc>
+    <lastmod>2013-11-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/6brains-of-the-world/</loc>
+    <lastmod>2013-10-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/from-cloud-to-ai/</loc>
+    <lastmod>2013-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/go-to-bookstore/</loc>
+    <lastmod>2013-08-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/meltokei/</loc>
+    <lastmod>2013-08-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/canvas-rotate-round/</loc>
+    <lastmod>2013-08-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/hello-angularjs/</loc>
+    <lastmod>2013-08-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/hatena-keyword-to-ipadic/</loc>
+    <lastmod>2013-07-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/twitter-bot/</loc>
+    <lastmod>2013-07-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/how-to-read-a-book/</loc>
+    <lastmod>2013-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/note/</loc>
+    <lastmod>2017-12-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/top/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://takuti.me/</loc>
+    <lastmod>2017-12-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

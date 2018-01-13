@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        いまさら編集距離 (Levenshtein Distance) を実装するぜ | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+    <div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2017-07-28
+  </p>
+  <h2>いまさら編集距離 (Levenshtein Distance) を実装するぜ</h2>
+
+  <div class="post">
+    
+
+<p>ある文字列Aに対して『1文字の追加・削除・置換』を何回繰り返せば他の文字列Bになるか。このときの最小回数を、文字列A, B間の<a href="https://ja.wikipedia.org/wiki/%E3%83%AC%E3%83%BC%E3%83%99%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3%E8%B7%9D%E9%9B%A2" target="_blank">編集距離 (Levenshtein Distance)</a>と呼ぶ。</p>
+
+<ul>
+<li><strong>花火</strong> から <strong>火花</strong> までの編集距離は各文字の置換なので 2</li>
+<li><strong>クワガタ</strong> から <strong>カブトムシ</strong> までの編集距離はなんかもう全文字違うので総入れ替え＆文字『シ』の追加で 5</li>
+</ul>
+
+<p>この編集距離、文字列の“類似度”と見ることができて、なかなか便利な子である。『<a href="https://takuti.me/note/job-title-normalization">Job Titleの前処理＆クラスタリングをどうやって実現するか問題</a>』では、人々の肩書きを編集距離を使って前処理（クラスタリング）している事例も紹介した。</p>
+
+<p>さて、ここでは Levenshtein Distance を求めるアルゴリズムを実装して、備忘録として書き留めておく。ネット上にも多数の解説記事があり「今更ァ？」という話だが、正直どれを読んでもピンとこなかったのだ。</p>
+
+<h3 id="アルゴリズム">アルゴリズム</h3>
+
+<p>動的計画法 (DP) です。おわり。</p>
+
+<p>Wikipedia に書かれている擬似コードをそのまま実装すると次のような感じ：</p>
+
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style=";border-spacing:0;padding:0;margin:0;border:0;width:100%;overflow:auto;display:block;"><tr><td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 1</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 2</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 3</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 4</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 5</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 6</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 7</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 8</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;"> 9</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">10</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">11</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">12</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">13</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">14</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">15</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">16</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">17</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">18</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">19</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">20</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">21</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">22</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">23</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">24</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">25</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">26</span><span style="color:#7f7f7f;margin-right:0.4em;padding:00.4em00.4em;display:block;">27</span></code></pre></td>
+<td style=";vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">levenshtein</span>(s1, s2):
+    <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#34;&#34;&#34;
+</span><span style="background-color:#fff0f0">    &gt;&gt;&gt; levenshtein(&#39;kitten&#39;, &#39;sitting&#39;)
+</span><span style="background-color:#fff0f0">    3
+</span><span style="background-color:#fff0f0">    &gt;&gt;&gt; levenshtein(&#39;あいうえお&#39;, &#39;あいうえお&#39;)
+</span><span style="background-color:#fff0f0">    0
+</span><span style="background-color:#fff0f0">    &gt;&gt;&gt; levenshtein(&#39;あいうえお&#39;, &#39;かきくけこ&#39;)
+</span><span style="background-color:#fff0f0">    5
+</span><span style="background-color:#fff0f0">    &#34;&#34;&#34;</span>
+    n, m <span style="color:#333">=</span> <span style="color:#007020">len</span>(s1), <span style="color:#007020">len</span>(s2)
+
+    dp <span style="color:#333">=</span> [[<span style="color:#00d;font-weight:bold">0</span>] <span style="color:#333">*</span> (m <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>) <span style="color:#080;font-weight:bold">for</span> _ <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(n <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>)]
+
+    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(n <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>):
+        dp[i][<span style="color:#00d;font-weight:bold">0</span>] <span style="color:#333">=</span> i
+
+    <span style="color:#080;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(m <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>):
+        dp[<span style="color:#00d;font-weight:bold">0</span>][j] <span style="color:#333">=</span> j
+
+    <span style="color:#080;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">1</span>, n <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>):
+        <span style="color:#080;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#007020">range</span>(<span style="color:#00d;font-weight:bold">1</span>, m <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>):
+            cost <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span> <span style="color:#080;font-weight:bold">if</span> s1[i <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>] <span style="color:#333">==</span> s2[j <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>] <span style="color:#080;font-weight:bold">else</span> <span style="color:#00d;font-weight:bold">1</span>
+            dp[i][j] <span style="color:#333">=</span> <span style="color:#007020">min</span>(dp[i <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>][j] <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>,         <span style="color:#888"># insertion</span>
+                           dp[i][j <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>] <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>,         <span style="color:#888"># deletion</span>
+                           dp[i <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>][j <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>] <span style="color:#333">+</span> cost)  <span style="color:#888"># replacement</span>
+
+    <span style="color:#080;font-weight:bold">return</span> dp[n][m]</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>二次元配列 <code>dp</code> の中身は、たとえば <code>levenshtein('kitten', 'sitting')</code> を実行した後だと：</p>
+
+<pre><code>   |  -  s  i  t  t  i  n  g
+----------------------------
+ - |  0  1  2  3  4  5  6  7
+ k |  1  1  2  3  4  5  6  7
+ i |  2  2  1  2  3  4  5  6
+ t |  3  3  2  1  2  3  4  5
+ t |  4  4  3  2  1  2  3  4
+ e |  5  5  4  3  2  2  3  4
+ n |  6  6  5  4  3  3  2  3
+</code></pre>
+
+<h3 id="理解">理解</h3>
+
+<p>たとえば、この <code>4</code> は、文字列 <code>ki</code> から <code>sitti</code> までの編集距離を意味する：</p>
+
+<pre><code>   |  -  s  i  t  t  i  n  g
+----------------------------
+ - |                 .
+ k |                 .
+ i |  .  .  .  .  .  4
+ t |
+ t |
+ e |
+ n |
+</code></pre>
+
+<p>アルゴリズムでは、まず <code>dp</code> を次のように初期化する：</p>
+
+<pre><code>   |  -  s  i  t  t  i  n  g
+----------------------------
+ - |  0  1  2  3  4  5  6  7
+ k |  1
+ i |  2
+ t |  3
+ t |  4
+ e |  5
+ n |  6
+</code></pre>
+
+<p>空文字列から <code>sitting</code> のx文字目までの編集距離と、<code>kitten</code>のy文字目から空文字列までの編集距離。これは自明。</p>
+
+<p>そして空白をうめていく。<code>k</code>（<code>kitten</code>の一文字目）と<code>s</code>（<code>sitting</code>の一文字目）の編集距離、つまり X (= <code>dp[i][j]</code> ) の値はなにか：</p>
+
+<pre><code>           (j)
+      |  -  s  i  t  t  i  n  g
+   ----------------------------
+    - |  0  1  2  3  4  5  6  7
+(i) k |  1  X
+    i |  2
+    t |  3
+    t |  4
+    e |  5
+    n |  6
+</code></pre>
+
+<p>最初に書いたとおり可能な操作は『1文字の追加・削除・置換』で、<code>dp[i][j]</code>に隣接する既知の編集距離から：</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">既知の編集距離（文字列A→B）</th>
+<th align="center">操作 (+1)</th>
+<th align="center">得られる編集距離</th>
+<th align="center"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><code>dp[i-1][j]</code></td>
+<td align="center">&rsquo;-&lsquo;（空文字列）→ &rsquo;s&rsquo;</td>
+<td align="center">文字列 A &lsquo;-&rsquo; に &lsquo;k&rsquo; を<strong>追加</strong> ( → &rsquo;s&rsquo; )</td>
+<td align="center">&lsquo;k&rsquo; → &rsquo;s&rsquo;</td>
+<td align="center"><code>dp[i][j]</code></td>
+</tr>
+
+<tr>
+<td align="center"><code>dp[i][j]</code></td>
+<td align="center">&lsquo;k&rsquo; → &rsquo;s&rsquo;</td>
+<td align="center">( &lsquo;k&rsquo; → ) 文字列 B &rsquo;s&rsquo; から &rsquo;s&rsquo; を<strong>削除</strong></td>
+<td align="center">&lsquo;k&rsquo; → &lsquo;-&rsquo;</td>
+<td align="center"><code>dp[i][j-1]</code></td>
+</tr>
+
+<tr>
+<td align="center"><code>dp[i-1][j-1]</code></td>
+<td align="center">&rsquo;-&rsquo; → &lsquo;-&rsquo;</td>
+<td align="center">文字列 A の次の文字 &lsquo;k&rsquo; を &rsquo;s&rsquo; に<strong>置換</strong></td>
+<td align="center">&lsquo;k&rsquo; → &rsquo;s&rsquo;</td>
+<td align="center"><code>dp[i][j]</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>つまり、</p>
+
+<ul>
+<li><code>dp[i-1][j]</code> と <code>dp[i][j]</code> の差は<strong>追加</strong>操作1回分</li>
+<li><code>dp[i][j]</code> と <code>dp[i][j-1]</code> の差は<strong>削除</strong>操作1回分</li>
+<li><code>dp[i-1][j-1]</code> と <code>dp[i][j]</code> の差は<strong>置換</strong>操作1回分</li>
+</ul>
+
+<p>とわかる。</p>
+
+<p>ただし、置換操作は文字列 A と B の次の文字が既に一致していれば『何もしない』。すなわち、編集距離として <code>dp[i-1][j-1]</code> と <code>dp[i][j]</code> は等しくなる。</p>
+
+<p>以上が</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">cost <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span> <span style="color:#080;font-weight:bold">if</span> s1[i <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>] <span style="color:#333">==</span> s2[j <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>] <span style="color:#080;font-weight:bold">else</span> <span style="color:#00d;font-weight:bold">1</span>
+dp[i][j] <span style="color:#333">=</span> <span style="color:#007020">min</span>(dp[i <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>][j] <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>,         <span style="color:#888"># insertion</span>
+               dp[i][j <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>] <span style="color:#333">+</span> <span style="color:#00d;font-weight:bold">1</span>,         <span style="color:#888"># deletion</span>
+               dp[i <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>][j <span style="color:#333">-</span> <span style="color:#00d;font-weight:bold">1</span>] <span style="color:#333">+</span> cost)  <span style="color:#888"># replacement/noop</span></code></pre></div>
+<p>でやっていること。編集距離は最小の操作回数なので追加・削除・置換の <code>min</code> をとる。</p>
+
+<p>あとは同様に、隣接する既知の編集距離から表を埋めていけば、最後（右下）に <code>kitten</code> と <code>sitting</code> の編集距離が得られる。</p>
+
+<pre><code>   |  -  s  i  t  t  i  n  g
+----------------------------
+ - |  0  1  2  3  4  5  6  7
+ k |  1  1  2  3  4  5  6  7
+ i |  2  2  1  2  3  4  5  6
+ t |  3  3  2  1  2  3  4  5
+ t |  4  4  3  2  1  2  3  4
+ e |  5  5  4  3  2  2  3  4
+ n |  6  6  5  4  3  3  2  3
+</code></pre>
+
+<p>めでたしめでたし。</p>
+
+<p>こういう応用範囲の広いシンプルなアルゴリズムは好きです。</p>
+
+<p><a href="https://github.com/prestodb/presto/pull/7311" target="_blank">Presto</a> や <a href="https://issues.apache.org/jira/browse/HIVE-9556" target="_blank">Hive</a> にも近年実装されました。みなさん積極的に使いましょう。（とはいえ計算量 $\mathcal{O}(nm)$ は下手に CROSS JOIN とかすると重すぎて詰むので、過去に求めた編集距離はキャッシュしておくなど、ご利用は計画的に。）</p>
+
+    <br /><a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    I am <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>), a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Treasure Data, Inc.</a></b> and <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b> Committer<span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+    </div>
+
+    <footer>
+      &copy; 2012-2016 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+
