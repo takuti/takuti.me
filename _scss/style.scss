@@ -93,19 +93,17 @@ article {
     margin: 0 0 2em;
   }
 
-  .post {
-    a {
+  a {
+    color: lighten($color-dark-blue, 20%);
+    text-decoration: none;
+
+    &:visited {
       color: lighten($color-dark-blue, 20%);
-      text-decoration: none;
+    }
 
-      &:visited {
-        color: lighten($color-dark-blue, 20%);
-      }
-
-      &:hover {
-        color: lighten($color-dark-blue, 10%);
-        text-decoration: underline;
-      }
+    &:hover {
+      color: lighten($color-dark-blue, 10%);
+      text-decoration: underline;
     }
 
     img {
