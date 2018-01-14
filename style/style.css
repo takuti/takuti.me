@@ -61,35 +61,35 @@ article {
   article h2 {
     font-size: 1.5em;
     margin: 0 0 2em; }
-  article .post a {
+  article a {
     color: #008dd4;
     text-decoration: none; }
-    article .post a:visited {
+    article a:visited {
       color: #008dd4; }
-    article .post a:hover {
+    article a:hover {
       color: #006ba1;
       text-decoration: underline; }
-  article .post img {
-    display: block;
-    margin: 0.5em 0;
-    max-width: 100%; }
-  article .post hr {
-    border: 0;
-    border-top: 1px solid #eeeeee; }
-  article .post table {
-    margin: 0 auto;
-    width: 100%;
-    border-collapse: collapse; }
-    article .post table th {
-      padding: 6px;
-      text-align: left;
-      vertical-align: top;
-      background-color: white;
-      border: 1px solid #d5d5d5; }
-    article .post table td {
-      padding: 6px;
-      background-color: #fff;
-      border: 1px solid #d5d5d5; }
+    article a img {
+      display: block;
+      margin: 0.5em 0;
+      max-width: 100%; }
+    article a hr {
+      border: 0;
+      border-top: 1px solid #eeeeee; }
+    article a table {
+      margin: 0 auto;
+      width: 100%;
+      border-collapse: collapse; }
+      article a table th {
+        padding: 6px;
+        text-align: left;
+        vertical-align: top;
+        background-color: white;
+        border: 1px solid #d5d5d5; }
+      article a table td {
+        padding: 6px;
+        background-color: #fff;
+        border: 1px solid #d5d5d5; }
 
 dl.entry-list .date {
   display: inline-block; }
