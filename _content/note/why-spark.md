@@ -1,7 +1,9 @@
 ---
-title: "なぜSparkか"
-lang: ja
 date: 2017-04-09
+lang: ja
+recommendations: [/note/coursera-scala-specialization/, /note/the-amazon-way-on-iot/,
+  /note/trends-in-real-world-recommender-systems-2017/]
+title: なぜSparkか
 ---
 
 今週から Coursera の [Big Data Analysis with Scala and Spark](https://www.coursera.org/learn/scala-spark-big-data) を受講している。その初回で出てきた "*Why Scala? Why Spark?*" に関する議論をざっくりとまとめる。（導入なので『RDDとは』みたいな話はしない）

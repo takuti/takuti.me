@@ -1,7 +1,8 @@
 ---
-title: "データサイエンスプロジェクトのディレクトリ構成どうするか問題"
-lang: ja
 date: 2017-12-16
+lang: ja
+recommendations: [/note/the-amazon-way-on-iot/, /note/acroquest-javabook/, /note/designing-data-intensive-applications/]
+title: データサイエンスプロジェクトのディレクトリ構成どうするか問題
 ---
 
 あるいは、論文 "**[Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)**" および "**[Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)**" について。

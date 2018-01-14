@@ -1,7 +1,9 @@
 ---
-title: "推薦システムのためのOSSたち"
-lang: ja
 date: 2017-05-14
+lang: ja
+recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/data-skeptic-recommender-systems/,
+  /note/coursera-recommender-systems/]
+title: 推薦システムのためのOSSたち
 ---
 
 **情報推薦＝機械学習** ではない。

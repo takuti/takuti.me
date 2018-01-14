@@ -1,16 +1,11 @@
 ---
-title: "【実践 機械学習】レコメンデーションをシンプルに、賢く実現するための3か条"
-lang: ja
-tags:
-- Machine Learning
-keywords:
-- 機械学習
-- オライリー
-- 実践機械学習
-- レコメンデーション
-- 協調フィルタリング
-description: "無料で公開されている電子書籍『実践 機械学習』の原著のほうを読みました。"
 date: 2014-09-01
+description: 無料で公開されている電子書籍『実践 機械学習』の原著のほうを読みました。
+keywords: [機械学習, オライリー, 実践機械学習, レコメンデーション, 協調フィルタリング]
+lang: ja
+recommendations: [/note/20140713/, /note/rule-based-ai/, /note/data-skeptic-recommender-systems/]
+tags: [Machine Learning]
+title: 【実践 機械学習】レコメンデーションをシンプルに、賢く実現するための3か条
 ---
 
 Amazonの商品レコメンドやTwitterのオススメユーザ表示のような、アイテムを推薦してくれるシステムは便利だ。僕らユーザは新たな興味深い商品を簡単に発見できるし、システムを提供する側は場合によっては推薦そのものが効果的なマーケティングになる。

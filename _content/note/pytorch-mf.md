@@ -1,7 +1,8 @@
 ---
-title: "PyTorchでもMatrix Factorizationがしたい！"
-lang: ja
 date: 2017-10-14
+lang: ja
+recommendations: [/note/pytorch-autograd/, /note/flurs/, /note/holt-winters/]
+title: PyTorchでもMatrix Factorizationがしたい！
 ---
 
 『[PyTorchのautogradと仲良くなりたい](/note/pytorch-autograd)』でPyTorchに入門したので、応用例としてMatrix FactorizationをPyTorchで実装してみようね [^1]。

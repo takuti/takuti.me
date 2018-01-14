@@ -1,7 +1,8 @@
 ---
-title: "ローカルのRedis上でWikipediaカテゴリをシュッとdigる"
-lang: ja
 date: 2017-08-06
+lang: ja
+recommendations: [/note/dynamo-style/, /note/data-science-project-structure/, /note/hivemall-on-mac/]
+title: ローカルのRedis上でWikipediaカテゴリをシュッとdigる
 ---
 
 Wikipediaは[APIがあったり](https://www.mediawiki.org/wiki/API:Main_page)、[データのMySQLダンプを惜しみなく公開していたりする](https://dumps.wikimedia.org/enwiki/latest/)。便利。しかし、いかんせん規模が大きいので、APIアクセスやRDBへの問い合わせに依存したデータ収集は辛いものがある。

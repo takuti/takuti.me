@@ -1,9 +1,9 @@
 ---
-title: "ブログをWordPressからJekyllに変えた"
-lang: ja
-tags:
-- Diary
 date: 2014-03-31
+lang: ja
+recommendations: [/note/20140713/, /note/toefl-20140527/, /note/recsys-2016/]
+tags: [Diary]
+title: ブログをWordPressからJekyllに変えた
 ---
 
 変えた。気分転換。[takuti.me](http://takuti.me/)も変わってます。

@@ -1,7 +1,9 @@
 ---
-title: "Q&Aサイトにおける質問推薦、そして Incremental Probabilistic Latent Semantic Analysis"
-lang: ja
 date: 2017-06-04
+lang: ja
+recommendations: [/note/adjusting-for-oversampling-and-undersampling/, /note/slim/,
+  /note/two-decades-of-amazon-recommender/]
+title: Q&Aサイトにおける質問推薦、そして Incremental Probabilistic Latent Semantic Analysis
 ---
 
 トピックモデリングの一手法として有名な **Probabilistic Latent Semantic Analysis (PLSA)** を incremental（逐次更新可能, オンライン型）アルゴリズムに拡張して、Yahoo!知恵袋のようなQ&Aサイトの質問推薦に応用した論文を読んだ：

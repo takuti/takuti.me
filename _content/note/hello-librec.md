@@ -1,7 +1,9 @@
 ---
-title: "Java製の推薦システム用ライブラリ LibRec を動かしてみる"
-lang: ja
 date: 2017-04-23
+lang: ja
+recommendations: [/note/data-science-project-structure/, /note/coursera-recommender-systems/,
+  /note/recommender-libraries/]
+title: Java製の推薦システム用ライブラリ LibRec を動かしてみる
 ---
 
 **[LibRec](http://www.librec.net/)** というJava製の推薦システム用ライブラリがある。

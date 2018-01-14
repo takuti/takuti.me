@@ -1,7 +1,9 @@
 ---
-title: '"Designing Data-Intensive Applications"は濃密すぎる一冊だったので2018年の自分にも読んでもらいたい'
-lang: ja
 date: 2017-12-30
+lang: ja
+recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/the-amazon-way-on-iot/,
+  /note/amazon-dynamo-paper/]
+title: '"Designing Data-Intensive Applications"は濃密すぎる一冊だったので2018年の自分にも読んでもらいたい'
 ---
 
 分散システムに関する理解を整理するための一冊として素晴らしい、という声があり気になっていた "**[Designing Data-Intensive Applications](https://dataintensive.net/)**" を一通り読んだ：

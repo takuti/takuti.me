@@ -1,7 +1,9 @@
 ---
-title: "EuroSciPy 2017に参加してしゃべってきた"
-lang: ja
 date: 2017-09-02
+lang: ja
+recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/master-graduate/,
+  /note/designing-data-intensive-applications/]
+title: EuroSciPy 2017に参加してしゃべってきた
 ---
 
 8月30, 31日にドイツのエルランゲンで開催された **[EuroSciPy 2017](https://www.euroscipy.org/2017/)** に発表者として参加してきた。カンファレンス参加を積極的にサポートしてくれる弊社に感謝感謝。

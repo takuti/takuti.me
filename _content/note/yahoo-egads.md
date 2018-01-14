@@ -1,7 +1,9 @@
 ---
-title: "Yahoo!の異常検知フレームワーク\"EGADS\""
-lang: ja
 date: 2017-09-10
+lang: ja
+recommendations: [/note/the-amazon-way-on-iot/, /note/trends-in-real-world-recommender-systems-2017/,
+  /note/leakage/]
+title: Yahoo!の異常検知フレームワーク"EGADS"
 ---
 
 Yahoo!がOSSとして開発している異常検知フレームワーク "**[EGADS](https://github.com/yahoo/egads)**" (**E**xtensible **G**eneric **A**nomaly **D**etection **S**ystem) について書いた次の論文を読んだ：

@@ -1,7 +1,8 @@
 ---
-title: "Parallel Programming vs. Concurrent Programming"
-lang: en
 date: 2017-02-25
+lang: en
+recommendations: [/note/mlss-kyoto-2015/, /note/new-year-resolution-2017/, /note/flurs/]
+title: Parallel Programming vs. Concurrent Programming
 ---
 
 What is the difference between **parallel programming** and **concurrent programming**? There is a lot of definitions in the literature.

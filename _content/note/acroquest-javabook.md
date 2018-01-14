@@ -1,7 +1,9 @@
 ---
-title: "『Java本格入門』メモ"
-lang: ja
 date: 2017-12-01
+lang: ja
+recommendations: [/note/the-amazon-way-on-iot/, /note/data-science-project-structure/,
+  /note/dynamo-style/]
+title: 『Java本格入門』メモ
 ---
 
 来月、ついに長い沈黙を破ってEffective Javaの第3版が発売される：**[Effective Java (3rd Edition)](https://www.amazon.co.jp/Effective-Java-3rd-Joshua-Bloch/dp/0134685997)**

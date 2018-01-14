@@ -1,7 +1,9 @@
 ---
-title: "igo-rubyを新語辞書NEologdでナウい感じにする"
-lang: ja
 date: 2017-09-17
+lang: ja
+recommendations: [/note/euroscipy-2017/, /note/trends-in-real-world-recommender-systems-2017/,
+  /note/the-amazon-way-on-iot/]
+title: igo-rubyを新語辞書NEologdでナウい感じにする
 ---
 
 『[はてなキーワードを使ってigo-ruby(MeCab)用の辞書をナウい感じにする](/note/hatena-keyword-to-ipadic/)』に4年ぶりの続編です。

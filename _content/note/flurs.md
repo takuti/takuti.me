@@ -1,7 +1,8 @@
 ---
-title: "FluRS: A Python Library for Online Item Recommendation"
-lang: en
 date: 2017-01-21
+lang: en
+recommendations: [/note/recommendation-julia/, /note/recsys-wordcloud/, /note/mlss-kyoto-2015/]
+title: 'FluRS: A Python Library for Online Item Recommendation'
 ---
 
 Last week, I introduced a Julia package for recommender systems: [Recommendation.jl: Building Recommender Systems in Julia](http://takuti.me/note/recommendation-julia/).

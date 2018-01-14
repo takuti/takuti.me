@@ -1,7 +1,8 @@
 ---
-title: "いまさら編集距離 (Levenshtein Distance) を実装するぜ"
-lang: ja
 date: 2017-07-28
+lang: ja
+recommendations: [/note/postgresql-fuzzy-search/, /note/auc-parallel/, /note/dynamo-style/]
+title: いまさら編集距離 (Levenshtein Distance) を実装するぜ
 ---
 
 ある文字列Aに対して『1文字の追加・削除・置換』を何回繰り返せば他の文字列Bになるか。このときの最小回数を、文字列A, B間の[編集距離 (Levenshtein Distance)](https://ja.wikipedia.org/wiki/%E3%83%AC%E3%83%BC%E3%83%99%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3%E8%B7%9D%E9%9B%A2)と呼ぶ。

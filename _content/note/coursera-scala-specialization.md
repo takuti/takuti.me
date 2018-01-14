@@ -1,7 +1,8 @@
 ---
-title: Courseraの"Functional Programming in Scala Specialization"を修了した
-lang: ja
 date: 2017-10-28
+lang: ja
+recommendations: [/note/why-spark/, /note/the-amazon-way-on-iot/, /note/trends-in-real-world-recommender-systems-2017/]
+title: Courseraの"Functional Programming in Scala Specialization"を修了した
 ---
 
 ここ1年くらい暇を見つけてちまちまと遊んでいたCourseraの "**[Functional Programming in Scala Specialization](https://www.coursera.org/specializations/scala)**" という一連のプログラムを修了した。

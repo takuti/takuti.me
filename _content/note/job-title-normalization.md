@@ -1,7 +1,8 @@
 ---
-title: "Job Titleの前処理＆クラスタリングをどうやって実現するか問題"
-lang: ja
 date: 2017-07-09
+lang: ja
+recommendations: [/note/postgresql-fuzzy-search/, /note/auc-parallel/, /note/practical-machine-learning/]
+title: Job Titleの前処理＆クラスタリングをどうやって実現するか問題
 ---
 
 LinkedIn など、**Job Title**（職場での肩書き）をユーザに入力させるサービスは世の中にたくさんある。機械学習、データマイニングの文脈で、このデータをいかに扱うかという話。

@@ -1,7 +1,9 @@
 ---
-title: "Hugo meets kramdown + KaTeX #gohugo"
-lang: en
 date: 2017-05-28
+lang: en
+recommendations: [/note/hugo-markdown-and-mathjax/, /note/travis-gh-pages-deployment/,
+  /note/mlss-kyoto-2015/]
+title: 'Hugo meets kramdown + KaTeX #gohugo'
 ---
 
 Recently, math rendering library in this page, **takuti.me**, has been switched from MathJax to KaTex to improve performance. You can check KaTeX's fast, beautiful rendering in the following articles:

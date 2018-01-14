@@ -1,7 +1,8 @@
 ---
-title: "PyTorchのautogradと仲良くなりたい"
-lang: ja
 date: 2017-09-23
+lang: ja
+recommendations: [/note/pytorch-mf/, /note/holt-winters/, /note/python-concurrent-futures/]
+title: PyTorchのautogradと仲良くなりたい
 ---
 
 （希望）

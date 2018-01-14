@@ -1,7 +1,8 @@
 ---
-title: "DMM英会話を1ヶ月間やってみて思う、オンライン英会話は『やらないよりマシ』なのか問題 #DMM英会話"
-lang: ja
 date: 2017-06-18
+lang: ja
+recommendations: [/note/deep-work/, /note/20140713/, /note/the-amazon-way-on-iot/]
+title: 'DMM英会話を1ヶ月間やってみて思う、オンライン英会話は『やらないよりマシ』なのか問題 #DMM英会話'
 ---
 
 話の種にDMM英会話を1ヶ月間やってみた[^1]。1日25分×30日間で5500円。安い。方針は次のような感じ：

@@ -1,7 +1,9 @@
 ---
-title: "筋トレ、登山、昨今の推薦システムのトレンドなどについて話しました"
-lang: ja
 date: 2017-11-23
+lang: ja
+recommendations: [/note/data-skeptic-recommender-systems/, /note/the-amazon-way-on-iot/,
+  /note/master-graduate/]
+title: 筋トレ、登山、昨今の推薦システムのトレンドなどについて話しました
 ---
 
 元インターン先である[シルバーエッグ・テクノロジー](http://www.silveregg.co.jp/)とのご縁があり、『[ビッグデータ解析のためのAI技術の最新事情とビジネスへの応用](http://peatix.com/event/307962)』という~~名前だけ聞くと心配になる~~セミナーで講演の機会をいただき、昨今の推薦システムのトレンドについてお話してきました：

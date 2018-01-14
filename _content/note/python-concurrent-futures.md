@@ -1,7 +1,9 @@
 ---
-title: "Pythonのconcurrent.futuresを試す"
-lang: ja
 date: 2017-10-01
+lang: ja
+recommendations: [/note/data-science-project-structure/, /note/acroquest-javabook/,
+  /note/dynamo-style/]
+title: Pythonのconcurrent.futuresを試す
 ---
 
 [EuroScipy 2017](/note/euroscipy-2017) でPythonの [`concurrent.futures`](https://docs.python.org/3/library/concurrent.futures.html) についての話を聞いたので、改めて調べてみた。

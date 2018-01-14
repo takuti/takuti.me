@@ -1,7 +1,8 @@
 ---
-title: "Understanding Research Trends in Recommender Systems from Word Cloud"
-lang: en
 date: 2017-11-11
+lang: en
+recommendations: [/note/flurs/, /note/mlss-kyoto-2015/, /note/recommendation-julia/]
+title: Understanding Research Trends in Recommender Systems from Word Cloud
 ---
 
 The field of recommender systems grows rapidly according to the recent development of practical intelligent systems. However, even though the field is exceptionally practical compared to the other computer-science-related topics, many researchers are actively studying recommendation techniques in their lab. Here is a question: ***what are the research trends in recommender systems?***

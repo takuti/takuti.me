@@ -1,7 +1,9 @@
 ---
-title: "Treasure Dataインターンにみる機械学習のリアル #td_intern"
-lang: ja
 date: 2016-10-04
+lang: ja
+recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/master-graduate/,
+  /note/the-amazon-way-on-iot/]
+title: 'Treasure Dataインターンにみる機械学習のリアル #td_intern'
 ---
 
 8月1日から9月30日まで、大学院の同期で小学生時代は落ち着きがなかった [@ganmacs](https://twitter.com/ganmacs) と、小学校の給食ではソフト麺が出なかった [@amaya382](https://twitter.com/amaya382) と一緒に **Treasure Data** (TD) **Summer Internship** に参加した。

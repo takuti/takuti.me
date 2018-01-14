@@ -1,7 +1,8 @@
 ---
-title: "MacのローカルにHivemallを導入してアイテム推薦をするまで"
-lang: ja
 date: 2017-02-11
+lang: ja
+recommendations: [/note/hive-fuzzy-search/, /note/hivemall-on-docker/, /note/data-science-project-structure/]
+title: MacのローカルにHivemallを導入してアイテム推薦をするまで
 ---
 
 昨年、Hive向けの機械学習ライブラリ **[Hivemall](https://hivemall.incubator.apache.org/)** が[Apache Software Foundationのincubatorプロジェクトになった](http://itpro.nikkeibp.co.jp/atcl/column/15/061500148/100300084/)。[Treasure Dataがオフィシャルでサポートしている](https://docs.treasuredata.com/articles/hive-hivemall)ということもあり、名前くらいは聞いたことがあるという人も多いと思う。

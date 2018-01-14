@@ -1,7 +1,9 @@
 ---
-title: "Courseraの推薦システムのコースを修了した"
-lang: ja
 date: 2017-01-27
+lang: ja
+recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/data-skeptic-recommender-systems/,
+  /note/two-decades-of-amazon-recommender/]
+title: Courseraの推薦システムのコースを修了した
 ---
 
 昨年の話だけど、Courseraで開講されていた "**Introduction to Recommender Systems**" を履修・修了した。教えてくれたのはこの分野で知らぬ者はいない、ミネソタ大学の[Joseph Konstan先生](http://konstan.umn.edu/)。2000年あたりの協調フィルタリングなど古典的な推薦手法に関する文献を漁ると、必ず彼のグループの論文にたどり着く。かの有名な[MovieLensデータセット](https://grouplens.org/datasets/movielens/)（画像処理でいうMNIST的な、定番データセット）も、このグループが提供している。

@@ -1,7 +1,9 @@
 ---
-title: Podcast "Data Skeptic" の推薦システム回が良すぎて3回聞いた
-lang: ja
 date: 2017-11-17
+lang: ja
+recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/the-amazon-way-on-iot/,
+  /note/coursera-recommender-systems/]
+title: Podcast "Data Skeptic" の推薦システム回が良すぎて3回聞いた
 ---
 
 推薦システムの業界で知らぬものはいない、ミネソタ大学のレジェンド級プロフェッサー[Joseph Konstan先生](http://konstan.umn.edu/)が Podcast "Data Skeptic" に出演していた：

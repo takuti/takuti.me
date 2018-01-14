@@ -1,7 +1,8 @@
 ---
-title: "情報検索・インタラクション系の国際会議 CHIIR2017 に参加した #chiir2017"
-lang: ja
 date: 2017-03-18
+lang: ja
+recommendations: [/note/nand2tetris/, /note/20140713/, /note/trends-in-real-world-recommender-systems-2017/]
+title: '情報検索・インタラクション系の国際会議 CHIIR2017 に参加した #chiir2017'
 ---
 
 2017年3月7日から10日までノルウェー・オスロで開催された情報検索・インタラクション系の国際会議 [The ACM SIGIR Conference on Human Information Interaction & Retrieval 2017](http://sigir.org/chiir2017/) （CHIIR2017;

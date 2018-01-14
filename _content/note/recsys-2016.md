@@ -1,7 +1,9 @@
 ---
-title: "推薦システムのトップ会議RecSys2016に参加した #recsys2016"
-lang: ja
 date: 2016-09-28
+lang: ja
+recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/master-graduate/,
+  /note/data-skeptic-recommender-systems/]
+title: '推薦システムのトップ会議RecSys2016に参加した #recsys2016'
 ---
 
 推薦システムのトップ会議 [RecSys2016](https://recsys.acm.org/recsys16/) が9月15日から19日までアメリカのボストンで開催され、ワークショップ発表者＆学生ボランティアとして参加してきた。これまで学会発表はひとりで行くことが多く、今回も例外ではなかったが、ボランティアのおかげで他の学生との交流や伝説的な研究者との接触が多くてとても楽しめた。みんなもやると良いと思う。

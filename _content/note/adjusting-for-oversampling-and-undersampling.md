@@ -1,7 +1,8 @@
 ---
-title: "Over-/Under-samplingをして学習した2クラス分類器の予測確率を調整する式"
-lang: ja
 date: 2017-11-04
+lang: ja
+recommendations: [/note/leakage/, /note/two-decades-of-amazon-recommender/, /note/incremental-plsa/]
+title: Over-/Under-samplingをして学習した2クラス分類器の予測確率を調整する式
 ---
 
 不均衡データ (**imbalanced data**) からクラス分類を行うとき、マイナーなクラスに属するサンプルの **oversampling** や、メジャーなクラスに属するサンプルの **undersampling** (downsampling とも) が大切（cf.『[不均衡データのクラス分類](https://www.slideshare.net/sfchaos/ss-11307051)』）：

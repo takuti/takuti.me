@@ -1,7 +1,9 @@
 ---
-title: "\"SLIM: Sparse Linear Methods for Top-N Recommender Systems\"を読んだ"
-lang: ja
 date: 2017-02-18
+lang: ja
+recommendations: [/note/two-decades-of-amazon-recommender/, /note/coursera-recommender-systems/,
+  /note/leakage/]
+title: '"SLIM: Sparse Linear Methods for Top-N Recommender Systems"を読んだ'
 ---
 
 Matrix Factorizationよりも高い精度が出るという話をよく聞く **Sparse Linear Method (SLIM)** を提案した論文を読んだ。

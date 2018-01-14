@@ -1,7 +1,8 @@
 ---
-title: "いまさら Soft Skills を読んだ"
-lang: ja
 date: 2017-07-02
+lang: ja
+recommendations: [/note/dmm-eikaiwa/, /note/the-amazon-way-on-iot/, /note/trends-in-real-world-recommender-systems-2017/]
+title: いまさら Soft Skills を読んだ
 ---
 
 昨年話題になった本『**[Soft Skills](https://www.amazon.co.jp/dp/B01GDS0994/)**』を読んだ。

@@ -1,7 +1,8 @@
 ---
-title: "Recommendation.jl: Building Recommender Systems in Julia"
-lang: en
 date: 2017-01-14
+lang: en
+recommendations: [/note/flurs/, /note/new-year-resolution-2017/, /note/mlss-kyoto-2015/]
+title: 'Recommendation.jl: Building Recommender Systems in Julia'
 ---
 
 I have recently published [Recommendation.jl](https://github.com/takuti/Recommendation.jl), a Julia package for recommender systems. The package is already registered in [METADATA.jl](https://github.com/JuliaLang/METADATA.jl), so it can be installed by:

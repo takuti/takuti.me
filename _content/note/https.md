@@ -1,7 +1,8 @@
 ---
-title: "サイトをHTTPSにした"
-lang: ja
 date: 2017-02-04
+lang: ja
+recommendations: [/note/data-science-project-structure/, /note/dynamo-style/, /note/leakage/]
+title: サイトをHTTPSにした
 ---
 
 今はとてもいい時代なので **[Let's Encrypt](https://letsencrypt.org/)** が無料でSSL証明書を発行してくれる。というわけで、サイトのHTTPS化を行った。

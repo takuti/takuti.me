@@ -1,7 +1,8 @@
 ---
-title: "Area Under the ROC Curve (AUC) を実装する"
-lang: ja
 date: 2017-03-04
+lang: ja
+recommendations: [/note/auc-parallel/, /note/dynamo-style/, /note/data-science-project-structure/]
+title: Area Under the ROC Curve (AUC) を実装する
 ---
 
 ### 追記 (2017/03/10)

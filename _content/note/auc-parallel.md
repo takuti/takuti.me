@@ -1,7 +1,8 @@
 ---
-title: "Area Under the ROC Curve (AUC) を並列で計算するときに気をつけること"
-lang: ja
 date: 2017-03-10
+lang: ja
+recommendations: [/note/auc/, /note/postgresql-fuzzy-search/, /note/practical-machine-learning/]
+title: Area Under the ROC Curve (AUC) を並列で計算するときに気をつけること
 ---
 
 ### 追記 (2017/03/10)

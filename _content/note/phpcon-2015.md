@@ -1,7 +1,8 @@
 ---
-title: "Japan PHP Conference 2015 #phpcon2015"
-lang: en
 date: 2015-10-04
+lang: en
+recommendations: [/note/pyconjp-2015/, /note/mlss-kyoto-2015/, /note/new-year-resolution-2017/]
+title: 'Japan PHP Conference 2015 #phpcon2015'
 ---
 
 I have attended [phpcon2015](http://phpcon.php.gr.jp/2015/), Japan PHP Conference 2015, on October 3.

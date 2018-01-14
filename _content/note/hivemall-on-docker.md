@@ -1,7 +1,8 @@
 ---
-title: "Hivemall on Dockerを試すぜ"
-lang: ja
 date: 2017-05-07
+lang: ja
+recommendations: [/note/hivemall-on-mac/, /note/td-intern-2016/, /note/recommender-libraries/]
+title: Hivemall on Dockerを試すぜ
 ---
 
 [@amaya382](https://twitter.com/amaya382)くんが Hivemall on Docker についていろいろと整備してくれた。

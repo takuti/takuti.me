@@ -1,7 +1,9 @@
 ---
-title: "AmazonのDynamoDB論文を眺めた"
-lang: ja
 date: 2017-12-09
+lang: ja
+recommendations: [/note/the-amazon-way-on-iot/, /note/trends-in-real-world-recommender-systems-2017/,
+  /note/designing-data-intensive-applications/]
+title: AmazonのDynamoDB論文を眺めた
 ---
 
 "[Seven Databases in Seven Weeks](https://pragprog.com/book/rwdata/seven-databases-in-seven-weeks)" や "[Designing Data-Intensive Applications](https://dataintensive.net/)" でも度々参考文献に挙がっていたので、AmazonのDynamoDB論文を眺めて思いを馳せていた：

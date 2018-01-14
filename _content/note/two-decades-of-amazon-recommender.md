@@ -1,7 +1,8 @@
 ---
-title: "Amazonの推薦システムの20年"
-lang: ja
 date: 2017-06-10
+lang: ja
+recommendations: [/note/leakage/, /note/coursera-recommender-systems/, /note/trends-in-real-world-recommender-systems-2017/]
+title: Amazonの推薦システムの20年
 ---
 
 [IEEE Internet Computing](https://www.computer.org/csdl/mags/ic/index.html)の2017年5・6月号に "**[Two Decades of Recommender Systems at Amazon.com](https://www.computer.org/csdl/mags/ic/2017/03/mic2017030012.html)**" という記事が掲載された。

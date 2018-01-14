@@ -1,9 +1,9 @@
 ---
-title: "Hello English Entries"
-lang: en
-tags:
-- Diary
 date: 2014-11-09
+lang: en
+recommendations: [/note/new-year-resolution-2017/, /note/mlss-kyoto-2015/, /note/pyconjp-2015/]
+tags: [Diary]
+title: Hello English Entries
 ---
 
 Hi, I'm takuti.

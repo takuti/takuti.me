@@ -1,7 +1,9 @@
 ---
-title: "The Amazon Way on IoT - Amazonのビジネスから学ぶ、10の原則"
-lang: ja
 date: 2017-10-06
+lang: ja
+recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/amazon-dynamo-paper/,
+  /note/designing-data-intensive-applications/]
+title: The Amazon Way on IoT - Amazonのビジネスから学ぶ、10の原則
 ---
 
 Amazonのビジネスモデルから大切なことを学びましょう、といった趣旨の本を読んだ：

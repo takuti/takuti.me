@@ -1,7 +1,8 @@
 ---
-title: "あのときのビールをもう一度（PostgreSQLでFuzzy Searchを試す）"
-lang: ja
 date: 2017-08-09
+lang: ja
+recommendations: [/note/auc-parallel/, /note/job-title-normalization/, /note/levenshtein-distance/]
+title: あのときのビールをもう一度（PostgreSQLでFuzzy Searchを試す）
 ---
 
 **[Seven Databases in Seven Weeks](https://pragprog.com/book/rwdata/seven-databases-in-seven-weeks)** を読んでいたら、PostgreSQLでテキスト検索をする話が出てきた。[先日 Levenshtein Distance（編集距離）について書いたばかり](/note/levenshtein-distance)でホットな話題なので、少し遊んでみよう。

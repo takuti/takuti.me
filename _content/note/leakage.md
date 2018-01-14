@@ -1,7 +1,9 @@
 ---
-title: "Leakage in Data Mining"
-lang: ja
 date: 2017-07-16
+lang: ja
+recommendations: [/note/the-amazon-way-on-iot/, /note/trends-in-real-world-recommender-systems-2017/,
+  /note/two-decades-of-amazon-recommender/]
+title: Leakage in Data Mining
 ---
 
 データマイニングの現場で頻発する **[Leakage](https://www.kaggle.com/wiki/Leakage)** という問題について本気出して考えてみた、的な論文を読んだ：

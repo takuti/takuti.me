@@ -1,7 +1,8 @@
 ---
-title: "異常検知のための未来予測：オウム返し的手法からHolt-Winters Methodまで"
-lang: ja
 date: 2017-08-26
+lang: ja
+recommendations: [/note/dynamo-style/, /note/data-science-project-structure/, /note/coursera-recommender-systems/]
+title: 異常検知のための未来予測：オウム返し的手法からHolt-Winters Methodまで
 ---
 
 **Holt-Winters Method**（別名: **Triple Exponential Smoothing**）というデータの予測手法がある。これについて[素晴らしい解説記事](https://grisha.org/blog/2016/01/29/triple-exponential-smoothing-forecasting/)があるので読みながら実装していた。

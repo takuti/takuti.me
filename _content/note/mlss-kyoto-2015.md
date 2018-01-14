@@ -1,7 +1,8 @@
 ---
-title: "Machine Learning Summer School 2015 Kyoto #MLSSKYOTO"
-lang: en
 date: 2015-10-03
+lang: en
+recommendations: [/note/new-year-resolution-2017/, /note/phpcon-2015/, /note/parallel-vs-concurrent/]
+title: 'Machine Learning Summer School 2015 Kyoto #MLSSKYOTO'
 ---
 
 Hi, I am takuti, a master's student in Japan. Currently, I am working on matrix factorization and approximation. Also, my research interests are in web engineering, mining and their applications such as recommender systems.

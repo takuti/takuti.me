@@ -1,7 +1,8 @@
 ---
-title: "HiveでテキストのFuzzy Search"
-lang: ja
 date: 2017-08-20
+lang: ja
+recommendations: [/note/hivemall-on-mac/, /note/holt-winters/, /note/fastcat/]
+title: HiveでテキストのFuzzy Search
 ---
 
 先週は[PostgreSQL上でテキストのFuzzy Searchを試した](/note/postgresql-fuzzy-search)。そのときは [fuzzystrmatch](https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html) や [pg_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) といったモジュールが活躍していた。

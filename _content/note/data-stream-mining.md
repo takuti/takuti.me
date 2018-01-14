@@ -1,7 +1,9 @@
 ---
-title: "ストリームデータ解析の世界"
-lang: ja
 date: 2015-12-08
+lang: ja
+recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/designing-data-intensive-applications/,
+  /note/the-amazon-way-on-iot/]
+title: ストリームデータ解析の世界
 ---
 
 【**[機械学習アドベントカレンダー2015](http://qiita.com/advent-calendar/2015/machinelearning)** 8日目】
