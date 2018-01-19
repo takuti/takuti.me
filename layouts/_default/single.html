@@ -11,7 +11,7 @@
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   </div>
 
-  <h3>You may also interested in</h3>
+  <h4><span class="symbol">search</span> See also</h4>
   <ul>
   {{ if isset .Params "recommendations" }}
     {{ range where (where .Site.Pages "Section" "note") "RelPermalink" "in" .Params.recommendations }}
