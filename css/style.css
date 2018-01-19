@@ -3,18 +3,18 @@ html,
 body {
   background: #fff;
   height: 100%;
+  font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
   color: #555;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
-  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   margin: 0;
-  padding: 0;
-  line-height: 1.5; }
+  padding: 0; }
 
 h1,
 h2,
 h3,
 h4 {
-  color: #00496e; }
+  color: #555; }
   h1 .symbol,
   h2 .symbol,
   h3 .symbol,
@@ -22,7 +22,7 @@ h4 {
     font-weight: normal; }
 
 h3 {
-  font-size: 1.2em; }
+  font-size: 1.3em; }
 
 h1,
 h3,
@@ -52,6 +52,24 @@ a {
       color: #006ba1;
       text-decoration: underline; }
 
+hr {
+  border: 0;
+  border-top: 1px solid #eeeeee; }
+
+table {
+  margin: 0 auto;
+  width: 100%;
+  border-collapse: collapse; }
+  table th {
+    padding: 6px;
+    vertical-align: top;
+    background-color: white;
+    border: 1px solid #d5d5d5; }
+  table td {
+    padding: 6px;
+    background-color: #fff;
+    border: 1px solid #d5d5d5; }
+
 article {
   margin: 0 auto 50px; }
   article .meta {
@@ -62,34 +80,17 @@ article {
     font-size: 1.5em;
     margin: 0 0 2em; }
   article a {
-    color: #008dd4;
+    color: #007fc0;
     text-decoration: none; }
     article a:visited {
-      color: #008dd4; }
+      color: #007fc0; }
     article a:hover {
-      color: #006ba1;
+      color: #006497;
       text-decoration: underline; }
-    article a img {
-      display: block;
-      margin: 0.5em 0;
-      max-width: 100%; }
-    article a hr {
-      border: 0;
-      border-top: 1px solid #eeeeee; }
-    article a table {
-      margin: 0 auto;
-      width: 100%;
-      border-collapse: collapse; }
-      article a table th {
-        padding: 6px;
-        text-align: left;
-        vertical-align: top;
-        background-color: white;
-        border: 1px solid #d5d5d5; }
-      article a table td {
-        padding: 6px;
-        background-color: #fff;
-        border: 1px solid #d5d5d5; }
+  article img {
+    display: block;
+    margin: 0.5em 0;
+    max-width: 100%; }
 
 dl.entry-list .date {
   display: inline-block; }
@@ -101,16 +102,15 @@ dl.entry-list dt {
 
 dl.entry-list dd {
   margin: 0;
-  padding: 0 0 0.5em;
-  font-size: 1em; }
+  padding: 0 0 0.5em; }
   dl.entry-list dd a {
     font-weight: bold;
     text-decoration: none; }
 
 header {
-  width: 800px;
+  width: 700px;
   margin: 0 auto;
-  padding-top: 30px; }
+  padding-top: 40px; }
   header .left {
     font-size: 1.2em;
     width: 50%; }
@@ -131,9 +131,9 @@ img.icon-circle {
   -moz-border-radius: 80px; }
 
 #container {
-  width: 800px;
+  width: 700px;
   max-width: 90%;
-  margin: 30px auto 50px; }
+  margin: 40px auto 50px; }
   #container ul {
     margin-left: 0;
     padding-left: 1.5em; }
@@ -142,7 +142,7 @@ img.icon-circle {
 
 footer {
   font-size: 0.8em;
-  width: 800px;
+  width: 700px;
   height: 50px;
   margin: 0 auto;
   padding: 0; }
@@ -168,7 +168,7 @@ footer {
 
 code {
   background: #fff;
-  font-size: 11px;
+  font-size: 13px;
   /* font-weight: 100; */
   padding: 4px;
   border: none;
@@ -179,7 +179,7 @@ code {
 
 pre code,
 .prettyprint {
-  font-size: 11px;
+  font-size: 13px;
   word-wrap: break-word;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
