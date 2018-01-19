@@ -5,26 +5,26 @@
 // scss variable
 $color-black: #555;
 $color-dark-blue: #00496e;
-$content-width: 800px;
+$content-width: 700px;
 $header-height: 50px;
 
 html,
 body {
   background: #fff;
   height: 100%;
+  font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
   color: $color-black;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
-  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   margin: 0;
   padding: 0;
-  line-height: 1.5;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  color: $color-dark-blue;
+  color: $color-black;
 
   & .symbol {
     font-weight: normal;
@@ -32,7 +32,7 @@ h4 {
 }
 
 h3 {
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 
 h1,
@@ -79,6 +79,30 @@ a {
   }
 }
 
+hr {
+  border: 0;
+  border-top: 1px solid lighten($color-black, 60%);
+}
+
+table {
+  margin: 0 auto;
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    padding: 6px;
+    vertical-align: top;
+    background-color: lighten($color-black, 70%);
+    border: 1px solid lighten($color-black, 50%);
+  }
+
+  td {
+    padding: 6px;
+    background-color: #fff;
+    border: 1px solid lighten($color-black, 50%);
+  }
+}
+
 article {
   margin: 0 auto 50px;
 
@@ -94,48 +118,23 @@ article {
   }
 
   a {
-    color: lighten($color-dark-blue, 20%);
+    color: lighten($color-dark-blue, 16%);
     text-decoration: none;
 
     &:visited {
-      color: lighten($color-dark-blue, 20%);
+      color: lighten($color-dark-blue, 16%);
     }
 
     &:hover {
-      color: lighten($color-dark-blue, 10%);
+      color: lighten($color-dark-blue, 8%);
       text-decoration: underline;
     }
+  }
 
-    img {
-      display: block;
-      margin: 0.5em 0;
-      max-width: 100%;
-    }
-
-    hr {
-      border: 0;
-      border-top: 1px solid lighten($color-black, 60%);
-    }
-
-    table {
-      margin: 0 auto;
-      width: 100%;
-      border-collapse: collapse;
-
-      th {
-        padding: 6px;
-        text-align: left;
-        vertical-align: top;
-        background-color: lighten($color-black, 70%);
-        border: 1px solid lighten($color-black, 50%);
-      }
-
-      td {
-        padding: 6px;
-        background-color: #fff;
-        border: 1px solid lighten($color-black, 50%);
-      }
-    }
+  img {
+    display: block;
+    margin: 0.5em 0;
+    max-width: 100%;
   }
 }
 
@@ -153,7 +152,6 @@ dl.entry-list {
   dd {
     margin: 0;
     padding: 0 0 0.5em;
-    font-size: 1em;
 
     a {
       font-weight: bold;
@@ -165,7 +163,7 @@ dl.entry-list {
 header {
   width: $content-width;
   margin: 0 auto;
-  padding-top: 30px;
+  padding-top: 40px;
 
   .left {
     font-size: 1.2em;
@@ -194,7 +192,7 @@ img.icon-circle {
 #container {
   width: $content-width;
   max-width: 90%;
-  margin: 30px auto 50px;
+  margin: 40px auto 50px;
 
   ul {
     margin-left: 0;
@@ -240,7 +238,7 @@ footer {
 
 code {
   background: #fff;
-  font-size: 11px;
+  font-size: 13px;
 
   /* font-weight: 100; */
   padding: 4px;
@@ -253,7 +251,7 @@ code {
 
 pre code,
 .prettyprint {
-  font-size: 11px;
+  font-size: 13px;
   word-wrap: break-word;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
