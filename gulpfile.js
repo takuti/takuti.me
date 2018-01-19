@@ -14,7 +14,7 @@ gulp.task('compile-sass', function() {
   gulp.src('_scss/*.scss')
       .pipe(plumber())
       .pipe(sass())
-      .pipe(gulp.dest('static/style/'));
+      .pipe(gulp.dest('static/css/'));
 });
 
 gulp.task('compile-md', function() {

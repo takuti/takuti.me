@@ -6,6 +6,6 @@
 
 public/
 content/
-static/style/style.css
+static/css/style.css
 
 node_modules/
