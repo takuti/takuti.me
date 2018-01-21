@@ -34,6 +34,10 @@
     "*.{png,jpeg,jpg,gif}": [
       "node ./scripts/imagemin.js",
       "git add"
+    ],
+    "_content/note/*.{md,html}": [
+      "python ./scripts/recommend.py",
+      "git add _content/note"
     ]
   }
 }
