@@ -1,7 +1,7 @@
 ---
 date: 2017-07-09
 lang: ja
-recommendations: [/note/postgresql-fuzzy-search/, /note/auc-parallel/, /note/practical-machine-learning/]
+recommendations: [/note/levenshtein-distance/, /note/fastcat/, /note/leakage/]
 title: Job Titleの前処理＆クラスタリングをどうやって実現するか問題
 ---
 

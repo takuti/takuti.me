@@ -1,7 +1,7 @@
 ---
 date: 2015-10-03
 lang: en
-recommendations: [/note/new-year-resolution-2017/, /note/phpcon-2015/, /note/parallel-vs-concurrent/]
+recommendations: [/note/phpcon-2015/, /note/pyconjp-2015/, /note/new-year-resolution-2017/]
 title: 'Machine Learning Summer School 2015 Kyoto #MLSSKYOTO'
 ---
 

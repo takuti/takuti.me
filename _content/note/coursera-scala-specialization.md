@@ -1,7 +1,7 @@
 ---
 date: 2017-10-28
 lang: ja
-recommendations: [/note/why-spark/, /note/the-amazon-way-on-iot/, /note/trends-in-real-world-recommender-systems-2017/]
+recommendations: [/note/why-spark/, /note/parallel-vs-concurrent/, /note/spark-rdd-cached-vs-uncached/]
 title: Courseraの"Functional Programming in Scala Specialization"を修了した
 ---
 

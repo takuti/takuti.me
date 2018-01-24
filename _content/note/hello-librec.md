@@ -1,8 +1,8 @@
 ---
 date: 2017-04-23
 lang: ja
-recommendations: [/note/data-science-project-structure/, /note/coursera-recommender-systems/,
-  /note/recommender-libraries/]
+recommendations: [/note/recommender-libraries/, /note/trends-in-real-world-recommender-systems-2017/,
+  /note/data-skeptic-recommender-systems/]
 title: Java製の推薦システム用ライブラリ LibRec を動かしてみる
 ---
 

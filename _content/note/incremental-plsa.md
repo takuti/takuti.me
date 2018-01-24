@@ -1,7 +1,7 @@
 ---
 date: 2017-06-04
 lang: ja
-recommendations: [/note/adjusting-for-oversampling-and-undersampling/, /note/slim/,
+recommendations: [/note/data-skeptic-recommender-systems/, /note/trends-in-real-world-recommender-systems-2017/,
   /note/two-decades-of-amazon-recommender/]
 title: Q&Aサイトにおける質問推薦、そして Incremental Probabilistic Latent Semantic Analysis
 ---

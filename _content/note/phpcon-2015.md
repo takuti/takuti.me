@@ -1,7 +1,7 @@
 ---
 date: 2015-10-04
 lang: en
-recommendations: [/note/pyconjp-2015/, /note/mlss-kyoto-2015/, /note/new-year-resolution-2017/]
+recommendations: [/note/pyconjp-2015/, /note/mlss-kyoto-2015/, /note/parallel-vs-concurrent/]
 title: 'Japan PHP Conference 2015 #phpcon2015'
 ---
 

@@ -1,8 +1,7 @@
 ---
 date: 2017-07-16
 lang: ja
-recommendations: [/note/the-amazon-way-on-iot/, /note/trends-in-real-world-recommender-systems-2017/,
-  /note/two-decades-of-amazon-recommender/]
+recommendations: [/note/yahoo-egads/, /note/data-stream-mining/, /note/holt-winters/]
 title: Leakage in Data Mining
 ---
 

@@ -1,7 +1,8 @@
 ---
 date: 2017-12-22
 lang: ja
-recommendations: [/note/amazon-dynamo-paper/, /note/the-amazon-way-on-iot/, /note/designing-data-intensive-applications/]
+recommendations: [/note/amazon-dynamo-paper/, /note/designing-data-intensive-applications/,
+  /note/leakage/]
 title: '"Dynamo-style" に学ぶ Replication, Partitioning, Consistent Hashing の気持ち'
 ---
 

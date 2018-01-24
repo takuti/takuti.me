@@ -1,7 +1,8 @@
 ---
 date: 2017-07-28
 lang: ja
-recommendations: [/note/postgresql-fuzzy-search/, /note/auc-parallel/, /note/dynamo-style/]
+recommendations: [/note/postgresql-fuzzy-search/, /note/job-title-normalization/,
+  /note/acroquest-javabook/]
 title: いまさら編集距離 (Levenshtein Distance) を実装するぜ
 ---
 

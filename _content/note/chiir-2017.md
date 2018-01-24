@@ -1,7 +1,7 @@
 ---
 date: 2017-03-18
 lang: ja
-recommendations: [/note/nand2tetris/, /note/20140713/, /note/trends-in-real-world-recommender-systems-2017/]
+recommendations: [/note/master-graduate/, /note/recsys-2016/, /note/euroscipy-2017/]
 title: '情報検索・インタラクション系の国際会議 CHIIR2017 に参加した #chiir2017'
 ---
 

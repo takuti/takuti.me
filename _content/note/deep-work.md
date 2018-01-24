@@ -1,7 +1,7 @@
 ---
 date: 2017-03-25
 lang: ja
-recommendations: [/note/dmm-eikaiwa/, /note/soft-skills/, /note/go-to-bookstore/]
+recommendations: [/note/dmm-eikaiwa/, /note/soft-skills/, /note/the-amazon-way-on-iot/]
 title: '"Deep Work"を読んだけど微妙だったから皆は"How to Write a Lot"と"エッセンシャル思考"を読めばいい'
 ---
 

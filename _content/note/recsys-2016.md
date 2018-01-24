@@ -1,7 +1,7 @@
 ---
 date: 2016-09-28
 lang: ja
-recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/master-graduate/,
+recommendations: [/note/master-graduate/, /note/trends-in-real-world-recommender-systems-2017/,
   /note/data-skeptic-recommender-systems/]
 title: '推薦システムのトップ会議RecSys2016に参加した #recsys2016'
 ---

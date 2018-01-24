@@ -1,8 +1,7 @@
 ---
 date: 2016-10-04
 lang: ja
-recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/master-graduate/,
-  /note/the-amazon-way-on-iot/]
+recommendations: [/note/master-graduate/, /note/yahoo-egads/, /note/hello-librec/]
 title: 'Treasure Dataインターンにみる機械学習のリアル #td_intern'
 ---
 

@@ -1,7 +1,7 @@
 ---
 date: 2017-06-10
 lang: ja
-recommendations: [/note/leakage/, /note/coursera-recommender-systems/, /note/trends-in-real-world-recommender-systems-2017/]
+recommendations: [/note/coursera-recommender-systems/, /note/slim/, /note/data-skeptic-recommender-systems/]
 title: Amazonの推薦システムの20年
 ---
 

@@ -1,8 +1,7 @@
 ---
 date: 2017-09-02
 lang: ja
-recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/master-graduate/,
-  /note/designing-data-intensive-applications/]
+recommendations: [/note/pyconjp-2015/, /note/master-graduate/, /note/trends-in-real-world-recommender-systems-2017/]
 title: EuroSciPy 2017に参加してしゃべってきた
 ---
 

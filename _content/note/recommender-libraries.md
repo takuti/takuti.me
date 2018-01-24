@@ -1,8 +1,8 @@
 ---
 date: 2017-05-14
 lang: ja
-recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/data-skeptic-recommender-systems/,
-  /note/coursera-recommender-systems/]
+recommendations: [/note/hello-librec/, /note/trends-in-real-world-recommender-systems-2017/,
+  /note/data-skeptic-recommender-systems/]
 title: 推薦システムのためのOSSたち
 ---
 

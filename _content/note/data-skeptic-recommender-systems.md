@@ -1,8 +1,8 @@
 ---
 date: 2017-11-17
 lang: ja
-recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/the-amazon-way-on-iot/,
-  /note/coursera-recommender-systems/]
+recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/practical-machine-learning/,
+  /note/recommender-libraries/]
 title: Podcast "Data Skeptic" の推薦システム回が良すぎて3回聞いた
 ---
 

@@ -1,7 +1,7 @@
 ---
 date: 2017-10-21
 lang: ja
-recommendations: [/note/20140713/, /note/todays-art-taro/, /note/from-cloud-to-ai/]
+recommendations: [/note/from-cloud-to-ai/, /note/the-amazon-way-on-iot/, /note/6brains-of-the-world/]
 title: ルールベースは『人工知能』か
 ---
 

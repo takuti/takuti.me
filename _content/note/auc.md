@@ -1,7 +1,8 @@
 ---
 date: 2017-03-04
 lang: ja
-recommendations: [/note/auc-parallel/, /note/dynamo-style/, /note/data-science-project-structure/]
+recommendations: [/note/auc-parallel/, /note/adjusting-for-oversampling-and-undersampling/,
+  /note/holt-winters/]
 title: Area Under the ROC Curve (AUC) を実装する
 ---
 

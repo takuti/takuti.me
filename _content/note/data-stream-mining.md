@@ -1,8 +1,7 @@
 ---
 date: 2015-12-08
 lang: ja
-recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/designing-data-intensive-applications/,
-  /note/the-amazon-way-on-iot/]
+recommendations: [/note/leakage/, /note/designing-data-intensive-applications/, /note/trends-in-real-world-recommender-systems-2017/]
 title: ストリームデータ解析の世界
 ---
 

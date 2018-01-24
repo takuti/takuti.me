@@ -8,6 +8,14 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 RE_FRONT_MATTER = re.compile('---\n([\s\S]*?\n)---\n')
 RE_PATH_TO_PERMALINK = re.compile('(/note/.+?)(\.md|\.html)')
+RE_VALID_WORD = re.compile('^[ぁ-んーァ-ヶー一-龠a-zA-Zａ-ｚＡ-Ｚ]+$')
+RE_INVALID_WORD = re.compile('^([^一-龠]{1,2}|[ぁ-んー]{1,3})$')
+
+RE_FILTERS = [
+    re.compile('<.*?>'),  # HTML tag
+    re.compile('^(\$\$|```)(.*)\n(.*\n)+(\$\$|```)', re.MULTILINE),  # Markdown codefence / math block
+    re.compile('https?:\/\/[\S]+')  # URL
+]
 
 tagger = MeCab.Tagger('-d /usr/local/lib/mecab/dic/mecab-ipadic-neologd')
 tagger.parse('')
@@ -21,7 +29,8 @@ def tokenizer(doc):
             yield node.surface.lower()
             node = node.next
 
-    return [token for token in get_tokens(doc)]
+    return [token for token in get_tokens(doc) if 2 <= len(token) <= 15 and
+            RE_VALID_WORD.match(token) and not RE_INVALID_WORD.match(token)]
 
 
 def extract_contents(paths):
@@ -34,6 +43,10 @@ def extract_contents(paths):
 
         # remove front matter
         content = content.replace(m.group(0), '')
+
+        for re_filter in RE_FILTERS:
+            content = re_filter.sub('', content)
+
         contents.append(content)
     return contents
 
@@ -49,7 +62,7 @@ def recommend_content_based_cf(paths, topk=3):
     samples = extract_contents(paths)
 
     # build model
-    vectorizer = TfidfVectorizer(max_df=0.95, min_df=2, tokenizer=tokenizer)
+    vectorizer = TfidfVectorizer(max_df=0.95, min_df=2, tokenizer=tokenizer, stop_words='english')
     tfidf = vectorizer.fit_transform(samples)
     similarities = cosine_similarity(tfidf)
 

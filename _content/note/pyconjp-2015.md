@@ -1,7 +1,7 @@
 ---
 date: 2015-10-13
 lang: en
-recommendations: [/note/phpcon-2015/, /note/mlss-kyoto-2015/, /note/move-to-gh-pages/]
+recommendations: [/note/phpcon-2015/, /note/euroscipy-2017/, /note/mlss-kyoto-2015/]
 title: 'PyCon JP 2015 #pyconjp'
 ---
 

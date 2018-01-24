@@ -1,8 +1,8 @@
 ---
 date: 2017-02-18
 lang: ja
-recommendations: [/note/two-decades-of-amazon-recommender/, /note/coursera-recommender-systems/,
-  /note/leakage/]
+recommendations: [/note/coursera-recommender-systems/, /note/two-decades-of-amazon-recommender/,
+  /note/tf-idf/]
 title: '"SLIM: Sparse Linear Methods for Top-N Recommender Systems"を読んだ'
 ---
 

@@ -1,8 +1,8 @@
 ---
 date: 2017-11-23
 lang: ja
-recommendations: [/note/data-skeptic-recommender-systems/, /note/the-amazon-way-on-iot/,
-  /note/master-graduate/]
+recommendations: [/note/data-skeptic-recommender-systems/, /note/recommender-libraries/,
+  /note/coursera-recommender-systems/]
 title: 筋トレ、登山、昨今の推薦システムのトレンドなどについて話しました
 ---
 

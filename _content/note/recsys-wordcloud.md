@@ -1,7 +1,8 @@
 ---
 date: 2017-11-11
 lang: en
-recommendations: [/note/flurs/, /note/mlss-kyoto-2015/, /note/recommendation-julia/]
+recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/flurs/,
+  /note/recommendation-julia/]
 title: Understanding Research Trends in Recommender Systems from Word Cloud
 ---
 

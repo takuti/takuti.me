@@ -1,8 +1,7 @@
 ---
 date: 2017-12-09
 lang: ja
-recommendations: [/note/the-amazon-way-on-iot/, /note/trends-in-real-world-recommender-systems-2017/,
-  /note/designing-data-intensive-applications/]
+recommendations: [/note/dynamo-style/, /note/the-amazon-way-on-iot/, /note/designing-data-intensive-applications/]
 title: AmazonのDynamoDB論文を眺めた
 ---
 

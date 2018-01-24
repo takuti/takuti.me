@@ -1,8 +1,7 @@
 ---
 date: 2017-01-27
 lang: ja
-recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/data-skeptic-recommender-systems/,
-  /note/two-decades-of-amazon-recommender/]
+recommendations: [/note/two-decades-of-amazon-recommender/, /note/slim/, /note/trends-in-real-world-recommender-systems-2017/]
 title: Courseraの推薦システムのコースを修了した
 ---
 

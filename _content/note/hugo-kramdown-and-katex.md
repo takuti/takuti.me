@@ -2,7 +2,7 @@
 date: 2017-05-28
 lang: en
 recommendations: [/note/hugo-markdown-and-mathjax/, /note/travis-gh-pages-deployment/,
-  /note/mlss-kyoto-2015/]
+  /note/normal-equation/]
 title: 'Hugo meets kramdown + KaTeX #gohugo'
 ---
 

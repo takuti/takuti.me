@@ -1,7 +1,7 @@
 ---
 date: 2017-07-02
 lang: ja
-recommendations: [/note/dmm-eikaiwa/, /note/the-amazon-way-on-iot/, /note/trends-in-real-world-recommender-systems-2017/]
+recommendations: [/note/dmm-eikaiwa/, /note/go-to-bookstore/, /note/deep-work/]
 title: いまさら Soft Skills を読んだ
 ---
 

@@ -2,7 +2,7 @@
 date: 2017-04-30
 lang: en
 recommendations: [/note/travis-gh-pages-deployment/, /note/hugo-markdown-and-mathjax/,
-  /note/pyconjp-2015/]
+  /note/hugo-kramdown-and-katex/]
 title: Moving to GitHub Pages
 ---
 

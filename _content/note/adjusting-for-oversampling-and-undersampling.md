@@ -1,7 +1,7 @@
 ---
 date: 2017-11-04
 lang: ja
-recommendations: [/note/leakage/, /note/two-decades-of-amazon-recommender/, /note/incremental-plsa/]
+recommendations: [/note/auc/, /note/holt-winters/, /note/acroquest-javabook/]
 title: Over-/Under-samplingをして学習した2クラス分類器の予測確率を調整する式
 ---
 

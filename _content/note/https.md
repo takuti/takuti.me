@@ -1,7 +1,7 @@
 ---
 date: 2017-02-04
 lang: ja
-recommendations: [/note/data-science-project-structure/, /note/dynamo-style/, /note/leakage/]
+recommendations: [/note/move-to-gh-pages/, /note/hello-jekyll/, /note/crx-dev-using-angularjs/]
 title: サイトをHTTPSにした
 ---
 

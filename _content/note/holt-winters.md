@@ -1,7 +1,8 @@
 ---
 date: 2017-08-26
 lang: ja
-recommendations: [/note/dynamo-style/, /note/data-science-project-structure/, /note/coursera-recommender-systems/]
+recommendations: [/note/yahoo-egads/, /note/adjusting-for-oversampling-and-undersampling/,
+  /note/leakage/]
 title: 異常検知のための未来予測：オウム返し的手法からHolt-Winters Methodまで
 ---
 

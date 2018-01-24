@@ -1,8 +1,7 @@
 ---
 date: 2017-12-30
 lang: ja
-recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/the-amazon-way-on-iot/,
-  /note/amazon-dynamo-paper/]
+recommendations: [/note/dynamo-style/, /note/amazon-dynamo-paper/, /note/data-stream-mining/]
 title: '"Designing Data-Intensive Applications"は濃密すぎる一冊だったので2018年の自分にも読んでもらいたい'
 ---
 

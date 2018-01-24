@@ -1,7 +1,8 @@
 ---
 date: 2014-11-09
 lang: en
-recommendations: [/note/new-year-resolution-2017/, /note/mlss-kyoto-2015/, /note/pyconjp-2015/]
+recommendations: [/note/new-year-resolution-2017/, /note/travis-gh-pages-deployment/,
+  /note/move-to-gh-pages/]
 tags: [Diary]
 title: Hello English Entries
 ---

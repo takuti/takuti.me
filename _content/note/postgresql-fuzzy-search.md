@@ -1,7 +1,7 @@
 ---
 date: 2017-08-09
 lang: ja
-recommendations: [/note/auc-parallel/, /note/job-title-normalization/, /note/levenshtein-distance/]
+recommendations: [/note/levenshtein-distance/, /note/hive-fuzzy-search/, /note/chiir-2017/]
 title: あのときのビールをもう一度（PostgreSQLでFuzzy Searchを試す）
 ---
 

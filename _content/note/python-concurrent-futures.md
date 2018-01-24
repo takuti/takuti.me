@@ -1,8 +1,7 @@
 ---
 date: 2017-10-01
 lang: ja
-recommendations: [/note/data-science-project-structure/, /note/acroquest-javabook/,
-  /note/dynamo-style/]
+recommendations: [/note/euroscipy-2017/, /note/acroquest-javabook/, /note/why-spark/]
 title: Pythonのconcurrent.futuresを試す
 ---
 

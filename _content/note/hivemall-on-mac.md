@@ -1,7 +1,7 @@
 ---
 date: 2017-02-11
 lang: ja
-recommendations: [/note/hive-fuzzy-search/, /note/hivemall-on-docker/, /note/data-science-project-structure/]
+recommendations: [/note/hivemall-on-docker/, /note/recommender-libraries/, /note/hive-fuzzy-search/]
 title: MacのローカルにHivemallを導入してアイテム推薦をするまで
 ---
 

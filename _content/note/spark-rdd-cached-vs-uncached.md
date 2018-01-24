@@ -1,8 +1,7 @@
 ---
 date: 2017-04-16
 lang: en
-recommendations: [/note/recommendation-julia/, /note/coursera-scala-specialization/,
-  /note/flurs/]
+recommendations: [/note/coursera-scala-specialization/, /note/why-spark/, /note/mlss-kyoto-2015/]
 title: Comparison of Running Time of Cached/Uncached Spark RDD
 ---
 

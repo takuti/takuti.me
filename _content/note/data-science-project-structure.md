@@ -1,7 +1,7 @@
 ---
 date: 2017-12-16
 lang: ja
-recommendations: [/note/the-amazon-way-on-iot/, /note/acroquest-javabook/, /note/designing-data-intensive-applications/]
+recommendations: [/note/leakage/, /note/euroscipy-2017/, /note/acroquest-javabook/]
 title: データサイエンスプロジェクトのディレクトリ構成どうするか問題
 ---
 

@@ -1,8 +1,7 @@
 ---
 date: 2015-04-21
 lang: en
-recommendations: [/note/slim/, /note/adjusting-for-oversampling-and-undersampling/,
-  /note/incremental-plsa/]
+recommendations: [/note/hugo-kramdown-and-katex/, /note/slim/, /note/pytorch-autograd/]
 title: How to Derive the Normal Equation
 ---
 

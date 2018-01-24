@@ -1,7 +1,7 @@
 ---
 date: 2017-08-20
 lang: ja
-recommendations: [/note/hivemall-on-mac/, /note/holt-winters/, /note/fastcat/]
+recommendations: [/note/hivemall-on-mac/, /note/postgresql-fuzzy-search/, /note/why-spark/]
 title: HiveでテキストのFuzzy Search
 ---
 

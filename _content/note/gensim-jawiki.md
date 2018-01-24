@@ -1,7 +1,7 @@
 ---
 date: 2017-07-22
 lang: ja
-recommendations: [/note/holt-winters/, /note/pytorch-autograd/, /note/fastcat/]
+recommendations: [/note/fastcat/, /note/recommender-libraries/, /note/incremental-plsa/]
 title: gensimでWikipedia日本語版からコーパスを作ってトピックモデリング
 ---
 

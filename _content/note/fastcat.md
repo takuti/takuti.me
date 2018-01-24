@@ -1,7 +1,7 @@
 ---
 date: 2017-08-06
 lang: ja
-recommendations: [/note/dynamo-style/, /note/data-science-project-structure/, /note/hivemall-on-mac/]
+recommendations: [/note/gensim-jawiki/, /note/job-title-normalization/, /note/leakage/]
 title: ローカルのRedis上でWikipediaカテゴリをシュッとdigる
 ---
 

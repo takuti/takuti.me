@@ -1,8 +1,7 @@
 ---
 date: 2017-09-17
 lang: ja
-recommendations: [/note/euroscipy-2017/, /note/trends-in-real-world-recommender-systems-2017/,
-  /note/the-amazon-way-on-iot/]
+recommendations: [/note/hatena-keyword-to-ipadic/, /note/twitter-bot/, /note/recommender-libraries/]
 title: igo-rubyを新語辞書NEologdでナウい感じにする
 ---
 

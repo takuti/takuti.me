@@ -1,8 +1,8 @@
 ---
 date: 2017-12-01
 lang: ja
-recommendations: [/note/the-amazon-way-on-iot/, /note/data-science-project-structure/,
-  /note/dynamo-style/]
+recommendations: [/note/adjusting-for-oversampling-and-undersampling/, /note/python-concurrent-futures/,
+  /note/why-spark/]
 title: 『Java本格入門』メモ
 ---
 

@@ -1,8 +1,8 @@
 ---
 date: 2017-04-09
 lang: ja
-recommendations: [/note/coursera-scala-specialization/, /note/the-amazon-way-on-iot/,
-  /note/trends-in-real-world-recommender-systems-2017/]
+recommendations: [/note/coursera-scala-specialization/, /note/spark-rdd-cached-vs-uncached/,
+  /note/dynamo-style/]
 title: なぜSparkか
 ---
 
