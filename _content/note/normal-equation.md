@@ -1,7 +1,7 @@
 ---
 date: 2015-04-21
 lang: en
-recommendations: [/note/hugo-kramdown-and-katex/, /note/slim/, /note/pytorch-autograd/]
+recommendations: [/note/hugo-kramdown-and-katex/, /note/slim/, /note/mlss-kyoto-2015/]
 title: How to Derive the Normal Equation
 ---
 

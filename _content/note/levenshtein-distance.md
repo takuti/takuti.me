@@ -21,7 +21,7 @@ title: いまさら編集距離 (Levenshtein Distance) を実装するぜ
 
 Wikipedia に書かれている擬似コードをそのまま実装すると次のような感じ：
 
-{{< highlight py "linenos=table" >}}
+```py
 def levenshtein(s1, s2):
     """
     >>> levenshtein('kitten', 'sitting')
@@ -49,7 +49,7 @@ def levenshtein(s1, s2):
                            dp[i - 1][j - 1] + cost)  # replacement
 
     return dp[n][m]
-{{< / highlight >}}
+```
 
 二次元配列 `dp` の中身は、たとえば `levenshtein('kitten', 'sitting')` を実行した後だと：
 

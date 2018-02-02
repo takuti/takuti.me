@@ -1,7 +1,7 @@
 ---
 date: 2017-09-23
 lang: ja
-recommendations: [/note/pytorch-mf/, /note/euroscipy-2017/, /note/adjusting-for-oversampling-and-undersampling/]
+recommendations: [/note/pytorch-mf/, /note/euroscipy-2017/, /note/holt-winters/]
 title: PyTorchのautogradと仲良くなりたい
 ---
 
@@ -72,7 +72,7 @@ print(x.grad)  # => [4.5, 4.5; 4.5, 4.5]
 
 詳細は割愛しつつ、肝心のSGDによる学習の部分のコードを抜き出してみる：
 
-{{< highlight py "linenos=table" >}}
+```py
 # this classifier outputs log probs for input Bag-of-Words vector
 model = BoWClassifier(NUM_LABELS, VOCAB_SIZE)
 
@@ -103,7 +103,7 @@ for epoch in range(100):
 
         # update model parameters
         optimizer.step()
-{{< /highlight >}}
+```
 
 （変数名、コメントなど少し変えたり簡略化したりした）
 

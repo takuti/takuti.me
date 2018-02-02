@@ -1,8 +1,5 @@
 canonifyurls = true
 
-pygmentsCodeFences = true
-pygmentsStyle = "colorful"
-
 disableKinds = ["taxonomy", "taxonomyTerm"]
 
 baseurl = "https://takuti.me"
@@ -16,7 +13,3 @@ buildFuture = true
 
 [params]
   author = "takuti"
-
-[blackfriday]
-  hrefTargetBlank = true
-  extensionsmask = ["autolink"]

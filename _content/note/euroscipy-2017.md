@@ -1,7 +1,7 @@
 ---
 date: 2017-09-02
 lang: ja
-recommendations: [/note/pyconjp-2015/, /note/master-graduate/, /note/trends-in-real-world-recommender-systems-2017/]
+recommendations: [/note/pytorch-autograd/, /note/pyconjp-2015/, /note/master-graduate/]
 title: EuroSciPy 2017に参加してしゃべってきた
 ---
 
