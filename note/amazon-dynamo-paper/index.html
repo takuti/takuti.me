@@ -33,125 +33,80 @@
   <h2>AmazonのDynamoDB論文を眺めた</h2>
 
   <div class="post">
-    
-
-<p>&ldquo;<a href="https://pragprog.com/book/rwdata/seven-databases-in-seven-weeks" target="_blank">Seven Databases in Seven Weeks</a>&rdquo; や &ldquo;<a href="https://dataintensive.net/" target="_blank">Designing Data-Intensive Applications</a>&rdquo; でも度々参考文献に挙がっていたので、AmazonのDynamoDB論文を眺めて思いを馳せていた：</p>
-
+    <p>&quot;<a href="https://pragprog.com/book/rwdata/seven-databases-in-seven-weeks">Seven Databases in Seven Weeks</a>&quot; や &quot;<a href="https://dataintensive.net/">Designing Data-Intensive Applications</a>&quot; でも度々参考文献に挙がっていたので、AmazonのDynamoDB論文を眺めて思いを馳せていた：</p>
 <ul>
-<li><strong><a href="https://dl.acm.org/citation.cfm?id=1294281" target="_blank">Dynamo: Amazon&rsquo;s Highly Available Key-Value Store</a></strong> (SOSP 2007)</li>
+<li><strong><a href="https://dl.acm.org/citation.cfm?id=1294281">Dynamo: Amazon&#39;s Highly Available Key-Value Store</a></strong> (SOSP 2007)</li>
 </ul>
-
-<p>ここでは特に2章・バックグラウンドの内容を整理しつつ、AmazonがDynamoDBに込めた想いに触れてみる。拙記事『<a href="https://takuti.me/note/the-amazon-way-on-iot/">The Amazon Way on IoT - Amazonのビジネスから学ぶ、10の原則</a>』でも紹介した、Amazonの &ldquo;Customer Obsession&rdquo;（お客様第一）という理念を踏まえて読むと大変味わい深くてよろしい。</p>
-
-<h3 id="教訓-システムの-reliability-と-scalability-は-いかにアプリケーションの-状態-を管理するかに依る">教訓: システムの Reliability と Scalability は、いかにアプリケーションの“状態”を管理するかに依る</h3>
-
-<p>“状態”とは、Amazonの『ショッピングカートの中身』のようなものを指し、『カートへの商品の追加・削除』がその“管理”に相当する。このように、何らかのビジネスロジックに紐付くサービスは往々にしてステートフルとなり、その扱い方がサービスの信頼性のキモとなる<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>。</p>
-
+<p>ここでは特に2章・バックグラウンドの内容を整理しつつ、AmazonがDynamoDBに込めた想いに触れてみる。拙記事『<a href="https://takuti.me/note/the-amazon-way-on-iot/">The Amazon Way on IoT - Amazonのビジネスから学ぶ、10の原則</a>』でも紹介した、Amazonの &quot;Customer Obsession&quot;（お客様第一）という理念を踏まえて読むと大変味わい深くてよろしい。</p>
+<h3 id="%E6%95%99%E8%A8%93-%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE-reliability-%E3%81%A8-scalability-%E3%81%AF%E3%80%81%E3%81%84%E3%81%8B%E3%81%AB%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E2%80%9C%E7%8A%B6%E6%85%8B%E2%80%9D%E3%82%92%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B%E3%81%8B%E3%81%AB%E4%BE%9D%E3%82%8B">教訓: システムの Reliability と Scalability は、いかにアプリケーションの“状態”を管理するかに依る</h3>
+<p>“状態”とは、Amazonの『ショッピングカートの中身』のようなものを指し、『カートへの商品の追加・削除』がその“管理”に相当する。このように、何らかのビジネスロジックに紐付くサービスは往々にしてステートフルとなり、その扱い方がサービスの信頼性のキモとなる<sup><a href="#fn_1" id="reffn_1">1</a></sup>。</p>
 <p>そして、そのような“状態”を複雑なクエリで問い合わせるというケースはあまりなく、主キーで一意に定まるものをピックアップすることのほうが多いので、従来行われてきたRDBによる管理は過度な複雑化といえる。</p>
-
 <p>そこでAmazonは <strong>Dynamo</strong> というKVSを開発し、scalability と availability の両立を、2つの既存手法の組み合わせによって実現した：</p>
-
 <ol>
 <li>データは <strong>consistent hashing</strong> によってパーティショニング、レプリケーション</li>
 <li>一貫性は <strong>object versioning</strong> の下で“ゆるく”担保</li>
 </ol>
-
 <p>この論文は、既存の技術の組み合わせでいかにプロダクションレベルのシステムを作っていくか、という点でひとつの例を示すもの。</p>
-
-<h3 id="rdbではなくkvs">RDBではなくKVS</h3>
-
+<h3 id="rdb%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8Fkvs">RDBではなくKVS</h3>
 <p>先述の通り、リレーショナルスキーマを要するデータ横断的な処理は状態の保持には不要だと経験的にわかっている。</p>
-
 <p>なので、Dynamoはデータをblobのようなバイナリオブジェクト (たいてい1MB以下) で保持し、ユニークなキーによって一意に取得可能にした。</p>
-
-<h3 id="eventual-consistencyでよい">Eventual Consistencyでよい</h3>
-
-<p>ACID (Atomicity, Consistency, Isolation, Durability) を満足させると可用性が低下することは経験的にわかっているので、Dynamoは可用性が向上するなら一貫性 (&ldquo;C&rdquo;; Consistency) を諦めても構わないという姿勢をとる。</p>
-
+<h3 id="eventual-consistency%E3%81%A7%E3%82%88%E3%81%84">Eventual Consistencyでよい</h3>
+<p>ACID (Atomicity, Consistency, Isolation, Durability) を満足させると可用性が低下することは経験的にわかっているので、Dynamoは可用性が向上するなら一貫性 (&quot;C&quot;; Consistency) を諦めても構わないという姿勢をとる。</p>
 <p>そう、Eventual Consistency である。</p>
-
-<p>Dynamoは高可用性を担保するために <a href="https://en.wikipedia.org/wiki/Optimistic_replication" target="_blank">optimistic replication</a> (i.e., lazy replication) を採用しているため、処理のある時点においては容易に一貫性が壊れる。</p>
-
+<p>Dynamoは高可用性を担保するために <a href="https://en.wikipedia.org/wiki/Optimistic_replication">optimistic replication</a> (i.e., lazy replication) を採用しているため、処理のある時点においては容易に一貫性が壊れる。</p>
 <p>だが、競合解決処理を経ることで、いずれ (eventually) レプリカは何らかの状態に落ち着く (consistent)。</p>
-
-<p><a href="https://dataintensive.net/" target="_blank">Data-Intensive (ry</a> でも書かれいていたけど、昨今ではACIDを満足しないシステムを <strong>BASE</strong> (Basically Available, Soft state, and Eventual consistency) と呼ぶ風潮もあり、このような考え方は広く受け入れられている。</p>
-
+<p><a href="https://dataintensive.net/">Data-Intensive (ry</a> でも書かれいていたけど、昨今ではACIDを満足しないシステムを <strong>BASE</strong> (Basically Available, Soft state, and Eventual consistency) と呼ぶ風潮もあり、このような考え方は広く受け入れられている。</p>
 <p>ところで、『いずれ』とはいつなのか。どのタイミングで競合を解決するのか。</p>
-
-<p>従来のデータストアは書き込み時に競合の解決を行い、読み込みは極力シンプルに、という考えの下に成り立っていた。しかしこれは、場合によっては &ldquo;rejectされるwrite&rdquo; が存在するということ。</p>
-
-<p>ユーザにとって &ldquo;write reject&rdquo; は「クリックしたのに反映されない」的なシナリオであり、これはユーザ体験の低下に直結する。なのでDynamoは &ldquo;always writable&rdquo; を重視して、コンフリクト解決はread時に考え、writeでは行わない。</p>
-
+<p>従来のデータストアは書き込み時に競合の解決を行い、読み込みは極力シンプルに、という考えの下に成り立っていた。しかしこれは、場合によっては &quot;rejectされるwrite&quot; が存在するということ。</p>
+<p>ユーザにとって &quot;write reject&quot; は「クリックしたのに反映されない」的なシナリオであり、これはユーザ体験の低下に直結する。なのでDynamoは &quot;always writable&quot; を重視して、コンフリクト解決はread時に考え、writeでは行わない。</p>
 <p>少しくらいネットワークが途切れても、サーバが死んでても、ユーザはショッピングカートのアイテム (state) の変更 (write) が確実にできるように、というAmazonの強い想いがある。</p>
-
 <p>さらに、もうひとつ Eventual Consistency に際して考えるべきは『だれが（どこで）コンフリクトを解決するか』という点。</p>
-
-<p>データストア側で解決を試みる場合、我々は &ldquo;last write wins&rdquo; という単純な手段しか持ち合わせていない。</p>
-
-<p>しかし適切な競合解決プロセスというものはアプリケーション依存であり、たとえばショッピングカートの中身がコンフリクトしたら、両者をマージして1つのカートにして返すという明確なゴールがある。だから、Amazonはアプリケーション（クライアント）側での競合解決を重視する<sup class="footnote-ref" id="fnref:5"><a rel="footnote" href="#fn:5">2</a></sup>。</p>
-
-<h3 id="sla重要">SLA重要</h3>
-
+<p>データストア側で解決を試みる場合、我々は &quot;last write wins&quot; という単純な手段しか持ち合わせていない。</p>
+<p>しかし適切な競合解決プロセスというものはアプリケーション依存であり、たとえばショッピングカートの中身がコンフリクトしたら、両者をマージして1つのカートにして返すという明確なゴールがある。だから、Amazonはアプリケーション（クライアント）側での競合解決を重視する<sup><a href="#fn_5" id="reffn_5">5</a></sup>。</p>
+<h3 id="sla%E9%87%8D%E8%A6%81">SLA重要</h3>
 <p>Amazonのようなdecentrizedなサービスでは1リクエストに対して動くサービスが複数あり、相互依存が激しい。そんな環境下で各コンポーネントのchain時のパフォーマンス要求を明確にするために、SLA  (Service Level Agreement) は特に重視している。</p>
-
-<p>具体的には、Amazonには99.9パーセンタイルの値で処理効率を測るという厳密なSLAがある<sup class="footnote-ref" id="fnref:2"><a rel="footnote" href="#fn:2">3</a></sup>。</p>
-
+<p>具体的には、Amazonには99.9パーセンタイルの値で処理効率を測るという厳密なSLAがある<sup><a href="#fn_2" id="reffn_2">2</a></sup>。</p>
 <p>サービスを提供する側 (Amazon) が本当に大切にしたいヘビーユーザはたくさんログを持っていて、往々にして一処理あたりの時間も長くなりがちだ。でもmean, median, expected varianceのような“平均値”に基づくSLAを設定してしまうと、この少数の大切なお客さんに対するパフォーマンスが多少悪くても「SLAを満たしている」となりかねない。</p>
-
-<p>Amazonは“大多数のお客さん”ではなく、“お客さん全員”が満足しうるサービスを目指したい。ゆえに、平均値で測るSLAでは不十分なのだ<sup class="footnote-ref" id="fnref:3"><a rel="footnote" href="#fn:3">4</a></sup>。</p>
-
+<p>Amazonは“大多数のお客さん”ではなく、“お客さん全員”が満足しうるサービスを目指したい。ゆえに、平均値で測るSLAでは不十分なのだ<sup><a href="#fn_3" id="reffn_3">3</a></sup>。</p>
 <p>一般に、サービス内のビジネスロジック（Amazonの“購買”のような）が比較的軽量なとき、ストレージはシステムのSLAを満足するために特に重要な要素だと言える。なのでDynamoは処理効率、コスト、可用性、耐障害性といったトレードオフをユースケースに応じて柔軟に選択（調整）できるように設計する。</p>
-
-<h3 id="dynamo-お客様第一で設計されたストレージ">Dynamo: お客様第一で設計されたストレージ</h3>
-
+<h3 id="dynamo-%E3%81%8A%E5%AE%A2%E6%A7%98%E7%AC%AC%E4%B8%80%E3%81%A7%E8%A8%AD%E8%A8%88%E3%81%95%E3%82%8C%E3%81%9F%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8">Dynamo: お客様第一で設計されたストレージ</h3>
 <p>この他、Dynamoの設定に際して：</p>
-
 <ul>
-<li><strong>Incremental scalability</strong>
-
-<ul>
+<li><strong>Incremental scalability</strong><ul>
 <li>システムオペレータとシステム自体への影響を最小にしつつ、ノード単位でスケールアウトできる。</li>
-</ul></li>
-<li><strong>Symmetry</strong>
-
-<ul>
+</ul>
+</li>
+<li><strong>Symmetry</strong><ul>
 <li>Dynamoのノードはみんな平等で、どれかが特別な役割、ということはない。</li>
 <li>経験的に、こうするとプロビジョニングやメンテナンスが単純化されてよい。</li>
-</ul></li>
-<li><strong>Decentralization</strong>
-
-<ul>
+</ul>
+</li>
+<li><strong>Decentralization</strong><ul>
 <li>P2P的システムにする。Symmetryと同じ気持ち。</li>
 <li>centralizedなシステムは全体的なシステムダウンを招く。</li>
-</ul></li>
-<li><strong>Heterogeneity</strong>
-
-<ul>
+</ul>
+</li>
+<li><strong>Heterogeneity</strong><ul>
 <li>各ノードがキャパに対してどの程度の仕事を割り振られているか、システムはそのバランスを常に考慮する。</li>
 <li>そうすれば、新しい大きなキャパのノードを追加したときに、全ノードの設定をアップグレードする必要がなくなる。</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>といったことも考慮された。</p>
-
-<p>いずれにせよ、トレードオフのひとつひとつをcustomer obsession的な視点で選択し、合理的にシステムを設計していく姿勢が見て取れる濃厚な &ldquo;Background&rdquo; の章で、個人的にはここがこの論文の一番の見どころだと思った。もちろん後半の partitioning, replication, object versioning の実装に関する具体的な言及や、実験とそこから得た教訓の話が主役ではあるのだけど。</p>
-
+<p>いずれにせよ、トレードオフのひとつひとつをcustomer obsession的な視点で選択し、合理的にシステムを設計していく姿勢が見て取れる濃厚な &quot;Background&quot; の章で、個人的にはここがこの論文の一番の見どころだと思った。もちろん後半の partitioning, replication, object versioning の実装に関する具体的な言及や、実験とそこから得た教訓の話が主役ではあるのだけど。</p>
 <p>体裁の整った本の記述からは得られない、広く使われるシステムの根底にあるアイディアに触れられるのはよいですね。なお、僕は若者なので、この論文が書かれた当時それがどれだけ革新的なことだったのかを測るものさしは持ち合わせていない。</p>
-<div class="footnotes">
-
-<hr />
-
-<ol>
-<li id="fn:1">一方、ステートレスなサービスとは、他のサービスたちのデータを集約するような内部コンポーネントなどを指す。
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-<li id="fn:5">論文「まぁ、世の開発者たちは状況に応じたコンフリクト時の例外処理を考えるのが面倒なので &ldquo;last write wins&rdquo; だけになりがちだけど…。」
- <a class="footnote-return" href="#fnref:5"><sup>[return]</sup></a></li>
-<li id="fn:2">もちろん具体的なパーセンタイルの設定はコストとのトレードオフ。
- <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
-<li id="fn:3">これはAmazonの話。会社のゴール次第なので「平均値で測れば十分」という場合もありうる。
- <a class="footnote-return" href="#fnref:3"><sup>[return]</sup></a></li>
-</ol>
-</div>
+<blockquote id="fn_1">
+<sup>1</sup>. 一方、ステートレスなサービスとは、他のサービスたちのデータを集約するような内部コンポーネントなどを指す。<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. もちろん具体的なパーセンタイルの設定はコストとのトレードオフ。<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_3">
+<sup>3</sup>. これはAmazonの話。会社のゴール次第なので「平均値で測れば十分」という場合もありうる。<a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_5">
+<sup>5</sup>. 論文「まぁ、世の開発者たちは状況に応じたコンフリクト時の例外処理を考えるのが面倒なので &quot;last write wins&quot; だけになりがちだけど…。」<a href="#reffn_5" title="Jump back to footnote [5] in the text."> &#8617;</a>
+</blockquote>
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>

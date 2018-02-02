@@ -33,97 +33,56 @@
   <h2>Hivemall on Dockerを試すぜ</h2>
 
   <div class="post">
-    
+    <p><a href="https://twitter.com/amaya382">@amaya382</a>くんが Hivemall on Docker についていろいろと整備してくれた。</p>
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Hive環境が必要で敷居が高かった<br> (当社比) Hivemallですが, 数コマンド叩くだけでdocker上で試せるようになりました！試す際に意外と厄介なサンプルデータの準備を全てやってくれるスクリプトもおまけで付いてます (※あくまで評価・開発用です) <a href="https://t.co/fiztEpicma">https://t.co/fiztEpicma</a></p>&mdash; amaya (@amaya382) <a href="https://twitter.com/amaya382/status/856860886807568384?ref_src=twsrc%5Etfw">April 25, 2017</a></blockquote></p>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<p><a href="https://twitter.com/amaya382" target="_blank">@amaya382</a>くんが Hivemall on Docker についていろいろと整備してくれた。</p>
-
-<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Hive環境が必要で敷居が高かった<br> (当社比) Hivemallですが, 数コマンド叩くだけでdocker上で試せるようになりました！試す際に意外と厄介なサンプルデータの準備を全てやってくれるスクリプトもおまけで付いてます (※あくまで評価・開発用です) <a href="https://t.co/fiztEpicma">https://t.co/fiztEpicma</a></p>&mdash; amaya (@amaya382) <a href="https://twitter.com/amaya382/status/856860886807568384?ref_src=twsrc%5Etfw">April 25, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
 <p>一方、個人的には Hivemall on Mac について以前記事を書いた：『<a href="https://takuti.me/note/hivemall-on-mac/">MacのローカルにHivemallを導入してアイテム推薦をするまで</a>』</p>
-
 <p>だいたいHomebrewで完結するのでMacローカルだけを考えればこれでも問題ないけど、煩雑なインストール・設定無しでDockerコンテナで話が進むに越したことはない。というわけで先の記事のフォローアップとして Hivemall on Docker をMacのローカルで試してみる。環境は次の通り：</p>
-
 <ul>
 <li>macOS Sierra 10.12.3</li>
-<li><a href="https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac" target="_blank">Docker for Mac</a> Stable channel (version 17.03.1-ce-mac5)</li>
+<li><a href="https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac">Docker for Mac</a> Stable channel (version 17.03.1-ce-mac5)</li>
 </ul>
-
 <pre><code>$ docker -v
 Docker version 17.03.1-ce, build c6d412e
 $ docker-compose -v
 docker-compose version 1.11.2, build dfed245
 $ docker-machine -v
 docker-machine version 0.10.0, build 76ed2a6
-</code></pre>
-
-<h3 id="コンテナ起動まで">コンテナ起動まで</h3>
-
-<p>基本的には<a href="https://hivemall.incubator.apache.org/userguide/docker/getting_started.html" target="_blank">ドキュメント</a>に従う。</p>
-
-<p>まず<a href="https://github.com/apache/incubator-hivemall" target="_blank">リポジトリ</a>を取ってきて、</p>
-
+</code></pre><h3 id="%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E8%B5%B7%E5%8B%95%E3%81%BE%E3%81%A7">コンテナ起動まで</h3>
+<p>基本的には<a href="https://hivemall.incubator.apache.org/userguide/docker/getting_started.html">ドキュメント</a>に従う。</p>
+<p>まず<a href="https://github.com/apache/incubator-hivemall">リポジトリ</a>を取ってきて、</p>
 <pre><code>$ cd /path/to/incubator-hivemall
-</code></pre>
-
-<p>ビルドは <code>docker-compose</code> なら：</p>
-
+</code></pre><p>ビルドは <code>docker-compose</code> なら：</p>
 <pre><code>$ docker-compose -f resources/docker/docker-compose.yml build
-</code></pre>
-
-<p><code>docker build</code> なら：</p>
-
+</code></pre><p><code>docker build</code> なら：</p>
 <pre><code>$ docker build -f resources/docker/Dockerfile .
-</code></pre>
-
-<p>筋トレしながら待つ。</p>
-
+</code></pre><p>筋トレしながら待つ。</p>
 <p>おわったら、コンテナ起動は <code>docker-compose</code> なら：</p>
-
 <pre><code>$ docker-compose -f resources/docker/docker-compose.yml up -d &amp;&amp; docker attach hivemall
-</code></pre>
-
-<p><code>docker run</code> なら：</p>
-
+</code></pre><p><code>docker run</code> なら：</p>
 <pre><code>$ docker run -it \
-	-p 8088:8088 \
-	-p 19888:19888 \
-	-p 50070:50070 \
-	hivemall
-</code></pre>
-
-<p>このとき、</p>
-
+    -p 8088:8088 \
+    -p 19888:19888 \
+    -p 50070:50070 \
+    hivemall
+</code></pre><p>このとき、</p>
 <ul>
 <li><code>docker-compose.yml</code> で <code>volumes: &quot;../../:/opt/hivemall/&quot;</code> を指定する</li>
 <li><code>docker run</code> にオプション <code>--volume $(pwd):/opt/hivemall</code> を渡す</li>
 </ul>
-
 <p>のいずれかでホストの <code>/path/to/incubator-hivemall</code> をコンテナ上の <code>/opt/hivemall</code> (<code>$HIVEMALL_PATH</code>) にマウントできる。</p>
-
 <p>すると、ローカルで開発→ビルド→コンテナ起動＆マウント、という感じでスムーズにHivemall開発ができます。やったね。</p>
-
-<h3 id="hivemallのビルド-データセット準備">Hivemallのビルド＆データセット準備</h3>
-
+<h3 id="hivemall%E3%81%AE%E3%83%93%E3%83%AB%E3%83%89%EF%BC%86%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%83%83%E3%83%88%E6%BA%96%E5%82%99">Hivemallのビルド＆データセット準備</h3>
 <p>コンテナに入ったならば、とりあえずHiveを起動してみる：</p>
-
 <pre><code># hive
-</code></pre>
-
-<p>このとき、<code>/opt/hivemall</code> に存在するHivemallがビルド済みである（i.e., <code>/opt/hivemall/target/hivemall-core-(バージョン)-with-dependencies.jar</code> が存在する）必要がある。もしビルドされていなければ、（コンテナ内から）ビルドをしてあげる：</p>
-
+</code></pre><p>このとき、<code>/opt/hivemall</code> に存在するHivemallがビルド済みである（i.e., <code>/opt/hivemall/target/hivemall-core-(バージョン)-with-dependencies.jar</code> が存在する）必要がある。もしビルドされていなければ、（コンテナ内から）ビルドをしてあげる：</p>
 <pre><code># cd $HIVEMALL_PATH &amp;&amp; ./bin/build.sh
-</code></pre>
-
-<p>準備OK。</p>
-
-<p>ここで、分類問題のテストデータとして有名な <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set" target="_blank">Iris データセット</a> をHDFSに読み込んでくれるスクリプトがおまけとして <code>$HOME/bin/prepare_iris.sh</code> に用意されているので、これを使ってみる：</p>
-
+</code></pre><p>準備OK。</p>
+<p>ここで、分類問題のテストデータとして有名な <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set">Iris データセット</a> をHDFSに読み込んでくれるスクリプトがおまけとして <code>$HOME/bin/prepare_iris.sh</code> に用意されているので、これを使ってみる：</p>
 <pre><code># cd $HOME &amp;&amp; ./bin/prepare_iris.sh
-</code></pre>
-
-<p>Hiveに入って、読み込んだばかりの Iris データセットを確認：</p>
-
+</code></pre><p>Hiveに入って、読み込んだばかりの Iris データセットを確認：</p>
 <pre><code># hive
 hive&gt; use iris;
 hive&gt; select * from iris_raw limit 5;
@@ -133,16 +92,10 @@ OK
 3       Iris-setosa     [4.7,3.2,1.3,0.2]
 4       Iris-setosa     [4.6,3.1,1.5,0.2]
 5       Iris-setosa     [5.0,3.6,1.4,0.2]
-</code></pre>
-
-<p>よさそう。</p>
-
-<p>ここまでくれば、<a href="https://hivemall.incubator.apache.org/userguide/multiclass/iris_dataset.html" target="_blank">HivemallのIrisチュートリアルのData preparation</a>は終わっているので、RandomForestなり何なりで分類を試すことができる。</p>
-
+</code></pre><p>よさそう。</p>
+<p>ここまでくれば、<a href="https://hivemall.incubator.apache.org/userguide/multiclass/iris_dataset.html">HivemallのIrisチュートリアルのData preparation</a>は終わっているので、RandomForestなり何なりで分類を試すことができる。</p>
 <p>便利な時代になりました。</p>
-
-<h3 id="まとめ">まとめ</h3>
-
+<h3 id="%E3%81%BE%E3%81%A8%E3%82%81">まとめ</h3>
 <ul>
 <li>Hivemall on Docker が整備されている。</li>
 <li>Dockerコンテナで話が進むので「ちょっとHivemall試したい」というときの汎用的かつ簡単な方法としてGood。</li>

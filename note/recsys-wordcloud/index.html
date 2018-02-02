@@ -33,106 +33,75 @@
   <h2>Understanding Research Trends in Recommender Systems from Word Cloud</h2>
 
   <div class="post">
-    
-
-<p>The field of recommender systems grows rapidly according to the recent development of practical intelligent systems. However, even though the field is exceptionally practical compared to the other computer-science-related topics, many researchers are actively studying recommendation techniques in their lab. Here is a question: <strong><em>what are the research trends in recommender systems?</em></strong></p>
-
-<p>I tried to understand the trends from word cloud by using abstract of papers accepted for <a href="https://recsys.acm.org/" target="_blank">ACM RecSys Conference</a>, one of the biggest major conferences on recommendation systems.</p>
-
+    <p>The field of recommender systems grows rapidly according to the recent development of practical intelligent systems. However, even though the field is exceptionally practical compared to the other computer-science-related topics, many researchers are actively studying recommendation techniques in their lab. Here is a question: <strong><em>what are the research trends in recommender systems?</em></strong></p>
+<p>I tried to understand the trends from word cloud by using abstract of papers accepted for <a href="https://recsys.acm.org/">ACM RecSys Conference</a>, one of the biggest major conferences on recommendation systems.</p>
 <h3 id="collecting-abstract-of-accepted-papers">Collecting abstract of accepted papers</h3>
-
-<p>Luckily, abstract of accepted RecSys papers are well-formatted on the web page in terms of HTML structure e.g., <a href="https://recsys.acm.org/recsys17/accepted-contributions/" target="_blank">RecSys 2017 Accepted Contributions</a>. So, first we collect the data in a text format by using a scraping tool, especially <a href="https://scrapy.org/" target="_blank">Scrapy</a> in this article:</p>
-
+<p>Luckily, abstract of accepted RecSys papers are well-formatted on the web page in terms of HTML structure e.g., <a href="https://recsys.acm.org/recsys17/accepted-contributions/">RecSys 2017 Accepted Contributions</a>. So, first we collect the data in a text format by using a scraping tool, especially <a href="https://scrapy.org/">Scrapy</a> in this article:</p>
 <pre><code>$ pip install scrapy
+</code></pre><p>Using Scrapy is quite easy; what I need to do is to implement a scraping module named &quot;Spider&quot;:</p>
+<pre><code class="lang-py">import scrapy
+
+
+class RecSysSpider(scrapy.Spider):
+    name = &#39;recsys-spider&#39;
+
+    def start_requests(self):
+        self.abstract_index = 0
+
+        if not hasattr(self, &#39;yy&#39;):
+            self.yy = &#39;17&#39;
+        elif self.yy == &#39;14&#39;:
+            self.abstract_index = 2
+        elif self.yy not in [&#39;14&#39;, &#39;15&#39;, &#39;16&#39;, &#39;17&#39;]:
+            raise ValueError(&#39;Invalid year: &#39; + self.yy)
+
+        url = &#39;https://recsys.acm.org/recsys{}/accepted-contributions/&#39;.format(self.yy)
+        yield scrapy.Request(url, self.parse)
+
+    def parse(self, response):
+        for elem in response.css(&#39;ul.accordion li&#39;):
+            yield {&#39;abstract&#39;: elem.css(&#39;div p ::text&#39;).extract()[self.abstract_index].strip()}
 </code></pre>
-
-<p>Using Scrapy is quite easy; what I need to do is to implement a scraping module named &ldquo;Spider&rdquo;:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#080;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">scrapy</span>
-
-
-<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">RecSysSpider</span>(scrapy<span style="color:#333">.</span>Spider):
-    name <span style="color:#333">=</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;recsys-spider&#39;</span>
-
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">start_requests</span>(self):
-        self<span style="color:#333">.</span>abstract_index <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>
-
-        <span style="color:#080;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> <span style="color:#007020">hasattr</span>(self, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;yy&#39;</span>):
-            self<span style="color:#333">.</span>yy <span style="color:#333">=</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;17&#39;</span>
-        <span style="color:#080;font-weight:bold">elif</span> self<span style="color:#333">.</span>yy <span style="color:#333">==</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;14&#39;</span>:
-            self<span style="color:#333">.</span>abstract_index <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">2</span>
-        <span style="color:#080;font-weight:bold">elif</span> self<span style="color:#333">.</span>yy <span style="color:#000;font-weight:bold">not</span> <span style="color:#000;font-weight:bold">in</span> [<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;14&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;15&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;16&#39;</span>, <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;17&#39;</span>]:
-            <span style="color:#080;font-weight:bold">raise</span> <span style="color:#f00;font-weight:bold">ValueError</span>(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;Invalid year: &#39;</span> <span style="color:#333">+</span> self<span style="color:#333">.</span>yy)
-
-        url <span style="color:#333">=</span> <span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;https://recsys.acm.org/recsys{}/accepted-contributions/&#39;</span><span style="color:#333">.</span>format(self<span style="color:#333">.</span>yy)
-        <span style="color:#080;font-weight:bold">yield</span> scrapy<span style="color:#333">.</span>Request(url, self<span style="color:#333">.</span>parse)
-
-    <span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">parse</span>(self, response):
-        <span style="color:#080;font-weight:bold">for</span> elem <span style="color:#000;font-weight:bold">in</span> response<span style="color:#333">.</span>css(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;ul.accordion li&#39;</span>):
-            <span style="color:#080;font-weight:bold">yield</span> {<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;abstract&#39;</span>: elem<span style="color:#333">.</span>css(<span style="background-color:#fff0f0"></span><span style="background-color:#fff0f0">&#39;div p ::text&#39;</span>)<span style="color:#333">.</span>extract()[self<span style="color:#333">.</span>abstract_index]<span style="color:#333">.</span>strip()}</code></pre></div>
-<p>This Spider module allows users to pass an argument <code>yy</code> to specify which year&rsquo;s RecSys abstract you want to get.</p>
-
+<p>This Spider module allows users to pass an argument <code>yy</code> to specify which year&#39;s RecSys abstract you want to get.</p>
 <p>Once a user executes the module in a command-line, a list of abstract sentences is stored into a CSV file:</p>
-
 <pre><code>$ scrapy runspider recsys_spider.py -a yy=17 -o csv/recsys17.csv
-</code></pre>
-
-<p>Since the well-structured &ldquo;accepted contributions&rdquo; page only exists from RecSys 2014 to 2017, the argument <code>yy</code> simply has the 4 options. Note that utilizing <code>xargs</code> might be helpful to get all of the four years&rsquo; abstract of papers:</p>
-
+</code></pre><p>Since the well-structured &quot;accepted contributions&quot; page only exists from RecSys 2014 to 2017, the argument <code>yy</code> simply has the 4 options. Note that utilizing <code>xargs</code> might be helpful to get all of the four years&#39; abstract of papers:</p>
 <pre><code>$ echo 14 15 16 17 | xargs -n 1 -I{} scrapy runspider recsys_spider.py -a yy={} -o out/recsys{}.csv
-</code></pre>
-
-<h3 id="creating-word-cloud">Creating word cloud</h3>
-
-<p><a href="https://github.com/amueller/word_cloud" target="_blank">A word cloud generator written in Python</a> provides us a really simple way to create visually stimulating word cloud from text data:</p>
-
+</code></pre><h3 id="creating-word-cloud">Creating word cloud</h3>
+<p><a href="https://github.com/amueller/word_cloud">A word cloud generator written in Python</a> provides us a really simple way to create visually stimulating word cloud from text data:</p>
 <pre><code>$ pip install wordcloud
-</code></pre>
-
-<p>In fact, the generator can be used inside of our Python code, but, in this article, we just use its command-line tool as follows, for the sake of simplicity:</p>
-
+</code></pre><p>In fact, the generator can be used inside of our Python code, but, in this article, we just use its command-line tool as follows, for the sake of simplicity:</p>
 <pre><code>$ wordcloud_cli.py --text input.csv --imagefile output.png
-</code></pre>
-
-<p>Let&rsquo;s create word cloud images from the aggregated abstract of 4 years&rsquo; RecSys papers:</p>
-
+</code></pre><p>Let&#39;s create word cloud images from the aggregated abstract of 4 years&#39; RecSys papers:</p>
 <pre><code>$ echo 14 15 16 17 | xargs -n 1 -I{} wordcloud_cli.py --text csv/recsys{}.csv --imagefile png/recsys{}.png
-</code></pre>
-
-<table>
+</code></pre><table>
 <thead>
 <tr>
-<th align="center">Year</th>
-<th align="center">Word Cloud</th>
+<th style="text-align:center">Year</th>
+<th style="text-align:center">Word Cloud</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="center">2014</td>
-<td align="center"><img src="https://takuti.me/images/wordcloud/recsys2014-raw.png" alt="2014-raw" /></td>
+<td style="text-align:center">2014</td>
+<td style="text-align:center"><img src="https://takuti.me/images/wordcloud/recsys2014-raw.png" alt="2014-raw"></td>
 </tr>
-
 <tr>
-<td align="center">2015</td>
-<td align="center"><img src="https://takuti.me/images/wordcloud/recsys2015-raw.png" alt="2015-raw" /></td>
+<td style="text-align:center">2015</td>
+<td style="text-align:center"><img src="https://takuti.me/images/wordcloud/recsys2015-raw.png" alt="2015-raw"></td>
 </tr>
-
 <tr>
-<td align="center">2016</td>
-<td align="center"><img src="https://takuti.me/images/wordcloud/recsys2016-raw.png" alt="2016-raw" /></td>
+<td style="text-align:center">2016</td>
+<td style="text-align:center"><img src="https://takuti.me/images/wordcloud/recsys2016-raw.png" alt="2016-raw"></td>
 </tr>
-
 <tr>
-<td align="center">2017</td>
-<td align="center"><img src="https://takuti.me/images/wordcloud/recsys2017-raw.png" alt="2017-raw" /></td>
+<td style="text-align:center">2017</td>
+<td style="text-align:center"><img src="https://takuti.me/images/wordcloud/recsys2017-raw.png" alt="2017-raw"></td>
 </tr>
 </tbody>
 </table>
-
-<p>Okay&hellip;the result is trivial&hellip; Everyone commonly uses the terminology of this field such as &ldquo;recommendation,&rdquo; &ldquo;model,&rdquo; &ldquo;user,&rdquo; and &ldquo;item&rdquo; to write their abstract.</p>
-
+<p>Okay...the result is trivial... Everyone commonly uses the terminology of this field such as &quot;recommendation,&quot; &quot;model,&quot; &quot;user,&quot; and &quot;item&quot; to write their abstract.</p>
 <p>In order to make the word cloud images more meaningful, we can use custom stop words, a list of words that we do not want to use to create the images. To give an example, below I list some frequently used terms which has to be omitted:</p>
-
 <pre><code>user
 users
 item
@@ -179,82 +148,59 @@ However
 feature
 preference
 preferences
-</code></pre>
-
-<p>(Complete list with more meaningless terms like preposition can be found <a href="https://github.com/takuti-sandbox/tmp/blob/12b2c4c1c1f60de05e78bb60fc8d84d99cf16385/python/recsys-word-cloud/stopwords.txt" target="_blank">here</a>.)</p>
-
+</code></pre><p>(Complete list with more meaningless terms like preposition can be found <a href="https://github.com/takuti-sandbox/tmp/blob/12b2c4c1c1f60de05e78bb60fc8d84d99cf16385/python/recsys-word-cloud/stopwords.txt">here</a>.)</p>
 <p>Again, create word cloud images with <code>--stopwords</code> option:</p>
-
 <pre><code>$ echo 14 15 16 17 | xargs -n 1 -I{} wordcloud_cli.py --text csv/recsys{}.csv --imagefile png/recsys{}.png --stopwords stopwords.txt
-</code></pre>
-
-<table>
+</code></pre><table>
 <thead>
 <tr>
-<th align="center">Year</th>
-<th align="center">Word Cloud</th>
+<th style="text-align:center">Year</th>
+<th style="text-align:center">Word Cloud</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="center">2014</td>
-<td align="center"><img src="https://takuti.me/images/wordcloud/recsys2014.png" alt="2014" /></td>
+<td style="text-align:center">2014</td>
+<td style="text-align:center"><img src="https://takuti.me/images/wordcloud/recsys2014.png" alt="2014"></td>
 </tr>
-
 <tr>
-<td align="center">2015</td>
-<td align="center"><img src="https://takuti.me/images/wordcloud/recsys2015.png" alt="2015" /></td>
+<td style="text-align:center">2015</td>
+<td style="text-align:center"><img src="https://takuti.me/images/wordcloud/recsys2015.png" alt="2015"></td>
 </tr>
-
 <tr>
-<td align="center">2016</td>
-<td align="center"><img src="https://takuti.me/images/wordcloud/recsys2016.png" alt="2016" /></td>
+<td style="text-align:center">2016</td>
+<td style="text-align:center"><img src="https://takuti.me/images/wordcloud/recsys2016.png" alt="2016"></td>
 </tr>
-
 <tr>
-<td align="center">2017</td>
-<td align="center"><img src="https://takuti.me/images/wordcloud/recsys2017.png" alt="2017" /></td>
+<td style="text-align:center">2017</td>
+<td style="text-align:center"><img src="https://takuti.me/images/wordcloud/recsys2017.png" alt="2017"></td>
 </tr>
 </tbody>
 </table>
-
 <p>Yay, it looks much more interesting :)</p>
-
 <h3 id="trends-from-rating-to-more-realistic-scenario">Trends: From rating to more realistic scenario</h3>
-
-<p>Historically, the study on recommender systems starts from user-item rating matrix as what the <a href="https://movielens.org/" target="_blank">GroupLens</a> research group did on the <a href="https://movielens.org/" target="_blank">MovieLens</a> data. More specifically, a term &ldquo;recommender systems&rdquo; simply refers one well-known technique named <strong><a href="https://en.wikipedia.org/wiki/Collaborative_filtering" target="_blank">Collaborative Filtering</a></strong> (or <strong>Matrix Factorization</strong> in some sense).</p>
-
-<p>Here, see the word cloud from 2014 and 2015 papers; we can observe that research related to &ldquo;<strong>rating</strong>&rdquo; data played an important role until a couple of years ago.</p>
-
-<p>In addition, we can easily find the name of classical, powerful techniques, &ldquo;<strong>matrix factorization</strong>&rdquo; and &ldquo;<strong>collaborative filtering</strong>,&rdquo; in the images. (These are a little bit small and have unreadable dark colors, though.)</p>
-
-<p>On the other hand, in 2016 and 2017, &ldquo;<strong>rating</strong>&rdquo; gets much smaller than the past two years, and it is really hard (and impossible for me) to look for &ldquo;<strong>matrix factorization</strong>&rdquo; and/or &ldquo;<strong>collaborative filtering</strong>.&rdquo;</p>
-
+<p>Historically, the study on recommender systems starts from user-item rating matrix as what the <a href="https://movielens.org/">GroupLens</a> research group did on the <a href="https://movielens.org/">MovieLens</a> data. More specifically, a term &quot;recommender systems&quot; simply refers one well-known technique named <strong><a href="https://en.wikipedia.org/wiki/Collaborative_filtering">Collaborative Filtering</a></strong> (or <strong>Matrix Factorization</strong> in some sense).</p>
+<p>Here, see the word cloud from 2014 and 2015 papers; we can observe that research related to &quot;<strong>rating</strong>&quot; data played an important role until a couple of years ago.</p>
+<p>In addition, we can easily find the name of classical, powerful techniques, &quot;<strong>matrix factorization</strong>&quot; and &quot;<strong>collaborative filtering</strong>,&quot; in the images. (These are a little bit small and have unreadable dark colors, though.)</p>
+<p>On the other hand, in 2016 and 2017, &quot;<strong>rating</strong>&quot; gets much smaller than the past two years, and it is really hard (and impossible for me) to look for &quot;<strong>matrix factorization</strong>&quot; and/or &quot;<strong>collaborative filtering</strong>.&quot;</p>
 <p>Instead of the well-known type of data and techniques, words in the 2016 and 2017 images demonstrate how researchers focused more on realistic tasks:</p>
-
 <ul>
-<li><strong>Online</strong>
-
-<ul>
+<li><strong>Online</strong><ul>
 <li>Online, incremental setting for building recommendation model</li>
 <li>Online services</li>
-</ul></li>
-<li><strong>Group</strong>
-
-<ul>
-<li>Group recommendation</li>
-</ul></li>
-<li><strong>Review</strong></li>
-<li><strong>Product</strong>
-
-<ul>
-<li>Data from real-world services such as e-commerce</li>
-</ul></li>
 </ul>
-
+</li>
+<li><strong>Group</strong><ul>
+<li>Group recommendation</li>
+</ul>
+</li>
+<li><strong>Review</strong></li>
+<li><strong>Product</strong><ul>
+<li>Data from real-world services such as e-commerce</li>
+</ul>
+</li>
+</ul>
 <p>Of course, we cannot conclude by just using the limited amount of data, and some actual trends are very similar to the field of machine learning e.g., deep learning for recommender systems. However, at the same time, I strongly believe that recommender research focuses more and more on realistic scenarios in the future as the word cloud illustrates.</p>
-
 <p>Data for the highly practical applications always comes from a wide variety of real-world user-item interactions, and it is not limited to ratings on a 2-dimensional matrix.</p>
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>

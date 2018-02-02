@@ -33,139 +33,84 @@
   <h2>How to Derive the Normal Equation</h2>
 
   <div class="post">
-    
-
-<p>In the linear regression tasks, the normal equation is widely used to find optimal parameters. However, <a href="http://www.springer.com/gp/book/9780387310732" target="_blank">Pattern Recognition and Machine Learning</a> (RPML), one of the most popular machine learning textbooks, does not explain details of the derivation process. So, this article demonstrates how to derive the equation.</p>
-
+    <p>In the linear regression tasks, the normal equation is widely used to find optimal parameters. However, <a href="http://www.springer.com/gp/book/9780387310732">Pattern Recognition and Machine Learning</a> (RPML), one of the most popular machine learning textbooks, does not explain details of the derivation process. So, this article demonstrates how to derive the equation.</p>
 <h3 id="linear-regression-model">Linear regression model</h3>
-
 <p>We define linear regression model as:</p>
-
-<p>$$
-y = \textbf{w}^{\mathrm{T}}\phi(\textbf{x})
-$$</p>
-
-<p>for a input vector $\textbf{x}$, base function $\phi$ and output $y$.</p>
-
+<script type="math/tex; mode=display">
+y = \textbf{w}^{\mathrm{T}}\phi(\textbf{x})</script><p>for a input vector $\textbf{x}$, base function $\phi$ and output $y$.</p>
 <p>The main task is to find an optimal parameter $\textbf{w}$ from $N$ learning data sets, $(\textbf{x}_1, t_1), (\textbf{x}_2, t_2), \ldots, (\textbf{x}_N, t_N)$. As a result of such learning step, we can predict output for any input $\textbf{x}$.</p>
-
 <h3 id="least-squares-method">Least squares method</h3>
-
 <p>How can we estimate an optimal parameter $\textbf{w}$? The answer is quite simple: minimization of the total prediction error. When we already have parameters, the total prediction error for the $N$ learning data may be computed by $\sum_{n=1}^{N} (t_n-\textbf{w}^{\mathrm{T}}\phi(\textbf{x}_n))$. Is it correct?</p>
-
-<p>Unfortunately, this formula has two problems. First, if learning data such that $t_n-\textbf{w}^{\mathrm{T}}\phi(\textbf{x}_n)&lt; 0$ exists, above formula does not represent &ldquo;total error&rdquo;. Second, since the formula is linear for $\textbf{w}$, we cannot minimize it. Thus, squared error function $E(\textbf{w})$ is considered as:</p>
-
-<p>$$
-E(\textbf{w}) = \sum_{n=1}^{N} (t_n-\textbf{w}^{\mathrm{T}}\phi(\textbf{x}_n))^2.
-$$</p>
-
-<p>$E(\textbf{w})$ is a quadratic function, and it will be concave up. So, we can minimize it by finding $\textbf{w}$ which satisfies $\frac{\partial E}{\partial \textbf{w}} = 0$.</p>
-
+<p>Unfortunately, this formula has two problems. First, if learning data such that $t_n-\textbf{w}^{\mathrm{T}}\phi(\textbf{x}_n)&lt; 0$ exists, above formula does not represent &quot;total error&quot;. Second, since the formula is linear for $\textbf{w}$, we cannot minimize it. Thus, squared error function $E(\textbf{w})$ is considered as:</p>
+<script type="math/tex; mode=display">
+E(\textbf{w}) = \sum_{n=1}^{N} (t_n-\textbf{w}^{\mathrm{T}}\phi(\textbf{x}_n))^2.</script><p>$E(\textbf{w})$ is a quadratic function, and it will be concave up. So, we can minimize it by finding $\textbf{w}$ which satisfies $\frac{\partial E}{\partial \textbf{w}} = 0$.</p>
 <p>Note that, in the PRML, squared error function is represented as $E(\textbf{w}) = \frac{1}{2} \sum_{n=1}^{N} (t_n-\textbf{w}^{\mathrm{T}}\phi(\textbf{x}_n))^2$ with mysterious $\frac{1}{2}$, but it just deletes $2$ in $\frac{\partial E}{\partial \textbf{w}}$. Hence, the coefficient is not so important to understand the normal equation.</p>
-
 <h3 id="normal-equation">Normal equation</h3>
-
 <p>For the reasons that I mentioned above, we want to obtain $\frac{\partial E}{\partial \textbf{w}}$. For better understanding, I will first check the result of vector derivation for a small example. When we have just one learning data, and input vector has two dimensions, the squared error function is:</p>
-
-<p>$$
+<script type="math/tex; mode=display">
 E(\textbf{w}) = \sum_{n=1}^{1} (t_n-\textbf{w}^{\mathrm{T}}\phi(\textbf{x}_n))^2
 = \left( t_1- \left(
     \begin{array}{c}
-      w_0 \<br />
+      w_0 \\\\
       w_1
     \end{array}
   \right)^{\mathrm{T}}
   \left(
     \begin{array}{c}
-      \phi_0 \<br />
+      \phi_0 \\\\
       \phi_1
     \end{array}
   \right)\right)^2
-= (t_1 - w_0\phi_0 - w_1\phi_1)^2.
-$$</p>
-
-<p>Also,</p>
-
-<p>$$
+= (t_1 - w_0\phi_0 - w_1\phi_1)^2.</script><p>Also,</p>
+<script type="math/tex; mode=display">
 \frac{\partial E}{\partial \textbf{w}}
 = \left(
     \begin{array}{c}
-      \frac{\partial E}{\partial w_0} \<br />
+      \frac{\partial E}{\partial w_0} \\\\
       \frac{\partial E}{\partial w_1}
     \end{array}
-  \right).
-$$</p>
-
-<p>For instance,</p>
-
-<p>$$
+  \right).</script><p>For instance,</p>
+<script type="math/tex; mode=display">
 \begin{array}{ccl}
-\frac{\partial E}{\partial w_0} &amp;=&amp; 2(t_1 - w_0\phi_0 - w_1\phi_1) \cdot \frac{\partial}{\partial w_0}(t_1 - w_0\phi_0 - w_1\phi_1) \<br />
-&amp;=&amp; 2(t_1 - w_0\phi_0 - w_1\phi_1) \cdot (-\phi_0).
-\end{array}
-$$</p>
-
-<p>As a consequence,</p>
-
-<p>$$
+\frac{\partial E}{\partial w_0} &=& 2(t_1 - w_0\phi_0 - w_1\phi_1) \cdot \frac{\partial}{\partial w_0}(t_1 - w_0\phi_0 - w_1\phi_1) \\\\
+&=& 2(t_1 - w_0\phi_0 - w_1\phi_1) \cdot (-\phi_0).
+\end{array}</script><p>As a consequence,</p>
+<script type="math/tex; mode=display">
 \frac{\partial E}{\partial \textbf{w}}
 = -2(t_1 - w_0\phi_0 - w_1\phi_1) \left(
     \begin{array}{c}
-      \phi_0 \<br />
+      \phi_0 \\\\
       \phi_1
     \end{array}
-  \right).
-$$</p>
-
-<p>By extending this simple example to arbitrary $N$ and dimensions,</p>
-
-<p>$$
+  \right).</script><p>By extending this simple example to arbitrary $N$ and dimensions,</p>
+<script type="math/tex; mode=display">
 \begin{array}{ccl}
 \frac{\partial E}{\partial \textbf{w}}
-&amp;=&amp; -2 \sum_{n=1}^{N} ((t_n-\textbf{w}^{\mathrm{T}}\phi_n)\cdot\phi<em>n ) \<br />
-&amp;=&amp;-2 \sum</em>{n=1}^{N} ((t_n-\textbf{w}^{\mathrm{T}}\phi_n)\cdot\phi<em>n ) \<br />
-&amp;=&amp; -2 \sum</em>{n=1}^{N} t_n\phi<em>n +2 \sum</em>{n=1}^{N}(\textbf{w}^{\mathrm{T}}\phi_n ) \cdot \phi<em>n \<br />
-&amp;=&amp; -2 \sum</em>{n=1}^{N} t_n\phi<em>n +2 \left(\sum</em>{n=1}^{N}\phi_n \phi_n^{\mathrm{T}}\right)\textbf{w},
-\end{array}
-$$</p>
-
-<p>with $\phi(\textbf{x}_n)=\phi_n$. Importantly, since $\textbf{w}^{\mathrm{T}}\phi_n$ is scalar, exchangeable parts exist as: $\textbf{w}^{\mathrm{T}}\phi_n = \phi_n^{\mathrm{T}}\textbf{w}$, and $(\phi_n^{\mathrm{T}}\textbf{w})\cdot\phi_n = \phi_n \cdot (\phi_n^{\mathrm{T}}\textbf{w}) = (\phi_n\phi_n^{\mathrm{T}})\cdot\textbf{w}$.</p>
-
+&=& -2 \sum_{n=1}^{N} ((t_n-\textbf{w}^{\mathrm{T}}\phi_n)\cdot\phi_n ) \\\\
+&=&-2 \sum_{n=1}^{N} ((t_n-\textbf{w}^{\mathrm{T}}\phi_n)\cdot\phi_n ) \\\\
+&=& -2 \sum_{n=1}^{N} t_n\phi_n +2 \sum_{n=1}^{N}(\textbf{w}^{\mathrm{T}}\phi_n ) \cdot \phi_n \\\\
+&=& -2 \sum_{n=1}^{N} t_n\phi_n +2 \left(\sum_{n=1}^{N}\phi_n \phi_n^{\mathrm{T}}\right)\textbf{w},
+\end{array}</script><p>with $\phi(\textbf{x}_n)=\phi_n$. Importantly, since $\textbf{w}^{\mathrm{T}}\phi_n$ is scalar, exchangeable parts exist as: $\textbf{w}^{\mathrm{T}}\phi_n = \phi_n^{\mathrm{T}}\textbf{w}$, and $(\phi_n^{\mathrm{T}}\textbf{w})\cdot\phi_n = \phi_n \cdot (\phi_n^{\mathrm{T}}\textbf{w}) = (\phi_n\phi_n^{\mathrm{T}})\cdot\textbf{w}$.</p>
 <p>Next, we solve the equation for $\textbf{w}$ as:</p>
-
-<p>$$
+<script type="math/tex; mode=display">
 \begin{array}{rcl}
--2 \sum_{n=1}^{N} t_n\phi<em>n +2 \left(\sum</em>{n=1}^{N}\phi_n \phi<em>n^{\mathrm{T}}\right)\textbf{w} &amp;=&amp; 0 \<br />
-\left(\sum</em>{n=1}^{N}\phi_n \phi<em>n^{\mathrm{T}}\right)\textbf{w} &amp;=&amp; \sum</em>{n=1}^{N} t_n\phi<em>n \<br />
-\textbf{w} &amp;=&amp; \left(\sum</em>{n=1}^{N}\phi_n \phi<em>n^{\mathrm{T}}\right)^{-1}\sum</em>{n=1}^{N} t_n\phi_n.
-\end{array}
-$$</p>
-
-<p>Additionally, the PRML introduces <strong>design matrix</strong> by:</p>
-
-<p>$$
+-2 \sum_{n=1}^{N} t_n\phi_n +2 \left(\sum_{n=1}^{N}\phi_n \phi_n^{\mathrm{T}}\right)\textbf{w} &=& 0 \\\\
+\left(\sum_{n=1}^{N}\phi_n \phi_n^{\mathrm{T}}\right)\textbf{w} &=& \sum_{n=1}^{N} t_n\phi_n \\\\
+\textbf{w} &=& \left(\sum_{n=1}^{N}\phi_n \phi_n^{\mathrm{T}}\right)^{-1}\sum_{n=1}^{N} t_n\phi_n.
+\end{array}</script><p>Additionally, the PRML introduces <strong>design matrix</strong> by:</p>
+<script type="math/tex; mode=display">
 \phi = \left(
     \begin{array}{cccc}
-      \phi_0(\textbf{x}_1) &amp; \phi_1(\textbf{x}<em>1) &amp; \ldots &amp; \phi</em>{M-1}(\textbf{x}_1) \<br />
-      \phi_0(\textbf{x}_2) &amp; \phi_1(\textbf{x}<em>2) &amp; \ldots &amp; \phi</em>{M-1}(\textbf{x}_2) \<br />
-      \vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br />
-      \phi_0(\textbf{x}_N) &amp; \phi_1(\textbf{x}<em>N) &amp; \ldots &amp; \phi</em>{M-1}(\textbf{x}_N)
+      \phi_0(\textbf{x}_1) & \phi_1(\textbf{x}_1) & \ldots & \phi_{M-1}(\textbf{x}_1) \\\\
+      \phi_0(\textbf{x}_2) & \phi_1(\textbf{x}_2) & \ldots & \phi_{M-1}(\textbf{x}_2) \\\\
+      \vdots & \vdots & \ddots & \vdots \\\\
+      \phi_0(\textbf{x}_N) & \phi_1(\textbf{x}_N) & \ldots & \phi_{M-1}(\textbf{x}_N)
      \end{array}
-  \right)
-$$</p>
-
-<p>for $M$, dimensions of input vector. It can be simply written as $\phi = \left[\phi_1 \ \phi_2 \ldots \phi_N \right]$. Therefore, we can easily confirm $\sum_{n=1}^{N} \phi_n \phi_n^{\mathrm{T}} = \phi^{\mathrm{T}} \phi$, and $\sum_{n=1}^{N} t_n\phi_n = \phi^{\mathrm{T}} \textbf{t}$.</p>
-
+  \right)</script><p>for $M$, dimensions of input vector. It can be simply written as $\phi = \left[\phi_1 \ \phi_2 \ldots \phi_N \right]$. Therefore, we can easily confirm $\sum_{n=1}^{N} \phi_n \phi_n^{\mathrm{T}} = \phi^{\mathrm{T}} \phi$, and $\sum_{n=1}^{N} t_n\phi_n = \phi^{\mathrm{T}} \textbf{t}$.</p>
 <p>Finally, we get the normal equation with the design matrix:</p>
-
-<p>$$
-\textbf{w} = (\phi^{\mathrm{T}}\phi)^{-1}\phi^{\mathrm{T}}\textbf{t}.
-$$</p>
-
-<p>Now, we can find an optimal parameter for any learning data $(\mathbf{x}_1, t_1), (\mathbf{x}_2, t_2), \cdots, (\mathbf{x}_N, t_N)$ by computing the equation.</p>
-
+<script type="math/tex; mode=display">
+\textbf{w} = (\phi^{\mathrm{T}}\phi)^{-1}\phi^{\mathrm{T}}\textbf{t}.</script><p>Now, we can find an optimal parameter for any learning data $(\mathbf{x}_1, t_1), (\mathbf{x}_2, t_2), \cdots, (\mathbf{x}_N, t_N)$ by computing the equation.</p>
 <h3 id="conclusion">Conclusion</h3>
-
 <ul>
 <li>The PRML book does not explain details of derivation process of the normal equation.</li>
 <li>I derive the normal equation step-by-step from the definition of linear regression models.</li>
@@ -180,11 +125,11 @@ $$</p>
   <ul>
   
     
-    <li><a href="https://takuti.me/note/pytorch-autograd/">PyTorchのautogradと仲良くなりたい</a>
-    
     <li><a href="https://takuti.me/note/hugo-kramdown-and-katex/">Hugo meets kramdown &#43; KaTeX #gohugo</a>
     
     <li><a href="https://takuti.me/note/slim/">&#34;SLIM: Sparse Linear Methods for Top-N Recommender Systems&#34;を読んだ</a>
+    
+    <li><a href="https://takuti.me/note/mlss-kyoto-2015/">Machine Learning Summer School 2015 Kyoto #MLSSKYOTO</a>
     
   
   </ul>

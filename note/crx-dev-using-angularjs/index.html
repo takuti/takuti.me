@@ -33,19 +33,19 @@
   <h2>AngularJSでChromeExtension開発をするならCSPに気をつけよう</h2>
 
   <div class="post">
-    <p><a href="http://blog.takuti.me/hello-chrome-extension/">初めてのChromeExtensionを作った</a>後に<a href="http://blog.takuti.me/hello-angularjs/">AngularJSに触れて</a>、最初は<strong>「ChromeExtensionをAngularJS使って作ることができたらChromeの右上ライフが捗る！？」</strong>なんて思って試したわけですが、何故かAngularJSが動かず諦めていました。</p>
-<p>それを最近ふと思い出したので調べてみたら、ChromeExtensionの<strong>CSP</strong>  (<strong>C</strong>ontent <strong>S</strong>ecurity <strong>P</strong>olicy) が原因だったことがあっさりと分かって解決したのでメモ。</p>
-<h3>結論</h3>
-<p>AngularJSでChromeExtension開発をするためにやるべきことは以下の2つ。</p>
-<ol>
-<li>ng-appの横にng-cspと書いてあげる</li>
-<li><a href="http://code.angularjs.org/snapshot/angular-csp.css">angular-csp.css</a>をローカルに持ってきてロードしてあげる</li>
-</ol>
-<p>以下詳細。<br />
-<!--more--></p>
-<h3>CSP (Content Security Policy) とは</h3>
-<p>すごーくざっくりと言えば、XSSをはじめとする<strong>攻撃に利用されそうな機能に対して与える制限</strong>のこと。</p>
-<p>そのような機能の分かりやすい例としては<strong>eval()</strong>でしょう。ご存知の通りevalは与えられた文字列をソースとしてなんでもかんでも解釈・実行してしまうため、脆弱性があった際に与える影響は絶大です。</p>
+    <p><p><a href="http://blog.takuti.me/hello-chrome-extension/">初めてのChromeExtensionを作った</a>後に<a href="http://blog.takuti.me/hello-angularjs/">AngularJSに触れて</a>、最初は<strong>「ChromeExtensionをAngularJS使って作ることができたらChromeの右上ライフが捗る！？」</strong>なんて思って試したわけですが、何故かAngularJSが動かず諦めていました。</p></p>
+<p><p>それを最近ふと思い出したので調べてみたら、ChromeExtensionの<strong>CSP</strong>  (<strong>C</strong>ontent <strong>S</strong>ecurity <strong>P</strong>olicy) が原因だったことがあっさりと分かって解決したのでメモ。</p></p>
+<p><h3>結論</h3></p>
+<p><p>AngularJSでChromeExtension開発をするためにやるべきことは以下の2つ。</p></p>
+<p><ol></p>
+<p><li>ng-appの横にng-cspと書いてあげる</li></p>
+<p><li><a href="http://code.angularjs.org/snapshot/angular-csp.css">angular-csp.css</a>をローカルに持ってきてロードしてあげる</li>
+</ol></p>
+<p><p>以下詳細。<br />
+<!--more--></p></p>
+<p><h3>CSP (Content Security Policy) とは</h3></p>
+<p><p>すごーくざっくりと言えば、XSSをはじめとする<strong>攻撃に利用されそうな機能に対して与える制限</strong>のこと。</p></p>
+<p><p>そのような機能の分かりやすい例としては<strong>eval()</strong>でしょう。ご存知の通りevalは与えられた文字列をソースとしてなんでもかんでも解釈・実行してしまうため、脆弱性があった際に与える影響は絶大です。</p></p>
 <div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom: 1;overflow: hidden;">
 <div class="booklink-image" style="float:left;margin:0 15px 10px 0;"><a href="http://www.amazon.co.jp/exec/obidos/asin/4797361190/takuti-22/" name="booklink" rel="nofollow" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41lX6Fg5KpL._SL160_.jpg" style="border: none;" /></a></div>
 <div class="booklink-info" style="line-height:120%;/zoom: 1;overflow: hidden;">

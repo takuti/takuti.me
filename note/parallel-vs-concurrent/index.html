@@ -33,30 +33,18 @@
   <h2>Parallel Programming vs. Concurrent Programming</h2>
 
   <div class="post">
-    
-
-<p>What is the difference between <strong>parallel programming</strong> and <strong>concurrent programming</strong>? There is a lot of definitions in the literature.</p>
-
-<h3 id="executing-simultaneously-vs-in-progress-at-the-same-time">&ldquo;Executing simultaneously&rdquo; vs. &ldquo;<em>in progress</em> at the same time&rdquo;</h3>
-
-<p>For instance, <strong><a href="http://shop.oreilly.com/product/9780596521547.do" target="_blank">The Art of Concurrency</a></strong> defines the difference as follows:</p>
-
+    <p>What is the difference between <strong>parallel programming</strong> and <strong>concurrent programming</strong>? There is a lot of definitions in the literature.</p>
+<h3 id="-executing-simultaneously-vs-in-progress-at-the-same-time">&quot;Executing simultaneously&quot; vs. &quot;<em>in progress</em> at the same time&quot;</h3>
+<p> For instance, <strong><a href="http://shop.oreilly.com/product/9780596521547.do">The Art of Concurrency</a></strong> defines the difference as follows:</p>
 <blockquote>
-<p>A system is said to be <em>concurrent</em> if it can support two or more actions <em>in progress</em> at the same time. A system is said to be <em>parallel</em> if it can support two or more actions executing simultaneously. The key concept and difference between these definitions is the phrase &ldquo;in progress.&rdquo;</p>
+<p>A system is said to be <em>concurrent</em> if it can support two or more actions <em>in progress</em> at the same time. A system is said to be <em>parallel</em> if it can support two or more actions executing simultaneously. The key concept and difference between these definitions is the phrase &quot;in progress.&quot;</p>
 </blockquote>
-
-<p>This definition says that, in concurrent systems, multiple actions can be <em>in progress</em> (may not be executed) at the same time. Meanwhile, multiple actions are simultaneously executed in parallel systems. In fact, concurrency and parallelism are conceptually overlapped to some degree, but &ldquo;in progress&rdquo; clearly makes them different.</p>
-
-<p>Even though such definition is concrete and precise, it is not intuitive enough; we cannot easily imagine what &ldquo;in progress&rdquo; indicates.</p>
-
-<p>Recently, I am taking an online course <a href="https://www.coursera.org/learn/parprog1/" target="_blank">Parallel Programming</a> on Coursera, and the course gave me more intuitive and easy-to-understand definition of parallel and concurrent programming as follows.</p>
-
+<p>This definition says that, in concurrent systems, multiple actions can be <em>in progress</em> (may not be executed) at the same time. Meanwhile, multiple actions are simultaneously executed in parallel systems. In fact, concurrency and parallelism are conceptually overlapped to some degree, but &quot;in progress&quot; clearly makes them different.</p>
+<p>Even though such definition is concrete and precise, it is not intuitive enough; we cannot easily imagine what &quot;in progress&quot; indicates.</p>
+<p>Recently, I am taking an online course <a href="https://www.coursera.org/learn/parprog1/">Parallel Programming</a> on Coursera, and the course gave me more intuitive and easy-to-understand definition of parallel and concurrent programming as follows.</p>
 <h3 id="parallel-efficiency-is-its-main-concern">Parallel: Efficiency is its main concern</h3>
-
 <p>When we consider parallel programming, programs use parallel hardwares to <strong>execute computation more quickly</strong>.</p>
-
-<p>Here, &ldquo;parallel hardwares&rdquo; could be:</p>
-
+<p>Here, &quot;parallel hardwares&quot; could be:</p>
 <ul>
 <li>multi-core processors</li>
 <li>symmetric multiprocessors</li>
@@ -64,32 +52,22 @@
 <li>field-programmable gate arrays (FPGAs)</li>
 <li>computer clusters</li>
 </ul>
-
 <p>in wide-ranging scale.</p>
-
 <p>More concretely, parallel programming requires us to think about:</p>
-
 <ul>
-<li>How does code divide original huge problem into smaller sub-problems?</li>
+<li>How does code divide original huge problem into smaller sub-problems? </li>
 <li>Which is the optimal use of parallel hardware?</li>
 </ul>
-
 <p>Since parallel programming strongly focuses on <strong>speeding-up</strong> computational time, applications such as matrix multiplication, data analysis, 3D rendering and particle simulation can be discussed in the paradigm.</p>
-
 <h3 id="concurrent-modularity-responsiveness-and-maintainability-are-important">Concurrent: Modularity, responsiveness and maintainability are important</h3>
-
 <p>In parallel programming, multiple actions are strictly executed at the same time to improve efficiency. By contrast, multiple actions are not necessarily to be executed simultaneously in concurrent programming because of <strong>user-side manageability</strong>.</p>
-
 <p>Concurrency cares about beyond efficiency, and our main concern is:</p>
-
 <ul>
 <li>When can an execution start?</li>
 <li>How can information exchange occur?</li>
 <li>How does code manage access to shared resources?</li>
 </ul>
-
 <p>Well-organized practical applications such as web server, user interface and database should be implement in the concurrent paradigm. Even if parallelism is lost to some degree, <strong>convenience</strong> behind systems is more important in concurrent programming.</p>
-
 <p>Distinguishing parallelism from concurrency is important to seek an appropriate way to solve large scale problems, but they are considered interchangeably in reality. The definitions provided by the online course are tremendously valuable to figure out the very similar but different two paradigms.</p>
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>

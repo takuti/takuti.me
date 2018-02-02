@@ -33,151 +33,108 @@
   <h2>Yahoo!の異常検知フレームワーク&#34;EGADS&#34;</h2>
 
   <div class="post">
-    
-
-<p>Yahoo!がOSSとして開発している異常検知フレームワーク &ldquo;<strong><a href="https://github.com/yahoo/egads" target="_blank">EGADS</a></strong>&rdquo; (<strong>E</strong>xtensible <strong>G</strong>eneric <strong>A</strong>nomaly <strong>D</strong>etection <strong>S</strong>ystem) について書いた次の論文を読んだ：</p>
-
+    <p>Yahoo!がOSSとして開発している異常検知フレームワーク &quot;<strong><a href="https://github.com/yahoo/egads">EGADS</a></strong>&quot; (<strong>E</strong>xtensible <strong>G</strong>eneric <strong>A</strong>nomaly <strong>D</strong>etection <strong>S</strong>ystem) について書いた次の論文を読んだ：</p>
 <ul>
-<li><a href="http://dl.acm.org/citation.cfm?id=2788611" target="_blank">Generic and Scalable Framework for Automated Time-series Anomaly Detection</a> (KDD 2015)</li>
+<li><a href="http://dl.acm.org/citation.cfm?id=2788611">Generic and Scalable Framework for Automated Time-series Anomaly Detection</a> (KDD 2015)</li>
 </ul>
-
 <p>リアルタイムなデータをモデリングする種のアルゴリズムの実装とはどうあるべきなのか、という話は難しい。</p>
-
-<p>僕も<a href="https://github.com/takuti/anompy" target="_blank">異常検知</a>や<a href="https://github.com/takuti/flurs" target="_blank">情報推薦</a>のためのアルゴリズムをパッケージ化してみてはいるものの、</p>
-
+<p>僕も<a href="https://github.com/takuti/anompy">異常検知</a>や<a href="https://github.com/takuti/flurs">情報推薦</a>のためのアルゴリズムをパッケージ化してみてはいるものの、</p>
 <ul>
 <li>時系列データの入力、モデリング、予測、出力といったコンポーネントをいかに切り分けて実装するか</li>
 <li>バッチとオンラインアルゴリズムのバランスをいかに取るか</li>
 <li>どこまで自動化して、どこにヒューリスティクスを取り入れる余地を残すか</li>
 </ul>
-
 <p>といった点は本当に悩ましい。その点、この論文は1つの事例としてとても示唆的で、学びの多いものだった。</p>
-
-<h3 id="概要">概要</h3>
-
-<p>大規模な時系列データから自動的に異常を検知してくれる、汎用的かつスケーラブルなフレームワーク &ldquo;EGADS&rdquo; を開発した。これはYahoo!社内のモニタリングシステムの一部として実用されていて、複数データソースから流れ込む数百万の時系列データをさばいている。</p>
-
+<h3 id="%E6%A6%82%E8%A6%81">概要</h3>
+<p>大規模な時系列データから自動的に異常を検知してくれる、汎用的かつスケーラブルなフレームワーク &quot;EGADS&quot; を開発した。これはYahoo!社内のモニタリングシステムの一部として実用されていて、複数データソースから流れ込む数百万の時系列データをさばいている。</p>
 <p>昨今の異常検知システムは特定のユースケースに最適化されたものであることが多く、素直に応用すると必ず大量のFalse Positiveとスケーラビリティの問題に直面する。</p>
-
 <p>その点EGADSはHadoopやStormを組み合わせた実践的、スケーラブルかつリアルタイムな異常検知システムであり、複数のアルゴリズム実装と機械学習による“異常”のフィルタリング機構によって幅広い応用が可能。</p>
-
-<h3 id="アーキテクチャ">アーキテクチャ</h3>
-
+<h3 id="%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3">アーキテクチャ</h3>
 <p>EGADSは大きく分けて3つのコンポーネントから成る：</p>
-
 <ol>
-<li><strong>Time-series modeling module</strong> (TMM)
-
-<ul>
+<li><strong>Time-series modeling module</strong> (TMM)<ul>
 <li>時系列データをモデリングする</li>
-</ul></li>
-<li><strong>Anomaly detection module</strong> (ADM)
-
-<ul>
+</ul>
+</li>
+<li><strong>Anomaly detection module</strong> (ADM)<ul>
 <li>モデルに基づいて異常な入力データを検知する</li>
-</ul></li>
-<li><strong>Alerting module</strong> (AM)
-
-<ul>
+</ul>
+</li>
+<li><strong>Alerting module</strong> (AM)<ul>
 <li>検知された異常なデータをフィルタリングして、“ユーザが着目している異常”についてのみアラートを発する</li>
-</ul></li>
+</ul>
+</li>
 </ol>
-
-<p><img src="https://takuti.me/images/egads/architecture.png" alt="architecture" /></p>
-
+<p><img src="https://takuti.me/images/egads/architecture.png" alt="architecture"></p>
 <p>（原論文Fig. 1より）</p>
-
 <ul>
-<li>バッチ
-
-<ol>
+<li>バッチ<ol>
 <li>観測した時系列データをHadoopクラスタ上で保持</li>
 <li>TMMが蓄積された観測データをバッチでモデリング</li>
 <li>モデルはModel DBに格納</li>
-</ol></li>
-<li>オンライン
-
-<ol>
+</ol>
+</li>
+<li>オンライン<ol>
 <li>Stormでリアルタイムにデータを見る</li>
 <li>Model DBのモデルを使って観測したデータが異常か否かを検知するモジュール (ADM) をかませる</li>
 <li>異常と判断されたデータはAMで更にフィルタリング、“ユーザが着目している異常”ならばアラート</li>
-</ol></li>
+</ol>
+</li>
 </ul>
-
 <p>このバッチとオンライン処理の切り分けから、『モデリングに関する計算は可能な限り事前に済ませておく』というスループット/スケーラビリティ向上に対する強い意思がうかがえる。</p>
-
 <p>また、本文で言及されていることとして次のような視点もある：</p>
-
 <ul>
-<li>モデルはインメモリで保持したい
-
-<ul>
+<li>モデルはインメモリで保持したい<ul>
 <li>複数の類似する時系列データに対してモデルを共有すれば、余計なモデルを持たなくていい</li>
-</ul></li>
-<li>オンラインアルゴリズムを検討する
-
-<ul>
+</ul>
+</li>
+<li>オンラインアルゴリズムを検討する<ul>
 <li>モデルのWrite回数が増えるのは注意</li>
-</ul></li>
+</ul>
+</li>
 <li>サイズ、学習時間、精度のトレードオフを常に意識する</li>
 </ul>
-
-<h3 id="異常検知アルゴリズム">異常検知アルゴリズム</h3>
-
+<h3 id="%E7%95%B0%E5%B8%B8%E6%A4%9C%E7%9F%A5%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0">異常検知アルゴリズム</h3>
 <p>EGADSは豊富な異常検知アルゴリズムを実装しているが、一口に“異常“と言ってもいくつかのタイプが存在する：</p>
-
 <ul>
-<li>タイプ1: <strong>Outlier</strong>（外れ値）
-
-<ul>
+<li>タイプ1: <strong>Outlier</strong>（外れ値）<ul>
 <li>モデルに基づく予測値から著しくかけ離れている観測<strong>点</strong></li>
-<li>手法1: plug-in method
-
-<ul>
-<li>正常な状態をモデリングして、そこからどれだけ外れているかをみる
-
-<ul>
+<li>手法1: plug-in method<ul>
+<li>正常な状態をモデリングして、そこからどれだけ外れているかをみる<ul>
 <li>ARIMA, Exponential Smoothing, カルマンフィルタなど</li>
-</ul></li>
+</ul>
+</li>
 <li>「正常なら次の観測値はこれくらいのはず」という予測を機械学習的、もしくはルールベースに基づいて出力</li>
 <li>その結果をADMへ→観測値と予測値の相対誤差に対するthresholdingなどから異常を検知</li>
-</ul></li>
-<li>手法2: decomposition-based
-
-<ul>
+</ul>
+</li>
+<li>手法2: decomposition-based<ul>
 <li>時系列データを<strong>トレンド</strong>、<strong>季節性</strong>、<strong>ノイズ</strong>といったコンポーネントに分解する</li>
 <li>ノイズが通常よりも大きければそれは異常</li>
-</ul></li>
-</ul></li>
-<li>タイプ2: <strong>Change point</strong>（変化点）
-
-<ul>
+</ul>
+</li>
+</ul>
+</li>
+<li>タイプ2: <strong>Change point</strong>（変化点）<ul>
 <li>データの傾向がその前後で大きく異なる<strong>時刻</strong></li>
-<li>Outlierとの違いは、Change-pointはもっと大域的かつ中長期的な変化を発見する点<br /></li>
+<li>Outlierとの違いは、Change-pointはもっと大域的かつ中長期的な変化を発見する点  </li>
 <li>手法としては、Kernel Density Estimationとか</li>
 <li>変化点検知とは「ここまでに作ったモデルで観測データが説明できなくなるタイミング」を見極めることであり、つまり「変化」の定義はどのモデルを使うかに大きく依存する</li>
-</ul></li>
-<li>タイプ3: <strong>Anomalous time-series</strong>
-
-<ul>
+</ul>
+</li>
+<li>タイプ3: <strong>Anomalous time-series</strong><ul>
 <li>他とは大きく異なる挙動を示す<strong>時系列</strong></li>
 <li>時系列データに対する特徴量 (e.g., trend, seasonality, auto-correlation) から、時系列をクラスタリング</li>
 <li>各クラスタの中心値と観測した時系列の特徴量を比較して<strong>外れ時系列</strong>を発見</li>
-</ul></li>
 </ul>
-
-<h3 id="フィルタリング">フィルタリング</h3>
-
+</li>
+</ul>
+<h3 id="%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0">フィルタリング</h3>
 <p>最適な異常検知アルゴリズムとはユースケース（時系列データ）依存であり、万能なものは存在しない。なのでEGADSはOutlier, Change-point, Anomalous time-seriesのそれぞれを対象とする複数のアルゴリズムからの出力を集約、フィルタリングする。そして、本当に捉えたい異常に対してのみアラートを発することで、False Positiveの削減をねらう。</p>
-
 <p>具体的には、与えられた時系列データに対してユーザが“異常”だと思った部分をマーキングできるインタフェースを提供しているという。このフィードバックとADMの出力ペアに対して『この異常はこのユーザが着目している異常か否か』の分類器を学習し、AMで異常のフィルターとしてつかう。分類器は、Yahoo!の場合はAdaBoost。</p>
-
-<h3 id="まとめ">まとめ</h3>
-
+<h3 id="%E3%81%BE%E3%81%A8%E3%82%81">まとめ</h3>
 <p>バッチとオンライン処理を組み合わせた現実的なアーキテクチャには好感…というか、こうしないとproductionで実用可能なモノは作れないんだろうなぁ。アルゴリズム自体はオンラインなものも多いけれど、Stormのところでモデルの更新と異常の検知を同時にやっても、あまり嬉しいことは無さそう。</p>
-
 <p>多角的に異常検知を行って、最後に人のフィードバックを取り入れたフィルタリング機構を挟む発想は「なるほど」と思った。すべてを自動化せず、人間が取捨選択する余地を残すこと―機械学習アプリケーション一般に言える、大切な考え方ですね。</p>
-
 <p>なお、実験ではラベリング済みの人工データとYahoo!のユーザログインを集約した時系列のデータに対して、モデルのサイズ、学習時間、精度のトレードオフを確認している。異常検知アルゴリズムはRecallやPrecisionで精度評価して、時系列データの特徴に応じて最適なアルゴリズムが異なることを示している。だからこそ、EGADSは1つのフレームワーク上で複数のアルゴリズムを提供しているというわけだ。No free lunch!</p>
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>

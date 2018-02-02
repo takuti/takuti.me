@@ -33,139 +33,87 @@
   <h2>サイトをHTTPSにした</h2>
 
   <div class="post">
-    
-
-<p>今はとてもいい時代なので <strong><a href="https://letsencrypt.org/" target="_blank">Let&rsquo;s Encrypt</a></strong> が無料でSSL証明書を発行してくれる。というわけで、サイトのHTTPS化を行った。</p>
-
-<h3 id="証明書の発行と-nginx-conf-の変更">証明書の発行と nginx.conf の変更</h3>
-
-<p>作業自体はとても簡単で、証明書の発行に関する処理はすべて <strong><a href="https://certbot.eff.org/" target="_blank">certbot</a></strong> （旧名：letsencrypt）というツールがやってくれる。<a href="https://certbot.eff.org/" target="_blank">トップページ</a>からサーバとOSを選択すれば、それに応じたinstallationが表示される。どこまで親切なんだ！</p>
-
+    <p>今はとてもいい時代なので <strong><a href="https://letsencrypt.org/">Let&#39;s Encrypt</a></strong> が無料でSSL証明書を発行してくれる。というわけで、サイトのHTTPS化を行った。</p>
+<h3 id="%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%81%AE%E7%99%BA%E8%A1%8C%E3%81%A8-nginx-conf-%E3%81%AE%E5%A4%89%E6%9B%B4">証明書の発行と nginx.conf の変更</h3>
+<p>作業自体はとても簡単で、証明書の発行に関する処理はすべて <strong><a href="https://certbot.eff.org/">certbot</a></strong> （旧名：letsencrypt）というツールがやってくれる。<a href="https://certbot.eff.org/">トップページ</a>からサーバとOSを選択すれば、それに応じたinstallationが表示される。どこまで親切なんだ！</p>
 <p>ここは <strong>CentOS 6</strong> 上の <strong>Nginx</strong> で動いているので、以下それに従う。</p>
-
 <p>certbotの導入は、適当な場所にwgetして実行権限を与えるだけ。</p>
-
 <pre><code>$ wget https://dl.eff.org/certbot-auto
 $ chmod a+x certbot-auto
-</code></pre>
-
-<p>あとはWebサーバのドキュメントルートとドメインを指定してcertbotを実行してあげればよい。</p>
-
+</code></pre><p>あとはWebサーバのドキュメントルートとドメインを指定してcertbotを実行してあげればよい。</p>
 <pre><code>$ /path/to/certbot-auto certonly --webroot -w /var/www/example -d example.com
+</code></pre><p>うちはNginxだけど、Apacheの頃の名残で <code>/var/www/html</code> をドキュメントルートにしている。<code>/etc/nginx/nginx.conf</code> は以下のような感じ。</p>
+<pre><code class="lang-conf">server {
+    listen 80;
+    server_name  takuti.me;
+
+    location / {
+        root   /var/www/html;
+        index  index.html index.htm index.php;
+    }
+
+    # 以下略
 </code></pre>
-
-<p>うちはNginxだけど、Apacheの頃の名残で <code>/var/www/html</code> をドキュメントルートにしている。<code>/etc/nginx/nginx.conf</code> は以下のような感じ。</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-conf" data-lang="conf">server {
-	listen 80;
-	server_name  takuti.me;
-
-	location / {
-		root   /var/www/html;
-		index  index.html index.htm index.php;
-	}
-
-	# 以下略</code></pre></div>
 <p>なので叩いたコマンドは以下。</p>
-
 <pre><code>$ /path/to/certbot-auto certonly --webroot -w /var/www/html -d takuti.me
-</code></pre>
-
-<p>途中でメールアドレスなどを聞かれ、無事完了すると Congratulations と言われる。証明書の類は <code>/etc/letsencrypt/live/takuti.me</code> 以下に作成され、ドキュメントルート直下には認証用プラグインのために <code>.well-known</code> というディレクトリが作成される。</p>
-
+</code></pre><p>途中でメールアドレスなどを聞かれ、無事完了すると Congratulations と言われる。証明書の類は <code>/etc/letsencrypt/live/takuti.me</code> 以下に作成され、ドキュメントルート直下には認証用プラグインのために <code>.well-known</code> というディレクトリが作成される。</p>
 <p>あとは <code>/etc/nginx/nginx.conf</code> を、</p>
-
 <ul>
 <li>httpリクエストをすべてhttpsにリダイレクト</li>
 <li>SSLを有効にして証明書のパスを指定</li>
 </ul>
-
 <p>について書き換えればよい。</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-conf" data-lang="conf">server {
-	listen 80;
-	listen [::]:80;
-	return 301 https://$host$request_uri;
+<pre><code class="lang-conf">server {
+    listen 80;
+    listen [::]:80;
+    return 301 https://$host$request_uri;
 }
 
 server {
-	listen 443 default ssl;
-	server_name  takuti.me;
+    listen 443 default ssl;
+    server_name  takuti.me;
 
-	ssl on;
+    ssl on;
 
-	ssl_certificate /etc/letsencrypt/live/takuti.me/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/takuti.me/privkey.pem;
-	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_certificate /etc/letsencrypt/live/takuti.me/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/takuti.me/privkey.pem;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 
-	location / {
-	   root   /var/www/html;
-	   index  index.html index.htm index.php;
-	}
+    location / {
+       root   /var/www/html;
+       index  index.html index.htm index.php;
+    }
 
-	# 以下略</code></pre></div>
+    # 以下略
+</code></pre>
 <pre><code>$ service nginx restart
-</code></pre>
-
-<p>簡単！</p>
-
-<h3 id="httpsポート443番の開放">HTTPSポート443番の開放</h3>
-
+</code></pre><p>簡単！</p>
+<h3 id="https%E3%83%9D%E3%83%BC%E3%83%88443%E7%95%AA%E3%81%AE%E9%96%8B%E6%94%BE">HTTPSポート443番の開放</h3>
 <p>次に、 <code>/etc/sysconfig/iptables</code> に443番ポートを開ける記述を追加して、</p>
-
 <pre><code>-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
-</code></pre>
-
-<p>iptablesをrestartする。</p>
-
+</code></pre><p>iptablesをrestartする。</p>
 <pre><code>$ service iptables restart
-</code></pre>
-
-<p>これでサイトのHTTPS化は完了。</p>
-
-<h3 id="証明書の自動更新の設定">証明書の自動更新の設定</h3>
-
+</code></pre><p>これでサイトのHTTPS化は完了。</p>
+<h3 id="%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%81%AE%E8%87%AA%E5%8B%95%E6%9B%B4%E6%96%B0%E3%81%AE%E8%A8%AD%E5%AE%9A">証明書の自動更新の設定</h3>
 <p>最後に、証明書の自動更新を設定する。証明書の更新は、</p>
-
 <pre><code>$ /path/to/certbot-auto renew
-</code></pre>
-
-<p>これだけでできるので、このコマンドをcronに登録してあげればよい。ここでは毎月1日午前3時に更新をかけるようにした。</p>
-
+</code></pre><p>これだけでできるので、このコマンドをcronに登録してあげればよい。ここでは毎月1日午前3時に更新をかけるようにした。</p>
 <pre><code>00 03 01 * * /path/to/certbot-auto renew --quiet
-</code></pre>
-
-<p>これでよし。</p>
-
-<h3 id="おまけ1-静的サイトジェネレータ-hugo-の-baseurl-を-https-にする">おまけ1: 静的サイトジェネレータ Hugo の baseUrl を https:// にする</h3>
-
-<p>このサイトのコンテンツはGo製の静的サイトジェネレータ <strong><a href="https://gohugo.io/" target="_blank">Hugo</a></strong> で生成している。</p>
-
+</code></pre><p>これでよし。</p>
+<h3 id="%E3%81%8A%E3%81%BE%E3%81%911-%E9%9D%99%E7%9A%84%E3%82%B5%E3%82%A4%E3%83%88%E3%82%B8%E3%82%A7%E3%83%8D%E3%83%AC%E3%83%BC%E3%82%BF-hugo-%E3%81%AE-baseurl-%E3%82%92-https-%E3%81%AB%E3%81%99%E3%82%8B">おまけ1: 静的サイトジェネレータ Hugo の baseUrl を https:// にする</h3>
+<p>このサイトのコンテンツはGo製の静的サイトジェネレータ <strong><a href="https://gohugo.io/">Hugo</a></strong> で生成している。</p>
 <p>Hugoはコンテンツ生成時に <code>--baseUrl</code> オプションを付与すると、HTML中のパスをURLに置換してくれる。たとえば、</p>
-
-<pre><code>$ hugo --baseUrl='http://takuti.me'
-</code></pre>
-
-<p>と叩いたならば、 <code>/style/style.css</code> といったパスによるアセットの指定は、URLによる指定 <code>http://takuti.me/style/style.css</code> に置換された上でサイトコンテンツが生成される。</p>
-
+<pre><code>$ hugo --baseUrl=&#39;http://takuti.me&#39;
+</code></pre><p>と叩いたならば、 <code>/style/style.css</code> といったパスによるアセットの指定は、URLによる指定 <code>http://takuti.me/style/style.css</code> に置換された上でサイトコンテンツが生成される。</p>
 <p>HTTPS化以降はこの <code>--baseUrl</code> を <strong>https://~</strong> に書き換えなければならない点に注意。</p>
-
-<h3 id="おまけ2-サイトコンテンツのデプロイ時に-well-known-を消さないようにする">おまけ2: サイトコンテンツのデプロイ時に .well-known を消さないようにする</h3>
-
+<h3 id="%E3%81%8A%E3%81%BE%E3%81%912-%E3%82%B5%E3%82%A4%E3%83%88%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E3%81%AE%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E6%99%82%E3%81%AB-well-known-%E3%82%92%E6%B6%88%E3%81%95%E3%81%AA%E3%81%84%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B">おまけ2: サイトコンテンツのデプロイ時に .well-known を消さないようにする</h3>
 <p>Hugoで生成したコンテンツは、</p>
-
 <pre><code>$ rsync （中略） --delete {ユーザ}@{ホスト}:{ドキュメントルート}
-</code></pre>
-
-<p>でサーバに転送しており、転送前にドキュメントルートの中身をすべて削除している。</p>
-
+</code></pre><p>でサーバに転送しており、転送前にドキュメントルートの中身をすべて削除している。</p>
 <p>しかし今、certbotによって作成された <code>.well-known</code> というディレクトリがドキュメントルート直下にある。これは削除したくない。</p>
-
 <p>なので以後 <code>.well-known</code> をrsyncの対象から除外することを忘れずに。</p>
-
 <pre><code>$ rsync --exclude &quot;.well-known&quot; （中略） --delete {ユーザ}@{ホスト}:{ドキュメントルート}
-</code></pre>
-
-<p>そんなこんなでサイトのHTTPS化に成功した。</p>
-
+</code></pre><p>そんなこんなでサイトのHTTPS化に成功した。</p>
 <p>HTTPS化に対する唯一の懸念事項は <strong>http://~</strong> でのはてブ数が残らないことだったけど、これはもう諦めた。仕方あるまい。</p>
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>

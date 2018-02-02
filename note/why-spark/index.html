@@ -33,76 +33,46 @@
   <h2>なぜSparkか</h2>
 
   <div class="post">
-    
-
-<p>今週から Coursera の <a href="https://www.coursera.org/learn/scala-spark-big-data" target="_blank">Big Data Analysis with Scala and Spark</a> を受講している。その初回で出てきた &ldquo;<em>Why Scala? Why Spark?</em>&rdquo; に関する議論をざっくりとまとめる。（導入なので『RDDとは』みたいな話はしない）</p>
-
-<p><a href="http://stackoverflow.com/insights/survey/2016#technology-top-paying-tech" target="_blank">Stack Overflow Developer Survey 2016 &ldquo;Top Paying Tech in US&rdquo;</a> を見ると、なんと上位2つが Spark と Scala になっている：</p>
-
-<p><img src="https://takuti.me/images/why-spark/top-paying-tech.png" alt="top-paying-tech" /></p>
-
+    <p>今週から Coursera の <a href="https://www.coursera.org/learn/scala-spark-big-data">Big Data Analysis with Scala and Spark</a> を受講している。その初回で出てきた &quot;<em>Why Scala? Why Spark?</em>&quot; に関する議論をざっくりとまとめる。（導入なので『RDDとは』みたいな話はしない）</p>
+<p><a href="http://stackoverflow.com/insights/survey/2016#technology-top-paying-tech">Stack Overflow Developer Survey 2016 &quot;Top Paying Tech in US&quot;</a> を見ると、なんと上位2つが Spark と Scala になっている：</p>
+<p><img src="https://takuti.me/images/why-spark/top-paying-tech.png" alt="top-paying-tech"></p>
 <p>なぜこんなに人気なのか？</p>
-
 <p>時はビッグデータ戦国時代、もちろん「大規模データを効率的に処理できるから」という事実が一因であることは言うまでもない。しかし、それ以上に強調すべき点がある。</p>
-
 <h3 id="developer-productivity">Developer Productivity</h3>
-
-<p><a href="http://www.heather.miller.am/" target="_blank">Dr. Heather Miller</a> いわく Scala, Spark を選択する理由は、それらが <strong>開発者の生産性向上</strong> に寄与するから。ここで言う開発者とは、並列分散環境下にあるビッグデータを処理する、何らかのコードを書く人々を指す。</p>
-
+<p><a href="http://www.heather.miller.am/">Dr. Heather Miller</a> いわく Scala, Spark を選択する理由は、それらが <strong>開発者の生産性向上</strong> に寄与するから。ここで言う開発者とは、並列分散環境下にあるビッグデータを処理する、何らかのコードを書く人々を指す。</p>
 <p>実アプリケーションで Scala を選択するモチベーションとして、関数型パラダイムの恩恵を受けた豊富なコレクション操作 (e.g., <code>reduce()</code>, <code>fold()</code>, <code>map()</code>, <code>filter()</code>) とその表現力が挙げられると思う。</p>
-
 <p>Spark上では（ほぼ）同一のインタフェースで分散データに対する処理が記述できる。これが重要。</p>
-
 <p>シングルノードのときの通常のScalaコレクションに対する処理が</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">singleCollection<span style="color:#333">.</span>map<span style="color:#333">(</span>v <span style="color:#080;font-weight:bold">=&gt;</span> f<span style="color:#333">(</span>v<span style="color:#333">))</span></code></pre></div>
+<pre><code class="lang-scala">singleCollection.map(v =&gt; f(v))
+</code></pre>
 <p>だとすれば、同様の処理を Spark 上で書いても、それは</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">distributedData<span style="color:#333">.</span>map<span style="color:#333">(</span>v <span style="color:#080;font-weight:bold">=&gt;</span> f<span style="color:#333">(</span>v<span style="color:#333">))</span></code></pre></div>
+<pre><code class="lang-scala">distributedData.map(v =&gt; f(v))
+</code></pre>
 <p>と書ける。ある大規模分散データに対して、<strong>まるでそれがローカルデータであるかのようにインタラクティブに処理を適用できる</strong>、これが Scala + Spark によって得られる生産性につながっているのだ。</p>
-
-<h3 id="データサイエンスとの親和性の高さ">データサイエンスとの親和性の高さ</h3>
-
-<p>ありがちな &ldquo;小規模な&rdquo; データサイエンス/解析業務は、R や Python, MATLAB で完結していた。アルゴリズム開発の段階ではそれで十分かもしれないが、それを実アプリケーションの上で実装しようとするとスケーラビリティが問題になる。つまり、<strong>いかに &ldquo;大規模な&rdquo; データサイエンスを実践するか</strong>、という話になる。</p>
-
+<h3 id="%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B9%E3%81%A8%E3%81%AE%E8%A6%AA%E5%92%8C%E6%80%A7%E3%81%AE%E9%AB%98%E3%81%95">データサイエンスとの親和性の高さ</h3>
+<p>ありがちな &quot;小規模な&quot; データサイエンス/解析業務は、R や Python, MATLAB で完結していた。アルゴリズム開発の段階ではそれで十分かもしれないが、それを実アプリケーションの上で実装しようとするとスケーラビリティが問題になる。つまり、<strong>いかに &quot;大規模な&quot; データサイエンスを実践するか</strong>、という話になる。</p>
 <p>ここでポイントとなるのが、機械学習アルゴリズムの多くが <strong>イテレーション</strong>（ループ）を必要とする点。線形回帰であれニューラルネットワークであれ、パラメータを求めて、誤差を計算して、誤差を小さくするようにパラメータを少しだけ更新して、という処理を繰り返すことになる。</p>
-
 <p>その点、通常のコレクション操作同様にコードが書ける Spark + Scala であれば恐れることは何も無い。</p>
-
 <p>一方、Hadoop/MapReduce はどうだろうか。Map と Reduce というシンプルな API は魅力的だが、そのパラダイム上での各種機械学習アルゴリズムの実装は自明ではない。これはデータサイエンスをスケールさせる上で好ましいとは言えない。</p>
-
-<h3 id="レイテンシで-hadoop-mapreduce-に勝る">レイテンシで Hadoop/MapReduce に勝る</h3>
-
-<p>僕らは大規模分散データを &ldquo;効率的に&rdquo; 処理したい。では、Spark と Hadoop/MapReduce はどちらが早いのか。このとき比較すべきは『耐障害性をどのように担保し、そのために必要な処理をどこで行っているのか』という点：</p>
-
+<h3 id="%E3%83%AC%E3%82%A4%E3%83%86%E3%83%B3%E3%82%B7%E3%81%A7-hadoop-mapreduce-%E3%81%AB%E5%8B%9D%E3%82%8B">レイテンシで Hadoop/MapReduce に勝る</h3>
+<p>僕らは大規模分散データを &quot;効率的に&quot; 処理したい。では、Spark と Hadoop/MapReduce はどちらが早いのか。このとき比較すべきは『耐障害性をどのように担保し、そのために必要な処理をどこで行っているのか』という点：</p>
 <ul>
 <li>インメモリの処理</li>
 <li>ディスクに対する処理（インメモリより100倍遅い）</li>
 <li>ネットワークを介した処理（インメモリより1,000,000倍遅い）</li>
 </ul>
-
 <p>処理を行うノードの数が何百何千と増えたとき、当然途中のノードが死ぬ可能性は高くなる。そのとき、どのように処理を復帰させるのか。</p>
-
 <p>Hadoop/MapReduce の場合、Map処理とReduce処理の間でデータをシャッフルして、<strong>中間データをディスクに書き出す</strong>ことで潜在的な処理の失敗に備えている。このディスクに対する処理の時間的コストは大きい。</p>
-
 <p>では Scala + Spark はどうか。このとき僕らは関数型パラダイムの恩恵を受け、<strong>データを immutable かつインメモリで処理する</strong>ことができる。つまり様々なデータ操作が、immutable なデータに対する変換操作のチェインで書ける。Spark は、仮にどこかのノードが死んだら対象データに対してそれらの変換操作を再実行すればよい、というアイディアで耐障害性を担保している。中間データのディスク書き出しなどは存在せず、すべてがインメモリで完結する。結果として、避けて通れないネットワークを介した処理も Spark のほうが少なく抑えることができる。</p>
-
-<p><a href="https://spark.apache.org/" target="_blank">Sparkのホームページ</a>のトップでは、Spark が Hadoop より遥かに早くロジスティック回帰を処理できると言っている。詳細は &ldquo;<a href="https://blog.cloudera.com/blog/2014/03/apache-spark-a-delight-for-developers/" target="_blank">Apache Spark: A Delight for Developers</a>&rdquo; に書かれていて、イテレーションあたりの処理時間を比較するとその差は歴然：</p>
-
-<p><img src="https://takuti.me/images/why-spark/lr-iterations.png" alt="lr-iterations" /></p>
-
-<p>（<a href="https://blog.cloudera.com/blog/2014/03/apache-spark-a-delight-for-developers/" target="_blank">Apache Spark: A Delight for Developers</a> より引用）</p>
-
+<p><a href="https://spark.apache.org/">Sparkのホームページ</a>のトップでは、Spark が Hadoop より遥かに早くロジスティック回帰を処理できると言っている。詳細は &quot;<a href="https://blog.cloudera.com/blog/2014/03/apache-spark-a-delight-for-developers/">Apache Spark: A Delight for Developers</a>&quot; に書かれていて、イテレーションあたりの処理時間を比較するとその差は歴然：</p>
+<p><img src="https://takuti.me/images/why-spark/lr-iterations.png" alt="lr-iterations"></p>
+<p>（<a href="https://blog.cloudera.com/blog/2014/03/apache-spark-a-delight-for-developers/">Apache Spark: A Delight for Developers</a> より引用）</p>
 <p>イテレーションあたりの時間、つまり学習に要する時間が短いということは、同じ時間でもたくさんトライ＆エラーができるということで、やっぱり Spark + Scala は生産的だ、というのがこのコースの導入部分での結論。</p>
-
-<p><img src="https://takuti.me/images/why-spark/coffee.png" alt="coffee" /></p>
-
+<p><img src="https://takuti.me/images/why-spark/coffee.png" alt="coffee"></p>
 <p>▲ 先生の「Hadoopでは半日待ってやっと処理が終わるけど、Sparkだとコーヒー淹れてる間に同じ処理ができるね」という微妙な例え。</p>
-
-<p><img src="https://takuti.me/images/why-spark/trend.png" alt="trend" /></p>
-
+<p><img src="https://takuti.me/images/why-spark/trend.png" alt="trend"></p>
 <p>▲ そんな背景から、Google Trend ではもう Spark の圧勝という感じ。</p>
-
-<h3 id="まとめ">まとめ</h3>
-
+<h3 id="%E3%81%BE%E3%81%A8%E3%82%81">まとめ</h3>
 <p>データサイエンスをスケールさせる上で、Spark は僕らの生産性を高めてくれる最高のソリューション（超意訳）。</p>
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>

@@ -33,159 +33,120 @@
   <h2>Area Under the ROC Curve (AUC) を並列で計算するときに気をつけること</h2>
 
   <div class="post">
-    
-
-<h3 id="追記-2017-03-10">追記 (2017/03/10)</h3>
-
+    <h3 id="%E8%BF%BD%E8%A8%98-2017-03-10">追記 (2017/03/10)</h3>
 <p>現在の内容は過度な簡略化と不完全な説明を含むので、それを踏まえて読んでいただけると幸いです。（後日更新予定）</p>
+<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">台形の積分計算のはずなのでちょっと説明を簡単にしすぎですね。<br><br>parallelでのmerge順序は変えても動くようにできるはずなのでticket切っておきます。</p>&mdash; myui (@myui) <a href="https://twitter.com/myui/status/840089982991708160?ref_src=twsrc%5Etfw">March 10, 2017</a></blockquote></p>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<p><blockquote class="twitter-tweet"><p lang="ja" dir="ltr">台形の積分計算のはずなのでちょっと説明を簡単にしすぎですね。<br><br>parallelでのmerge順序は変えても動くようにできるはずなのでticket切っておきます。</p>&mdash; myui (@myui) <a href="https://twitter.com/myui/status/840089982991708160?ref_src=twsrc%5Etfw">March 10, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
-<hr />
-
+<hr>
 <p>ひとつ前の記事で二値分類器の性能評価に用いられる <strong>Area Under the ROC Curve (AUC)</strong> の実装について書いた: <a href="https://takuti.me/note/auc/">Area Under the ROC Curve (AUC) を実装する</a></p>
-
 <p>簡単にまとめると、</p>
-
 <ul>
 <li>AUCは『予測器がラベル <code>1</code> (True) のテストサンプルに正しく高スコアを与えるか』をみる。</li>
 <li>それは予測スコアでサンプルをソートしたときに True Positive が False Positive より上位にランキングされるか、ということ。</li>
 <li>実装する際はソート済みサンプル列を逐次的に見ていって、False Positive-True Positive グラフの下の面積を求める。</li>
 </ul>
-
 <p>という話だった。</p>
-
 <p><img src="https://takuti.me/images/auc/auc.007.png" alt="auc7" width=600 /></p>
-
 <h3 id="auc-in-hivemall">AUC in Hivemall</h3>
+<p>そして先日、Hive/Spark/Pig用の並列機械学習ライブラリ<a href="https://hivemall.incubator.apache.org/">Hivemall</a>にAUCを計算する関数を実装した。</p>
+<p><blockquote class="twitter-tweet"><p lang="fr" dir="ltr">Supported parallel exact AUC computation ( <a href="https://t.co/nhBkBNj5SH">https://t.co/nhBkBNj5SH</a> ) in <a href="https://twitter.com/hashtag/hivemall?src=hash&amp;ref_src=twsrc%5Etfw">#hivemall</a><a href="https://t.co/GUAFf5jeBn">https://t.co/GUAFf5jeBn</a> (Kudos to <a href="https://twitter.com/takuti?ref_src=twsrc%5Etfw">@takuti</a> )</p>&mdash; Apache Hivemall (@ApacheHivemall) <a href="https://twitter.com/ApacheHivemall/status/836526293927657472?ref_src=twsrc%5Etfw">February 28, 2017</a></blockquote></p>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<p>そして先日、Hive/Spark/Pig用の並列機械学習ライブラリ<a href="https://hivemall.incubator.apache.org/" target="_blank">Hivemall</a>にAUCを計算する関数を実装した。</p>
-
-<p><blockquote class="twitter-tweet"><p lang="fr" dir="ltr">Supported parallel exact AUC computation ( <a href="https://t.co/nhBkBNj5SH">https://t.co/nhBkBNj5SH</a> ) in <a href="https://twitter.com/hashtag/hivemall?src=hash&amp;ref_src=twsrc%5Etfw">#hivemall</a><a href="https://t.co/GUAFf5jeBn">https://t.co/GUAFf5jeBn</a> (Kudos to <a href="https://twitter.com/takuti?ref_src=twsrc%5Etfw">@takuti</a> )</p>&mdash; Apache Hivemall (@ApacheHivemall) <a href="https://twitter.com/ApacheHivemall/status/836526293927657472?ref_src=twsrc%5Etfw">February 28, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
 <p>実装にあたりAUCをMap-Reduceの枠組みの中で並列に計算する必要があった。</p>
-
 <p>たとえば2並列の場合を考えると、プロセス1と2でソート済みサンプルを分担することになる。</p>
-
 <table>
 <thead>
 <tr>
-<th align="center">プロセス</th>
-<th align="center">予測スコア</th>
-<th align="center">真のラベル</th>
+<th style="text-align:center">プロセス</th>
+<th style="text-align:center">予測スコア</th>
+<th style="text-align:center">真のラベル</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="center">1</td>
-<td align="center">0.8</td>
-<td align="center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0.8</td>
+<td style="text-align:center">1</td>
 </tr>
-
 <tr>
-<td align="center">1</td>
-<td align="center">0.7</td>
-<td align="center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0.7</td>
+<td style="text-align:center">1</td>
 </tr>
-
 <tr>
-<td align="center">1</td>
-<td align="center">0.5</td>
-<td align="center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0.5</td>
+<td style="text-align:center">0</td>
 </tr>
-
 <tr>
-<td align="center">2</td>
-<td align="center">0.3</td>
-<td align="center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0.3</td>
+<td style="text-align:center">1</td>
 </tr>
-
 <tr>
-<td align="center">2</td>
-<td align="center">0.2</td>
-<td align="center">0</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0.2</td>
+<td style="text-align:center">0</td>
 </tr>
 </tbody>
 </table>
-
 <p>しかし先述の通りAUCの実装はソート済みサンプルを<strong>逐次的に</strong>見ていく（つまり1つ前の結果に依存する）ので、気をつけて実装しないと誤った結果になってしまう。</p>
-
-<h3 id="マージするときに長方形を底上げする">マージするときに長方形を底上げする</h3>
-
+<h3 id="%E3%83%9E%E3%83%BC%E3%82%B8%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E9%95%B7%E6%96%B9%E5%BD%A2%E3%82%92%E5%BA%95%E4%B8%8A%E3%81%92%E3%81%99%E3%82%8B">マージするときに長方形を底上げする</h3>
 <p>図で考えよう。先の例で各プロセスがTrue Positive, False Positiveカウントを独立して計算すると次のようになる。</p>
-
 <p><img src="https://takuti.me/images/auc/auc-partials.png" alt="auc-partials" width=400 /></p>
-
 <p>この2つの結果をマージしたいとき、単に両者の面積を足して 2+1=3 とはなりませんよ、というのが問題。正しいマージ後の面積は冒頭の図にある通り 5 になる。</p>
-
 <p>より具体的に、プロセス1の結果（マージ元）をプロセス2の結果（マージ先）にマージする場合を考える。このとき、補足情報としてマージ元のTrue Positiveのカウントをマージ先に教えてあげる。これがポイント。</p>
-
 <p>すると、マージ先ではマージ元の長方形の分だけ面積を底上げをすることができて、正しい面積が得られる。</p>
-
 <p><img src="https://takuti.me/images/auc/auc-merge.png" alt="auc-merge" width=300 /></p>
-
 <p>▲ こんな感じ。あとは『マージ元の面積』と『マージ先の底上げした面積』の和を求めて正規化すれば、それが正しいAUCとなる。</p>
-
-<p>ちなみに実際のHivemallのマージ部分の実装は<a href="https://github.com/apache/incubator-hivemall/blob/master/core/src/main/java/hivemall/evaluation/AUCUDAF.java#L251-L282" target="_blank">ここにある</a>。マージ元とマージ先が逆の場合にも対応できるように他の補足情報も渡しているけど、基本的な考え方は上記のものと変わらない。</p>
-
-<h3 id="まとめ">まとめ</h3>
-
+<p>ちなみに実際のHivemallのマージ部分の実装は<a href="https://github.com/apache/incubator-hivemall/blob/master/core/src/main/java/hivemall/evaluation/AUCUDAF.java#L251-L282">ここにある</a>。マージ元とマージ先が逆の場合にも対応できるように他の補足情報も渡しているけど、基本的な考え方は上記のものと変わらない。</p>
+<h3 id="%E3%81%BE%E3%81%A8%E3%82%81">まとめ</h3>
 <p>計算の前後に依存関係がある処理の並列化は往々にして困難だけど、AUC計算は長方形の面積の足し合わせという単純な処理なので少し補足情報を渡してあげるだけで並列実装も可能。</p>
-
 <p>ただし、マージ元とマージ先が隣接していないとダメな点に注意。たとえば以下のように3並列で計算した場合、プロセス1と3の結果を先にマージする、ということはできない。</p>
-
 <table>
 <thead>
 <tr>
-<th align="center">プロセス</th>
-<th align="center">予測スコア</th>
-<th align="center">真のラベル</th>
+<th style="text-align:center">プロセス</th>
+<th style="text-align:center">予測スコア</th>
+<th style="text-align:center">真のラベル</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="center">1</td>
-<td align="center">0.8</td>
-<td align="center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0.8</td>
+<td style="text-align:center">1</td>
 </tr>
-
 <tr>
-<td align="center">1</td>
-<td align="center">0.7</td>
-<td align="center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0.7</td>
+<td style="text-align:center">1</td>
 </tr>
-
 <tr>
-<td align="center">2</td>
-<td align="center">0.5</td>
-<td align="center">0</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0.5</td>
+<td style="text-align:center">0</td>
 </tr>
-
 <tr>
-<td align="center">2</td>
-<td align="center">0.3</td>
-<td align="center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0.3</td>
+<td style="text-align:center">1</td>
 </tr>
-
 <tr>
-<td align="center">3</td>
-<td align="center">0.2</td>
-<td align="center">0</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0.2</td>
+<td style="text-align:center">0</td>
 </tr>
 </tbody>
 </table>
-
 <p>すなわち、</p>
-
 <ul>
 <li>1と2の結果をマージ → それと3の結果をマージ</li>
 <li>2と3の結果をマージ → それと1の結果をマージ</li>
 </ul>
-
 <p>このいずれかの順序でマージされる必要がある。むずかしい。</p>
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>

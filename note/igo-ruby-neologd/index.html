@@ -33,58 +33,38 @@
   <h2>igo-rubyを新語辞書NEologdでナウい感じにする</h2>
 
   <div class="post">
-    
-
-<p>『<a href="https://takuti.me/note/hatena-keyword-to-ipadic/">はてなキーワードを使ってigo-ruby(MeCab)用の辞書をナウい感じにする</a>』に4年ぶりの続編です。</p>
-
-<p><strong><a href="https://github.com/kyow/igo-ruby" target="_blank">igo-ruby</a></strong> はJava製の形態素解析器 <a href="http://igo.osdn.jp/" target="_blank">Igo</a> のRuby版で、4年前から動いている僕の<a href="https://github.com/takuti/twitter-bot" target="_blank">twitter bot</a>でも使っている。</p>
-
+    <p>『<a href="https://takuti.me/note/hatena-keyword-to-ipadic/">はてなキーワードを使ってigo-ruby(MeCab)用の辞書をナウい感じにする</a>』に4年ぶりの続編です。</p>
+<p><strong><a href="https://github.com/kyow/igo-ruby">igo-ruby</a></strong> はJava製の形態素解析器 <a href="http://igo.osdn.jp/">Igo</a> のRuby版で、4年前から動いている僕の<a href="https://github.com/takuti/twitter-bot">twitter bot</a>でも使っている。</p>
 <p>4年前の記事では『人工知能』や『ニコニコ動画』といった新語をigo-rubyでナウく分かち書きするために、Wikipediaタイトルやはてなキーワードのデータを使って独自に辞書をカスタマイズした。</p>
-
-<p>今回はもっと簡単に、継続的にメンテナンスされている新語辞書 <strong><a href="https://github.com/neologd/mecab-ipadic-neologd" target="_blank">NEologd</a></strong> を使って同様のことを実現する。もはや最近はこっちのほうが自然なアプローチですなぁ。</p>
-
-<h3 id="neologdのビルド">NEologdのビルド</h3>
-
-<p><a href="https://github.com/neologd/mecab-ipadic-neologd" target="_blank">リポジトリ</a>を取ってきて、手順通りビルドする：</p>
-
+<p>今回はもっと簡単に、継続的にメンテナンスされている新語辞書 <strong><a href="https://github.com/neologd/mecab-ipadic-neologd">NEologd</a></strong> を使って同様のことを実現する。もはや最近はこっちのほうが自然なアプローチですなぁ。</p>
+<h3 id="neologd%E3%81%AE%E3%83%93%E3%83%AB%E3%83%89">NEologdのビルド</h3>
+<p><a href="https://github.com/neologd/mecab-ipadic-neologd">リポジトリ</a>を取ってきて、手順通りビルドする：</p>
 <pre><code>$ cd /path/to/neologd/mecab-ipadic-neologd
 $ ./bin/install-mecab-ipadic-neologd -n
-</code></pre>
-
-<p>すると <code>build/mecab-ipadic-2.7.0-20070801-neologd-YYYYMMDD</code> といったディレクトリができる。</p>
-
+</code></pre><p>すると <code>build/mecab-ipadic-2.7.0-20070801-neologd-YYYYMMDD</code> といったディレクトリができる。</p>
 <p>これが4年前の記事で自前で生成した辞書を置いた <code>mecab-ipadic-2.7.0-20070801</code> というディレクトリに対応していて、以後の手順は全く変わらない。外部データを整形して独自にコストを計算していた手間をNEologdが肩代わりしてくれた形。感謝〜。</p>
-
-<h3 id="辞書生成">辞書生成</h3>
-
+<h3 id="%E8%BE%9E%E6%9B%B8%E7%94%9F%E6%88%90">辞書生成</h3>
 <p><code>igo.jar</code> を取ってきて：</p>
-
-<pre><code>$ wget 'http://osdn.jp/frs/redir.php?m=jaist&amp;f=%2Figo%2F52344%2Figo-0.4.3.jar' -O igo.jar
-</code></pre>
-
-<p>igo用辞書 <code>ipadic-neologd</code> をつくる：</p>
-
+<pre><code>$ wget &#39;http://osdn.jp/frs/redir.php?m=jaist&amp;f=%2Figo%2F52344%2Figo-0.4.3.jar&#39; -O igo.jar
+</code></pre><p>igo用辞書 <code>ipadic-neologd</code> をつくる：</p>
 <pre><code>$ java -cp igo.jar net.reduls.igo.bin.BuildDic ipadic-neologd /path/to/neologd/mecab-ipadic-neologd/build/mecab-ipadic-2.7.0-20070801-neologd-YYYYMMDD utf-8
+</code></pre><p>オリジナルのIPA辞書のエンコーディングがEUCだったのに対し、NEologdはUTF-8であることに注意。</p>
+<h3 id="%E3%81%9F%E3%82%81%E3%81%99">ためす</h3>
+<pre><code class="lang-rb">require &#39;igo-ruby&#39;
+
+tagger = Igo::Tagger.new(&#39;/path/to/ipadic-neologd&#39;)
+
+p tagger.wakati(&#39;人工知能&#39;)
+# [&quot;人工知能&quot;]
+
+p tagger.wakati(&#39;ニコニコ動画&#39;)
+# [&quot;ニコニコ動画&quot;]
+
+p tagger.wakati(&#39;10日放送の「中居正広のミになる図書館」（テレビ朝日系）で、SMAPの中居正広が、篠原信一の過去の勘違いを明かす一幕があった。&#39;)
+# [&quot;10日&quot;, &quot;放送&quot;, &quot;の&quot;, &quot;「&quot;, &quot;中居正広のミになる図書館&quot;, &quot;」&quot;, &quot;（&quot;, &quot;テレビ朝日&quot;, &quot;系&quot;, &quot;）&quot;, &quot;で&quot;, &quot;、&quot;, &quot;SMAP&quot;, &quot;の&quot;, &quot;中居正広&quot;, &quot;が&quot;, &quot;、&quot;, &quot;篠原信一&quot;, &quot;の&quot;, &quot;過去&quot;, &quot;の&quot;, &quot;勘違い&quot;, &quot;を&quot;, &quot;明かす&quot;, &quot;一幕&quot;, &quot;が&quot;, &quot;あっ&quot;, &quot;た&quot;, &quot;。&quot;]
 </code></pre>
-
-<p>オリジナルのIPA辞書のエンコーディングがEUCだったのに対し、NEologdはUTF-8であることに注意。</p>
-
-<h3 id="ためす">ためす</h3>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rb" data-lang="rb"><span style="color:#007020">require</span> <span style="background-color:#fff0f0">&#39;igo-ruby&#39;</span>
-
-tagger <span style="color:#333">=</span> <span style="color:#036;font-weight:bold">Igo</span><span style="color:#333">::</span><span style="color:#036;font-weight:bold">Tagger</span><span style="color:#333">.</span>new(<span style="background-color:#fff0f0">&#39;/path/to/ipadic-neologd&#39;</span>)
-
-<span style="color:#007020">p</span> tagger<span style="color:#333">.</span>wakati(<span style="background-color:#fff0f0">&#39;人工知能&#39;</span>)
-<span style="color:#888"># [&#34;人工知能&#34;]</span>
-
-<span style="color:#007020">p</span> tagger<span style="color:#333">.</span>wakati(<span style="background-color:#fff0f0">&#39;ニコニコ動画&#39;</span>)
-<span style="color:#888"># [&#34;ニコニコ動画&#34;]</span>
-
-<span style="color:#007020">p</span> tagger<span style="color:#333">.</span>wakati(<span style="background-color:#fff0f0">&#39;10日放送の「中居正広のミになる図書館」（テレビ朝日系）で、SMAPの中居正広が、篠原信一の過去の勘違いを明かす一幕があった。&#39;</span>)
-<span style="color:#888"># [&#34;10日&#34;, &#34;放送&#34;, &#34;の&#34;, &#34;「&#34;, &#34;中居正広のミになる図書館&#34;, &#34;」&#34;, &#34;（&#34;, &#34;テレビ朝日&#34;, &#34;系&#34;, &#34;）&#34;, &#34;で&#34;, &#34;、&#34;, &#34;SMAP&#34;, &#34;の&#34;, &#34;中居正広&#34;, &#34;が&#34;, &#34;、&#34;, &#34;篠原信一&#34;, &#34;の&#34;, &#34;過去&#34;, &#34;の&#34;, &#34;勘違い&#34;, &#34;を&#34;, &#34;明かす&#34;, &#34;一幕&#34;, &#34;が&#34;, &#34;あっ&#34;, &#34;た&#34;, &#34;。&#34;]</span></code></pre></div>
 <p>めでたい。</p>
-
-<p>僕の子 @<a href="https://twitter.com/yootakuti" target="_blank">yootakuti</a> が動いているさくらVPSから契約更新の案内が届いて、久しぶりに存在を思い出していろいろ振り返っていた次第。辞書をNEologdに変えて、久しぶりにコードを更新して賢くしてあげても良いかもしれない。<a href="https://github.com/takuti/kusari" target="_blank">マルコフ連鎖生成用ライブラリ</a>もNEologd対応させてみたりしてね。</p>
+<p>僕の子 @<a href="https://twitter.com/yootakuti">yootakuti</a> が動いているさくらVPSから契約更新の案内が届いて、久しぶりに存在を思い出していろいろ振り返っていた次第。辞書をNEologdに変えて、久しぶりにコードを更新して賢くしてあげても良いかもしれない。<a href="https://github.com/takuti/kusari">マルコフ連鎖生成用ライブラリ</a>もNEologd対応させてみたりしてね。</p>
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
