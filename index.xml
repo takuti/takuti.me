@@ -5,10 +5,28 @@
     <link>https://takuti.me/</link>
     <description>Recent content on takuti.me</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 30 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://takuti.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hivemall, Digdag, 自然言語処理, 機械学習などについて話しました #tdtech</title>
+      <link>https://takuti.me/note/td-tech-talk-plazma/</link>
+      <pubDate>Sun, 25 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/td-tech-talk-plazma/</guid>
+      <description>2月19日に開催された PLAZMA: TD Tech Talk 2018 Internal Day で、Treasure Dataがユーザに提供している機械学習・自然言語処理の機能の実体をお話しました。
+ 録画もあがっているようです: PLAZMA TD Internal Day: TD Tech Talk 2018 - YouTube
+「業務またはプライベートで機械学習に触れている方」という問いに対して聴衆の半数以上が手を挙げたのには正直驚きました。エンジニアリングとサイエンスの垣根が低くなっているというのは、大変喜ばしいことだと思います。
+そんな聴衆の皆様は、まさか2018年に、機械学習に関するトークでロジスティック回帰とTF-IDFの話だけ聞かされるとは思っていなかったことでしょう。
+わかりますよ。僕だってもっとゴツい手法をドーンと実装してバーンッって感じの結果を見せてドヤりたい。
+しかし人類は忘れてはならないのですよ、「手法は可能な限りシンプルなところから始めるべきで、あなたが持ってきたステキなアルゴリズムは誰にも理解できないし、サービスの一部として容易にはスケールしない」ということを。
+もちろん趣味として論文は読むし、気になったアルゴリズムは実装してみる。斜に構えていないで、まがりなりにもプロとしてトレンドもきちんと追いかける。それでも、それが目の前の問題に対して筋の良い解を与えるかは、完全に別の問題。
+というようなことを日々考えながら作っている、『専門家じゃなくても使える、ポチポチするだけで動く自然言語処理・機械学習』のお話でした。
+ TDがこれまでに作り上げてきたスケーラブルなシステムの上で動き、 多様なユーザの大小様々なデータに対して適用可能で、 お客様からTD社内のセールスエンジニアまで、使う人みんながある程度解釈・説明可能なアルゴリズムで動く  そんなソリューションになっております。
+引き続き何卒何卒。</description>
+    </item>
     
     <item>
       <title>&#34;Designing Data-Intensive Applications&#34;は濃密すぎる一冊だったので2018年の自分にも読んでもらいたい</title>
