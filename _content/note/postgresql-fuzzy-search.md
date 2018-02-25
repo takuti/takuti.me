@@ -1,7 +1,7 @@
 ---
 date: 2017-08-09
 lang: ja
-recommendations: [/note/levenshtein-distance/, /note/hive-fuzzy-search/, /note/chiir-2017/]
+recommendations: [/note/levenshtein-distance/, /note/hive-fuzzy-search/, /note/designing-data-intensive-applications/]
 title: あのときのビールをもう一度（PostgreSQLでFuzzy Searchを試す）
 ---
 
