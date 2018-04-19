@@ -85,10 +85,10 @@ $$
 
 となる。
 
-僕らは imbalanced data からいい感じの分類器を得るために undersampling をした。その結果、分類器は予測確率 $p_s$ を出力する。しかし本来、未知のデータはやっぱり imbalanced なのだから、真に知りたいのは $p$ である。というわけで、この式を変形して、$p\_s$ から $p$ を求められるようにしよう：
+僕らは imbalanced data からいい感じの分類器を得るために undersampling をした。その結果、分類器は予測確率 $p_s$ を出力する。しかし本来、未知のデータはやっぱり imbalanced なのだから、真に知りたいのは $p$ である。というわけで、この式を変形して、$p_s$ から $p$ を求められるようにしよう：
 
 $$
-p = \frac{\beta \ p\_s}{\beta \ p_s - p_s + 1} = \frac{p\_s}{p_s + (1 - p\_s) / \beta}
+p = \frac{\beta \ p_s}{\beta \ p_s - p_s + 1} = \frac{p_s}{p_s + (1 - p_s) / \beta}
 $$
 
 おわかりいただけただろうか。負例の undersampling rate $w = \beta$ とすれば、Facebook論文の予測確率を調整する式になる。
@@ -96,7 +96,7 @@ $$
 なお、正例のほうが多かった場合はそっちを rate $\alpha$ で undersampling するので、$\beta = 1$ となり：
 
 $$
-p = \frac{p\_s / \alpha}{p_s / \alpha + (1-p_s)}
+p = \frac{p_s / \alpha}{p_s / \alpha + (1-p_s)}
 $$
 
 こんな感じで調整できる。
@@ -106,14 +106,14 @@ $$
 正例または負例の undersampling rate $0 \leq \alpha, \ \beta \leq 1$ を使って予測確率を調整する式：
 
 $$
-p = \frac{p\_s / \alpha}{p_s / \alpha + (1-p_s) / \beta}
+p = \frac{p_s / \alpha}{p_s / \alpha + (1-p_s) / \beta}
 $$
 
 が存在することが分かった。
 
 Oversampling の場合は対照的に、底上げされてしまった予測確率の下方修正をすることになる。
 
-つまり $\alpha, \beta$ が oversampling rate なら、$\alpha, \ \beta \geq 1$ なので、同じ調整式を使って $p\_s / \alpha$ や $(1-p_s)/\beta$ でそのクラスの予測確率を“何倍に複製したか”に応じて小さめに調整することになる。
+つまり $\alpha, \beta$ が oversampling rate なら、$\alpha, \ \beta \geq 1$ なので、同じ調整式を使って $p_s / \alpha$ や $(1-p_s)/\beta$ でそのクラスの予測確率を“何倍に複製したか”に応じて小さめに調整することになる。
 
 ただ、これは確率としての undersampling rate $p(s \mid y)$ の議論から外れてしまう。Oversampling の場合で先の調整式を導出している論文はまだ発見できていないけど、あるのかな。ちなみに、以下のページには同様の式が登場するので、直感的な解釈としては割とよくある考え方らしい：
 
