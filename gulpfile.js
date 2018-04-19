@@ -45,7 +45,11 @@ gulp.task('compile-md', function() {
       }))
 
       // convert markdown content into html (except for the front matter)
-      .pipe(kramdown())
+      .pipe(kramdown({
+        highlight: function (code) {
+          return require('highlight.js').highlightAuto(code).value;
+        }
+      }))
 
       // insert the extracted front matter at the head of the converted html
       .pipe(wrapper({ header: function(file){ return file.frontMatter + '\n'; } }))
@@ -65,7 +69,11 @@ gulp.task('compile-md-preview', function() {
 
         file.contents = new Buffer(content);
       }))
-      .pipe(kramdown())
+      .pipe(kramdown({
+        highlight: function (code) {
+          return require('highlight.js').highlightAuto(code).value;
+        }
+      }))
       .pipe(wrapper({ header: function(file){ return file.frontMatter + '\n'; } }))
       .pipe(gulp.dest('content/'));
 });
