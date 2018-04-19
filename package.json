@@ -14,14 +14,14 @@
     "gulp-data": "^1.2.1",
     "gulp-kramdown": "^0.5.1",
     "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^3.1.0",
+    "gulp-sass": "^4.0.1",
     "gulp-wrapper": "^1.0.0",
     "husky": "^0.14.3",
     "imagemin-cli": "^3.0.0",
-    "lint-staged": "^4.2.3",
-    "stylelint": "^8.1.1",
-    "stylelint-config-standard": "^17.0.0",
-    "sync-request": "^4.1.0"
+    "lint-staged": "^7.0.4",
+    "stylelint": "^9.2.0",
+    "stylelint-config-standard": "^18.2.0",
+    "sync-request": "^6.0.0"
   },
   "stylelint": {
     "extends": "stylelint-config-standard"
