@@ -14,7 +14,8 @@
     </title>
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
   </head>
@@ -122,28 +123,28 @@ do {
   for(var y=1; y&lt;base_size.height-1; y++) {
     for(var x=1; x&lt;base_size.width-1; x++) {
       if(/<em> もしStep2で塗ったマスク領域の中なら合成後のRGB値を推定 </em>/) {</p>
-<pre><code>    // そのピクセルのRGB各色について連立一次方程式を解く
-    for(var rgb=0; rgb&amp;lt;3; rgb++) {
-      var sum_fq = 0;       // (1)
-      var sum_boundary = 0; // (2)
-      var sum_vpq = 0;      // (3)
+<pre><code>    <span class="hljs-comment">// そのピクセルのRGB各色について連立一次方程式を解く</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> rgb=<span class="hljs-number">0</span>; rgb&amp;lt;<span class="hljs-number">3</span>; rgb++) {
+      <span class="hljs-keyword">var</span> sum_fq = <span class="hljs-number">0</span>;       <span class="hljs-comment">// (1)</span>
+      <span class="hljs-keyword">var</span> sum_boundary = <span class="hljs-number">0</span>; <span class="hljs-comment">// (2)</span>
+      <span class="hljs-keyword">var</span> sum_vpq = <span class="hljs-number">0</span>;      <span class="hljs-comment">// (3)</span>
 
-      // 近傍点（4点）それぞれについて
-      for(var i=0; i&amp;lt;num_neighbors; i++) {
+      <span class="hljs-comment">// 近傍点（4点）それぞれについて</span>
+      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i&amp;lt;num_neighbors; i++) {
 
-        if(/* もし近傍点がStep2で塗ったマスク領域の中なら */) {
-          // (1)の加算
-        } else { // 近傍点は境界領域の中
-          // (2)の加算
+        <span class="hljs-keyword">if</span>(<span class="hljs-comment">/* もし近傍点がStep2で塗ったマスク領域の中なら */</span>) {
+          <span class="hljs-comment">// (1)の加算</span>
+        } <span class="hljs-keyword">else</span> { <span class="hljs-comment">// 近傍点は境界領域の中</span>
+          <span class="hljs-comment">// (2)の加算</span>
         }
 
-        if(/* Mixingで、ベース画像の勾配の方が大きければ */) {
-          // (3)の加算（ベース画像の勾配）
-        } else {
-          // (3)の加算（ソース画像の勾配）
+        <span class="hljs-keyword">if</span>(<span class="hljs-comment">/* Mixingで、ベース画像の勾配の方が大きければ */</span>) {
+          <span class="hljs-comment">// (3)の加算（ベース画像の勾配）</span>
+        } <span class="hljs-keyword">else</span> {
+          <span class="hljs-comment">// (3)の加算（ソース画像の勾配）</span>
         }
       }
-      // そのピクセルのRGB推定値の格納
+      <span class="hljs-comment">// そのピクセルのRGB推定値の格納</span>
     }
   }
 }

@@ -14,7 +14,8 @@
     </title>
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
   </head>
@@ -46,19 +47,19 @@
 <h3 id="part-i-foundations-of-data-systems">Part I. Foundations of Data Systems</h3>
 <p>第1部では、データシステムの信頼性、スケーラビリティ、保全性を担保することの大切さと難しさを伝え（第1章）、特にストレージに焦点をあてて、データモデル（リレーショナルモデル vs ドキュメントモデル）と代表的なDB、クエリ言語を紹介していく（第2章）。このあたりの内容は &quot;<strong><a href="https://pragprog.com/book/rwdata/seven-databases-in-seven-weeks">Seven Databases in Seven Weeks</a></strong>&quot; に通じるところもあった。データの一対多 (one-to-many) と多対多 (many-to-many) の関係が丁寧に比較されていて、リレーショナルデータベース、ドキュメント指向データベース、列指向データベースそれぞれの必要性や強み、弱みについて直感的な理解を与えてくれる。</p>
 <p>いろいろなストレージの世界を俯瞰したら、次は実際にデータを保持・探索することを考える（第3章）。この章がまぁ素晴らしい。この本のインデックスの説明は、これまでに読んだいかなる解説よりも分かりすかったと言っても過言ではない。だって、<em>&quot;the world&#39;s simplest databse&quot;</em> を作って $\mathcal{O}(n)$ で検索するところから話が始まるんですよ？</p>
-<pre><code class="lang-sh">#!/bin/bash
-
-db_set() {
-  echo &quot;$1,$2&quot; &gt;&gt; database
+<pre><code class="lang-sh"><span class="hljs-meta">#!/bin/bash
+</span>
+<span class="hljs-function"><span class="hljs-title">db_set</span></span>() {
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">$1</span>,<span class="hljs-variable">$2</span>"</span> &gt;&gt; database
 }
 
-db_get() {
-  grep &quot;^$1,&quot; database | sed -e &quot;s/^$1,//&quot; | tail -n 1
+<span class="hljs-function"><span class="hljs-title">db_get</span></span>() {
+  grep <span class="hljs-string">"^<span class="hljs-variable">$1</span>,"</span> database | sed -e <span class="hljs-string">"s/^<span class="hljs-variable">$1</span>,//"</span> | tail -n 1
 }
 </code></pre>
-<pre><code>$ db_set 123456 &#39;{&quot;name&quot;:&quot;London&quot;,&quot;attractions&quot;:[&quot;Big Ben&quot;,&quot;London Eye&quot;]}&#39;
+<pre><code>$ db_<span class="hljs-keyword">set</span> 123456 '{<span class="hljs-string">"name"</span>:<span class="hljs-string">"London"</span>,<span class="hljs-string">"attractions"</span>:[<span class="hljs-string">"Big Ben"</span>,<span class="hljs-string">"London Eye"</span>]}'
 $ db_get 123456
-{&quot;name&quot;:&quot;London&quot;,&quot;attractions&quot;:[&quot;Big Ben&quot;,&quot;London Eye&quot;]}
+{<span class="hljs-string">"name"</span>:<span class="hljs-string">"London"</span>,<span class="hljs-string">"attractions"</span>:[<span class="hljs-string">"Big Ben"</span>,<span class="hljs-string">"London Eye"</span>]}
 </code></pre><p>ここから議論を初めて、B-tree や Bloom filter といった具体的なデータ構造、アルゴリズムに言及していく。</p>
 <p>データの保持に関しては、高可用性やレイテンシがキモでサービスの核を担う OLTP (On-line transaction processing) と、ETLや分析用途で利用される集約操作が主の OLAP (On-line analytical processing; データウェアハウス) の比較が易しい。</p>
 <p>そして第1部を締めくくるのは、保持され、やり取りされるデータの“実体”、すなわちデータのシリアライズ（エンコーディング）とメッセージパッシングに関する話題（第4章）。<a href="https://msgpack.org/index.html">MessagePack</a>がシリアライゼーションフォーマットの1つとしてしっかり取り上げているのをみてニヤニヤしたり、<a href="https://grpc.io/">gRPC</a>への言及から今っぽい流れを感じたりできて楽しい。</p>

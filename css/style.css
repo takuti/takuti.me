@@ -195,7 +195,8 @@ pre code,
 
 blockquote {
   padding-left: 15px;
-  border-left: 3px solid #eee; }
+  border-left: 3px solid #eee;
+  margin-bottom: 1em; }
 
 @font-face {
   font-family: 'LigatureSymbols';

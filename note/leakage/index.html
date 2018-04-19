@@ -14,7 +14,8 @@
     </title>
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
   </head>
@@ -57,10 +58,10 @@ Formulation, Detection, and Avoidance</a></strong>. KDD 2011.</li>
 </ol>
 <p>データの混在を防ぐために、タスク1と2ではそれぞれ異なるタイトルの映画のデータが用意された。</p>
 <p>しかし、タスク2で優勝したチームのモデルは、なんとタスク1のテストデータをタスク2の教師データとして使っていた。</p>
-<pre><code>user, movie, rating
-A, X, 3 
-B, X, 1
-C, X, 5
+<pre><code><span class="hljs-built_in">user,</span> movie, rating
+<span class="hljs-built_in">A,</span> X, <span class="hljs-number">3</span> 
+<span class="hljs-built_in">B,</span> X, <span class="hljs-number">1</span>
+<span class="hljs-built_in">C,</span> X, <span class="hljs-number">5</span>
 </code></pre><p>というタスク1のテストデータ（＝2006年のレビュー履歴）があったとき、「2006年に movie X に集まるレビューは3件」と読み替えることができて、これはタスク2の学習に流用できるね、という話。</p>
 <h4 id="-kdd-cup-2008-http-www-kdd-org-kdd-cup-view-kdd-cup-2008-tasks-%E3%83%9E%E3%83%B3%E3%83%A2%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3%E3%83%87%E3%83%BC%E3%82%BF%E3%81%8B%E3%82%89%E3%81%AE%E4%B9%B3%E3%82%AC%E3%83%B3%E6%A4%9C%E5%87%BA"><a href="(http://www.kdd.org/kdd-cup/view/kdd-cup-2008/Tasks">KDD Cup 2008</a>: マンモグラフィデータからの乳ガン検出</h4>
 <p>普通は無視するはずの『患者ID』を特徴に使った結果、それがなぜかメッチャ予測に寄与した、という話。</p>

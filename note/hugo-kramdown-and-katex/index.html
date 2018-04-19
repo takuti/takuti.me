@@ -14,7 +14,8 @@
     </title>
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
   </head>
@@ -49,77 +50,77 @@
 <p>As I discussed in the article, integrating Markdown and LaTeX syntax is essentially hard problem for static site generators, because <code>_</code> (underscore) plays an important role on the both syntax; many Markdown parsers (including Hugo&#39;s default Markdown processor <a href="https://github.com/russross/blackfriday">Blackfriday</a>) mistakenly understand LaTeX&#39;s <code>_</code> (for subscripts) as an indicator of <em>italic</em>.</p>
 <p>In order to work around the issue, my previous article introduced how I utilized alternative Markdown processor, namely <strong>kramdown</strong>.</p>
 <p>Note that, while originally kramdown was called in my local <code>Rakefile</code>, currently the Markdown processing code has been moved to <code>gulpfile.js</code> by taking advantage of <a href="https://www.npmjs.com/package/gulp-kramdown">gulp-kramdown</a>:</p>
-<pre><code class="lang-js">gulp.task(&#39;compile-md&#39;, function() {
-  gulp.src(&#39;_content/**/*.{md,html}&#39;)
-      // extract front matter as a string
-      .pipe(data(function(file) {
-        var contents = file.contents.toString();
-        var content = contents.replace(/(---[\s\S]*?\n---\n)/m, function($1) {
-          file.frontMatter = $1;
-          return &#39;&#39;;
+<pre><code class="lang-js">gulp.task(<span class="hljs-string">'compile-md'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  gulp.src(<span class="hljs-string">'_content/**/*.{md,html}'</span>)
+      <span class="hljs-comment">// extract front matter as a string</span>
+      .pipe(data(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">file</span>) </span>{
+        <span class="hljs-keyword">var</span> contents = file.contents.toString();
+        <span class="hljs-keyword">var</span> content = contents.replace(<span class="hljs-regexp">/(---[\s\S]*?\n---\n)/m</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$1</span>) </span>{
+          file.frontMatter = $<span class="hljs-number">1</span>;
+          <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>;
         });
 
-        var tweetUrls = content.match(/(https?:\/\/twitter\.com\/[a-zA-Z0-9_]+\/status\/([0-9]+)\/?)/g);
+        <span class="hljs-keyword">var</span> tweetUrls = content.match(<span class="hljs-regexp">/(https?:\/\/twitter\.com\/[a-zA-Z0-9_]+\/status\/([0-9]+)\/?)/g</span>);
 
-        // convert all tweet urls into tweet cards
-        if (tweetUrls !== null) {
-          for (var url of tweetUrls) {
-            var id = /\/([0-9]+)\/?/g.exec(url)[1];
-            var res = request(&#39;GET&#39;, &#39;https://api.twitter.com/1/statuses/oembed.json?id=&#39; + id);
+        <span class="hljs-comment">// convert all tweet urls into tweet cards</span>
+        <span class="hljs-keyword">if</span> (tweetUrls !== <span class="hljs-literal">null</span>) {
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> <span class="hljs-built_in">url</span> <span class="hljs-keyword">of</span> tweetUrls) {
+            <span class="hljs-keyword">var</span> id = <span class="hljs-regexp">/\/([0-9]+)\/?/g</span>.exec(<span class="hljs-built_in">url</span>)[<span class="hljs-number">1</span>];
+            <span class="hljs-keyword">var</span> res = request(<span class="hljs-string">'GET'</span>, <span class="hljs-string">'https://api.twitter.com/1/statuses/oembed.json?id='</span> + id);
 
-            var tweetCard = JSON.parse(res.getBody(&#39;utf8&#39;)).html;
-            content = content.replace(url, tweetCard);
+            <span class="hljs-keyword">var</span> tweetCard = <span class="hljs-built_in">JSON</span>.parse(res.getBody(<span class="hljs-string">'utf8'</span>)).html;
+            content = content.replace(<span class="hljs-built_in">url</span>, tweetCard);
           }
         }
 
-        file.contents = new Buffer(content);
+        file.contents = <span class="hljs-keyword">new</span> Buffer(content);
       }))
 
-      // convert markdown content into html (except for the front matter)
+      <span class="hljs-comment">// convert markdown content into html (except for the front matter)</span>
       .pipe(kramdown())
 
-      // insert the extracted front matter at the head of the converted html
-      .pipe(wrapper({ header: function(file){ return file.frontMatter + &#39;\n&#39;; } }))
+      <span class="hljs-comment">// insert the extracted front matter at the head of the converted html</span>
+      .pipe(wrapper({ <span class="hljs-attribute">header</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">file</span>)</span>{ <span class="hljs-keyword">return</span> file.frontMatter + <span class="hljs-string">'\n'</span>; } }))
 
-      .pipe(gulp.dest(&#39;content/&#39;));
+      .pipe(gulp.dest(<span class="hljs-string">'content/'</span>));
 });
 </code></pre>
 <p>Eventually, running <code>$ hugo server --watch</code> and <code>$ gulp watch</code> simultaneously enables me to preview rendered Markdown + LaTeX contents.</p>
 <h3 id="replace-mathjax-with-katex">Replace MathJax with KaTeX</h3>
 <p>As many of you already noticed, math rendering of MathJax is surprisingly slow. Stressful &quot;loading...&quot; message always shows up on my browser! Thus, I decided to replace it with much faster alternative, <a href="https://khan.github.io/KaTeX/">KaTeX</a>.</p>
 <p>Replacement itself was pretty easy; I just needed to replace MathJax&#39;s stylesheet and script definition in <code>&lt;header&gt;~&lt;/header&gt;</code> (or <code>&lt;footer&gt;~&lt;/footer&gt;</code>) with KaTeX&#39;s ones:</p>
-<pre><code class="lang-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css&quot; integrity=&quot;sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0&quot; crossorigin=&quot;anonymous&quot;&gt;
+<pre><code class="lang-html">&lt;link <span class="hljs-attribute">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attribute">href</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"</span> <span class="hljs-attribute">integrity</span>=<span class="hljs-string">"sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0"</span> <span class="hljs-attribute">crossorigin</span>=<span class="hljs-string">"anonymous"</span>&gt;
 </code></pre>
-<pre><code class="lang-html">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js&quot; integrity=&quot;sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js&quot; integrity=&quot;sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-  renderMathInElement(document.body,
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">"sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1"</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">"anonymous"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">"sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx"</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">"anonymous"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  renderMathInElement(<span class="hljs-built_in">document</span>.body,
     {
-        delimiters: [
-            {left: &quot;$$&quot;, right: &quot;$$&quot;, display: true},
-            {left: &quot;$&quot;, right: &quot;$&quot;, display: false},
+        <span class="hljs-attr">delimiters</span>: [
+            {<span class="hljs-attr">left</span>: <span class="hljs-string">"$$"</span>, <span class="hljs-attr">right</span>: <span class="hljs-string">"$$"</span>, <span class="hljs-attr">display</span>: <span class="hljs-literal">true</span>},
+            {<span class="hljs-attr">left</span>: <span class="hljs-string">"$"</span>, <span class="hljs-attr">right</span>: <span class="hljs-string">"$"</span>, <span class="hljs-attr">display</span>: <span class="hljs-literal">false</span>},
         ]
     }
   );
 
-  var inlineMathArray = document.querySelectorAll(&quot;script[type=&#39;math/tex&#39;]&quot;);
-  for (var i = 0; i &lt; inlineMathArray.length; i++) {
-    var inlineMath = inlineMathArray[i];
-    var tex = inlineMath.innerText || inlineMath.textContent;
-    var replaced = document.createElement(&quot;span&quot;);
-    replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+  <span class="hljs-keyword">var</span> inlineMathArray = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">"script[type='math/tex']"</span>);
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; inlineMathArray.length; i++) {
+    <span class="hljs-keyword">var</span> inlineMath = inlineMathArray[i];
+    <span class="hljs-keyword">var</span> tex = inlineMath.innerText || inlineMath.textContent;
+    <span class="hljs-keyword">var</span> replaced = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"span"</span>);
+    replaced.innerHTML = katex.renderToString(tex, {<span class="hljs-attr">displayMode</span>: <span class="hljs-literal">false</span>});
     inlineMath.parentNode.replaceChild(replaced, inlineMath);
   }
 
-  var displayMathArray = document.querySelectorAll(&quot;script[type=&#39;math/tex; mode=display&#39;]&quot;);
-  for (var i = 0; i &lt; displayMathArray.length; i++) {
-    var displayMath = displayMathArray[i];
-    var tex = displayMath.innerHTML;
-    var replaced = document.createElement(&quot;span&quot;);
-    replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, &#39;&#39;), {displayMode: true});
+  <span class="hljs-keyword">var</span> displayMathArray = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">"script[type='math/tex; mode=display']"</span>);
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; displayMathArray.length; i++) {
+    <span class="hljs-keyword">var</span> displayMath = displayMathArray[i];
+    <span class="hljs-keyword">var</span> tex = displayMath.innerHTML;
+    <span class="hljs-keyword">var</span> replaced = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"span"</span>);
+    replaced.innerHTML = katex.renderToString(tex.replace(<span class="hljs-regexp">/%.*/g</span>, <span class="hljs-string">''</span>), {<span class="hljs-attr">displayMode</span>: <span class="hljs-literal">true</span>});
     displayMath.parentNode.replaceChild(replaced, displayMath);
   }
-&lt;/script&gt;
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
 <p>Here, <code>var inlineMathArray = ...</code> and <code>var displayMathArray = ...</code> are the magic!</p>
 <p>For the reasons that I mentioned above, I like to use kramdown, but the Markdown processor is strongly optimized for MathJax. That is, all <code>$</code> or <code>$$</code> in article are automatically converted into <code>&lt;script[type=&#39;math/tex&#39;]&gt;</code> or <code>&lt;script[type=&#39;math/tex; mode=display&#39;]&gt;</code> by kramdown, and hence KaTeX cannot find any LaTeX statements.</p>

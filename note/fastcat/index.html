@@ -14,7 +14,8 @@
     </title>
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
   </head>
@@ -65,114 +66,114 @@
 <p>先述の通り、カテゴリに関するMySQLダンプが公式から提供されているので、これを使えばよさそう。しかし、これはこれで相当骨の折れる仕事になりそうだ。</p>
 <p>そこで、MySQLダンプを元に<a href="http://wiki.dbpedia.org/services-resources/documentation/datasets">DBpediaが独自に作成・公開</a>している<a href="http://downloads.dbpedia.org/3.9/en/skos_categories_en.nt.bz2">SKOS categories データセット</a>（※ファイル直リンク）を利用する。DBpediaはWikipediaの情報を構造的にアーカイブすることを目的としたプロジェクトで、様々なデータをRDFトリプル <code>&lt;主語, 述語, 目的語&gt;</code> の形で表現している。</p>
 <p>SKOSカテゴリデータのRDFトリプルは <code>&lt;カテゴリ, 関係, カテゴリ&gt;</code> を表現している：</p>
-<pre><code>&lt;http://dbpedia.org/resource/Category:Futurama&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2004/02/skos/core#Concept&gt; .
-&lt;http://dbpedia.org/resource/Category:Futurama&gt; &lt;http://www.w3.org/2004/02/skos/core#prefLabel&gt; &quot;Futurama&quot;@en .
-&lt;http://dbpedia.org/resource/Category:Futurama&gt; &lt;http://www.w3.org/2004/02/skos/core#broader&gt; &lt;http://dbpedia.org/resource/Category:Television_series_created_by_Matt_Groening&gt; .
-&lt;http://dbpedia.org/resource/Category:Futurama&gt; &lt;http://www.w3.org/2004/02/skos/core#broader&gt; &lt;http://dbpedia.org/resource/Category:Comic_science_fiction&gt; .
-&lt;http://dbpedia.org/resource/Category:Futurama&gt; &lt;http://www.w3.org/2004/02/skos/core#broader&gt; &lt;http://dbpedia.org/resource/Category:Wikipedia_categories_named_after_American_animated_television_series&gt; .
-&lt;http://dbpedia.org/resource/Category:World_War_II&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2004/02/skos/core#Concept&gt; .
-&lt;http://dbpedia.org/resource/Category:World_War_II&gt; &lt;http://www.w3.org/2004/02/skos/core#prefLabel&gt; &quot;World War II&quot;@en .
-&lt;http://dbpedia.org/resource/Category:World_War_II&gt; &lt;http://www.w3.org/2004/02/skos/core#broader&gt; &lt;http://dbpedia.org/resource/Category:Wikipedia_categories_named_after_wars&gt; .
-&lt;http://dbpedia.org/resource/Category:World_War_II&gt; &lt;http://www.w3.org/2004/02/skos/core#broader&gt; &lt;http://dbpedia.org/resource/Category:20th-century_conflicts&gt; .
+<pre><code>&lt;<span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/dbpedia.org/resource</span><span class="hljs-regexp">/Category:Futurama&gt; &lt;http:/</span><span class="hljs-regexp">/www.w3.org/</span><span class="hljs-number">1999</span>/<span class="hljs-number">02</span>/<span class="hljs-number">22</span>-rdf-syntax-ns<span class="hljs-comment">#type&gt; &lt;http://www.w3.org/2004/02/skos/core#Concept&gt; .</span>
+&lt;<span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/dbpedia.org/resource</span><span class="hljs-regexp">/Category:Futurama&gt; &lt;http:/</span><span class="hljs-regexp">/www.w3.org/</span><span class="hljs-number">2004</span>/<span class="hljs-number">02</span>/skos/core<span class="hljs-comment">#prefLabel&gt; "Futurama"<span class="hljs-doctag">@en</span> .</span>
+&lt;<span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/dbpedia.org/resource</span><span class="hljs-regexp">/Category:Futurama&gt; &lt;http:/</span><span class="hljs-regexp">/www.w3.org/</span><span class="hljs-number">2004</span>/<span class="hljs-number">02</span>/skos/core<span class="hljs-comment">#broader&gt; &lt;http://dbpedia.org/resource/Category:Television_series_created_by_Matt_Groening&gt; .</span>
+&lt;<span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/dbpedia.org/resource</span><span class="hljs-regexp">/Category:Futurama&gt; &lt;http:/</span><span class="hljs-regexp">/www.w3.org/</span><span class="hljs-number">2004</span>/<span class="hljs-number">02</span>/skos/core<span class="hljs-comment">#broader&gt; &lt;http://dbpedia.org/resource/Category:Comic_science_fiction&gt; .</span>
+&lt;<span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/dbpedia.org/resource</span><span class="hljs-regexp">/Category:Futurama&gt; &lt;http:/</span><span class="hljs-regexp">/www.w3.org/</span><span class="hljs-number">2004</span>/<span class="hljs-number">02</span>/skos/core<span class="hljs-comment">#broader&gt; &lt;http://dbpedia.org/resource/Category:Wikipedia_categories_named_after_American_animated_television_series&gt; .</span>
+&lt;<span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/dbpedia.org/resource</span><span class="hljs-regexp">/Category:World_War_II&gt; &lt;http:/</span><span class="hljs-regexp">/www.w3.org/</span><span class="hljs-number">1999</span>/<span class="hljs-number">02</span>/<span class="hljs-number">22</span>-rdf-syntax-ns<span class="hljs-comment">#type&gt; &lt;http://www.w3.org/2004/02/skos/core#Concept&gt; .</span>
+&lt;<span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/dbpedia.org/resource</span><span class="hljs-regexp">/Category:World_War_II&gt; &lt;http:/</span><span class="hljs-regexp">/www.w3.org/</span><span class="hljs-number">2004</span>/<span class="hljs-number">02</span>/skos/core<span class="hljs-comment">#prefLabel&gt; "World War II"<span class="hljs-doctag">@en</span> .</span>
+&lt;<span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/dbpedia.org/resource</span><span class="hljs-regexp">/Category:World_War_II&gt; &lt;http:/</span><span class="hljs-regexp">/www.w3.org/</span><span class="hljs-number">2004</span>/<span class="hljs-number">02</span>/skos/core<span class="hljs-comment">#broader&gt; &lt;http://dbpedia.org/resource/Category:Wikipedia_categories_named_after_wars&gt; .</span>
+&lt;<span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/dbpedia.org/resource</span><span class="hljs-regexp">/Category:World_War_II&gt; &lt;http:/</span><span class="hljs-regexp">/www.w3.org/</span><span class="hljs-number">2004</span>/<span class="hljs-number">02</span>/skos/core<span class="hljs-comment">#broader&gt; &lt;http://dbpedia.org/resource/Category:20th-century_conflicts&gt; .</span>
 ...
 </code></pre><p>たとえば、次のトリプルは <code>World_War_II</code> の上位カテゴリ (<code>broader</code>) として <code>20th-century_conflicts</code> があることを意味する：</p>
-<pre><code>&lt;http://dbpedia.org/resource/Category:World_War_II&gt; &lt;http://www.w3.org/2004/02/skos/core#broader&gt; &lt;http://dbpedia.org/resource/Category:20th-century_conflicts&gt; .
+<pre><code>&lt;http:<span class="hljs-regexp">//</span>dbpedia.org<span class="hljs-regexp">/resource/</span>Category:World_War_II&gt; &lt;http:<span class="hljs-regexp">//</span>www.w3.org<span class="hljs-regexp">/2004/</span><span class="hljs-number">02</span><span class="hljs-regexp">/skos/</span>core<span class="hljs-comment">#broader&gt; &lt;http://dbpedia.org/resource/Category:20th-century_conflicts&gt; .</span>
 </code></pre><h3 id="%E3%83%91%E3%83%BC%E3%82%B9">パース</h3>
 <p>というわけで、DBpediaが提供しているカテゴリの上下関係に関するトリプルをいい感じにパースしてあげればカテゴリの上下関係が得られる：</p>
-<pre><code class="lang-py">import re
-import bz2
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> re
+<span class="hljs-keyword">import</span> bz2
 
-ntriple_pattern = re.compile(&#39;^&lt;(.+)&gt; &lt;(.+)&gt; &lt;(.+)&gt; \.\n$&#39;)
-category_pattern = re.compile(&#39;^http://dbpedia.org/resource/Category:(.+)$&#39;)
+ntriple_pattern = re.compile(<span class="hljs-string">'^&lt;(.+)&gt; &lt;(.+)&gt; &lt;(.+)&gt; \.\n$'</span>)
+category_pattern = re.compile(<span class="hljs-string">'^http://dbpedia.org/resource/Category:(.+)$'</span>)
 
-def get_name(url):
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_name</span><span class="hljs-params">(url)</span>:</span>
     m = category_pattern.search(url)
-    return unquote(m.group(1).replace(&#39;_&#39;, &#39; &#39;))
+    <span class="hljs-keyword">return</span> unquote(m.group(<span class="hljs-number">1</span>).replace(<span class="hljs-string">'_'</span>, <span class="hljs-string">' '</span>))
 
-for line in bz2.BZ2File(&#39;skos_categories_en.nt.bz2&#39;):
-    # トリプルをパース
-    m = ntriple_pattern.match(line.decode(&#39;utf-8&#39;))
+<span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> bz2.BZ2File(<span class="hljs-string">'skos_categories_en.nt.bz2'</span>):
+    <span class="hljs-comment"># トリプルをパース</span>
+    m = ntriple_pattern.match(line.decode(<span class="hljs-string">'utf-8'</span>))
 
-    if not m:
-        continue
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> m:
+        <span class="hljs-keyword">continue</span>
 
-    # 主語、述語、目的語
+    <span class="hljs-comment"># 主語、述語、目的語</span>
     s, p, o = m.groups()
 
-    # 『カテゴリの上下関係』を表していないトリプルはスキップ
-    if p != &#39;http://www.w3.org/2004/02/skos/core#broader&#39;:
-        continue
+    <span class="hljs-comment"># 『カテゴリの上下関係』を表していないトリプルはスキップ</span>
+    <span class="hljs-keyword">if</span> p != <span class="hljs-string">'http://www.w3.org/2004/02/skos/core#broader'</span>:
+        <span class="hljs-keyword">continue</span>
 
-    # 主語が下位カテゴリ (narrower)、目的語が上位カテゴリ (broader) に相当
+    <span class="hljs-comment"># 主語が下位カテゴリ (narrower)、目的語が上位カテゴリ (broader) に相当</span>
     narrower = get_name(s)
     broader = get_name(o)
 </code></pre>
 <h3 id="%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AEredis%E3%81%AB%E4%BF%9D%E5%AD%98">ローカルのRedisに保存</h3>
 <p><strong><a href="https://github.com/edsu/fastcat">fastcat</a></strong> のアイディアは、上位・下位カテゴリのlook upを効率的に行うために、パースした結果をローカルのRedisに保存しましょう、というもの。</p>
 <p>Redisサーバを起動して、</p>
-<pre><code class="lang-sh">$ redis-server /usr/local/etc/redis.conf
+<pre><code class="lang-sh"><span class="hljs-meta">$</span><span class="bash"> redis-server /usr/<span class="hljs-built_in">local</span>/etc/redis.conf</span>
 </code></pre>
 <p>Python経由でRedisへ保存する。上位カテゴリなら <code>b:</code>、下位カテゴリなら <code>n:</code> というインデックスをつけておく：</p>
-<pre><code class="lang-py">import redis
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> redis
 
 db = redis.Redis()
 
 ...
 
-for line in bz2.BZ2File(&#39;skos_categories_en.nt.bz2&#39;):
+for line <span class="hljs-keyword">in</span> bz2.BZ2File(<span class="hljs-string">'skos_categories_en.nt.bz2'</span>):
     ...
 
     narrower = get_name(s)
     broader = get_name(o)
 
-    db.sadd(&#39;b:%s&#39; % narrower, broader)
-    db.sadd(&#39;n:%s&#39; % broader, narrower)
+    db.sadd(<span class="hljs-string">'b:%s'</span> % narrower, broader)
+    db.sadd(<span class="hljs-string">'n:%s'</span> % broader, narrower)
 </code></pre>
 <p>（ローカルへのRedisのインストールはMacなら <code>$ brew install redis</code> です）</p>
 <p>ちゃんと登録されているか見てみる：</p>
 <pre><code class="lang-sh">$ redis-cli
-127.0.0.1:6379&gt; smembers &#39;n:World War II&#39;
- 1) &quot;World War II sites&quot;
- 2) &quot;People of World War II&quot;
- 3) &quot;Military equipment of World War II&quot;
- 4) &quot;Military units and formations of World War II&quot;
- 5) &quot;Military logistics of World War II&quot;
+<span class="hljs-meta">127.0.0.1:6379&gt;</span> smembers <span class="hljs-string">'n:World War II'</span>
+ <span class="hljs-number">1</span>) <span class="hljs-string">"World War II sites"</span>
+ <span class="hljs-number">2</span>) <span class="hljs-string">"People of World War II"</span>
+ <span class="hljs-number">3</span>) <span class="hljs-string">"Military equipment of World War II"</span>
+ <span class="hljs-number">4</span>) <span class="hljs-string">"Military units and formations of World War II"</span>
+ <span class="hljs-number">5</span>) <span class="hljs-string">"Military logistics of World War II"</span>
  ...
-127.0.0.1:6379&gt; smembers &#39;b:World War II&#39;
- 1) &quot;Wars involving Ecuador&quot;
- 2) &quot;Conflicts in 1943&quot;
- 3) &quot;Wars involving Nepal&quot;
- 4) &quot;Wars involving the Dominican Republic&quot;
- 5) &quot;Wars involving Denmark&quot;
- 6) &quot;Wars involving Canada&quot;
+<span class="hljs-meta">127.0.0.1:6379&gt;</span> smembers <span class="hljs-string">'b:World War II'</span>
+ <span class="hljs-number">1</span>) <span class="hljs-string">"Wars involving Ecuador"</span>
+ <span class="hljs-number">2</span>) <span class="hljs-string">"Conflicts in 1943"</span>
+ <span class="hljs-number">3</span>) <span class="hljs-string">"Wars involving Nepal"</span>
+ <span class="hljs-number">4</span>) <span class="hljs-string">"Wars involving the Dominican Republic"</span>
+ <span class="hljs-number">5</span>) <span class="hljs-string">"Wars involving Denmark"</span>
+ <span class="hljs-number">6</span>) <span class="hljs-string">"Wars involving Canada"</span>
  ...
 </code></pre>
 <p>一瞬でズラッとでてくる。よさそう。</p>
 <h3 id="python%E3%81%8B%E3%82%89dig%E3%82%8B">Pythonからdigる</h3>
 <p>こんな関数を作ってあげれば、コネクション <code>db = redis.Redis()</code> 経由で簡単に上位・下位カテゴリの一覧が得られる：</p>
-<pre><code class="lang-py">def broader(db, cat):
-    return list(map(lambda res: res.decode(&#39;utf-8&#39;), db.smembers(&#39;b:%s&#39; % cat)))
+<pre><code class="lang-py">def broader(db, <span class="hljs-keyword">cat</span>):
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">list</span>(<span class="hljs-keyword">map</span>(lambda re<span class="hljs-variable">s:</span> <span class="hljs-keyword">res</span>.decode(<span class="hljs-string">'utf-8'</span>), db.smembers(<span class="hljs-string">'b:%s'</span> % <span class="hljs-keyword">cat</span>)))
 
-def narrower(db, cat):
-    return list(map(lambda res: res.decode(&#39;utf-8&#39;), db.smembers(&#39;n:%s&#39; % cat)))
+def narrower(db, <span class="hljs-keyword">cat</span>):
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">list</span>(<span class="hljs-keyword">map</span>(lambda re<span class="hljs-variable">s:</span> <span class="hljs-keyword">res</span>.decode(<span class="hljs-string">'utf-8'</span>), db.smembers(<span class="hljs-string">'n:%s'</span> % <span class="hljs-keyword">cat</span>)))
 </code></pre>
-<pre><code class="lang-py">&gt;&gt;&gt; db = redis.Redis()
-&gt;&gt;&gt; broader(db, &#39;Functional programming&#39;)
-[&#39;Declarative programming&#39;]
-&gt;&gt;&gt; narrower(db, &#39;Functional programming&#39;)
-[&#39;Lambda calculus&#39;, &#39;Combinatory logic&#39;, &#39;Recursion schemes&#39;, &#39;Functional data structures&#39;, &#39;Functional languages&#39;, &#39;Implementation of functional programming languages&#39;, &#39;Higher-order functions&#39;, &#39;Dependently typed programming&#39;]
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;</span>&gt; db = redis.Redis()
+<span class="hljs-meta">&gt;&gt;</span>&gt; broader(db, <span class="hljs-string">'Functional programming'</span>)
+[<span class="hljs-string">'Declarative programming'</span>]
+<span class="hljs-meta">&gt;&gt;</span>&gt; narrower(db, <span class="hljs-string">'Functional programming'</span>)
+[<span class="hljs-string">'Lambda calculus'</span>, <span class="hljs-string">'Combinatory logic'</span>, <span class="hljs-string">'Recursion schemes'</span>, <span class="hljs-string">'Functional data structures'</span>, <span class="hljs-string">'Functional languages'</span>, <span class="hljs-string">'Implementation of functional programming languages'</span>, <span class="hljs-string">'Higher-order functions'</span>, <span class="hljs-string">'Dependently typed programming'</span>]
 </code></pre>
 <h3 id="%E6%97%A5%E6%9C%AC%E8%AA%9E%E7%89%88">日本語版</h3>
 <p>以上がオリジナルの <strong><a href="https://github.com/edsu/fastcat">fastcat</a></strong> がやっていたこと。DBpediaデータとRedisを組み合わせた、よいソリューションだと思う。研究の現場ならPDCAを加速させてくれる。やったね。</p>
 <p>せっかくなので、これを日本語にも対応させて、パッケージ化してる： <strong><a href="https://github.com/takuti/fastcat">takuti/fastcat</a></strong></p>
 <p>とはいえ、基本的にはデータの取得元が<a href="http://ja.dbpedia.org/dumps/20160407/jawiki-20160407-skos-categories.ttl.bz2">日本語版SKOSカテゴリデータ</a>（※ファイル直リンク）に変わるだけである。日本語版DBpediaのコミュニティに感謝感謝。</p>
 <p>幅優先でdigれば網羅的に子カテゴリを得ることができたりして便利：</p>
-<pre><code class="lang-py">from queue import Queue
+<pre><code class="lang-py"><span class="hljs-keyword">from</span><span class="hljs-built_in"> queue </span>import<span class="hljs-built_in"> Queue
+</span>
+<span class="hljs-keyword">from</span> fastcat import FastCat
 
-from fastcat import FastCat
 
-
-def get_child_categories(category, max_depth=1):
+def get_child_categories(category, <span class="hljs-attribute">max_depth</span>=1):
     f = FastCat()
 
     q = Queue()
@@ -180,21 +181,21 @@ def get_child_categories(category, max_depth=1):
 
     res = list()
 
-    while not q.empty():
-        cat, depth = q.get()
-        if depth == max_depth:
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> q.empty():
+        cat, depth = q.<span class="hljs-builtin-name">get</span>()
+        <span class="hljs-keyword">if</span> depth == max_depth:
             break
 
         child_categories = f.narrower(cat)
-        for c in child_categories:
+        <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> child_categories:
             q.put((c, depth + 1))
 
         res += child_categories
 
     return res
 </code></pre>
-<pre><code class="lang-py">&gt;&gt;&gt; get_child_categories(&#39;関数型プログラミング&#39;, max_depth=2)
-[&#39;関数型言語&#39;, &#39;高階関数&#39;, &#39;ラムダ計算&#39;]
+<pre><code class="lang-py"><span class="hljs-meta">&gt;&gt;</span>&gt; get_child_categories(<span class="hljs-string">'関数型プログラミング'</span>, max_depth=<span class="hljs-number">2</span>)
+[<span class="hljs-string">'関数型言語'</span>, <span class="hljs-string">'高階関数'</span>, <span class="hljs-string">'ラムダ計算'</span>]
 </code></pre>
 <p>異常なクロールをしないことは現代人のマナーである一方、公式が提供する生データだけを馬鹿正直に使って非生産的な時間を過ごす必要もない。いい話。卒論時代の自分に教えてあげたい。</p>
 

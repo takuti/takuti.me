@@ -14,7 +14,8 @@
     </title>
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
   </head>
@@ -35,240 +36,240 @@
   <div class="post">
     <p><strong><a href="https://pragprog.com/book/rwdata/seven-databases-in-seven-weeks">Seven Databases in Seven Weeks</a></strong> を読んでいたら、PostgreSQLでテキスト検索をする話が出てきた。<a href="https://takuti.me/note/levenshtein-distance">先日 Levenshtein Distance（編集距離）について書いたばかり</a>でホットな話題なので、少し遊んでみよう。</p>
 <pre><code class="lang-sh">$ postgres --version
-postgres (PostgreSQL) 9.6.3
+postgres (PostgreSQL) <span class="hljs-number">9.6</span><span class="hljs-number">.3</span>
 </code></pre>
 <p>※インデックスと英語以外の言語の場合については割愛。</p>
 <h3 id="%E3%83%87%E3%83%BC%E3%82%BF">データ</h3>
 <p>お気に入りの<a href="https://www.kaggle.com/nickhould/craft-cans">アメリカのクラフトビールデータセット</a>を使う。適当に <code>create table</code> してCSVからデータを読み込む：</p>
-<pre><code class="lang-sql">create table beers (
-    key int,
-    abv real,
-    ibu real,
-    id int,
-    name varchar(128),
-    style varchar(64),
-    brewery_id int,
-    ounces real
+<pre><code class="lang-sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> beers (
+    <span class="hljs-keyword">key</span> <span class="hljs-built_in">int</span>,
+    abv <span class="hljs-built_in">real</span>,
+    ibu <span class="hljs-built_in">real</span>,
+    <span class="hljs-keyword">id</span> <span class="hljs-built_in">int</span>,
+    <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">128</span>),
+    <span class="hljs-keyword">style</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">64</span>),
+    brewery_id <span class="hljs-built_in">int</span>,
+    ounces <span class="hljs-built_in">real</span>
 );
-\copy beers from &#39;beers.csv&#39; with csv;
+\copy beers from 'beers.csv' with csv;
 </code></pre>
-<pre><code>sample=# select * from beers limit 5;
- key |  abv  | ibu |  id  |        name         |             style              | brewery_id | ounces
+<pre><code>sample=<span class="hljs-comment"># select * from beers limit 5;</span>
+ key |<span class="hljs-string">  abv  </span>|<span class="hljs-string"> ibu </span>|<span class="hljs-string">  id  </span>|<span class="hljs-string">        name         </span>|<span class="hljs-string">             style              </span>|<span class="hljs-string"> brewery_id </span>|<span class="hljs-string"> ounces
 -----+-------+-----+------+---------------------+--------------------------------+------------+--------
-   0 |  0.05 |     | 1436 | Pub Beer            | American Pale Lager            |        408 |     12
-   1 | 0.066 |     | 2265 | Devil&#39;s Cup         | American Pale Ale (APA)        |        177 |     12
-   2 | 0.071 |     | 2264 | Rise of the Phoenix | American IPA                   |        177 |     12
-   3 |  0.09 |     | 2263 | Sinister            | American Double / Imperial IPA |        177 |     12
-   4 | 0.075 |     | 2262 | Sex and Candy       | American IPA                   |        177 |     12
+   0 </span>|<span class="hljs-string">  0.05 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 1436 </span>|<span class="hljs-string"> Pub Beer            </span>|<span class="hljs-string"> American Pale Lager            </span>|<span class="hljs-string">        408 </span>|<span class="hljs-string">     12
+   1 </span>|<span class="hljs-string"> 0.066 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 2265 </span>|<span class="hljs-string"> Devil's Cup         </span>|<span class="hljs-string"> American Pale Ale (APA)        </span>|<span class="hljs-string">        177 </span>|<span class="hljs-string">     12
+   2 </span>|<span class="hljs-string"> 0.071 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 2264 </span>|<span class="hljs-string"> Rise of the Phoenix </span>|<span class="hljs-string"> American IPA                   </span>|<span class="hljs-string">        177 </span>|<span class="hljs-string">     12
+   3 </span>|<span class="hljs-string">  0.09 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 2263 </span>|<span class="hljs-string"> Sinister            </span>|<span class="hljs-string"> American Double / Imperial IPA </span>|<span class="hljs-string">        177 </span>|<span class="hljs-string">     12
+   4 </span>|<span class="hljs-string"> 0.075 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 2262 </span>|<span class="hljs-string"> Sex and Candy       </span>|<span class="hljs-string"> American IPA                   </span>|<span class="hljs-string">        177 </span>|<span class="hljs-string">     12</span>
 </code></pre><p>やったぜ。</p>
 <p>今回は<a href="https://takuti.me/note/recsys-2016">RecSys2016に参加したとき</a>にいい感じのパブで飲んだ、<a href="http://www.notchbrewing.com/">Notch Brewing</a>（マサチューセッツ州）のビール &quot;<strong>Left of the Dial</strong>&quot; (ABV 4.3%) を当該データセットから探す。1年前の思い出をもう一度！<del>（そんなに好みのビールじゃなかったけど）</del></p>
 <p><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:512px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BKji_1DDncp/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">woo~🍺</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A post shared by @takuti on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2016-09-19T23:09:25+00:00">Sep 19, 2016 at 4:09pm PDT</time></p></div></blockquote> <script async defer src="//platform.instagram.com/en_US/embeds.js"></script></p>
 <h3 id="%E5%AE%8C%E5%85%A8%E4%B8%80%E8%87%B4">完全一致</h3>
 <p>まずは愚直に <code>where</code> 句で完全一致検索をしてみよう：</p>
-<pre><code>sample=# select * from beers where name = &#39;Left of the Dial&#39;;
- key | abv | ibu | id | name | style | brewery_id | ounces
------+-----+-----+----+------+-------+------------+--------
+<pre><code>sample=# select * from beers where name = <span class="hljs-emphasis">'Left of the Dial'</span>;
+<span class="hljs-section"> key | abv | ibu | id | name | style | brewery_id | ounces
+-----+-----+-----+----+------+-------+------------+--------</span>
 (0 rows)
 </code></pre><p>無い…。</p>
 <h3 id="like-%E3%81%A8-ilike">LIKE と ILIKE</h3>
 <p>そんなはずはない！というわけで、Fuzzy Search を試みる。</p>
 <p><code>LIKE</code> でビール名の前後に何らかの文字列があることを許容すれば：</p>
-<pre><code>sample=# select * from beers where name LIKE &#39;%Left of the Dial%&#39;;
- key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+<pre><code>sample=<span class="hljs-comment"># select * from beers where name LIKE '%Left of the Dial%';</span>
+ key  |<span class="hljs-string">  abv  </span>|<span class="hljs-string"> ibu </span>|<span class="hljs-string">  id  </span>|<span class="hljs-string">         name         </span>|<span class="hljs-string">    style     </span>|<span class="hljs-string"> brewery_id </span>|<span class="hljs-string"> ounces
 ------+-------+-----+------+----------------------+--------------+------------+--------
- 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
-(1 row)
+ 1504 </span>|<span class="hljs-string"> 0.043 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 1917 </span>|<span class="hljs-string"> Left of the Dial IPA </span>|<span class="hljs-string"> American IPA </span>|<span class="hljs-string">        271 </span>|<span class="hljs-string">     12
+(1 row)</span>
 </code></pre><p>あったー！ABVも記録と一致している。まさにこれだ。</p>
 <p><code>ILIKE</code> は <code>LIKE</code> の大文字・小文字を無視する版で、全部小文字で検索してもお目当てのビールがヒットするようになる：</p>
-<pre><code>sample=# select * from beers where name LIKE &#39;%left of the dial%&#39;;
- key | abv | ibu | id | name | style | brewery_id | ounces
+<pre><code>sample=# select * from beers <span class="hljs-keyword">where</span> name LIKE '%<span class="hljs-built_in">left</span> of the dial%';
+ key | <span class="hljs-type">abv</span> | <span class="hljs-type">ibu</span> | <span class="hljs-type">id</span> | <span class="hljs-type">name</span> | <span class="hljs-type">style</span> | <span class="hljs-type">brewery_id</span> | <span class="hljs-type">ounces</span>
 -----+-----+-----+----+------+-------+------------+--------
-(0 rows)
+(<span class="hljs-number">0</span> rows)
 
-sample=# select * from beers where name ILIKE &#39;%left of the dial%&#39;;
- key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+sample=# select * from beers <span class="hljs-keyword">where</span> name ILIKE '%<span class="hljs-built_in">left</span> of the dial%';
+ key  |  <span class="hljs-type">abv</span>  | <span class="hljs-type">ibu</span> |  <span class="hljs-type">id</span>  |         <span class="hljs-type">name</span>         |    <span class="hljs-type">style</span>     | <span class="hljs-type">brewery_id</span> | <span class="hljs-type">ounces</span>
 ------+-------+-----+------+----------------------+--------------+------------+--------
- 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
-(1 row)
+ <span class="hljs-number">1504</span> | <span class="hljs-type">0</span><span class="hljs-number">.043</span> |     <span class="hljs-type">| 1917</span> | <span class="hljs-type">Left</span> of the Dial IPA | <span class="hljs-type">American</span> IPA |        <span class="hljs-type">271</span> |     <span class="hljs-type">12</span>
+(<span class="hljs-number">1</span> row)
 </code></pre><h3 id="%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%8F%BE">正規表現</h3>
 <p>もう少し柔軟に、正規表現を使った検索も可能。</p>
 <p>先の <code>LIKE</code> 相当の正規表現マッチは <code>~</code> で探して次の通り：</p>
-<pre><code>sample=# select * from beers where name ~ &#39;.*Left of the Dial.*&#39;;
- key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+<pre><code>sample=<span class="hljs-comment"># select * from beers where name ~ '.*Left of the Dial.*';</span>
+ key  |<span class="hljs-string">  abv  </span>|<span class="hljs-string"> ibu </span>|<span class="hljs-string">  id  </span>|<span class="hljs-string">         name         </span>|<span class="hljs-string">    style     </span>|<span class="hljs-string"> brewery_id </span>|<span class="hljs-string"> ounces
 ------+-------+-----+------+----------------------+--------------+------------+--------
- 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
-(1 row)
+ 1504 </span>|<span class="hljs-string"> 0.043 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 1917 </span>|<span class="hljs-string"> Left of the Dial IPA </span>|<span class="hljs-string"> American IPA </span>|<span class="hljs-string">        271 </span>|<span class="hljs-string">     12
+(1 row)</span>
 </code></pre><p><code>~*</code> で探せば、大文字・小文字を無視してくれて <code>ILIKE</code> 相当の結果も得られる：</p>
-<pre><code>sample=# select * from beers where name ~ &#39;.*left of the dial.*&#39;;
- key | abv | ibu | id | name | style | brewery_id | ounces
+<pre><code>sample=# select * from beers <span class="hljs-keyword">where</span> name ~ '.*<span class="hljs-built_in">left</span> of the dial.*';
+ key | <span class="hljs-type">abv</span> | <span class="hljs-type">ibu</span> | <span class="hljs-type">id</span> | <span class="hljs-type">name</span> | <span class="hljs-type">style</span> | <span class="hljs-type">brewery_id</span> | <span class="hljs-type">ounces</span>
 -----+-----+-----+----+------+-------+------------+--------
-(0 rows)
+(<span class="hljs-number">0</span> rows)
 
-sample=# select * from beers where name ~* &#39;.*left of the dial.*&#39;;
- key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+sample=# select * from beers <span class="hljs-keyword">where</span> name ~* '.*<span class="hljs-built_in">left</span> of the dial.*';
+ key  |  <span class="hljs-type">abv</span>  | <span class="hljs-type">ibu</span> |  <span class="hljs-type">id</span>  |         <span class="hljs-type">name</span>         |    <span class="hljs-type">style</span>     | <span class="hljs-type">brewery_id</span> | <span class="hljs-type">ounces</span>
 ------+-------+-----+------+----------------------+--------------+------------+--------
- 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
-(1 row)
+ <span class="hljs-number">1504</span> | <span class="hljs-type">0</span><span class="hljs-number">.043</span> |     <span class="hljs-type">| 1917</span> | <span class="hljs-type">Left</span> of the Dial IPA | <span class="hljs-type">American</span> IPA |        <span class="hljs-type">271</span> |     <span class="hljs-type">12</span>
+(<span class="hljs-number">1</span> row)
 </code></pre><h3 id="%E7%B7%A8%E9%9B%86%E8%B7%9D%E9%9B%A2">編集距離</h3>
 <p>とはいえ、検索クエリは <code>LIKE</code> と正規表現だけでカバーできるほど単純なものではない。特にtypo、これが厄介。</p>
 <p>そこで<strong>編集距離</strong> (Levenshtein Distance) を使って、もう少しtypoにロバストなクエリにする。</p>
 <p>PostgreSQLでは <code>fuzzystrmatch</code> モジュールに関数 <code>levenshtein</code> などが含まれている：</p>
 <pre><code>sample=# create extension fuzzystrmatch;
 CREATE EXTENSION
-sample=# select levenshtein(&#39;kitten&#39;, &#39;sitting&#39;);
- levenshtein
--------------
-           3
+sample=# select levenshtein(<span class="hljs-emphasis">'kitten'</span>, <span class="hljs-emphasis">'sitting'</span>);
+<span class="hljs-section"> levenshtein
+-------------</span>
+<span class="hljs-code">           3</span>
 (1 row)
 </code></pre><p>&quot;Left of the Dial&quot; からの編集距離が10以下のビールは結構ある：</p>
-<pre><code>sample=# select * from beers where levenshtein(lower(name), lower(&#39;Left of the Dial&#39;)) &lt;= 10;
- key  |  abv  | ibu |  id  |         name         |          style           | brewery_id | ounces
+<pre><code>sample=<span class="hljs-comment"># select * from beers where levenshtein(lower(name), lower('Left of the Dial')) &lt;= 10;</span>
+ key  |<span class="hljs-string">  abv  </span>|<span class="hljs-string"> ibu </span>|<span class="hljs-string">  id  </span>|<span class="hljs-string">         name         </span>|<span class="hljs-string">          style           </span>|<span class="hljs-string"> brewery_id </span>|<span class="hljs-string"> ounces
 ------+-------+-----+------+----------------------+--------------------------+------------+--------
-  274 | 0.054 |     | 1411 | Sawtooth Ale         | American Blonde Ale      |        407 |     12
-  383 | 0.072 |  60 | 1801 | Last Stop IPA        | American IPA             |        308 |     12
-  428 | 0.073 |     | 1785 | Le Flaneur Ale       | American Wild Ale        |         10 |     16
-  690 | 0.072 |     | 1623 | Lift Off IPA         | American IPA             |        358 |     16
-  695 |  0.06 |     | 2371 | Neato Bandito        | Euro Pale Lager          |        127 |     12
- 1101 | 0.068 |  90 | 1903 | Let It Ride IPA      | American IPA             |        277 |     12
- 1385 | 0.075 |  85 | 2159 | City of the Sun      | American IPA             |        209 |     16
- 1493 | 0.045 |  50 | 2692 | Get Together         | American IPA             |          0 |     16
- 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA             |        271 |     12
- 1650 |  0.06 |  20 | 1791 | Hot Date Ale         | Chile Beer               |        314 |     16
- 1658 | 0.065 |     | 2559 | Blood of the Unicorn | American Amber / Red Ale |         52 |     16
- 1702 |  0.08 |     | 1375 | Nectar of the Hops   | Mead                     |        421 |     16
- 2171 | 0.041 |     | 1780 | Rise to the Top      | Cream Ale                |        142 |     12
- 2337 |       |     |  652 | West Sixth IPA       | American IPA             |        100 |     12
-(14 rows)
+  274 </span>|<span class="hljs-string"> 0.054 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 1411 </span>|<span class="hljs-string"> Sawtooth Ale         </span>|<span class="hljs-string"> American Blonde Ale      </span>|<span class="hljs-string">        407 </span>|<span class="hljs-string">     12
+  383 </span>|<span class="hljs-string"> 0.072 </span>|<span class="hljs-string">  60 </span>|<span class="hljs-string"> 1801 </span>|<span class="hljs-string"> Last Stop IPA        </span>|<span class="hljs-string"> American IPA             </span>|<span class="hljs-string">        308 </span>|<span class="hljs-string">     12
+  428 </span>|<span class="hljs-string"> 0.073 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 1785 </span>|<span class="hljs-string"> Le Flaneur Ale       </span>|<span class="hljs-string"> American Wild Ale        </span>|<span class="hljs-string">         10 </span>|<span class="hljs-string">     16
+  690 </span>|<span class="hljs-string"> 0.072 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 1623 </span>|<span class="hljs-string"> Lift Off IPA         </span>|<span class="hljs-string"> American IPA             </span>|<span class="hljs-string">        358 </span>|<span class="hljs-string">     16
+  695 </span>|<span class="hljs-string">  0.06 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 2371 </span>|<span class="hljs-string"> Neato Bandito        </span>|<span class="hljs-string"> Euro Pale Lager          </span>|<span class="hljs-string">        127 </span>|<span class="hljs-string">     12
+ 1101 </span>|<span class="hljs-string"> 0.068 </span>|<span class="hljs-string">  90 </span>|<span class="hljs-string"> 1903 </span>|<span class="hljs-string"> Let It Ride IPA      </span>|<span class="hljs-string"> American IPA             </span>|<span class="hljs-string">        277 </span>|<span class="hljs-string">     12
+ 1385 </span>|<span class="hljs-string"> 0.075 </span>|<span class="hljs-string">  85 </span>|<span class="hljs-string"> 2159 </span>|<span class="hljs-string"> City of the Sun      </span>|<span class="hljs-string"> American IPA             </span>|<span class="hljs-string">        209 </span>|<span class="hljs-string">     16
+ 1493 </span>|<span class="hljs-string"> 0.045 </span>|<span class="hljs-string">  50 </span>|<span class="hljs-string"> 2692 </span>|<span class="hljs-string"> Get Together         </span>|<span class="hljs-string"> American IPA             </span>|<span class="hljs-string">          0 </span>|<span class="hljs-string">     16
+ 1504 </span>|<span class="hljs-string"> 0.043 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 1917 </span>|<span class="hljs-string"> Left of the Dial IPA </span>|<span class="hljs-string"> American IPA             </span>|<span class="hljs-string">        271 </span>|<span class="hljs-string">     12
+ 1650 </span>|<span class="hljs-string">  0.06 </span>|<span class="hljs-string">  20 </span>|<span class="hljs-string"> 1791 </span>|<span class="hljs-string"> Hot Date Ale         </span>|<span class="hljs-string"> Chile Beer               </span>|<span class="hljs-string">        314 </span>|<span class="hljs-string">     16
+ 1658 </span>|<span class="hljs-string"> 0.065 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 2559 </span>|<span class="hljs-string"> Blood of the Unicorn </span>|<span class="hljs-string"> American Amber / Red Ale </span>|<span class="hljs-string">         52 </span>|<span class="hljs-string">     16
+ 1702 </span>|<span class="hljs-string">  0.08 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 1375 </span>|<span class="hljs-string"> Nectar of the Hops   </span>|<span class="hljs-string"> Mead                     </span>|<span class="hljs-string">        421 </span>|<span class="hljs-string">     16
+ 2171 </span>|<span class="hljs-string"> 0.041 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 1780 </span>|<span class="hljs-string"> Rise to the Top      </span>|<span class="hljs-string"> Cream Ale                </span>|<span class="hljs-string">        142 </span>|<span class="hljs-string">     12
+ 2337 </span>|<span class="hljs-string">       </span>|<span class="hljs-string">     </span>|<span class="hljs-string">  652 </span>|<span class="hljs-string"> West Sixth IPA       </span>|<span class="hljs-string"> American IPA             </span>|<span class="hljs-string">        100 </span>|<span class="hljs-string">     12
+(14 rows)</span>
 </code></pre><p>また、<code>levenshtein_less_equal(string 1, string 2, max distance)</code> は <code>max distance</code> より小さい編集距離の文字列に対してはその正確な編集距離を、それ以外については <code>max distance</code> より大きな適当な値（ここでは <code>max distance + 1</code>）を返す関数：</p>
-<pre><code class="lang-sql">select
-    name,
-    levenshtein(lower(name), lower(&#39;Left of the Dial&#39;)), /* 正確な編集距離 */
-    levenshtein_less_equal(lower(name), lower(&#39;Left of the Dial&#39;), 11) /* 編集距離11以下だけ真面目に計算する */
-from
+<pre><code class="lang-sql"><span class="hljs-keyword">select</span>
+    <span class="hljs-keyword">name</span>,
+    levenshtein(<span class="hljs-keyword">lower</span>(<span class="hljs-keyword">name</span>), <span class="hljs-keyword">lower</span>(<span class="hljs-string">'Left of the Dial'</span>)), <span class="hljs-comment">/* 正確な編集距離 */</span>
+    levenshtein_less_equal(<span class="hljs-keyword">lower</span>(<span class="hljs-keyword">name</span>), <span class="hljs-keyword">lower</span>(<span class="hljs-string">'Left of the Dial'</span>), <span class="hljs-number">11</span>) <span class="hljs-comment">/* 編集距離11以下だけ真面目に計算する */</span>
+<span class="hljs-keyword">from</span>
     beers
-limit
-    5;
+<span class="hljs-keyword">limit</span>
+    <span class="hljs-number">5</span>;
 </code></pre>
-<pre><code>        name         | levenshtein | levenshtein_less_equal
+<pre><code>        name         | <span class="hljs-type">levenshtein</span> | <span class="hljs-type">levenshtein_less_equal</span>
 ---------------------+-------------+------------------------
- Pub Beer            |          14 |                     12
- Devil&#39;s Cup         |          14 |                     12
- Rise of the Phoenix |          11 |                     11
- Sinister            |          14 |                     12
- Sex and Candy       |          13 |                     12
-(5 rows)
+ Pub Beer            |          <span class="hljs-type">14</span> |                     <span class="hljs-type">12</span>
+ Devil's Cup         |          <span class="hljs-type">14</span> |                     <span class="hljs-type">12</span>
+ Rise of the Phoenix |          <span class="hljs-type">11</span> |                     <span class="hljs-type">11</span>
+ Sinister            |          <span class="hljs-type">14</span> |                     <span class="hljs-type">12</span>
+ Sex and Candy       |          <span class="hljs-type">13</span> |                     <span class="hljs-type">12</span>
+(<span class="hljs-number">5</span> rows)
 </code></pre><p>これいいですね。『<a href="https://takuti.me/note/levenshtein-distance">いまさら編集距離 (Levenshtein Distance) を実装するぜ</a>』でも書いたとおり Levenshtein Distance は動的計画法によって計算されるので、明らかに <code>max distance</code> より距離が大きくなるケースをさっさと切り捨てるのは小粒でぴりりと辛い工夫。</p>
 <p>編集距離6以下を探せば、&quot;Left of the Dial IPA&quot; のみがヒットするようになる：</p>
-<pre><code>sample=# select * from beers where levenshtein_less_equal(lower(name), lower(&#39;Left of the Dial&#39;), 6) &lt;= 6;
- key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+<pre><code>sample=<span class="hljs-comment"># select * from beers where levenshtein_less_equal(lower(name), lower('Left of the Dial'), 6) &lt;= 6;</span>
+ key  |<span class="hljs-string">  abv  </span>|<span class="hljs-string"> ibu </span>|<span class="hljs-string">  id  </span>|<span class="hljs-string">         name         </span>|<span class="hljs-string">    style     </span>|<span class="hljs-string"> brewery_id </span>|<span class="hljs-string"> ounces
 ------+-------+-----+------+----------------------+--------------+------------+--------
- 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
-(1 row)
+ 1504 </span>|<span class="hljs-string"> 0.043 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 1917 </span>|<span class="hljs-string"> Left of the Dial IPA </span>|<span class="hljs-string"> American IPA </span>|<span class="hljs-string">        271 </span>|<span class="hljs-string">     12
+(1 row)</span>
 </code></pre><p>そして問題のtypoだが、この通り <code>Dial</code> を <code>Daniel</code> にtypoしても問題ない：</p>
-<pre><code>sample=# select * from beers where levenshtein_less_equal(lower(name), lower(&#39;Left of the Dniel&#39;), 6) &lt;= 6;
- key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+<pre><code>sample=<span class="hljs-comment"># select * from beers where levenshtein_less_equal(lower(name), lower('Left of the Dniel'), 6) &lt;= 6;</span>
+ key  |<span class="hljs-string">  abv  </span>|<span class="hljs-string"> ibu </span>|<span class="hljs-string">  id  </span>|<span class="hljs-string">         name         </span>|<span class="hljs-string">    style     </span>|<span class="hljs-string"> brewery_id </span>|<span class="hljs-string"> ounces
 ------+-------+-----+------+----------------------+--------------+------------+--------
- 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
-(1 row)
+ 1504 </span>|<span class="hljs-string"> 0.043 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 1917 </span>|<span class="hljs-string"> Left of the Dial IPA </span>|<span class="hljs-string"> American IPA </span>|<span class="hljs-string">        271 </span>|<span class="hljs-string">     12
+(1 row)</span>
 </code></pre><p>『どの程度typoを許容するか』と『ヒットする件数』はトレードオフの関係にあるので、閾値を定めるのは結構大変。</p>
 <h3 id="%E6%96%87%E5%AD%97%E3%81%AEtri-gram">文字のtri-gram</h3>
 <p>編集距離以上にtypoにロバストなのが、文字の<strong>tri-gram</strong>による検索。</p>
 <p>文字のtri-gramは<a href="https://takuti.me/note/twitter-bot">単語のマルコフ連鎖</a>の文字版、のようなイメージ。PostgreSQLでは <code>pg_trgm</code> モジュールをいれることでtri-gramのマッチ（文字列の部分的な一致）による柔軟な検索ができる。</p>
 <p>たとえば <code>Avatar</code> という文字列からは <code>av</code> や <code>ata</code> のようなtri-gramが得られて、我々はそのtri-gramの意味で一致する文字列を探すことができる：</p>
-<pre><code>sample=# create extension pg_trgm;
+<pre><code>sample=# create extension pg<span class="hljs-emphasis">_trgm;
 CREATE EXTENSION
-sample=# select show_trgm(&#39;Avatar&#39;);
-              show_trgm
--------------------------------------
- {&quot;  a&quot;,&quot; av&quot;,&quot;ar &quot;,ata,ava,tar,vat}
+sample=# select show_</span>trgm(<span class="hljs-emphasis">'Avatar'</span>);
+<span class="hljs-section">              show_trgm
+-------------------------------------</span>
+<span class="hljs-code"> {"  a"," av","ar ",ata,ava,tar,vat}</span>
 (1 row)
 </code></pre><p>実際には、<code>where</code> 句の <code>=</code> や <code>~</code> を <code>%</code> に置き換えるだけでtri-gramベースの検索が走る。</p>
 <p>末尾の <code>IPA</code> が抜け落ちたくらいは問題ない：</p>
-<pre><code>sample=# select * from beers where name % &#39;Left of the Dial&#39;;
- key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+<pre><code>sample=<span class="hljs-comment"># select * from beers where name % 'Left of the Dial';</span>
+ key  |<span class="hljs-string">  abv  </span>|<span class="hljs-string"> ibu </span>|<span class="hljs-string">  id  </span>|<span class="hljs-string">         name         </span>|<span class="hljs-string">    style     </span>|<span class="hljs-string"> brewery_id </span>|<span class="hljs-string"> ounces
 ------+-------+-----+------+----------------------+--------------+------------+--------
- 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
-(1 row)
+ 1504 </span>|<span class="hljs-string"> 0.043 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 1917 </span>|<span class="hljs-string"> Left of the Dial IPA </span>|<span class="hljs-string"> American IPA </span>|<span class="hljs-string">        271 </span>|<span class="hljs-string">     12
+(1 row)</span>
 </code></pre><p><code>Dial</code> が <code>Dia</code> になっちゃっててもOK：</p>
-<pre><code>sample=# select * from beers where name % &#39;Left of the Dia&#39;;
- key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+<pre><code>sample=<span class="hljs-comment"># select * from beers where name % 'Left of the Dia';</span>
+ key  |<span class="hljs-string">  abv  </span>|<span class="hljs-string"> ibu </span>|<span class="hljs-string">  id  </span>|<span class="hljs-string">         name         </span>|<span class="hljs-string">    style     </span>|<span class="hljs-string"> brewery_id </span>|<span class="hljs-string"> ounces
 ------+-------+-----+------+----------------------+--------------+------------+--------
- 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
-(1 row)
+ 1504 </span>|<span class="hljs-string"> 0.043 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 1917 </span>|<span class="hljs-string"> Left of the Dial IPA </span>|<span class="hljs-string"> American IPA </span>|<span class="hljs-string">        271 </span>|<span class="hljs-string">     12
+(1 row)</span>
 </code></pre><p><code>Dial</code> が完全に抜け落ちていると、tri-gramに <code>of</code> や <code>the</code> を含む他のビールまでヒットするようになる：</p>
-<pre><code>sample=# select * from beers where name % &#39;Left of the&#39;;
- key  |  abv  | ibu |  id  |         name         |          style          | brewery_id | ounces
+<pre><code>sample=<span class="hljs-comment"># select * from beers where name % 'Left of the';</span>
+ key  |<span class="hljs-string">  abv  </span>|<span class="hljs-string"> ibu </span>|<span class="hljs-string">  id  </span>|<span class="hljs-string">         name         </span>|<span class="hljs-string">          style          </span>|<span class="hljs-string"> brewery_id </span>|<span class="hljs-string"> ounces
 ------+-------+-----+------+----------------------+-------------------------+------------+--------
- 1047 |  0.07 |  68 | 2294 | The Power of Zeus    | American Pale Ale (APA) |        168 |     12
- 1385 | 0.075 |  85 | 2159 | City of the Sun      | American IPA            |        209 |     16
- 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA            |        271 |     12
-(3 rows)
+ 1047 </span>|<span class="hljs-string">  0.07 </span>|<span class="hljs-string">  68 </span>|<span class="hljs-string"> 2294 </span>|<span class="hljs-string"> The Power of Zeus    </span>|<span class="hljs-string"> American Pale Ale (APA) </span>|<span class="hljs-string">        168 </span>|<span class="hljs-string">     12
+ 1385 </span>|<span class="hljs-string"> 0.075 </span>|<span class="hljs-string">  85 </span>|<span class="hljs-string"> 2159 </span>|<span class="hljs-string"> City of the Sun      </span>|<span class="hljs-string"> American IPA            </span>|<span class="hljs-string">        209 </span>|<span class="hljs-string">     16
+ 1504 </span>|<span class="hljs-string"> 0.043 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 1917 </span>|<span class="hljs-string"> Left of the Dial IPA </span>|<span class="hljs-string"> American IPA            </span>|<span class="hljs-string">        271 </span>|<span class="hljs-string">     12
+(3 rows)</span>
 </code></pre><p>大文字・小文字や <code>Dial</code> のtypoくらいじゃへこたれない：</p>
-<pre><code>sample=# select * from beers where name % &#39;left of the daniel&#39;;
- key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+<pre><code>sample=<span class="hljs-comment"># select * from beers where name % 'left of the daniel';</span>
+ key  |<span class="hljs-string">  abv  </span>|<span class="hljs-string"> ibu </span>|<span class="hljs-string">  id  </span>|<span class="hljs-string">         name         </span>|<span class="hljs-string">    style     </span>|<span class="hljs-string"> brewery_id </span>|<span class="hljs-string"> ounces
 ------+-------+-----+------+----------------------+--------------+------------+--------
- 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
-(1 row)
+ 1504 </span>|<span class="hljs-string"> 0.043 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 1917 </span>|<span class="hljs-string"> Left of the Dial IPA </span>|<span class="hljs-string"> American IPA </span>|<span class="hljs-string">        271 </span>|<span class="hljs-string">     12
+(1 row)</span>
 </code></pre><h3 id="tsvector">TSVector</h3>
 <p>自然言語として、もっと直感に即した“それっぽさ”を見たければ <strong>TSVector</strong> という表現が使える。</p>
 <p>&quot;Left of the Dial&quot; のTSVector表現はこんな感じ：</p>
-<pre><code>sample=# select to_tsvector(&#39;Left of the Dial&#39;);
+<pre><code>sample=# <span class="hljs-keyword">select</span> to_tsvector(<span class="hljs-symbol">'Left</span> <span class="hljs-keyword">of</span> the Dial');
     to_tsvector
--------------------
- &#39;dial&#39;:4 &#39;left&#39;:1
-(1 row)
+<span class="hljs-comment">-------------------</span>
+ <span class="hljs-symbol">'dial</span>':<span class="hljs-number">4</span> <span class="hljs-symbol">'left</span>':<span class="hljs-number">1</span>
+(<span class="hljs-number">1</span> row)
 </code></pre><p>これによって語順に依存しない、字句（トークン）の存在有無に基づく検索が可能。<code>of</code> や <code>the</code> のような stop word の除外、大文字・小文字の統一といった基本的な前処理は勝手にやってくれる。</p>
 <p>ビール名のTSVector <code>to_tsvector(name)</code> について、<code>left</code> と <code>ipa</code> を含むものを列挙すれば期待通り &quot;Left of the Dial&quot; が得られる：</p>
-<pre><code>sample=# select * from beers where to_tsvector(name) @@ to_tsquery(&#39;english&#39;, &#39;left &amp; ipa&#39;);
- key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+<pre><code>sample=# select * from beers <span class="hljs-keyword">where</span> to_tsvector(name) @@ to_tsquery('english', '<span class="hljs-built_in">left</span> &amp; ipa');
+ key  |  <span class="hljs-type">abv</span>  | <span class="hljs-type">ibu</span> |  <span class="hljs-type">id</span>  |         <span class="hljs-type">name</span>         |    <span class="hljs-type">style</span>     | <span class="hljs-type">brewery_id</span> | <span class="hljs-type">ounces</span>
 ------+-------+-----+------+----------------------+--------------+------------+--------
- 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
-(1 row)
+ <span class="hljs-number">1504</span> | <span class="hljs-type">0</span><span class="hljs-number">.043</span> |     <span class="hljs-type">| 1917</span> | <span class="hljs-type">Left</span> of the Dial IPA | <span class="hljs-type">American</span> IPA |        <span class="hljs-type">271</span> |     <span class="hljs-type">12</span>
+(<span class="hljs-number">1</span> row)
 </code></pre><p>なお、<code>to_tsvector() @@ to_tsquery()</code> は次の構文と等価：</p>
-<pre><code>sample=# select * from beers where name @@ &#39;left &amp; ipa&#39;;
- key  |  abv  | ibu |  id  |         name         |    style     | brewery_id | ounces
+<pre><code>sample=# select * from beers <span class="hljs-keyword">where</span> name @@ '<span class="hljs-built_in">left</span> &amp; ipa';
+ key  |  <span class="hljs-type">abv</span>  | <span class="hljs-type">ibu</span> |  <span class="hljs-type">id</span>  |         <span class="hljs-type">name</span>         |    <span class="hljs-type">style</span>     | <span class="hljs-type">brewery_id</span> | <span class="hljs-type">ounces</span>
 ------+-------+-----+------+----------------------+--------------+------------+--------
- 1504 | 0.043 |     | 1917 | Left of the Dial IPA | American IPA |        271 |     12
-(1 row)
+ <span class="hljs-number">1504</span> | <span class="hljs-type">0</span><span class="hljs-number">.043</span> |     <span class="hljs-type">| 1917</span> | <span class="hljs-type">Left</span> of the Dial IPA | <span class="hljs-type">American</span> IPA |        <span class="hljs-type">271</span> |     <span class="hljs-type">12</span>
+(<span class="hljs-number">1</span> row)
 </code></pre><p>残念ながらtypoはカバーできない：</p>
-<pre><code>sample=# select * from beers where name @@ &#39;left &amp; daniel&#39;;
- key | abv | ibu | id | name | style | brewery_id | ounces
------+-----+-----+----+------+-------+------------+--------
+<pre><code>sample=# select * from beers where name @@ <span class="hljs-emphasis">'left &amp; daniel'</span>;
+<span class="hljs-section"> key | abv | ibu | id | name | style | brewery_id | ounces
+-----+-----+-----+----+------+-------+------------+--------</span>
 (0 rows)
 </code></pre><h3 id="%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E8%B7%9D%E9%9B%A2">サウンド距離</h3>
 <p>「なんとなく覚えているけど、正確には書けない！」というときのために、システムはtypoにロバストであってほしい。ここまで見てきたのは、そのためのスペルに基づく様々なFuzzy Search手法。</p>
 <p>一方、スペルではなく“発音の近さ”（<strong>サウンド距離</strong>）で検索する方法もある。</p>
 <p>この機能は <code>levenshtein</code> のときにいれた <code>fuzzystrmatch</code> モジュールに含まれている。</p>
 <p><code>IPA</code>（あいぴーえー）を <code>ipear</code>（あいぺあー）と読んでみよう。 <code>ipear</code> の発音は次のように記号化される：</p>
-<pre><code>sample=# select dmetaphone(&#39;ipear&#39;), dmetaphone_alt(&#39;ipear&#39;), metaphone(&#39;ipear&#39;, 8), soundex(&#39;ipear&#39;);
- dmetaphone | dmetaphone_alt | metaphone | soundex
+<pre><code>sample=<span class="hljs-comment"># select dmetaphone('ipear'), dmetaphone_alt('ipear'), metaphone('ipear', 8), soundex('ipear');</span>
+ dmetaphone |<span class="hljs-string"> dmetaphone_alt </span>|<span class="hljs-string"> metaphone </span>|<span class="hljs-string"> soundex
 ------------+----------------+-----------+---------
- APR        | APR            | IPR       | I160
-(1 row)
+ APR        </span>|<span class="hljs-string"> APR            </span>|<span class="hljs-string"> IPR       </span>|<span class="hljs-string"> I160
+(1 row)</span>
 </code></pre><p>明らかにtypoの域を越えているので、素のtri-gramでは何もヒットしない：</p>
-<pre><code>sample=# select * from beers where name % &#39;ipear&#39;;
- key | abv | ibu | id | name | style | brewery_id | ounces
------+-----+-----+----+------+-------+------------+--------
+<pre><code>sample=# select * from beers where name % <span class="hljs-emphasis">'ipear'</span>;
+<span class="hljs-section"> key | abv | ibu | id | name | style | brewery_id | ounces
+-----+-----+-----+----+------+-------+------------+--------</span>
 (0 rows)
 </code></pre><p>しかし（記号化された）<strong>発音のtri-gram</strong>を比較すれば：</p>
-<pre><code>sample=# select * from beers where metaphone(name, 8) % metaphone(&#39;ipear&#39;, 8);
- key  |  abv  | ibu |  id  |   name   |    style     | brewery_id | ounces
+<pre><code>sample=<span class="hljs-comment"># select * from beers where metaphone(name, 8) % metaphone('ipear', 8);</span>
+ key  |<span class="hljs-string">  abv  </span>|<span class="hljs-string"> ibu </span>|<span class="hljs-string">  id  </span>|<span class="hljs-string">   name   </span>|<span class="hljs-string">    style     </span>|<span class="hljs-string"> brewery_id </span>|<span class="hljs-string"> ounces
 ------+-------+-----+------+----------+--------------+------------+--------
-   97 | 0.065 |     | 2578 | IPA      | American IPA |         35 |     12
-  591 | 0.057 |  58 | 2380 | IPA #11  | American IPA |        121 |     16
-  892 | 0.074 |  74 | 1777 | 2020 IPA | American IPA |        240 |     16
- 1114 | 0.068 |  55 |  558 | I-10 IPA | American IPA |        527 |     12
- 1192 | 0.068 |     | 2493 | I.P. Eh! | American IPA |         59 |     12
- 1906 |  0.07 | 113 |   24 | 113 IPA  | American IPA |        371 |     12
-(6 rows)
+   97 </span>|<span class="hljs-string"> 0.065 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 2578 </span>|<span class="hljs-string"> IPA      </span>|<span class="hljs-string"> American IPA </span>|<span class="hljs-string">         35 </span>|<span class="hljs-string">     12
+  591 </span>|<span class="hljs-string"> 0.057 </span>|<span class="hljs-string">  58 </span>|<span class="hljs-string"> 2380 </span>|<span class="hljs-string"> IPA #11  </span>|<span class="hljs-string"> American IPA </span>|<span class="hljs-string">        121 </span>|<span class="hljs-string">     16
+  892 </span>|<span class="hljs-string"> 0.074 </span>|<span class="hljs-string">  74 </span>|<span class="hljs-string"> 1777 </span>|<span class="hljs-string"> 2020 IPA </span>|<span class="hljs-string"> American IPA </span>|<span class="hljs-string">        240 </span>|<span class="hljs-string">     16
+ 1114 </span>|<span class="hljs-string"> 0.068 </span>|<span class="hljs-string">  55 </span>|<span class="hljs-string">  558 </span>|<span class="hljs-string"> I-10 IPA </span>|<span class="hljs-string"> American IPA </span>|<span class="hljs-string">        527 </span>|<span class="hljs-string">     12
+ 1192 </span>|<span class="hljs-string"> 0.068 </span>|<span class="hljs-string">     </span>|<span class="hljs-string"> 2493 </span>|<span class="hljs-string"> I.P. Eh! </span>|<span class="hljs-string"> American IPA </span>|<span class="hljs-string">         59 </span>|<span class="hljs-string">     12
+ 1906 </span>|<span class="hljs-string">  0.07 </span>|<span class="hljs-string"> 113 </span>|<span class="hljs-string">   24 </span>|<span class="hljs-string"> 113 IPA  </span>|<span class="hljs-string"> American IPA </span>|<span class="hljs-string">        371 </span>|<span class="hljs-string">     12
+(6 rows)</span>
 </code></pre><p>おぉーIPAめっちゃ出てくるー。</p>
 <h3 id="%E3%81%BE%E3%81%A8%E3%82%81">まとめ</h3>
 <p>以上、柔軟な検索を実現するためのFuzzy Search手法たちでした。</p>
 <p>実際のところ、RDB上でのFuzzy Searchって世の中ではどれだけ実用されているんだろうか。アルゴリズムの計算量、インデックスがどれだけ効果的に使えるか、期待する出力、etc..に応じて適切な検索手法を選択する必要があるので、なかなか難しい話題だと思う。</p>
 <p>そして複数の手法を組み合わせたハイブリッドFuzzy Searchも可能なので、さらに悩む。&quot;Seven Databases in Seven Weeks&quot; では次のようなクエリが紹介されている：</p>
-<pre><code class="lang-sql">select * from actors
-where metaphone(name,8) % metaphone(&#39;Robin Williams&#39;,8)
-order by levenshtein(lower(&#39;Robin Williams&#39;), lower(name));
+<pre><code class="lang-sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> actors
+<span class="hljs-keyword">where</span> metaphone(<span class="hljs-keyword">name</span>,<span class="hljs-number">8</span>) % metaphone(<span class="hljs-string">'Robin Williams'</span>,<span class="hljs-number">8</span>)
+<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> levenshtein(<span class="hljs-keyword">lower</span>(<span class="hljs-string">'Robin Williams'</span>), <span class="hljs-keyword">lower</span>(<span class="hljs-keyword">name</span>));
 </code></pre>
 <p>（Levenshtein Distance で <code>order by</code> とか絶対やりたくないけど…。）</p>
 <p>まぁ細かいことは気にせず、みんなも思い出のビールを検索してみよう！（？）</p>

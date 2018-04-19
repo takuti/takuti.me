@@ -14,7 +14,8 @@
     </title>
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
   </head>
@@ -48,106 +49,106 @@
 <p>従来 <code>multiprocessing.Pool()</code> でプロセスプールを作って実現していた並列化はこちらに相当する。</p>
 <h3 id="%E8%A9%A6%E3%81%99">試す</h3>
 <p>では、1秒wait()×2回をシングルスレッド、マルチスレッド、マルチプロセスそれぞれで試してみよう：</p>
-<pre><code class="lang-py">import time
-from concurrent import futures
+<pre><code class="lang-py">import <span class="hljs-built_in">time</span>
+<span class="hljs-built_in">from</span> concurrent import futures
 
 
-def wait():
-    time.sleep(1)
+def <span class="hljs-built_in">wait</span>():
+    <span class="hljs-built_in">time</span>.sleep(<span class="hljs-number">1</span>)
 
 
-if __name__ == &#39;__main__&#39;:
-    start = time.time()
-    wait()
-    wait()
-    end = time.time()
-    print(&#39;Single: elapsed time = {}&#39;.format(end - start))
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    <span class="hljs-built_in">start</span> = <span class="hljs-built_in">time</span>.<span class="hljs-built_in">time</span>()
+    <span class="hljs-built_in">wait</span>()
+    <span class="hljs-built_in">wait</span>()
+    <span class="hljs-function"><span class="hljs-keyword">end</span> = <span class="hljs-title">time</span>.<span class="hljs-title">time</span>()</span>
+    print(<span class="hljs-string">'Single: elapsed time = {}'</span>.<span class="hljs-built_in">format</span>(<span class="hljs-function"><span class="hljs-keyword">end</span> - <span class="hljs-title">start</span>))</span>
 
-    start = time.time()
-    with futures.ThreadPoolExecutor() as executor:
-        f1 = executor.submit(wait)
-        f2 = executor.submit(wait)
-        f1.result()
-        f2.result()
-    end = time.time()
-    print(&#39;Multi-thread: elapsed time = {}&#39;.format(end - start))
+    <span class="hljs-built_in">start</span> = <span class="hljs-built_in">time</span>.<span class="hljs-built_in">time</span>()
+    <span class="hljs-keyword">with</span> futures.ThreadPoolExecutor() <span class="hljs-keyword">as</span> executor:
+        f1 = executor.submit(<span class="hljs-built_in">wait</span>)
+        f2 = executor.submit(<span class="hljs-built_in">wait</span>)
+        f1.<span class="hljs-built_in">result</span>()
+        f2.<span class="hljs-built_in">result</span>()
+    <span class="hljs-function"><span class="hljs-keyword">end</span> = <span class="hljs-title">time</span>.<span class="hljs-title">time</span>()</span>
+    print(<span class="hljs-string">'Multi-thread: elapsed time = {}'</span>.<span class="hljs-built_in">format</span>(<span class="hljs-function"><span class="hljs-keyword">end</span> - <span class="hljs-title">start</span>))</span>
 
-    start = time.time()
-    with futures.ProcessPoolExecutor() as executor:
-        f1 = executor.submit(wait)
-        f2 = executor.submit(wait)
-        f1.result()
-        f2.result()
-    end = time.time()
-    print(&#39;Multi-process: elapsed time = {}&#39;.format(end - start))
+    <span class="hljs-built_in">start</span> = <span class="hljs-built_in">time</span>.<span class="hljs-built_in">time</span>()
+    <span class="hljs-keyword">with</span> futures.ProcessPoolExecutor() <span class="hljs-keyword">as</span> executor:
+        f1 = executor.submit(<span class="hljs-built_in">wait</span>)
+        f2 = executor.submit(<span class="hljs-built_in">wait</span>)
+        f1.<span class="hljs-built_in">result</span>()
+        f2.<span class="hljs-built_in">result</span>()
+    <span class="hljs-function"><span class="hljs-keyword">end</span> = <span class="hljs-title">time</span>.<span class="hljs-title">time</span>()</span>
+    print(<span class="hljs-string">'Multi-process: elapsed time = {}'</span>.<span class="hljs-built_in">format</span>(<span class="hljs-function"><span class="hljs-keyword">end</span> - <span class="hljs-title">start</span>))</span>
 </code></pre>
 <p><code>executor.submit()</code> でタスクのスケジューリングをして、返ってきた <code>Future</code> オブジェクトが完了するまで <code>result()</code> で処理をブロックする。</p>
 <p>結果：</p>
-<pre><code>$ python wait.py
-Single:        elapsed time = 2.0102460384368896
-Multi-thread:  elapsed time = 1.0070040225982666
-Multi-process: elapsed time = 1.0193650722503662
+<pre><code>$ python wait<span class="hljs-selector-class">.py</span>
+Single:        elapsed <span class="hljs-selector-tag">time</span> = <span class="hljs-number">2.0102460384368896</span>
+Multi-thread:  elapsed <span class="hljs-selector-tag">time</span> = <span class="hljs-number">1.0070040225982666</span>
+Multi-process: elapsed <span class="hljs-selector-tag">time</span> = <span class="hljs-number">1.0193650722503662</span>
 </code></pre><p>並列処理のパワーを感じる。</p>
 <p>次に、<a href="https://docs.python.org/3/library/concurrent.futures.html#processpoolexecutor-example">大きい数の素数判定を並列に行う公式ドキュメントの例</a>を試してみる：</p>
 <pre><code class="lang-py">import concurrent.futures
-import math
+import <span class="hljs-built_in">math</span>
 
 PRIMES = [
-    112272535095293,
-    112582705942171,
-    112272535095293,
-    115280095190773,
-    115797848077099,
-    1099726899285419]
+    <span class="hljs-number">112272535095293</span>,
+    <span class="hljs-number">112582705942171</span>,
+    <span class="hljs-number">112272535095293</span>,
+    <span class="hljs-number">115280095190773</span>,
+    <span class="hljs-number">115797848077099</span>,
+    <span class="hljs-number">1099726899285419</span>]
 
 
 def is_prime(n):
-    if n % 2 == 0:
-        return False
+    <span class="hljs-keyword">if</span> n % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>:
+        <span class="hljs-keyword">return</span> False
 
-    sqrt_n = int(math.floor(math.sqrt(n)))
-    for i in range(3, sqrt_n + 1, 2):
-        if n % i == 0:
-            return False
-    return True
+    sqrt_n = int(<span class="hljs-built_in">math</span>.<span class="hljs-built_in">floor</span>(<span class="hljs-built_in">math</span>.<span class="hljs-built_in">sqrt</span>(n)))
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>, sqrt_n + <span class="hljs-number">1</span>, <span class="hljs-number">2</span>):
+        <span class="hljs-keyword">if</span> n % i == <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">return</span> False
+    <span class="hljs-keyword">return</span> True
 
 
-if __name__ == &#39;__main__&#39;:
-    import time
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    import <span class="hljs-built_in">time</span>
 
-    start = time.time()
-    for number, prime in zip(PRIMES, map(is_prime, PRIMES)):
-        print(&#39;%d is prime: %s&#39; % (number, prime))
-    end = time.time()
-    print(&#39;Single:        elapsed time = {}&#39;.format(end - start))
+    start = <span class="hljs-built_in">time</span>.<span class="hljs-built_in">time</span>()
+    <span class="hljs-keyword">for</span> number, prime <span class="hljs-keyword">in</span> zip(PRIMES, map(is_prime, PRIMES)):
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">'%d is prime: %s'</span> % (number, prime))
+    <span class="hljs-keyword">end</span> = <span class="hljs-built_in">time</span>.<span class="hljs-built_in">time</span>()
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Single:        elapsed time = {}'</span>.<span class="hljs-built_in">format</span>(<span class="hljs-keyword">end</span> - start))
 
-    start = time.time()
+    start = <span class="hljs-built_in">time</span>.<span class="hljs-built_in">time</span>()
     with concurrent.futures.ThreadPoolExecutor() as executor:
-        for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):
-            print(&#39;%d is prime: %s&#39; % (number, prime))
-    end = time.time()
-    print(&#39;Multi-thread:  elapsed time = {}&#39;.format(end - start))
+        <span class="hljs-keyword">for</span> number, prime <span class="hljs-keyword">in</span> zip(PRIMES, executor.map(is_prime, PRIMES)):
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">'%d is prime: %s'</span> % (number, prime))
+    <span class="hljs-keyword">end</span> = <span class="hljs-built_in">time</span>.<span class="hljs-built_in">time</span>()
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Multi-thread:  elapsed time = {}'</span>.<span class="hljs-built_in">format</span>(<span class="hljs-keyword">end</span> - start))
 
-    start = time.time()
+    start = <span class="hljs-built_in">time</span>.<span class="hljs-built_in">time</span>()
     with concurrent.futures.ProcessPoolExecutor() as executor:
-        for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):
-            print(&#39;%d is prime: %s&#39; % (number, prime))
-    end = time.time()
-    print(&#39;Multi-process: elapsed time = {}&#39;.format(end - start))
+        <span class="hljs-keyword">for</span> number, prime <span class="hljs-keyword">in</span> zip(PRIMES, executor.map(is_prime, PRIMES)):
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">'%d is prime: %s'</span> % (number, prime))
+    <span class="hljs-keyword">end</span> = <span class="hljs-built_in">time</span>.<span class="hljs-built_in">time</span>()
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Multi-process: elapsed time = {}'</span>.<span class="hljs-built_in">format</span>(<span class="hljs-keyword">end</span> - start))
 </code></pre>
 <p>判定対象の数を <code>is_prime()</code> に <code>executor.map</code> して呼ぶ。使い方は通常の <code>map</code> や <code>multiprocessing.Pool.map</code> と同じ。</p>
-<pre><code>$ python prime.py
-112272535095293 is prime: True
-112582705942171 is prime: True
-112272535095293 is prime: True
-115280095190773 is prime: True
-115797848077099 is prime: True
-1099726899285419 is prime: False
-Single:        elapsed time = 2.9173738956451416
-...
-Multi-thread:  elapsed time = 3.619951009750366
-...
-Multi-process: elapsed time = 1.7795209884643555
+<pre><code><span class="hljs-string">$</span> <span class="hljs-string">python</span> <span class="hljs-string">prime.py</span>
+<span class="hljs-number">112272535095293</span> <span class="hljs-string">is</span> <span class="hljs-attr">prime:</span> <span class="hljs-literal">True</span>
+<span class="hljs-number">112582705942171</span> <span class="hljs-string">is</span> <span class="hljs-attr">prime:</span> <span class="hljs-literal">True</span>
+<span class="hljs-number">112272535095293</span> <span class="hljs-string">is</span> <span class="hljs-attr">prime:</span> <span class="hljs-literal">True</span>
+<span class="hljs-number">115280095190773</span> <span class="hljs-string">is</span> <span class="hljs-attr">prime:</span> <span class="hljs-literal">True</span>
+<span class="hljs-number">115797848077099</span> <span class="hljs-string">is</span> <span class="hljs-attr">prime:</span> <span class="hljs-literal">True</span>
+<span class="hljs-number">1099726899285419</span> <span class="hljs-string">is</span> <span class="hljs-attr">prime:</span> <span class="hljs-literal">False</span>
+<span class="hljs-attr">Single:</span>        <span class="hljs-string">elapsed</span> <span class="hljs-string">time</span> <span class="hljs-string">=</span> <span class="hljs-number">2.9173738956451416</span>
+<span class="hljs-string">...</span>
+<span class="hljs-attr">Multi-thread:</span>  <span class="hljs-string">elapsed</span> <span class="hljs-string">time</span> <span class="hljs-string">=</span> <span class="hljs-number">3.619951009750366</span>
+<span class="hljs-string">...</span>
+<span class="hljs-attr">Multi-process:</span> <span class="hljs-string">elapsed</span> <span class="hljs-string">time</span> <span class="hljs-string">=</span> <span class="hljs-number">1.7795209884643555</span>
 </code></pre><p>結果は、シングルスレッド vs マルチプロセスでは処理時間が期待通り短縮されているが、マルチスレッドはむしろシングルスレッドよりも遅い。これがGILの罠。CPU-boundedな処理の <code>ThreadPoolExecutor</code> による並列化は期待を裏切る。</p>
 <h3 id="q-%E7%B5%90%E5%B1%80%E3%81%A9%E3%82%8C%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E4%B8%A6%E5%88%97%E5%8C%96%E3%81%99%E3%81%B9%E3%81%8D%E3%81%AA%E3%81%AE%E3%81%8B">Q. 結局どれを使って並列化すべきなのか</h3>
 <p>（僕の観測範囲では）機械学習系の論文の<del>割と雑な</del>コードがGitHubで公開されていると、それはたいてい <code>multiprocessing.Pool</code> を使っている気がするけど、それで本当に良いのだろうか。</p>

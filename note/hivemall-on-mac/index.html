@@ -14,7 +14,8 @@
     </title>
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
   </head>
@@ -36,56 +37,56 @@
     <p>昨年、Hive向けの機械学習ライブラリ <strong><a href="https://hivemall.incubator.apache.org/">Hivemall</a></strong> が<a href="http://itpro.nikkeibp.co.jp/atcl/column/15/061500148/100300084/">Apache Software Foundationのincubatorプロジェクトになった</a>。<a href="https://docs.treasuredata.com/articles/hive-hivemall">Treasure Dataがオフィシャルでサポートしている</a>ということもあり、名前くらいは聞いたことがあるという人も多いと思う。</p>
 <p>とはいえ、やれHadoopだHiveだとスケールの大きな話をされると、手元でちょっと試すなんて気分にはならないものである。というわけで、実際にMacのローカルでHadoop, Hiveの導入からHivemallを動かすまでをやってみた。</p>
 <h3 id="hadoop%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">Hadoopのインストール</h3>
-<pre><code>$ brew install hadoop
+<pre><code>$ <span class="hljs-keyword">brew </span><span class="hljs-keyword">install </span>hadoop
 </code></pre><p>（今回のバージョンは 2.7.3）</p>
 <p><code>/usr/local/Cellar/hadoop/{バージョン}</code> 以下を直接漁ることになるのでエイリアスを設定しておく。</p>
-<pre><code class="lang-sh">export HADOOP_DIR=/usr/local/Cellar/hadoop/{バージョン}
+<pre><code class="lang-sh"><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">HADOOP_DIR</span>=/usr/local/Cellar/hadoop/{バージョン}
 </code></pre>
 <p><code>${HADOOP_DIR}/libexec/etc/hadoop/core-site.xml</code> の <code>&lt;configuration&gt;</code> を編集：</p>
-<pre><code class="lang-xml">&lt;configuration&gt;
-    &lt;property&gt;
-    &lt;name&gt;fs.defaultFS&lt;/name&gt;
-    &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;
-  &lt;/property&gt;
-&lt;/configuration&gt;
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>fs.defaultFS<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>hdfs://localhost:9000<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
 </code></pre>
 <p><code>${HADOOP_DIR}/libexec/etc/hadoop/hdfs-site.xml</code> の <code>&lt;configuration&gt;</code> を編集：</p>
-<pre><code>&lt;configuration&gt;
-  &lt;property&gt;
-    &lt;name&gt;dfs.replication&lt;/name&gt;
-    &lt;value&gt;1&lt;/value&gt;
-  &lt;/property&gt;
-&lt;/configuration&gt;
+<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.replication<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
 </code></pre><p>HDFSをフォーマット：</p>
-<pre><code>$ hdfs namenode -format
+<pre><code><span class="hljs-meta">$</span><span class="bash"> hdfs namenode -format</span>
 </code></pre><p>localhostへのSSH接続を許可する必要があるので、Macの <strong>システム環境設定 &gt; 共有</strong> からリモートログインを有効にする。さらに、SSH公開鍵を自身のauthorized_keysに追加する。</p>
-<pre><code>$ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+<pre><code>$ cat ~<span class="hljs-regexp">/.ssh/id</span>_rsa.pub <span class="hljs-meta">&gt;&gt; </span>~<span class="hljs-regexp">/.ssh/authorized</span>_keys
 </code></pre><p>これで <code>$ ssh localhost</code> ができる。</p>
 <p>Hadoopの設定おわり。</p>
 <p>起動・終了はエイリアスを設定しておくと便利：</p>
-<pre><code class="lang-sh">alias hstart=${HADOOP_DIR}/sbin/start-all.sh
-alias hstop=${HADOOP_DIR}/sbin/stop-all.sh
+<pre><code class="lang-sh"><span class="hljs-keyword">alias</span> hstart=<span class="hljs-symbol">$</span>{HADOOP_DIR}/sbin/start-<span class="hljs-keyword">all</span>.sh
+<span class="hljs-keyword">alias</span> hstop=<span class="hljs-symbol">$</span>{HADOOP_DIR}/sbin/stop-<span class="hljs-keyword">all</span>.sh
 </code></pre>
-<pre><code>$ hstart
+<pre><code><span class="hljs-meta">$</span><span class="bash"> hstart</span>
 </code></pre><p>うごく。</p>
-<pre><code>$ hstop
+<pre><code><span class="hljs-meta">$</span><span class="bash"> hstop</span>
 </code></pre><p>とまる。</p>
 <h3 id="hive%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">Hiveのインストール</h3>
-<pre><code>$ brew install hive
+<pre><code>$ <span class="hljs-keyword">brew </span><span class="hljs-keyword">install </span>hive
 </code></pre><p>（今回のバージョンは 2.1.0）</p>
 <p>適当に作業用ディレクトリ（今回は <code>~/hive</code> ）を掘って、そこでスキーマを初期化する：</p>
-<pre><code>$ mkdir ~/hive
-$ cd ~/hive
-$ schematool -initSchema -dbType derby
+<pre><code><span class="hljs-meta">$</span><span class="bash"> mkdir ~/hive</span>
+<span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> ~/hive</span>
+<span class="hljs-meta">$</span><span class="bash"> schematool -initSchema -dbType derby</span>
 </code></pre><p>HadoopとHiveを起動する：</p>
-<pre><code>$ hstart
-$ hive
-hive&gt;
+<pre><code><span class="hljs-meta">$</span><span class="bash"> hstart</span>
+<span class="hljs-meta">$</span><span class="bash"> hive</span>
+<span class="hljs-meta">hive&gt;</span><span class="bash"></span>
 </code></pre><h3 id="hivemall%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">Hivemallのインストール</h3>
 <p>基本は<a href="https://hivemall.incubator.apache.org/userguide/getting_started/installation.html">ここ</a>にある通り。</p>
 <p>まずビルド済みのHivemall <code>hivemall-core-xxx-with-dependencies.jar</code> を<a href="https://github.com/myui/hivemall/releases">GitHubリポジトリ</a>からダウンロードする。</p>
 <p>そしてHiveの起動時スクリプトとして以下を <code>~/.hiverc</code> に書いてあげる：</p>
-<pre><code>add jar /path/to/hivemall-core-xxx-with-dependencies.jar;
+<pre><code><span class="hljs-keyword">add</span> jar /path/<span class="hljs-keyword">to</span>/hivemall-core-xxx-<span class="hljs-keyword">with</span>-dependencies.jar;
 </code></pre><p>これだけ。</p>
 <p>Hivemallは機械学習に特化したHiveの関数セットなので、なにか仰々しいインストールスクリプトが走るというものではない。</p>
 <h3 id="hivemall%E3%81%A7%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0%E6%8E%A8%E8%96%A6">Hivemallでアイテム推薦</h3>
@@ -95,95 +96,95 @@ hive&gt;
 <h4 id="step-1-movielens-1m%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%83%83%E3%83%88%E3%81%A7hive%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E4%BD%9C%E3%82%8B">Step 1: MovieLens 1MデータセットでHiveテーブルを作る</h4>
 <p><a href="https://grouplens.org/datasets/movielens/1m/">MovieLens 1M</a>は推薦の分野では定番のデータセット。これを使って <strong>Matrix Factorizationでアイテム（映画）の推薦</strong> を成し遂げるべく、Hiveテーブルを作成していく。</p>
 <p>まずHiveでのDB、テーブル作成用スクリプトを <code>create_db.hive</code> のような名前で以下の中身で作って、Hiveの作業用ディレクトリで走らせる：</p>
-<pre><code class="lang-sql">create database movielens;
-use movielens;
+<pre><code class="lang-sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">database</span> movielens;
+<span class="hljs-keyword">use</span> movielens;
 
-CREATE EXTERNAL TABLE ratings (
-  userid INT,
-  movieid INT,
-  rating INT,
-  tstamp STRING
-) ROW FORMAT DELIMITED
-FIELDS TERMINATED BY &#39;#&#39; -- 適当な1文字のセパレータ
-STORED AS TEXTFILE
-LOCATION &#39;/dataset/movielens/ratings&#39;;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">EXTERNAL</span> <span class="hljs-keyword">TABLE</span> ratings (
+  userid <span class="hljs-built_in">INT</span>,
+  movieid <span class="hljs-built_in">INT</span>,
+  rating <span class="hljs-built_in">INT</span>,
+  tstamp <span class="hljs-keyword">STRING</span>
+) <span class="hljs-keyword">ROW</span> <span class="hljs-keyword">FORMAT</span> <span class="hljs-keyword">DELIMITED</span>
+<span class="hljs-keyword">FIELDS</span> <span class="hljs-keyword">TERMINATED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">'#'</span> <span class="hljs-comment">-- 適当な1文字のセパレータ</span>
+<span class="hljs-keyword">STORED</span> <span class="hljs-keyword">AS</span> TEXTFILE
+LOCATION <span class="hljs-string">'/dataset/movielens/ratings'</span>;
 </code></pre>
-<pre><code>$ hive &lt; create_db.hive
+<pre><code><span class="hljs-meta">$</span><span class="bash"> hive &lt; create_db.hive</span>
 </code></pre><p>そしてデータをダウンロード：</p>
-<pre><code>$ curl -o ml-1m.zip -L http://files.grouplens.org/datasets/movielens/ml-1m.zip
-$ unzip ml-1m.zip
-$ cd ml-1m
+<pre><code><span class="hljs-meta">$</span><span class="bash"> curl -o ml-1m.zip -L http://files.grouplens.org/datasets/movielens/ml-1m.zip</span>
+<span class="hljs-meta">$</span><span class="bash"> unzip ml-1m.zip</span>
+<span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> ml-1m</span>
 </code></pre><p>使うのは <code>ratings.dat</code> で、ユーザごとのアイテム（映画）に対する評価値が入っている。このセパレータをテーブル作成時の適当な1文字にしておく（今回は <code>#</code> ）：</p>
-<pre><code>$ sed &#39;s/::/#/g&#39; ratings.dat &gt; ratings.t
+<pre><code><span class="hljs-meta">$</span><span class="bash"> sed <span class="hljs-string">'s/::/#/g'</span> ratings.dat &gt; ratings.t</span>
 </code></pre><p>そしてこのデータをHDFSにコピーする：</p>
-<pre><code>$ hadoop fs -put ratings.t /dataset/movielens/ratings
+<pre><code><span class="hljs-symbol">$</span> hadoop fs -<span class="hljs-keyword">put</span> ratings.t /dataset/movielens/ratings
 </code></pre><p>Hiveに入ってデータを確認する：</p>
 <pre><code>$ hive
 hive&gt; use movielens;
 hive&gt; select * from ratings limit 5;
-OK
-1       1193    5       978300760
-1       661     3       978302109
-1       914     3       978301968
-1       3408    4       978300275
-1       2355    5       978824291
-Time taken: 1.36 seconds, Fetched: 5 row(s)
+<span class="hljs-symbol">OK</span>
+1      <span class="hljs-number"> 1193 </span>  <span class="hljs-number"> 5 </span>      978300760
+1      <span class="hljs-number"> 661 </span>   <span class="hljs-number"> 3 </span>      978302109
+1      <span class="hljs-number"> 914 </span>   <span class="hljs-number"> 3 </span>      978301968
+1      <span class="hljs-number"> 3408 </span>  <span class="hljs-number"> 4 </span>      978300275
+1      <span class="hljs-number"> 2355 </span>  <span class="hljs-number"> 5 </span>      978824291
+Time taken: 1.36 seconds, Fetched:<span class="hljs-number"> 5 </span>row(s)
 </code></pre><p>よさそう。</p>
 <p>（以下、すべてHiveのインタラクティブシェル <code>hive&gt;</code> 上での入力）</p>
 <h4 id="step-2-hivemall%E3%81%8B%E3%82%89%E4%BD%BF%E3%81%86%E9%96%A2%E6%95%B0%E3%82%92%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%99">Step 2: Hivemallから使う関数を呼び出す</h4>
 <p> <strong>Matrix Factorizationでアイテム推薦</strong> のために使う関数たちを読み込んであげる。Matrix Factorizationで2つ　( <code>mf_predict</code> , <code>train_mf_sgd</code> ) 、推薦リストの生成に1つ ( <code>each_top_k</code> )、そしてユーティリティ関数を2つ ( <code>array_avg</code> , <code>to_ordered_map</code> ) 読んでいる。</p>
-<pre><code class="lang-sql">create temporary function mf_predict as &#39;hivemall.mf.MFPredictionUDF&#39;;
-create temporary function train_mf_sgd as &#39;hivemall.mf.MatrixFactorizationSGDUDTF&#39;;
-create temporary function each_top_k as &#39;hivemall.tools.EachTopKUDTF&#39;;
-create temporary function array_avg as &#39;hivemall.tools.array.ArrayAvgGenericUDAF&#39;;
-create temporary function to_ordered_map as &#39;hivemall.tools.map.UDAFToOrderedMap&#39;;
+<pre><code class="lang-sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">temporary</span> <span class="hljs-keyword">function</span> mf_predict <span class="hljs-keyword">as</span> <span class="hljs-string">'hivemall.mf.MFPredictionUDF'</span>;
+<span class="hljs-keyword">create</span> <span class="hljs-keyword">temporary</span> <span class="hljs-keyword">function</span> train_mf_sgd <span class="hljs-keyword">as</span> <span class="hljs-string">'hivemall.mf.MatrixFactorizationSGDUDTF'</span>;
+<span class="hljs-keyword">create</span> <span class="hljs-keyword">temporary</span> <span class="hljs-keyword">function</span> each_top_k <span class="hljs-keyword">as</span> <span class="hljs-string">'hivemall.tools.EachTopKUDTF'</span>;
+<span class="hljs-keyword">create</span> <span class="hljs-keyword">temporary</span> <span class="hljs-keyword">function</span> array_avg <span class="hljs-keyword">as</span> <span class="hljs-string">'hivemall.tools.array.ArrayAvgGenericUDAF'</span>;
+<span class="hljs-keyword">create</span> <span class="hljs-keyword">temporary</span> <span class="hljs-keyword">function</span> to_ordered_map <span class="hljs-keyword">as</span> <span class="hljs-string">'hivemall.tools.map.UDAFToOrderedMap'</span>;
 </code></pre>
 <p>ちなみに、これらを <code>~/.hiverc</code> の <code>add jar ...</code> の後に直接書いておけば、起動時に毎回関数を自動で読み込んでくれる。</p>
 <h4 id="step-3-%E3%82%AF%E3%82%A8%E3%83%AA%E3%81%A7%E3%80%8C%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E6%98%A0%E7%94%BB%E3%83%AA%E3%82%B9%E3%83%88%E3%80%8D%E3%82%92%E3%81%A4%E3%81%8F%E3%82%8B">Step 3: クエリで「おすすめ映画リスト」をつくる</h4>
 <p>あとは中間テーブルを作成しつつクエリを実行していけば「おすすめ映画リスト」が得られる。</p>
 <p>まず <code>train_mf_sgd</code> にユーザIDと映画ID、評価値を渡せば、Matrix Factorizationが走ってモデルが返ってくる：</p>
-<pre><code class="lang-sql">CREATE TABLE mf_model AS
-SELECT
+<pre><code class="lang-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> mf_model <span class="hljs-keyword">AS</span>
+<span class="hljs-keyword">SELECT</span>
   idx,
-  array_avg(u_rank) as Pu,
-  array_avg(i_rank) as Qi,
-  avg(u_bias) as Bu,
-  avg(i_bias) as Bi
-FROM (
-  SELECT
-    train_mf_sgd(userid, movieid, rating) AS (idx, u_rank, i_rank, u_bias, i_bias)
-  FROM ratings
+  array_avg(u_rank) <span class="hljs-keyword">as</span> Pu,
+  array_avg(i_rank) <span class="hljs-keyword">as</span> Qi,
+  <span class="hljs-keyword">avg</span>(u_bias) <span class="hljs-keyword">as</span> Bu,
+  <span class="hljs-keyword">avg</span>(i_bias) <span class="hljs-keyword">as</span> Bi
+<span class="hljs-keyword">FROM</span> (
+  <span class="hljs-keyword">SELECT</span>
+    train_mf_sgd(userid, movieid, rating) <span class="hljs-keyword">AS</span> (idx, u_rank, i_rank, u_bias, i_bias)
+  <span class="hljs-keyword">FROM</span> ratings
 ) t
-GROUP BY idx
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> idx
 ;
 </code></pre>
 <p>そして推薦対象のユーザID <code>userid</code> と、推薦リストのサイズ <code>k</code> を変数として設定して、</p>
-<pre><code class="lang-sql">set hivevar:userid=1;
-set hivevar:k=10;
+<pre><code class="lang-sql"><span class="hljs-builtin-name">set</span> hivevar:<span class="hljs-attribute">userid</span>=1;
+<span class="hljs-builtin-name">set</span> hivevar:<span class="hljs-attribute">k</span>=10;
 </code></pre>
 <p>対象ユーザに対して各映画の評価値を予測して、その上位k件の「おすすめ映画リスト」を返すクエリが以下：</p>
 <pre><code class="lang-sql">WITH top_k AS (
-  SELECT
+  <span class="hljs-keyword">SELECT</span>
     each_top_k(
           ${k}, u.userid, mf_predict(u.pu, i.qi, u.bu, i.bi),
       u.userid, movieid
-        ) AS (rank, score, userid, movieid)
-  FROM (
-      SELECT idx AS userid, pu, bu
-      FROM mf_model m
-      WHERE m.idx = ${userid}
+        ) <span class="hljs-keyword">AS</span> (<span class="hljs-keyword">rank</span>, score, userid, movieid)
+  <span class="hljs-keyword">FROM</span> (
+      <span class="hljs-keyword">SELECT</span> idx <span class="hljs-keyword">AS</span> userid, pu, bu
+      <span class="hljs-keyword">FROM</span> mf_model m
+      <span class="hljs-keyword">WHERE</span> m.idx = ${userid}
     ) u
-  CROSS JOIN (
-      SELECT idx AS movieid, qi, bi
-      FROM mf_model m
+  <span class="hljs-keyword">CROSS</span> <span class="hljs-keyword">JOIN</span> (
+      <span class="hljs-keyword">SELECT</span> idx <span class="hljs-keyword">AS</span> movieid, qi, bi
+      <span class="hljs-keyword">FROM</span> mf_model m
     ) i
 )
-SELECT
+<span class="hljs-keyword">SELECT</span>
   userid,
-  map_values(to_ordered_map(rank, movieid)) AS recommended_items
-FROM
+  map_values(to_ordered_map(<span class="hljs-keyword">rank</span>, movieid)) <span class="hljs-keyword">AS</span> recommended_items
+<span class="hljs-keyword">FROM</span>
   top_k
-GROUP BY
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span>
   userid
 ;
 </code></pre>

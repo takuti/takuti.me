@@ -14,7 +14,8 @@
     </title>
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
   </head>
@@ -50,28 +51,28 @@
 <h3 id="using-kramdown-as-a-hugo-markdown-convertor">Using kramdown as a Hugo Markdown convertor</h3>
 <p>Here, I have another solution. It just to use kramdown as a Hugo Markdown convertor. Usually, Hugo requires us to put articles in <em>content/</em> directory, and it automatically converts them to .html files. However, we now create a intermediate directory like <em>_content/</em>.</p>
 <p>First, I create Rakefile and define a task as:</p>
-<pre><code class="lang-rb">require &quot;kramdown&quot;
+<pre><code class="lang-rb"><span class="hljs-keyword">require</span> <span class="hljs-string">"kramdown"</span>
 
-namespace :converter do
-  task :content do
-    Dir::glob(&quot;_content/*&quot;).each do |src|
-      # destination path will be &quot;content/{filename}.html&quot;
-      dst_path = src[1..-1].sub(/(.*)\.md/, &#39;\1.html&#39;)
+namespace <span class="hljs-symbol">:converter</span> <span class="hljs-keyword">do</span>
+  task <span class="hljs-symbol">:content</span> <span class="hljs-keyword">do</span>
+    Dir::glob(<span class="hljs-string">"_content/*"</span>).each <span class="hljs-keyword">do</span> <span class="hljs-params">|src|</span>
+      <span class="hljs-comment"># destination path will be "content/{filename}.html"</span>
+      dst_path = src[<span class="hljs-number">1</span>..-<span class="hljs-number">1</span>].sub(<span class="hljs-regexp">/(.*)\.md/</span>, <span class="hljs-string">'\1.html'</span>)
 
-      open(dst_path, &quot;w&quot;) do |dst|
-        content = open(src) { |f| f.read }
+      open(dst_path, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">do</span> <span class="hljs-params">|dst|</span>
+        content = open(src) { <span class="hljs-params">|f|</span> f.read }
 
-        # keep front matter
-        content = content.sub(/(---.*---\n)/m, &quot;&quot;)
+        <span class="hljs-comment"># keep front matter</span>
+        content = content.sub(<span class="hljs-regexp">/(---.*---\n)/m</span>, <span class="hljs-string">""</span>)
 
         content = embedding_tweet(content)
 
-        # write with concatenating front matter
+        <span class="hljs-comment"># write with concatenating front matter</span>
         dst.write($1 + Kramdown::Document.new(content).to_html)
-      end
-    end
-  end
-end
+      <span class="hljs-keyword">end</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
 </code></pre>
 <p>As I mentioned before, kramdown can correctly handle MathJax+Markdown mixed files in default setting, so it works.</p>
 <p>Next, you just need to run converter before running Hugo server: <code>rake converter:content</code></p>

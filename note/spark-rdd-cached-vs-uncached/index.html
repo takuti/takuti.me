@@ -14,7 +14,8 @@
     </title>
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
   </head>
@@ -38,91 +39,91 @@
 <h3 id="type-i-transformation">Type I: Transformation</h3>
 <p><strong>Transformation</strong> corresponds to Scala transformers such as <code>map()</code> and <code>filter()</code>; we can apply both <code>map()</code> and <code>filter()</code> operations for RDDs in a similar way to the standard Scala collections.</p>
 <p>In the Scala collections, this kind of operations return a new collection as:</p>
-<pre><code class="lang-scala">scala&gt; Seq(1, 2, 3).map(_ * 10)
-res: Seq[Int] = List(10, 20, 30)
+<pre><code class="lang-scala">scala&gt; Se<span class="hljs-string">q(1, 2, 3)</span>.map(<span class="hljs-number">_</span> * <span class="hljs-number">10</span>)
+res: Se<span class="hljs-string">q[Int]</span> = List(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>)
 </code></pre>
 <p>In RDDs, transformation similarly behaves; a new RDD will be returned as a result of transformation.</p>
 <p>However, there is a huge difference between Scala collections and RDDs: result of transformation is <em>NOT immediately</em> computed. That is, transformation stands on <strong>laziness</strong>.</p>
 <p>In case that we have a RDD which contains same values as the above example, <code>rdd.map()</code> does not return any &quot;collections&quot;:</p>
-<pre><code class="lang-scala">scala&gt; val rdd: RDD[Int] = sc.parallelize(Seq(1, 2, 3))
-rdd: org.apache.spark.rdd.RDD[Int] = ParallelCollectionRDD[5] at parallelize at &lt;console&gt;:20
+<pre><code class="lang-scala"><span class="hljs-keyword">scala&gt; </span>val rdd: RDD[Int] = <span class="hljs-keyword">sc.parallelize(Seq(1, </span><span class="hljs-number">2</span>, <span class="hljs-number">3</span>))
+<span class="hljs-symbol">rdd:</span> <span class="hljs-keyword">org.apache.spark.rdd.RDD[Int] </span>= ParallelCollectionRDD[<span class="hljs-number">5</span>] <span class="hljs-built_in">at</span> parallelize <span class="hljs-built_in">at</span> &lt;console&gt;:<span class="hljs-number">20</span>
 
-scala&gt; rdd.map(_ * 10)
-res: org.apache.spark.rdd.RDD[Int] = MapPartitionsRDD[6] at map at &lt;console&gt;:22
+<span class="hljs-keyword">scala&gt; </span>rdd.map(_ * <span class="hljs-number">10</span>)
+<span class="hljs-symbol">res:</span> <span class="hljs-keyword">org.apache.spark.rdd.RDD[Int] </span>= MapPartitionsRDD[<span class="hljs-number">6</span>] <span class="hljs-built_in">at</span> map <span class="hljs-built_in">at</span> &lt;console&gt;:<span class="hljs-number">22</span>
 </code></pre>
 <p>Note that, if you want to compute RDD and convert it to Scala collection, you can use <code>collect()</code> operation as follows.</p>
-<pre><code class="lang-scala">scala&gt; rdd.map(_ * 10).collect()
-res: Array[Int] = Array(10, 20, 30)
+<pre><code class="lang-scala">scala&gt; rdd.map(<span class="hljs-literal">_</span> * <span class="hljs-number">10</span>).collect()
+res: <span class="hljs-type">Array</span>[<span class="hljs-keyword">Int</span>] = <span class="hljs-keyword">Array</span>(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>)
 </code></pre>
 <h3 id="type-ii-action">Type II: Action</h3>
 <p><strong>Action</strong> corresponds to Scala accessors e.g., <code>fold()</code> and <code>aggregate()</code>, and the usage is very similar to what Scala collections do.</p>
 <p>Importantly, in contrast to transformations, actions return something like value.</p>
-<pre><code class="lang-scala">scala&gt; Seq(1, 2, 3).fold(0)(_ + _)
-res: Int = 6
+<pre><code class="lang-scala">scala&gt; Se<span class="hljs-string">q(1, 2, 3)</span>.fold(<span class="hljs-number">0</span>)(<span class="hljs-number">_</span> + <span class="hljs-number">_</span>)
+res: Int = <span class="hljs-number">6</span>
 </code></pre>
-<pre><code class="lang-scala">scala&gt; val rdd: RDD[Int] = sc.parallelize(Seq(1, 2, 3))
-rdd: org.apache.spark.rdd.RDD[Int] = ParallelCollectionRDD[5] at parallelize at &lt;console&gt;:20
+<pre><code class="lang-scala"><span class="hljs-keyword">scala&gt; </span>val rdd: RDD[Int] = <span class="hljs-keyword">sc.parallelize(Seq(1, </span><span class="hljs-number">2</span>, <span class="hljs-number">3</span>))
+<span class="hljs-symbol">rdd:</span> <span class="hljs-keyword">org.apache.spark.rdd.RDD[Int] </span>= ParallelCollectionRDD[<span class="hljs-number">5</span>] <span class="hljs-built_in">at</span> parallelize <span class="hljs-built_in">at</span> &lt;console&gt;:<span class="hljs-number">20</span>
 
-scala&gt; rdd.fold(0)(_ + _)
-res: Int = 6
+<span class="hljs-keyword">scala&gt; </span>rdd.fold(<span class="hljs-number">0</span>)(_ + _)
+<span class="hljs-symbol">res:</span> Int = <span class="hljs-number">6</span>
 </code></pre>
 <p>It is obvious that actions are evaluated <strong>eager</strong>; result is <em>immediately</em> computed.</p>
 <h3 id="uncached-vs-cached">Uncached vs Cached</h3>
 <p>Even though you applied transformations for RDD, nothing happens until actions are kicked because transformations are lazy operations. This fact indicates that actions could be a bottleneck in code which handles RDDs.</p>
 <p>In a context of machine learning, since iteration over large-scale data is necessary, same operations are repeatedly executed until convergence. To give an example, for an algorithm which iteratively runs <code>rdd.filter().map().count()</code>, all of three operations <code>filter()</code>, <code>map()</code> and <code>count()</code> are internally repeated. So, when size of data in RDD is huge, this iterations will be surprisingly slow.</p>
 <p>In order to run such repeatedly-computed transformations more efficiently, RDD has a special operation named <code>parallel()</code> (or, <code>persist()</code>). If you define a RDD with the <code>cache()</code> operation, RDD internally caches the result of transformations, and hence iterative <code>count()</code> operations should be much faster than the uncached case.</p>
-<pre><code class="lang-scala">val rddUncached = rdd.filter().map()
-for (i &lt;- 0 to n) { // inefficient :(
-    // recompute `filter` -&gt; `map` -&gt; `count` in each time
-    rddUncached.count()
+<pre><code class="lang-scala">val rddUncached = rdd.<span class="hljs-built_in">filter</span>().<span class="hljs-keyword">map</span>()
+<span class="hljs-keyword">for</span> (i &lt;- <span class="hljs-number">0</span> <span class="hljs-keyword">to</span> n) { // inefficient :(
+    // recompute `<span class="hljs-built_in">filter</span>` -&gt; `<span class="hljs-keyword">map</span>` -&gt; `<span class="hljs-built_in">count</span>` in each time
+    rddUncached.<span class="hljs-built_in">count</span>()
 }
 </code></pre>
-<pre><code class="lang-scala">val rddCached = rdd.filter().map().cache()
-for (i &lt;- 0 to n) { // efficient :)
-    // result of `filter` -&gt; `map` is internally cached
-    rddCached.count()
+<pre><code class="lang-scala">val rddCached = rdd.<span class="hljs-built_in">filter</span>().<span class="hljs-keyword">map</span>().cache()
+<span class="hljs-keyword">for</span> (i &lt;- <span class="hljs-number">0</span> <span class="hljs-keyword">to</span> n) { // efficient :)
+    // result of `<span class="hljs-built_in">filter</span>` -&gt; `<span class="hljs-keyword">map</span>` <span class="hljs-keyword">is</span> internally cached
+    rddCached.<span class="hljs-built_in">count</span>()
 }
 </code></pre>
 <h3 id="experiment">Experiment</h3>
 <p>Let&#39;s finally check if cached RDD is truly faster than uncached one.</p>
 <p>1) Define a Spark context and dummy data <code>randomList</code> which consists of 10k random integers:</p>
-<pre><code class="lang-scala">val conf: SparkConf = new SparkConf().setMaster(&quot;local&quot;).setAppName(&quot;RDDTest&quot;)
-val sc: SparkContext = new SparkContext(conf)
+<pre><code class="lang-scala"><span class="hljs-keyword">val</span> conf: SparkConf = <span class="hljs-keyword">new</span> SparkConf().setMaster(<span class="hljs-string">"local"</span>).setAppName(<span class="hljs-string">"RDDTest"</span>)
+<span class="hljs-keyword">val</span> sc: SparkContext = <span class="hljs-keyword">new</span> SparkContext(conf)
 
-val rng: Random = new Random
-val randomList: List[Int] = (for (i &lt;- 1 to 10000) yield rng.nextInt).toList
+<span class="hljs-keyword">val</span> rng: Random = <span class="hljs-keyword">new</span> Random
+<span class="hljs-keyword">val</span> randomList: List[Int] = (<span class="hljs-keyword">for</span> (i &lt;- <span class="hljs-number">1</span> <span class="hljs-keyword">to</span> <span class="hljs-number">10000</span>) <span class="hljs-keyword">yield</span> rng.nextInt).toList
 </code></pre>
 <p>2) Create a function which measures running time (cf. <a href="http://biercoff.com/easily-measuring-code-execution-time-in-scala/">Easily measuring code execution time in Scala</a>):</p>
-<pre><code class="lang-scala">def time[R](block: =&gt; R): R = {
-    val t0 = System.nanoTime()
-    val result = block
-    val t1 = System.nanoTime()
-    println(&quot;Elapsed time: &quot; + ((t1 - t0) / 1000000000.0) + &quot; sec&quot;)
-    result
+<pre><code class="lang-scala">def time[<span class="hljs-string">R</span>](<span class="hljs-link">block: =&gt; R</span>): R = {
+<span class="hljs-code">    val t0 = System.nanoTime()</span>
+<span class="hljs-code">    val result = block</span>
+<span class="hljs-code">    val t1 = System.nanoTime()</span>
+<span class="hljs-code">    println("Elapsed time: " + ((t1 - t0) / 1000000000.0) + " sec")</span>
+<span class="hljs-code">    result</span>
 }
 </code></pre>
 <p>3) Compare running time of the same operations over cached/uncached RDD:</p>
-<pre><code class="lang-scala">for (i &lt;- 1 to 3) { // try 3 times
-    println(&quot;========&quot;)
-    println(&quot;Uncached&quot;)
-    println(&quot;========&quot;)
+<pre><code class="lang-scala"><span class="hljs-keyword">for</span> (i &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">3</span>) { <span class="hljs-comment">// try 3 times</span>
+    <span class="hljs-keyword">println</span>(<span class="hljs-string">"========"</span>)
+    <span class="hljs-keyword">println</span>(<span class="hljs-string">"Uncached"</span>)
+    <span class="hljs-keyword">println</span>(<span class="hljs-string">"========"</span>)
     time {
-        val rdd: RDD[Int] = sc.parallelize(randomList).map(f)
-        for (i &lt;- 1 to 1000) rdd.count()
+        val rdd: RDD[<span class="hljs-keyword">Int</span>] = sc.parallelize(randomList).map(f)
+        <span class="hljs-keyword">for</span> (i &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">1000</span>) rdd.<span class="hljs-keyword">count</span>()
     }
 
-    println(&quot;========&quot;)
-    println(&quot;Cached&quot;)
-    println(&quot;========&quot;)
+    <span class="hljs-keyword">println</span>(<span class="hljs-string">"========"</span>)
+    <span class="hljs-keyword">println</span>(<span class="hljs-string">"Cached"</span>)
+    <span class="hljs-keyword">println</span>(<span class="hljs-string">"========"</span>)
     time {
-        val rddCached: RDD[Int] = sc.parallelize(randomList).map(f).cache()
-        for (i &lt;- 1 to 1000) rddCached.count()
+        val rddCached: RDD[<span class="hljs-keyword">Int</span>] = sc.parallelize(randomList).map(f).cache()
+        <span class="hljs-keyword">for</span> (i &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">1000</span>) rddCached.<span class="hljs-keyword">count</span>()
     }
 }
 </code></pre>
 <p>Here, mapped function <code>f</code> is a dummy function which takes a long-time:</p>
-<pre><code class="lang-scala">def f(v: Int): Int = {
-    for (i &lt;- 1 to 10000) {}
+<pre><code class="lang-scala">def f(v: <span class="hljs-built_in">Int</span>): <span class="hljs-built_in">Int</span> = {
+    <span class="hljs-keyword">for</span> (i &lt;- <span class="hljs-number">1</span> <span class="hljs-keyword">to</span> <span class="hljs-number">10000</span>) {}
     v
 }
 </code></pre>
@@ -131,26 +132,26 @@ val randomList: List[Int] = (for (i &lt;- 1 to 10000) yield rng.nextInt).toList
 <pre><code>========
 Uncached
 ========
-Elapsed time: 40.727146166 sec
-========
-Cached
-========
+<span class="hljs-section">Elapsed time: 40.727146166 sec
+========</span>
+<span class="hljs-section">Cached
+========</span>
 Elapsed time: 3.947885796 sec
 </code></pre><pre><code>========
 Uncached
 ========
-Elapsed time: 37.857984933 sec
-========
-Cached
-========
+<span class="hljs-section">Elapsed time: 37.857984933 sec
+========</span>
+<span class="hljs-section">Cached
+========</span>
 Elapsed time: 3.149896662 sec
 </code></pre><pre><code>========
 Uncached
 ========
-Elapsed time: 35.778371576 sec
-========
-Cached
-========
+<span class="hljs-section">Elapsed time: 35.778371576 sec
+========</span>
+<span class="hljs-section">Cached
+========</span>
 Elapsed time: 3.6294217 sec
 </code></pre><p>Complete code is available at: <a href="https://github.com/takuti-sandbox/tmp/blob/644d7c6e85c7f111b0f340ece37bc1d4434bb5e5/scala/src/main/scala/rdd/RDDTest.scala">RDDTest.scala</a>.</p>
 <h3 id="conclusion">Conclusion</h3>

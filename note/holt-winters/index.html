@@ -14,7 +14,8 @@
     </title>
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
   </head>
@@ -45,14 +46,14 @@
 <p><img src="https://takuti.me/images/holt-winters/series.png" alt="series"></p>
 <h3 id="%E6%89%8B%E6%B3%951-%E7%9B%B4%E8%BF%91%E3%81%AE%E8%A6%B3%E6%B8%AC%E5%80%A4%E3%82%92%E3%81%9D%E3%81%AE%E3%81%BE%E3%81%BE%E4%BA%88%E6%B8%AC%E5%80%A4%E3%81%A8%E3%81%97%E3%81%A6%E8%BF%94%E3%81%99">手法1: 直近の観測値をそのまま予測値として返す</h3>
 <p>考えられる最も単純な手法のひとつ。見たものをそのまま返しているので、オウム返し的未来予測。これを <code>BaseDetector</code> と呼ぼう。</p>
-<pre><code class="lang-py">class BaseDetector(object):
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BaseDetector</span>(<span class="hljs-title">object</span>):</span>
 
-    def __init__(self, observed_0, threshold=0.):
-        self.threshold = threshold
-        self.observed_last = observed_0
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, observed_<span class="hljs-number">0</span>, threshold=<span class="hljs-number">0</span>.)</span></span>:
+        <span class="hljs-keyword">self</span>.threshold = threshold
+        <span class="hljs-keyword">self</span>.observed_last = observed_<span class="hljs-number">0</span>
 
-    def detect(self, observed_series):
-        &quot;&quot;&quot;Launch forecasting for each observed data point based on a model.
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">detect</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, observed_series)</span></span>:
+        <span class="hljs-string">""</span><span class="hljs-string">"Launch forecasting for each observed data point based on a model.
         Return labeled forecasted series if each observed data point is anomaly or not.
 
         Args:
@@ -61,14 +62,14 @@
         Returns:
             list of (float, boolean): Forecasted series with anomaly label.
 
-        &quot;&quot;&quot;
+        "</span><span class="hljs-string">""</span>
         forecasted_series = []
 
-        for observed in observed_series:
-            forecasted_series.append((self.observed_last, self.observed_last &gt; self.threshold))
-            self.observed_last = observed
+        <span class="hljs-keyword">for</span> observed <span class="hljs-keyword">in</span> <span class="hljs-symbol">observed_series:</span>
+            forecasted_series.append((<span class="hljs-keyword">self</span>.observed_last, <span class="hljs-keyword">self</span>.observed_last &gt; <span class="hljs-keyword">self</span>.threshold))
+            <span class="hljs-keyword">self</span>.observed_last = observed
 
-        return forecasted_series
+        <span class="hljs-keyword">return</span> forecasted_series
 </code></pre>
 <p>時系列データの最初の1点 <code>observed_0</code> と、予測値に対する閾値 <code>threshold</code> を設定さえ渡せばよい。あとは新しいデータを読むたびに<strong>直近の値</strong>を更新・保持し続ける。</p>
 <p>当然、予測値のグラフは観測値を1時刻だけシフトさせたものになる：</p>
@@ -92,43 +93,43 @@
 <pre><code class="lang-py">from collections import deque
 
 
-class AverageDetector(BaseDetector):
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AverageDetector</span>(<span class="hljs-title">BaseDetector</span>):</span>
 
-    def __init__(self, observed_0, window_size=None, weights=None, threshold=0.):
-        self.moving_average = window_size is not None
-        self.weighted = weights is not None
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, observed_<span class="hljs-number">0</span>, window_size=None, weights=None, threshold=<span class="hljs-number">0</span>.)</span></span>:
+        <span class="hljs-keyword">self</span>.moving_average = window_size is <span class="hljs-keyword">not</span> None
+        <span class="hljs-keyword">self</span>.weighted = weights is <span class="hljs-keyword">not</span> None
 
-        if self.moving_average:
-            self.window = deque([observed_0], maxlen=window_size)
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.<span class="hljs-symbol">moving_average:</span>
+            <span class="hljs-keyword">self</span>.window = deque([observed_<span class="hljs-number">0</span>], maxlen=window_size)
 
-            if self.weighted:
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.<span class="hljs-symbol">weighted:</span>
                 assert window_size == len(weights)
-            self.weights = weights
-        else:
-            self.num_observed = 1
+            <span class="hljs-keyword">self</span>.weights = weights
+        <span class="hljs-symbol">else:</span>
+            <span class="hljs-keyword">self</span>.num_observed = <span class="hljs-number">1</span>
 
-        self.threshold = threshold
-        self.average = observed_0
+        <span class="hljs-keyword">self</span>.threshold = threshold
+        <span class="hljs-keyword">self</span>.average = observed_<span class="hljs-number">0</span>
 
-    def detect(self, observed_series):
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">detect</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, observed_series)</span></span>:
         forecasted_series = []
 
-        for observed in observed_series:
-            forecasted_series.append((self.average, self.average &gt; self.threshold))
+        <span class="hljs-keyword">for</span> observed <span class="hljs-keyword">in</span> <span class="hljs-symbol">observed_series:</span>
+            forecasted_series.append((<span class="hljs-keyword">self</span>.average, <span class="hljs-keyword">self</span>.average &gt; <span class="hljs-keyword">self</span>.threshold))
 
-            if self.moving_average:  # moving average
-                self.window.appendleft(observed)
-                if self.weighted:
-                    self.average = sum([vi * wi for vi, wi in zip(self.window, self.weights)])
-                else:
-                    self.average = sum(self.window) / len(self.window)
-            else:  # simple average
-                # m_{n} = ((n - 1) m_{n-1} + x_n) / n
-                # `(n - 1) m_{n-1}` returns sum of x_1, x_2, ..., x_{n-1}
-                self.num_observed += 1
-                self.average = self.average + (observed - self.average) / self.num_observed
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.<span class="hljs-symbol">moving_average:</span>  <span class="hljs-comment"># moving average</span>
+                <span class="hljs-keyword">self</span>.window.appendleft(observed)
+                <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.<span class="hljs-symbol">weighted:</span>
+                    <span class="hljs-keyword">self</span>.average = sum([vi * wi <span class="hljs-keyword">for</span> vi, wi <span class="hljs-keyword">in</span> zip(<span class="hljs-keyword">self</span>.window, <span class="hljs-keyword">self</span>.weights)])
+                <span class="hljs-symbol">else:</span>
+                    <span class="hljs-keyword">self</span>.average = sum(<span class="hljs-keyword">self</span>.window) / len(<span class="hljs-keyword">self</span>.window)
+            <span class="hljs-symbol">else:</span>  <span class="hljs-comment"># simple average</span>
+                <span class="hljs-comment"># m_{n} = ((n - 1) m_{n-1} + x_n) / n</span>
+                <span class="hljs-comment"># `(n - 1) m_{n-1}` returns sum of x_1, x_2, ..., x_{n-1}</span>
+                <span class="hljs-keyword">self</span>.num_observed += <span class="hljs-number">1</span>
+                <span class="hljs-keyword">self</span>.average = <span class="hljs-keyword">self</span>.average + (observed - <span class="hljs-keyword">self</span>.average) / <span class="hljs-keyword">self</span>.num_observed
 
-        return forecasted_series
+        <span class="hljs-keyword">return</span> forecasted_series
 </code></pre>
 <p><code>window_size</code> が与えられているか、 <code>weights</code> が与えられているか、に応じて手法2, 3, 4を切り替える。</p>
 <p>これも <code>BaseDetector</code> と同様で、最初の1点 <code>observed_0</code> と 閾値 <code>threshold</code> を与えれば、予測値を元に異常が検知できる。</p>
@@ -140,22 +141,22 @@ class AverageDetector(BaseDetector):
 <p><code>alpha = 0.9</code> の結果は手法1（直近の値をそのまま使う）に近くなり、一方 <code>alpha = 0.1</code> とすれば、それは手法2（これまでの全観測値の平均を使う）と似た平坦な出力となる：</p>
 <p><img src="https://takuti.me/images/holt-winters/smoothing.png" alt="smoothing"></p>
 <p>なおこの手法、数式上では『次の予測値』を求めるために『1つ前の予測値』を使っており、<strong>予測値に関して再帰的な式</strong>になっている。これが &quot;Exponential&quot; と呼ばれる理由：</p>
-<pre><code class="lang-py">forecasted = alpha * observed + (1. - alpha) * forecasted
+<pre><code class="lang-py"><span class="hljs-attr">forecasted</span> = alpha * observed + (<span class="hljs-number">1</span>. - alpha) * forecasted
 </code></pre>
 <h3 id="%E6%89%8B%E6%B3%956-%E4%BA%88%E6%B8%AC%E5%80%A4%E3%81%AE%E5%A4%89%E5%8B%95%E3%81%AE%E5%A4%A7%E3%81%8D%E3%81%95%E3%81%8B%E3%82%89%E3%80%81%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%83%88%E3%83%AC%E3%83%B3%E3%83%89%EF%BC%88%E5%A2%97%E5%8A%A0%E3%83%BB%E6%B8%9B%E5%B0%91%E5%82%BE%E5%90%91%EF%BC%89%E3%82%92%E3%81%A8%E3%82%89%E3%81%88%E3%82%8B">手法6: 予測値の変動の大きさから、データのトレンド（増加・減少傾向）をとらえる</h3>
 <p>Exponential Smoothing では『今』の観測点1つと『これまで』のバランスで予測値を求めていた。これは、手法4の重み付き移動平均から<strong>窓幅</strong>の概念が消え去った、単純化された手法ともいえる。</p>
 <p>一方で、より柔軟に、『これまで』がどれだけ最近（過去）を指すのか設定したい―つまりデータの“最近の傾向”をよしなにとらえたい、という要望もある。</p>
 <p>そこで、手法5で『観測値（今）と予測値（これまで）の重み付き和』で求めていた値を新たに<strong>レベル</strong>と呼び、：</p>
-<pre><code class="lang-py">level_last = level
-level = alpha * observed + (1. - alpha) * forecasted
+<pre><code class="lang-py"><span class="hljs-attr">level_last</span> = level
+<span class="hljs-attr">level</span> = alpha * observed + (<span class="hljs-number">1</span>. - alpha) * forecasted
 </code></pre>
 <p>『一度の観測でレベルがどれだけ変動したか』、つまり <code>level - level_last</code> を（最新の）<strong>トレンド</strong>とみなすことにする。</p>
 <p>そして、『次のトレンド』を『最新のトレンド』と『これまでのトレンド』の重み付き和で計算する：</p>
-<pre><code class="lang-py">trend = beta * (level - level_last) + (1. - beta) * trend
+<pre><code class="lang-py">trend = beta * (<span class="hljs-name">level</span> - level_last) + (<span class="hljs-number">1</span>. - beta) * trend
 </code></pre>
 <p>（重み <code>beta</code> は0から1の間の値をとる）</p>
 <p>最終的に、レベルとトレンドの和を予測値とする。これが <strong>Double Exponential Smoothing</strong>：</p>
-<pre><code class="lang-py">forecasted = level + trend
+<pre><code class="lang-py"><span class="hljs-attr">forecasted</span> = level + trend
 </code></pre>
 <p>最新のトレンド（増加・減少傾向）に敏感であってほしいなら <code>beta</code> を大きな値に設定すればよい。</p>
 <p><code>alpha = 0.5</code> に固定して <code>beta = 0.9</code> の場合と <code>beta = 0.1</code> の場合を比較すると、<code>beta</code> が大きいときのほうが実測値の増加・減少に敏感に反応した予測値を返すことがわかる：</p>
@@ -166,25 +167,25 @@ level = alpha * observed + (1. - alpha) * forecasted
 <p>たとえばバッチジョブは深夜〜早朝にかけてスケジューリングされることが多いので、システムのあるメトリクスは『毎日』『その時間帯』に似たような増加傾向を示すだろう。</p>
 <p>そのような時系列データに対して、Double Exponential Smoothing の予測値に季節性を加味した <strong>Triple Exponential Smoothing</strong> という手法を考える。これこそが <strong>Holt-Winters Method</strong> と呼ばれている手法の正体。</p>
 <p>Holt-Winters Method は<strong>季節性があると思われる時系列データ</strong> <code>initial_series</code> と<strong>季節の周期</strong> <code>season_length</code> を入力とし、予め『周期上のこのタイミングなら予測値はこれくらい』という見積もりを1周期分たてておく：</p>
-<pre><code class="lang-py">def init_holt_winters(initial_series, season_length):
-    # ...
-    return seasonals  # [s_1, s_2, ..., s_{season_length}]
+<pre><code class="lang-py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_holt_winters</span><span class="hljs-params">(initial_series, season_length)</span></span>:
+    <span class="hljs-comment"># ...</span>
+    <span class="hljs-keyword">return</span> seasonals  <span class="hljs-comment"># [s_1, s_2, ..., s_{season_length}]</span>
 </code></pre>
 <p>この周期上の予測値 <code>seasonals</code> は、適当な初期値と <code>initial_series</code> に基づいて計算される。具体的には、<code>initial_series[i]</code> は、<code>seasonals[i % season_length]</code> の更新に使われる。</p>
 <p>まず、Double Exponential Smoothing と同様にレベルとトレンドを求める：</p>
 <pre><code class="lang-py">level_last = level
-level = alpha * (initial_series[i] - seasonals[i % season_length]) + (1. - alpha) * (level + trend)
+level = alpha * (<span class="hljs-name">initial_series</span>[i] - seasonals[i % season_length]) + (<span class="hljs-number">1</span>. - alpha) * (<span class="hljs-name">level</span> + trend)
 
-trend = beta * (level - level_last) + (1. - beta) * trend
+trend = beta * (<span class="hljs-name">level</span> - level_last) + (<span class="hljs-number">1</span>. - beta) * trend
 </code></pre>
 <p>ただし、ここでいう“観測値”は『観測値（今）と、対応する周期上での点の見積もり（これまで）の差 <code>initial_series[i] - seasonals[i % season_length]</code>』である。</p>
 <p>そして、周期上の予測値が次のように更新される：</p>
-<pre><code class="lang-py">seasonals[i % season_length] = gamma * (initial_series[i] - level) + (1. - gamma) * seasonals[i % season_length]
+<pre><code class="lang-py">seasonals<span class="hljs-string">[i % season_length]</span> = gamma * (initial_series<span class="hljs-string">[i]</span> - level) + (<span class="hljs-number">1</span>. - gamma) * seasonals<span class="hljs-string">[i % season_length]</span>
 </code></pre>
 <p>ここでも重み付き和が登場し、新たにパラメータ <code>gamma</code> が導入された。このパラメータは0から1の間で『<code>seasonals[i % season_length]</code> の値の更新で、どれだけ <code>initial_series[i]</code> を考慮するか』の重みとなる。</p>
 <p>なお、Holt-Winters Method が &quot;Triple Exponential&quot; であるワケは、<code>seasonals[i % season_length] = ...</code> を展開すれば右辺に <code>seasonals[]</code> が3回登場するから。</p>
 <p>さて、<code>initial_series</code> をすべて処理して最終的な <code>level</code> と <code>trend</code> の値、および見積もり <code>seasonals</code> が得られたら、あとは未来予測をするだけだ。第n点目の予測値は次で得られる：</p>
-<pre><code class="lang-py">forecasted = level + n * trend + seasonals[(n - 1) % season_length]
+<pre><code class="lang-py">forecasted = level + <span class="hljs-built_in">n</span> * <span class="hljs-built_in">trend</span> + seasonals[(<span class="hljs-built_in">n</span> - <span class="hljs-number">1</span>) % season_length]
 </code></pre>
 <p>試しに、これまで使ってきたダミーの時系列データを周期3の季節性データとして読み込み、その先の予測値を出してみよう：</p>
 <p><img src="https://takuti.me/images/holt-winters/triple_smoothing.png" alt="triple_smoothing"></p>

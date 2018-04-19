@@ -14,7 +14,8 @@
     </title>
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
   </head>
@@ -122,12 +123,12 @@
 <li>question-question similarity: $S_{q_c, q_j}$</li>
 <li>user-question similarity: $S_{u_i, q_j}$</li>
 </ul>
-<p>を求めて、各推薦候補 $q_j$ を $S_{q_c, q_j} + S_{u_i, q_j}$ でスコアリングすることがゴールとなる。質問推薦とはすなわち、このスコアが高くなるような質問を対象ユーザに提示すること。</p>
+<p>を求めて、各推薦候補 $q<em>j$ を $S</em>{q<em>c, q_j} + S</em>{u_i, q_j}$ でスコアリングすることがゴールとなる。質問推薦とはすなわち、このスコアが高くなるような質問を対象ユーザに提示すること。</p>
 <p>そして、それぞれの類似度の計算でPLSAによって得られたパラメータを利用する：</p>
 <script type="math/tex; mode=display">
 S_{q_c, q_j} = \sum_z P(z|q_c) P(z|q_j)</script><script type="math/tex; mode=display">
 S_{u_i, q_j} = \sum_z P(z|u_i) P(z|q_j)</script><p>おわかりいただけただろうか。質問（文書）ごとのトピック分布 $P(z|q)$ を利用している。というわけで、EMアルゴリズムの結果として $P(z|d)$ が自然に得られる Asymmetric Formulation に限定して話を進めている（と解釈した）。</p>
-<p>ちなみに $P(z|u_i)$、すなわち『ユーザの関心』をいかにモデリングするかという話だが、これは『ユーザが過去に回答/質問した $N_u$ 個の質問文 $\{q_1, q_2, \cdots, q_{N_u}\}$ 』を対象として、次のように定義している：</p>
+<p>ちなみに $P(z|u<em>i)$、すなわち『ユーザの関心』をいかにモデリングするかという話だが、これは『ユーザが過去に回答/質問した $N_u$ 個の質問文 $\{q_1, q_2, \cdots, q</em>{N_u}\}$ 』を対象として、次のように定義している：</p>
 <script type="math/tex; mode=display">
 P(z|u) = \frac{1}{N_u} \sum_{i=1}^{N_u} P(z|q_i)</script><h3 id="incremental-plsa-%E3%81%B8%E3%81%AE%E6%8B%A1%E5%BC%B5">Incremental PLSA への拡張</h3>
 <p>というわけで、PLSAを使うとそれっぽく質問推薦ができるので、PLSAを incremental にしてより良い推薦アルゴリズムにしましょう、という話になる。</p>
@@ -187,7 +188,7 @@ P(w|z) = \frac{\sum_q n(q, w) \times P(z|q,w) + \alpha \times P(w|z)^{(n-1)}}{\s
 </ul>
 </li>
 </ol>
-<p>ここでポイントとなるのが Step 3。従来のPLSAを応用した質問推薦システムで $P(z|u) = \frac{1}{N_u} \sum_{i=1}^{N_u} P(z|q_i)$ と計算していた『ユーザの関心』に関するパラメータを、変化のあった質問 $q$ について重み $\beta$ で調整していることがわかる。</p>
+<p>ここでポイントとなるのが Step 3。従来のPLSAを応用した質問推薦システムで $P(z|u) = \frac{1}{N<em>u} \sum</em>{i=1}^{N_u} P(z|q_i)$ と計算していた『ユーザの関心』に関するパラメータを、変化のあった質問 $q$ について重み $\beta$ で調整していることがわかる。</p>
 <p>このようなアルゴリズムにすることで、質問推薦システムの要求を $\beta$ の調整によって満たすことができる：</p>
 <ul>
 <li>ユーザの長期的/短期的な興味の両方を考慮したい<ul>

@@ -14,7 +14,8 @@
     </title>
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
   </head>
@@ -165,67 +166,67 @@
 <p>あるキーが与えられたとき、そのハッシュ値からリング内の場所を引く。そのキーに対応するデータは、その場所から時計回りに、次のキーの割り当て箇所までの間の数ブロック分に格納されるというワケ。</p>
 <p>この挙動はコードを書いてみるとイメージしやすい (cf. &quot;<a href="http://michaelnielsen.org/blog/consistent-hashing/">Consistent hashing | Michael Nielsen</a>&quot;)。</p>
 <p>まず、キーが与えられたときにリング内のある一点を返す関数 <code>my_hash</code> を実装する。先の表や図ではハッシュ値をそのまま使っているように見えたが、ここではMD5ハッシュの剰余を $[0, 1)$ の範囲内で正規化した値を用いる：</p>
-<pre><code class="lang-py">import hashlib
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> hashlib
 
 
-def my_hash(key):
-    &quot;&quot;&quot;Returns a hash value in a [0, 1) range.
-    &quot;&quot;&quot;
-    md5_hash_int = int(hashlib.md5(key.encode(&#39;ascii&#39;)).hexdigest(), 16)
-    n = 1000000
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_hash</span><span class="hljs-params">(key)</span>:</span>
+    <span class="hljs-string">"""Returns a hash value in a [0, 1) range.
+    """</span>
+    md5_hash_int = int(hashlib.md5(key.encode(<span class="hljs-string">'ascii'</span>)).hexdigest(), <span class="hljs-number">16</span>)
+    n = <span class="hljs-number">1000000</span>
     mod = md5_hash_int % n
-    return mod / float(n)  # scale in a [0, 1) range
+    <span class="hljs-keyword">return</span> mod / float(n)  <span class="hljs-comment"># scale in a [0, 1) range</span>
 </code></pre>
 <p>いま <code>num_machines</code> 台のマシンがあり、それぞれの <code>num_replicas</code> 台のレプリカをリング上に配置する場合、Consistent Hashing の挙動は次のようなコードで書き表せる：</p>
 <pre><code class="lang-py">import bisect
 
 
-class ConsistentHash(object):
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConsistentHash</span>(<span class="hljs-title">object</span>):</span>
 
-    def __init__(self, num_machines=1, num_replicas=1):
-        self.num_machines = num_machines
-        self.num_replicas = num_replicas
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, num_machines=<span class="hljs-number">1</span>, num_replicas=<span class="hljs-number">1</span>)</span></span>:
+        <span class="hljs-keyword">self</span>.num_machines = num_machines
+        <span class="hljs-keyword">self</span>.num_replicas = num_replicas
 
-        # Allocate each replica (machine) onto a point of the unit circle
-        hash_tuples = [(mi, ri, my_hash(&#39;{}_{}&#39;.format(mi, ri)))
-                       for mi in range(self.num_machines)
-                       for ri in range(self.num_replicas)]
+        <span class="hljs-comment"># Allocate each replica (machine) onto a point of the unit circle</span>
+        hash_tuples = [(mi, ri, my_hash(<span class="hljs-string">'{}_{}'</span>.format(mi, ri)))
+                       <span class="hljs-keyword">for</span> mi <span class="hljs-keyword">in</span> range(<span class="hljs-keyword">self</span>.num_machines)
+                       <span class="hljs-keyword">for</span> ri <span class="hljs-keyword">in</span> range(<span class="hljs-keyword">self</span>.num_replicas)]
 
-        # Sort replica assignment information based on its hash value
-        hash_tuples.sort(key=lambda t: t[2])
-        self.hash_tuples = hash_tuples
+        <span class="hljs-comment"># Sort replica assignment information based on its hash value</span>
+        hash_tuples.sort(key=lambda <span class="hljs-symbol">t:</span> t[<span class="hljs-number">2</span>])
+        <span class="hljs-keyword">self</span>.hash_tuples = hash_tuples
 
-    def get_machine(self, key):
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_machine</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, key)</span></span>:
         h = my_hash(key)
 
-        # If a hash value is greater than the largest one (i.e., very close to
-        # 1.0 on the unit circle), cyclically back to 0.0.
-        if h &gt; self.hash_tuples[-1][2]:
-            return self.hash_tuples[0][0]
-        hash_values = [t[2] for t in self.hash_tuples]
+        <span class="hljs-comment"># If a hash value is greater than the largest one (i.e., very close to</span>
+        <span class="hljs-comment"># 1.0 on the unit circle), cyclically back to 0.0.</span>
+        <span class="hljs-keyword">if</span> h &gt; <span class="hljs-keyword">self</span>.hash_tuples[-<span class="hljs-number">1</span>][<span class="hljs-number">2</span>]:
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>.hash_tuples[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]
+        hash_values = [t[<span class="hljs-number">2</span>] <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> <span class="hljs-keyword">self</span>.hash_tuples]
 
-        # Find the closest hash value and use corresponding machine (replica)
-        # to store a value of the key
+        <span class="hljs-comment"># Find the closest hash value and use corresponding machine (replica)</span>
+        <span class="hljs-comment"># to store a value of the key</span>
         index = bisect.bisect_left(hash_values, h)
-        return self.hash_tuples[index][0]
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>.hash_tuples[index][<span class="hljs-number">0</span>]
 </code></pre>
 <p>まず各マシン-レプリカのペアについて &quot;[machine]-[replica]&quot; という文字列をキーにハッシュ値を求め、<code>(machine, replica, hash)</code> のペアをハッシュ値順にソートして保持しておく。これがリング上での（時計回りに見たときの）ノードの割り当てに相当する。</p>
 <p>そして、<code>get_machine()</code> は与えられた任意のキーのデータを保存すべきレプリカを見つけて返す。具体的には、与えられたキーのハッシュ値に最も近いハッシュ値を持つレプリカをリングから時計回りに探索して、その情報を返す（＝ソート済み <code>(machine, replica, hash)</code> ペアの二分探索に相当）。</p>
 <p>以上を利用すれば、7台のマシンについて、各3台のレプリカを用意した場合の Consistent Hashing は次のようにシミュレーション可能：</p>
 <pre><code class="lang-py">def main():
-    # Consistent Hashing over 7 machines and 3 replicas for each of them
-    ch = ConsistentHash(7, 3)
+    # Consistent Hashing over <span class="hljs-number">7</span> machines <span class="hljs-keyword">and</span> <span class="hljs-number">3</span> replicas <span class="hljs-keyword">for</span> each of them
+    ch = ConsistentHash(<span class="hljs-number">7</span>, <span class="hljs-number">3</span>)
 
-    print(&#39;Allocation:\n(machine, replica, hash)&#39;)
-    for mi, ri, h in ch.hash_tuples:
-        print(&#39;({}, {}, {})&#39;.format(mi, ri, h))
+    <span class="hljs-built_in">print</span>('Allocation:\n(machine, replica, hash)')
+    <span class="hljs-keyword">for</span> mi, ri, h <span class="hljs-keyword">in</span> ch.hash_tuples:
+        <span class="hljs-built_in">print</span>('({}, {}, {})'.format(mi, ri, h))
 
-    while True:
-        key = input(&#39;Enter a key: &#39;)
-        print(&#39;Key `%s` is mapped onto a (scaled) hash value `%f`, and its value would be stored into a machine `%d`&#39; % (key, my_hash(key), ch.get_machine(key)))
+    <span class="hljs-keyword">while</span> True:
+        <span class="hljs-built_in">key</span> = input('Enter a <span class="hljs-built_in">key</span>: ')
+        <span class="hljs-built_in">print</span>('Key `<span class="hljs-built_in">%s</span>` <span class="hljs-built_in">is</span> mapped onto a (scaled) hash value `<span class="hljs-built_in">%f</span>`, <span class="hljs-keyword">and</span> its value would be stored into a machine `%d`' <span class="hljs-symbol">%</span> (<span class="hljs-built_in">key</span>, my_hash(<span class="hljs-built_in">key</span>), ch.get_machine(<span class="hljs-built_in">key</span>)))
 
 
-if __name__ == &#39;__main__&#39;:
+<span class="hljs-keyword">if</span> __name__ == '__main__':
     main()
 </code></pre>
 <p>課題だったノード（パーティション）の増減に関しては、隣接するキー（ハッシュ値）が担当する領域を拡大/縮小させるだけで対応でき。剰余で発生した『すべて再配置』よりもはるかに筋の良い手法だと言える。また、これならレプリカ間の境界値をその都度考えたり覚えたりする中心的な役割を担うノードも不要。</p>

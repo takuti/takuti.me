@@ -14,7 +14,8 @@
     </title>
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
   </head>
@@ -54,34 +55,34 @@
 <li><a href="https://docs.travis-ci.com/user/deployment/pages/">GitHub Pages Deployment - Travis CI</a></li>
 </ul>
 <p>My current <code>.travis.yml</code> looks like:</p>
-<pre><code class="lang-yml">language: c
-os: osx
+<pre><code class="lang-yml"><span class="hljs-attribute">language</span>: c
+<span class="hljs-attribute">os</span>: osx
 
-before_script:
-  - npm install -g gulp
-  - npm install
-  - brew update &amp;&amp; brew install hugo
+<span class="yaml"><span class="hljs-attr">before_script:</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-string">npm</span> <span class="hljs-string">install</span> <span class="hljs-bullet">-g</span> <span class="hljs-string">gulp</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-string">npm</span> <span class="hljs-string">install</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-string">brew</span> <span class="hljs-string">update</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">brew</span> <span class="hljs-string">install</span> <span class="hljs-string">hugo</span>
 
-script:
-  - rake
+<span class="hljs-attr">script:</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-string">rake</span>
 
-branches:
-  only:
-    - master
+<span class="hljs-attr">branches:</span>
+<span class="hljs-attr">  only:</span>
+<span class="hljs-bullet">    -</span> <span class="hljs-string">master</span>
 
-notifications:
-  email: false
+<span class="hljs-attr">notifications:</span>
+<span class="hljs-attr">  email:</span> <span class="hljs-literal">false</span>
 
-deploy:
-  provider: pages
-  skip_cleanup: true
-  local_dir: public
-  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
-  on:
-    branch: master
-  repo: takuti/takuti.github.io
-  target_branch: master
-  fqdn: takuti.me
+<span class="hljs-attr">deploy:</span>
+<span class="hljs-attr">  provider:</span> <span class="hljs-string">pages</span>
+<span class="hljs-attr">  skip_cleanup:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">  local_dir:</span> <span class="hljs-string">public</span>
+<span class="hljs-attr">  github_token:</span> <span class="hljs-string">$GITHUB_TOKEN</span> <span class="hljs-comment"># Set in travis-ci.org dashboard</span>
+<span class="hljs-attr">  on:</span>
+<span class="hljs-attr">    branch:</span> <span class="hljs-string">master</span>
+<span class="hljs-attr">  repo:</span> <span class="hljs-string">takuti/takuti.github.io</span>
+<span class="hljs-attr">  target_branch:</span> <span class="hljs-string">master</span>
+<span class="hljs-attr">  fqdn:</span> <span class="hljs-string">takuti.me</span></span>
 </code></pre>
 <p>Once you have set your <code>$GITHUB_TOKEN</code> to environment variables in <a href="https://travis-ci.org/">travis-ci.org</a>, CI on <a href="https://github.com/takuti/takuti.me">source repository</a> automatically generates your site and pushes it to <a href="https://github.com/takuti/takuti.github.io">GitHub Pages repository</a>; now what we have to do is:</p>
 <ol>

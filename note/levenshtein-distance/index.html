@@ -14,7 +14,8 @@
     </title>
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
   </head>
@@ -44,76 +45,76 @@
 <p>動的計画法 (DP) です。おわり。</p>
 <p>Wikipedia に書かれている擬似コードをそのまま実装すると次のような感じ：</p>
 <pre><code class="lang-py">def levenshtein(s1, s2):
-    &quot;&quot;&quot;
-    &gt;&gt;&gt; levenshtein(&#39;kitten&#39;, &#39;sitting&#39;)
-    3
-    &gt;&gt;&gt; levenshtein(&#39;あいうえお&#39;, &#39;あいうえお&#39;)
-    0
-    &gt;&gt;&gt; levenshtein(&#39;あいうえお&#39;, &#39;かきくけこ&#39;)
-    5
-    &quot;&quot;&quot;
-    n, m = len(s1), len(s2)
+    <span class="hljs-string">""</span><span class="hljs-comment">"</span>
+    &gt;&gt;&gt; levenshtein(<span class="hljs-string">'kitten'</span>, <span class="hljs-string">'sitting'</span>)
+    <span class="hljs-number">3</span>
+    &gt;&gt;&gt; levenshtein(<span class="hljs-string">'あいうえお'</span>, <span class="hljs-string">'あいうえお'</span>)
+    <span class="hljs-number">0</span>
+    &gt;&gt;&gt; levenshtein(<span class="hljs-string">'あいうえお'</span>, <span class="hljs-string">'かきくけこ'</span>)
+    <span class="hljs-number">5</span>
+    <span class="hljs-string">""</span><span class="hljs-comment">"</span>
+    n, <span class="hljs-keyword">m</span> = <span class="hljs-built_in">len</span>(s1), <span class="hljs-built_in">len</span>(s2)
 
-    dp = [[0] * (m + 1) for _ in range(n + 1)]
+    <span class="hljs-keyword">dp</span> = [[<span class="hljs-number">0</span>] * (<span class="hljs-keyword">m</span> + <span class="hljs-number">1</span>) <span class="hljs-keyword">for</span> _ in <span class="hljs-built_in">range</span>(n + <span class="hljs-number">1</span>)]
 
-    for i in range(n + 1):
-        dp[i][0] = i
+    <span class="hljs-keyword">for</span> i in <span class="hljs-built_in">range</span>(n + <span class="hljs-number">1</span>):
+        <span class="hljs-keyword">dp</span>[i][<span class="hljs-number">0</span>] = i
 
-    for j in range(m + 1):
-        dp[0][j] = j
+    <span class="hljs-keyword">for</span> <span class="hljs-keyword">j</span> in <span class="hljs-built_in">range</span>(<span class="hljs-keyword">m</span> + <span class="hljs-number">1</span>):
+        <span class="hljs-keyword">dp</span>[<span class="hljs-number">0</span>][<span class="hljs-keyword">j</span>] = <span class="hljs-keyword">j</span>
 
-    for i in range(1, n + 1):
-        for j in range(1, m + 1):
-            cost = 0 if s1[i - 1] == s2[j - 1] else 1
-            dp[i][j] = min(dp[i - 1][j] + 1,         # insertion
-                           dp[i][j - 1] + 1,         # deletion
-                           dp[i - 1][j - 1] + cost)  # replacement
+    <span class="hljs-keyword">for</span> i in <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n + <span class="hljs-number">1</span>):
+        <span class="hljs-keyword">for</span> <span class="hljs-keyword">j</span> in <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-keyword">m</span> + <span class="hljs-number">1</span>):
+            cost = <span class="hljs-number">0</span> <span class="hljs-keyword">if</span> s1[i - <span class="hljs-number">1</span>] == s2[<span class="hljs-keyword">j</span> - <span class="hljs-number">1</span>] <span class="hljs-keyword">else</span> <span class="hljs-number">1</span>
+            <span class="hljs-keyword">dp</span>[i][<span class="hljs-keyword">j</span>] = <span class="hljs-built_in">min</span>(<span class="hljs-keyword">dp</span>[i - <span class="hljs-number">1</span>][<span class="hljs-keyword">j</span>] + <span class="hljs-number">1</span>,         # insertion
+                           <span class="hljs-keyword">dp</span>[i][<span class="hljs-keyword">j</span> - <span class="hljs-number">1</span>] + <span class="hljs-number">1</span>,         # deletion
+                           <span class="hljs-keyword">dp</span>[i - <span class="hljs-number">1</span>][<span class="hljs-keyword">j</span> - <span class="hljs-number">1</span>] + cost)  # replacement
 
-    return dp[n][m]
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">dp</span>[n][<span class="hljs-keyword">m</span>]
 </code></pre>
 <p>二次元配列 <code>dp</code> の中身は、たとえば <code>levenshtein(&#39;kitten&#39;, &#39;sitting&#39;)</code> を実行した後だと：</p>
 <pre><code>   |  -  s  i  t  t  i  n  g
 ----------------------------
- - |  0  1  2  3  4  5  6  7
- k |  1  1  2  3  4  5  6  7
- i |  2  2  1  2  3  4  5  6
- t |  3  3  2  1  2  3  4  5
- t |  4  4  3  2  1  2  3  4
- e |  5  5  4  3  2  2  3  4
- n |  6  6  5  4  3  3  2  3
+ - |  <span class="hljs-number">0</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>
+ k |  <span class="hljs-number">1</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>
+ i |  <span class="hljs-number">2</span>  <span class="hljs-number">2</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>  <span class="hljs-number">6</span>
+ t |  <span class="hljs-number">3</span>  <span class="hljs-number">3</span>  <span class="hljs-number">2</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>
+ t |  <span class="hljs-number">4</span>  <span class="hljs-number">4</span>  <span class="hljs-number">3</span>  <span class="hljs-number">2</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>
+ e |  <span class="hljs-number">5</span>  <span class="hljs-number">5</span>  <span class="hljs-number">4</span>  <span class="hljs-number">3</span>  <span class="hljs-number">2</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>
+ n |  <span class="hljs-number">6</span>  <span class="hljs-number">6</span>  <span class="hljs-number">5</span>  <span class="hljs-number">4</span>  <span class="hljs-number">3</span>  <span class="hljs-number">3</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>
 </code></pre><h3 id="%E7%90%86%E8%A7%A3">理解</h3>
 <p>たとえば、この <code>4</code> は、文字列 <code>ki</code> から <code>sitti</code> までの編集距離を意味する：</p>
-<pre><code>   |  -  s  i  t  t  i  n  g
-----------------------------
- - |                 .
- k |                 .
- i |  .  .  .  .  .  4
- t |
- t |
- e |
- n |
+<pre><code><span class="hljs-section">   |  -  s  i  t  t  i  n  g
+----------------------------</span>
+<span class="hljs-code"> - |                 .</span>
+<span class="hljs-code"> k |                 .</span>
+<span class="hljs-code"> i |  .  .  .  .  .  4</span>
+<span class="hljs-code"> t |</span>
+<span class="hljs-code"> t |</span>
+<span class="hljs-code"> e |</span>
+<span class="hljs-code"> n |</span>
 </code></pre><p>アルゴリズムでは、まず <code>dp</code> を次のように初期化する：</p>
 <pre><code>   |  -  s  i  t  t  i  n  g
 ----------------------------
- - |  0  1  2  3  4  5  6  7
- k |  1
- i |  2
- t |  3
- t |  4
- e |  5
- n |  6
+ - |  <span class="hljs-number">0</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>
+ k |  <span class="hljs-number">1</span>
+ i |  <span class="hljs-number">2</span>
+ t |  <span class="hljs-number">3</span>
+ t |  <span class="hljs-number">4</span>
+ e |  <span class="hljs-number">5</span>
+ n |  <span class="hljs-number">6</span>
 </code></pre><p>空文字列から <code>sitting</code> のx文字目までの編集距離と、<code>kitten</code>のy文字目から空文字列までの編集距離。これは自明。</p>
 <p>そして空白をうめていく。<code>k</code>（<code>kitten</code>の一文字目）と<code>s</code>（<code>sitting</code>の一文字目）の編集距離、つまり X (= <code>dp[i][j]</code> ) の値はなにか：</p>
 <pre><code>           (j)
       |  -  s  i  t  t  i  n  g
    ----------------------------
-    - |  0  1  2  3  4  5  6  7
-(i) k |  1  X
-    i |  2
-    t |  3
-    t |  4
-    e |  5
-    n |  6
+    - |  <span class="hljs-number">0</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>
+(i) k |  <span class="hljs-number">1</span>  X
+    i |  <span class="hljs-number">2</span>
+    t |  <span class="hljs-number">3</span>
+    t |  <span class="hljs-number">4</span>
+    e |  <span class="hljs-number">5</span>
+    n |  <span class="hljs-number">6</span>
 </code></pre><p>最初に書いたとおり可能な操作は『1文字の追加・削除・置換』で、<code>dp[i][j]</code>に隣接する既知の編集距離から：</p>
 <table>
 <thead>
@@ -159,21 +160,21 @@
 <p>ただし、置換操作は文字列 A と B の次の文字が既に一致していれば『何もしない』。すなわち、編集距離として <code>dp[i-1][j-1]</code> と <code>dp[i][j]</code> は等しくなる。</p>
 <p>以上が</p>
 <pre><code class="lang-py">cost = 0 if s1[i - 1] == s2[j - 1] else 1
-dp[i][j] = min(dp[i - 1][j] + 1,         # insertion
-               dp[i][j - 1] + 1,         # deletion
-               dp[i - 1][j - 1] + cost)  # replacement/noop
+dp[<span class="hljs-string">i</span>][<span class="hljs-symbol">j</span>] = min(dp[<span class="hljs-string">i - 1</span>][<span class="hljs-symbol">j</span>] + 1,         # insertion
+<span class="hljs-code">               dp[i][j - 1] + 1,         # deletion</span>
+<span class="hljs-code">               dp[i - 1][j - 1] + cost)  # replacement/noop</span>
 </code></pre>
 <p>でやっていること。編集距離は最小の操作回数なので追加・削除・置換の <code>min</code> をとる。</p>
 <p>あとは同様に、隣接する既知の編集距離から表を埋めていけば、最後（右下）に <code>kitten</code> と <code>sitting</code> の編集距離が得られる。</p>
 <pre><code>   |  -  s  i  t  t  i  n  g
 ----------------------------
- - |  0  1  2  3  4  5  6  7
- k |  1  1  2  3  4  5  6  7
- i |  2  2  1  2  3  4  5  6
- t |  3  3  2  1  2  3  4  5
- t |  4  4  3  2  1  2  3  4
- e |  5  5  4  3  2  2  3  4
- n |  6  6  5  4  3  3  2  3
+ - |  <span class="hljs-number">0</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>
+ k |  <span class="hljs-number">1</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>
+ i |  <span class="hljs-number">2</span>  <span class="hljs-number">2</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>  <span class="hljs-number">6</span>
+ t |  <span class="hljs-number">3</span>  <span class="hljs-number">3</span>  <span class="hljs-number">2</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>
+ t |  <span class="hljs-number">4</span>  <span class="hljs-number">4</span>  <span class="hljs-number">3</span>  <span class="hljs-number">2</span>  <span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>
+ e |  <span class="hljs-number">5</span>  <span class="hljs-number">5</span>  <span class="hljs-number">4</span>  <span class="hljs-number">3</span>  <span class="hljs-number">2</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>
+ n |  <span class="hljs-number">6</span>  <span class="hljs-number">6</span>  <span class="hljs-number">5</span>  <span class="hljs-number">4</span>  <span class="hljs-number">3</span>  <span class="hljs-number">3</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>
 </code></pre><p>めでたしめでたし。</p>
 <p>こういう応用範囲の広いシンプルなアルゴリズムは好きです。</p>
 <p><a href="https://github.com/prestodb/presto/pull/7311">Presto</a> や <a href="https://issues.apache.org/jira/browse/HIVE-9556">Hive</a> にも近年実装されました。みなさん積極的に使いましょう。（とはいえ計算量 $\mathcal{O}(nm)$ は下手に CROSS JOIN とかすると重すぎて詰むので、過去に求めた編集距離はキャッシュしておくなど、ご利用は計画的に。）</p>

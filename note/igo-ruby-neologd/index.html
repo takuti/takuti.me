@@ -14,7 +14,8 @@
     </title>
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
   </head>
@@ -39,29 +40,29 @@
 <p>今回はもっと簡単に、継続的にメンテナンスされている新語辞書 <strong><a href="https://github.com/neologd/mecab-ipadic-neologd">NEologd</a></strong> を使って同様のことを実現する。もはや最近はこっちのほうが自然なアプローチですなぁ。</p>
 <h3 id="neologd%E3%81%AE%E3%83%93%E3%83%AB%E3%83%89">NEologdのビルド</h3>
 <p><a href="https://github.com/neologd/mecab-ipadic-neologd">リポジトリ</a>を取ってきて、手順通りビルドする：</p>
-<pre><code>$ cd /path/to/neologd/mecab-ipadic-neologd
-$ ./bin/install-mecab-ipadic-neologd -n
+<pre><code><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> /path/to/neologd/mecab-ipadic-neologd</span>
+<span class="hljs-meta">$</span><span class="bash"> ./bin/install-mecab-ipadic-neologd -n</span>
 </code></pre><p>すると <code>build/mecab-ipadic-2.7.0-20070801-neologd-YYYYMMDD</code> といったディレクトリができる。</p>
 <p>これが4年前の記事で自前で生成した辞書を置いた <code>mecab-ipadic-2.7.0-20070801</code> というディレクトリに対応していて、以後の手順は全く変わらない。外部データを整形して独自にコストを計算していた手間をNEologdが肩代わりしてくれた形。感謝〜。</p>
 <h3 id="%E8%BE%9E%E6%9B%B8%E7%94%9F%E6%88%90">辞書生成</h3>
 <p><code>igo.jar</code> を取ってきて：</p>
-<pre><code>$ wget &#39;http://osdn.jp/frs/redir.php?m=jaist&amp;f=%2Figo%2F52344%2Figo-0.4.3.jar&#39; -O igo.jar
+<pre><code>$ wget 'http://osdn.jp/frs/redir.php?m=jaist&amp;f=<span class="hljs-symbol">%2</span>Figo<span class="hljs-symbol">%2</span>F<span class="hljs-number">52344</span><span class="hljs-symbol">%2</span>Figo<span class="hljs-number">-0.4</span>.<span class="hljs-number">3</span>.jar' -O igo.jar
 </code></pre><p>igo用辞書 <code>ipadic-neologd</code> をつくる：</p>
-<pre><code>$ java -cp igo.jar net.reduls.igo.bin.BuildDic ipadic-neologd /path/to/neologd/mecab-ipadic-neologd/build/mecab-ipadic-2.7.0-20070801-neologd-YYYYMMDD utf-8
+<pre><code>$ java -cp igo<span class="hljs-selector-class">.jar</span> net<span class="hljs-selector-class">.reduls</span><span class="hljs-selector-class">.igo</span><span class="hljs-selector-class">.bin</span><span class="hljs-selector-class">.BuildDic</span> ipadic-neologd /path/to/neologd/mecab-ipadic-neologd/build/mecab-ipadic-<span class="hljs-number">2.7</span>.<span class="hljs-number">0</span>-<span class="hljs-number">20070801</span>-neologd-YYYYMMDD utf-<span class="hljs-number">8</span>
 </code></pre><p>オリジナルのIPA辞書のエンコーディングがEUCだったのに対し、NEologdはUTF-8であることに注意。</p>
 <h3 id="%E3%81%9F%E3%82%81%E3%81%99">ためす</h3>
-<pre><code class="lang-rb">require &#39;igo-ruby&#39;
+<pre><code class="lang-rb">require <span class="hljs-string">'igo-ruby'</span>
 
-tagger = Igo::Tagger.new(&#39;/path/to/ipadic-neologd&#39;)
+tagger = Igo::Tagger.new(<span class="hljs-string">'/path/to/ipadic-neologd'</span>)
 
-p tagger.wakati(&#39;人工知能&#39;)
-# [&quot;人工知能&quot;]
+p tagger.wakati(<span class="hljs-string">'人工知能'</span>)
+# [<span class="hljs-string">"人工知能"</span>]
 
-p tagger.wakati(&#39;ニコニコ動画&#39;)
-# [&quot;ニコニコ動画&quot;]
+p tagger.wakati(<span class="hljs-string">'ニコニコ動画'</span>)
+# [<span class="hljs-string">"ニコニコ動画"</span>]
 
-p tagger.wakati(&#39;10日放送の「中居正広のミになる図書館」（テレビ朝日系）で、SMAPの中居正広が、篠原信一の過去の勘違いを明かす一幕があった。&#39;)
-# [&quot;10日&quot;, &quot;放送&quot;, &quot;の&quot;, &quot;「&quot;, &quot;中居正広のミになる図書館&quot;, &quot;」&quot;, &quot;（&quot;, &quot;テレビ朝日&quot;, &quot;系&quot;, &quot;）&quot;, &quot;で&quot;, &quot;、&quot;, &quot;SMAP&quot;, &quot;の&quot;, &quot;中居正広&quot;, &quot;が&quot;, &quot;、&quot;, &quot;篠原信一&quot;, &quot;の&quot;, &quot;過去&quot;, &quot;の&quot;, &quot;勘違い&quot;, &quot;を&quot;, &quot;明かす&quot;, &quot;一幕&quot;, &quot;が&quot;, &quot;あっ&quot;, &quot;た&quot;, &quot;。&quot;]
+p tagger.wakati(<span class="hljs-string">'10日放送の「中居正広のミになる図書館」（テレビ朝日系）で、SMAPの中居正広が、篠原信一の過去の勘違いを明かす一幕があった。'</span>)
+# [<span class="hljs-string">"10日"</span>, <span class="hljs-string">"放送"</span>, <span class="hljs-string">"の"</span>, <span class="hljs-string">"「"</span>, <span class="hljs-string">"中居正広のミになる図書館"</span>, <span class="hljs-string">"」"</span>, <span class="hljs-string">"（"</span>, <span class="hljs-string">"テレビ朝日"</span>, <span class="hljs-string">"系"</span>, <span class="hljs-string">"）"</span>, <span class="hljs-string">"で"</span>, <span class="hljs-string">"、"</span>, <span class="hljs-string">"SMAP"</span>, <span class="hljs-string">"の"</span>, <span class="hljs-string">"中居正広"</span>, <span class="hljs-string">"が"</span>, <span class="hljs-string">"、"</span>, <span class="hljs-string">"篠原信一"</span>, <span class="hljs-string">"の"</span>, <span class="hljs-string">"過去"</span>, <span class="hljs-string">"の"</span>, <span class="hljs-string">"勘違い"</span>, <span class="hljs-string">"を"</span>, <span class="hljs-string">"明かす"</span>, <span class="hljs-string">"一幕"</span>, <span class="hljs-string">"が"</span>, <span class="hljs-string">"あっ"</span>, <span class="hljs-string">"た"</span>, <span class="hljs-string">"。"</span>]
 </code></pre>
 <p>めでたい。</p>
 <p>僕の子 @<a href="https://twitter.com/yootakuti">yootakuti</a> が動いているさくらVPSから契約更新の案内が届いて、久しぶりに存在を思い出していろいろ振り返っていた次第。辞書をNEologdに変えて、久しぶりにコードを更新して賢くしてあげても良いかもしれない。<a href="https://github.com/takuti/kusari">マルコフ連鎖生成用ライブラリ</a>もNEologd対応させてみたりしてね。</p>

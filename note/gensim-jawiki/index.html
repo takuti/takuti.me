@@ -14,7 +14,8 @@
     </title>
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
   </head>
@@ -41,26 +42,26 @@
 <h3 id="%E3%82%B3%E3%83%BC%E3%83%91%E3%82%B9">コーパス</h3>
 <p>基本的には<a href="https://github.com/RaRe-Technologies/gensim/blob/develop/gensim/scripts/make_wikicorpus.py">英語版Wikipediaからコーパスを作る公式サンプル</a>がそのまま使える。</p>
 <p>我々は <code>gensim.corpora.WikiCorpus</code> が内部的に使っている分かち書き用の関数 <code>gensim.corpora.wikicorpus.tokenize</code> を日本語向けに置き換えればよろしい：</p>
-<pre><code class="lang-py">import gensim.corpora.wikicorpus as wikicorpus
+<pre><code class="lang-py">import gensim.corpora.wikicorpus <span class="hljs-keyword">as</span> wikicorpus
 import MeCab
 
 
 tagger = MeCab.Tagger()
-tagger.parse(&#39;&#39;)
+tagger.parse(<span class="hljs-string">''</span>)
 
 
-def tokenize_ja(text):
-    node = tagger.parseToNode(to_unicode(text,  encoding=&#39;utf8&#39;, errors=&#39;ignore&#39;))
-    while node:
-        if node.feature.split(&#39;,&#39;)[0] == &#39;名詞&#39;:
-            yield node.surface.lower()
+def tokenize_ja(<span class="hljs-keyword">text</span>):
+    node = tagger.parseToNode(to_unicode(<span class="hljs-keyword">text</span>,  encoding=<span class="hljs-string">'utf8'</span>, errors=<span class="hljs-string">'ignore'</span>))
+    <span class="hljs-keyword">while</span> node:
+        <span class="hljs-keyword">if</span> node.feature.<span class="hljs-built_in">split</span>(<span class="hljs-string">','</span>)[<span class="hljs-number">0</span>] == <span class="hljs-string">'名詞'</span>:
+            yield node.surface.<span class="hljs-built_in">lower</span>()
         node = node.next
 
 
 def tokenize(content):
-    return [
-        to_unicode(token) for token in tokenize_ja(content)
-        if 2 &lt;= len(token) &lt;= 15 and not token.startswith(&#39;_&#39;)
+    <span class="hljs-literal">return</span> [
+        to_unicode(<span class="hljs-keyword">token</span>) <span class="hljs-keyword">for</span> <span class="hljs-keyword">token</span> <span class="hljs-keyword">in</span> tokenize_ja(content)
+        <span class="hljs-keyword">if</span> <span class="hljs-number">2</span> &lt;= <span class="hljs-built_in">len</span>(<span class="hljs-keyword">token</span>) &lt;= <span class="hljs-number">15</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">token</span>.startswith(<span class="hljs-string">'_'</span>)
     ]
 
 
@@ -68,85 +69,85 @@ wikicorpus.tokenize = tokenize
 </code></pre>
 <p>全貌は<a href="https://gist.github.com/takuti/356167894f454e4f28392a2cf8903b8d">gist</a>にあげた。</p>
 <p>このスクリプトを走らせて数時間待つとコーパスができる：</p>
-<pre><code>$ python jawikicorpus.py /path/to/jawiki-latest-pages-articles.xml.bz2 jawiki
+<pre><code>$ python jawikicorpus<span class="hljs-selector-class">.py</span> /path/to/jawiki-latest-pages-articles<span class="hljs-selector-class">.xml</span><span class="hljs-selector-class">.bz2</span> jawiki
 </code></pre><p>コーパスをシリアライズするときに <code>metadata=True</code> をつけておくと、Wikipedia記事タイトルとそのインデックスのマッピングが保存できる。あとで便利なので保存しておこう：</p>
-<pre><code class="lang-py">MmCorpus.serialize(dst + &#39;_bow.mm&#39;, wiki, progress_cnt=10000, metadata=True)
+<pre><code class="lang-py">MmCorpus.serialize(dst + <span class="hljs-string">'_bow.mm'</span>, wiki, progress_cnt=<span class="hljs-number">10000</span>, metadata=<span class="hljs-literal">True</span>)
 </code></pre>
 <h3 id="%E3%83%88%E3%83%94%E3%83%83%E3%82%AF%E3%83%A2%E3%83%87%E3%83%AA%E3%83%B3%E3%82%B0">トピックモデリング</h3>
 <p>作成したコーパスで、LDAによるトピックモデリングを試す。</p>
 <p>先ほど生成された <code>jawiki_wordids.txt.bz2</code>（単語-インデックスのマッピング）と <code>jawiki_tfidf.mm</code>（記事×単語の行列で要素にTF-IDF値をもつ）を読み込んで、<code>gensim.models.LdaModel</code> に渡してあげればよい：</p>
-<pre><code class="lang-py">from gensim.corpora import Dictionary, MmCorpus
-from gensim.models import LdaModel
+<pre><code class="lang-py">from gensim.corpora <span class="hljs-built_in">import</span> Dictionary, MmCorpus
+from gensim.models <span class="hljs-built_in">import</span> LdaModel
 
-dictionary = Dictionary.load_from_text(&#39;jawiki_wordids.txt.bz2&#39;)
-tfidf_corpus = MmCorpus(&#39;jawiki_tfidf.mm&#39;)
-lda = LdaModel(corpus=tfidf_corpus, id2word=dictionary, num_topics=100)
-lda.save(&#39;lda_100.model&#39;)
+<span class="hljs-attr">dictionary</span> = Dictionary.load_from_text('jawiki_wordids.txt.bz2')
+<span class="hljs-attr">tfidf_corpus</span> = MmCorpus('jawiki_tfidf.mm')
+<span class="hljs-attr">lda</span> = LdaModel(<span class="hljs-attr">corpus=tfidf_corpus,</span> <span class="hljs-attr">id2word=dictionary,</span> <span class="hljs-attr">num_topics=100)</span>
+lda.save('lda_100.model')
 </code></pre>
 <p>再び数時間待つ。トピック数はテキトーに100にしたけど、たぶん少ない。</p>
 <p>保存したモデルで遊んでみる。</p>
 <p>モデルを読み込んで：</p>
-<pre><code class="lang-py">lda = LdaModel.load(&#39;lda_100.model&#39;)
+<pre><code class="lang-py"><span class="hljs-attr">lda</span> = LdaModel.load(<span class="hljs-string">'lda_100.model'</span>)
 </code></pre>
 <p>コーパスも読み込んで：</p>
-<pre><code class="lang-py">tfidf = MmCorpus(&#39;jawiki_tfidf.mm&#39;)
+<pre><code class="lang-py"><span class="hljs-attr">tfidf</span> = MmCorpus(<span class="hljs-string">'jawiki_tfidf.mm'</span>)
 </code></pre>
 <p><code>metadata=True</code> で保存した記事タイトル-インデックスのマッピングも読み込んだなら：</p>
-<pre><code class="lang-py">docno2metadata = unpickle(&#39;jawiki_bow.mm.metadata.cpickle&#39;)
-title2docno = {tup_title[1]: int(docno) for docno, tup_title in docno2metadata.items()}
+<pre><code class="lang-py"><span class="hljs-attr">docno2metadata</span> = unpickle(<span class="hljs-string">'jawiki_bow.mm.metadata.cpickle'</span>)
+<span class="hljs-attr">title2docno</span> = {tup_title[<span class="hljs-number">1</span>]: int(doc<span class="hljs-literal">no</span>) for doc<span class="hljs-literal">no</span>, tup_title in docno2metadata.items()}
 </code></pre>
 <p>夏！！！</p>
-<pre><code class="lang-py">for title in [&#39;ビール&#39;, &#39;カブトムシ&#39;, &#39;海&#39;, &#39;夏祭り&#39;]:
+<pre><code class="lang-py">for title in [<span class="hljs-string">'ビール'</span>, <span class="hljs-string">'カブトムシ'</span>, <span class="hljs-string">'海'</span>, <span class="hljs-string">'夏祭り'</span>]:
     topics = lda[tfidf[title2docno[title]]]
-    topic = sorted(topics, key=lambda t: t[1], reverse=True)[0][0]
-    print(&#39;=== %s (topic %d) ===&#39; % (title, topic))
-    for word, p_word in lda.show_topic(topic, topn=10):
-        print(&#39;%.5f\t%s&#39; % (p_word, word))
+    topic = sorted(topics, key=lambda t: t[<span class="hljs-number">1</span>], reverse=<span class="hljs-symbol">True</span>)[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]
+    print(<span class="hljs-string">'=== %s (topic %d) ==='</span> <span class="hljs-comment">% (title, topic))</span>
+    for word, p_word in lda.show_topic(topic, topn=<span class="hljs-number">10</span>):
+        print(<span class="hljs-string">'%.5f\t%s'</span> <span class="hljs-comment">% (p_word, word))</span>
 </code></pre>
-<pre><code>=== ビール (topic 99) ===
-0.04528 植物
-0.02466 料理
-0.02348 栽培
-0.01843 品種
-0.01610 ビール
-0.01584 醸造
-0.01410 ワイン
-0.01373 kt
-0.01318 生産
-0.01272 農業
-=== カブトムシ (topic 46) ===
-0.00462 顕微鏡
-0.00352 地震
-0.00339 &#39;&#39;&#39;()
-0.00303 障害
-0.00268 生育
-0.00248 哲学
-0.00238 発生
-0.00236 意味
-0.00230 効果
-0.00224 患者
-=== 海 (topic 32) ===
-0.02139 フェリー
-0.01960 航路
-0.01791 就航
-0.01597 運航
-0.01130 建造
-0.01113 船舶
-0.00976 諸島
-0.00939 海洋
-0.00835 造船
-0.00803 ハワイ
-=== 夏祭り (topic 62) ===
-0.01825 寺院
-0.01744 日蓮宗
-0.01113 神社
-0.00987 文化財
-0.00772 大字
-0.00706 古墳
-0.00676 共編
-0.00670 辞典
-0.00647 学区
-0.00625 角川
+<pre><code>=== ビール (topic <span class="hljs-number">99</span>) ===
+<span class="hljs-number">0.04528</span> 植物
+<span class="hljs-number">0.02466</span> 料理
+<span class="hljs-number">0.02348</span> 栽培
+<span class="hljs-number">0.01843</span> 品種
+<span class="hljs-number">0.01610</span> ビール
+<span class="hljs-number">0.01584</span> 醸造
+<span class="hljs-number">0.01410</span> ワイン
+<span class="hljs-number">0.01373</span> kt
+<span class="hljs-number">0.01318</span> 生産
+<span class="hljs-number">0.01272</span> 農業
+=== カブトムシ (topic <span class="hljs-number">46</span>) ===
+<span class="hljs-number">0.00462</span> 顕微鏡
+<span class="hljs-number">0.00352</span> 地震
+<span class="hljs-number">0.00339</span> '''()
+<span class="hljs-number">0.00303</span> 障害
+<span class="hljs-number">0.00268</span> 生育
+<span class="hljs-number">0.00248</span> 哲学
+<span class="hljs-number">0.00238</span> 発生
+<span class="hljs-number">0.00236</span> 意味
+<span class="hljs-number">0.00230</span> 効果
+<span class="hljs-number">0.00224</span> 患者
+=== 海 (topic <span class="hljs-number">32</span>) ===
+<span class="hljs-number">0.02139</span> フェリー
+<span class="hljs-number">0.01960</span> 航路
+<span class="hljs-number">0.01791</span> 就航
+<span class="hljs-number">0.01597</span> 運航
+<span class="hljs-number">0.01130</span> 建造
+<span class="hljs-number">0.01113</span> 船舶
+<span class="hljs-number">0.00976</span> 諸島
+<span class="hljs-number">0.00939</span> 海洋
+<span class="hljs-number">0.00835</span> 造船
+<span class="hljs-number">0.00803</span> ハワイ
+=== 夏祭り (topic <span class="hljs-number">62</span>) ===
+<span class="hljs-number">0.01825</span> 寺院
+<span class="hljs-number">0.01744</span> 日蓮宗
+<span class="hljs-number">0.01113</span> 神社
+<span class="hljs-number">0.00987</span> 文化財
+<span class="hljs-number">0.00772</span> 大字
+<span class="hljs-number">0.00706</span> 古墳
+<span class="hljs-number">0.00676</span> 共編
+<span class="hljs-number">0.00670</span> 辞典
+<span class="hljs-number">0.00647</span> 学区
+<span class="hljs-number">0.00625</span> 角川
 </code></pre><p>（Wikipedia記事『ビール』『カブトムシ』『海』『夏祭り』が属するトピックとそのトピックワード上位10件）</p>
 <p><code>&#39;&#39;&#39;()</code> といった異物が混入している問題は、コーパス作成時に置き換えた <code>tokenize()</code> を工夫すれば解決すると思う。</p>
 <p>保存したモデルで他のドキュメントのトピックを推定したいときは、単語-インデックスのマッピング <code>jawiki_wordids.txt.bz2</code> を使ってそのドキュメントのBag-of-Wordsを適切に表現してあげればよい。</p>
