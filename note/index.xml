@@ -640,7 +640,7 @@ LensKit (Java)  公式サイト/ドキュメント GitHubリポジトリ 論文 
       <description>@amaya382くんが Hivemall on Docker についていろいろと整備してくれた。
 Hive環境が必要で敷居が高かった
 (当社比) Hivemallですが, 数コマンド叩くだけでdocker上で試せるようになりました！試す際に意外と厄介なサンプルデータの準備を全てやってくれるスクリプトもおまけで付いてます (※あくまで評価・開発用です) https://t.co/fiztEpicma
-&amp;mdash; amaya (@amaya382) April 25, 2017
+&amp;mdash; amaya@技術書典か64 (@amaya382) April 25, 2017
  一方、個人的には Hivemall on Mac について以前記事を書いた：『MacのローカルにHivemallを導入してアイテム推薦をするまで』
 だいたいHomebrewで完結するのでMacローカルだけを考えればこれでも問題ないけど、煩雑なインストール・設定無しでDockerコンテナで話が進むに越したことはない。というわけで先の記事のフォローアップとして Hivemall on Docker をMacのローカルで試してみる。環境は次の通り：
  macOS Sierra 10.12.3 Docker for Mac Stable channel (version 17.03.1-ce-mac5)  $ docker -v Docker version 17.03.1-ce, build c6d412e $ docker-compose -v docker-compose version 1.11.2, build dfed245 $ docker-machine -v docker-machine version 0.10.0, build 76ed2a6 コンテナ起動まで 基本的にはドキュメントに従う。
@@ -749,7 +749,7 @@ A post shared by @takuti on Mar 8, 2017 at 11:14am PST
 ▲ ポスターセッションでは発表者含め、みんなビール片手に議論していて楽しかった。
 世界観 情報推薦 (recommender systems) はもともと情報検索 (information retrieval) から派生した分野なので、小さな会議だけど採択されたときはとても嬉しかったし、他の発表もかなり楽しみだった。しかし蓋を開けてみると &amp;quot;interaction&amp;quot; の色が強すぎて、全く違う分野の会議に来てしまった感じだった。
 会議参加者のバックグラウンドが思った以上に広い＆興味が超絶アプリケーション寄りで、線形計算, 機械学習的な話がほとんど通じないでござる…。
-&amp;mdash; takuti (@takuti) March 8, 2017</description>
+&amp;mdash; Takuya Kitazawa (@takuti) March 8, 2017</description>
     </item>
     
     <item>
@@ -921,7 +921,7 @@ RecSys2016@Boston RecSysは今回で10回目を迎えた推薦システムのト
 会議は前半2日間がワークショップ (at IBM) 、残りが本会議 (at MIT) に当てられていて、全ての発表を聞いたわけではないけれど、個人的には 深層学習の勢い と アプリケーションとしての推薦システムのあり方 が見どころだった。
 深層学習に対する注目はこの分野でも例外ではなく、ワークショップの1つ Deep Learning for Recommender Systems は座席が即完売の超人気セッションだったらしい。すごい。本会議でも Deep Learning というセッションが設けられ、CNNやword2vec絡みのどこかで聞いたことのあるような良い話が聞けた。ちなみに Convolutional Matrix Factorization の人のCNN実装はKerasらしいです。
 cnnとw2vの話聞き飽きすぎて吐きそう
-&amp;mdash; takuti (@takuti) September 18, 2016
+&amp;mdash; Takuya Kitazawa (@takuti) September 18, 2016
  一方で、 Deep learning is just one of the components for a hybrid recommender という世界であることも事実なのだ。LinkedInとQuoraのチュートリアルでは、「現実世界の推薦システムは、協調フィルタリングから深層学習まで、いろいろなものをケースバイケースで組み合わせたハイブリッドなものなんだぞ」というありがたいお話が聞けて泣けた。それも踏まえて、数学的にゴツいモデルやアルゴリズムで威圧するというよりは、もっとアプリケーション的な問題を重視する空気があったように思う。具体的には視線トラッキングや感情分析、推薦結果の説明生成など。
 推薦結果の見せ方、UIという点では Industry Session が抜群に良かった。</description>
     </item>
