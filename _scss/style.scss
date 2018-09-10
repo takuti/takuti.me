@@ -33,6 +33,12 @@ h4 {
 
 h3 {
   font-size: 1.3em;
+
+  &::before {
+    content: '#';
+    padding-right: 0.5em;
+    color: lighten($color-black, 40%);
+  }
 }
 
 h1,
