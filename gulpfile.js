@@ -6,6 +6,7 @@ var kramdown = require('gulp-kramdown');
 var wrapper = require('gulp-wrapper');
 var request = require('sync-request');
 var del = require('del');
+var hjs = require('highlight.js');
 
 gulp.task('clean-content', function() {
   return del(['content/**/*']);
@@ -47,7 +48,7 @@ gulp.task('compile-md', function() {
       // convert markdown content into html (except for the front matter)
       .pipe(kramdown({
         highlight: function (code) {
-          return require('highlight.js').highlightAuto(code).value;
+          return hjs.highlightAuto(code).value;
         }
       }))
 
@@ -71,7 +72,7 @@ gulp.task('compile-md-preview', function() {
       }))
       .pipe(kramdown({
         highlight: function (code) {
-          return require('highlight.js').highlightAuto(code).value;
+          return hjs.highlightAuto(code).value;
         }
       }))
       .pipe(wrapper({ header: function(file){ return file.frontMatter + '\n'; } }))
