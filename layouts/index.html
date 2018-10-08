@@ -1,5 +1,7 @@
 {{ partial "header.html" . }}
 
+<div id="container">
+
 <section>
   <dl class="entry-list">
     {{ range (where .Data.Pages "Section" "note")}}
@@ -14,5 +16,7 @@
     {{ end }}
   </dl>
 </section>
+
+</div>
 
 {{ partial "footer.html" . }}

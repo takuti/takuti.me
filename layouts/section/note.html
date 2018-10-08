@@ -1,4 +1,7 @@
 {{ partial "header.html" . }}
+
+<div id="container">
+
 <dl class="entry-list">
 {{ range .Data.Pages }}
   <dt>
@@ -12,4 +15,7 @@
   </span>
 {{ end }}
 </dl>
+
+</div>
+
 {{ partial "footer.html" . }}
