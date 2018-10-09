@@ -79,10 +79,14 @@ article {
   article .meta {
     font-size: 0.8em;
     color: #888888;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    text-align: center; }
   article h2 {
     font-size: 1.5em;
-    margin: 0 0 2em; }
+    margin: 0 0 2em;
+    padding-bottom: 1em;
+    text-align: center;
+    border-bottom: 1px solid #eeeeee; }
   article a {
     color: #007fc0;
     text-decoration: none; }
@@ -112,9 +116,9 @@ dl.entry-list dd {
     text-decoration: none; }
 
 header {
-  width: 700px;
+  width: 80%;
   margin: 0 auto;
-  padding-top: 40px; }
+  padding: 40px; }
   header .left {
     font-size: 1.2em;
     width: 50%; }
@@ -135,7 +139,7 @@ img.icon-circle {
   -moz-border-radius: 80px; }
 
 #container {
-  width: 700px;
+  width: 800px;
   max-width: 90%;
   margin: 40px auto 50px; }
   #container ul {
@@ -146,7 +150,7 @@ img.icon-circle {
 
 footer {
   font-size: 0.8em;
-  width: 700px;
+  width: 800px;
   height: 50px;
   margin: 0 auto;
   padding: 0; }
