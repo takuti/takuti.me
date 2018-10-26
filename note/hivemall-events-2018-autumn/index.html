@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    <meta name=description content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Apache Hivemall at #ODSCEurope, #RecSys2018, and #MbedConnect | takuti.me
+      
+    </title>
+
+    <link rel="stylesheet" href="https://takuti.me/css/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-7190463694419594",
+              enable_page_level_ads: true
+         });
+    </script>
+  </head>
+  <body>
+    <header class="clearfix">
+      <span class="left"><a href="https://takuti.me/"><b>takuti</b>.me</a></span>
+      <span class="right"><a href="https://takuti.me/about"><b>ABOUT</b></a></span>
+    </header>
+
+
+<div id="container">
+
+<article>
+  <p class="meta clearfix">
+    2018-10-26
+  </p>
+  <h2>Apache Hivemall at #ODSCEurope, #RecSys2018, and #MbedConnect</h2>
+
+  <div class="post">
+    <p><a href="https://github.com/apache/incubator-hivemall">Apache <strong>Hivemall</strong></a> is a scalable machine learning library running on top of the Hadoop ecosystem, and you can freely enjoy its functionalities in your <a href="https://hive.apache.org/">Apache Hive</a> or <a href="https://spark.apache.org/">Spark</a> environment.</p>
+<p>Do you know <a href="https://ai.googleblog.com/2018/07/machine-learning-in-google-bigquery.html">Google BigQuery ML</a>? It is a new machine learning solution that runs in their BigQuery data warehousing platform. BigQuery ML enables us to apply machine learning to our massive data by just issuing a series of queries, and what Hivemall allows us to is basically the same thing; both BigQuery ML and Hivemall introduce a new paradigm <em>&quot;<strong>machine learning in query language</strong>,&quot;</em> but Hivemall is more flexible in terms of selection of platform and algorithm.</p>
+<p>I&#39;ve recently spent one of the busiest and most exciting months in 2018 to talk about Hivemall at a couple of different events, <strong><a href="https://odsc.com/london">Open Data Science Conference Europe</a></strong> (ODSC Europe), <strong><a href="https://recsys.acm.org/recsys18/">ACM Recommender Systems</a></strong> (RecSys), and <strong><a href="https://mbed.com/en/about-mbed/events/mbed-connect-usa-2018/">Mbed Connect USA</a></strong>, in the different contexts. Let&#39;s see what I&#39;ve talked there.</p>
+<h3 id="-open-data-science-conference-europe-https-odsc-com-london-london"><a href="https://odsc.com/london">Open Data Science Conference Europe</a> @ London</h3>
+<p>As the name suggests, this conference strongly focuses on publicly available research result, practical lessons, and open-source software in the field of machine learning and data science; advertising talk from industries is basically prohibited.</p>
+<p>My talk was about Hivemall as an example of open-source software for scalable machine learning:</p>
+<ul>
+<li><strong><a href="https://odsc.com/training/portfolio/apache-hivemall-query-based-handy-scalable-machine-learning-hive">Apache Hivemall: Query-Based Handy, Scalable Machine Learning on Hive</a></strong></li>
+</ul>
+<script async class="speakerdeck-embed" data-id="a5d4885dca69494dab8064b7d8f0fd00" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+
+<p>When I asked &quot;Is there anybody who currently uses Hive in your work?,&quot; 80% of the audiences raised a hand. Honestly I didn’t expect that, and I eventually realized that not a few companies are still maintaining their own Hadoop cluster and using Hive to analyze data. Hivemall can definitely be a deeply satisfying tool for such companies to leverage machine learning capabilities in their day-to-day data analytics.</p>
+<p>I&#39;ve attended and enjoyed many other sessions as well. Of course, almost all talks mentioned about deep learning. In my impression, theory and practice of deep learning is gradually getting matured (and peaked) in these days.</p>
+<p>It should be noted that large number of conference attendees (2000+) had very different background and skill levels, and such chaotic situation clearly represents how ML and data science plays an important role in a wide variety of fields.</p>
+<h3 id="-acm-recommender-systems-https-recsys-acm-org-recsys18-vancouver"><a href="https://recsys.acm.org/recsys18/">ACM Recommender Systems</a> @ Vancouver</h3>
+<p>RecSys is an academic conference focusing on theory and practice of recommender systems, and I&#39;ve <a href="https://takuti.me/note/recsys-2016/">previously attended RecSys 2016</a> held in Boston.</p>
+<p>Due to the exceptionally high demand of intelligent recommendation systems in real-life applications, the RecSys conference normally has many industrial attendees including researchers, data scientists and software engineers. Of course, this year’s RecSys was not an exception; more than 80% of participants I’ve chatted in person during the conference were coming from industry. I believe this year’s conference had more industrial demographics and presentations than 2 years ago.</p>
+<p>Our paper about recommendation with Hivemall has been accepted to a demo session, and we presented in the form of poster during a conference buffet lunch break:</p>
+<ul>
+<li><strong><a href="https://dl.acm.org/citation.cfm?id=3241592">Query-Based Simple and Scalable Recommender Systems with Apache Hivemall</a></strong></li>
+</ul>
+<script async class="speakerdeck-embed" data-id="9e6c5c2b5b524a76a9a0d01ce167b48a" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+
+<p>If you are interested in this topic, there is a <a href="https://www.youtube.com/watch?v=cMUsuA9KZ_c">YouTube video</a> in addition to the paper and poster.</p>
+<p>Since many people were coming from industry, the session was a great opportunity to introduce Hivemall for practitioners and learn how each company implements their own recommendation engines in a scalable manner. Basically, what I understood during the session was:</p>
+<ul>
+<li>Many companies are actively using Spark and <a href="https://spark.apache.org/mllib/">Spark MLlib</a> in production.</li>
+<li>Many people recognize Hive, but obviously it’s less famous than Spark.<ul>
+<li>Even if companies have their own Hive environment, developers of recommendation engine itself generally are not in charge of maintaining its underlying infrastructure.</li>
+<li>That is, it’s hard for the developers to install Hivemall to their in-house big data analytics platform under their responsibility.</li>
+</ul>
+</li>
+<li>While people commonly understand the importance of scalability, I felt Hivemall&#39;s query-based machine learning capability is less stimulating for them than Python- or Scala-based programming-driven recommender implementation.</li>
+</ul>
+<p>Therefore, as a developer of Hivemall, thinking about how to effectively tell the strength of Hivemall to such technology-oriented practitioners should be important.</p>
+<p>When we see other accepted papers, it is obvious that many paper focus more on a unique, specific scenario that has originally been motivated by the development of real-life recommender system, than traditional &quot;research&quot;-oriented topics. As far as I can observe, the situation has not been changed from 2 years ago, and this is exactly how recommender research rapidly grows and becomes popular in recent years. However, at the same time, such trend is slightly disappointing for me because there is a lack of stimulation in deeper theoretical, mathematical consideration.</p>
+<p>From an algorithmic perspective, many studies and attendees&#39; interests focused more on deep learning and something relevant e.g., item embedding. In fact, I already saw how deep learning plays a dominant role in the field of recommender systems at 2016’s RecSys, but the tool becomes much more important and common in these days.</p>
+<p>Surprisingly (and unsurprisingly), organizers of a workshop session <a href="http://dlrs-workshop.org/">Deep Learning for Recommender Systems</a> (DLRS), which was initiated in 2016 to encourage practitioners to apply deep learning techniques to recommender systems, stated that this year’s DLRS workshop is the final one, because deep learning is now widely used in many studies and getting matured in the context of recommender systems. This announcement is really impressive and clearly demonstrates the strong relationship between deep learning and recommender systems.</p>
+<h3 id="-mbed-connect-usa-https-mbed-com-en-about-mbed-events-mbed-connect-usa-2018-workshop-san-jose-ca"><a href="https://mbed.com/en/about-mbed/events/mbed-connect-usa-2018/">Mbed Connect USA</a> Workshop @ San Jose, CA</h3>
+<p>Our company <a href="https://www.treasuredata.com/">Arm Treasure Data</a> develops an enterprise-grade advanced big data analytics platform, which is currently placed in a data management layer of the <a href="https://www.arm.com/products/iot/pelion-iot-platform">Arm Pelion IoT platform</a>, and the platform internally bundles Hivemall so that users can easily leverage machine learning capability on their massive data at scale without any expertise in Python programming and mathematics.</p>
+<p>On behalf of Treasure Data, I have attended Mbed Connect USA 2018, a meet-up event focusing on the <a href="https://www.mbed.com/en/">Arm Mbed ecosystem</a>, held in conjunction with <a href="https://www.armtechcon.com/">Arm TechCon 2018</a>, and had 1-hour workshop session to introduce Treasure Data’s big data analytics capability in the context of data science and machine learning:</p>
+<ul>
+<li><strong><a href="https://www.mbed.com/en/about-mbed/events/mbed-connect-usa-2018/">Introduction to Data Science</a></strong></li>
+</ul>
+<script async class="speakerdeck-embed" data-id="88e26e5ae97e4ae2ae11e646799f6814" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+
+<p>There is a <a href="https://gist.github.com/takuti/6edab4a504368a0e58bb81a3158a1e07">Jupyter notebook</a> as an auxiliary material.</p>
+<p>Since Mbed Connect audiences are normally from electric engineering and IoT industry, I designed a workshop scenario with public IoT-ish data taken from <a href="https://data.cityofchicago.org/">City of Chicago data portal</a>; the city has a bunch of sensors in many places to collect environmental data such as temperature and soil moisture, and the local government makes the data public online.</p>
+<p>Unfortunately, playing with <a href="https://data.cityofchicago.org/Environment-Sustainable-Development/Smart-Green-Infrastructure-Monitoring-Sensors-Hist/ggws-77ih">big sensor data</a> and effectively utilizing Hivemall&#39;s ML capability (i.e., preprocessing, training, prediction, and evaluation) in the 1-hour session is nearly impossible. Hence, the workshop content was two-fold as:</p>
+<ol>
+<li>Step-by-step tutorial from data load to ML-based prediction and evaluation with <a href="https://data.cityofchicago.org/Environment-Sustainable-Development/Chicago-Energy-Benchmarking/xq83-jr8c">tiny energy benchmarking data</a> (~300 records), which is also from the City of Chicago data portal.</li>
+<li>Introduce the bigger real sensor data and show a way to join with the energy benchmarking data to enrich the input to a ML algorithm.</li>
+</ol>
+<p>I hope the workshop was enjoyable and insightful for all participants, but I&#39;m sure there are many things I can improve to make it better. On that point, since the workshop comes back to <strong>Mbed Connect Tokyo</strong> on December 5, 2018, we are now much more aware of realistic Mbed data and actively working on refining workshop scenario and materials.</p>
+<h3 id="what-s-next">What&#39;s next?</h3>
+<p>As I mentioned above, you can see Hivemall&#39;s machine learning capability, especially in the context of IoT, at Mbed Connect Tokyo 2018 on December 5. Meanwhile, we&#39;re continuously seeking an opportunity to demonstrate how the paradigm of query-based machine learning makes our life easy.</p>
+<p>Visit our <a href="https://github.com/apache/incubator-hivemall">GitHub repo</a>, <a href="http://hivemall.incubator.apache.org/userguide/">documentation</a> and <a href="http://hivemall.incubator.apache.org/userguide/supervised_learning/tutorial.html">tutorial</a> now, and see the new world!</p>
+
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+
+  <h4><span class="symbol">search</span> See also</h4>
+  <ul>
+  
+    
+    <li><a href="https://takuti.me/note/recsys-wordcloud/">Understanding Research Trends in Recommender Systems from Word Cloud</a>
+    
+    <li><a href="https://takuti.me/note/hivemall-on-docker/">Hivemall on Dockerを試すぜ</a>
+    
+    <li><a href="https://takuti.me/note/hivemall-on-mac/">MacのローカルにHivemallを導入してアイテム推薦をするまで</a>
+    
+  
+  </ul>
+
+</article>
+<aside class="clearfix">
+  <span class="left" style="width: 10%">
+    <img src="https://takuti.me/images/takuti.jpg" alt="takuti" class="icon-circle" />
+  </span>
+  <span class="right" style="width: 90%">
+    <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>) is a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Arm Treasure Data</a></b> and committer of <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b><span class="symbol">twinkle</span><a href="https://takuti.me/about">&raquo; more</a>
+  </span>
+</aside>
+
+
+</div>
+
+    <footer>
+      &copy; 2012-2018 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

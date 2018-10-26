@@ -5,10 +5,20 @@
     <link>https://takuti.me/</link>
     <description>Recent content on takuti.me</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 25 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://takuti.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Apache Hivemall at #ODSCEurope, #RecSys2018, and #MbedConnect</title>
+      <link>https://takuti.me/note/hivemall-events-2018-autumn/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/hivemall-events-2018-autumn/</guid>
+      <description>Apache Hivemall is a scalable machine learning library running on top of the Hadoop ecosystem, and you can freely enjoy its functionalities in your Apache Hive or Spark environment.
+Do you know Google BigQuery ML? It is a new machine learning solution that runs in their BigQuery data warehousing platform. BigQuery ML enables us to apply machine learning to our massive data by just issuing a series of queries, and what Hivemall allows us to is basically the same thing; both BigQuery ML and Hivemall introduce a new paradigm &amp;quot;machine learning in query language,&amp;quot; but Hivemall is more flexible in terms of selection of platform and algorithm.</description>
+    </item>
     
     <item>
       <title>Hivemall, Digdag, 自然言語処理, 機械学習などについて話しました #tdtech</title>
