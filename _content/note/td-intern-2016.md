@@ -1,7 +1,7 @@
 ---
 date: 2016-10-04
 lang: ja
-recommendations: [/note/master-graduate/, /note/yahoo-egads/, /note/hello-librec/]
+recommendations: [/note/master-graduate/, /note/hivemall-events-2018-autumn/, /note/yahoo-egads/]
 title: 'Treasure Dataインターンにみる機械学習のリアル #td_intern'
 ---
 

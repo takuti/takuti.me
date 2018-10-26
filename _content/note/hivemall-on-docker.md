@@ -1,7 +1,7 @@
 ---
 date: 2017-05-07
 lang: ja
-recommendations: [/note/hivemall-on-mac/, /note/recommender-libraries/, /note/td-intern-2016/]
+recommendations: [/note/hivemall-on-mac/, /note/hivemall-events-2018-autumn/, /note/recommender-libraries/]
 title: Hivemall on Dockerを試すぜ
 ---
 
