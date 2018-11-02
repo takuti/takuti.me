@@ -42,7 +42,8 @@
   <h2>異常検知のための未来予測：オウム返し的手法からHolt-Winters Methodまで</h2>
 
   <div class="post">
-    <p><strong>Holt-Winters Method</strong>（別名: <strong>Triple Exponential Smoothing</strong>）というデータの予測手法がある。これについて<a href="https://grisha.org/blog/2016/01/29/triple-exponential-smoothing-forecasting/">素晴らしい解説記事</a>があるので読みながら実装していた。</p>
+    
+<p><strong>Holt-Winters Method</strong>（別名: <strong>Triple Exponential Smoothing</strong>）というデータの予測手法がある。これについて<a href="https://grisha.org/blog/2016/01/29/triple-exponential-smoothing-forecasting/">素晴らしい解説記事</a>があるので読みながら実装していた。</p>
 <p>コードは <strong><a href="https://github.com/takuti/anompy">takuti/anompy</a></strong> にある。</p>
 <p>この手法、<a href="http://graphite.readthedocs.io/en/latest/functions.html?highlight=holtWinters#graphite.render.functions.holtWintersAberration">Graphite が実装している</a>ということもあり、近年ではDevOpsコミュニティを中心に一躍有名になったんだとか。</p>
 <p>ここでは解説記事の内容に沿って、Holt-Winters Method に至るまでに知っておくべき手法たちの“気持ち”をまとめる。数式は元記事や<a href="https://en.wikipedia.org/wiki/Exponential_smoothing">Wikipedia</a>に譲る。</p>

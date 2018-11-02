@@ -42,7 +42,8 @@
   <h2>サイトをHTTPSにした</h2>
 
   <div class="post">
-    <p>今はとてもいい時代なので <strong><a href="https://letsencrypt.org/">Let&#39;s Encrypt</a></strong> が無料でSSL証明書を発行してくれる。というわけで、サイトのHTTPS化を行った。</p>
+    
+<p>今はとてもいい時代なので <strong><a href="https://letsencrypt.org/">Let&#39;s Encrypt</a></strong> が無料でSSL証明書を発行してくれる。というわけで、サイトのHTTPS化を行った。</p>
 <h3 id="%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%81%AE%E7%99%BA%E8%A1%8C%E3%81%A8-nginx-conf-%E3%81%AE%E5%A4%89%E6%9B%B4">証明書の発行と nginx.conf の変更</h3>
 <p>作業自体はとても簡単で、証明書の発行に関する処理はすべて <strong><a href="https://certbot.eff.org/">certbot</a></strong> （旧名：letsencrypt）というツールがやってくれる。<a href="https://certbot.eff.org/">トップページ</a>からサーバとOSを選択すれば、それに応じたinstallationが表示される。どこまで親切なんだ！</p>
 <p>ここは <strong>CentOS 6</strong> 上の <strong>Nginx</strong> で動いているので、以下それに従う。</p>

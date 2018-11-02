@@ -42,7 +42,8 @@
   <h2>ローカルのRedis上でWikipediaカテゴリをシュッとdigる</h2>
 
   <div class="post">
-    <p>Wikipediaは<a href="https://www.mediawiki.org/wiki/API:Main_page">APIがあったり</a>、<a href="https://dumps.wikimedia.org/enwiki/latest/">データのMySQLダンプを惜しみなく公開していたりする</a>。便利。しかし、いかんせん規模が大きいので、APIアクセスやRDBへの問い合わせに依存したデータ収集は辛いものがある。</p>
+    
+<p>Wikipediaは<a href="https://www.mediawiki.org/wiki/API:Main_page">APIがあったり</a>、<a href="https://dumps.wikimedia.org/enwiki/latest/">データのMySQLダンプを惜しみなく公開していたりする</a>。便利。しかし、いかんせん規模が大きいので、APIアクセスやRDBへの問い合わせに依存したデータ収集は辛いものがある。</p>
 <p>今回はWikipediaデータの中でも、特に『カテゴリ』を効率的にdigる方法を <strong><a href="https://github.com/edsu/fastcat">fastcat</a></strong> というPythonコードから学ぶ。</p>
 <h3 id="%E3%82%B4%E3%83%BC%E3%83%AB">ゴール</h3>
 <p>Wikipedia上の、あるカテゴリに対する上位・下位カテゴリの一覧を得る。</p>

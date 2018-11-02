@@ -42,7 +42,8 @@
   <h2>Pythonのconcurrent.futuresを試す</h2>
 
   <div class="post">
-    <p><a href="https://takuti.me/note/euroscipy-2017">EuroScipy 2017</a> でPythonの <a href="https://docs.python.org/3/library/concurrent.futures.html"><code>concurrent.futures</code></a> についての話を聞いたので、改めて調べてみた。</p>
+    
+<p><a href="https://takuti.me/note/euroscipy-2017">EuroScipy 2017</a> でPythonの <a href="https://docs.python.org/3/library/concurrent.futures.html"><code>concurrent.futures</code></a> についての話を聞いたので、改めて調べてみた。</p>
 <p>2系まではPythonの並列処理といえば標準の <code>multiprocessing.Pool</code> が定番だったけど、3系からは新たなインタフェースとして <code>concurrent.futures</code> という選択肢もふえた。</p>
 <p>Scalaなんかでおなじみの <strong>Future</strong> とは、並行処理の結果を参照する存在。Pythonの Future <code>f = concurrent.futures.Future()</code> は処理の『実行中 <code>f.running()</code> 』『キャンセル済み <code>f.canceled()</code> 』『完了 <code>f.done()</code> 』といった“状態”を参照するメソッドを提供している。そして <code>f.result()</code> を呼べば完了までブロッキング。</p>
 <p>実際には、非同期処理は <code>Executor</code> オブジェクトによってスケジューリングされる。このときマルチスレッドなら <code>ThreadPoolExecutor</code>、マルチプロセスなら <code>ProcessPoolExecutor</code> を使う。</p>

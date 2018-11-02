@@ -42,7 +42,8 @@
   <h2>PyTorchでもMatrix Factorizationがしたい！</h2>
 
   <div class="post">
-    <p>『<a href="https://takuti.me/note/pytorch-autograd">PyTorchのautogradと仲良くなりたい</a>』でPyTorchに入門したので、応用例としてMatrix FactorizationをPyTorchで実装してみようね <sup><a href="#fn_1" id="reffn_1">1</a></sup>。</p>
+    
+<p>『<a href="https://takuti.me/note/pytorch-autograd">PyTorchのautogradと仲良くなりたい</a>』でPyTorchに入門したので、応用例としてMatrix FactorizationをPyTorchで実装してみようね <sup><a href="#fn_1" id="reffn_1">1</a></sup>。</p>
 <h3 id="matrix-factorization">Matrix Factorization</h3>
 <p>Matrix Factorizationは以前『<a href="https://takuti.me/note/coursera-recommender-systems">Courseraの推薦システムのコースを修了した</a>』でも触れたとおり、ユーザ-アイテム間の $m \times n$ 行列を、ユーザの特徴を表す行列 $P \in \mathbb{R}^{m \times k}$ (user factors) とアイテムの特徴を表す行列 $Q \in \mathbb{R}^{n \times k}$ (item factors) に分解する：</p>
 <p><img src="https://takuti.me/images/recommender/mf.png" alt="MF"></p>
