@@ -3,7 +3,7 @@
 <div id="container">
 
 <dl class="entry-list">
-{{ range .Data.Pages }}
+  {{ range (where .Data.Pages "Section" "note")}}
   <dt>
   <span class="date">
     {{ .Date.Format "2006-01-02" }}
@@ -12,7 +12,6 @@
   <dd>
     <a href="{{ .Permalink }}">{{ .Title }}</a>
   </dd>
-  </span>
 {{ end }}
 </dl>
 

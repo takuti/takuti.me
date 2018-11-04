@@ -169,22 +169,33 @@ dl.entry-list {
   }
 }
 
-header {
-  width: 80%;
-  margin: 0 auto;
-  padding: 40px;
+.header-icon {
+  display: block;
+  position: fixed;
+  top: 16px;
+  left: 32px;
 
-  .left {
-    font-size: 1.2em;
-    width: 50%;
-    a { text-decoration: none; }
+  img {
+    width: 64px;
   }
+}
 
-  .right {
-    font-size: 1em;
-    width: 50%;
-    text-align: right;
-    a { text-decoration: none; }
+header.header-image {
+  background-image: url('/images/takuti.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: block;
+  width: 100%;
+  height: 800px;
+
+  span {
+    display: block;
+    width: $content-width;
+    margin: 0 auto;
+    line-height: 800px;
+    text-align: center;
+    font-size: 2em;
+    color: #fff;
   }
 }
 
@@ -311,23 +322,6 @@ blockquote {
   margin: 0 0.25em;
 }
 
-.self {
-  & img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .right {
-    width: 70%;
-    margin-top: 1em;
-  }
-
-  .left {
-    width: 26%;
-    margin-top: 1em;
-  }
-}
-
 /* responsive */
 @media screen and (max-width: 960px) {
   body {
@@ -341,18 +335,22 @@ blockquote {
     width: 90%;
   }
 
-  header {
-    padding-right: 5%;
-    padding-left: 5%;
-    width: 90%;
-  }
-}
+  .header-icon {
+    top: 8px;
+    left: 16px;
 
-@media screen and (max-width: 600px) {
-  #me {
-    .projects {
-      .left { width: 100%; }
-      .right { width: 100%; }
+    img {
+      width: 48px;
+    }
+  }
+
+  header.header-image {
+    height: 200px;
+
+    span {
+      font-size: 1.5em;
+      line-height: 200px;
+      width: 90%;
     }
   }
 }
