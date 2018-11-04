@@ -9,7 +9,6 @@ buildFuture = true
 
 [permalinks]
   note = "/note/:filename/"
-  top = "/:filename/"
 
 [params]
   author = "takuti"
