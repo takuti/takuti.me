@@ -50,37 +50,16 @@ pre {
 }
 
 a {
-  color: $color-black;
+  color: lighten($color-dark-blue, 16%);
+  text-decoration: none;
 
   &:visited {
-    color: $color-black;
+    color: lighten($color-dark-blue, 16%);
   }
 
   &:hover {
-    text-decoration: none;
-  }
-
-  &.bold {
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-  &.nounderline {
-    text-decoration: none;
-  }
-
-  &.post-style {
-    color: lighten($color-dark-blue, 20%);
-    text-decoration: none;
-
-    &:visited {
-      color: lighten($color-dark-blue, 20%);
-    }
-
-    &:hover {
-      color: lighten($color-dark-blue, 10%);
-      text-decoration: underline;
-    }
+    color: lighten($color-dark-blue, 8%);
+    text-decoration: underline;
   }
 }
 
@@ -126,20 +105,6 @@ article {
     border-bottom: 1px solid lighten($color-black, 60%);
   }
 
-  a {
-    color: lighten($color-dark-blue, 16%);
-    text-decoration: none;
-
-    &:visited {
-      color: lighten($color-dark-blue, 16%);
-    }
-
-    &:hover {
-      color: lighten($color-dark-blue, 8%);
-      text-decoration: underline;
-    }
-  }
-
   img {
     display: block;
     margin: 0.5em 0;
@@ -148,6 +113,18 @@ article {
 }
 
 dl.entry-list {
+  a {
+    color: $color-black;
+
+    &:visited {
+      color: $color-black;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
   .date {
     display: inline-block;
   }
@@ -195,18 +172,9 @@ header.header-image {
     line-height: 800px;
     text-align: center;
     font-size: 2em;
+    letter-spacing: 1px;
     color: #fff;
   }
-}
-
-$icon-circle-size: 80px;
-
-img.icon-circle {
-  width: $icon-circle-size;
-  max-width: 80%;
-  border-radius: $icon-circle-size;
-  -webkit-border-radius: $icon-circle-size;
-  -moz-border-radius: $icon-circle-size;
 }
 
 #container {
@@ -230,30 +198,6 @@ footer {
   height: 50px;
   margin: 0 auto;
   padding: 0;
-}
-
-.left {
-  display: inline-block;
-  float: left;
-  margin: 0;
-  padding: 0;
-}
-
-.right {
-  display: inline-block;
-  float: right;
-  margin: 0;
-  padding: 0;
-}
-
-.clearfix {
-  zoom: 1;
-
-  &::after {
-    content: "";
-    display: block;
-    clear: both;
-  }
 }
 
 code {
@@ -349,7 +293,8 @@ blockquote {
 
     span {
       font-size: 1.5em;
-      line-height: 200px;
+      line-height: 300px;
+      letter-spacing: 0;
       width: 90%;
     }
   }
