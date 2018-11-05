@@ -106,8 +106,9 @@ dl.entry-list dd {
 .header-icon {
   display: block;
   position: fixed;
-  top: 16px;
-  left: 32px; }
+  top: 32px;
+  left: 32px;
+  z-index: 100; }
   .header-icon img {
     width: 64px; }
 
@@ -122,11 +123,15 @@ header.header-image {
     display: block;
     width: 800px;
     margin: 0 auto;
-    line-height: 800px;
     text-align: center;
     font-size: 2em;
     letter-spacing: 1px;
-    color: #fff; }
+    color: #fff;
+    position: relative;
+    float: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
 
 #container {
   width: 800px;
@@ -211,14 +216,15 @@ blockquote {
     padding: 0 5%;
     width: 90%; }
   .header-icon {
-    top: 8px;
+    top: 16px;
     left: 16px; }
     .header-icon img {
       width: 48px; }
   header.header-image {
     height: 200px; }
     header.header-image span {
-      font-size: 1.5em;
-      line-height: 300px;
+      font-size: 1.4em;
       letter-spacing: 0;
-      width: 90%; } }
+      width: 90%; }
+  article {
+    margin-top: 100px; } }
