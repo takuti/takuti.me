@@ -37,24 +37,13 @@ pre {
   margin-bottom: 20px; }
 
 a {
-  color: #555; }
+  color: #007fc0;
+  text-decoration: none; }
   a:visited {
-    color: #555; }
+    color: #007fc0; }
   a:hover {
-    text-decoration: none; }
-  a.bold {
-    font-weight: bold;
-    text-decoration: none; }
-  a.nounderline {
-    text-decoration: none; }
-  a.post-style {
-    color: #008dd4;
-    text-decoration: none; }
-    a.post-style:visited {
-      color: #008dd4; }
-    a.post-style:hover {
-      color: #006ba1;
-      text-decoration: underline; }
+    color: #006497;
+    text-decoration: underline; }
 
 hr {
   border: 0;
@@ -87,18 +76,17 @@ article {
     padding-bottom: 1em;
     text-align: center;
     border-bottom: 1px solid #eeeeee; }
-  article a {
-    color: #007fc0;
-    text-decoration: none; }
-    article a:visited {
-      color: #007fc0; }
-    article a:hover {
-      color: #006497;
-      text-decoration: underline; }
   article img {
     display: block;
     margin: 0.5em 0;
     max-width: 100%; }
+
+dl.entry-list a {
+  color: #555; }
+  dl.entry-list a:visited {
+    color: #555; }
+  dl.entry-list a:hover {
+    text-decoration: none; }
 
 dl.entry-list .date {
   display: inline-block; }
@@ -115,28 +103,30 @@ dl.entry-list dd {
     font-weight: bold;
     text-decoration: none; }
 
-header {
-  width: 80%;
-  margin: 0 auto;
-  padding: 40px; }
-  header .left {
-    font-size: 1.2em;
-    width: 50%; }
-    header .left a {
-      text-decoration: none; }
-  header .right {
-    font-size: 1em;
-    width: 50%;
-    text-align: right; }
-    header .right a {
-      text-decoration: none; }
+.header-icon {
+  display: block;
+  position: fixed;
+  top: 16px;
+  left: 32px; }
+  .header-icon img {
+    width: 64px; }
 
-img.icon-circle {
-  width: 80px;
-  max-width: 80%;
-  border-radius: 80px;
-  -webkit-border-radius: 80px;
-  -moz-border-radius: 80px; }
+header.header-image {
+  background-image: url("/images/takuti.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: block;
+  width: 100%;
+  height: 800px; }
+  header.header-image span {
+    display: block;
+    width: 800px;
+    margin: 0 auto;
+    line-height: 800px;
+    text-align: center;
+    font-size: 2em;
+    letter-spacing: 1px;
+    color: #fff; }
 
 #container {
   width: 800px;
@@ -154,25 +144,6 @@ footer {
   height: 50px;
   margin: 0 auto;
   padding: 0; }
-
-.left {
-  display: inline-block;
-  float: left;
-  margin: 0;
-  padding: 0; }
-
-.right {
-  display: inline-block;
-  float: right;
-  margin: 0;
-  padding: 0; }
-
-.clearfix {
-  zoom: 1; }
-  .clearfix::after {
-    content: "";
-    display: block;
-    clear: both; }
 
 code {
   background: #fff;
@@ -230,18 +201,6 @@ blockquote {
   display: inline-block;
   margin: 0 0.25em; }
 
-.self img {
-  max-width: 100%;
-  height: auto; }
-
-.self .right {
-  width: 70%;
-  margin-top: 1em; }
-
-.self .left {
-  width: 26%;
-  margin-top: 1em; }
-
 /* responsive */
 @media screen and (max-width: 960px) {
   body {
@@ -251,13 +210,15 @@ blockquote {
   nav {
     padding: 0 5%;
     width: 90%; }
-  header {
-    padding-right: 5%;
-    padding-left: 5%;
-    width: 90%; } }
-
-@media screen and (max-width: 600px) {
-  #me .projects .left {
-    width: 100%; }
-  #me .projects .right {
-    width: 100%; } }
+  .header-icon {
+    top: 8px;
+    left: 16px; }
+    .header-icon img {
+      width: 48px; }
+  header.header-image {
+    height: 200px; }
+    header.header-image span {
+      font-size: 1.5em;
+      line-height: 300px;
+      letter-spacing: 0;
+      width: 90%; } }
