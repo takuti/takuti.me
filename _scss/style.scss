@@ -149,8 +149,9 @@ dl.entry-list {
 .header-icon {
   display: block;
   position: fixed;
-  top: 16px;
+  top: 32px;
   left: 32px;
+  z-index: 100;
 
   img {
     width: 64px;
@@ -169,11 +170,15 @@ header.header-image {
     display: block;
     width: $content-width;
     margin: 0 auto;
-    line-height: 800px;
     text-align: center;
     font-size: 2em;
     letter-spacing: 1px;
     color: #fff;
+    position: relative;
+    float: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -280,7 +285,7 @@ blockquote {
   }
 
   .header-icon {
-    top: 8px;
+    top: 16px;
     left: 16px;
 
     img {
@@ -292,10 +297,13 @@ blockquote {
     height: 200px;
 
     span {
-      font-size: 1.5em;
-      line-height: 300px;
+      font-size: 1.4em;
       letter-spacing: 0;
       width: 90%;
     }
+  }
+
+  article {
+    margin-top: 100px;
   }
 }
