@@ -12,3 +12,4 @@ buildFuture = true
 
 [params]
   author = "takuti"
+  description = "Takuya Kitazawa, a data science engineer at Arm Treasure Data."
