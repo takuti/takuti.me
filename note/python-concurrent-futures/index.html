@@ -4,7 +4,21 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="EuroScipy 2017 でPythonの concurrent.futures についての話を聞いたので、改めて調べてみた。
+2系まではPythonの並列処理といえば標準の multiprocessing.Pool が定番だったけど、3系からは新たなインタフェースとして concurrent.futures という選択肢もふえた。
+Scalaなんかでおなじみの Future とは、並行処理の結果を参照する存在。Pythonの Future f = concurrent.futures.Future() は処理の『実行中 f.running() 』『キャンセル済み f.canceled() 』『完了 f.done() 』といった“状態”を参照するメソッドを提供している。そして f.result() を呼べば完了までブロッキング。
+実際には、非同期処理は Executor オブジェクトによってスケジューリングされる。このときマルチスレッドなら ThreadPoolExecutor、マルチプロセスなら ProcessPoolExecutor を使う。
+マルチスレッド: ThreadPoolExecutor スレッドプールを利用した並列化。
+重要なのは、たとえ複数スレッドで処理を実行しても、ワーカーたちは1つのインタプリタを共有している点。これによりメモリオーバーヘッドが小さい、spawnが早い、ワーカー間の同期が不要といった意味で、処理の効率的な非同期呼び出しが期待できる。
+しかし同時に、Pythonには Global Interpreter Lock (GIL) という mutex があり、1つのインタプリタ上では同時に1スレッドからしかリソースにアクセスできないという制約がある。なので ThreadPoolExecutor による並列化は、CPU-boundedな処理に対しては必ずしも有効とは言えない。
+これは過度な制約だという見方もあり、numpy, pandas, sklearn といった有名ライブラリは with nogil を付与したコンパイルによってGILフリーなマルチスレッド処理を（部分的に）行っていたりするらしい。
+マルチプロセス: ProcessPoolExecutor 一方で、プロセスレベルの並列化では各ワーカーが自分だけのインタプリタを持つ。
+これによりマルチスレッドと比較するとspawnが遅く、メモリオーバーヘッドが大きく、プロセス間で同期をとる必要が生じてしまうが、GILに縛られない並列化が可能となる。
+従来 multiprocessing.Pool() でプロセスプールを作って実現していた並列化はこちらに相当する。
+試す では、1秒wait()×2回をシングルスレッド、マルチスレッド、マルチプロセスそれぞれで試してみよう：
+import time from concurrent import futures def wait(): time." />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +26,30 @@
         Pythonのconcurrent.futuresを試す | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="Pythonのconcurrent.futuresを試す">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-10-01">
+    <meta property="og:description" content="EuroScipy 2017 でPythonの concurrent.futures についての話を聞いたので、改めて調べてみた。
+2系まではPythonの並列処理といえば標準の multiprocessing.Pool が定番だったけど、3系からは新たなインタフェースとして concurrent.futures という選択肢もふえた。
+Scalaなんかでおなじみの Future とは、並行処理の結果を参照する存在。Pythonの Future f = concurrent.futures.Future() は処理の『実行中 f.running() 』『キャンセル済み f.canceled() 』『完了 f.done() 』といった“状態”を参照するメソッドを提供している。そして f.result() を呼べば完了までブロッキング。
+実際には、非同期処理は Executor オブジェクトによってスケジューリングされる。このときマルチスレッドなら ThreadPoolExecutor、マルチプロセスなら ProcessPoolExecutor を使う。
+マルチスレッド: ThreadPoolExecutor スレッドプールを利用した並列化。
+重要なのは、たとえ複数スレッドで処理を実行しても、ワーカーたちは1つのインタプリタを共有している点。これによりメモリオーバーヘッドが小さい、spawnが早い、ワーカー間の同期が不要といった意味で、処理の効率的な非同期呼び出しが期待できる。
+しかし同時に、Pythonには Global Interpreter Lock (GIL) という mutex があり、1つのインタプリタ上では同時に1スレッドからしかリソースにアクセスできないという制約がある。なので ThreadPoolExecutor による並列化は、CPU-boundedな処理に対しては必ずしも有効とは言えない。
+これは過度な制約だという見方もあり、numpy, pandas, sklearn といった有名ライブラリは with nogil を付与したコンパイルによってGILフリーなマルチスレッド処理を（部分的に）行っていたりするらしい。
+マルチプロセス: ProcessPoolExecutor 一方で、プロセスレベルの並列化では各ワーカーが自分だけのインタプリタを持つ。
+これによりマルチスレッドと比較するとspawnが遅く、メモリオーバーヘッドが大きく、プロセス間で同期をとる必要が生じてしまうが、GILに縛られない並列化が可能となる。
+従来 multiprocessing.Pool() でプロセスプールを作って実現していた並列化はこちらに相当する。
+試す では、1秒wait()×2回をシングルスレッド、マルチスレッド、マルチプロセスそれぞれで試してみよう：
+import time from concurrent import futures def wait(): time.">
+    
+    <meta property="og:url" content="https://takuti.me/note/python-concurrent-futures/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

@@ -4,7 +4,15 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="推薦システムのトップ会議 RecSys2016 が9月15日から19日までアメリカのボストンで開催され、ワークショップ発表者＆学生ボランティアとして参加してきた。これまで学会発表はひとりで行くことが多く、今回も例外ではなかったが、ボランティアのおかげで他の学生との交流や伝説的な研究者との接触が多くてとても楽しめた。みんなもやると良いと思う。
+RecSys2016@Boston RecSysは今回で10回目を迎えた推薦システムのトップ会議で、本会議の採択率はショートペーパーでも20%という狭き門。僕はワークショップのひとつ Profiling User Preferences for Dynamic Online and Real-Time Recommendations（長い）で、ECサイトとかでよく見られる persistent cold-start という問題と、それに絡めて Factorization Machines の逐次更新アルゴリズムへの拡張について話した [Paper]。
+会議は前半2日間がワークショップ (at IBM) 、残りが本会議 (at MIT) に当てられていて、全ての発表を聞いたわけではないけれど、個人的には 深層学習の勢い と アプリケーションとしての推薦システムのあり方 が見どころだった。
+深層学習に対する注目はこの分野でも例外ではなく、ワークショップの1つ Deep Learning for Recommender Systems は座席が即完売の超人気セッションだったらしい。すごい。本会議でも Deep Learning というセッションが設けられ、CNNやword2vec絡みのどこかで聞いたことのあるような良い話が聞けた。ちなみに Convolutional Matrix Factorization の人のCNN実装はKerasらしいです。
+cnnとw2vの話聞き飽きすぎて吐きそう
+&mdash; Takuya Kitazawa (@takuti) September 18, 2016
+ 一方で、 Deep learning is just one of the components for a hybrid recommender という世界であることも事実なのだ。LinkedInとQuoraのチュートリアルでは、「現実世界の推薦システムは、協調フィルタリングから深層学習まで、いろいろなものをケースバイケースで組み合わせたハイブリッドなものなんだぞ」というありがたいお話が聞けて泣けた。それも踏まえて、数学的にゴツいモデルやアルゴリズムで威圧するというよりは、もっとアプリケーション的な問題を重視する空気があったように思う。具体的には視線トラッキングや感情分析、推薦結果の説明生成など。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +20,24 @@
         推薦システムのトップ会議RecSys2016に参加した #recsys2016 | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="推薦システムのトップ会議RecSys2016に参加した #recsys2016">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2016-09-28">
+    <meta property="og:description" content="推薦システムのトップ会議 RecSys2016 が9月15日から19日までアメリカのボストンで開催され、ワークショップ発表者＆学生ボランティアとして参加してきた。これまで学会発表はひとりで行くことが多く、今回も例外ではなかったが、ボランティアのおかげで他の学生との交流や伝説的な研究者との接触が多くてとても楽しめた。みんなもやると良いと思う。
+RecSys2016@Boston RecSysは今回で10回目を迎えた推薦システムのトップ会議で、本会議の採択率はショートペーパーでも20%という狭き門。僕はワークショップのひとつ Profiling User Preferences for Dynamic Online and Real-Time Recommendations（長い）で、ECサイトとかでよく見られる persistent cold-start という問題と、それに絡めて Factorization Machines の逐次更新アルゴリズムへの拡張について話した [Paper]。
+会議は前半2日間がワークショップ (at IBM) 、残りが本会議 (at MIT) に当てられていて、全ての発表を聞いたわけではないけれど、個人的には 深層学習の勢い と アプリケーションとしての推薦システムのあり方 が見どころだった。
+深層学習に対する注目はこの分野でも例外ではなく、ワークショップの1つ Deep Learning for Recommender Systems は座席が即完売の超人気セッションだったらしい。すごい。本会議でも Deep Learning というセッションが設けられ、CNNやword2vec絡みのどこかで聞いたことのあるような良い話が聞けた。ちなみに Convolutional Matrix Factorization の人のCNN実装はKerasらしいです。
+cnnとw2vの話聞き飽きすぎて吐きそう
+&mdash; Takuya Kitazawa (@takuti) September 18, 2016
+ 一方で、 Deep learning is just one of the components for a hybrid recommender という世界であることも事実なのだ。LinkedInとQuoraのチュートリアルでは、「現実世界の推薦システムは、協調フィルタリングから深層学習まで、いろいろなものをケースバイケースで組み合わせたハイブリッドなものなんだぞ」というありがたいお話が聞けて泣けた。それも踏まえて、数学的にゴツいモデルやアルゴリズムで威圧するというよりは、もっとアプリケーション的な問題を重視する空気があったように思う。具体的には視線トラッキングや感情分析、推薦結果の説明生成など。">
+    
+    <meta property="og:url" content="https://takuti.me/note/recsys-2016/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

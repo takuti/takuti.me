@@ -4,7 +4,16 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="（希望）
+せっかくEuroScipy 2017でFacebook AI researchのSoumith Chintala氏から直に PyTorch のお話を聞いたので、触ってみるしかないぞ！と思いました。
+特に、PyTorchのウリだと言っていた autograd（自動微分）が気になるので、まずは公式チュートリアルから入門してみる。
+x という変数を requires_grad=True オプション付きで定義する。値は1：
+import torch from torch.autograd import Variable  # [x1, x2; x3, x4] = [1, 1; 1, 1] x = Variable(torch.ones(2, 2), requires_grad=True)  &quot;PyTorch is numpy alternative&quot; と言うだけあって、配列（テンソル）操作は困らない。
+そして一次関数 y = x &#43; 1 を定義：
+# [y1, y2; y3, y4] = [x&#43;2, x&#43;2; x&#43;2, x&#43;2] y = x &#43; 2  さらに y を使って二次関数をつくる：
+# zi = 3 * (xi &#43; 2)^2 z = y * y * 3  コメントの通り、z = y * y * 3 を展開すれば z = (x &#43; 2) * (x &#43; 2) * 3 です。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +21,25 @@
         PyTorchのautogradと仲良くなりたい | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="PyTorchのautogradと仲良くなりたい">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-09-23">
+    <meta property="og:description" content="（希望）
+せっかくEuroScipy 2017でFacebook AI researchのSoumith Chintala氏から直に PyTorch のお話を聞いたので、触ってみるしかないぞ！と思いました。
+特に、PyTorchのウリだと言っていた autograd（自動微分）が気になるので、まずは公式チュートリアルから入門してみる。
+x という変数を requires_grad=True オプション付きで定義する。値は1：
+import torch from torch.autograd import Variable  # [x1, x2; x3, x4] = [1, 1; 1, 1] x = Variable(torch.ones(2, 2), requires_grad=True)  &quot;PyTorch is numpy alternative&quot; と言うだけあって、配列（テンソル）操作は困らない。
+そして一次関数 y = x &#43; 1 を定義：
+# [y1, y2; y3, y4] = [x&#43;2, x&#43;2; x&#43;2, x&#43;2] y = x &#43; 2  さらに y を使って二次関数をつくる：
+# zi = 3 * (xi &#43; 2)^2 z = y * y * 3  コメントの通り、z = y * y * 3 を展開すれば z = (x &#43; 2) * (x &#43; 2) * 3 です。">
+    
+    <meta property="og:url" content="https://takuti.me/note/pytorch-autograd/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

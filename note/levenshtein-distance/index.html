@@ -4,7 +4,14 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="ある文字列Aに対して『1文字の追加・削除・置換』を何回繰り返せば他の文字列Bになるか。このときの最小回数を、文字列A, B間の編集距離 (Levenshtein Distance)と呼ぶ。
+ 花火 から 火花 までの編集距離は各文字の置換なので 2 クワガタ から カブトムシ までの編集距離はなんかもう全文字違うので総入れ替え＆文字『シ』の追加で 5  この編集距離、文字列の“類似度”と見ることができて、なかなか便利な子である。『Job Titleの前処理＆クラスタリングをどうやって実現するか問題』では、人々の肩書きを編集距離を使って前処理（クラスタリング）している事例も紹介した。
+さて、ここでは Levenshtein Distance を求めるアルゴリズムを実装して、備忘録として書き留めておく。ネット上にも多数の解説記事があり「今更ァ？」という話だが、正直どれを読んでもピンとこなかったのだ。
+アルゴリズム 動的計画法 (DP) です。おわり。
+Wikipedia に書かれている擬似コードをそのまま実装すると次のような感じ：
+def levenshtein(s1, s2): &#34;&#34;&#34; &gt;&gt;&gt; levenshtein(&#39;kitten&#39;, &#39;sitting&#39;) 3 &gt;&gt;&gt; levenshtein(&#39;あいうえお&#39;, &#39;あいうえお&#39;) 0 &gt;&gt;&gt; levenshtein(&#39;あいうえお&#39;, &#39;かきくけこ&#39;) 5 &#34;&#34;&#34; n, m = len(s1), len(s2) dp = [[0] * (m &#43; 1) for _ in range(n &#43; 1)] for i in range(n &#43; 1): dp[i][0] = i for j in range(m &#43; 1): dp[0][j] = j for i in range(1, n &#43; 1): for j in range(1, m &#43; 1): cost = 0 if s1[i - 1] == s2[j - 1] else 1 dp[i][j] = min(dp[i - 1][j] &#43; 1, # insertion dp[i][j - 1] &#43; 1, # deletion dp[i - 1][j - 1] &#43; cost) # replacement return dp[n][m]  二次元配列 dp の中身は、たとえば levenshtein(&#39;kitten&#39;, &#39;sitting&#39;) を実行した後だと：" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +19,23 @@
         いまさら編集距離 (Levenshtein Distance) を実装するぜ | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="いまさら編集距離 (Levenshtein Distance) を実装するぜ">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-07-28">
+    <meta property="og:description" content="ある文字列Aに対して『1文字の追加・削除・置換』を何回繰り返せば他の文字列Bになるか。このときの最小回数を、文字列A, B間の編集距離 (Levenshtein Distance)と呼ぶ。
+ 花火 から 火花 までの編集距離は各文字の置換なので 2 クワガタ から カブトムシ までの編集距離はなんかもう全文字違うので総入れ替え＆文字『シ』の追加で 5  この編集距離、文字列の“類似度”と見ることができて、なかなか便利な子である。『Job Titleの前処理＆クラスタリングをどうやって実現するか問題』では、人々の肩書きを編集距離を使って前処理（クラスタリング）している事例も紹介した。
+さて、ここでは Levenshtein Distance を求めるアルゴリズムを実装して、備忘録として書き留めておく。ネット上にも多数の解説記事があり「今更ァ？」という話だが、正直どれを読んでもピンとこなかったのだ。
+アルゴリズム 動的計画法 (DP) です。おわり。
+Wikipedia に書かれている擬似コードをそのまま実装すると次のような感じ：
+def levenshtein(s1, s2): &#34;&#34;&#34; &gt;&gt;&gt; levenshtein(&#39;kitten&#39;, &#39;sitting&#39;) 3 &gt;&gt;&gt; levenshtein(&#39;あいうえお&#39;, &#39;あいうえお&#39;) 0 &gt;&gt;&gt; levenshtein(&#39;あいうえお&#39;, &#39;かきくけこ&#39;) 5 &#34;&#34;&#34; n, m = len(s1), len(s2) dp = [[0] * (m &#43; 1) for _ in range(n &#43; 1)] for i in range(n &#43; 1): dp[i][0] = i for j in range(m &#43; 1): dp[0][j] = j for i in range(1, n &#43; 1): for j in range(1, m &#43; 1): cost = 0 if s1[i - 1] == s2[j - 1] else 1 dp[i][j] = min(dp[i - 1][j] &#43; 1, # insertion dp[i][j - 1] &#43; 1, # deletion dp[i - 1][j - 1] &#43; cost) # replacement return dp[n][m]  二次元配列 dp の中身は、たとえば levenshtein(&#39;kitten&#39;, &#39;sitting&#39;) を実行した後だと：">
+    
+    <meta property="og:url" content="https://takuti.me/note/levenshtein-distance/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

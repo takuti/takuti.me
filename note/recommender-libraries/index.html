@@ -4,7 +4,25 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="情報推薦＝機械学習 ではない。
+もちろん機械学習アルゴリズムを使えば精度は高くなるかもしれないが、実際は推薦理由の説明が必要であったり、膨大なデータサイズや要求されるパフォーマンスに応えるために、『いかに機械学習をしない選択をするか』も重要になる。
+さらに、RecSys2016のLinkedInとQuoraのチュートリアルで語られたように、現実の推薦システムはヒューリスティクスに基づく単純な手法から深層学習まで、複数のものを組み合わせた ハイブリッド なものであることが多い。
+ ヒューリスティクス/機械学習の混在したハイブリッドな推薦手法 適切な指標による精度の評価とモデルの改善 サービスごとに異なる多様なデータフォーマットの扱い  ということを考えると、推薦システム専用の実装 というものが必要になってくる。というわけで、推薦システム構築に使える/参考になるOSSをいくつか紹介する。
+※チョイスは個人の経験に拠るものなのであしからず。この他にもGitHub上には無数にライブラリが存在するので、他にイケてるものがあればぜひ教えてください。
+MyMediaLite (C#)  公式サイト/ドキュメント GitHubリポジトリ  論文  実装が C# というのがネックだけど、推薦アルゴリズムのオープンソース実装で最も有名なのはおそらくこれ。2010年秋ごろから開発されていて、このあと挙げるような他のライブラリはみんな論文でMyMediaLiteを引用している。
+対応しているアルゴリズムは協調フィルタリング、Matrix Factorization系が中心。Average Rating や Most Popular のような機械学習をしないベースライン手法も選べる。
+他のライブラリの実装を見るとみんな似たり寄ったりな感じで、「このライブラリはMyMediaLiteチルドレンなんだなー」と気付くこともしばしば。
+残念ながらここ数年は開発が滞り気味。
+ちなみに論文はFactorization Machinesの作者のRendle先生も共著者に入っている。
+LibRec (Java)  公式サイト/ドキュメント GitHubリポジトリ 論文  2014年から開発されているJavaの推薦アルゴリズム実装で、先日『Java製の推薦システム用ライブラリ LibRec を動かしてみる』でも言及した。
+僕が知る中で今最も盛んに開発が行われているライブラリで、つい最近 version 2.0 になってからはドキュメントとかもグッと良くなった。
+MyMediaLiteを参考にしつつも、よく練られた設計や豊富な対応アルゴリズムによって独自の地位を築いている印象がある。
+似たようなJava製ライブラリだと PREA があるけど、こっちはもう全く更新されていない様子。
+LensKit (Java)  公式サイト/ドキュメント GitHubリポジトリ 論文  2010年ごろから開発されているJava製のライブラリ。ミネソタ大学のチーム GroupLens に以前在籍していたMichael Ekstrand先生が中心になって開発している。これ自体が彼の博士研究の一貫でもあった。
+アルゴリズムは協調フィルタリングとMatrix Factorizationがメインで極めてシンプル。
+実装はともかく、論文に関しては一読の価値がある。（今やほとんど聞かないけど）Dependency Injection的な思想で、どのようにコンポーネントを切り分けて推薦ライブラリを実装するか、ということを解説している。このあたりはLibRecの設計に近い印象を受けた。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +30,34 @@
         推薦システムのためのOSSたち | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="推薦システムのためのOSSたち">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-05-14">
+    <meta property="og:description" content="情報推薦＝機械学習 ではない。
+もちろん機械学習アルゴリズムを使えば精度は高くなるかもしれないが、実際は推薦理由の説明が必要であったり、膨大なデータサイズや要求されるパフォーマンスに応えるために、『いかに機械学習をしない選択をするか』も重要になる。
+さらに、RecSys2016のLinkedInとQuoraのチュートリアルで語られたように、現実の推薦システムはヒューリスティクスに基づく単純な手法から深層学習まで、複数のものを組み合わせた ハイブリッド なものであることが多い。
+ ヒューリスティクス/機械学習の混在したハイブリッドな推薦手法 適切な指標による精度の評価とモデルの改善 サービスごとに異なる多様なデータフォーマットの扱い  ということを考えると、推薦システム専用の実装 というものが必要になってくる。というわけで、推薦システム構築に使える/参考になるOSSをいくつか紹介する。
+※チョイスは個人の経験に拠るものなのであしからず。この他にもGitHub上には無数にライブラリが存在するので、他にイケてるものがあればぜひ教えてください。
+MyMediaLite (C#)  公式サイト/ドキュメント GitHubリポジトリ  論文  実装が C# というのがネックだけど、推薦アルゴリズムのオープンソース実装で最も有名なのはおそらくこれ。2010年秋ごろから開発されていて、このあと挙げるような他のライブラリはみんな論文でMyMediaLiteを引用している。
+対応しているアルゴリズムは協調フィルタリング、Matrix Factorization系が中心。Average Rating や Most Popular のような機械学習をしないベースライン手法も選べる。
+他のライブラリの実装を見るとみんな似たり寄ったりな感じで、「このライブラリはMyMediaLiteチルドレンなんだなー」と気付くこともしばしば。
+残念ながらここ数年は開発が滞り気味。
+ちなみに論文はFactorization Machinesの作者のRendle先生も共著者に入っている。
+LibRec (Java)  公式サイト/ドキュメント GitHubリポジトリ 論文  2014年から開発されているJavaの推薦アルゴリズム実装で、先日『Java製の推薦システム用ライブラリ LibRec を動かしてみる』でも言及した。
+僕が知る中で今最も盛んに開発が行われているライブラリで、つい最近 version 2.0 になってからはドキュメントとかもグッと良くなった。
+MyMediaLiteを参考にしつつも、よく練られた設計や豊富な対応アルゴリズムによって独自の地位を築いている印象がある。
+似たようなJava製ライブラリだと PREA があるけど、こっちはもう全く更新されていない様子。
+LensKit (Java)  公式サイト/ドキュメント GitHubリポジトリ 論文  2010年ごろから開発されているJava製のライブラリ。ミネソタ大学のチーム GroupLens に以前在籍していたMichael Ekstrand先生が中心になって開発している。これ自体が彼の博士研究の一貫でもあった。
+アルゴリズムは協調フィルタリングとMatrix Factorizationがメインで極めてシンプル。
+実装はともかく、論文に関しては一読の価値がある。（今やほとんど聞かないけど）Dependency Injection的な思想で、どのようにコンポーネントを切り分けて推薦ライブラリを実装するか、ということを解説している。このあたりはLibRecの設計に近い印象を受けた。">
+    
+    <meta property="og:url" content="https://takuti.me/note/recommender-libraries/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

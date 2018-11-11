@@ -4,7 +4,22 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="推薦システムの業界で知らぬものはいない、ミネソタ大学のレジェンド級プロフェッサーJoseph Konstan先生が Podcast &quot;Data Skeptic&quot; に出演していた：
+ Recommender Systems (live from Farcon) | Data Skeptic  Courseraの推薦システムのコースでお世話になり、その後 RecSys 2016 でユーモア満載の生Konstan先生を見たときはすごく感動したことを覚えている。
+振り返れば、RecSys 2016 で他の発表者がアルゴリズム寄りの“普通”の話をしている中、先生のグループ (GroupLens) の研究は真剣に『ユーザ体験』『インタフェース』『HCI』という視点で議論を展開していて、やっぱりこの人はすごい…と感じたものである。推薦システム≠機械学習であり、非常に奥が深い分野なのだと改めて気付かされた。
+そんな先生が推薦システムについて語るPodcastエピソードは、とても示唆的で聞きごたえのある内容だった。みんなもぜひ聞いてほしい。
+以下、特に印象的だった話題についていくつか。
+“良い”推薦システムとは 「完璧な推薦システムってあるの？」という聞き手の質問に対して、「存在しないし、推薦システムの“良さ”をいかに測るかに依る」と答えるKonstan先生。
+従来、推薦システムの評価には機械学習的な方法が用いられてきた。ECサイトなら、ユーザの購入履歴のうち80%でモデルを作って、20%で評価、とった具合。しかし、そんな『放っておいてもいずれ買うような、絶対に好きなモノ』を正しく当てるシステムに意味があるのだろうか？
+推薦システムは薦められなければ絶対に買わなかったであろうモノの中で、ベストなモノを提示すべきであり、これは機械学習的な意味の“精度”などでは測れない。
+たとえばワインの推薦をするとして、既に好きなワインを正しく予測することがゴールではない。好きなワインに似ていて、より良いワイン―それを推薦して、ユーザの嗜好を広げることが推薦システム本来の役割だと言える。
+そのような考え方から、推薦システムの評価指標に関する議論はいまだに続いており、ゆえに『完璧な推薦システム』など定義することすらできないのだ。
+Serendipity = like &#43; didn&#39;t expect 既存の評価指標のなかで有望そうなもののひとつにセレンディピティがある。これはどうだろう？
+Konstan先生は Serendipity = like &#43; didn&#39;t expect の組み合わせで達成されるのだと言い、その意味を決して履き違えないことだと警笛を鳴らす。たとえセレンディピティを議論するのだとしても、まずはユーザの嗜好を正しくモデリングできることが前提だ。
+推薦システムの研究で、精度が出ないときに「セレンディピティ的には有望」という言い訳をするひとがいるが、精度が出ていないのなら嗜好 (like) のモデリングにはおそらく失敗しているわけで、それはセレンディピティでもなんでもない。bad &#43; didn&#39;t expect = just &quot;BAD&quot; である。
+Cycling and Serpentining 聞き手がKonstan先生のグループの CSCW2017 の論文 &quot;Cycling and Serpentining Approaches for Top-N Item Lists&quot; について質問していて、この研究がなかなか面白い。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +27,31 @@
         Podcast &#34;Data Skeptic&#34; の推薦システム回が良すぎて3回聞いた | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="Podcast &#34;Data Skeptic&#34; の推薦システム回が良すぎて3回聞いた">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-11-17">
+    <meta property="og:description" content="推薦システムの業界で知らぬものはいない、ミネソタ大学のレジェンド級プロフェッサーJoseph Konstan先生が Podcast &quot;Data Skeptic&quot; に出演していた：
+ Recommender Systems (live from Farcon) | Data Skeptic  Courseraの推薦システムのコースでお世話になり、その後 RecSys 2016 でユーモア満載の生Konstan先生を見たときはすごく感動したことを覚えている。
+振り返れば、RecSys 2016 で他の発表者がアルゴリズム寄りの“普通”の話をしている中、先生のグループ (GroupLens) の研究は真剣に『ユーザ体験』『インタフェース』『HCI』という視点で議論を展開していて、やっぱりこの人はすごい…と感じたものである。推薦システム≠機械学習であり、非常に奥が深い分野なのだと改めて気付かされた。
+そんな先生が推薦システムについて語るPodcastエピソードは、とても示唆的で聞きごたえのある内容だった。みんなもぜひ聞いてほしい。
+以下、特に印象的だった話題についていくつか。
+“良い”推薦システムとは 「完璧な推薦システムってあるの？」という聞き手の質問に対して、「存在しないし、推薦システムの“良さ”をいかに測るかに依る」と答えるKonstan先生。
+従来、推薦システムの評価には機械学習的な方法が用いられてきた。ECサイトなら、ユーザの購入履歴のうち80%でモデルを作って、20%で評価、とった具合。しかし、そんな『放っておいてもいずれ買うような、絶対に好きなモノ』を正しく当てるシステムに意味があるのだろうか？
+推薦システムは薦められなければ絶対に買わなかったであろうモノの中で、ベストなモノを提示すべきであり、これは機械学習的な意味の“精度”などでは測れない。
+たとえばワインの推薦をするとして、既に好きなワインを正しく予測することがゴールではない。好きなワインに似ていて、より良いワイン―それを推薦して、ユーザの嗜好を広げることが推薦システム本来の役割だと言える。
+そのような考え方から、推薦システムの評価指標に関する議論はいまだに続いており、ゆえに『完璧な推薦システム』など定義することすらできないのだ。
+Serendipity = like &#43; didn&#39;t expect 既存の評価指標のなかで有望そうなもののひとつにセレンディピティがある。これはどうだろう？
+Konstan先生は Serendipity = like &#43; didn&#39;t expect の組み合わせで達成されるのだと言い、その意味を決して履き違えないことだと警笛を鳴らす。たとえセレンディピティを議論するのだとしても、まずはユーザの嗜好を正しくモデリングできることが前提だ。
+推薦システムの研究で、精度が出ないときに「セレンディピティ的には有望」という言い訳をするひとがいるが、精度が出ていないのなら嗜好 (like) のモデリングにはおそらく失敗しているわけで、それはセレンディピティでもなんでもない。bad &#43; didn&#39;t expect = just &quot;BAD&quot; である。
+Cycling and Serpentining 聞き手がKonstan先生のグループの CSCW2017 の論文 &quot;Cycling and Serpentining Approaches for Top-N Item Lists&quot; について質問していて、この研究がなかなか面白い。">
+    
+    <meta property="og:url" content="https://takuti.me/note/data-skeptic-recommender-systems/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

@@ -4,7 +4,29 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="初めてのChromeExtensionを作った後にAngularJSに触れて、最初は「ChromeExtensionをAngularJS使って作ることができたらChromeの右上ライフが捗る！？」なんて思って試したわけですが、何故かAngularJSが動かず諦めていました。
+それを最近ふと思い出したので調べてみたら、ChromeExtensionのCSP (Content Security Policy) が原因だったことがあっさりと分かって解決したのでメモ。
+結論
+AngularJSでChromeExtension開発をするためにやるべきことは以下の2つ。
+
+ng-appの横にng-cspと書いてあげる
+angular-csp.cssをローカルに持ってきてロードしてあげる 
+以下詳細。
+HUGOMORE42 CSP (Content Security Policy) とは
+すごーくざっくりと言えば、XSSをはじめとする攻撃に利用されそうな機能に対して与える制限のこと。
+そのような機能の分かりやすい例としてはeval()でしょう。ご存知の通りevalは与えられた文字列をソースとしてなんでもかんでも解釈・実行してしまうため、脆弱性があった際に与える影響は絶大です。
+ 体系的に学ぶ 安全なWebアプリケーションの作り方　脆弱性が生まれる原理と対策の実践 posted with ヨメレバ  徳丸 浩 ソフトバンククリエイティブ 2011-03-03  Amazon Kindle 楽天ブックス     evalを使おう！とあなたが思った時、それは他の機能で代替可能ですので思い止まりましょう。というわけで、CSPでeval相当の記述を全て禁止にすることができたりするわけです。
+ChromeExtensionのCSPとAngularJSの使い方 ChromeExtensionでは、CSPがデフォルトで設定されています。
+Content Security Policy (CSP) - Google Chrome
+設定されている制限の内容は、
+ evalとそれに相当する記述の無効化 インライン（HTMLに埋め込む形）でのJavaScript実行の禁止 スクリプトファイルやその他リソースファイルの読み込みはローカルからのみ  の3つ。
+AngularJSでは実行速度向上のためにeval相当の記述を利用している箇所があり、そこがChromeExtensionのCSPに引っかかっているのです。10041行目(angular.js v1.2.0)から定義されているgetterFn関数です。これがChromeExtensionでAngularJSが動かなかった原因。
+そして、この問題への対処法はAngularJS公式で用意されています。やり方はng-appと一緒にng-cspと書いてあげるだけ。
+&lt;html lang=&quot;ja&quot; ng-app ng-csp&gt;  これで、AngularJSが実行速度向上を諦めるモードになります。そんなわけですべての式の評価にかかる速度が30%減になってしまうようですが、仕方ない。
+しかしどうやら30%の速度だけでは等価交換にならなかったようで、CSPによって影響を受けたままのものがまだあります。それはCSSの一部。
+angular.js(v1.2.0)の最下部では、AngularJSの導入に伴って必要となるCSSをまとめてjQueryでhead要素の先頭に埋め込んでいます。これは例えばバリデーション時に表示するエラーメッセージのhidden制御なんかが関係してくる。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +34,44 @@
         AngularJSでChromeExtension開発をするならCSPに気をつけよう | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="AngularJSでChromeExtension開発をするならCSPに気をつけよう">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2013-11-15">
+    <meta property="og:description" content="初めてのChromeExtensionを作った後にAngularJSに触れて、最初は「ChromeExtensionをAngularJS使って作ることができたらChromeの右上ライフが捗る！？」なんて思って試したわけですが、何故かAngularJSが動かず諦めていました。
+それを最近ふと思い出したので調べてみたら、ChromeExtensionのCSP (Content Security Policy) が原因だったことがあっさりと分かって解決したのでメモ。
+結論
+AngularJSでChromeExtension開発をするためにやるべきことは以下の2つ。
+
+ng-appの横にng-cspと書いてあげる
+angular-csp.cssをローカルに持ってきてロードしてあげる 
+以下詳細。
+HUGOMORE42 CSP (Content Security Policy) とは
+すごーくざっくりと言えば、XSSをはじめとする攻撃に利用されそうな機能に対して与える制限のこと。
+そのような機能の分かりやすい例としてはeval()でしょう。ご存知の通りevalは与えられた文字列をソースとしてなんでもかんでも解釈・実行してしまうため、脆弱性があった際に与える影響は絶大です。
+ 体系的に学ぶ 安全なWebアプリケーションの作り方　脆弱性が生まれる原理と対策の実践 posted with ヨメレバ  徳丸 浩 ソフトバンククリエイティブ 2011-03-03  Amazon Kindle 楽天ブックス     evalを使おう！とあなたが思った時、それは他の機能で代替可能ですので思い止まりましょう。というわけで、CSPでeval相当の記述を全て禁止にすることができたりするわけです。
+ChromeExtensionのCSPとAngularJSの使い方 ChromeExtensionでは、CSPがデフォルトで設定されています。
+Content Security Policy (CSP) - Google Chrome
+設定されている制限の内容は、
+ evalとそれに相当する記述の無効化 インライン（HTMLに埋め込む形）でのJavaScript実行の禁止 スクリプトファイルやその他リソースファイルの読み込みはローカルからのみ  の3つ。
+AngularJSでは実行速度向上のためにeval相当の記述を利用している箇所があり、そこがChromeExtensionのCSPに引っかかっているのです。10041行目(angular.js v1.2.0)から定義されているgetterFn関数です。これがChromeExtensionでAngularJSが動かなかった原因。
+そして、この問題への対処法はAngularJS公式で用意されています。やり方はng-appと一緒にng-cspと書いてあげるだけ。
+&lt;html lang=&quot;ja&quot; ng-app ng-csp&gt;  これで、AngularJSが実行速度向上を諦めるモードになります。そんなわけですべての式の評価にかかる速度が30%減になってしまうようですが、仕方ない。
+しかしどうやら30%の速度だけでは等価交換にならなかったようで、CSPによって影響を受けたままのものがまだあります。それはCSSの一部。
+angular.js(v1.2.0)の最下部では、AngularJSの導入に伴って必要となるCSSをまとめてjQueryでhead要素の先頭に埋め込んでいます。これは例えばバリデーション時に表示するエラーメッセージのhidden制御なんかが関係してくる。">
+    
+    <meta property="og:url" content="https://takuti.me/note/crx-dev-using-angularjs/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    <meta property="og:tags" content="Development">
+    
+    <meta property="og:tags" content="AngularJS">
+    
+    <meta property="og:tags" content="Chrome Extensions">
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -53,7 +113,11 @@
 <p><li><a href="http://code.angularjs.org/snapshot/angular-csp.css">angular-csp.css</a>をローカルに持ってきてロードしてあげる</li>
 </ol></p>
 <p><p>以下詳細。<br />
-HUGOMORE42</p></p>
+
+
+HUGOMORE42
+
+</p></p>
 <p><h3>CSP (Content Security Policy) とは</h3></p>
 <p><p>すごーくざっくりと言えば、XSSをはじめとする<strong>攻撃に利用されそうな機能に対して与える制限</strong>のこと。</p></p>
 <p><p>そのような機能の分かりやすい例としては<strong>eval()</strong>でしょう。ご存知の通りevalは与えられた文字列をソースとしてなんでもかんでも解釈・実行してしまうため、脆弱性があった際に与える影響は絶大です。</p></p>

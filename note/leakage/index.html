@@ -4,7 +4,14 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="データマイニングの現場で頻発する Leakage という問題について本気出して考えてみた、的な論文を読んだ：
+ Leakage in Data Mining: Formulation, Detection, and Avoidance. KDD 2011.  概要  Leakage とは、モデルを作るときに、本来知らないはずの情報（変数やデータ）を不当に使ってしまうこと 手元のデータではメッチャ高い精度が出たのに、本番環境ではまったく精度が出ない、といった事態になる   その問題について定式化を試みると同時に、Leakage を検知・回避する方法を考える こういう議論がまじめにされてこなかったせいで、KDD Cup 2008 のようなプロが企画・主催したコンペでさえ、問題の不備による Leakage が発生している  おもしろ事例集 はじめに、データマイニングコンペでの Leakage 事例が幾つか紹介されている。
+KDD Cup 2007: Netflix Rating Prediction Netflix 上での映画の評価値データを対象として、2つのタスクがあった：
+ Who Rated What: 2005年までのデータが与えられて、2006年に各ユーザが未評価の映画を評価するかどうか、を予測する How Many Ratings: 同様に2005年までのデータがある状態で、2006年に各映画に集まるレビューの数を予測する  データの混在を防ぐために、タスク1と2ではそれぞれ異なるタイトルの映画のデータが用意された。
+しかし、タスク2で優勝したチームのモデルは、なんとタスク1のテストデータをタスク2の教師データとして使っていた。
+user, movie, rating A, X, 3 B, X, 1 C, X, 5 というタスク1のテストデータ（＝2006年のレビュー履歴）があったとき、「2006年に movie X に集まるレビューは3件」と読み替えることができて、これはタスク2の学習に流用できるね、という話。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +19,23 @@
         Leakage in Data Mining | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="Leakage in Data Mining">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-07-16">
+    <meta property="og:description" content="データマイニングの現場で頻発する Leakage という問題について本気出して考えてみた、的な論文を読んだ：
+ Leakage in Data Mining: Formulation, Detection, and Avoidance. KDD 2011.  概要  Leakage とは、モデルを作るときに、本来知らないはずの情報（変数やデータ）を不当に使ってしまうこと 手元のデータではメッチャ高い精度が出たのに、本番環境ではまったく精度が出ない、といった事態になる   その問題について定式化を試みると同時に、Leakage を検知・回避する方法を考える こういう議論がまじめにされてこなかったせいで、KDD Cup 2008 のようなプロが企画・主催したコンペでさえ、問題の不備による Leakage が発生している  おもしろ事例集 はじめに、データマイニングコンペでの Leakage 事例が幾つか紹介されている。
+KDD Cup 2007: Netflix Rating Prediction Netflix 上での映画の評価値データを対象として、2つのタスクがあった：
+ Who Rated What: 2005年までのデータが与えられて、2006年に各ユーザが未評価の映画を評価するかどうか、を予測する How Many Ratings: 同様に2005年までのデータがある状態で、2006年に各映画に集まるレビューの数を予測する  データの混在を防ぐために、タスク1と2ではそれぞれ異なるタイトルの映画のデータが用意された。
+しかし、タスク2で優勝したチームのモデルは、なんとタスク1のテストデータをタスク2の教師データとして使っていた。
+user, movie, rating A, X, 3 B, X, 1 C, X, 5 というタスク1のテストデータ（＝2006年のレビュー履歴）があったとき、「2006年に movie X に集まるレビューは3件」と読み替えることができて、これはタスク2の学習に流用できるね、という話。">
+    
+    <meta property="og:url" content="https://takuti.me/note/leakage/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

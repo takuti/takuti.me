@@ -4,7 +4,13 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="先週はPostgreSQL上でテキストのFuzzy Searchを試した。そのときは fuzzystrmatch や pg_trgm といったモジュールが活躍していた。
+では、同じことをHiveで実現するとどうなるだろう。
+データ 適当にテーブル sample をつくっておく：
+hive&gt; CREATE TABLE sample AS &gt; SELECT 1 AS id, &#39;I live in Tokyo.&#39; AS document &gt; UNION ALL &gt; SELECT 2 AS id, &#39;Are you happy?&#39; AS document &gt; ; hive&gt; SELECT * FROM sample; OK sample.id sample.document 1 I live in Tokyo. 2 Are you happy? Time taken: 0.066 seconds, Fetched: 2 row(s) なお、Hive環境のセットアップについては以下の記事も参考にされたい：
+ MacのローカルにHivemallを導入してアイテム推薦をするまで Hivemall on Dockerを試すぜ  完全一致 WHERE句を使えばもちろん完全一致検索になる：" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +18,22 @@
         HiveでテキストのFuzzy Search | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="HiveでテキストのFuzzy Search">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-08-20">
+    <meta property="og:description" content="先週はPostgreSQL上でテキストのFuzzy Searchを試した。そのときは fuzzystrmatch や pg_trgm といったモジュールが活躍していた。
+では、同じことをHiveで実現するとどうなるだろう。
+データ 適当にテーブル sample をつくっておく：
+hive&gt; CREATE TABLE sample AS &gt; SELECT 1 AS id, &#39;I live in Tokyo.&#39; AS document &gt; UNION ALL &gt; SELECT 2 AS id, &#39;Are you happy?&#39; AS document &gt; ; hive&gt; SELECT * FROM sample; OK sample.id sample.document 1 I live in Tokyo. 2 Are you happy? Time taken: 0.066 seconds, Fetched: 2 row(s) なお、Hive環境のセットアップについては以下の記事も参考にされたい：
+ MacのローカルにHivemallを導入してアイテム推薦をするまで Hivemall on Dockerを試すぜ  完全一致 WHERE句を使えばもちろん完全一致検索になる：">
+    
+    <meta property="og:url" content="https://takuti.me/note/hive-fuzzy-search/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

@@ -4,7 +4,18 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="今週から Coursera の Big Data Analysis with Scala and Spark を受講している。その初回で出てきた &quot;Why Scala? Why Spark?&quot; に関する議論をざっくりとまとめる。（導入なので『RDDとは』みたいな話はしない）
+Stack Overflow Developer Survey 2016 &quot;Top Paying Tech in US&quot; を見ると、なんと上位2つが Spark と Scala になっている：
+なぜこんなに人気なのか？
+時はビッグデータ戦国時代、もちろん「大規模データを効率的に処理できるから」という事実が一因であることは言うまでもない。しかし、それ以上に強調すべき点がある。
+Developer Productivity Dr. Heather Miller いわく Scala, Spark を選択する理由は、それらが 開発者の生産性向上 に寄与するから。ここで言う開発者とは、並列分散環境下にあるビッグデータを処理する、何らかのコードを書く人々を指す。
+実アプリケーションで Scala を選択するモチベーションとして、関数型パラダイムの恩恵を受けた豊富なコレクション操作 (e.g., reduce(), fold(), map(), filter()) とその表現力が挙げられると思う。
+Spark上では（ほぼ）同一のインタフェースで分散データに対する処理が記述できる。これが重要。
+シングルノードのときの通常のScalaコレクションに対する処理が
+singleCollection.map(v =&gt; f(v))  だとすれば、同様の処理を Spark 上で書いても、それは
+distributedData.map(v =&gt; f(v))  と書ける。ある大規模分散データに対して、まるでそれがローカルデータであるかのようにインタラクティブに処理を適用できる、これが Scala &#43; Spark によって得られる生産性につながっているのだ。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +23,27 @@
         なぜSparkか | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="なぜSparkか">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-04-09">
+    <meta property="og:description" content="今週から Coursera の Big Data Analysis with Scala and Spark を受講している。その初回で出てきた &quot;Why Scala? Why Spark?&quot; に関する議論をざっくりとまとめる。（導入なので『RDDとは』みたいな話はしない）
+Stack Overflow Developer Survey 2016 &quot;Top Paying Tech in US&quot; を見ると、なんと上位2つが Spark と Scala になっている：
+なぜこんなに人気なのか？
+時はビッグデータ戦国時代、もちろん「大規模データを効率的に処理できるから」という事実が一因であることは言うまでもない。しかし、それ以上に強調すべき点がある。
+Developer Productivity Dr. Heather Miller いわく Scala, Spark を選択する理由は、それらが 開発者の生産性向上 に寄与するから。ここで言う開発者とは、並列分散環境下にあるビッグデータを処理する、何らかのコードを書く人々を指す。
+実アプリケーションで Scala を選択するモチベーションとして、関数型パラダイムの恩恵を受けた豊富なコレクション操作 (e.g., reduce(), fold(), map(), filter()) とその表現力が挙げられると思う。
+Spark上では（ほぼ）同一のインタフェースで分散データに対する処理が記述できる。これが重要。
+シングルノードのときの通常のScalaコレクションに対する処理が
+singleCollection.map(v =&gt; f(v))  だとすれば、同様の処理を Spark 上で書いても、それは
+distributedData.map(v =&gt; f(v))  と書ける。ある大規模分散データに対して、まるでそれがローカルデータであるかのようにインタラクティブに処理を適用できる、これが Scala &#43; Spark によって得られる生産性につながっているのだ。">
+    
+    <meta property="og:url" content="https://takuti.me/note/why-spark/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

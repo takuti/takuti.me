@@ -4,7 +4,19 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="『はてなキーワードを使ってigo-ruby(MeCab)用の辞書をナウい感じにする』に4年ぶりの続編です。
+igo-ruby はJava製の形態素解析器 Igo のRuby版で、4年前から動いている僕のtwitter botでも使っている。
+4年前の記事では『人工知能』や『ニコニコ動画』といった新語をigo-rubyでナウく分かち書きするために、Wikipediaタイトルやはてなキーワードのデータを使って独自に辞書をカスタマイズした。
+今回はもっと簡単に、継続的にメンテナンスされている新語辞書 NEologd を使って同様のことを実現する。もはや最近はこっちのほうが自然なアプローチですなぁ。
+NEologdのビルド リポジトリを取ってきて、手順通りビルドする：
+$cd /path/to/neologd/mecab-ipadic-neologd $./bin/install-mecab-ipadic-neologd -n すると build/mecab-ipadic-2.7.0-20070801-neologd-YYYYMMDD といったディレクトリができる。
+これが4年前の記事で自前で生成した辞書を置いた mecab-ipadic-2.7.0-20070801 というディレクトリに対応していて、以後の手順は全く変わらない。外部データを整形して独自にコストを計算していた手間をNEologdが肩代わりしてくれた形。感謝〜。
+辞書生成 igo.jar を取ってきて：
+$ wget &#39;http://osdn.jp/frs/redir.php?m=jaist&amp;f=%2Figo%2F52344%2Figo-0.4.3.jar&#39; -O igo.jar igo用辞書 ipadic-neologd をつくる：
+$ java -cp igo.jar net.reduls.igo.bin.BuildDic ipadic-neologd /path/to/neologd/mecab-ipadic-neologd/build/mecab-ipadic-2.7.0-20070801-neologd-YYYYMMDD utf-8 オリジナルのIPA辞書のエンコーディングがEUCだったのに対し、NEologdはUTF-8であることに注意。
+ためす require &#39;igo-ruby&#39; tagger = Igo::Tagger.new(&#39;/path/to/ipadic-neologd&#39;) p tagger.wakati(&#39;人工知能&#39;) # [&#34;人工知能&#34;] p tagger.wakati(&#39;ニコニコ動画&#39;) # [&#34;ニコニコ動画&#34;] p tagger.wakati(&#39;10日放送の「中居正広のミになる図書館」（テレビ朝日系）で、SMAPの中居正広が、篠原信一の過去の勘違いを明かす一幕があった。&#39;) # [&#34;10日&#34;, &#34;放送&#34;, &#34;の&#34;, &#34;「&#34;, &#34;中居正広のミになる図書館&#34;, &#34;」&#34;, &#34;（&#34;, &#34;テレビ朝日&#34;, &#34;系&#34;, &#34;）&#34;, &#34;" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +24,28 @@
         igo-rubyを新語辞書NEologdでナウい感じにする | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="igo-rubyを新語辞書NEologdでナウい感じにする">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-09-17">
+    <meta property="og:description" content="『はてなキーワードを使ってigo-ruby(MeCab)用の辞書をナウい感じにする』に4年ぶりの続編です。
+igo-ruby はJava製の形態素解析器 Igo のRuby版で、4年前から動いている僕のtwitter botでも使っている。
+4年前の記事では『人工知能』や『ニコニコ動画』といった新語をigo-rubyでナウく分かち書きするために、Wikipediaタイトルやはてなキーワードのデータを使って独自に辞書をカスタマイズした。
+今回はもっと簡単に、継続的にメンテナンスされている新語辞書 NEologd を使って同様のことを実現する。もはや最近はこっちのほうが自然なアプローチですなぁ。
+NEologdのビルド リポジトリを取ってきて、手順通りビルドする：
+$cd /path/to/neologd/mecab-ipadic-neologd $./bin/install-mecab-ipadic-neologd -n すると build/mecab-ipadic-2.7.0-20070801-neologd-YYYYMMDD といったディレクトリができる。
+これが4年前の記事で自前で生成した辞書を置いた mecab-ipadic-2.7.0-20070801 というディレクトリに対応していて、以後の手順は全く変わらない。外部データを整形して独自にコストを計算していた手間をNEologdが肩代わりしてくれた形。感謝〜。
+辞書生成 igo.jar を取ってきて：
+$ wget &#39;http://osdn.jp/frs/redir.php?m=jaist&amp;f=%2Figo%2F52344%2Figo-0.4.3.jar&#39; -O igo.jar igo用辞書 ipadic-neologd をつくる：
+$ java -cp igo.jar net.reduls.igo.bin.BuildDic ipadic-neologd /path/to/neologd/mecab-ipadic-neologd/build/mecab-ipadic-2.7.0-20070801-neologd-YYYYMMDD utf-8 オリジナルのIPA辞書のエンコーディングがEUCだったのに対し、NEologdはUTF-8であることに注意。
+ためす require &#39;igo-ruby&#39; tagger = Igo::Tagger.new(&#39;/path/to/ipadic-neologd&#39;) p tagger.wakati(&#39;人工知能&#39;) # [&#34;人工知能&#34;] p tagger.wakati(&#39;ニコニコ動画&#39;) # [&#34;ニコニコ動画&#34;] p tagger.wakati(&#39;10日放送の「中居正広のミになる図書館」（テレビ朝日系）で、SMAPの中居正広が、篠原信一の過去の勘違いを明かす一幕があった。&#39;) # [&#34;10日&#34;, &#34;放送&#34;, &#34;の&#34;, &#34;「&#34;, &#34;中居正広のミになる図書館&#34;, &#34;」&#34;, &#34;（&#34;, &#34;テレビ朝日&#34;, &#34;系&#34;, &#34;）&#34;, &#34;">
+    
+    <meta property="og:url" content="https://takuti.me/note/igo-ruby-neologd/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

@@ -4,7 +4,17 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="&quot;Seven Databases in Seven Weeks&quot; や &quot;Designing Data-Intensive Applications&quot; でも度々参考文献に挙がっていたので、AmazonのDynamoDB論文を眺めて思いを馳せていた：
+ Dynamo: Amazon&#39;s Highly Available Key-Value Store (SOSP 2007)  ここでは特に2章・バックグラウンドの内容を整理しつつ、AmazonがDynamoDBに込めた想いに触れてみる。拙記事『The Amazon Way on IoT - Amazonのビジネスから学ぶ、10の原則』でも紹介した、Amazonの &quot;Customer Obsession&quot;（お客様第一）という理念を踏まえて読むと大変味わい深くてよろしい。
+教訓: システムの Reliability と Scalability は、いかにアプリケーションの“状態”を管理するかに依る “状態”とは、Amazonの『ショッピングカートの中身』のようなものを指し、『カートへの商品の追加・削除』がその“管理”に相当する。このように、何らかのビジネスロジックに紐付くサービスは往々にしてステートフルとなり、その扱い方がサービスの信頼性のキモとなる1。
+そして、そのような“状態”を複雑なクエリで問い合わせるというケースはあまりなく、主キーで一意に定まるものをピックアップすることのほうが多いので、従来行われてきたRDBによる管理は過度な複雑化といえる。
+そこでAmazonは Dynamo というKVSを開発し、scalability と availability の両立を、2つの既存手法の組み合わせによって実現した：
+ データは consistent hashing によってパーティショニング、レプリケーション 一貫性は object versioning の下で“ゆるく”担保  この論文は、既存の技術の組み合わせでいかにプロダクションレベルのシステムを作っていくか、という点でひとつの例を示すもの。
+RDBではなくKVS 先述の通り、リレーショナルスキーマを要するデータ横断的な処理は状態の保持には不要だと経験的にわかっている。
+なので、Dynamoはデータをblobのようなバイナリオブジェクト (たいてい1MB以下) で保持し、ユニークなキーによって一意に取得可能にした。
+Eventual Consistencyでよい ACID (Atomicity, Consistency, Isolation, Durability) を満足させると可用性が低下することは経験的にわかっているので、Dynamoは可用性が向上するなら一貫性 (&quot;C&quot;; Consistency) を諦めても構わないという姿勢をとる。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +22,26 @@
         AmazonのDynamoDB論文を眺めた | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="AmazonのDynamoDB論文を眺めた">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-12-09">
+    <meta property="og:description" content="&quot;Seven Databases in Seven Weeks&quot; や &quot;Designing Data-Intensive Applications&quot; でも度々参考文献に挙がっていたので、AmazonのDynamoDB論文を眺めて思いを馳せていた：
+ Dynamo: Amazon&#39;s Highly Available Key-Value Store (SOSP 2007)  ここでは特に2章・バックグラウンドの内容を整理しつつ、AmazonがDynamoDBに込めた想いに触れてみる。拙記事『The Amazon Way on IoT - Amazonのビジネスから学ぶ、10の原則』でも紹介した、Amazonの &quot;Customer Obsession&quot;（お客様第一）という理念を踏まえて読むと大変味わい深くてよろしい。
+教訓: システムの Reliability と Scalability は、いかにアプリケーションの“状態”を管理するかに依る “状態”とは、Amazonの『ショッピングカートの中身』のようなものを指し、『カートへの商品の追加・削除』がその“管理”に相当する。このように、何らかのビジネスロジックに紐付くサービスは往々にしてステートフルとなり、その扱い方がサービスの信頼性のキモとなる1。
+そして、そのような“状態”を複雑なクエリで問い合わせるというケースはあまりなく、主キーで一意に定まるものをピックアップすることのほうが多いので、従来行われてきたRDBによる管理は過度な複雑化といえる。
+そこでAmazonは Dynamo というKVSを開発し、scalability と availability の両立を、2つの既存手法の組み合わせによって実現した：
+ データは consistent hashing によってパーティショニング、レプリケーション 一貫性は object versioning の下で“ゆるく”担保  この論文は、既存の技術の組み合わせでいかにプロダクションレベルのシステムを作っていくか、という点でひとつの例を示すもの。
+RDBではなくKVS 先述の通り、リレーショナルスキーマを要するデータ横断的な処理は状態の保持には不要だと経験的にわかっている。
+なので、Dynamoはデータをblobのようなバイナリオブジェクト (たいてい1MB以下) で保持し、ユニークなキーによって一意に取得可能にした。
+Eventual Consistencyでよい ACID (Atomicity, Consistency, Isolation, Durability) を満足させると可用性が低下することは経験的にわかっているので、Dynamoは可用性が向上するなら一貫性 (&quot;C&quot;; Consistency) を諦めても構わないという姿勢をとる。">
+    
+    <meta property="og:url" content="https://takuti.me/note/amazon-dynamo-paper/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

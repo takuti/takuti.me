@@ -4,7 +4,18 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="不均衡データ (imbalanced data) からクラス分類を行うとき、マイナーなクラスに属するサンプルの oversampling や、メジャーなクラスに属するサンプルの undersampling (downsampling とも) が大切（cf.『不均衡データのクラス分類』）：
+（▲ Tom Fawcett氏による記事 &quot;Learning from imbalanced data&quot; 中の5番目の図を引用）
+このテクニックを使って学習した分類器による予測確率は、少し調整してから解釈したほうがいいらしい、という話。
+Imbalanced data と Oversampling/Undersampling たとえば2クラス分類をしたいとき、ラベル1のサンプル（正例）がわずか 0.01% しか存在せず、その他 99.99% のサンプルはラベル0（負例）、みたいな状況がある。
+そこまで顕著ではないにせよ、現実のデータは正例/負例いずれかに大きく偏ったものであることが多い。具体的には、オンライン広告のクリック（正例） or 非クリック（負例）など。表示される広告を律儀に全部クリックする人などいないわけで、わずかな正例と大量の負例から「この人がクリックしてくれそうな広告」を予測、配信している。
+正例 0.01%、負例 99.99% のときは、もはや機械学習なんかせず、常に「これは負例だ」と答える“分類器”を用意しても、評価段階では十分な精度が得られてしまうだろう。または、仮にそのサンプルで真面目に分類器を学習したとしても、正例はノイズ程度に扱われ、ほぼすべての入力に対して無条件に負例と予測する分類器になりかねない。
+というわけで、imbalanced data のクラス分類を行うためには、oversampling または undersampling によってサンプル数を均等にしてあげて、フェアな条件で分類器を学習することが有効なのである。わずかな例外的サンプルに振り回されることがなくなるので、早く収束することも期待できる。
+手法としては SMOTE (Synthetic Minority Oversampling Technique) などが有名だが、ここでは最も単純なランダムサンプリングだけを考える。メジャーなサンプルがマイナーなサンプルよりも $N$ 倍多いとき、
+ Oversampling: マイナーなサンプルを $N$ 倍 (oversampling rate) に複製する Undersampling: メジャーなサンプルを $1/N$ 倍 (undersampling rate) に間引く  という操作をランダムに選んだサンプルを使って行う。
+Undersampling時の予測確率の調整 引き続き2クラス分類を考える。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +23,27 @@
         Over-/Under-samplingをして学習した2クラス分類器の予測確率を調整する式 | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="Over-/Under-samplingをして学習した2クラス分類器の予測確率を調整する式">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-11-04">
+    <meta property="og:description" content="不均衡データ (imbalanced data) からクラス分類を行うとき、マイナーなクラスに属するサンプルの oversampling や、メジャーなクラスに属するサンプルの undersampling (downsampling とも) が大切（cf.『不均衡データのクラス分類』）：
+（▲ Tom Fawcett氏による記事 &quot;Learning from imbalanced data&quot; 中の5番目の図を引用）
+このテクニックを使って学習した分類器による予測確率は、少し調整してから解釈したほうがいいらしい、という話。
+Imbalanced data と Oversampling/Undersampling たとえば2クラス分類をしたいとき、ラベル1のサンプル（正例）がわずか 0.01% しか存在せず、その他 99.99% のサンプルはラベル0（負例）、みたいな状況がある。
+そこまで顕著ではないにせよ、現実のデータは正例/負例いずれかに大きく偏ったものであることが多い。具体的には、オンライン広告のクリック（正例） or 非クリック（負例）など。表示される広告を律儀に全部クリックする人などいないわけで、わずかな正例と大量の負例から「この人がクリックしてくれそうな広告」を予測、配信している。
+正例 0.01%、負例 99.99% のときは、もはや機械学習なんかせず、常に「これは負例だ」と答える“分類器”を用意しても、評価段階では十分な精度が得られてしまうだろう。または、仮にそのサンプルで真面目に分類器を学習したとしても、正例はノイズ程度に扱われ、ほぼすべての入力に対して無条件に負例と予測する分類器になりかねない。
+というわけで、imbalanced data のクラス分類を行うためには、oversampling または undersampling によってサンプル数を均等にしてあげて、フェアな条件で分類器を学習することが有効なのである。わずかな例外的サンプルに振り回されることがなくなるので、早く収束することも期待できる。
+手法としては SMOTE (Synthetic Minority Oversampling Technique) などが有名だが、ここでは最も単純なランダムサンプリングだけを考える。メジャーなサンプルがマイナーなサンプルよりも $N$ 倍多いとき、
+ Oversampling: マイナーなサンプルを $N$ 倍 (oversampling rate) に複製する Undersampling: メジャーなサンプルを $1/N$ 倍 (undersampling rate) に間引く  という操作をランダムに選んだサンプルを使って行う。
+Undersampling時の予測確率の調整 引き続き2クラス分類を考える。">
+    
+    <meta property="og:url" content="https://takuti.me/note/adjusting-for-oversampling-and-undersampling/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

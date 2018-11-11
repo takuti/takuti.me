@@ -4,7 +4,21 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="来月、ついに長い沈黙を破ってEffective Javaの第3版が発売される：Effective Java (3rd Edition)
+学生のときに第2版で読書会とかやってたタイプの人間なので感慨深い。
+それに先駆けて、一部で評判の良かったJava8対応の入門書『Java本格入門 ～モダンスタイルによる基礎からオブジェクト指向・実用ライブラリまで』を積読リストから引っ張り出して目を通してみた。サポートページはGitHubにある。
+コレクションの基本からStream、デザインパターンまで、最低限知っておくべきであろう内容がコンパクトにまとまっていて、『本格入門』の名に恥じない充実の一冊だったと思う。講義で習うような、文法レベルの入門の次の（次の）一冊にちょうど良さそう1。
+特に「著者はこうしている」「現場ではこういう場面で使う」という実際的な記述が多々あったのが個人的には高ポイント。
+強いて言えば、ライブラリや周辺ツールに関しては『使い方』の話が中心になっていたけど、ここでもっと「現場ではこういうプロジェクトでこんな使い方をしています」的な言及があれば嬉しかったかもしれない。
+あと、スレッドセーフに関しては、その重要性や難しさ、使い所を十分に書ききれていない感が強かった。もちろん入門書なのでそこまでゴリゴリの記述は期待していないけど、コードサンプルも説明不足感があり、やや物足りない。
+そんな感想を抱きつつ、以下、（教科書的な内容が中心だけど）いくつかポインタとしてメモを共有。
+追記 (2017/12/03) 紹介していただき、ありがとうございます！
+スレッドに関しては、今回は使う側の注意に焦点を当てており、スレッドを作る側、制御する側は特に踏み込めていないところです。
+&mdash; MURA-K-METAL (@muraken720) December 1, 2017
+ とのことです！
+2. 基本的な書き方を身につける  変数名の前後に _ をつけるのはもはや不要 IDEで書くのが当たり前なので、フィールドとローカル変数の名前が一緒でも区別がつく フレームワークによっては末尾の _ によって変数のバインドに失敗するものもある   変数は名詞、メソッドは動詞で命名 booleanの変数名に isXxx とつけるのは違う 変数名は xxx で、問い合わせるメソッドが isXxx と命名されるべき      3. 型を極める  autoboxing, unboxing 原則としてautoboxing, unboxingは使用せず、明示的に変換 ファイル操作、DBアクセス、HTTPリクエストなどの結果得られる値を保持する場合はラッパークラスを使う 数値計算はプリミティブ型を使う 記述量の削減（型の変換を明記しないこと）が効果的な場合に限り、autoboxing, unboxingを利用     インタフェース 絶対publicになるが、著者は省略せずに public interface と書く    4." />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +26,30 @@
         『Java本格入門』メモ | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="『Java本格入門』メモ">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-12-01">
+    <meta property="og:description" content="来月、ついに長い沈黙を破ってEffective Javaの第3版が発売される：Effective Java (3rd Edition)
+学生のときに第2版で読書会とかやってたタイプの人間なので感慨深い。
+それに先駆けて、一部で評判の良かったJava8対応の入門書『Java本格入門 ～モダンスタイルによる基礎からオブジェクト指向・実用ライブラリまで』を積読リストから引っ張り出して目を通してみた。サポートページはGitHubにある。
+コレクションの基本からStream、デザインパターンまで、最低限知っておくべきであろう内容がコンパクトにまとまっていて、『本格入門』の名に恥じない充実の一冊だったと思う。講義で習うような、文法レベルの入門の次の（次の）一冊にちょうど良さそう1。
+特に「著者はこうしている」「現場ではこういう場面で使う」という実際的な記述が多々あったのが個人的には高ポイント。
+強いて言えば、ライブラリや周辺ツールに関しては『使い方』の話が中心になっていたけど、ここでもっと「現場ではこういうプロジェクトでこんな使い方をしています」的な言及があれば嬉しかったかもしれない。
+あと、スレッドセーフに関しては、その重要性や難しさ、使い所を十分に書ききれていない感が強かった。もちろん入門書なのでそこまでゴリゴリの記述は期待していないけど、コードサンプルも説明不足感があり、やや物足りない。
+そんな感想を抱きつつ、以下、（教科書的な内容が中心だけど）いくつかポインタとしてメモを共有。
+追記 (2017/12/03) 紹介していただき、ありがとうございます！
+スレッドに関しては、今回は使う側の注意に焦点を当てており、スレッドを作る側、制御する側は特に踏み込めていないところです。
+&mdash; MURA-K-METAL (@muraken720) December 1, 2017
+ とのことです！
+2. 基本的な書き方を身につける  変数名の前後に _ をつけるのはもはや不要 IDEで書くのが当たり前なので、フィールドとローカル変数の名前が一緒でも区別がつく フレームワークによっては末尾の _ によって変数のバインドに失敗するものもある   変数は名詞、メソッドは動詞で命名 booleanの変数名に isXxx とつけるのは違う 変数名は xxx で、問い合わせるメソッドが isXxx と命名されるべき      3. 型を極める  autoboxing, unboxing 原則としてautoboxing, unboxingは使用せず、明示的に変換 ファイル操作、DBアクセス、HTTPリクエストなどの結果得られる値を保持する場合はラッパークラスを使う 数値計算はプリミティブ型を使う 記述量の削減（型の変換を明記しないこと）が効果的な場合に限り、autoboxing, unboxingを利用     インタフェース 絶対publicになるが、著者は省略せずに public interface と書く    4.">
+    
+    <meta property="og:url" content="https://takuti.me/note/acroquest-javabook/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

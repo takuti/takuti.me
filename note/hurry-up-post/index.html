@@ -4,7 +4,19 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="を作った。
+記事１つ書いただけなのにもうこんな時間！という経験ありませんか？あ、ない・・・そうですか。
+まぁ僕はいつもそんな感じなので構わず話を続けます。
+WordPressのプラグイン作成が気になったので、お試しついでにそんな問題を解決する（かもしれない）超簡単なプラグインを作りました。Hurry Up Postというセンスの欠片も感じないネーミングです。
+HUGOMORE42  新規投稿画面を開くとタイトル入力フィールドの下にこんなのが出ます。 記事を書き上げたい時間を分単位で指定して、Startボタンをクリックすることでカウントダウンがスタートします。 Stopボタンとか甘えたものはありません。自分の選択には責任を持ちましょう。 カウントダウンが終了すると、クリックイベントで勝手に『公開』ボタンをクリックします。  制限時間が表示されていることで効率的に記事をかけるようになる（かもしれない）。人間は追い込まれると謎の生産性を発揮するものです。
+この記事は30分以内で書き上げたいと思いました。何とかなりそうです。時間を意識することは大切ですね。
+プラグインはとりあえずgithubに上げています。使いたいという稀有な方がいましたら、ダウンロードしてWordPressのインストールディレクトリ内 wp-content/plugins 以下に置いた後、管理画面のインストール済みプラグインから有効化してください。
+takuti/hurry-up-post
+とっても分かりやすかったスライド   WordPressプラグイン作成入門  from Yuji Nojima  
+&nbsp;
+WordPressのプラグインってこんなに簡単な仕組みだったんですねー。みなさんも欲しい機能があるときは、簡単なものなら数十分で作れちゃうので自作してみてはいかがでしょうか。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +24,32 @@
         WordPressの新規投稿を決めた時間内でさっさと書かせるプラグイン | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="WordPressの新規投稿を決めた時間内でさっさと書かせるプラグイン">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2013-12-09">
+    <meta property="og:description" content="を作った。
+記事１つ書いただけなのにもうこんな時間！という経験ありませんか？あ、ない・・・そうですか。
+まぁ僕はいつもそんな感じなので構わず話を続けます。
+WordPressのプラグイン作成が気になったので、お試しついでにそんな問題を解決する（かもしれない）超簡単なプラグインを作りました。Hurry Up Postというセンスの欠片も感じないネーミングです。
+HUGOMORE42  新規投稿画面を開くとタイトル入力フィールドの下にこんなのが出ます。 記事を書き上げたい時間を分単位で指定して、Startボタンをクリックすることでカウントダウンがスタートします。 Stopボタンとか甘えたものはありません。自分の選択には責任を持ちましょう。 カウントダウンが終了すると、クリックイベントで勝手に『公開』ボタンをクリックします。  制限時間が表示されていることで効率的に記事をかけるようになる（かもしれない）。人間は追い込まれると謎の生産性を発揮するものです。
+この記事は30分以内で書き上げたいと思いました。何とかなりそうです。時間を意識することは大切ですね。
+プラグインはとりあえずgithubに上げています。使いたいという稀有な方がいましたら、ダウンロードしてWordPressのインストールディレクトリ内 wp-content/plugins 以下に置いた後、管理画面のインストール済みプラグインから有効化してください。
+takuti/hurry-up-post
+とっても分かりやすかったスライド   WordPressプラグイン作成入門  from Yuji Nojima  
+&nbsp;
+WordPressのプラグインってこんなに簡単な仕組みだったんですねー。みなさんも欲しい機能があるときは、簡単なものなら数十分で作れちゃうので自作してみてはいかがでしょうか。">
+    
+    <meta property="og:url" content="https://takuti.me/note/hurry-up-post/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    <meta property="og:tags" content="Development">
+    
+    <meta property="og:tags" content="WordPress">
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -49,7 +87,11 @@
 <p>まぁ僕はいつもそんな感じなので構わず話を続けます。</p>
 <p>WordPressのプラグイン作成が気になったので、お試しついでにそんな問題を解決する（かもしれない）超簡単なプラグインを作りました。<strong>Hurry Up Post</strong>というセンスの欠片も感じないネーミングです。</p>
 <p><img src="https://takuti.me/images/wp/Screen-Shot-2013-12-09-at-2.14.39-PM-e1386566110949.png" alt="Screen Shot 2013-12-09 at 2.14.39 PM" width="500" height="154" class="alignnone size-full wp-image-385" /><br />
-HUGOMORE42</p>
+
+
+HUGOMORE42
+
+</p>
 <ol>
 <li>新規投稿画面を開くとタイトル入力フィールドの下にこんなのが出ます。</li>
 <li>記事を書き上げたい時間を分単位で指定して、Startボタンをクリックすることでカウントダウンがスタートします。</li>

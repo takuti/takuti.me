@@ -4,7 +4,17 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="@amaya382くんが Hivemall on Docker についていろいろと整備してくれた。
+Hive環境が必要で敷居が高かった
+(当社比) Hivemallですが, 数コマンド叩くだけでdocker上で試せるようになりました！試す際に意外と厄介なサンプルデータの準備を全てやってくれるスクリプトもおまけで付いてます (※あくまで評価・開発用です) https://t.co/fiztEpicma
+&mdash; amaya (@amaya382) April 25, 2017
+ 一方、個人的には Hivemall on Mac について以前記事を書いた：『MacのローカルにHivemallを導入してアイテム推薦をするまで』
+だいたいHomebrewで完結するのでMacローカルだけを考えればこれでも問題ないけど、煩雑なインストール・設定無しでDockerコンテナで話が進むに越したことはない。というわけで先の記事のフォローアップとして Hivemall on Docker をMacのローカルで試してみる。環境は次の通り：
+ macOS Sierra 10.12.3 Docker for Mac Stable channel (version 17.03.1-ce-mac5)  $ docker -v Docker version 17.03.1-ce, build c6d412e $ docker-compose -v docker-compose version 1.11.2, build dfed245 $ docker-machine -v docker-machine version 0.10.0, build 76ed2a6 コンテナ起動まで 基本的にはドキュメントに従う。
+まずリポジトリを取ってきて、
+$cd /path/to/incubator-hivemall ビルドは docker-compose なら：" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +22,26 @@
         Hivemall on Dockerを試すぜ | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="Hivemall on Dockerを試すぜ">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-05-07">
+    <meta property="og:description" content="@amaya382くんが Hivemall on Docker についていろいろと整備してくれた。
+Hive環境が必要で敷居が高かった
+(当社比) Hivemallですが, 数コマンド叩くだけでdocker上で試せるようになりました！試す際に意外と厄介なサンプルデータの準備を全てやってくれるスクリプトもおまけで付いてます (※あくまで評価・開発用です) https://t.co/fiztEpicma
+&mdash; amaya (@amaya382) April 25, 2017
+ 一方、個人的には Hivemall on Mac について以前記事を書いた：『MacのローカルにHivemallを導入してアイテム推薦をするまで』
+だいたいHomebrewで完結するのでMacローカルだけを考えればこれでも問題ないけど、煩雑なインストール・設定無しでDockerコンテナで話が進むに越したことはない。というわけで先の記事のフォローアップとして Hivemall on Docker をMacのローカルで試してみる。環境は次の通り：
+ macOS Sierra 10.12.3 Docker for Mac Stable channel (version 17.03.1-ce-mac5)  $ docker -v Docker version 17.03.1-ce, build c6d412e $ docker-compose -v docker-compose version 1.11.2, build dfed245 $ docker-machine -v docker-machine version 0.10.0, build 76ed2a6 コンテナ起動まで 基本的にはドキュメントに従う。
+まずリポジトリを取ってきて、
+$cd /path/to/incubator-hivemall ビルドは docker-compose なら：">
+    
+    <meta property="og:url" content="https://takuti.me/note/hivemall-on-docker/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

@@ -4,7 +4,18 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="Yahoo!がOSSとして開発している異常検知フレームワーク &quot;EGADS&quot; (Extensible Generic Anomaly Detection System) について書いた次の論文を読んだ：
+ Generic and Scalable Framework for Automated Time-series Anomaly Detection (KDD 2015)  リアルタイムなデータをモデリングする種のアルゴリズムの実装とはどうあるべきなのか、という話は難しい。
+僕も異常検知や情報推薦のためのアルゴリズムをパッケージ化してみてはいるものの、
+ 時系列データの入力、モデリング、予測、出力といったコンポーネントをいかに切り分けて実装するか バッチとオンラインアルゴリズムのバランスをいかに取るか どこまで自動化して、どこにヒューリスティクスを取り入れる余地を残すか  といった点は本当に悩ましい。その点、この論文は1つの事例としてとても示唆的で、学びの多いものだった。
+概要 大規模な時系列データから自動的に異常を検知してくれる、汎用的かつスケーラブルなフレームワーク &quot;EGADS&quot; を開発した。これはYahoo!社内のモニタリングシステムの一部として実用されていて、複数データソースから流れ込む数百万の時系列データをさばいている。
+昨今の異常検知システムは特定のユースケースに最適化されたものであることが多く、素直に応用すると必ず大量のFalse Positiveとスケーラビリティの問題に直面する。
+その点EGADSはHadoopやStormを組み合わせた実践的、スケーラブルかつリアルタイムな異常検知システムであり、複数のアルゴリズム実装と機械学習による“異常”のフィルタリング機構によって幅広い応用が可能。
+アーキテクチャ EGADSは大きく分けて3つのコンポーネントから成る：
+ Time-series modeling module (TMM) 時系列データをモデリングする   Anomaly detection module (ADM) モデルに基づいて異常な入力データを検知する   Alerting module (AM) 検知された異常なデータをフィルタリングして、“ユーザが着目している異常”についてのみアラートを発する    （原論文Fig. 1より）
+ バッチ 観測した時系列データをHadoopクラスタ上で保持 TMMが蓄積された観測データをバッチでモデリング モデルはModel DBに格納   オンライン Stormでリアルタイムにデータを見る Model DBのモデルを使って観測したデータが異常か否かを検知するモジュール (ADM) をかませる 異常と判断されたデータはAMで更にフィルタリング、“ユーザが着目している異常”ならばアラート    このバッチとオンライン処理の切り分けから、『モデリングに関する計算は可能な限り事前に済ませておく』というスループット/スケーラビリティ向上に対する強い意思がうかがえる。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +23,27 @@
         Yahoo!の異常検知フレームワーク&#34;EGADS&#34; | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="Yahoo!の異常検知フレームワーク&#34;EGADS&#34;">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-09-10">
+    <meta property="og:description" content="Yahoo!がOSSとして開発している異常検知フレームワーク &quot;EGADS&quot; (Extensible Generic Anomaly Detection System) について書いた次の論文を読んだ：
+ Generic and Scalable Framework for Automated Time-series Anomaly Detection (KDD 2015)  リアルタイムなデータをモデリングする種のアルゴリズムの実装とはどうあるべきなのか、という話は難しい。
+僕も異常検知や情報推薦のためのアルゴリズムをパッケージ化してみてはいるものの、
+ 時系列データの入力、モデリング、予測、出力といったコンポーネントをいかに切り分けて実装するか バッチとオンラインアルゴリズムのバランスをいかに取るか どこまで自動化して、どこにヒューリスティクスを取り入れる余地を残すか  といった点は本当に悩ましい。その点、この論文は1つの事例としてとても示唆的で、学びの多いものだった。
+概要 大規模な時系列データから自動的に異常を検知してくれる、汎用的かつスケーラブルなフレームワーク &quot;EGADS&quot; を開発した。これはYahoo!社内のモニタリングシステムの一部として実用されていて、複数データソースから流れ込む数百万の時系列データをさばいている。
+昨今の異常検知システムは特定のユースケースに最適化されたものであることが多く、素直に応用すると必ず大量のFalse Positiveとスケーラビリティの問題に直面する。
+その点EGADSはHadoopやStormを組み合わせた実践的、スケーラブルかつリアルタイムな異常検知システムであり、複数のアルゴリズム実装と機械学習による“異常”のフィルタリング機構によって幅広い応用が可能。
+アーキテクチャ EGADSは大きく分けて3つのコンポーネントから成る：
+ Time-series modeling module (TMM) 時系列データをモデリングする   Anomaly detection module (ADM) モデルに基づいて異常な入力データを検知する   Alerting module (AM) 検知された異常なデータをフィルタリングして、“ユーザが着目している異常”についてのみアラートを発する    （原論文Fig. 1より）
+ バッチ 観測した時系列データをHadoopクラスタ上で保持 TMMが蓄積された観測データをバッチでモデリング モデルはModel DBに格納   オンライン Stormでリアルタイムにデータを見る Model DBのモデルを使って観測したデータが異常か否かを検知するモジュール (ADM) をかませる 異常と判断されたデータはAMで更にフィルタリング、“ユーザが着目している異常”ならばアラート    このバッチとオンライン処理の切り分けから、『モデリングに関する計算は可能な限り事前に済ませておく』というスループット/スケーラビリティ向上に対する強い意思がうかがえる。">
+    
+    <meta property="og:url" content="https://takuti.me/note/yahoo-egads/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

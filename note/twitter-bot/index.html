@@ -4,7 +4,24 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="ひとまず動けばいいや程度に作りました。 @yootakuti がそれですよろしくおねがいします。
+Twitter公式から自分の過去ツイート5万弱をダウンロードして、そのCSVからしゅうまい君で有名になったマルコフ連鎖（らしきこと）で文章を作ります。それを30分おきに行なって、しゃべります。
+久しぶりに出るとすごくいいぜ…しゅｗｗｗｗｗｗｗｗｗｗｗｗｗ
+&mdash; ヨーグルト (@yootakuti) July 19, 2013  我ながらおもしろい。
+HUGOMORE42 マルコフ連鎖 is 何 なんだかついったーbot界（？）では「マルコフ連鎖」というワードばかりが一人歩きしている印象を受けますが、そもそもマルコフ連鎖ってどんなものなんでしょうか。Wikipedia先生に聞いてみましょう。
+ マルコフ連鎖は、未来の挙動が現在の値だけで決定され、過去の挙動と無関係である（マルコフ性）。各時刻において起こる状態変化（遷移または推移）に関して、マルコフ連鎖は遷移確率が過去の状態によらず、現在の状態のみによる系列である。  ふむふむ。
+そして一般に「マルコフ連鎖でついったーbot」と言われた時にみんながやっているのは（たぶん）下のようなこと。
+まずはツイートひとつひとつを分かち書きする。
+私はヨーグルトが好きです。
+を分かち書きすると
+私　は　ヨーグルト　が　好き　です　。
+になる。
+ここから1つずらしながら、3つずつの要素からなる塊を以下のようにたくさんつくる。
+ （はじまり）　私　は 私　は　ヨーグルト は　ヨーグルト　が ヨーグルト　が　好き が　好き　です 好き　です　。 です　。　（おわり）  これを対象となるすべてのツイートに対して作ってあげる。
+上の「私はヨーグルトが好きです。」の他にもう1つ、「ヨーグルトが嫌いだ」というフレーズに対しても同様に作れば、
+ （はじまり）　ヨーグルト　が ヨーグルト　が　嫌い が　嫌い　だ 嫌い　だ　（おわり）  となる。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +29,37 @@
         マルコフ連鎖でTwitter Botをつくりました | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="マルコフ連鎖でTwitter Botをつくりました">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2013-07-28">
+    <meta property="og:description" content="ひとまず動けばいいや程度に作りました。 @yootakuti がそれですよろしくおねがいします。
+Twitter公式から自分の過去ツイート5万弱をダウンロードして、そのCSVからしゅうまい君で有名になったマルコフ連鎖（らしきこと）で文章を作ります。それを30分おきに行なって、しゃべります。
+久しぶりに出るとすごくいいぜ…しゅｗｗｗｗｗｗｗｗｗｗｗｗｗ
+&mdash; ヨーグルト (@yootakuti) July 19, 2013  我ながらおもしろい。
+HUGOMORE42 マルコフ連鎖 is 何 なんだかついったーbot界（？）では「マルコフ連鎖」というワードばかりが一人歩きしている印象を受けますが、そもそもマルコフ連鎖ってどんなものなんでしょうか。Wikipedia先生に聞いてみましょう。
+ マルコフ連鎖は、未来の挙動が現在の値だけで決定され、過去の挙動と無関係である（マルコフ性）。各時刻において起こる状態変化（遷移または推移）に関して、マルコフ連鎖は遷移確率が過去の状態によらず、現在の状態のみによる系列である。  ふむふむ。
+そして一般に「マルコフ連鎖でついったーbot」と言われた時にみんながやっているのは（たぶん）下のようなこと。
+まずはツイートひとつひとつを分かち書きする。
+私はヨーグルトが好きです。
+を分かち書きすると
+私　は　ヨーグルト　が　好き　です　。
+になる。
+ここから1つずらしながら、3つずつの要素からなる塊を以下のようにたくさんつくる。
+ （はじまり）　私　は 私　は　ヨーグルト は　ヨーグルト　が ヨーグルト　が　好き が　好き　です 好き　です　。 です　。　（おわり）  これを対象となるすべてのツイートに対して作ってあげる。
+上の「私はヨーグルトが好きです。」の他にもう1つ、「ヨーグルトが嫌いだ」というフレーズに対しても同様に作れば、
+ （はじまり）　ヨーグルト　が ヨーグルト　が　嫌い が　嫌い　だ 嫌い　だ　（おわり）  となる。">
+    
+    <meta property="og:url" content="https://takuti.me/note/twitter-bot/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    <meta property="og:tags" content="Development">
+    
+    <meta property="og:tags" content="Natural Language Processing">
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -50,7 +98,11 @@
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </p>
 <p>我ながらおもしろい。<br />
-HUGOMORE42</p>
+
+
+HUGOMORE42
+
+</p>
 <h3>マルコフ連鎖 is 何</h3>
 <p>なんだかついったーbot界（？）では「マルコフ連鎖」というワードばかりが一人歩きしている印象を受けますが、そもそもマルコフ連鎖ってどんなものなんでしょうか。<a href="http://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%AB%E3%82%B3%E3%83%95%E9%80%A3%E9%8E%96">Wikipedia先生に聞いてみましょう。</a></p>
 <blockquote><p>

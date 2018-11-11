@@ -4,7 +4,18 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="LibRec というJava製の推薦システム用ライブラリがある。
+Treasure DataインターンのときやPython, Juliaで推薦アルゴリズムの実装をライブラリ化したとき (FluRS, Recommendation.jl) にはこの実装を大いに参考にした。
+しかし思い返すとこのライブラリ自体を実際に動かしたことがなかったので、documentationに従ってサンプルコードを読みつつ動かしてみる。
+雰囲気 CLIもあるらしいけど、今回は普通にJavaでコードを書くタイプの例を試す。
+Mavenプロジェクトなら dependency に net.librec を入れればすぐに使える:
+&lt;dependency&gt; &lt;groupId&gt;net.librec&lt;/groupId&gt; &lt;artifactId&gt;librec-core&lt;/artifactId&gt; &lt;version&gt;2.0.0&lt;/version&gt; &lt;/dependency&gt; 1. Build data model コードはデータモデルを生成するところから始まる:
+// build data model Configuration conf = new Configuration(); conf.set(&#34;dfs.data.dir&#34;, &#34;/Users/takuti/src/github.com/guoguibing/librec/data&#34;); TextDataModel dataModel = new TextDataModel(conf); dataModel.buildDataModel();  読み込むデータは user-id item-id rating（スペース区切り）からなるテキストファイルとWekaのARFFをサポートしている。
+ファイルのパスやアルゴリズムのハイパーパラメータ（e.g., kNNの近傍数）はすべて Configuration 経由で設定する。その実体は librec.properties で、この形式で記述した独自の設定をガッとまとめて読み込むことも可能:
+Resourceresource = new Resource(&#34;rec/cf/itemknn-test.properties&#34;); conf.addResource(resource);  dataModel.buildDataModel() では指定されたパス内のファイルをすべて読んで、train/testデータへの分割までやってくれる。このあたりの挙動もすべて librec.properties に従っている。
+2. Build recommender context さっき定義した Configuration と dataModel を使って、これから行うタスクのためのコンテキストを生成する:" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +23,27 @@
         Java製の推薦システム用ライブラリ LibRec を動かしてみる | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="Java製の推薦システム用ライブラリ LibRec を動かしてみる">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-04-23">
+    <meta property="og:description" content="LibRec というJava製の推薦システム用ライブラリがある。
+Treasure DataインターンのときやPython, Juliaで推薦アルゴリズムの実装をライブラリ化したとき (FluRS, Recommendation.jl) にはこの実装を大いに参考にした。
+しかし思い返すとこのライブラリ自体を実際に動かしたことがなかったので、documentationに従ってサンプルコードを読みつつ動かしてみる。
+雰囲気 CLIもあるらしいけど、今回は普通にJavaでコードを書くタイプの例を試す。
+Mavenプロジェクトなら dependency に net.librec を入れればすぐに使える:
+&lt;dependency&gt; &lt;groupId&gt;net.librec&lt;/groupId&gt; &lt;artifactId&gt;librec-core&lt;/artifactId&gt; &lt;version&gt;2.0.0&lt;/version&gt; &lt;/dependency&gt; 1. Build data model コードはデータモデルを生成するところから始まる:
+// build data model Configuration conf = new Configuration(); conf.set(&#34;dfs.data.dir&#34;, &#34;/Users/takuti/src/github.com/guoguibing/librec/data&#34;); TextDataModel dataModel = new TextDataModel(conf); dataModel.buildDataModel();  読み込むデータは user-id item-id rating（スペース区切り）からなるテキストファイルとWekaのARFFをサポートしている。
+ファイルのパスやアルゴリズムのハイパーパラメータ（e.g., kNNの近傍数）はすべて Configuration 経由で設定する。その実体は librec.properties で、この形式で記述した独自の設定をガッとまとめて読み込むことも可能:
+Resourceresource = new Resource(&#34;rec/cf/itemknn-test.properties&#34;); conf.addResource(resource);  dataModel.buildDataModel() では指定されたパス内のファイルをすべて読んで、train/testデータへの分割までやってくれる。このあたりの挙動もすべて librec.properties に従っている。
+2. Build recommender context さっき定義した Configuration と dataModel を使って、これから行うタスクのためのコンテキストを生成する:">
+    
+    <meta property="og:url" content="https://takuti.me/note/hello-librec/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

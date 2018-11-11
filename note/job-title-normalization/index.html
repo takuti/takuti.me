@@ -4,7 +4,14 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="LinkedIn など、Job Title（職場での肩書き）をユーザに入力させるサービスは世の中にたくさんある。機械学習、データマイニングの文脈で、このデータをいかに扱うかという話。
+問題 手入力の雑多なJob Titleデータがある：
+   user id title     1 VP of Marketing   2 Eng. Mng.   3 Marketing Manager   4 Software Engineer and Entrepreneur   5 Founder and CTO   6 Chief Technology Officer   ... ...    このデータを各ユーザの demographics を表す特徴量（カテゴリ変数）として使いたい。
+大まかな流れは、
+ 前処理 クラスタリング（i.e., 次元削減 未知のJob Titleが属するクラスタの予測  こんな雰囲気。
+前処理 Job Titleはユーザが好き勝手に入力したデータなので、表記揺れが激しく前処理が必須。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +19,23 @@
         Job Titleの前処理＆クラスタリングをどうやって実現するか問題 | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="Job Titleの前処理＆クラスタリングをどうやって実現するか問題">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-07-09">
+    <meta property="og:description" content="LinkedIn など、Job Title（職場での肩書き）をユーザに入力させるサービスは世の中にたくさんある。機械学習、データマイニングの文脈で、このデータをいかに扱うかという話。
+問題 手入力の雑多なJob Titleデータがある：
+   user id title     1 VP of Marketing   2 Eng. Mng.   3 Marketing Manager   4 Software Engineer and Entrepreneur   5 Founder and CTO   6 Chief Technology Officer   ... ...    このデータを各ユーザの demographics を表す特徴量（カテゴリ変数）として使いたい。
+大まかな流れは、
+ 前処理 クラスタリング（i.e., 次元削減 未知のJob Titleが属するクラスタの予測  こんな雰囲気。
+前処理 Job Titleはユーザが好き勝手に入力したデータなので、表記揺れが激しく前処理が必須。">
+    
+    <meta property="og:url" content="https://takuti.me/note/job-title-normalization/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

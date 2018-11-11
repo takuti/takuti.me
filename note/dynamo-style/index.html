@@ -4,7 +4,19 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="先日、DynamoDB設計の背景にあった可用性とスケーラビリティの両立に対するAmazonのアツい想いについて書いた：
+ AmazonのDynamoDB論文を眺めた  背景だけだと寂しいので、ここではもう少し詳しく、DynamoDBの実装を支える Replication と Partitioning の基本、そして Consistent Hashing について、&quot;Designing Data-Intensive Applications&quot; (DDIA) の解説も踏まえてまとめておく。
+Replication DynamoDB（分散DB）が考えるべき問題の1つに、データのコピーをネットワーク上の複数のマシン（ノード）で保持する Replication（レプリケーション）がある。
+データのレプリカを作成する目的はいくつかあって、DDIAのまとめを引用すると：
+ High availability あるマシンが死んでもシステムを動かし続ける   Disconnected operation 1つのマシンのネットワークが途絶えてもアプリケーションは動き続ける   Latency データをレプリカという形で地理的により近いところにおけば、ユーザはそのデータにより早くアクセスできる   Scalability 複数のレプリカに対してreadを実行することで、一台のときよりも多くのreadがさばける    などが挙げられる。
+そして、レプリケーションを実現する際の難しさは『いかにレプリカの変更を扱うか（同期するか）』という一点に集約されていると言っても過言ではない。
+複数のノードがあったとき、データの書き込みリクエストを特定のノード（リーダ; master）に集約して、リーダからその他のノードたち（フォロワー；slave）へ変更を通知する―これが Leader-based replication と呼ばれる考え方だ。
+対して、DynamoDBは特別な役割を担うノードを持たず、書き込み先やその順序について何ら制約を与えない Leaderless replication という方針をとった。DDIAによると、Leaderless replication は一度は廃れた手法だったものの、DynamoDBが採用したことで再び脚光を浴びたという。今ではRiak, Cassandra, Voldemortなど、多数のDynamoチルドレンが存在する。
+Quorum reads and writes 『データの変更をレプリカ間で適切に同期する』ということがどれだけ難しいかは、Leaderless replication では複数レプリカに対して並列にread/writeリクエストが投げられることを考えれば明らかだろう。たとえば、ある一台のレプリカへの読み込み/書き込みが失敗した場合はどうすればいいのか。そもそも、システムは何をもって「今読んだデータが確かに最新のものだ」と判断するのか。
+この点についてDynamoDB論文では、一般に &quot;Quorum reads and writes&quot; と呼ばれる考え方の下でシステムの動作保証を議論している1。
+いま、レプリカが n 台あって、read時には並列に r 台のノードに問い合わせを行い、write時は最低 w 台のノードに対して書き込みが完了して初めて『成功』とみなされるシステムを考える。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +24,28 @@
         &#34;Dynamo-style&#34; に学ぶ Replication, Partitioning, Consistent Hashing の気持ち | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="&#34;Dynamo-style&#34; に学ぶ Replication, Partitioning, Consistent Hashing の気持ち">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-12-22">
+    <meta property="og:description" content="先日、DynamoDB設計の背景にあった可用性とスケーラビリティの両立に対するAmazonのアツい想いについて書いた：
+ AmazonのDynamoDB論文を眺めた  背景だけだと寂しいので、ここではもう少し詳しく、DynamoDBの実装を支える Replication と Partitioning の基本、そして Consistent Hashing について、&quot;Designing Data-Intensive Applications&quot; (DDIA) の解説も踏まえてまとめておく。
+Replication DynamoDB（分散DB）が考えるべき問題の1つに、データのコピーをネットワーク上の複数のマシン（ノード）で保持する Replication（レプリケーション）がある。
+データのレプリカを作成する目的はいくつかあって、DDIAのまとめを引用すると：
+ High availability あるマシンが死んでもシステムを動かし続ける   Disconnected operation 1つのマシンのネットワークが途絶えてもアプリケーションは動き続ける   Latency データをレプリカという形で地理的により近いところにおけば、ユーザはそのデータにより早くアクセスできる   Scalability 複数のレプリカに対してreadを実行することで、一台のときよりも多くのreadがさばける    などが挙げられる。
+そして、レプリケーションを実現する際の難しさは『いかにレプリカの変更を扱うか（同期するか）』という一点に集約されていると言っても過言ではない。
+複数のノードがあったとき、データの書き込みリクエストを特定のノード（リーダ; master）に集約して、リーダからその他のノードたち（フォロワー；slave）へ変更を通知する―これが Leader-based replication と呼ばれる考え方だ。
+対して、DynamoDBは特別な役割を担うノードを持たず、書き込み先やその順序について何ら制約を与えない Leaderless replication という方針をとった。DDIAによると、Leaderless replication は一度は廃れた手法だったものの、DynamoDBが採用したことで再び脚光を浴びたという。今ではRiak, Cassandra, Voldemortなど、多数のDynamoチルドレンが存在する。
+Quorum reads and writes 『データの変更をレプリカ間で適切に同期する』ということがどれだけ難しいかは、Leaderless replication では複数レプリカに対して並列にread/writeリクエストが投げられることを考えれば明らかだろう。たとえば、ある一台のレプリカへの読み込み/書き込みが失敗した場合はどうすればいいのか。そもそも、システムは何をもって「今読んだデータが確かに最新のものだ」と判断するのか。
+この点についてDynamoDB論文では、一般に &quot;Quorum reads and writes&quot; と呼ばれる考え方の下でシステムの動作保証を議論している1。
+いま、レプリカが n 台あって、read時には並列に r 台のノードに問い合わせを行い、write時は最低 w 台のノードに対して書き込みが完了して初めて『成功』とみなされるシステムを考える。">
+    
+    <meta property="og:url" content="https://takuti.me/note/dynamo-style/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

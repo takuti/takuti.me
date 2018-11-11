@@ -4,7 +4,19 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="IEEE Internet Computingの2017年5・6月号に &quot;Two Decades of Recommender Systems at Amazon.com&quot; という記事が掲載された。
+2003年に同誌に掲載されたレポート &quot;Amazon.com Recommendations: Item-to-Item Collaborative Filtering&quot; が Test of Time、つまり『時代が証明したで賞』を受賞したことをうけての特別記事らしい 1。
+「この商品を買った人はこんな商品も買っています」という推薦で有名なAmazonが1998年にその土台となるアルゴリズムの特許を出願してから20年、彼らが
+ 推薦アルゴリズムをどのような視点で改良してきたのか 今、どのような未来を想像するのか  その一端を知ることができる記事だった。
+アイテムベース協調フィルタリング 20年前も現在も、Amazonの推薦を支えているアルゴリズムは アイテムベースの協調フィルタリング だ。
+協調フィルタリング (Collaborative Filtering; CF) とは、
+ 履歴に基づいてユーザ/アイテム間の類似度を計算して、 「あなたと似ている人が買ったアイテム」や「今閲覧しているアイテムと似ているアイテム」を推薦する  という手法で 2、たとえばレーティングを元にユーザ間・アイテム間の類似度を計算するなら次のようなイメージになる：
+特に、実サービスの上では、
+ ユーザ 総数が物凄いスピードで 増え続ける 一人ひとりの嗜好は 日々変動する   アイテム ユーザ数に比べるとはるかに 少ない 「一緒に買われる傾向」のようなものはある程度 普遍的なもの    といった特徴から、アイテム間の類似度を利用した協調フィルタリング、すなわち「今閲覧しているアイテムと似ているアイテム」の推薦が精度、スケーラビリティ、計算効率などの面で好まれる。これが アイテムベースの 協調フィルタリング。
+今回『時代が証明したで賞』を受賞した記事は、まさにAmazonがこのアイテムベース協調フィルタリングについて書いたものである 3。
+一企業が実サービス上での推薦アルゴリズムについて公表したこの記事のインパクトは計り知れず、今や多くの有名サービスが類似アルゴリズムを実装している。そして、Microsoft ResearchいわくAmazonのページビューの3割は推薦によるものであり[1]、Netflixがストリーミングしている動画の再生時間の8割もまた推薦によってもたらされている[2] 4 らしい。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +24,28 @@
         Amazonの推薦システムの20年 | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="Amazonの推薦システムの20年">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-06-10">
+    <meta property="og:description" content="IEEE Internet Computingの2017年5・6月号に &quot;Two Decades of Recommender Systems at Amazon.com&quot; という記事が掲載された。
+2003年に同誌に掲載されたレポート &quot;Amazon.com Recommendations: Item-to-Item Collaborative Filtering&quot; が Test of Time、つまり『時代が証明したで賞』を受賞したことをうけての特別記事らしい 1。
+「この商品を買った人はこんな商品も買っています」という推薦で有名なAmazonが1998年にその土台となるアルゴリズムの特許を出願してから20年、彼らが
+ 推薦アルゴリズムをどのような視点で改良してきたのか 今、どのような未来を想像するのか  その一端を知ることができる記事だった。
+アイテムベース協調フィルタリング 20年前も現在も、Amazonの推薦を支えているアルゴリズムは アイテムベースの協調フィルタリング だ。
+協調フィルタリング (Collaborative Filtering; CF) とは、
+ 履歴に基づいてユーザ/アイテム間の類似度を計算して、 「あなたと似ている人が買ったアイテム」や「今閲覧しているアイテムと似ているアイテム」を推薦する  という手法で 2、たとえばレーティングを元にユーザ間・アイテム間の類似度を計算するなら次のようなイメージになる：
+特に、実サービスの上では、
+ ユーザ 総数が物凄いスピードで 増え続ける 一人ひとりの嗜好は 日々変動する   アイテム ユーザ数に比べるとはるかに 少ない 「一緒に買われる傾向」のようなものはある程度 普遍的なもの    といった特徴から、アイテム間の類似度を利用した協調フィルタリング、すなわち「今閲覧しているアイテムと似ているアイテム」の推薦が精度、スケーラビリティ、計算効率などの面で好まれる。これが アイテムベースの 協調フィルタリング。
+今回『時代が証明したで賞』を受賞した記事は、まさにAmazonがこのアイテムベース協調フィルタリングについて書いたものである 3。
+一企業が実サービス上での推薦アルゴリズムについて公表したこの記事のインパクトは計り知れず、今や多くの有名サービスが類似アルゴリズムを実装している。そして、Microsoft ResearchいわくAmazonのページビューの3割は推薦によるものであり[1]、Netflixがストリーミングしている動画の再生時間の8割もまた推薦によってもたらされている[2] 4 らしい。">
+    
+    <meta property="og:url" content="https://takuti.me/note/two-decades-of-amazon-recommender/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

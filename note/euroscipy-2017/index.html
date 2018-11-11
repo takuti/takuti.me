@@ -4,7 +4,24 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="8月30, 31日にドイツのエルランゲンで開催された EuroSciPy 2017 に発表者として参加してきた。カンファレンス参加を積極的にサポートしてくれる弊社に感謝感謝。
+このカンファレンスは &quot;Scientific Computing in Python&quot; に関するあらゆる話題が対象で、numpy, scipy, matplotlib, pandas, Jupyter notebooks あたりが絡んでいればよろしい。SciPy Conference US のヨーロッパ版ということになる。本会議前2日間はチュートリアル、9月1日にはSprintもあったけど、そっちは不参加。
+全体で200名程度の参加があったらしい。思っていたよりもずっと賑やかな会議だったなーという印象がある。参加者のバックグラウンドは教授から学生、企業の研究者、データサイエンティスト、エンジニアまで様々。
+しゃべった 僕が発表した内容は、去年修士研究の片手間で作っていたオンライン型の推薦アルゴリズムのパッケージ FluRS について：
+ 実験をして論文を書くためのexperimentalなライブラリなので、本当の意味で &quot;Streaming&quot; な実装とは言えないのだけど…。
+Proposalで書いたトークの概要はここにある。Real-world machine learning と向き合い始めて半年、ここらで去年までやっていたことにもう一度向き合って整理して、次に繋げるいいきっかけになれば、と思って応募した。
+『行列計算の基本くらいは分かるけど、推薦アルゴリズムは何も知らない』という聴衆を想定して、古典的な推薦アルゴリズムから僕が修士研究で取り組んでいたオンライン型の推薦の話まで、理論と実装の雰囲気を15分で話した。「よかったよ！」とわざわざ声をかけてくれた人たちが何人もいて、短い説明から本質的な問題点を汲み取って鋭い質問を投げかけてくれた人たちがいて、とても優しい世界だった…うれしい…。
+そして何より「行ってよかった」と思えたのは、Amazon US で Senior Applied Scientist をやっている Federico Vaggi 氏やSonyで推薦関連のR&amp;Dをしている某氏をはじめとする、非常に濃い人たちとこの話題について近い距離で議論できた点。こういう時間がこの先1年間くらいの糧になる。
+あと、2日目の最後にあったLT（ひとり2分！）は当日に発表者を募集していたので、勢いで td-client-python や pandas-td を絡めて（無理矢理）Hivemall や Treasure Data のことを話した。が、これは難しかった…参加者の興味も、HadoopやSparkとはかけ離れたところにある印象だった。
+エルランゲンという街 もうね、すごい。自然。森。会場だって森の中：
+airbnbから会場まで40分くらい、こんな道をずーっと歩いていると、なんかもう地元で散歩している気分になる：
+カンファレンスのソーシャルイベントでは、洞窟でビールをつくっている昔ながらのブルワリーが密集した高台のエリア（語彙力）で飲んで飲んでガイドツアーに参加して飲んで、という感じの素晴らしい時間を過ごした。水のようにビールを飲んで、でもどれ1つとして同じ味のビールは無くて、最高だったなァ：
+お世辞にももう一度来たいと思うような街ではなかったけど、よい2日間でした。
+前回のノルウェーからヨーロッパのカンファレンスが2回続いてしまったので、次はもう少し違う方角へ飛べたらいいですね。
+以下ほかの発表について、メモと感想をつらつらと。
+Keynote Keynote 1: How to fix a scientific culture  『報告されている心理学実験の結果の多くは、再現実験で有意だと示せないものばかりだ』という、論文 &quot;Estimating the reproducibility of psychological science&quot; に書いてあるような話題 みんな &quot;noise mining&quot;, &quot;p-hack&quot; をして、自分の喜ばしい、有意だと言えそうな結果を探しているだけだという悲しい現実 この世界をどうやって変えていくか？そもそも、データを扱うワークフロー上のすべてのステップ（仮説、実験、検証、…）で、我々は意識的・無意識的に“バイアス”をかけてしまっている アプローチ1: Pre-registration 実験の各ステップで、これまでやってきたことを peer-review する アイディアを元に実験を設計したらレビューを受ける、データを集めたらまたレビューを受ける…これを繰り返して、最後のレビューまでクリアしたら成果を公開してよい   アプローチ2: Open Science Open science framework というプラットフォームもある データや手法、解析用スクリプトなど、様々な情報を公開してフェアな世界をつくろう    Pythonに直接関係のある話では無かったけど、同じ『データの上で仕事をする人間』として耳が痛い内容だった。僕らがいかにたやすく誤った結論を導いてしまうか、それを肝に銘じておかなければならない。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +29,33 @@
         EuroSciPy 2017に参加してしゃべってきた | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="EuroSciPy 2017に参加してしゃべってきた">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-09-02">
+    <meta property="og:description" content="8月30, 31日にドイツのエルランゲンで開催された EuroSciPy 2017 に発表者として参加してきた。カンファレンス参加を積極的にサポートしてくれる弊社に感謝感謝。
+このカンファレンスは &quot;Scientific Computing in Python&quot; に関するあらゆる話題が対象で、numpy, scipy, matplotlib, pandas, Jupyter notebooks あたりが絡んでいればよろしい。SciPy Conference US のヨーロッパ版ということになる。本会議前2日間はチュートリアル、9月1日にはSprintもあったけど、そっちは不参加。
+全体で200名程度の参加があったらしい。思っていたよりもずっと賑やかな会議だったなーという印象がある。参加者のバックグラウンドは教授から学生、企業の研究者、データサイエンティスト、エンジニアまで様々。
+しゃべった 僕が発表した内容は、去年修士研究の片手間で作っていたオンライン型の推薦アルゴリズムのパッケージ FluRS について：
+ 実験をして論文を書くためのexperimentalなライブラリなので、本当の意味で &quot;Streaming&quot; な実装とは言えないのだけど…。
+Proposalで書いたトークの概要はここにある。Real-world machine learning と向き合い始めて半年、ここらで去年までやっていたことにもう一度向き合って整理して、次に繋げるいいきっかけになれば、と思って応募した。
+『行列計算の基本くらいは分かるけど、推薦アルゴリズムは何も知らない』という聴衆を想定して、古典的な推薦アルゴリズムから僕が修士研究で取り組んでいたオンライン型の推薦の話まで、理論と実装の雰囲気を15分で話した。「よかったよ！」とわざわざ声をかけてくれた人たちが何人もいて、短い説明から本質的な問題点を汲み取って鋭い質問を投げかけてくれた人たちがいて、とても優しい世界だった…うれしい…。
+そして何より「行ってよかった」と思えたのは、Amazon US で Senior Applied Scientist をやっている Federico Vaggi 氏やSonyで推薦関連のR&amp;Dをしている某氏をはじめとする、非常に濃い人たちとこの話題について近い距離で議論できた点。こういう時間がこの先1年間くらいの糧になる。
+あと、2日目の最後にあったLT（ひとり2分！）は当日に発表者を募集していたので、勢いで td-client-python や pandas-td を絡めて（無理矢理）Hivemall や Treasure Data のことを話した。が、これは難しかった…参加者の興味も、HadoopやSparkとはかけ離れたところにある印象だった。
+エルランゲンという街 もうね、すごい。自然。森。会場だって森の中：
+airbnbから会場まで40分くらい、こんな道をずーっと歩いていると、なんかもう地元で散歩している気分になる：
+カンファレンスのソーシャルイベントでは、洞窟でビールをつくっている昔ながらのブルワリーが密集した高台のエリア（語彙力）で飲んで飲んでガイドツアーに参加して飲んで、という感じの素晴らしい時間を過ごした。水のようにビールを飲んで、でもどれ1つとして同じ味のビールは無くて、最高だったなァ：
+お世辞にももう一度来たいと思うような街ではなかったけど、よい2日間でした。
+前回のノルウェーからヨーロッパのカンファレンスが2回続いてしまったので、次はもう少し違う方角へ飛べたらいいですね。
+以下ほかの発表について、メモと感想をつらつらと。
+Keynote Keynote 1: How to fix a scientific culture  『報告されている心理学実験の結果の多くは、再現実験で有意だと示せないものばかりだ』という、論文 &quot;Estimating the reproducibility of psychological science&quot; に書いてあるような話題 みんな &quot;noise mining&quot;, &quot;p-hack&quot; をして、自分の喜ばしい、有意だと言えそうな結果を探しているだけだという悲しい現実 この世界をどうやって変えていくか？そもそも、データを扱うワークフロー上のすべてのステップ（仮説、実験、検証、…）で、我々は意識的・無意識的に“バイアス”をかけてしまっている アプローチ1: Pre-registration 実験の各ステップで、これまでやってきたことを peer-review する アイディアを元に実験を設計したらレビューを受ける、データを集めたらまたレビューを受ける…これを繰り返して、最後のレビューまでクリアしたら成果を公開してよい   アプローチ2: Open Science Open science framework というプラットフォームもある データや手法、解析用スクリプトなど、様々な情報を公開してフェアな世界をつくろう    Pythonに直接関係のある話では無かったけど、同じ『データの上で仕事をする人間』として耳が痛い内容だった。僕らがいかにたやすく誤った結論を導いてしまうか、それを肝に銘じておかなければならない。">
+    
+    <meta property="og:url" content="https://takuti.me/note/euroscipy-2017/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

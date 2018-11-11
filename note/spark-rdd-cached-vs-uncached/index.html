@@ -4,7 +4,11 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="Resilient Distributed Dataset (RDD) is a distributed parallel data model in Spark. The model enables us to think of our distributed data like a single collection. In this article, I introduce some basics and show experimental result which clearly demonstrates the strength of RDD.
+First and foremost, there are two different types of operations for RDD: transformation and action.
+Type I: Transformation Transformation corresponds to Scala transformers such as map() and filter(); we can apply both map() and filter() operations for RDDs in a similar way to the standard Scala collections." />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +16,20 @@
         Comparison of Running Time of Cached/Uncached Spark RDD | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="Comparison of Running Time of Cached/Uncached Spark RDD">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-04-16">
+    <meta property="og:description" content="Resilient Distributed Dataset (RDD) is a distributed parallel data model in Spark. The model enables us to think of our distributed data like a single collection. In this article, I introduce some basics and show experimental result which clearly demonstrates the strength of RDD.
+First and foremost, there are two different types of operations for RDD: transformation and action.
+Type I: Transformation Transformation corresponds to Scala transformers such as map() and filter(); we can apply both map() and filter() operations for RDDs in a similar way to the standard Scala collections.">
+    
+    <meta property="og:url" content="https://takuti.me/note/spark-rdd-cached-vs-uncached/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

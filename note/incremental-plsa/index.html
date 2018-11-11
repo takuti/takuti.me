@@ -4,7 +4,12 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="トピックモデリングの一手法として有名な Probabilistic Latent Semantic Analysis (PLSA) を incremental（逐次更新可能, オンライン型）アルゴリズムに拡張して、Yahoo!知恵袋のようなQ&amp;Aサイトの質問推薦に応用した論文を読んだ：
+ Hu Wu, et al. Incremental Probabilistic Latent Semantic Analysis for Automatic Question Recommendation. RecSys 2008.  推薦システムのトップ会議 RecSys の2008年の採択論文なのでとても古く、アブストでは &quot;web 2.0&quot; という渋い記述も見られる。しかし、Latent Semantic Indexing (LSI) → PLSA → Latent Dirichlet Allocation (LDA) と発展してきたトピックモデリング業界、PLSAの研究は既に成熟しているので、比較的素直なオンライン拡張としてはこのあたりがstate-of-the-artだというのが個人的な認識。
+（さらに発展的な問題設定には、window sizeの概念を取り入れたonline PLSAや、トピック数の増減まで考えるincremental PLSAがある。）
+概要  PLSAを応用してQ&amp;Aサイト上で質問推薦をしたい 特に、推薦アルゴリズムが incremental なら嬉しいことがいろいろあるので &quot;incremental&quot; PLSA を使いたい 処理効率、新規ユーザへの推薦、ユーザ/アイテムデータの傾向の時間変化への適応など   既存の incremental PLSA と呼ばれる手法は計算量や過去のパラメータへの依存性の面でイマイチだったので、まずは新しいタイプの incremental PLSA を提案して、それを質問推薦アルゴリズムに拡張する 質問推薦アルゴリズムとしては、ユーザの長期的/短期的な関心の双方をモデリングできて、推薦結果に対する positive/negative なフィードバックを効果的に反映できるようなハイパーパラメータを導入したところが新しい 既存の incremental PLSA やバッチ版PLSAよりも良いPerplexityと推薦精度が得られて、かつ効率的  Q&amp;Aサイトにおける質問推薦 Yahoo!" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +17,21 @@
         Q&amp;Aサイトにおける質問推薦、そして Incremental Probabilistic Latent Semantic Analysis | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="Q&amp;Aサイトにおける質問推薦、そして Incremental Probabilistic Latent Semantic Analysis">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-06-04">
+    <meta property="og:description" content="トピックモデリングの一手法として有名な Probabilistic Latent Semantic Analysis (PLSA) を incremental（逐次更新可能, オンライン型）アルゴリズムに拡張して、Yahoo!知恵袋のようなQ&amp;Aサイトの質問推薦に応用した論文を読んだ：
+ Hu Wu, et al. Incremental Probabilistic Latent Semantic Analysis for Automatic Question Recommendation. RecSys 2008.  推薦システムのトップ会議 RecSys の2008年の採択論文なのでとても古く、アブストでは &quot;web 2.0&quot; という渋い記述も見られる。しかし、Latent Semantic Indexing (LSI) → PLSA → Latent Dirichlet Allocation (LDA) と発展してきたトピックモデリング業界、PLSAの研究は既に成熟しているので、比較的素直なオンライン拡張としてはこのあたりがstate-of-the-artだというのが個人的な認識。
+（さらに発展的な問題設定には、window sizeの概念を取り入れたonline PLSAや、トピック数の増減まで考えるincremental PLSAがある。）
+概要  PLSAを応用してQ&amp;Aサイト上で質問推薦をしたい 特に、推薦アルゴリズムが incremental なら嬉しいことがいろいろあるので &quot;incremental&quot; PLSA を使いたい 処理効率、新規ユーザへの推薦、ユーザ/アイテムデータの傾向の時間変化への適応など   既存の incremental PLSA と呼ばれる手法は計算量や過去のパラメータへの依存性の面でイマイチだったので、まずは新しいタイプの incremental PLSA を提案して、それを質問推薦アルゴリズムに拡張する 質問推薦アルゴリズムとしては、ユーザの長期的/短期的な関心の双方をモデリングできて、推薦結果に対する positive/negative なフィードバックを効果的に反映できるようなハイパーパラメータを導入したところが新しい 既存の incremental PLSA やバッチ版PLSAよりも良いPerplexityと推薦精度が得られて、かつ効率的  Q&amp;Aサイトにおける質問推薦 Yahoo!">
+    
+    <meta property="og:url" content="https://takuti.me/note/incremental-plsa/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

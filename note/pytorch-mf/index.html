@@ -4,7 +4,12 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="『PyTorchのautogradと仲良くなりたい』でPyTorchに入門したので、応用例としてMatrix FactorizationをPyTorchで実装してみようね 1。
+Matrix Factorization Matrix Factorizationは以前『Courseraの推薦システムのコースを修了した』でも触れたとおり、ユーザ-アイテム間の $m \times n$ 行列を、ユーザの特徴を表す行列 $P \in \mathbb{R}^{m \times k}$ (user factors) とアイテムの特徴を表す行列 $Q \in \mathbb{R}^{n \times k}$ (item factors) に分解する：
+これを二乗損失のSGDで素直に実装すると、user_factors と item_factors の更新や評価値予測はこんな感じ：
+import numpy as np class MatrixFactorization(object): def __init__(self, n_user, n_item, k=20, lr=1e-6, weight_decay=0.): self.user_factors = np.random.rand(n_user, k) self.item_factors = np.random.rand(n_item, k) self.lr = lr self.weight_decay = weight_decay def predict(self, user, item): return np.inner(self.user_factors[user], self.item_factors[item]) def __call__(self, user, item, rating): err = rating - self." />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +17,21 @@
         PyTorchでもMatrix Factorizationがしたい！ | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="PyTorchでもMatrix Factorizationがしたい！">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-10-14">
+    <meta property="og:description" content="『PyTorchのautogradと仲良くなりたい』でPyTorchに入門したので、応用例としてMatrix FactorizationをPyTorchで実装してみようね 1。
+Matrix Factorization Matrix Factorizationは以前『Courseraの推薦システムのコースを修了した』でも触れたとおり、ユーザ-アイテム間の $m \times n$ 行列を、ユーザの特徴を表す行列 $P \in \mathbb{R}^{m \times k}$ (user factors) とアイテムの特徴を表す行列 $Q \in \mathbb{R}^{n \times k}$ (item factors) に分解する：
+これを二乗損失のSGDで素直に実装すると、user_factors と item_factors の更新や評価値予測はこんな感じ：
+import numpy as np class MatrixFactorization(object): def __init__(self, n_user, n_item, k=20, lr=1e-6, weight_decay=0.): self.user_factors = np.random.rand(n_user, k) self.item_factors = np.random.rand(n_item, k) self.lr = lr self.weight_decay = weight_decay def predict(self, user, item): return np.inner(self.user_factors[user], self.item_factors[item]) def __call__(self, user, item, rating): err = rating - self.">
+    
+    <meta property="og:url" content="https://takuti.me/note/pytorch-mf/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

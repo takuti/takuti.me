@@ -4,7 +4,18 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="追記 (2017/03/10) 現在の内容は過度な簡略化と不完全な説明を含むので、それを踏まえて読んでいただけると幸いです。（後日更新予定）
+台形の積分計算のはずなのでちょっと説明を簡単にしすぎですね。
+parallelでのmerge順序は変えても動くようにできるはずなのでticket切っておきます。
+&mdash; myui (@myui) March 10, 2017
+  ひとつ前の記事で二値分類器の性能評価に用いられる Area Under the ROC Curve (AUC) の実装について書いた: Area Under the ROC Curve (AUC) を実装する
+簡単にまとめると、
+ AUCは『予測器がラベル 1 (True) のテストサンプルに正しく高スコアを与えるか』をみる。 それは予測スコアでサンプルをソートしたときに True Positive が False Positive より上位にランキングされるか、ということ。 実装する際はソート済みサンプル列を逐次的に見ていって、False Positive-True Positive グラフの下の面積を求める。  という話だった。
+AUC in Hivemall そして先日、Hive/Spark/Pig用の並列機械学習ライブラリHivemallにAUCを計算する関数を実装した。
+Supported parallel exact AUC computation ( https://t.co/nhBkBNj5SH ) in #hivemallhttps://t.co/GUAFf5jeBn (Kudos to @takuti )
+&mdash; Apache Hivemall (@ApacheHivemall) February 28, 2017" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +23,27 @@
         Area Under the ROC Curve (AUC) を並列で計算するときに気をつけること | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="Area Under the ROC Curve (AUC) を並列で計算するときに気をつけること">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-03-10">
+    <meta property="og:description" content="追記 (2017/03/10) 現在の内容は過度な簡略化と不完全な説明を含むので、それを踏まえて読んでいただけると幸いです。（後日更新予定）
+台形の積分計算のはずなのでちょっと説明を簡単にしすぎですね。
+parallelでのmerge順序は変えても動くようにできるはずなのでticket切っておきます。
+&mdash; myui (@myui) March 10, 2017
+  ひとつ前の記事で二値分類器の性能評価に用いられる Area Under the ROC Curve (AUC) の実装について書いた: Area Under the ROC Curve (AUC) を実装する
+簡単にまとめると、
+ AUCは『予測器がラベル 1 (True) のテストサンプルに正しく高スコアを与えるか』をみる。 それは予測スコアでサンプルをソートしたときに True Positive が False Positive より上位にランキングされるか、ということ。 実装する際はソート済みサンプル列を逐次的に見ていって、False Positive-True Positive グラフの下の面積を求める。  という話だった。
+AUC in Hivemall そして先日、Hive/Spark/Pig用の並列機械学習ライブラリHivemallにAUCを計算する関数を実装した。
+Supported parallel exact AUC computation ( https://t.co/nhBkBNj5SH ) in #hivemallhttps://t.co/GUAFf5jeBn (Kudos to @takuti )
+&mdash; Apache Hivemall (@ApacheHivemall) February 28, 2017">
+    
+    <meta property="og:url" content="https://takuti.me/note/auc-parallel/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

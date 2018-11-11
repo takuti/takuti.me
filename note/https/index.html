@@ -4,7 +4,16 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="今はとてもいい時代なので Let&#39;s Encrypt が無料でSSL証明書を発行してくれる。というわけで、サイトのHTTPS化を行った。
+証明書の発行と nginx.conf の変更 作業自体はとても簡単で、証明書の発行に関する処理はすべて certbot （旧名：letsencrypt）というツールがやってくれる。トップページからサーバとOSを選択すれば、それに応じたinstallationが表示される。どこまで親切なんだ！
+ここは CentOS 6 上の Nginx で動いているので、以下それに従う。
+certbotの導入は、適当な場所にwgetして実行権限を与えるだけ。
+$wget https://dl.eff.org/certbot-auto $chmod a&#43;x certbot-auto あとはWebサーバのドキュメントルートとドメインを指定してcertbotを実行してあげればよい。
+$ /path/to/certbot-auto certonly --webroot -w /var/www/example -d example.com うちはNginxだけど、Apacheの頃の名残で /var/www/html をドキュメントルートにしている。/etc/nginx/nginx.conf は以下のような感じ。
+server { listen 80; server_name takuti.me; location / { root /var/www/html; index index.html index.htm index.php; } # 以下略  なので叩いたコマンドは以下。
+$ /path/to/certbot-auto certonly --webroot -w /var/www/html -d takuti.me 途中でメールアドレスなどを聞かれ、無事完了すると Congratulations と言われる。証明書の類は /etc/letsencrypt/live/takuti.me 以下に作成され、ドキュメントルート直下には認証用プラグインのために .well-known というディレクトリが作成される。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +21,25 @@
         サイトをHTTPSにした | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="サイトをHTTPSにした">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-02-04">
+    <meta property="og:description" content="今はとてもいい時代なので Let&#39;s Encrypt が無料でSSL証明書を発行してくれる。というわけで、サイトのHTTPS化を行った。
+証明書の発行と nginx.conf の変更 作業自体はとても簡単で、証明書の発行に関する処理はすべて certbot （旧名：letsencrypt）というツールがやってくれる。トップページからサーバとOSを選択すれば、それに応じたinstallationが表示される。どこまで親切なんだ！
+ここは CentOS 6 上の Nginx で動いているので、以下それに従う。
+certbotの導入は、適当な場所にwgetして実行権限を与えるだけ。
+$wget https://dl.eff.org/certbot-auto $chmod a&#43;x certbot-auto あとはWebサーバのドキュメントルートとドメインを指定してcertbotを実行してあげればよい。
+$ /path/to/certbot-auto certonly --webroot -w /var/www/example -d example.com うちはNginxだけど、Apacheの頃の名残で /var/www/html をドキュメントルートにしている。/etc/nginx/nginx.conf は以下のような感じ。
+server { listen 80; server_name takuti.me; location / { root /var/www/html; index index.html index.htm index.php; } # 以下略  なので叩いたコマンドは以下。
+$ /path/to/certbot-auto certonly --webroot -w /var/www/html -d takuti.me 途中でメールアドレスなどを聞かれ、無事完了すると Congratulations と言われる。証明書の類は /etc/letsencrypt/live/takuti.me 以下に作成され、ドキュメントルート直下には認証用プラグインのために .well-known というディレクトリが作成される。">
+    
+    <meta property="og:url" content="https://takuti.me/note/https/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

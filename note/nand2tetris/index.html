@@ -4,7 +4,15 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="途中長いこと放置していたせいで takuti/nand2tetris の initial commit から1年くらい経ってしまったけど、『コンピュータシステムの理論と実装』を読み終えた。
+内容 『コンピュータシステムの理論と実装』（通称 nand2tetris）は、その名の通りNANDのような論理演算からテトリスのようなアプリケーションの実装までを一気に学ぶことでコンピュータシステム全体を俯瞰しましょう、という一冊。
+章が進むにつれてハードウェアからソフトウェアへと話が進んでいき、各章には“プロジェクト”として何らかの実装パートがある。実装の結果は予め用意されたシミュレータやエミュレータを通して確認・デバッグできる。
+ 公式サイト  目次を見るとそれだけでワクワクする：
+ Boolean Logic HDLでANDやORなどの論理ゲートを実装する   Boolean Arithmetic HDLで加算器やALUを実装する   Sequential Logic HDLでフリップフロップやレジスタ、（部品としての）メモリ、カウンタを実装する   Machine Language アドレス指定方式やプロセッサ、レジスタの利用などについて、本書のためにデザインされた機械語（Hack機械語）に基づいて解説 乗算や入出力操作をHackのアセンブリで書く   Computer Architecture HDLで、これまでに実装したコンポーネントを組み合わせて、Hack機械語のビット入力に対応するメモリやCPUを実装する これがハードウェアとしての“Hackコンピュータ”となる   Assembler アセンブリ→機械語   VM VMコード→アセンブリ   High Level Language 本書のためにデザインされた高水準言語Jackの紹介   Compiler Jackプログラム→VMコード   Operating System キーボード入力の処理やスクリーンへの描画、ひいてはメモリ操作など、OS的な機能をJack言語で実装する    （アセンブラ、VM変換器、コンパイラは好きな言語で実装してよい）
+しかし騙されることなかれ。これだけの話題を一冊（1つの授業）に詰め込んでいるので、各章の記述はとても浅い。
+著者も繰り返し述べている通り、最適化という最も重要な話題からはほぼ完全に目を背けているし、ネットワークはどこへ行ったという話もある。OSに至っては『OS的な機能をアプリケーションのレベルで擬似的に実装している』にすぎないので、実際の話とは大きくかけ離れている。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +20,24 @@
         『コンピュータシステムの理論と実装』は“娯楽”である | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="『コンピュータシステムの理論と実装』は“娯楽”である">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-05-21">
+    <meta property="og:description" content="途中長いこと放置していたせいで takuti/nand2tetris の initial commit から1年くらい経ってしまったけど、『コンピュータシステムの理論と実装』を読み終えた。
+内容 『コンピュータシステムの理論と実装』（通称 nand2tetris）は、その名の通りNANDのような論理演算からテトリスのようなアプリケーションの実装までを一気に学ぶことでコンピュータシステム全体を俯瞰しましょう、という一冊。
+章が進むにつれてハードウェアからソフトウェアへと話が進んでいき、各章には“プロジェクト”として何らかの実装パートがある。実装の結果は予め用意されたシミュレータやエミュレータを通して確認・デバッグできる。
+ 公式サイト  目次を見るとそれだけでワクワクする：
+ Boolean Logic HDLでANDやORなどの論理ゲートを実装する   Boolean Arithmetic HDLで加算器やALUを実装する   Sequential Logic HDLでフリップフロップやレジスタ、（部品としての）メモリ、カウンタを実装する   Machine Language アドレス指定方式やプロセッサ、レジスタの利用などについて、本書のためにデザインされた機械語（Hack機械語）に基づいて解説 乗算や入出力操作をHackのアセンブリで書く   Computer Architecture HDLで、これまでに実装したコンポーネントを組み合わせて、Hack機械語のビット入力に対応するメモリやCPUを実装する これがハードウェアとしての“Hackコンピュータ”となる   Assembler アセンブリ→機械語   VM VMコード→アセンブリ   High Level Language 本書のためにデザインされた高水準言語Jackの紹介   Compiler Jackプログラム→VMコード   Operating System キーボード入力の処理やスクリーンへの描画、ひいてはメモリ操作など、OS的な機能をJack言語で実装する    （アセンブラ、VM変換器、コンパイラは好きな言語で実装してよい）
+しかし騙されることなかれ。これだけの話題を一冊（1つの授業）に詰め込んでいるので、各章の記述はとても浅い。
+著者も繰り返し述べている通り、最適化という最も重要な話題からはほぼ完全に目を背けているし、ネットワークはどこへ行ったという話もある。OSに至っては『OS的な機能をアプリケーションのレベルで擬似的に実装している』にすぎないので、実際の話とは大きくかけ離れている。">
+    
+    <meta property="og:url" content="https://takuti.me/note/nand2tetris/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

@@ -4,7 +4,19 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="WikipediaはAPIがあったり、データのMySQLダンプを惜しみなく公開していたりする。便利。しかし、いかんせん規模が大きいので、APIアクセスやRDBへの問い合わせに依存したデータ収集は辛いものがある。
+今回はWikipediaデータの中でも、特に『カテゴリ』を効率的にdigる方法を fastcat というPythonコードから学ぶ。
+ゴール Wikipedia上の、あるカテゴリに対する上位・下位カテゴリの一覧を得る。
+たとえば、英語版Wikipediaの Computers というカテゴリには、
+ 上位カテゴリ Office equipment Computing   下位カテゴリ Computer hardware companies Computer architecture Classes of computers Information appliances Computing by computer model Computer hardware Computer systems NASA computers Data centers Computers and the environment    がある。
+これが得られると何が嬉しいかというと、たとえばカテゴリをある種の“概念”とみなせば、上位・下位概念の獲得、概念辞書の構築に使える。また、『各カテゴリに属する記事』がダンプ enwiki-latest-categorylinks.sql.gz から得られるので、これと組み合わせると、クラスタリングの教師データとしても使えるかもしれない。
+データ さて、まずはこのカテゴリデータをゲットしよう。
+先述の通り、カテゴリに関するMySQLダンプが公式から提供されているので、これを使えばよさそう。しかし、これはこれで相当骨の折れる仕事になりそうだ。
+そこで、MySQLダンプを元にDBpediaが独自に作成・公開しているSKOS categories データセット（※ファイル直リンク）を利用する。DBpediaはWikipediaの情報を構造的にアーカイブすることを目的としたプロジェクトで、様々なデータをRDFトリプル &lt;主語, 述語, 目的語&gt; の形で表現している。
+SKOSカテゴリデータのRDFトリプルは &lt;カテゴリ, 関係, カテゴリ&gt; を表現している：
+&lt;http://dbpedia.org/resource/Category:Futurama&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2004/02/skos/core#Concept&gt; . &lt;http://dbpedia." />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +24,28 @@
         ローカルのRedis上でWikipediaカテゴリをシュッとdigる | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="ローカルのRedis上でWikipediaカテゴリをシュッとdigる">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-08-06">
+    <meta property="og:description" content="WikipediaはAPIがあったり、データのMySQLダンプを惜しみなく公開していたりする。便利。しかし、いかんせん規模が大きいので、APIアクセスやRDBへの問い合わせに依存したデータ収集は辛いものがある。
+今回はWikipediaデータの中でも、特に『カテゴリ』を効率的にdigる方法を fastcat というPythonコードから学ぶ。
+ゴール Wikipedia上の、あるカテゴリに対する上位・下位カテゴリの一覧を得る。
+たとえば、英語版Wikipediaの Computers というカテゴリには、
+ 上位カテゴリ Office equipment Computing   下位カテゴリ Computer hardware companies Computer architecture Classes of computers Information appliances Computing by computer model Computer hardware Computer systems NASA computers Data centers Computers and the environment    がある。
+これが得られると何が嬉しいかというと、たとえばカテゴリをある種の“概念”とみなせば、上位・下位概念の獲得、概念辞書の構築に使える。また、『各カテゴリに属する記事』がダンプ enwiki-latest-categorylinks.sql.gz から得られるので、これと組み合わせると、クラスタリングの教師データとしても使えるかもしれない。
+データ さて、まずはこのカテゴリデータをゲットしよう。
+先述の通り、カテゴリに関するMySQLダンプが公式から提供されているので、これを使えばよさそう。しかし、これはこれで相当骨の折れる仕事になりそうだ。
+そこで、MySQLダンプを元にDBpediaが独自に作成・公開しているSKOS categories データセット（※ファイル直リンク）を利用する。DBpediaはWikipediaの情報を構造的にアーカイブすることを目的としたプロジェクトで、様々なデータをRDFトリプル &lt;主語, 述語, 目的語&gt; の形で表現している。
+SKOSカテゴリデータのRDFトリプルは &lt;カテゴリ, 関係, カテゴリ&gt; を表現している：
+&lt;http://dbpedia.org/resource/Category:Futurama&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2004/02/skos/core#Concept&gt; . &lt;http://dbpedia.">
+    
+    <meta property="og:url" content="https://takuti.me/note/fastcat/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

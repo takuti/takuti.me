@@ -4,7 +4,13 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="Matrix Factorizationよりも高い精度が出るという話をよく聞く Sparse Linear Method (SLIM) を提案した論文を読んだ。
+ Xia Ning and George Karypis. SLIM: Sparse Linear Methods for Top-N Recommender Systems. ICDM 2011.  概要  Top-N推薦を高速に行う Sparse Linear Method (SLIM) を提案する。 ユーザ-アイテム行列 $A \in \mathbb{R}^{\textrm{\#user } \times \textrm{ \#item}}$ の未観測値を $\tilde{A} = AW$ のように補完する疎なアイテム-アイテム行列 $W \in \mathbb{R}^{\textrm{\#item } \times \textrm{ \#item}}$ を求める。 L1&#43;L2正則化つきの最適化問題をcoordinate descentで解けばよい。 $W$ が疎なので行列積 $AW$ が高速に計算できて、結果的にTop-Nのアイテム推薦が高速になる。  問題 あるユーザにアイテムを推薦したいとき、そのユーザの未観測（例：未購入、未評価、未視聴）アイテムに対して何らかの “スコア” を与えて、上位N個のアイテムを「おすすめリスト」として提示するのが Top-N推薦 というタスク。
+これを実現する手法は、近傍法ベースの手法とモデルベースの手法に大別できる。
+近傍法ベースの手法は協調フィルタリングとも呼ばれ、特にアイテムベースの協調フィルタリングは類似度計算が比較的軽く効率的。しかし既知のデータにoverfitしてしまって、推薦精度は悪くなりがち。
+一方、Matrix Factorization などのモデルベースの手法は近傍法と比較して推薦精度が良いことが知られている。しかしモデルの学習やスコアの計算には大規模な行列計算を要するため非効率である。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +18,22 @@
         &#34;SLIM: Sparse Linear Methods for Top-N Recommender Systems&#34;を読んだ | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="&#34;SLIM: Sparse Linear Methods for Top-N Recommender Systems&#34;を読んだ">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-02-18">
+    <meta property="og:description" content="Matrix Factorizationよりも高い精度が出るという話をよく聞く Sparse Linear Method (SLIM) を提案した論文を読んだ。
+ Xia Ning and George Karypis. SLIM: Sparse Linear Methods for Top-N Recommender Systems. ICDM 2011.  概要  Top-N推薦を高速に行う Sparse Linear Method (SLIM) を提案する。 ユーザ-アイテム行列 $A \in \mathbb{R}^{\textrm{\#user } \times \textrm{ \#item}}$ の未観測値を $\tilde{A} = AW$ のように補完する疎なアイテム-アイテム行列 $W \in \mathbb{R}^{\textrm{\#item } \times \textrm{ \#item}}$ を求める。 L1&#43;L2正則化つきの最適化問題をcoordinate descentで解けばよい。 $W$ が疎なので行列積 $AW$ が高速に計算できて、結果的にTop-Nのアイテム推薦が高速になる。  問題 あるユーザにアイテムを推薦したいとき、そのユーザの未観測（例：未購入、未評価、未視聴）アイテムに対して何らかの “スコア” を与えて、上位N個のアイテムを「おすすめリスト」として提示するのが Top-N推薦 というタスク。
+これを実現する手法は、近傍法ベースの手法とモデルベースの手法に大別できる。
+近傍法ベースの手法は協調フィルタリングとも呼ばれ、特にアイテムベースの協調フィルタリングは類似度計算が比較的軽く効率的。しかし既知のデータにoverfitしてしまって、推薦精度は悪くなりがち。
+一方、Matrix Factorization などのモデルベースの手法は近傍法と比較して推薦精度が良いことが知られている。しかしモデルの学習やスコアの計算には大規模な行列計算を要するため非効率である。">
+    
+    <meta property="og:url" content="https://takuti.me/note/slim/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

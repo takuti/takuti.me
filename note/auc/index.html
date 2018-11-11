@@ -4,7 +4,19 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="追記 (2017/03/10) 現在の内容は過度な簡略化と不完全な説明を含むので、それを踏まえて読んでいただけると幸いです。（後日更新予定）
+台形の積分計算のはずなのでちょっと説明を簡単にしすぎですね。
+parallelでのmerge順序は変えても動くようにできるはずなのでticket切っておきます。
+&mdash; myui (@myui) March 10, 2017
+  二値分類器の評価指標として Area Under the ROC Curve (AUC) がある。これは Root Mean Squared Error (RMSE) が測る『誤差』や Precision, Recall で求める『正解率』のような直感的な指標ではないので、どうもイメージしづらい。
+というわけで実際に実装して「結局AUCって何？」を知る。詳しくは以下の論文を参照のこと。
+ Tom Fawcett. An introduction to ROC analysis. Pattern Recognition Letters 27 (2006) 861–874.  AUCとは結局なにを計算しているのか サンプルに対して 0から1の範囲でスコア（確率）を与える二値分類器 の精度を評価することを考える。
+このときAUCは『予測スコアでサンプルを（降順）ソートしたときに、True Positive となるサンプルが False Positive となるサンプルより上位にきているか』ということを測る。つまり、ラベル 1 のサンプルに正しく高スコアを与える予測器であるか を見ている。
+推薦などのランキング問題の評価でもAUCが登場するけど、イメージはそれとほぼ同じ。
+たとえば、以下のようなソート済スコアと真のラベルのペアがあったとき、真のラベルが 1,1,1,0,0 と並ぶことが理想。しかし今は 1,1,0,1,0 となっているので、このスコアリングは最高精度とは言えない。
+   予測スコア 真のラベル     0." />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +24,28 @@
         Area Under the ROC Curve (AUC) を実装する | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="Area Under the ROC Curve (AUC) を実装する">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-03-04">
+    <meta property="og:description" content="追記 (2017/03/10) 現在の内容は過度な簡略化と不完全な説明を含むので、それを踏まえて読んでいただけると幸いです。（後日更新予定）
+台形の積分計算のはずなのでちょっと説明を簡単にしすぎですね。
+parallelでのmerge順序は変えても動くようにできるはずなのでticket切っておきます。
+&mdash; myui (@myui) March 10, 2017
+  二値分類器の評価指標として Area Under the ROC Curve (AUC) がある。これは Root Mean Squared Error (RMSE) が測る『誤差』や Precision, Recall で求める『正解率』のような直感的な指標ではないので、どうもイメージしづらい。
+というわけで実際に実装して「結局AUCって何？」を知る。詳しくは以下の論文を参照のこと。
+ Tom Fawcett. An introduction to ROC analysis. Pattern Recognition Letters 27 (2006) 861–874.  AUCとは結局なにを計算しているのか サンプルに対して 0から1の範囲でスコア（確率）を与える二値分類器 の精度を評価することを考える。
+このときAUCは『予測スコアでサンプルを（降順）ソートしたときに、True Positive となるサンプルが False Positive となるサンプルより上位にきているか』ということを測る。つまり、ラベル 1 のサンプルに正しく高スコアを与える予測器であるか を見ている。
+推薦などのランキング問題の評価でもAUCが登場するけど、イメージはそれとほぼ同じ。
+たとえば、以下のようなソート済スコアと真のラベルのペアがあったとき、真のラベルが 1,1,1,0,0 と並ぶことが理想。しかし今は 1,1,0,1,0 となっているので、このスコアリングは最高精度とは言えない。
+   予測スコア 真のラベル     0.">
+    
+    <meta property="og:url" content="https://takuti.me/note/auc/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

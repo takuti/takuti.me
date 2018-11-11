@@ -4,7 +4,18 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="分散システムに関する理解を整理するための一冊として素晴らしい、という声があり気になっていた &quot;Designing Data-Intensive Applications&quot; を一通り読んだ：
+買った。分散システムの理解を整理する本として素晴らしい。一節を割いてMessagePackのフォーマットまで解説されている…！ &quot;Designing Data-Intensive Applications&quot; https://t.co/QCeoLraZOf
+&mdash; Sadayuki Furuhashi (@frsyuki) March 27, 2017
+ 僕のような「用語としては知っている」程度の新人に「なぜそれが大切なのか」「なにが難しいのか」といったポイントを丁寧に説明してくれる、学びの多い充実の一冊だった。
+冒頭では『早すぎる最適化（不要不急のスケーラブルなシステムの構築）は制約が増えてシステム設計が不自由になるだけなので無駄』という事実に触れ、適切なツールを選択することの重要性を説いている。本書が500項超を費やして伝えようとしているのは、そういったツールを取捨選択する際のエッセンスであり、具体的には、昨今の大規模なデータシステムを支える原理、モデル、ツール群の背景とその長所・短所である。
+※ ddia-references/ddia-poster.jpg より
+本書は大きくわけて &quot;Foundations of Data Systems,&quot; &quot;Distributed Data,&quot; &quot;Derived Data&quot; の3パートから構成される。
+Part I. Foundations of Data Systems 第1部では、データシステムの信頼性、スケーラビリティ、保全性を担保することの大切さと難しさを伝え（第1章）、特にストレージに焦点をあてて、データモデル（リレーショナルモデル vs ドキュメントモデル）と代表的なDB、クエリ言語を紹介していく（第2章）。このあたりの内容は &quot;Seven Databases in Seven Weeks&quot; に通じるところもあった。データの一対多 (one-to-many) と多対多 (many-to-many) の関係が丁寧に比較されていて、リレーショナルデータベース、ドキュメント指向データベース、列指向データベースそれぞれの必要性や強み、弱みについて直感的な理解を与えてくれる。
+いろいろなストレージの世界を俯瞰したら、次は実際にデータを保持・探索することを考える（第3章）。この章がまぁ素晴らしい。この本のインデックスの説明は、これまでに読んだいかなる解説よりも分かりすかったと言っても過言ではない。だって、&quot;the world&#39;s simplest databse&quot; を作って $\mathcal{O}(n)$ で検索するところから話が始まるんですよ？
+#!/bin/bash  db_set() { echo &#34;$1,$2&#34; &gt;&gt; database } db_get() { grep &#34;" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +23,27 @@
         &#34;Designing Data-Intensive Applications&#34;は濃密すぎる一冊だったので2018年の自分にも読んでもらいたい | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="&#34;Designing Data-Intensive Applications&#34;は濃密すぎる一冊だったので2018年の自分にも読んでもらいたい">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-12-30">
+    <meta property="og:description" content="分散システムに関する理解を整理するための一冊として素晴らしい、という声があり気になっていた &quot;Designing Data-Intensive Applications&quot; を一通り読んだ：
+買った。分散システムの理解を整理する本として素晴らしい。一節を割いてMessagePackのフォーマットまで解説されている…！ &quot;Designing Data-Intensive Applications&quot; https://t.co/QCeoLraZOf
+&mdash; Sadayuki Furuhashi (@frsyuki) March 27, 2017
+ 僕のような「用語としては知っている」程度の新人に「なぜそれが大切なのか」「なにが難しいのか」といったポイントを丁寧に説明してくれる、学びの多い充実の一冊だった。
+冒頭では『早すぎる最適化（不要不急のスケーラブルなシステムの構築）は制約が増えてシステム設計が不自由になるだけなので無駄』という事実に触れ、適切なツールを選択することの重要性を説いている。本書が500項超を費やして伝えようとしているのは、そういったツールを取捨選択する際のエッセンスであり、具体的には、昨今の大規模なデータシステムを支える原理、モデル、ツール群の背景とその長所・短所である。
+※ ddia-references/ddia-poster.jpg より
+本書は大きくわけて &quot;Foundations of Data Systems,&quot; &quot;Distributed Data,&quot; &quot;Derived Data&quot; の3パートから構成される。
+Part I. Foundations of Data Systems 第1部では、データシステムの信頼性、スケーラビリティ、保全性を担保することの大切さと難しさを伝え（第1章）、特にストレージに焦点をあてて、データモデル（リレーショナルモデル vs ドキュメントモデル）と代表的なDB、クエリ言語を紹介していく（第2章）。このあたりの内容は &quot;Seven Databases in Seven Weeks&quot; に通じるところもあった。データの一対多 (one-to-many) と多対多 (many-to-many) の関係が丁寧に比較されていて、リレーショナルデータベース、ドキュメント指向データベース、列指向データベースそれぞれの必要性や強み、弱みについて直感的な理解を与えてくれる。
+いろいろなストレージの世界を俯瞰したら、次は実際にデータを保持・探索することを考える（第3章）。この章がまぁ素晴らしい。この本のインデックスの説明は、これまでに読んだいかなる解説よりも分かりすかったと言っても過言ではない。だって、&quot;the world&#39;s simplest databse&quot; を作って $\mathcal{O}(n)$ で検索するところから話が始まるんですよ？
+#!/bin/bash  db_set() { echo &#34;$1,$2&#34; &gt;&gt; database } db_get() { grep &#34;">
+    
+    <meta property="og:url" content="https://takuti.me/note/designing-data-intensive-applications/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

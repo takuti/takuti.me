@@ -4,7 +4,33 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="HTML5 CanvasでメルトPVに出てくるメル時計をつくったで、ビギナーの僕には少し厄介だった回転と角丸化についてメモメモ。
+HUGOMORE42 回転 rotate() の扱い方 メル時計の文字盤代わりの六角形は、12時の位置に全ての時刻分を（色を変えながら）作りつつ、それらを30°ずつ回転させていくことで描画しました。
+1：てっぺんをスタートして右に8px、下に10pxの移動
+2：下に18pxの移動
+3：2の移動した先から、更に下に3px移動したところが、もう1つの六角形のてっぺん
+この3つさえ分かればあとは対称だったりするので、とりあえず12時の位置に色を変えながら量産することは問題なくできます。あとは30°ずつ回転をさせるだけです。
+しかし、rotate()はcanvasそのものの左上を中心とみて回転させるので、ふつうにrotate(Math.PI/6)とかやっても思うように回ってくれません。円（時計）の中心を回転の中心にしてほしい！
+そんなときは、「現時点でのcanvasそのものの左上を円の中心にズラしてから回転させる。回転が終わったらズラした分を元に戻す。」という方法をとるみたいです。
+【参考】今更聞けないcanvasの基礎の基礎 | tech.kayac.com - KAYAC engineers&#39; blog
+つまり、canvas全体を回転の中心にしたい座標（今回は400x400のcanvasに描画した半径200の円の中心なので(200,200)）の分だけ移動して、本来回転させたかった角度で回転させたら、移動させた分を元に戻す、と。
+ctx.translate(200,200); ctx.rotate(30*Math.PI/180); ctx.translate(-200,-200);  デキター！
+ちなみに、rotate()の状態を解除する方法も分からなくて悲しみました。
+rotate(θ)をした後に何もしないと、以後の描画処理が全て角度θだけ回転した状態で行われてしまうんですね。だから、もう回転の必要がなくなったらそれを解除して、全く回転していない状態に戻してあげる必要があるというわけなんだとか。
+そこでよく使われるのがsave()とrestore()で、これらを使うと描画状態（回転情報も含んでいる変換行列など）を保存して、復元することができる。
+全く回転していない状態をsave()して、回転の必要がなくなったところですぐrestore()してあげれば、その後もイメージどおりに描画できるんですね！
+ctx.save(); // 変換行列の初期状態（全く回転していない状態）を保存 rotateSomething(); // 回転を含む処理 // 回転を含む処理の後には必ず変換行列を初期状態に戻し、再度保存しておく ctx.restore(); ctx.save();  save()とrestore()はスタックのPushとPopに対応するので、一度restore()をしてしまうとせっかく保存していた初期状態の情報が消えてしまいます。そのため、restore()の直後にもう一度save()をして、次の回転を含む処理に備えます。
+というわけで、移動させてから回転させてまた戻すことと、回転した状態を解除することによって、イメージ通りの回転を含む描画処理いろいろができました。
+角丸な長方形 長方形を角丸にしたい場面はたくさんあるのに、Canvasではササッと角丸な長方形を作ってくれる機能などありません。
+そこで、角丸長方形は1/4の円弧を4つ描いてそれらを結ぶことによって実現します。
+これは円弧ひとつひとつに対してbeginPath(),stroke()をしたもの。
+これを、beginPath()を最初に一度だけ行い、円弧すべてのarc()を実行した後にclosePath()をしてあげるようにすれば、あとはstroke()なりfill()なりでお好みの角丸な長方形ができあがる。
+長方形の位置や幅、高さは4つの円弧の中心点に依存するわけですね。
+これについては、以下を参考にさせていただき解釈しました。
+[javascript]canvasで円や角丸の矩形を描画する
+以上、回転と角丸についてのメモでした。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +38,46 @@
         HTML5 Canvasの回転と角丸についてメモ | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="HTML5 Canvasの回転と角丸についてメモ">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2013-08-03">
+    <meta property="og:description" content="HTML5 CanvasでメルトPVに出てくるメル時計をつくったで、ビギナーの僕には少し厄介だった回転と角丸化についてメモメモ。
+HUGOMORE42 回転 rotate() の扱い方 メル時計の文字盤代わりの六角形は、12時の位置に全ての時刻分を（色を変えながら）作りつつ、それらを30°ずつ回転させていくことで描画しました。
+1：てっぺんをスタートして右に8px、下に10pxの移動
+2：下に18pxの移動
+3：2の移動した先から、更に下に3px移動したところが、もう1つの六角形のてっぺん
+この3つさえ分かればあとは対称だったりするので、とりあえず12時の位置に色を変えながら量産することは問題なくできます。あとは30°ずつ回転をさせるだけです。
+しかし、rotate()はcanvasそのものの左上を中心とみて回転させるので、ふつうにrotate(Math.PI/6)とかやっても思うように回ってくれません。円（時計）の中心を回転の中心にしてほしい！
+そんなときは、「現時点でのcanvasそのものの左上を円の中心にズラしてから回転させる。回転が終わったらズラした分を元に戻す。」という方法をとるみたいです。
+【参考】今更聞けないcanvasの基礎の基礎 | tech.kayac.com - KAYAC engineers&#39; blog
+つまり、canvas全体を回転の中心にしたい座標（今回は400x400のcanvasに描画した半径200の円の中心なので(200,200)）の分だけ移動して、本来回転させたかった角度で回転させたら、移動させた分を元に戻す、と。
+ctx.translate(200,200); ctx.rotate(30*Math.PI/180); ctx.translate(-200,-200);  デキター！
+ちなみに、rotate()の状態を解除する方法も分からなくて悲しみました。
+rotate(θ)をした後に何もしないと、以後の描画処理が全て角度θだけ回転した状態で行われてしまうんですね。だから、もう回転の必要がなくなったらそれを解除して、全く回転していない状態に戻してあげる必要があるというわけなんだとか。
+そこでよく使われるのがsave()とrestore()で、これらを使うと描画状態（回転情報も含んでいる変換行列など）を保存して、復元することができる。
+全く回転していない状態をsave()して、回転の必要がなくなったところですぐrestore()してあげれば、その後もイメージどおりに描画できるんですね！
+ctx.save(); // 変換行列の初期状態（全く回転していない状態）を保存 rotateSomething(); // 回転を含む処理 // 回転を含む処理の後には必ず変換行列を初期状態に戻し、再度保存しておく ctx.restore(); ctx.save();  save()とrestore()はスタックのPushとPopに対応するので、一度restore()をしてしまうとせっかく保存していた初期状態の情報が消えてしまいます。そのため、restore()の直後にもう一度save()をして、次の回転を含む処理に備えます。
+というわけで、移動させてから回転させてまた戻すことと、回転した状態を解除することによって、イメージ通りの回転を含む描画処理いろいろができました。
+角丸な長方形 長方形を角丸にしたい場面はたくさんあるのに、Canvasではササッと角丸な長方形を作ってくれる機能などありません。
+そこで、角丸長方形は1/4の円弧を4つ描いてそれらを結ぶことによって実現します。
+これは円弧ひとつひとつに対してbeginPath(),stroke()をしたもの。
+これを、beginPath()を最初に一度だけ行い、円弧すべてのarc()を実行した後にclosePath()をしてあげるようにすれば、あとはstroke()なりfill()なりでお好みの角丸な長方形ができあがる。
+長方形の位置や幅、高さは4つの円弧の中心点に依存するわけですね。
+これについては、以下を参考にさせていただき解釈しました。
+[javascript]canvasで円や角丸の矩形を描画する
+以上、回転と角丸についてのメモでした。">
+    
+    <meta property="og:url" content="https://takuti.me/note/canvas-rotate-round/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    <meta property="og:tags" content="Development">
+    
+    <meta property="og:tags" content="HTML5 Canvas">
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -45,7 +111,11 @@
   <div class="post">
     
 <p><a href="http://blog.takuti.me/meltokei/">HTML5 CanvasでメルトPVに出てくるメル時計をつくった</a>で、ビギナーの僕には少し厄介だった回転と角丸化についてメモメモ。<br />
-HUGOMORE42</p>
+
+
+HUGOMORE42
+
+</p>
 <h3>回転 rotate() の扱い方</h3>
 <p><a href="http://takuti.me/dev/meltokei/">メル時計</a>の文字盤代わりの六角形は、12時の位置に全ての時刻分を（色を変えながら）作りつつ、それらを30°ずつ回転させていくことで描画しました。</p>
 <p><img src="https://takuti.me/images/wp/hexagon.png" alt="hexagon" width="202" height="144" class="alignnone size-full wp-image-237" /><br />

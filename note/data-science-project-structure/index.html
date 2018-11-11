@@ -4,7 +4,25 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="あるいは、論文 &quot;Best Practices for Scientific Computing&quot; および &quot;Good Enough Practices in Scientific Computing&quot; について。
+TL;DR  標題の件について、未だに答えは見えていないのだけど、自分の現状と他の人の例を文字で残しておく。 こういう話で「あーその手があったかー！」と知ったときの興奮はすごいので、みなさんもっとオープンにいきましょう。 大切なのは、ソフトウェア開発と同じ要領でデータサイエンスのプロジェクトを捉えて、分析と言う名の“開発”を行うつもりでディレクトリを掘ること。  必要なものリスト ナウいデータサイエンス/機械学習プロジェクトの中には（経験上、ぱっと思い浮かぶだけでも）次のようなファイル群があって、僕たちはそれらを良い感じに管理したい。
+ソースコード 役割がいろいろある：
+ 前処理（これが一番ヤバい） 実験 学習 予測 テスト  どの程度モジュール化するかという点は難しくて、Jupyter Notebookの中から特定のクラスを import して使いたいこともある。
+タスクランナー make でも rake でもいいし、エントリポイント的なCLIツールを1つ作ってもいい。
+いずれにせよ、コードが1つのパッケージとしてキレイにまとまっているわけではないので、各スクリプトの実行手続きが単純かつ明確でなければならない。
+設定ファイル ハイパーパラメータやイテレーション回数、データのパスなどは頻繁に変わる（切り替える）ので、ハードコードしないで外部から読み込みたい。
+Notebooks ソースコードとは別。探索的な解析や可視化で使う。ごちゃごちゃしがち。
+データ 生データと前処理済みデータがある。でかい。
+後者をしっかり保存しておくと、2回目以降が楽ちん。
+結果 .pkl などで出力されたモデル。ファイル名などによるバージョニングが重要で、いつでも過去の結果に戻れるようにしておきたい。各バージョンに対応する精度がどこかで参照できるとさらによい。
+あと、可視化したグラフなども重要な結果のひとつ。
+バージョン モデルのバージョンに限らず、ディレクトリ全体として「これはいつの状態か」が分かることが大切。
+依存 DBやライブラリをインストールする必要があるときはそれをREADMEに明記しておく。インストール用のスクリプトがあればなお丁寧。
+Pythonなら requirements.txt をきちんと置いておく。
+わたしの場合 以上を踏まえて、自分の現状はどうかというと、だいたいいつも修論のときのリポジトリのような構成になる2：
+. ├── README.md ├── config │ ├── LastFM │ ├── ML100k │ ├── ML1M │ ├── click │ └── example." />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +30,34 @@
         データサイエンスプロジェクトのディレクトリ構成どうするか問題 | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="データサイエンスプロジェクトのディレクトリ構成どうするか問題">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-12-16">
+    <meta property="og:description" content="あるいは、論文 &quot;Best Practices for Scientific Computing&quot; および &quot;Good Enough Practices in Scientific Computing&quot; について。
+TL;DR  標題の件について、未だに答えは見えていないのだけど、自分の現状と他の人の例を文字で残しておく。 こういう話で「あーその手があったかー！」と知ったときの興奮はすごいので、みなさんもっとオープンにいきましょう。 大切なのは、ソフトウェア開発と同じ要領でデータサイエンスのプロジェクトを捉えて、分析と言う名の“開発”を行うつもりでディレクトリを掘ること。  必要なものリスト ナウいデータサイエンス/機械学習プロジェクトの中には（経験上、ぱっと思い浮かぶだけでも）次のようなファイル群があって、僕たちはそれらを良い感じに管理したい。
+ソースコード 役割がいろいろある：
+ 前処理（これが一番ヤバい） 実験 学習 予測 テスト  どの程度モジュール化するかという点は難しくて、Jupyter Notebookの中から特定のクラスを import して使いたいこともある。
+タスクランナー make でも rake でもいいし、エントリポイント的なCLIツールを1つ作ってもいい。
+いずれにせよ、コードが1つのパッケージとしてキレイにまとまっているわけではないので、各スクリプトの実行手続きが単純かつ明確でなければならない。
+設定ファイル ハイパーパラメータやイテレーション回数、データのパスなどは頻繁に変わる（切り替える）ので、ハードコードしないで外部から読み込みたい。
+Notebooks ソースコードとは別。探索的な解析や可視化で使う。ごちゃごちゃしがち。
+データ 生データと前処理済みデータがある。でかい。
+後者をしっかり保存しておくと、2回目以降が楽ちん。
+結果 .pkl などで出力されたモデル。ファイル名などによるバージョニングが重要で、いつでも過去の結果に戻れるようにしておきたい。各バージョンに対応する精度がどこかで参照できるとさらによい。
+あと、可視化したグラフなども重要な結果のひとつ。
+バージョン モデルのバージョンに限らず、ディレクトリ全体として「これはいつの状態か」が分かることが大切。
+依存 DBやライブラリをインストールする必要があるときはそれをREADMEに明記しておく。インストール用のスクリプトがあればなお丁寧。
+Pythonなら requirements.txt をきちんと置いておく。
+わたしの場合 以上を踏まえて、自分の現状はどうかというと、だいたいいつも修論のときのリポジトリのような構成になる2：
+. ├── README.md ├── config │ ├── LastFM │ ├── ML100k │ ├── ML1M │ ├── click │ └── example.">
+    
+    <meta property="og:url" content="https://takuti.me/note/data-science-project-structure/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

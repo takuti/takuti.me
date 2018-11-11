@@ -4,7 +4,15 @@
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
     <meta name=keywords content="takuti,たくち" />
-    <meta name=description content="" />
+    
+    <meta name=description content="しましょう。
+gensim とは、人類が開発したトピックモデリング用のPythonライブラリです。
+良記事『LSIやLDAを手軽に試せるGensimを使った自然言語処理入門』のサンプルコードが少々古いので、最新版で改めてやってみる次第。
+準備 Index of /jawiki/latest/ から jawiki-latest-pages-articles.xml.bz2 を入手する。下手すると数時間かかる。
+コーパス 基本的には英語版Wikipediaからコーパスを作る公式サンプルがそのまま使える。
+我々は gensim.corpora.WikiCorpus が内部的に使っている分かち書き用の関数 gensim.corpora.wikicorpus.tokenize を日本語向けに置き換えればよろしい：
+import gensim.corpora.wikicorpus as wikicorpus import MeCab tagger = MeCab.Tagger() tagger.parse(&#39;&#39;) def tokenize_ja(text): node = tagger.parseToNode(to_unicode(text, encoding=&#39;utf8&#39;, errors=&#39;ignore&#39;)) while node: if node.feature.split(&#39;,&#39;)[0] == &#39;名詞&#39;: yield node.surface.lower() node = node.next def tokenize(content): return [ to_unicode(token) for token in tokenize_ja(content) if 2 &lt;= len(token) &lt;= 15 and not token.startswith(&#39;_&#39;) ] wikicorpus.tokenize = tokenize  全貌はgistにあげた。" />
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
@@ -12,6 +20,24 @@
         gensimでWikipedia日本語版からコーパスを作ってトピックモデリング | takuti.me
       
     </title>
+    
+    <meta property="og:title" content="gensimでWikipedia日本語版からコーパスを作ってトピックモデリング">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-07-22">
+    <meta property="og:description" content="しましょう。
+gensim とは、人類が開発したトピックモデリング用のPythonライブラリです。
+良記事『LSIやLDAを手軽に試せるGensimを使った自然言語処理入門』のサンプルコードが少々古いので、最新版で改めてやってみる次第。
+準備 Index of /jawiki/latest/ から jawiki-latest-pages-articles.xml.bz2 を入手する。下手すると数時間かかる。
+コーパス 基本的には英語版Wikipediaからコーパスを作る公式サンプルがそのまま使える。
+我々は gensim.corpora.WikiCorpus が内部的に使っている分かち書き用の関数 gensim.corpora.wikicorpus.tokenize を日本語向けに置き換えればよろしい：
+import gensim.corpora.wikicorpus as wikicorpus import MeCab tagger = MeCab.Tagger() tagger.parse(&#39;&#39;) def tokenize_ja(text): node = tagger.parseToNode(to_unicode(text, encoding=&#39;utf8&#39;, errors=&#39;ignore&#39;)) while node: if node.feature.split(&#39;,&#39;)[0] == &#39;名詞&#39;: yield node.surface.lower() node = node.next def tokenize(content): return [ to_unicode(token) for token in tokenize_ja(content) if 2 &lt;= len(token) &lt;= 15 and not token.startswith(&#39;_&#39;) ] wikicorpus.tokenize = tokenize  全貌はgistにあげた。">
+    
+    <meta property="og:url" content="https://takuti.me/note/gensim-jawiki/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
 
     <link rel="stylesheet" href="https://takuti.me/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
