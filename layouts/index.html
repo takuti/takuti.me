@@ -9,20 +9,38 @@
 <div id="container">
 
 <section>
-  I'm working on machine learning and data science at <b><a href="https://www.treasuredata.com/" target="_blank" rel="noopener">Arm Treasure Data</a></b>, an organization developing a large-scale enterprise customer data platform, and committer of <b><a href="https://hivemall.incubator.apache.org/" target="_blank" rel="noopener">Apache Hivemall</a></b>, a scalable machine learning library for Apache Hive and Spark.
-  <span style="display: block; margin-top: 1em;">
-  <span class="symbol">twitter </span> <a href="http://twitter.com/takuti/" target="_blank" rel="noopener">twitter.com/<b>takuti</b></a><br />
-  <span class="symbol">github </span> <a href="https://github.com/takuti" target="_blank" rel="noopener">github.com/<b>takuti</b></a><br />
-  <span class="symbol">linkedin </span> <a href="http://linkedin.com/in/takuti" target="_blank" rel="noopener">linkedin.com/in/<b>takuti</b></a><br />
-  <span class="symbol">instagram </span> <a href="https://instagram.com/takuti/" target="_blank" rel="noopener">instagram.com/<b>takuti</b></a><br />
-  <span class="symbol">tumblr </span> <a href="http://takuti.tumblr.com/" target="_blank" rel="noopener"><b>takuti</b>.tumblr.com</a><br />
-  <span class="symbol">rss </span> <a href="http://takuti.hatenablog.com/" target="_blank" rel="noopener"><b>takuti</b>.hatenablog.com</a><br />
-  <span class="symbol">mail </span> k.<b>takuti</b> at gmail.com
-  </span>
+  <p>I'm working on machine learning and data science at <b><a href="https://www.treasuredata.com/" target="_blank" rel="noopener">Arm Treasure Data</a></b>, an Arm's internal organization developing large-scale enterprise customer data platform. My mission is to connect theory and practice in their B2B business. So far, I have been practically acted as a data scientist, data analyst, consultant, machine learning engineer and software engineer through the implementation of <a href="https://hivemall.incubator.apache.org/" target="_blank" rel="noopener">scalable ML library</a>, <a href="https://speakerdeck.com/takuti/machine-learning-and-natural-language-processing-on-treasure-cdp" target="_blank" rel="noopener">out-of-the-box ML application</a>, and <a href="https://github.com/treasure-data/workflow-examples/tree/master/machine-learning" target="_blank" rel="noopener">customer-specific solutions</a> on the wide variety of data.</p>
+  <p>
+    <span class="symbol">home </span> Nakano, Tokyo, Japan<br />
+    <span class="symbol">mail </span> k.<b>takuti</b> at gmail.com<br />
+  </p>
+  <p>
+    <span class="symbol">twitter </span> <a href="http://twitter.com/takuti/" target="_blank" rel="noopener">twitter.com/<b>takuti</b></a><br />
+    <span class="symbol">github </span> <a href="https://github.com/takuti" target="_blank" rel="noopener">github.com/<b>takuti</b></a><br />
+    <span class="symbol">images </span> <a href="https://speakerdeck.com/takuti" target="_blank" rel="noopener">speakerdeck.com/<b>takuti</b></a><br />
+    <span class="symbol">linkedin </span> <a href="http://linkedin.com/in/takuti" target="_blank" rel="noopener">linkedin.com/in/<b>takuti</b></a><br />
+    <span class="symbol">instagram </span> <a href="https://instagram.com/takuti/" target="_blank" rel="noopener">instagram.com/<b>takuti</b></a><br />
+    <span class="symbol">tumblr </span> <a href="http://takuti.tumblr.com/" target="_blank" rel="noopener"><b>takuti</b>.tumblr.com</a><br />
+    <span class="symbol">rss </span> <a href="http://takuti.hatenablog.com/" target="_blank" rel="noopener"><b>takuti</b>.hatenablog.com</a>
+  </p>
 </section>
 
 <section>
-  <h3>Recent articles</h3>
+  <h3>Things I like</h3>
+  <ul>
+    <li>Traveling. In Japan, I like countryside and small cities like my hometown, Nagano. Oslo (Norway) and Vancouver (Canada) are two of the best foreign cities I've ever visited.
+    <li>Craft beer, especially Amber Ales, and Japanese sake. While traveling, I enjoy visiting breweries and drinking something local.
+    <li>Burgers. Good beer and good burger, that's the combination.
+    <li>Recommender systems. In this field, academic theory and industrial practice clearly intersect one another. My recent interest is in UI/UX-related consideration from the HCI perspective.
+    <li>Matrix computations. Singular Value Decomposition is particularly awesome in terms of simplicity, applicability, and extensibility.
+    <li>Walking, running, hiking. Those are the way to spend my holiday.
+    <li>Writing. I have published a bunch of <a href="/note/">blog articles</a> as well as some <a href="https://scholar.google.com/citations?user=4GzRikkAAAAJ" target="_blank" rel="noopener">research papers</a>.
+    <li>Presentations. Talking in front of many audiences is always exciting and stimulating. I'm continuously seeking such opportunities.
+  </ul>
+</section>
+
+<section>
+  <h3>Recent blog articles</h3>
   <ul>
     {{ range first 5 (where .Data.Pages "Section" "note")}}
       <li><a href="{{ .Permalink }}">{{ .Title }}</a>
