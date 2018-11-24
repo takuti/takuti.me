@@ -21,6 +21,18 @@ $ npm install --g gulp
 $ npm install
 ```
 
+### Pre-commit hook
+
+[recommend.py](./scripts/recommend.py) depends on MeCab Japanese morphological analyzer:
+
+```sh
+brew install mecab
+brew install mecab-ipadic
+git clone --depth 1 git@github.com:neologd/mecab-ipadic-neologd.git
+cd mecab-ipadic-neologd
+./bin/install-mecab-ipadic-neologd -n
+```
+
 ## Usage
 
 I should create new contents in *_content/* directory and sass files in *_scss/* directory both for `gulp` command.
