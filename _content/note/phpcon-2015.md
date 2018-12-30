@@ -1,7 +1,7 @@
 ---
 date: 2015-10-04
 lang: en
-recommendations: [/note/pyconjp-2015/, /note/mlss-kyoto-2015/, /note/hivemall-events-2018-autumn/]
+recommendations: [/note/pyconjp-2015/, /note/mlss-kyoto-2015/, /note/mlconf-sf-2018/]
 title: 'Japan PHP Conference 2015 #phpcon2015'
 ---
 

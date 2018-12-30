@@ -1,7 +1,7 @@
 ---
 date: 2018-10-26
 lang: en
-recommendations: [/note/mbed-simulator-td/, /note/recsys-wordcloud/, /note/hivemall-on-docker/]
+recommendations: [/note/mbed-simulator-td/, /note/mlconf-sf-2018/, /note/recsys-wordcloud/]
 title: 'Apache Hivemall at #ODSCEurope, #RecSys2018, and #MbedConnect'
 ---
 

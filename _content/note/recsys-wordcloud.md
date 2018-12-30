@@ -2,7 +2,7 @@
 date: 2017-11-11
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/trends-in-real-world-recommender-systems-2017/,
-  /note/flurs/]
+  /note/mlconf-sf-2018/]
 title: Understanding Research Trends in Recommender Systems from Word Cloud
 ---
 
