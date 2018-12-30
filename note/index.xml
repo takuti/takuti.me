@@ -668,7 +668,7 @@ LensKit (Java)  公式サイト/ドキュメント GitHubリポジトリ 論文 
       <description>@amaya382くんが Hivemall on Docker についていろいろと整備してくれた。
 Hive環境が必要で敷居が高かった
 (当社比) Hivemallですが, 数コマンド叩くだけでdocker上で試せるようになりました！試す際に意外と厄介なサンプルデータの準備を全てやってくれるスクリプトもおまけで付いてます (※あくまで評価・開発用です) https://t.co/fiztEpicma
-&amp;mdash; amaya (@amaya382) April 25, 2017
+&amp;mdash; amaya@3日目東Ｕ11b (@amaya382) April 25, 2017
  一方、個人的には Hivemall on Mac について以前記事を書いた：『MacのローカルにHivemallを導入してアイテム推薦をするまで』
 だいたいHomebrewで完結するのでMacローカルだけを考えればこれでも問題ないけど、煩雑なインストール・設定無しでDockerコンテナで話が進むに越したことはない。というわけで先の記事のフォローアップとして Hivemall on Docker をMacのローカルで試してみる。環境は次の通り：
  macOS Sierra 10.12.3 Docker for Mac Stable channel (version 17.03.1-ce-mac5)  $ docker -v Docker version 17.03.1-ce, build c6d412e $ docker-compose -v docker-compose version 1.11.2, build dfed245 $ docker-machine -v docker-machine version 0.10.0, build 76ed2a6 コンテナ起動まで 基本的にはドキュメントに従う。
