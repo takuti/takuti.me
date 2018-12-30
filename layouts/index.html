@@ -30,8 +30,8 @@
 <section>
   <h3>Recent blog articles</h3>
   <ul>
-    {{ range first 5 (where .Data.Pages "Section" "note")}}
-      <li><a href="{{ .Permalink }}">{{ .Title }}</a>
+  {{ range first 5 (where (where .Data.Pages "Section" "note") ".Params.lang" "en")}}
+    <li><a href="{{ .Permalink }}">{{ .Title }}</a>
   {{ end }}
   </ul>
   <a href="/note/">&raquo; more</a>
