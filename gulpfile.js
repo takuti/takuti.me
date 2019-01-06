@@ -15,7 +15,7 @@ gulp.task('clean-content', function() {
 gulp.task('compile-sass', function() {
   gulp.src('_scss/*.scss')
       .pipe(plumber())
-      .pipe(sass())
+      .pipe(sass({outputStyle: 'compressed'}))
       .pipe(gulp.dest('static/css/'));
 });
 
