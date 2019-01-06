@@ -12,6 +12,10 @@
     {{ .Content }}
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    {{ if eq .Params.lang "ja" }}
+    <br />
+    <a href="http://amzn.asia/70ZQOei" target="_blank" rel="noopener" class="amazon-btn"><span class="symbol" >amazon</span><b>Donate</b></a>
+    {{ end }}
   </div>
 
   <h4><span class="symbol">search</span> See also</h4>
