@@ -47,8 +47,12 @@ gulp.task('compile-md', function() {
 
       // convert markdown content into html (except for the front matter)
       .pipe(kramdown({
-        highlight: function (code) {
-          return hjs.highlightAuto(code).value;
+        highlight: function (code, lang) {
+          try {
+            return hjs.highlight(lang, code).value;
+          } catch (TypeError) {
+            return code;
+          }
         }
       }))
 
@@ -71,8 +75,12 @@ gulp.task('compile-md-preview', function() {
         file.contents = new Buffer(content);
       }))
       .pipe(kramdown({
-        highlight: function (code) {
-          return hjs.highlightAuto(code).value;
+        highlight: function (code, lang) {
+          try {
+            return hjs.highlight(lang, code).value;
+          } catch (TypeError) {
+            return code;
+          }
         }
       }))
       .pipe(wrapper({ header: function(file){ return file.frontMatter + '\n'; } }))
