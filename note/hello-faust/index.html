@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    
+    <meta name=description content="Streaming recommendation is one of the most challenging topics in the field of recommender systems. The task requires recommendation engine to incrementally and promptly update recommendation model as new user-item interaction comes in to data streams (e.g., click, purchase, watch). I previously studied such incremental recommendation techniques, and eventually published a Python library named FluRS to make their implementation and evaluation easier.
+As I described in my research paper a couple of years ago, incremental recommender systems run in three steps:" />
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Feeding User-Item Interactions to Python-Based Streaming Recommendation Engine via Faust | takuti.me
+      
+    </title>
+    
+    <meta property="og:title" content="Feeding User-Item Interactions to Python-Based Streaming Recommendation Engine via Faust">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2019-01-14">
+    <meta property="og:description" content="Streaming recommendation is one of the most challenging topics in the field of recommender systems. The task requires recommendation engine to incrementally and promptly update recommendation model as new user-item interaction comes in to data streams (e.g., click, purchase, watch). I previously studied such incremental recommendation techniques, and eventually published a Python library named FluRS to make their implementation and evaluation easier.
+As I described in my research paper a couple of years ago, incremental recommender systems run in three steps:">
+    
+    <meta property="og:url" content="https://takuti.me/note/hello-faust/">
+    <meta property="og:site_name" content="takuti.me">
+    
+    
+    
+
+    <link rel="stylesheet" href="https://takuti.me/css/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-7190463694419594",
+              enable_page_level_ads: true
+         });
+    </script>
+    
+  </head>
+  <body>
+  <span class="header-icon">
+    <a href="https://takuti.me/"><img src="https://takuti.me/images/logo.png" alt="icon" /></a>
+  </span>
+
+
+<div id="container">
+
+<article>
+  <p class="meta">
+    2019-01-14
+  </p>
+  <h2>Feeding User-Item Interactions to Python-Based Streaming Recommendation Engine via Faust</h2>
+
+  <div class="post">
+    
+<p><em>Streaming recommendation</em> is one of the most challenging topics in the field of recommender systems. The task requires recommendation engine to incrementally and promptly update recommendation model as new user-item interaction comes in to data streams (e.g., click, purchase, watch). I previously <a href="https://arxiv.org/abs/1607.02858">studied such incremental recommendation techniques</a>, and eventually published a Python library named <strong><a href="https://github.com/takuti/flurs">FluRS</a></strong> to make their implementation and evaluation easier.</p>
+<p>As I described in my research paper a couple of years ago, incremental recommender systems run in three steps:</p>
+<p><img src="https://takuti.me/images/recommender/incremental-recommendation.png" alt="incremental-recommendation"></p>
+<ol>
+<li>System recommends top-N items to a user by using a production recommendation model</li>
+<li>User may interact with one or more recommended items</li>
+<li>Recommendation model is incrementally updated based on the observed user-item interactions</li>
+</ol>
+<p>In order to provide an implementation idea of the above recommender systems, this article examines <strong><a href="https://faust.readthedocs.io">Faust</a></strong>, a handy stream and event processing engine for Python, in combination with FluRS. Faust allows our Python code to easily consume data streams and do something for incoming events.</p>
+<pre><code class="lang-sh">pip install faust
+</code></pre>
+<h3 id="updating-flurs-recommender-from-a-faust-processor">Updating FluRS recommender from a Faust processor</h3>
+<p>Assume that a dummy Kafka topic <code>flurs-events</code> continuously receives <a href="https://grouplens.org/datasets/movielens/">MovieLens rating events</a> represented by pairs of <code>&lt;user, item, rating, timestamp&gt;</code>. In case that those events are JSON-serialized, a Faust event processor can be defined as:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> json
+<span class="hljs-keyword">import</span> faust
+
+app = faust.App(
+    <span class="hljs-string">'flurs-recommender'</span>,
+    broker=<span class="hljs-string">'kafka://localhost:9092'</span>,
+    value_serializer=<span class="hljs-string">'raw'</span>,
+)
+
+topic = app.topic(<span class="hljs-string">'flurs-events'</span>, value_type=bytes)
+
+<span class="hljs-meta">@app.agent(topic)</span>
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process</span><span class="hljs-params">(stream)</span>:</span>
+    <span class="hljs-keyword">async</span> <span class="hljs-keyword">for</span> obj <span class="hljs-keyword">in</span> stream:
+        event = json.loads(obj)
+        <span class="hljs-comment"># do something awesome</span>
+</code></pre>
+<p>In Faust, the <code>@app.agent(topic)</code> decorator enables creating a processor, and what we have to do is just writing a Python function that does something for every single events from a stream. Since our application is a streaming recommender system, the function should update recommendation model against an observed event:</p>
+<pre><code class="lang-py"><span class="hljs-meta">@app.agent(topic)</span>
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process</span><span class="hljs-params">(stream)</span>:</span>
+    <span class="hljs-keyword">async</span> <span class="hljs-keyword">for</span> obj <span class="hljs-keyword">in</span> stream:
+        event = json.loads(obj)
+
+        <span class="hljs-comment"># focus only on positive feedback (i.e., rating is greater than 3)</span>
+        <span class="hljs-keyword">if</span> event[<span class="hljs-string">'rating'</span>] &lt; <span class="hljs-number">3</span>:
+            <span class="hljs-keyword">continue</span>
+
+        <span class="hljs-comment"># user (item) index = event['user'] (event['item']) - 1</span>
+        user, item = User(event[<span class="hljs-string">'user'</span>] - <span class="hljs-number">1</span>), Item(event[<span class="hljs-string">'item'</span>] - <span class="hljs-number">1</span>)
+        recommender.update(Event(user, item))
+</code></pre>
+<p>It should be noticed that this processor corresponds to Step 3 in the above figure of streaming recommendation.</p>
+<p>On the latest version of FluRS, <code>User</code>, <code>Item</code> and <code>Event</code> classes wrap user/item instances with their indices and features. For instance, <code>recommender</code> can be a matrix factorization model that is preliminary initialized as follows:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> flurs.data.entity <span class="hljs-keyword">import</span> User, Item, Event
+<span class="hljs-keyword">from</span> flurs.recommender <span class="hljs-keyword">import</span> MFRecommender
+
+recommender = MFRecommender(k=<span class="hljs-number">40</span>)
+recommender.initialize()
+
+n_user, n_item = <span class="hljs-number">943</span>, <span class="hljs-number">1682</span>
+
+<span class="hljs-keyword">for</span> u <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, n_user + <span class="hljs-number">1</span>):
+    recommender.register(User(u - <span class="hljs-number">1</span>))
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, n_item + <span class="hljs-number">1</span>):
+    recommender.register(Item(i - <span class="hljs-number">1</span>))
+</code></pre>
+<p>The code deterministically registers all possible instances to the recommender beforehand, since we already know total number of users and items (i.e., movies) in the public dataset.</p>
+<h3 id="running-the-streaming-recommendation-engine">Running the streaming recommendation engine</h3>
+<p>Eventually, our stream recommender, <code>recommender.py</code>, can be implemented and executed as:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> flurs.data.entity <span class="hljs-keyword">import</span> User, Item, Event
+<span class="hljs-keyword">from</span> flurs.recommender <span class="hljs-keyword">import</span> MFRecommender
+<span class="hljs-keyword">import</span> json
+<span class="hljs-keyword">import</span> faust
+
+app = faust.App(
+    <span class="hljs-string">'flurs-recommender'</span>,
+    broker=<span class="hljs-string">'kafka://localhost:9092'</span>,
+    value_serializer=<span class="hljs-string">'raw'</span>,
+)
+
+topic = app.topic(<span class="hljs-string">'flurs-events'</span>, value_type=bytes)
+
+recommender = MFRecommender(k=<span class="hljs-number">40</span>)
+recommender.initialize()
+
+n_user, n_item = <span class="hljs-number">943</span>, <span class="hljs-number">1682</span>
+
+<span class="hljs-keyword">for</span> u <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, n_user + <span class="hljs-number">1</span>):
+    recommender.register(User(u - <span class="hljs-number">1</span>))
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, n_item + <span class="hljs-number">1</span>):
+    recommender.register(Item(i - <span class="hljs-number">1</span>))
+
+
+<span class="hljs-meta">@app.agent(topic)</span>
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process</span><span class="hljs-params">(stream)</span>:</span>
+    <span class="hljs-keyword">async</span> <span class="hljs-keyword">for</span> obj <span class="hljs-keyword">in</span> stream:
+        event = json.loads(obj)
+        <span class="hljs-keyword">if</span> event[<span class="hljs-string">'rating'</span>] &lt; <span class="hljs-number">3</span>:
+            <span class="hljs-keyword">continue</span>
+        user, item = User(event[<span class="hljs-string">'user'</span>] - <span class="hljs-number">1</span>), Item(event[<span class="hljs-string">'item'</span>] - <span class="hljs-number">1</span>)
+        recommender.update(Event(user, item))
+</code></pre>
+<pre><code class="lang-sh">faust -A recommender worker -l info
+</code></pre>
+<p>Note that the easiest way to set up a local Kafka environment on Mac would be:</p>
+<pre><code class="lang-sh">brew install zookeeper kafka
+brew services start zookeeper
+brew services start kafka
+</code></pre>
+<h3 id="producing-movielens-rating-events-to-the-kafka-topic">Producing MovieLens rating events to the Kafka topic</h3>
+<p>Here, the following code, <code>producer.py</code>, produces toy events to the dummy topic:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">import</span> json
+<span class="hljs-keyword">from</span> kafka <span class="hljs-keyword">import</span> KafkaProducer
+<span class="hljs-keyword">from</span> kafka.errors <span class="hljs-keyword">import</span> KafkaError
+
+producer = KafkaProducer(
+    bootstrap_servers=<span class="hljs-string">'localhost:9092'</span>,
+    value_serializer=<span class="hljs-keyword">lambda</span> m: json.dumps(m).encode(<span class="hljs-string">'ascii'</span>))
+topic = <span class="hljs-string">'flurs-events'</span>
+
+keys = [<span class="hljs-string">'user'</span>, <span class="hljs-string">'item'</span>, <span class="hljs-string">'rating'</span>, <span class="hljs-string">'timestamp'</span>]
+
+<span class="hljs-keyword">with</span> open(sys.argv[<span class="hljs-number">1</span>], <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> f:  <span class="hljs-comment"># /path/to/ml-100k/u.data</span>
+    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f.readlines():
+        event = dict(zip(keys, map(int, line.rstrip().split(<span class="hljs-string">'\t'</span>))))
+
+        future = producer.send(topic, event)
+        <span class="hljs-keyword">try</span>:
+            future.get(timeout=<span class="hljs-number">10</span>)
+        <span class="hljs-keyword">except</span> KafkaError <span class="hljs-keyword">as</span> e:
+            print(e)
+            <span class="hljs-keyword">break</span>
+</code></pre>
+<pre><code class="lang-sh">python producer.py /path/to/ml-100k/u.data
+</code></pre>
+<p>The producer simulates Step 2 in the flow of incremental recommendation, where user-item interaction is observed and emitted to a core recommendation engine.</p>
+<p>Finally, <code>producer.py</code> communicates with <code>recommender.py</code> via Kafka and Faust, and rating events are fed to the processor.</p>
+<h3 id="observations">Observations</h3>
+<p>Thanks to the easy-to-use Python-based streaming processing engine, I was able to provide mock implementation of streaming recommender system by using FluRS. Below I list some open questions we need to consider more closely:</p>
+<ul>
+<li>How to deal with unknown total number of users and items<ul>
+<li>We preliminary registered total number of users and items to initialize a recommender, but those numbers are normally unknown at the time of initialization in practice.</li>
+</ul>
+</li>
+<li>How to choose appropriate serialization format<ul>
+<li>JSON-serialization is not always the best choice.</li>
+<li>Event records passing through data streams should be as much as simple for efficiency.</li>
+<li>If we directly pass <code>flurs.data.entity.Event</code> object to a stream, we need to implement a dedicated serializer and deserializer of the custom object.</li>
+</ul>
+</li>
+<li>How to integrate recommendation logic<ul>
+<li>Implementation of Step 1 in the above figure, where a recommendation model is hold and recommendation is actually conducted, is not obvious at this moment.</li>
+</ul>
+</li>
+</ul>
+<p>Based on these observations, I will improve the package to make it more feasible.</p>
+
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
+  </div>
+
+  <h4><span class="symbol">search</span> See also</h4>
+  <ul>
+  
+    
+    <li><a href="https://takuti.me/note/recsys-wordcloud/">Understanding Research Trends in Recommender Systems from Word Cloud</a>
+    
+    <li><a href="https://takuti.me/note/flurs/">FluRS: A Python Library for Online Item Recommendation</a>
+    
+    <li><a href="https://takuti.me/note/recommendation-julia/">Recommendation.jl: Building Recommender Systems in Julia</a>
+    
+  
+  </ul>
+
+</article>
+<span class="symbol">user</span> <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>) is a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Arm Treasure Data</a></b> and committer of <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b><span class="symbol">twinkle</span><a href="https://takuti.me/">&raquo; more</a>
+
+</div>
+
+    <footer>
+      &copy; 2012-2019 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

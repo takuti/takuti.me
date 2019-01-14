@@ -65,7 +65,7 @@ The initial version (v0.0.1) of FluRS is already published to PyPI.">
 <p>Last week, I introduced a Julia package for recommender systems: <a href="http://takuti.me/note/recommendation-julia/">Recommendation.jl: Building Recommender Systems in Julia</a>.</p>
 <p>However, its functionality is still low, and I argued that implementing more powerful recommendation techniques and <code>update()</code> function is important. Thus, this article provides <strong><a href="https://github.com/takuti/flurs/">FluRS</a></strong>, another open-sourced library for recommendation. Unlike <strong>Recommendation.jl</strong>, this recommender-specific library is written in Python from a practical point of view.</p>
 <p>The initial version (v0.0.1) of <strong>FluRS</strong> is already published to PyPI. You can install and use the library by:</p>
-<pre><code class="lang-sh"><span class="hljs-meta">$</span><span class="bash"> pip install flurs</span>
+<pre><code class="lang-sh">$ pip install flurs
 </code></pre>
 <p>This article simply describes basic ideas and concepts behind the implementation. See the README file to learn how to use the library.</p>
 <h3 id="python-for-recommendation">Python for recommendation</h3>
@@ -97,30 +97,30 @@ The initial version (v0.0.1) of FluRS is already published to PyPI.">
 </ul>
 <h3 id="how-to-represent-users-items-and-events">How to represent users, items and events</h3>
 <p>Similarly to <strong>Recommendation.jl</strong>, <strong>FluRS</strong> also encapsulates a user, item and corresponding event in entity classes as follows:</p>
-<pre><code class="lang-py">import numpy as np
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
 
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span>:</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, index, feature=np.array([<span class="hljs-number">0</span>.])</span></span>):
-        <span class="hljs-keyword">self</span>.index = index
-        <span class="hljs-keyword">self</span>.feature = feature
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, index, feature=np.array<span class="hljs-params">([<span class="hljs-number">0.</span>])</span>)</span>:</span>
+        self.index = index
+        self.feature = feature
 
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Item</span>:</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, index, feature=np.array([<span class="hljs-number">0</span>.])</span></span>):
-        <span class="hljs-keyword">self</span>.index = index
-        <span class="hljs-keyword">self</span>.feature = feature
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, index, feature=np.array<span class="hljs-params">([<span class="hljs-number">0.</span>])</span>)</span>:</span>
+        self.index = index
+        self.feature = feature
 
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Event</span>:</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, user, item, value, context=np.array([<span class="hljs-number">0</span>.])</span></span>):
-        <span class="hljs-keyword">self</span>.user = user
-        <span class="hljs-keyword">self</span>.item = item
-        <span class="hljs-keyword">self</span>.value = value
-        <span class="hljs-keyword">self</span>.context = context
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, user, item, value, context=np.array<span class="hljs-params">([<span class="hljs-number">0.</span>])</span>)</span>:</span>
+        self.user = user
+        self.item = item
+        self.value = value
+        self.context = context
 </code></pre>
 <p><code>User</code> and <code>Item</code> can store their internal features as array (vector) representation for feature-based recommendation. An <code>Event</code> entity then consists of <code>user</code> and <code>item</code> entities, and <code>value</code> describing the feedback (e.g., rating). Additionally, <code>context</code> is an auxiliary vector which holds contextual information of the events such as time and location. Note that the features and contexts can be dummy 1-dimensional vectors in case the vectors are not explicitly specified by the arguments.</p>
 <h3 id="separating-algorithms-from-recommender-specific-implementations">Separating algorithms from recommender-specific implementations</h3>
@@ -144,40 +144,40 @@ The initial version (v0.0.1) of FluRS is already published to PyPI.">
 </code></pre>
 <pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RecommenderMixin</span>:</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_recommender</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, *args)</span></span>:
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_recommender</span><span class="hljs-params">(self, *args)</span>:</span>
         <span class="hljs-comment"># number of observed users</span>
-        <span class="hljs-keyword">self</span>.n_user = <span class="hljs-number">0</span>
+        self.n_user = <span class="hljs-number">0</span>
 
         <span class="hljs-comment"># store user data</span>
-        <span class="hljs-keyword">self</span>.users = {}
+        self.users = {}
 
         <span class="hljs-comment"># number of observed items</span>
-        <span class="hljs-keyword">self</span>.n_item = <span class="hljs-number">0</span>
+        self.n_item = <span class="hljs-number">0</span>
 
         <span class="hljs-comment"># store item data</span>
-        <span class="hljs-keyword">self</span>.items = {}
+        self.items = {}
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_new_user</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, u)</span></span>:
-        <span class="hljs-keyword">return</span> u <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">self</span>.users
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_new_user</span><span class="hljs-params">(self, u)</span>:</span>
+        <span class="hljs-keyword">return</span> u <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> self.users
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_user</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, user)</span></span>:
-        <span class="hljs-keyword">self</span>.users[user.index] = {<span class="hljs-string">'known_items'</span>: set()}
-        <span class="hljs-keyword">self</span>.n_user += <span class="hljs-number">1</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_user</span><span class="hljs-params">(self, user)</span>:</span>
+        self.users[user.index] = {<span class="hljs-string">'known_items'</span>: set()}
+        self.n_user += <span class="hljs-number">1</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_new_item</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, i)</span></span>:
-        <span class="hljs-keyword">return</span> i <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">self</span>.items
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_new_item</span><span class="hljs-params">(self, i)</span>:</span>
+        <span class="hljs-keyword">return</span> i <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> self.items
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_item</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, item)</span></span>:
-        <span class="hljs-keyword">self</span>.items[item.index] = {}
-        <span class="hljs-keyword">self</span>.n_item += <span class="hljs-number">1</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_item</span><span class="hljs-params">(self, item)</span>:</span>
+        self.items[item.index] = {}
+        self.n_item += <span class="hljs-number">1</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, event)</span></span>:
-        pass
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">update</span><span class="hljs-params">(self, event)</span>:</span>
+        <span class="hljs-keyword">pass</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">score</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, user, candidates)</span></span>:
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">score</span><span class="hljs-params">(self, user, candidates)</span>:</span>
         <span class="hljs-keyword">return</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">recommend</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, user, candidates)</span></span>:
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">recommend</span><span class="hljs-params">(self, user, candidates)</span>:</span>
         <span class="hljs-keyword">return</span>
 </code></pre>
 <p>The former only provides model-specific functions such as updating model parameters, and the latter extends it to incremental recommender systems by injecting additional functions which use the <code>User</code>, <code>Item</code> and/or <code>Event</code> entities. The properties defined in the latter mixin continuously track observed users and items, and, if new users (items) are arrived, a recommender registers them on the internal dictionaries.</p>
@@ -185,7 +185,7 @@ The initial version (v0.0.1) of FluRS is already published to PyPI.">
 <p>In case we like to apply the dimensionality reduction techniques to input vectors, we only need to add some code to the recommender side&#39;s <code>update()</code> method and modify the entity-to-feature-vector converting procedure. Likewise, model-specific modification such as changing a loss function simply requires us to overwrite the <code>update_params()</code> method in a model class.</p>
 <h3 id="example-factorization-machines-on-flurs">Example: Factorization machines on FluRS</h3>
 <p>To give a concrete example, the <strong>FluRS</strong> library defines a FM-based recommender as follows:</p>
-<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-type">FMRecommender</span>(<span class="hljs-type">FactorizationMachine</span>, <span class="hljs-type">FeatureRecommenderMixin</span>):</span>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FMRecommender</span><span class="hljs-params">(FactorizationMachine, FeatureRecommenderMixin)</span>:</span>
 </code></pre>
 <p>Base classes <code>FactorizationMachine</code> and <code>FeatureRecommenderMixin</code> respectively inherit <code>BaseModel</code> and <code>RecommenderMixin</code>. Unlike <code>RecommenderMixin</code>, <code>FeatureRecommenderMixin</code> takes an additional argument <code>context</code> in a <code>score()</code> and <code>recommend()</code> method, because feature-based techniques allow us to represent an event as a feature vector by encoding and concatenating arbitrary variables.</p>
 <h3 id="conclusion">Conclusion</h3>
@@ -195,13 +195,14 @@ The initial version (v0.0.1) of FluRS is already published to PyPI.">
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
   </div>
 
   <h4><span class="symbol">search</span> See also</h4>
   <ul>
   
     
-    <li><a href="https://takuti.me/note/recsys-wordcloud/">Understanding Research Trends in Recommender Systems from Word Cloud</a>
+    <li><a href="https://takuti.me/note/hello-faust/">Feeding User-Item Interactions to Python-Based Streaming Recommendation Engine via Faust</a>
     
     <li><a href="https://takuti.me/note/hello-librec/">Java製の推薦システム用ライブラリ LibRec を動かしてみる</a>
     
@@ -216,7 +217,7 @@ The initial version (v0.0.1) of FluRS is already published to PyPI.">
 </div>
 
     <footer>
-      &copy; 2012-2018 Takuya Kitazawa.
+      &copy; 2012-2019 Takuya Kitazawa.
     </footer>
 
     

@@ -132,7 +132,7 @@
     (<span class="hljs-string">'VP'</span>, <span class="hljs-string">'Vice President'</span>),
     ]
 
-csvReader = csv.DictReader(<span class="hljs-built_in">open</span>(CSV_FILE), delimiter=<span class="hljs-string">','</span>, quotechar=<span class="hljs-string">'"'</span>)
+csvReader = csv.DictReader(open(CSV_FILE), delimiter=<span class="hljs-string">','</span>, quotechar=<span class="hljs-string">'"'</span>)
 contacts = [row <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> csvReader]
 
 <span class="hljs-comment"># Read in a list of titles and split apart</span>
@@ -142,35 +142,35 @@ contacts = [row <span class="hljs-keyword">for</span> row <span class="hljs-keyw
 
 titles = []
 <span class="hljs-keyword">for</span> contact <span class="hljs-keyword">in</span> contacts:
-    titles.extend([t.strip() <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> contact[<span class="hljs-string">'Job Title'</span>].<span class="hljs-built_in">split</span>(<span class="hljs-string">'/'</span>)
+    titles.extend([t.strip() <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> contact[<span class="hljs-string">'Job Title'</span>].split(<span class="hljs-string">'/'</span>)
                   <span class="hljs-keyword">if</span> contact[<span class="hljs-string">'Job Title'</span>].strip() != <span class="hljs-string">''</span>])
 
 <span class="hljs-comment"># Replace common/known abbreviations</span>
 
 <span class="hljs-keyword">for</span> i, _ <span class="hljs-keyword">in</span> enumerate(titles):
     <span class="hljs-keyword">for</span> transform <span class="hljs-keyword">in</span> transforms:
-        titles[i] = titles[i].<span class="hljs-built_in">replace</span>(*transform)
+        titles[i] = titles[i].replace(*transform)
 </code></pre>
 <p>そして前処理を終えたJob Titleを『Titleごと』および『単語ごと』にカウントして、“重要な特徴量”を探っている：</p>
-<pre><code><span class="hljs-code">+-------------------------------------+</span>------+
-<span class="hljs-section">| Title                               | Freq |
-+-------------------------------------+------+</span>
+<pre><code>+-------------------------------------+------+
+| Title                               | Freq |
++-------------------------------------+------+
 | Chief Executive Officer             | 19   |
 | Senior Software Engineer            | 17   |
 | President                           | 12   |
 | Founder                             | 9    |
-<span class="hljs-section">| ...                                 | ...  |
-+-------------------------------------+------+</span>
+| ...                                 | ...  |
++-------------------------------------+------+
 
-<span class="hljs-code">+---------------+</span>------+
-<span class="hljs-section">| Token         | Freq |
-+---------------+------+</span>
++---------------+------+
+| Token         | Freq |
++---------------+------+
 | Engineer      | 43   |
 | Chief         | 43   |
 | Senior        | 42   |
 | Officer       | 37   |
-<span class="hljs-section">| ...           | ...  |
-+---------------+------+</span>
+| ...           | ...  |
++---------------+------+
 </code></pre><p>この他には</p>
 <ul>
 <li>ストップワード (of, and, ...) や記号の除去</li>
@@ -231,49 +231,49 @@ titles = []
 <p>この点は &quot;<a href="https://nation.marketo.com/thread/38762-normalizing-job-titles-vs-eliminating-them">Normalizing Job Titles vs. eliminating them</a>&quot; でもマーケティング畑の人たちが議論していて、人の立場を表す <em>hierarchy level</em> と職務を表す <em>functional role</em> を分けて考えよう、という話をしている。</p>
 <p>クラスタリング済みのJob Titleデータを提供している &quot;<a href="http://www.datasciencecentral.com/profiles/blogs/400-categorized-job-titles-for-data-scientists">400 Categorized Job Titles for Data Scientists</a>&quot; では、データ作成時に実際に行った処理の様子が示されている。</p>
 <p>ここでもやはり、立場を表す <em>job level</em> と職務を表す <em>job category</em> を区別している。クラスタリングは完全にルールベースで、前処理済みのJob Title <code>$job</code> が、ある特定の単語を含んでいるか否かでクラスタを決める：</p>
-<pre><code class="lang-pl"><span class="hljs-meta">#---- Step 1: creating job level</span>
-$level=<span class="hljs-string">"Other"</span><span class="hljs-comment">;</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"vice president"</span>) { $level=<span class="hljs-string">"Executive"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"vp "</span>) { $level=<span class="hljs-string">"Executive"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"ceo"</span>) { $level=<span class="hljs-string">"Executive"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"executive"</span>) { $level=<span class="hljs-string">"Executive"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"officer"</span>) { $level=<span class="hljs-string">"Executive"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"chief"</span>) { $level=<span class="hljs-string">"Executive"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"partner"</span>) { $level=<span class="hljs-string">"Executive"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"president"</span>) { $level=<span class="hljs-string">"Executive"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"director"</span>) { $level=<span class="hljs-string">"Manager"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"manager"</span>) { $level=<span class="hljs-string">"Manager"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"lead"</span>) { $level=<span class="hljs-string">"Manager"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"consultant"</span>) { $level=<span class="hljs-string">"Consultant"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"principal"</span>) { $level=<span class="hljs-string">"Consultant"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"professor"</span>) { $level=<span class="hljs-string">"Professor"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"analyst"</span>) { $level=<span class="hljs-string">"Analyst"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"student"</span>) { $category=<span class="hljs-string">"Student"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"analyst"</span>) { $category=<span class="hljs-string">"Analyst"</span><span class="hljs-comment">; }</span>
-$ljob_level{$job}=$level<span class="hljs-comment">;</span>
+<pre><code class="lang-pl"><span class="hljs-comment">#---- Step 1: creating job level</span>
+$level=<span class="hljs-string">"Other"</span>;
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"vice president"</span>) { $level=<span class="hljs-string">"Executive"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"vp "</span>) { $level=<span class="hljs-string">"Executive"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"ceo"</span>) { $level=<span class="hljs-string">"Executive"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"executive"</span>) { $level=<span class="hljs-string">"Executive"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"officer"</span>) { $level=<span class="hljs-string">"Executive"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"chief"</span>) { $level=<span class="hljs-string">"Executive"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"partner"</span>) { $level=<span class="hljs-string">"Executive"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"president"</span>) { $level=<span class="hljs-string">"Executive"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"director"</span>) { $level=<span class="hljs-string">"Manager"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"manager"</span>) { $level=<span class="hljs-string">"Manager"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"lead"</span>) { $level=<span class="hljs-string">"Manager"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"consultant"</span>) { $level=<span class="hljs-string">"Consultant"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"principal"</span>) { $level=<span class="hljs-string">"Consultant"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"professor"</span>) { $level=<span class="hljs-string">"Professor"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"analyst"</span>) { $level=<span class="hljs-string">"Analyst"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"student"</span>) { $category=<span class="hljs-string">"Student"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"analyst"</span>) { $category=<span class="hljs-string">"Analyst"</span>; }
+$ljob_level{$job}=$level;
 
-<span class="hljs-meta">#---- Step 2: creating category</span>
-$category=<span class="hljs-string">"Other"</span><span class="hljs-comment">;</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"recruit"</span>) { $category=<span class="hljs-string">"Recruiter"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"talent"</span>) { $category=<span class="hljs-string">"Recruiter"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"engineer"</span>) { $category=<span class="hljs-string">"Engineering"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"software"</span>) { $category=<span class="hljs-string">"Developer"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"develop"</span>) { $category=<span class="hljs-string">"Developer"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"architect"</span>) { $category=<span class="hljs-string">"Data Plumbing"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"scientist"</span>) { $category=<span class="hljs-string">"Data Science"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"science"</span>) { $category=<span class="hljs-string">"Data Science"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"stat"</span>) { $category=<span class="hljs-string">"Statistician"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"research"</span>) { $category=<span class="hljs-string">"Research"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"marketing"</span>) { $category=<span class="hljs-string">"Business Analytics"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"analytics"</span>) { $category=<span class="hljs-string">"Business Analytics"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"business"</span>) { $category=<span class="hljs-string">"Business Analytics"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"operations"</span>) { $category=<span class="hljs-string">"Business Analytics"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"consultant"</span>) { $category=<span class="hljs-string">"Consultant"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"training"</span>) { $category=<span class="hljs-string">"Trainer"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"lecturer"</span>) { $category=<span class="hljs-string">"Trainer"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"professor"</span>) { $category=<span class="hljs-string">"Trainer"</span><span class="hljs-comment">; }</span>
-<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"student"</span>) { $category=<span class="hljs-string">"Student"</span><span class="hljs-comment">; }</span>
-$ljob_category{$job}=$category<span class="hljs-comment">;</span>
+<span class="hljs-comment">#---- Step 2: creating category</span>
+$category=<span class="hljs-string">"Other"</span>;
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"recruit"</span>) { $category=<span class="hljs-string">"Recruiter"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"talent"</span>) { $category=<span class="hljs-string">"Recruiter"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"engineer"</span>) { $category=<span class="hljs-string">"Engineering"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"software"</span>) { $category=<span class="hljs-string">"Developer"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"develop"</span>) { $category=<span class="hljs-string">"Developer"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"architect"</span>) { $category=<span class="hljs-string">"Data Plumbing"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"scientist"</span>) { $category=<span class="hljs-string">"Data Science"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"science"</span>) { $category=<span class="hljs-string">"Data Science"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"stat"</span>) { $category=<span class="hljs-string">"Statistician"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"research"</span>) { $category=<span class="hljs-string">"Research"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"marketing"</span>) { $category=<span class="hljs-string">"Business Analytics"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"analytics"</span>) { $category=<span class="hljs-string">"Business Analytics"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"business"</span>) { $category=<span class="hljs-string">"Business Analytics"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"operations"</span>) { $category=<span class="hljs-string">"Business Analytics"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"consultant"</span>) { $category=<span class="hljs-string">"Consultant"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"training"</span>) { $category=<span class="hljs-string">"Trainer"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"lecturer"</span>) { $category=<span class="hljs-string">"Trainer"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"professor"</span>) { $category=<span class="hljs-string">"Trainer"</span>; }
+<span class="hljs-keyword">if</span> ($job =~ <span class="hljs-string">"student"</span>) { $category=<span class="hljs-string">"Student"</span>; }
+$ljob_category{$job}=$category;
 </code></pre>
 <p>もう少し機械学習っぽい方向性はどうだろう。さすがに「Titleの bag-of-words 表現を k-means に放り込んで、ユークリッド距離の意味でクラスタリング」というのは乱暴な気がする。ベクトルの表現や類似度を工夫して、近傍法ベースの（教師あり）分類アルゴリズムの適用も視野にいれたいものである<sup><a href="#fn_1" id="reffn_1">1</a></sup>。</p>
 <p>調べてみると、<a href="https://arxiv.org/abs/1609.06268">word2vecをJob Title分類に応用した話</a>が見つかる。ナウい。</p>
@@ -357,6 +357,10 @@ $ljob_category{$job}=$category<span class="hljs-comment">;</span>
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
+    <br />
+    <a href="http://amzn.asia/70ZQOei" target="_blank" rel="noopener" class="amazon-btn"><span class="symbol" >amazon</span><b>Support</b></a>
+    
   </div>
 
   <h4><span class="symbol">search</span> See also</h4>
@@ -378,7 +382,7 @@ $ljob_category{$job}=$category<span class="hljs-comment">;</span>
 </div>
 
     <footer>
-      &copy; 2012-2018 Takuya Kitazawa.
+      &copy; 2012-2019 Takuya Kitazawa.
     </footer>
 
     

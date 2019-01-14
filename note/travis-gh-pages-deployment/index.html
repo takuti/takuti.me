@@ -83,10 +83,10 @@
 <li><a href="https://docs.travis-ci.com/user/deployment/pages/">GitHub Pages Deployment - Travis CI</a></li>
 </ul>
 <p>My current <code>.travis.yml</code> looks like:</p>
-<pre><code class="lang-yml"><span class="hljs-attribute">language</span>: c
-<span class="hljs-attribute">os</span>: osx
+<pre><code class="lang-yml"><span class="hljs-attr">language:</span> <span class="hljs-string">c</span>
+<span class="hljs-attr">os:</span> <span class="hljs-string">osx</span>
 
-<span class="yaml"><span class="hljs-attr">before_script:</span>
+<span class="hljs-attr">before_script:</span>
 <span class="hljs-bullet">  -</span> <span class="hljs-string">npm</span> <span class="hljs-string">install</span> <span class="hljs-bullet">-g</span> <span class="hljs-string">gulp</span>
 <span class="hljs-bullet">  -</span> <span class="hljs-string">npm</span> <span class="hljs-string">install</span>
 <span class="hljs-bullet">  -</span> <span class="hljs-string">brew</span> <span class="hljs-string">update</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">brew</span> <span class="hljs-string">install</span> <span class="hljs-string">hugo</span>
@@ -110,7 +110,7 @@
 <span class="hljs-attr">    branch:</span> <span class="hljs-string">master</span>
 <span class="hljs-attr">  repo:</span> <span class="hljs-string">takuti/takuti.github.io</span>
 <span class="hljs-attr">  target_branch:</span> <span class="hljs-string">master</span>
-<span class="hljs-attr">  fqdn:</span> <span class="hljs-string">takuti.me</span></span>
+<span class="hljs-attr">  fqdn:</span> <span class="hljs-string">takuti.me</span>
 </code></pre>
 <p>Once you have set your <code>$GITHUB_TOKEN</code> to environment variables in <a href="https://travis-ci.org/">travis-ci.org</a>, CI on <a href="https://github.com/takuti/takuti.me">source repository</a> automatically generates your site and pushes it to <a href="https://github.com/takuti/takuti.github.io">GitHub Pages repository</a>; now what we have to do is:</p>
 <ol>
@@ -128,6 +128,7 @@
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
   </div>
 
   <h4><span class="symbol">search</span> See also</h4>
@@ -149,7 +150,7 @@
 </div>
 
     <footer>
-      &copy; 2012-2018 Takuya Kitazawa.
+      &copy; 2012-2019 Takuya Kitazawa.
     </footer>
 
     

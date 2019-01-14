@@ -144,22 +144,22 @@ Attending #MbedConnect at #ArmTechCon.">
 <p>In order to make a demo scenario more motivating, add a dummy temperature and humidity sensor to the simulator:</p>
 <p><img src="https://takuti.me/images/arm/mbed-simulator-td/simulator-td.png" alt="Mbed TD simulator"></p>
 <p><code>while</code> loop in the template will be:</p>
-<pre><code class="lang-cpp">  int cnt = <span class="hljs-number">1</span>;
-  while (<span class="hljs-number">1</span>) {
+<pre><code class="lang-cpp">  <span class="hljs-keyword">int</span> cnt = <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) {
     lcd.cls();
 
-    <span class="hljs-type">float</span> temp = sht31.readTemperature();
-    <span class="hljs-type">float</span> humidity = sht31.readHumidity();
+    <span class="hljs-keyword">float</span> temp = sht31.readTemperature();
+    <span class="hljs-keyword">float</span> humidity = sht31.readHumidity();
 
     lcd.locate(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
-    lcd.printf(<span class="hljs-string">"Sent %d records to TD"</span>, cnt++);
+    lcd.<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Sent %d records to TD"</span>, cnt++);
     lcd.locate(<span class="hljs-number">2</span>, <span class="hljs-number">12</span>);
-    lcd.printf(<span class="hljs-string">"Temperature: %.2f C"</span>, temp);
+    lcd.<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Temperature: %.2f C"</span>, temp);
     lcd.locate(<span class="hljs-number">2</span>, <span class="hljs-number">22</span>);
-    lcd.printf(<span class="hljs-string">"Humidity: %.2f %%"</span>, humidity);
+    lcd.<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Humidity: %.2f %%"</span>, humidity);
 
     <span class="hljs-comment">// Construct strings to send</span>
-    sprintf(body, <span class="hljs-string">"{<span class="hljs-subst">\"</span>temperature<span class="hljs-subst">\"</span>:%f,<span class="hljs-subst">\"</span>humidity<span class="hljs-subst">\"</span>:%f}"</span>, temp, humidity);
+    <span class="hljs-built_in">sprintf</span>(body, <span class="hljs-string">"{\"temperature\":%f,\"humidity\":%f}"</span>, temp, humidity);
 
     <span class="hljs-comment">// Send data to Treasure data</span>
     {
@@ -192,6 +192,7 @@ Attending #MbedConnect at #ArmTechCon.">
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
   </div>
 
   <h4><span class="symbol">search</span> See also</h4>
@@ -213,7 +214,7 @@ Attending #MbedConnect at #ArmTechCon.">
 </div>
 
     <footer>
-      &copy; 2012-2018 Takuya Kitazawa.
+      &copy; 2012-2019 Takuya Kitazawa.
     </footer>
 
     

@@ -86,10 +86,10 @@ distributedData.map(v =&gt; f(v))  と書ける。ある大規模分散データ
 <p>実アプリケーションで Scala を選択するモチベーションとして、関数型パラダイムの恩恵を受けた豊富なコレクション操作 (e.g., <code>reduce()</code>, <code>fold()</code>, <code>map()</code>, <code>filter()</code>) とその表現力が挙げられると思う。</p>
 <p>Spark上では（ほぼ）同一のインタフェースで分散データに対する処理が記述できる。これが重要。</p>
 <p>シングルノードのときの通常のScalaコレクションに対する処理が</p>
-<pre><code class="lang-scala">singleCollection.map(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> f(v))
+<pre><code class="lang-scala">singleCollection.map(v =&gt; f(v))
 </code></pre>
 <p>だとすれば、同様の処理を Spark 上で書いても、それは</p>
-<pre><code class="lang-scala">distributedData.map(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> f(v))
+<pre><code class="lang-scala">distributedData.map(v =&gt; f(v))
 </code></pre>
 <p>と書ける。ある大規模分散データに対して、<strong>まるでそれがローカルデータであるかのようにインタラクティブに処理を適用できる</strong>、これが Scala + Spark によって得られる生産性につながっているのだ。</p>
 <h3 id="%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B9%E3%81%A8%E3%81%AE%E8%A6%AA%E5%92%8C%E6%80%A7%E3%81%AE%E9%AB%98%E3%81%95">データサイエンスとの親和性の高さ</h3>
@@ -120,6 +120,10 @@ distributedData.map(v =&gt; f(v))  と書ける。ある大規模分散データ
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
+    <br />
+    <a href="http://amzn.asia/70ZQOei" target="_blank" rel="noopener" class="amazon-btn"><span class="symbol" >amazon</span><b>Support</b></a>
+    
   </div>
 
   <h4><span class="symbol">search</span> See also</h4>
@@ -141,7 +145,7 @@ distributedData.map(v =&gt; f(v))  と書ける。ある大規模分散データ
 </div>
 
     <footer>
-      &copy; 2012-2018 Takuya Kitazawa.
+      &copy; 2012-2019 Takuya Kitazawa.
     </footer>
 
     

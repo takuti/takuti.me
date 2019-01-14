@@ -83,7 +83,7 @@ The Markdown &#43; LaTeX syntax issue I started using Hugo 1&#43; years ago, and
       <span class="hljs-comment">// extract front matter as a string</span>
       .pipe(data(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">file</span>) </span>{
         <span class="hljs-keyword">var</span> contents = file.contents.toString();
-        <span class="hljs-keyword">var</span> content = contents.replace(<span class="hljs-regexp">/(---[\s\S]*?\n---\n)/m</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$1</span>) </span>{
+        <span class="hljs-keyword">var</span> content = contents.replace(<span class="hljs-regexp">/(---[\s\S]*?\n---\n)/m</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$<span class="hljs-number">1</span></span>) </span>{
           file.frontMatter = $<span class="hljs-number">1</span>;
           <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>;
         });
@@ -92,12 +92,12 @@ The Markdown &#43; LaTeX syntax issue I started using Hugo 1&#43; years ago, and
 
         <span class="hljs-comment">// convert all tweet urls into tweet cards</span>
         <span class="hljs-keyword">if</span> (tweetUrls !== <span class="hljs-literal">null</span>) {
-          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> <span class="hljs-built_in">url</span> <span class="hljs-keyword">of</span> tweetUrls) {
-            <span class="hljs-keyword">var</span> id = <span class="hljs-regexp">/\/([0-9]+)\/?/g</span>.exec(<span class="hljs-built_in">url</span>)[<span class="hljs-number">1</span>];
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> url <span class="hljs-keyword">of</span> tweetUrls) {
+            <span class="hljs-keyword">var</span> id = <span class="hljs-regexp">/\/([0-9]+)\/?/g</span>.exec(url)[<span class="hljs-number">1</span>];
             <span class="hljs-keyword">var</span> res = request(<span class="hljs-string">'GET'</span>, <span class="hljs-string">'https://api.twitter.com/1/statuses/oembed.json?id='</span> + id);
 
             <span class="hljs-keyword">var</span> tweetCard = <span class="hljs-built_in">JSON</span>.parse(res.getBody(<span class="hljs-string">'utf8'</span>)).html;
-            content = content.replace(<span class="hljs-built_in">url</span>, tweetCard);
+            content = content.replace(url, tweetCard);
           }
         }
 
@@ -108,7 +108,7 @@ The Markdown &#43; LaTeX syntax issue I started using Hugo 1&#43; years ago, and
       .pipe(kramdown())
 
       <span class="hljs-comment">// insert the extracted front matter at the head of the converted html</span>
-      .pipe(wrapper({ <span class="hljs-attribute">header</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">file</span>)</span>{ <span class="hljs-keyword">return</span> file.frontMatter + <span class="hljs-string">'\n'</span>; } }))
+      .pipe(wrapper({ <span class="hljs-attr">header</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">file</span>)</span>{ <span class="hljs-keyword">return</span> file.frontMatter + <span class="hljs-string">'\n'</span>; } }))
 
       .pipe(gulp.dest(<span class="hljs-string">'content/'</span>));
 });
@@ -117,7 +117,7 @@ The Markdown &#43; LaTeX syntax issue I started using Hugo 1&#43; years ago, and
 <h3 id="replace-mathjax-with-katex">Replace MathJax with KaTeX</h3>
 <p>As many of you already noticed, math rendering of MathJax is surprisingly slow. Stressful &quot;loading...&quot; message always shows up on my browser! Thus, I decided to replace it with much faster alternative, <a href="https://khan.github.io/KaTeX/">KaTeX</a>.</p>
 <p>Replacement itself was pretty easy; I just needed to replace MathJax&#39;s stylesheet and script definition in <code>&lt;header&gt;~&lt;/header&gt;</code> (or <code>&lt;footer&gt;~&lt;/footer&gt;</code>) with KaTeX&#39;s ones:</p>
-<pre><code class="lang-html">&lt;link <span class="hljs-attribute">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attribute">href</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"</span> <span class="hljs-attribute">integrity</span>=<span class="hljs-string">"sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0"</span> <span class="hljs-attribute">crossorigin</span>=<span class="hljs-string">"anonymous"</span>&gt;
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">"sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0"</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">"anonymous"</span>&gt;</span>
 </code></pre>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">"sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1"</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">"anonymous"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">"sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx"</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">"anonymous"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
@@ -165,6 +165,7 @@ The Markdown &#43; LaTeX syntax issue I started using Hugo 1&#43; years ago, and
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
   </div>
 
   <h4><span class="symbol">search</span> See also</h4>
@@ -186,7 +187,7 @@ The Markdown &#43; LaTeX syntax issue I started using Hugo 1&#43; years ago, and
 </div>
 
     <footer>
-      &copy; 2012-2018 Takuya Kitazawa.
+      &copy; 2012-2019 Takuya Kitazawa.
     </footer>
 
     

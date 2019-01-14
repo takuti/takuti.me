@@ -128,27 +128,27 @@
 <p><img src="https://takuti.me/images/recommender/svd.png" alt="SVD"></p>
 <p>これらの積 $\hat{A} = U \Sigma V^{\mathrm{T}}$ は元の行列 $A$ の近似になっていて、$A$で未観測だった要素も$\hat{A}$ではなんらかの値が入っている。この値を予測値とみなして推薦をしましょう、というのが基本的なアイディア。</p>
 <p>ちなみにPython + numpyならこんな感じ。</p>
-<pre><code class="lang-py">import numpy as np
-import numpy.linalg as ln
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> numpy.linalg <span class="hljs-keyword">as</span> ln
 
-# ユーザ<span class="hljs-number">5</span>人、アイテム<span class="hljs-number">6</span>つに対する行列（<span class="hljs-number">0</span>は観測値）
-<span class="hljs-keyword">A</span> = np.array([[<span class="hljs-number">5</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>],
+<span class="hljs-comment"># ユーザ5人、アイテム6つに対する行列（0は観測値）</span>
+A = np.array([[<span class="hljs-number">5</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>],
               [<span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">0</span>, <span class="hljs-number">4</span>],
               [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>],
               [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>],
               [<span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>]])
 
-U, s, V = ln.svd(<span class="hljs-keyword">A</span>, full_matrices=False)
+U, s, V = ln.svd(A, full_matrices=<span class="hljs-keyword">False</span>)
 
-# どれくらいの粒度で近似するか
+<span class="hljs-comment"># どれくらいの粒度で近似するか</span>
 k = <span class="hljs-number">2</span>
 
 A_ = np.dot(np.dot(U[:, :k], np.diag(s[:k])), V[:k, :])
-# [[ <span class="hljs-number">3.19741238</span>  <span class="hljs-number">1.98064059</span>  <span class="hljs-number">0.19763307</span>  <span class="hljs-number">0.50430074</span>  <span class="hljs-number">1.04148574</span>  <span class="hljs-number">2.47123826</span>]
-#  [ <span class="hljs-number">1.20450954</span>  <span class="hljs-number">1.18625722</span>  <span class="hljs-number">1.50361641</span>  <span class="hljs-number">3.5812116</span>   <span class="hljs-number">1.61569345</span>  <span class="hljs-number">2.37803076</span>]
-#  [ <span class="hljs-number">4.36792826</span>  <span class="hljs-number">2.68465163</span>  <span class="hljs-number">0.20157659</span>  <span class="hljs-number">0.52659617</span>  <span class="hljs-number">1.36419993</span>  <span class="hljs-number">3.30665072</span>]
-#  [-<span class="hljs-number">0.94009727</span>  <span class="hljs-number">0.07701659</span>  <span class="hljs-number">2.08296828</span>  <span class="hljs-number">4.93223799</span>  <span class="hljs-number">1.52652414</span>  <span class="hljs-number">1.44132726</span>]
-#  [ <span class="hljs-number">2.67985286</span>  <span class="hljs-number">1.80342544</span>  <span class="hljs-number">0.63125085</span>  <span class="hljs-number">1.52750202</span>  <span class="hljs-number">1.27145836</span>  <span class="hljs-number">2.54266834</span>]]
+<span class="hljs-comment"># [[ 3.19741238  1.98064059  0.19763307  0.50430074  1.04148574  2.47123826]</span>
+<span class="hljs-comment">#  [ 1.20450954  1.18625722  1.50361641  3.5812116   1.61569345  2.37803076]</span>
+<span class="hljs-comment">#  [ 4.36792826  2.68465163  0.20157659  0.52659617  1.36419993  3.30665072]</span>
+<span class="hljs-comment">#  [-0.94009727  0.07701659  2.08296828  4.93223799  1.52652414  1.44132726]</span>
+<span class="hljs-comment">#  [ 2.67985286  1.80342544  0.63125085  1.52750202  1.27145836  2.54266834]]</span>
 </code></pre>
 <p>ただしこの手法には重大な問題があって、未観測値をゼロで埋めている。5段階の評価値行列で0とは、すなわち「全く興味がない」に相当する。しかし本来、<strong>行列の未観測値には2種類の意味ある</strong>。</p>
 <ol>
@@ -170,6 +170,10 @@ A_ = np.dot(np.dot(U[:, :k], np.diag(s[:k])), V[:k, :])
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
+    <br />
+    <a href="http://amzn.asia/70ZQOei" target="_blank" rel="noopener" class="amazon-btn"><span class="symbol" >amazon</span><b>Support</b></a>
+    
   </div>
 
   <h4><span class="symbol">search</span> See also</h4>
@@ -191,7 +195,7 @@ A_ = np.dot(np.dot(U[:, :k], np.diag(s[:k])), V[:k, :])
 </div>
 
     <footer>
-      &copy; 2012-2018 Takuya Kitazawa.
+      &copy; 2012-2019 Takuya Kitazawa.
     </footer>
 
     

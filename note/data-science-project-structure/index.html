@@ -130,31 +130,31 @@ Pythonなら requirements.txt をきちんと置いておく。
 <h3 id="%E3%82%8F%E3%81%9F%E3%81%97%E3%81%AE%E5%A0%B4%E5%90%88">わたしの場合</h3>
 <p>以上を踏まえて、自分の現状はどうかというと、だいたいいつも<a href="https://github.com/takuti/stream-recommender">修論のときのリポジトリ</a>のような構成になる<sup><a href="#fn_2" id="reffn_2">2</a></sup>：</p>
 <pre><code>.
-├── README<span class="hljs-selector-class">.md</span>
+├── README.md
 ├── config
 │   ├── LastFM
 │   ├── ML100k
 │   ├── ML1M
 │   ├── click
-│   └── example<span class="hljs-selector-class">.ini</span>
+│   └── example.ini
 ├── converter
-│   ├── LastFM<span class="hljs-selector-class">.py</span>
-│   ├── MovieLens100k<span class="hljs-selector-class">.py</span>
-│   ├── MovieLens1M<span class="hljs-selector-class">.py</span>
-│   ├── SyntheticClick<span class="hljs-selector-class">.py</span>
-│   ├── __init__<span class="hljs-selector-class">.py</span>
-│   └── converter<span class="hljs-selector-class">.py</span>
+│   ├── LastFM.py
+│   ├── MovieLens100k.py
+│   ├── MovieLens1M.py
+│   ├── SyntheticClick.py
+│   ├── __init__.py
+│   └── converter.py
 ├── data
-├── experiment<span class="hljs-selector-class">.py</span>
+├── experiment.py
 ├── notebook
-│   ├── LastFM<span class="hljs-selector-class">.ipynb</span>
-│   ├── claim-iMF<span class="hljs-selector-class">.ipynb</span>
-│   ├── paper-iFMs<span class="hljs-selector-class">.ipynb</span>
-│   └── paper-sketch<span class="hljs-selector-class">.ipynb</span>
-├── requirements<span class="hljs-selector-class">.txt</span>
+│   ├── LastFM.ipynb
+│   ├── claim-iMF.ipynb
+│   ├── paper-iFMs.ipynb
+│   └── paper-sketch.ipynb
+├── requirements.txt
 ├── results
 └── tool
-    ├── clickgenerator<span class="hljs-selector-class">.jl</span>
+    ├── clickgenerator.jl
     └── parse_result.py
 </code></pre><p>先の要件に沿ってこのディレクトリ構成を振り返ってみる。</p>
 <ul>
@@ -309,48 +309,48 @@ Pythonなら requirements.txt をきちんと置いておく。
 <p>そもそもこんな話を書き留めておこうと思ったのは、データサイエンスプロジェクトにおける <code>rails new</code> 的な立ち位置を目指している子 &quot;<strong><a href="https://github.com/drivendata/cookiecutter-data-science">Cookiecutter Data Science</a></strong>&quot; を見かけたから。</p>
 <p>READMEから Cookiecutter 標準のディレクトリ構成を引用すると次のような雰囲気：</p>
 <pre><code>├── LICENSE
-├── Makefile           &lt;- Makefile <span class="hljs-keyword">with</span> commands like `make data` <span class="hljs-keyword">or</span> `make train`
-├── README.md          &lt;- The top-level README <span class="hljs-keyword">for</span> developers using this project.
+├── Makefile           &lt;- Makefile with commands like `make data` or `make train`
+├── README.md          &lt;- The top-level README for developers using this project.
 ├── data
-│   ├── external       &lt;- Data <span class="hljs-keyword">from</span> <span class="hljs-keyword">third</span> party sources.
-│   ├── interim        &lt;- Intermediate data <span class="hljs-keyword">that</span> has been transformed.
-│   ├── processed      &lt;- The final, canonical data sets <span class="hljs-keyword">for</span> modeling.
+│   ├── external       &lt;- Data from third party sources.
+│   ├── interim        &lt;- Intermediate data that has been transformed.
+│   ├── processed      &lt;- The final, canonical data sets for modeling.
 │   └── raw            &lt;- The original, immutable data dump.
 │
-├── docs               &lt;- A default Sphinx project; see sphinx-doc.org <span class="hljs-keyword">for</span> details
+├── docs               &lt;- A default Sphinx project; see sphinx-doc.org for details
 │
-├── models             &lt;- Trained <span class="hljs-keyword">and</span> serialized models, model predictions, <span class="hljs-keyword">or</span> model summaries
+├── models             &lt;- Trained and serialized models, model predictions, or model summaries
 │
-├── notebooks          &lt;- Jupyter notebooks. Naming convention <span class="hljs-keyword">is</span> a <span class="hljs-built_in">number</span> (<span class="hljs-keyword">for</span> ordering),
-│                         <span class="hljs-keyword">the</span> creator's initials, <span class="hljs-keyword">and</span> a short `-` delimited description, e.g.
-│                         `<span class="hljs-number">1.0</span>-jqp-initial-data-exploration`.
+├── notebooks          &lt;- Jupyter notebooks. Naming convention is a number (for ordering),
+│                         the creator&#39;s initials, and a short `-` delimited description, e.g.
+│                         `1.0-jqp-initial-data-exploration`.
 │
-├── references         &lt;- Data dictionaries, manuals, <span class="hljs-keyword">and</span> all other explanatory materials.
+├── references         &lt;- Data dictionaries, manuals, and all other explanatory materials.
 │
-├── reports            &lt;- Generated analysis <span class="hljs-keyword">as</span> HTML, PDF, LaTeX, etc.
-│   └── figures        &lt;- Generated graphics <span class="hljs-keyword">and</span> figures <span class="hljs-keyword">to</span> be used <span class="hljs-keyword">in</span> reporting
+├── reports            &lt;- Generated analysis as HTML, PDF, LaTeX, etc.
+│   └── figures        &lt;- Generated graphics and figures to be used in reporting
 │
-├── requirements.txt   &lt;- The requirements <span class="hljs-built_in">file</span> <span class="hljs-keyword">for</span> reproducing <span class="hljs-keyword">the</span> analysis environment, e.g.
-│                         generated <span class="hljs-keyword">with</span> `pip freeze &gt; requirements.txt`
+├── requirements.txt   &lt;- The requirements file for reproducing the analysis environment, e.g.
+│                         generated with `pip freeze &gt; requirements.txt`
 │
-├── src                &lt;- Source code <span class="hljs-keyword">for</span> use <span class="hljs-keyword">in</span> this project.
+├── src                &lt;- Source code for use in this project.
 │   ├── __init__.py    &lt;- Makes src a Python module
 │   │
-│   ├── data           &lt;- Scripts <span class="hljs-keyword">to</span> download <span class="hljs-keyword">or</span> generate data
+│   ├── data           &lt;- Scripts to download or generate data
 │   │   └── make_dataset.py
 │   │
-│   ├── features       &lt;- Scripts <span class="hljs-keyword">to</span> turn raw data <span class="hljs-keyword">into</span> features <span class="hljs-keyword">for</span> modeling
+│   ├── features       &lt;- Scripts to turn raw data into features for modeling
 │   │   └── build_features.py
 │   │
-│   ├── models         &lt;- Scripts <span class="hljs-keyword">to</span> train models <span class="hljs-keyword">and</span> <span class="hljs-keyword">then</span> use trained models <span class="hljs-keyword">to</span> make
+│   ├── models         &lt;- Scripts to train models and then use trained models to make
 │   │   │                 predictions
 │   │   ├── predict_model.py
 │   │   └── train_model.py
 │   │
-│   └── visualization  &lt;- Scripts <span class="hljs-keyword">to</span> create exploratory <span class="hljs-keyword">and</span> results oriented visualizations
+│   └── visualization  &lt;- Scripts to create exploratory and results oriented visualizations
 │       └── visualize.py
 │
-└── tox.ini            &lt;- tox <span class="hljs-built_in">file</span> <span class="hljs-keyword">with</span> settings <span class="hljs-keyword">for</span> <span class="hljs-built_in">running</span> tox; see tox.testrun.org
+└── tox.ini            &lt;- tox file with settings for running tox; see tox.testrun.org
 </code></pre><p>個人的なポイント：</p>
 <ul>
 <li><code>LICENSE</code> 重要</li>
@@ -368,9 +368,9 @@ Pythonなら requirements.txt をきちんと置いておく。
 </ul>
 <p>このような構成について、詳しくは &quot;<a href="https://towardsdatascience.com/structure-and-automated-workflow-for-a-machine-learning-project-2fa30d661c1e">Structure and automated workflow for a machine learning project — part 1</a>&quot; なども参照されたい。ここまで考え抜かないとディレクトリ構成のテンプレ化は困難か…。</p>
 <p>関連して、<a href="https://www.kaggle.com/general/4815">Kaggleのディスカッションフォーラムでも似たような議論がなされていた</a>。回答の一部を並べてみよう：</p>
-<pre><code>├── <span class="hljs-selector-tag">code</span>
+<pre><code>├── code
 ├── data
-│   ├── <span class="hljs-selector-tag">input</span>
+│   ├── input
 │   ├── working
 │   └── output
 ├── demos
@@ -380,20 +380,20 @@ Pythonなら requirements.txt をきちんと置いておく。
 ├── data
 ├── download
 ├── features
-├── src (<span class="hljs-keyword">or</span> &lt;<span class="hljs-function"><span class="hljs-keyword">method</span>&gt;)
-├── <span class="hljs-title">logs</span>
-└── <span class="hljs-title">submissions</span></span>
+├── src (or &lt;method&gt;)
+├── logs
+└── submissions
 </code></pre><p>▲ <code>download/</code> は生データ、<code>data/</code> は何らかの処理を施したデータ、さらに特徴量を作ったらそれは <code>features/</code> に保存。そして <code>logs/</code>！これ確かに一番大切だ…。</p>
 <pre><code>├── data
 ├── util
 ├── history (= submissions)
-└── &lt;<span class="hljs-function"><span class="hljs-keyword">method</span>&gt;</span>
+└── &lt;method&gt;
 </code></pre><p>▲ <code>data/</code> には生データだけでなく、train/test用に分割されたデータなど、いろいろ入る。データの前処理用スクリプトなどは <code>util/</code> に入る。メインのコードは手法や使用言語ごとにディレクトリを完全に分けているというのが面白い (e.g., <code>knn_R/</code> など)。</p>
 <pre><code>├── documentation
-├── <span class="hljs-meta">data</span>
-├── <span class="hljs-meta">code</span>
-├── <span class="hljs-keyword">submissions
-</span>└── figures
+├── data
+├── code
+├── submissions
+└── figures
 </code></pre><p>▲ ドキュメントと図の管理が重要。</p>
 <p>人によって細かな配慮の差はあれど、大枠は共通していて、</p>
 <ul>
@@ -475,31 +475,31 @@ Pythonなら requirements.txt をきちんと置いておく。
 </ul>
 <p>より具体的に、論文中で挙げられているディレクトリ構成の例は次のような感じ：</p>
 <pre><code>.
-|<span class="hljs-string">--CITATION
-</span>|<span class="hljs-string">--README
-</span>|<span class="hljs-string">--LICENSE
-</span>|<span class="hljs-string">--requirements.txt
-</span>|<span class="hljs-string">--data
-</span>|<span class="hljs-string">  </span>|<span class="hljs-string">--birds_count_table.csv
-</span>|<span class="hljs-string">--doc
-</span>|<span class="hljs-string">  </span>|<span class="hljs-string">--notebook.md
-</span>|<span class="hljs-string">  </span>|<span class="hljs-string">--manuscript.md
-</span>|<span class="hljs-string">  </span>|<span class="hljs-string">--changelog.txt
-</span>|<span class="hljs-string">--results
-</span>|<span class="hljs-string">  </span>|<span class="hljs-string">--summarized_results.csv
-</span>|<span class="hljs-string">--src
-</span>|<span class="hljs-string">  </span>|<span class="hljs-string">--sightings_analysis.py
-</span>|<span class="hljs-string">  </span>|<span class="hljs-string">--runall.py
-...</span>
+|--CITATION
+|--README
+|--LICENSE
+|--requirements.txt
+|--data
+|  |--birds_count_table.csv
+|--doc
+|  |--notebook.md
+|  |--manuscript.md
+|  |--changelog.txt
+|--results
+|  |--summarized_results.csv
+|--src
+|  |--sightings_analysis.py
+|  |--runall.py
+...
 </code></pre><p>さらに、大きな変更を行う際は、以下のようにプロジェクトの全ファイルをどこかにコピーする、ということを提案している：</p>
 <pre><code>.
-|<span class="hljs-string">--project_name
-</span>|<span class="hljs-string">  </span>|<span class="hljs-string">--current
-</span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string">--...projectcontentasdescribedearlier...
-</span>|<span class="hljs-string">  </span>|<span class="hljs-string">--2016-03-01
-</span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string">--...contentof'current'onMar1,2016
-</span>|<span class="hljs-string">  </span>|<span class="hljs-string">--2016-02-19
-</span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string">--...contentof'current'onFeb19,2016</span>
+|--project_name
+|  |--current
+|  |  |--...projectcontentasdescribedearlier...
+|  |--2016-03-01
+|  |  |--...contentof&#39;current&#39;onMar1,2016
+|  |--2016-02-19
+|  |  |--...contentof&#39;current&#39;onFeb19,2016
 </code></pre><p>これはKaggleのフォーラムで挙がっていた『メインのコードは <code>knn_R/</code> のように、手法や使用言語ごとにディレクトリを完全に分ける』という話に通じる。こうやって割り切ってバックアップをとっておくと安心感が違うよね。</p>
 <h3 id="%E3%81%BE%E3%81%A8%E3%82%81">まとめ</h3>
 <p>ここまで見てきて、『なにが正解』という話ではなくて、みんな同じように悩んで試行錯誤してるんだなぁということが分かった。</p>
@@ -517,6 +517,10 @@ Pythonなら requirements.txt をきちんと置いておく。
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
+    <br />
+    <a href="http://amzn.asia/70ZQOei" target="_blank" rel="noopener" class="amazon-btn"><span class="symbol" >amazon</span><b>Support</b></a>
+    
   </div>
 
   <h4><span class="symbol">search</span> See also</h4>
@@ -538,7 +542,7 @@ Pythonなら requirements.txt をきちんと置いておく。
 </div>
 
     <footer>
-      &copy; 2012-2018 Takuya Kitazawa.
+      &copy; 2012-2019 Takuya Kitazawa.
     </footer>
 
     

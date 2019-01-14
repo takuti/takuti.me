@@ -69,27 +69,27 @@ import numpy as np class MatrixFactorization(object): def __init__(self, n_user,
 <p>Matrix Factorizationは以前『<a href="https://takuti.me/note/coursera-recommender-systems">Courseraの推薦システムのコースを修了した</a>』でも触れたとおり、ユーザ-アイテム間の $m \times n$ 行列を、ユーザの特徴を表す行列 $P \in \mathbb{R}^{m \times k}$ (user factors) とアイテムの特徴を表す行列 $Q \in \mathbb{R}^{n \times k}$ (item factors) に分解する：</p>
 <p><img src="https://takuti.me/images/recommender/mf.png" alt="MF"></p>
 <p>これを二乗損失のSGDで素直に実装すると、<code>user_factors</code> と <code>item_factors</code> の更新や評価値予測はこんな感じ：</p>
-<pre><code class="lang-py">import numpy as np
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MatrixFactorization</span>(<span class="hljs-title">object</span>):</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MatrixFactorization</span><span class="hljs-params">(object)</span>:</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, n_user, n_item, k=<span class="hljs-number">20</span>, lr=<span class="hljs-number">1</span>e-<span class="hljs-number">6</span>, weight_decay=<span class="hljs-number">0</span>.)</span></span>:
-        <span class="hljs-keyword">self</span>.user_factors = np.random.rand(n_user, k)
-        <span class="hljs-keyword">self</span>.item_factors = np.random.rand(n_item, k)
-        <span class="hljs-keyword">self</span>.lr = lr
-        <span class="hljs-keyword">self</span>.weight_decay = weight_decay
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, n_user, n_item, k=<span class="hljs-number">20</span>, lr=<span class="hljs-number">1e-6</span>, weight_decay=<span class="hljs-number">0.</span>)</span>:</span>
+        self.user_factors = np.random.rand(n_user, k)
+        self.item_factors = np.random.rand(n_item, k)
+        self.lr = lr
+        self.weight_decay = weight_decay
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">predict</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, user, item)</span></span>:
-        <span class="hljs-keyword">return</span> np.inner(<span class="hljs-keyword">self</span>.user_factors[user], <span class="hljs-keyword">self</span>.item_factors[item])
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">predict</span><span class="hljs-params">(self, user, item)</span>:</span>
+        <span class="hljs-keyword">return</span> np.inner(self.user_factors[user], self.item_factors[item])
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, user, item, rating)</span></span>:
-        err = rating - <span class="hljs-keyword">self</span>.predict(user, item)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span><span class="hljs-params">(self, user, item, rating)</span>:</span>
+        err = rating - self.predict(user, item)
 
-        user_factor, item_factor = <span class="hljs-keyword">self</span>.user_factors[user], <span class="hljs-keyword">self</span>.item_factors[item]
-        next_user_factor = user_factor - <span class="hljs-keyword">self</span>.lr * (-<span class="hljs-number">2</span>. * (err * item_factor - <span class="hljs-keyword">self</span>.weight_decay * user_factor))
-        next_item_factor = item_factor - <span class="hljs-keyword">self</span>.lr * (-<span class="hljs-number">2</span>. * (err * user_factor - <span class="hljs-keyword">self</span>.weight_decay * item_factor))
+        user_factor, item_factor = self.user_factors[user], self.item_factors[item]
+        next_user_factor = user_factor - self.lr * (<span class="hljs-number">-2.</span> * (err * item_factor - self.weight_decay * user_factor))
+        next_item_factor = item_factor - self.lr * (<span class="hljs-number">-2.</span> * (err * user_factor - self.weight_decay * item_factor))
 
-        <span class="hljs-keyword">self</span>.user_factors[user], <span class="hljs-keyword">self</span>.item_factors[item] = next_user_factor, next_item_factor
+        self.user_factors[user], self.item_factors[item] = next_user_factor, next_item_factor
 
         <span class="hljs-keyword">return</span> err
 </code></pre>
@@ -97,27 +97,27 @@ import numpy as np class MatrixFactorization(object): def __init__(self, n_user,
 <h3 id="matrix-factorization-in-pytorch">Matrix Factorization in PyTorch</h3>
 <p>ではこれをPyTorchで実装するとどうなるか？</p>
 <p>モデル本体は <a href="http://pytorch.org/docs/master/nn.html#torch.nn.Module"><code>torch.nn.Module</code></a> を継承して必要なパラメータを持たせた上で、予測関数 <code>forward</code> を定義すればよい：</p>
-<pre><code class="lang-py">from torch import nn
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> torch <span class="hljs-keyword">import</span> nn
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MatrixFactorizationPyTorch</span>(<span class="hljs-title">nn</span>.<span class="hljs-title">Module</span>):</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MatrixFactorizationPyTorch</span><span class="hljs-params">(nn.Module)</span>:</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, n_user, n_item, k=<span class="hljs-number">20</span>)</span></span>:
-        <span class="hljs-keyword">super</span>().__init_<span class="hljs-number">_</span>()
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, n_user, n_item, k=<span class="hljs-number">20</span>)</span>:</span>
+        super().__init__()
 
-        <span class="hljs-keyword">self</span>.user_factors = nn.Embedding(n_user, k, sparse=True)
-        <span class="hljs-keyword">self</span>.item_factors = nn.Embedding(n_item, k, sparse=True)
+        self.user_factors = nn.Embedding(n_user, k, sparse=<span class="hljs-keyword">True</span>)
+        self.item_factors = nn.Embedding(n_item, k, sparse=<span class="hljs-keyword">True</span>)
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, user, item)</span></span>:
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, user, item)</span>:</span>
         <span class="hljs-comment"># inner product of 1xN and 1xM tensors</span>
-        <span class="hljs-keyword">return</span> (<span class="hljs-keyword">self</span>.user_factors(user) * <span class="hljs-keyword">self</span>.item_factors(item)).sum(<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">return</span> (self.user_factors(user) * self.item_factors(item)).sum(<span class="hljs-number">1</span>)
 </code></pre>
 <p>モデルパラメータ（行列 $P, Q$）はPyTorchでどのように表現するのかというと、<a href="http://pytorch.org/docs/master/nn.html#torch.nn.Embedding"><code>torch.nn.Embedding</code></a> が正解。<code>Embedding</code> は各要素（ユーザやアイテム）を <code>k</code> 次元のベクトルで表現するもので、単語のベクトル表現を考える Word Embedding などで使われる。予測 <code>forward</code> は先ほどと同様に内積。</p>
 <p>そしてPyTorch流に“二乗損失のSGD”を準備する：</p>
-<pre><code class="lang-py">from torch import optim
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> torch <span class="hljs-keyword">import</span> optim
 
-model = MatrixFactorizationPyTorch(n_user, n_item, k=20)
+model = MatrixFactorizationPyTorch(n_user, n_item, k=<span class="hljs-number">20</span>)
 loss_function = nn.MSELoss()
-optimizer = optim.SGD(model.parameters(), lr=1e-2)
+optimizer = optim.SGD(model.parameters(), lr=<span class="hljs-number">1e-2</span>)
 </code></pre>
 <p>SGDの学習率は <code>0.01</code> に設定して、正則化係数は<a href="https://github.com/pytorch/pytorch/blob/master/torch/optim/sgd.py#L50-L51">デフォルト値の0.0</a>で今回は無視。</p>
 <p>いざ学習。</p>
@@ -170,20 +170,20 @@ last_accum_loss = float(<span class="hljs-string">'inf'</span>)
 
 <span class="hljs-keyword">for</span> u, i, r <span class="hljs-keyword">in</span> samples_test:
     user = autograd.Variable(as_long_tensor(u))
-    <span class="hljs-keyword">item</span> = autograd.Variable(as_long_tensor(i))
+    item = autograd.Variable(as_long_tensor(i))
 
-    prediction = model(user, <span class="hljs-keyword">item</span>)
+    prediction = model(user, item)
 
-    accum_absolute_error += <span class="hljs-built_in">abs</span>(prediction.data[<span class="hljs-number">0</span>] - r)
+    accum_absolute_error += abs(prediction.data[<span class="hljs-number">0</span>] - r)
     accum_squared_error += (prediction.data[<span class="hljs-number">0</span>] - r) ** <span class="hljs-number">2</span>
 
-mae = accum_absolute_error / <span class="hljs-built_in">len</span>(samples_test)
-rmse = np.<span class="hljs-built_in">sqrt</span>(accum_squared_error / <span class="hljs-built_in">len</span>(samples_test))
-logger.info(<span class="hljs-string">'mf_pytorch : MAE = {}, RMSE = {}'</span>.<span class="hljs-built_in">format</span>(mae, rmse))
+mae = accum_absolute_error / len(samples_test)
+rmse = np.sqrt(accum_squared_error / len(samples_test))
+logger.info(<span class="hljs-string">'mf_pytorch : MAE = {}, RMSE = {}'</span>.format(mae, rmse))
 </code></pre>
 <h3 id="movielens100k%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%83%83%E3%83%88%E3%81%A7%E8%A9%95%E4%BE%A1">MovieLens100kデータセットで評価</h3>
 <p><code>torch.nn.MSELoss</code> や <code>torch.optim.SGD</code> の内部実装が入り組んでいるので単純な比較はできないけど、 <code>MatrixFactorization</code> と <code>MatrixFactorizationPyTorch</code> を<a href="https://grouplens.org/datasets/movielens/100k/">MovieLens100kデータセット</a>に対して並列に走らせてみる：</p>
-<pre><code class="lang-py"><span class="hljs-keyword">from</span> concurrent import futures
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> concurrent <span class="hljs-keyword">import</span> futures
 
 samples = load_ml100k()
 n_user, n_item = <span class="hljs-number">943</span>, <span class="hljs-number">1682</span>
@@ -196,40 +196,40 @@ samples_test = samples[tail_train:]
 
 <span class="hljs-keyword">with</span> futures.ProcessPoolExecutor() <span class="hljs-keyword">as</span> executor:
     f1 = executor.submit(run_mf,
-                         samples_train.<span class="hljs-keyword">copy</span>(), samples_test.<span class="hljs-keyword">copy</span>(),
+                         samples_train.copy(), samples_test.copy(),
                          n_user, n_item)
     f2 = executor.submit(run_mf_pytorch,
-                         samples_train.<span class="hljs-keyword">copy</span>(), samples_test.<span class="hljs-keyword">copy</span>(),
+                         samples_train.copy(), samples_test.copy(),
                          n_user, n_item)
-    f1.<span class="hljs-literal">result</span>()
-    f2.<span class="hljs-literal">result</span>()
+    f1.result()
+    f2.result()
 </code></pre>
 <p>（<a href="https://takuti.me/note/python-concurrent-futures">ちゃっかり <code>concurrent.futures</code> をつかう</a>）</p>
 <p>サンプルをランダムに 8:2 に分割して学習→評価した結果のログをベタ貼り：</p>
-<pre><code><span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">18:47,507</span> : <span class="hljs-number">56939</span> : mf : start training
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">18:47,562</span> : <span class="hljs-number">56940</span> : mf_pytorch : start training
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">18:48,678</span> : <span class="hljs-number">56939</span> : mf : epoch =  <span class="hljs-number">1</span>, accum. error = -<span class="hljs-number">45789</span>.<span class="hljs-number">66409319061</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">18:49,840</span> : <span class="hljs-number">56939</span> : mf : epoch =  <span class="hljs-number">2</span>, accum. error = -<span class="hljs-number">12041</span>.<span class="hljs-number">007133098823</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">18:50,960</span> : <span class="hljs-number">56939</span> : mf : epoch =  <span class="hljs-number">3</span>, accum. error = -<span class="hljs-number">6923</span>.<span class="hljs-number">305935895317</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11:18:52,189</span> : <span class="hljs-number">56939</span> : mf : epoch =  <span class="hljs-number">4</span>, accum. error = -<span class="hljs-number">5214</span>.<span class="hljs-number">0920045187595</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">18:53,321</span> : <span class="hljs-number">56939</span> : mf : epoch =  <span class="hljs-number">5</span>, accum. error = -<span class="hljs-number">4122</span>.<span class="hljs-number">734085365226</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">18:54,488</span> : <span class="hljs-number">56939</span> : mf : epoch =  <span class="hljs-number">6</span>, accum. error = -<span class="hljs-number">3645</span>.<span class="hljs-number">943440005198</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">18:55,552</span> : <span class="hljs-number">56939</span> : mf : epoch =  <span class="hljs-number">7</span>, accum. error = -<span class="hljs-number">3095</span>.<span class="hljs-number">084360349924</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">18:56,579</span> : <span class="hljs-number">56939</span> : mf : epoch =  <span class="hljs-number">8</span>, accum. error = -<span class="hljs-number">2590</span>.<span class="hljs-number">545763977188</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">18:57,615</span> : <span class="hljs-number">56939</span> : mf : epoch =  <span class="hljs-number">9</span>, accum. error = -<span class="hljs-number">2264</span>.<span class="hljs-number">0065333911293</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">18:58,647</span> : <span class="hljs-number">56939</span> : mf : epoch = <span class="hljs-number">10</span>, accum. error = -<span class="hljs-number">1896</span>.<span class="hljs-number">1488359146224</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">18:58,689</span> : <span class="hljs-number">56939</span> : mf : MAE = <span class="hljs-number">0</span>.<span class="hljs-number">7915793587489275</span>, RMSE = <span class="hljs-number">1</span>.<span class="hljs-number">004901038047285</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">19:18,397</span> : <span class="hljs-number">56940</span> : mf_pytorch : epoch =  <span class="hljs-number">1</span>, accum. loss = <span class="hljs-number">821542</span>.<span class="hljs-number">0316947281</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">19:48,678</span> : <span class="hljs-number">56940</span> : mf_pytorch : epoch =  <span class="hljs-number">2</span>, accum. loss = <span class="hljs-number">111527</span>.<span class="hljs-number">39108898955</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">20:20,034</span> : <span class="hljs-number">56940</span> : mf_pytorch : epoch =  <span class="hljs-number">3</span>, accum. loss = <span class="hljs-number">80923</span>.<span class="hljs-number">26652375316</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">20:49,565</span> : <span class="hljs-number">56940</span> : mf_pytorch : epoch =  <span class="hljs-number">4</span>, accum. loss = <span class="hljs-number">70970</span>.<span class="hljs-number">1188818557</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">21:20,992</span> : <span class="hljs-number">56940</span> : mf_pytorch : epoch =  <span class="hljs-number">5</span>, accum. loss = <span class="hljs-number">65501</span>.<span class="hljs-number">150555915694</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11:21:51,124</span> : <span class="hljs-number">56940</span> : mf_pytorch : epoch =  <span class="hljs-number">6</span>, accum. loss = <span class="hljs-number">61922</span>.<span class="hljs-number">87653761433</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">22:22,616</span> : <span class="hljs-number">56940</span> : mf_pytorch : epoch =  <span class="hljs-number">7</span>, accum. loss = <span class="hljs-number">59274</span>.<span class="hljs-number">52360257249</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">22:53,081</span> : <span class="hljs-number">56940</span> : mf_pytorch : epoch =  <span class="hljs-number">8</span>, accum. loss = <span class="hljs-number">56991</span>.<span class="hljs-number">90325296985</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11:23:24,136</span> : <span class="hljs-number">56940</span> : mf_pytorch : epoch =  <span class="hljs-number">9</span>, accum. loss = <span class="hljs-number">55083</span>.<span class="hljs-number">32001617526</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11:23:54,136</span> : <span class="hljs-number">56940</span> : mf_pytorch : epoch = <span class="hljs-number">10</span>, accum. loss = <span class="hljs-number">53449</span>.<span class="hljs-number">870972165234</span>
-<span class="hljs-number">2017-10-15</span> <span class="hljs-number">11</span>:<span class="hljs-number">23:55,636</span> : <span class="hljs-number">56940</span> : mf_pytorch : MAE = <span class="hljs-number">0</span>.<span class="hljs-number">9408608486979502</span>, RMSE = <span class="hljs-number">1</span>.<span class="hljs-number">269512231434858</span>
+<pre><code>2017-10-15 11:18:47,507 : 56939 : mf : start training
+2017-10-15 11:18:47,562 : 56940 : mf_pytorch : start training
+2017-10-15 11:18:48,678 : 56939 : mf : epoch =  1, accum. error = -45789.66409319061
+2017-10-15 11:18:49,840 : 56939 : mf : epoch =  2, accum. error = -12041.007133098823
+2017-10-15 11:18:50,960 : 56939 : mf : epoch =  3, accum. error = -6923.305935895317
+2017-10-15 11:18:52,189 : 56939 : mf : epoch =  4, accum. error = -5214.0920045187595
+2017-10-15 11:18:53,321 : 56939 : mf : epoch =  5, accum. error = -4122.734085365226
+2017-10-15 11:18:54,488 : 56939 : mf : epoch =  6, accum. error = -3645.943440005198
+2017-10-15 11:18:55,552 : 56939 : mf : epoch =  7, accum. error = -3095.084360349924
+2017-10-15 11:18:56,579 : 56939 : mf : epoch =  8, accum. error = -2590.545763977188
+2017-10-15 11:18:57,615 : 56939 : mf : epoch =  9, accum. error = -2264.0065333911293
+2017-10-15 11:18:58,647 : 56939 : mf : epoch = 10, accum. error = -1896.1488359146224
+2017-10-15 11:18:58,689 : 56939 : mf : MAE = 0.7915793587489275, RMSE = 1.004901038047285
+2017-10-15 11:19:18,397 : 56940 : mf_pytorch : epoch =  1, accum. loss = 821542.0316947281
+2017-10-15 11:19:48,678 : 56940 : mf_pytorch : epoch =  2, accum. loss = 111527.39108898955
+2017-10-15 11:20:20,034 : 56940 : mf_pytorch : epoch =  3, accum. loss = 80923.26652375316
+2017-10-15 11:20:49,565 : 56940 : mf_pytorch : epoch =  4, accum. loss = 70970.1188818557
+2017-10-15 11:21:20,992 : 56940 : mf_pytorch : epoch =  5, accum. loss = 65501.150555915694
+2017-10-15 11:21:51,124 : 56940 : mf_pytorch : epoch =  6, accum. loss = 61922.87653761433
+2017-10-15 11:22:22,616 : 56940 : mf_pytorch : epoch =  7, accum. loss = 59274.52360257249
+2017-10-15 11:22:53,081 : 56940 : mf_pytorch : epoch =  8, accum. loss = 56991.90325296985
+2017-10-15 11:23:24,136 : 56940 : mf_pytorch : epoch =  9, accum. loss = 55083.32001617526
+2017-10-15 11:23:54,136 : 56940 : mf_pytorch : epoch = 10, accum. loss = 53449.870972165234
+2017-10-15 11:23:55,636 : 56940 : mf_pytorch : MAE = 0.9408608486979502, RMSE = 1.269512231434858
 </code></pre><p><del>PyTorch遅ぇ！</del> <code>MatrixFactorizationPyTorch</code> が1エポックを終えるよりも前に、<code>MatrixFactorization</code> は評価まで終了してしまう。手計算可能なシンプルな勾配を無理矢理 <code>torch.autograd</code> に計算させているのだから、当然といえば当然の結果か。それとも何か勘違いがあるのかな。このあたりは <code>torch.nn</code> や <code>torch.optim</code> をさらに詳しく見る必要がありそう。</p>
 <p>精度はまぁこんなもんでしょう。</p>
 <h3 id="%E3%81%BE%E3%81%A8%E3%82%81">まとめ</h3>
@@ -243,6 +243,10 @@ samples_test = samples[tail_train:]
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
+    <br />
+    <a href="http://amzn.asia/70ZQOei" target="_blank" rel="noopener" class="amazon-btn"><span class="symbol" >amazon</span><b>Support</b></a>
+    
   </div>
 
   <h4><span class="symbol">search</span> See also</h4>
@@ -264,7 +268,7 @@ samples_test = samples[tail_train:]
 </div>
 
     <footer>
-      &copy; 2012-2018 Takuya Kitazawa.
+      &copy; 2012-2019 Takuya Kitazawa.
     </footer>
 
     

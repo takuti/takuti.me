@@ -5,10 +5,20 @@
     <link>https://takuti.me/</link>
     <description>Recent content on takuti.me</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 22 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://takuti.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Feeding User-Item Interactions to Python-Based Streaming Recommendation Engine via Faust</title>
+      <link>https://takuti.me/note/hello-faust/</link>
+      <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/hello-faust/</guid>
+      <description>Streaming recommendation is one of the most challenging topics in the field of recommender systems. The task requires recommendation engine to incrementally and promptly update recommendation model as new user-item interaction comes in to data streams (e.g., click, purchase, watch). I previously studied such incremental recommendation techniques, and eventually published a Python library named FluRS to make their implementation and evaluation easier.
+As I described in my research paper a couple of years ago, incremental recommender systems run in three steps:</description>
+    </item>
     
     <item>
       <title>Attending MLconf SF 2018 #mlconf18</title>
@@ -356,12 +366,12 @@ igo-ruby はJava製の形態素解析器 Igo のRuby版で、4年前から動い
 4年前の記事では『人工知能』や『ニコニコ動画』といった新語をigo-rubyでナウく分かち書きするために、Wikipediaタイトルやはてなキーワードのデータを使って独自に辞書をカスタマイズした。
 今回はもっと簡単に、継続的にメンテナンスされている新語辞書 NEologd を使って同様のことを実現する。もはや最近はこっちのほうが自然なアプローチですなぁ。
 NEologdのビルド リポジトリを取ってきて、手順通りビルドする：
-$cd /path/to/neologd/mecab-ipadic-neologd $./bin/install-mecab-ipadic-neologd -n すると build/mecab-ipadic-2.7.0-20070801-neologd-YYYYMMDD といったディレクトリができる。
+$ cd /path/to/neologd/mecab-ipadic-neologd $ ./bin/install-mecab-ipadic-neologd -n すると build/mecab-ipadic-2.7.0-20070801-neologd-YYYYMMDD といったディレクトリができる。
 これが4年前の記事で自前で生成した辞書を置いた mecab-ipadic-2.7.0-20070801 というディレクトリに対応していて、以後の手順は全く変わらない。外部データを整形して独自にコストを計算していた手間をNEologdが肩代わりしてくれた形。感謝〜。
 辞書生成 igo.jar を取ってきて：
-$ wget &#39;http://osdn.jp/frs/redir.php?m=jaist&amp;amp;f=%2Figo%2F52344%2Figo-0.4.3.jar&#39; -O igo.jar igo用辞書 ipadic-neologd をつくる：
+$ wget &amp;#39;http://osdn.jp/frs/redir.php?m=jaist&amp;amp;f=%2Figo%2F52344%2Figo-0.4.3.jar&amp;#39; -O igo.jar igo用辞書 ipadic-neologd をつくる：
 $ java -cp igo.jar net.reduls.igo.bin.BuildDic ipadic-neologd /path/to/neologd/mecab-ipadic-neologd/build/mecab-ipadic-2.7.0-20070801-neologd-YYYYMMDD utf-8 オリジナルのIPA辞書のエンコーディングがEUCだったのに対し、NEologdはUTF-8であることに注意。
-ためす require &#39;igo-ruby&#39; tagger = Igo::Tagger.new(&#39;/path/to/ipadic-neologd&#39;) p tagger.wakati(&#39;人工知能&#39;) # [&#34;人工知能&#34;] p tagger.wakati(&#39;ニコニコ動画&#39;) # [&#34;ニコニコ動画&#34;] p tagger.wakati(&#39;10日放送の「中居正広のミになる図書館」（テレビ朝日系）で、SMAPの中居正広が、篠原信一の過去の勘違いを明かす一幕があった。&#39;) # [&#34;10日&#34;, &#34;放送&#34;, &#34;の&#34;, &#34;「&#34;, &#34;中居正広のミになる図書館&#34;, &#34;」&#34;, &#34;（&#34;, &#34;テレビ朝日&#34;, &#34;系&#34;, &#34;）&#34;, &#34;</description>
+ためす require &#39;igo-ruby&#39; tagger = Igo::Tagger.new(&#39;/path/to/ipadic-neologd&#39;) p tagger.wakati(&#39;人工知能&#39;) # [&#34;人工知能&#34;] p tagger.wakati(&#39;ニコニコ動画&#39;) # [&#34;ニコニコ動画&#34;] p tagger.wakati(&#39;10日放送の「中居正広のミになる図書館」（テレビ朝日系）で、SMAPの中居正広が、篠原信一の過去の勘違いを明かす一幕があった。&#39;) # [&#34;10日&#34;, &#34;放送&#34;, &#34;の&#34;, &#34;「&#34;, &#34;中居正広のミになる図書館&#34;, &#34;」&#34;, &#34;（&#34;, &#34;テレビ朝日&#34;, &#34;</description>
     </item>
     
     <item>
@@ -433,7 +443,7 @@ class BaseDetector(object): def __init__(self, observed_0, threshold=0.): self.t
       <description>先週はPostgreSQL上でテキストのFuzzy Searchを試した。そのときは fuzzystrmatch や pg_trgm といったモジュールが活躍していた。
 では、同じことをHiveで実現するとどうなるだろう。
 データ 適当にテーブル sample をつくっておく：
-hive&amp;gt; CREATE TABLE sample AS &amp;gt; SELECT 1 AS id, &#39;I live in Tokyo.&#39; AS document &amp;gt; UNION ALL &amp;gt; SELECT 2 AS id, &#39;Are you happy?&#39; AS document &amp;gt; ; hive&amp;gt; SELECT * FROM sample; OK sample.id sample.document 1 I live in Tokyo. 2 Are you happy? Time taken: 0.066 seconds, Fetched: 2 row(s) なお、Hive環境のセットアップについては以下の記事も参考にされたい：
+hive&amp;gt; CREATE TABLE sample AS &amp;gt; SELECT 1 AS id, &amp;#39;I live in Tokyo.&amp;#39; AS document &amp;gt; UNION ALL &amp;gt; SELECT 2 AS id, &amp;#39;Are you happy?&amp;#39; AS document &amp;gt; ; hive&amp;gt; SELECT * FROM sample; OK sample.id sample.document 1 I live in Tokyo. 2 Are you happy? Time taken: 0.066 seconds, Fetched: 2 row(s) なお、Hive環境のセットアップについては以下の記事も参考にされたい：
  MacのローカルにHivemallを導入してアイテム推薦をするまで Hivemall on Dockerを試すぜ  完全一致 WHERE句を使えばもちろん完全一致検索になる：</description>
     </item>
     
@@ -446,7 +456,7 @@ hive&amp;gt; CREATE TABLE sample AS &amp;gt; SELECT 1 AS id, &#39;I live in Toky
       <description>Seven Databases in Seven Weeks を読んでいたら、PostgreSQLでテキスト検索をする話が出てきた。先日 Levenshtein Distance（編集距離）について書いたばかりでホットな話題なので、少し遊んでみよう。
 $ postgres --version postgres (PostgreSQL) 9.6.3  ※インデックスと英語以外の言語の場合については割愛。
 データ お気に入りのアメリカのクラフトビールデータセットを使う。適当に create table してCSVからデータを読み込む：
-create table beers ( key int, abv real, ibu real, id int, name varchar(128), style varchar(64), brewery_id int, ounces real ); \copy beers from &#39;beers.csv&#39; with csv;  sample=# select * from beers limit 5; key |abv |ibu |id |name |style |brewery_id |ounces -----+-------+-----+------+---------------------+--------------------------------+------------+-------- 0 |0.05 ||1436 |Pub Beer |American Pale Lager |408 |12 1 |0.</description>
+create table beers ( key int, abv real, ibu real, id int, name varchar(128), style varchar(64), brewery_id int, ounces real ); \copy beers from &#39;beers.csv&#39; with csv;  sample=# select * from beers limit 5; key | abv | ibu | id | name | style | brewery_id | ounces -----+-------+-----+------+---------------------+--------------------------------+------------+-------- 0 | 0.</description>
     </item>
     
     <item>
@@ -668,12 +678,12 @@ LensKit (Java)  公式サイト/ドキュメント GitHubリポジトリ 論文 
       <description>@amaya382くんが Hivemall on Docker についていろいろと整備してくれた。
 Hive環境が必要で敷居が高かった
 (当社比) Hivemallですが, 数コマンド叩くだけでdocker上で試せるようになりました！試す際に意外と厄介なサンプルデータの準備を全てやってくれるスクリプトもおまけで付いてます (※あくまで評価・開発用です) https://t.co/fiztEpicma
-&amp;mdash; amaya@3日目東Ｕ11b (@amaya382) April 25, 2017
+&amp;mdash; amaya (@amaya382) April 25, 2017
  一方、個人的には Hivemall on Mac について以前記事を書いた：『MacのローカルにHivemallを導入してアイテム推薦をするまで』
 だいたいHomebrewで完結するのでMacローカルだけを考えればこれでも問題ないけど、煩雑なインストール・設定無しでDockerコンテナで話が進むに越したことはない。というわけで先の記事のフォローアップとして Hivemall on Docker をMacのローカルで試してみる。環境は次の通り：
  macOS Sierra 10.12.3 Docker for Mac Stable channel (version 17.03.1-ce-mac5)  $ docker -v Docker version 17.03.1-ce, build c6d412e $ docker-compose -v docker-compose version 1.11.2, build dfed245 $ docker-machine -v docker-machine version 0.10.0, build 76ed2a6 コンテナ起動まで 基本的にはドキュメントに従う。
 まずリポジトリを取ってきて、
-$cd /path/to/incubator-hivemall ビルドは docker-compose なら：</description>
+$ cd /path/to/incubator-hivemall ビルドは docker-compose なら：</description>
     </item>
     
     <item>
@@ -700,7 +710,7 @@ Mavenプロジェクトなら dependency に net.librec を入れればすぐに
 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;net.librec&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;librec-core&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.0.0&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 1. Build data model コードはデータモデルを生成するところから始まる:
 // build data model Configuration conf = new Configuration(); conf.set(&#34;dfs.data.dir&#34;, &#34;/Users/takuti/src/github.com/guoguibing/librec/data&#34;); TextDataModel dataModel = new TextDataModel(conf); dataModel.buildDataModel();  読み込むデータは user-id item-id rating（スペース区切り）からなるテキストファイルとWekaのARFFをサポートしている。
 ファイルのパスやアルゴリズムのハイパーパラメータ（e.g., kNNの近傍数）はすべて Configuration 経由で設定する。その実体は librec.properties で、この形式で記述した独自の設定をガッとまとめて読み込むことも可能:
-Resourceresource = new Resource(&#34;rec/cf/itemknn-test.properties&#34;); conf.addResource(resource);  dataModel.buildDataModel() では指定されたパス内のファイルをすべて読んで、train/testデータへの分割までやってくれる。このあたりの挙動もすべて librec.properties に従っている。
+Resource resource = new Resource(&#34;rec/cf/itemknn-test.properties&#34;); conf.addResource(resource);  dataModel.buildDataModel() では指定されたパス内のファイルをすべて読んで、train/testデータへの分割までやってくれる。このあたりの挙動もすべて librec.properties に従っている。
 2. Build recommender context さっき定義した Configuration と dataModel を使って、これから行うタスクのためのコンテキストを生成する:</description>
     </item>
     
@@ -854,11 +864,11 @@ Hadoopのインストール $ brew install hadoop （今回のバージョンは
 export HADOOP_DIR=/usr/local/Cellar/hadoop/{バージョン}  ${HADOOP_DIR}/libexec/etc/hadoop/core-site.xml の &amp;lt;configuration&amp;gt; を編集：
 &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;name&amp;gt;fs.defaultFS&amp;lt;/name&amp;gt; &amp;lt;value&amp;gt;hdfs://localhost:9000&amp;lt;/value&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt;  ${HADOOP_DIR}/libexec/etc/hadoop/hdfs-site.xml の &amp;lt;configuration&amp;gt; を編集：
 &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;name&amp;gt;dfs.replication&amp;lt;/name&amp;gt; &amp;lt;value&amp;gt;1&amp;lt;/value&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; HDFSをフォーマット：
-$hdfs namenode -format localhostへのSSH接続を許可する必要があるので、Macの システム環境設定 &amp;gt; 共有 からリモートログインを有効にする。さらに、SSH公開鍵を自身のauthorized_keysに追加する。
+$ hdfs namenode -format localhostへのSSH接続を許可する必要があるので、Macの システム環境設定 &amp;gt; 共有 からリモートログインを有効にする。さらに、SSH公開鍵を自身のauthorized_keysに追加する。
 $ cat ~/.ssh/id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys これで $ ssh localhost ができる。
 Hadoopの設定おわり。
 起動・終了はエイリアスを設定しておくと便利：
-alias hstart=${HADOOP_DIR}/sbin/start-all.sh alias hstop=${HADOOP_DIR}/sbin/stop-all.sh  $hstart うごく。</description>
+alias hstart=${HADOOP_DIR}/sbin/start-all.sh alias hstop=${HADOOP_DIR}/sbin/stop-all.sh  $ hstart うごく。</description>
     </item>
     
     <item>
@@ -871,10 +881,10 @@ alias hstart=${HADOOP_DIR}/sbin/start-all.sh alias hstop=${HADOOP_DIR}/sbin/stop
 証明書の発行と nginx.conf の変更 作業自体はとても簡単で、証明書の発行に関する処理はすべて certbot （旧名：letsencrypt）というツールがやってくれる。トップページからサーバとOSを選択すれば、それに応じたinstallationが表示される。どこまで親切なんだ！
 ここは CentOS 6 上の Nginx で動いているので、以下それに従う。
 certbotの導入は、適当な場所にwgetして実行権限を与えるだけ。
-$wget https://dl.eff.org/certbot-auto $chmod a+x certbot-auto あとはWebサーバのドキュメントルートとドメインを指定してcertbotを実行してあげればよい。
+$ wget https://dl.eff.org/certbot-auto $ chmod a+x certbot-auto あとはWebサーバのドキュメントルートとドメインを指定してcertbotを実行してあげればよい。
 $ /path/to/certbot-auto certonly --webroot -w /var/www/example -d example.com うちはNginxだけど、Apacheの頃の名残で /var/www/html をドキュメントルートにしている。/etc/nginx/nginx.conf は以下のような感じ。
 server { listen 80; server_name takuti.me; location / { root /var/www/html; index index.html index.htm index.php; } # 以下略  なので叩いたコマンドは以下。
-$ /path/to/certbot-auto certonly --webroot -w /var/www/html -d takuti.me 途中でメールアドレスなどを聞かれ、無事完了すると Congratulations と言われる。証明書の類は /etc/letsencrypt/live/takuti.me 以下に作成され、ドキュメントルート直下には認証用プラグインのために .well-known というディレクトリが作成される。</description>
+$ /path/to/certbot-auto certonly --webroot -w /var/www/html -d takuti.me 途中でメールアドレスなどを聞かれ、無事完了すると Congratulations と言われる。証明書の類は /etc/letsencrypt/live/takuti.me 以下に作成され、ドキュメントルート直下には認証用プラグインのために .</description>
     </item>
     
     <item>
@@ -908,7 +918,7 @@ The initial version (v0.0.1) of FluRS is already published to PyPI.</description
       
       <guid>https://takuti.me/note/recommendation-julia/</guid>
       <description>I have recently published Recommendation.jl, a Julia package for recommender systems. The package is already registered in METADATA.jl, so it can be installed by:
-$ julia julia&amp;gt;Pkg.add(&#34;Recommendation&#34;) Last year, I took Introduction to Recommender Systems, an online course created by University of Minnesota, on Coursera. Although the course assignments originally require us to use spreadsheet (on Google Drive or MS Excel), I personally solved all of them by programming in Julia.</description>
+$ julia julia&amp;gt; Pkg.add(&amp;quot;Recommendation&amp;quot;) Last year, I took Introduction to Recommender Systems, an online course created by University of Minnesota, on Coursera. Although the course assignments originally require us to use spreadsheet (on Google Drive or MS Excel), I personally solved all of them by programming in Julia.</description>
     </item>
     
     <item>

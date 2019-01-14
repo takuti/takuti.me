@@ -64,43 +64,43 @@ I tried to understand the trends from word cloud by using abstract of papers acc
 <p>I tried to understand the trends from word cloud by using abstract of papers accepted for <a href="https://recsys.acm.org/">ACM RecSys Conference</a>, one of the biggest major conferences on recommendation systems.</p>
 <h3 id="collecting-abstract-of-accepted-papers">Collecting abstract of accepted papers</h3>
 <p>Luckily, abstract of accepted RecSys papers are well-formatted on the web page in terms of HTML structure e.g., <a href="https://recsys.acm.org/recsys17/accepted-contributions/">RecSys 2017 Accepted Contributions</a>. So, first we collect the data in a text format by using a scraping tool, especially <a href="https://scrapy.org/">Scrapy</a> in this article:</p>
-<pre><code><span class="hljs-meta">$</span><span class="bash"> pip install scrapy</span>
+<pre><code>$ pip install scrapy
 </code></pre><p>Using Scrapy is quite easy; what I need to do is to implement a scraping module named &quot;Spider&quot;:</p>
-<pre><code class="lang-py">import scrapy
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> scrapy
 
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RecSysSpider</span>(<span class="hljs-title">scrapy</span>.<span class="hljs-title">Spider</span>):</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RecSysSpider</span><span class="hljs-params">(scrapy.Spider)</span>:</span>
     name = <span class="hljs-string">'recsys-spider'</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start_requests</span><span class="hljs-params">(<span class="hljs-keyword">self</span>)</span></span>:
-        <span class="hljs-keyword">self</span>.abstract_index = <span class="hljs-number">0</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start_requests</span><span class="hljs-params">(self)</span>:</span>
+        self.abstract_index = <span class="hljs-number">0</span>
 
-        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> hasattr(<span class="hljs-keyword">self</span>, <span class="hljs-string">'yy'</span>):
-            <span class="hljs-keyword">self</span>.yy = <span class="hljs-string">'17'</span>
-        elif <span class="hljs-keyword">self</span>.yy == <span class="hljs-string">'14'</span>:
-            <span class="hljs-keyword">self</span>.abstract_index = <span class="hljs-number">2</span>
-        elif <span class="hljs-keyword">self</span>.yy <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> [<span class="hljs-string">'14'</span>, <span class="hljs-string">'15'</span>, <span class="hljs-string">'16'</span>, <span class="hljs-string">'17'</span>]:
-            raise ValueError(<span class="hljs-string">'Invalid year: '</span> + <span class="hljs-keyword">self</span>.yy)
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> hasattr(self, <span class="hljs-string">'yy'</span>):
+            self.yy = <span class="hljs-string">'17'</span>
+        <span class="hljs-keyword">elif</span> self.yy == <span class="hljs-string">'14'</span>:
+            self.abstract_index = <span class="hljs-number">2</span>
+        <span class="hljs-keyword">elif</span> self.yy <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> [<span class="hljs-string">'14'</span>, <span class="hljs-string">'15'</span>, <span class="hljs-string">'16'</span>, <span class="hljs-string">'17'</span>]:
+            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">'Invalid year: '</span> + self.yy)
 
-        url = <span class="hljs-string">'https://recsys.acm.org/recsys{}/accepted-contributions/'</span>.format(<span class="hljs-keyword">self</span>.yy)
-        <span class="hljs-keyword">yield</span> scrapy.Request(url, <span class="hljs-keyword">self</span>.parse)
+        url = <span class="hljs-string">'https://recsys.acm.org/recsys{}/accepted-contributions/'</span>.format(self.yy)
+        <span class="hljs-keyword">yield</span> scrapy.Request(url, self.parse)
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parse</span><span class="hljs-params">(<span class="hljs-keyword">self</span>, response)</span></span>:
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parse</span><span class="hljs-params">(self, response)</span>:</span>
         <span class="hljs-keyword">for</span> elem <span class="hljs-keyword">in</span> response.css(<span class="hljs-string">'ul.accordion li'</span>):
-            <span class="hljs-keyword">yield</span> {<span class="hljs-string">'abstract'</span>: elem.css(<span class="hljs-string">'div p ::text'</span>).extract()[<span class="hljs-keyword">self</span>.abstract_index].strip()}
+            <span class="hljs-keyword">yield</span> {<span class="hljs-string">'abstract'</span>: elem.css(<span class="hljs-string">'div p ::text'</span>).extract()[self.abstract_index].strip()}
 </code></pre>
 <p>This Spider module allows users to pass an argument <code>yy</code> to specify which year&#39;s RecSys abstract you want to get.</p>
 <p>Once a user executes the module in a command-line, a list of abstract sentences is stored into a CSV file:</p>
-<pre><code>$ scrapy runspider recsys_spider<span class="hljs-selector-class">.py</span> -<span class="hljs-selector-tag">a</span> yy=<span class="hljs-number">17</span> -o csv/recsys17.csv
+<pre><code>$ scrapy runspider recsys_spider.py -a yy=17 -o csv/recsys17.csv
 </code></pre><p>Since the well-structured &quot;accepted contributions&quot; page only exists from RecSys 2014 to 2017, the argument <code>yy</code> simply has the 4 options. Note that utilizing <code>xargs</code> might be helpful to get all of the four years&#39; abstract of papers:</p>
-<pre><code>$ echo <span class="hljs-number">14</span> <span class="hljs-number">15</span> <span class="hljs-number">16</span> <span class="hljs-number">17</span> | xargs -n <span class="hljs-number">1</span> -I{} scrapy runspider recsys_spider.py -a yy={} -o out/recsys{}.csv
+<pre><code>$ echo 14 15 16 17 | xargs -n 1 -I{} scrapy runspider recsys_spider.py -a yy={} -o out/recsys{}.csv
 </code></pre><h3 id="creating-word-cloud">Creating word cloud</h3>
 <p><a href="https://github.com/amueller/word_cloud">A word cloud generator written in Python</a> provides us a really simple way to create visually stimulating word cloud from text data:</p>
-<pre><code><span class="hljs-meta">$</span><span class="bash"> pip install wordcloud</span>
+<pre><code>$ pip install wordcloud
 </code></pre><p>In fact, the generator can be used inside of our Python code, but, in this article, we just use its command-line tool as follows, for the sake of simplicity:</p>
-<pre><code>$ wordcloud_cli<span class="hljs-selector-class">.py</span> --text <span class="hljs-selector-tag">input</span><span class="hljs-selector-class">.csv</span> --imagefile output.png
+<pre><code>$ wordcloud_cli.py --text input.csv --imagefile output.png
 </code></pre><p>Let&#39;s create word cloud images from the aggregated abstract of 4 years&#39; RecSys papers:</p>
-<pre><code>$ <span class="hljs-keyword">echo</span> 14 15 16 17 | xargs -n 1 -I{} wordcloud_cli.py <span class="hljs-params">--text</span> csv/recsys{}<span class="hljs-string">.csv</span> <span class="hljs-params">--imagefile</span> png/recsys{}<span class="hljs-string">.png</span>
+<pre><code>$ echo 14 15 16 17 | xargs -n 1 -I{} wordcloud_cli.py --text csv/recsys{}.csv --imagefile png/recsys{}.png
 </code></pre><table>
 <thead>
 <tr>
@@ -129,9 +129,9 @@ I tried to understand the trends from word cloud by using abstract of papers acc
 </table>
 <p>Okay...the result is trivial... Everyone commonly uses the terminology of this field such as &quot;recommendation,&quot; &quot;model,&quot; &quot;user,&quot; and &quot;item&quot; to write their abstract.</p>
 <p>In order to make the word cloud images more meaningful, we can use custom stop words, a list of words that we do not want to use to create the images. To give an example, below I list some frequently used terms which has to be omitted:</p>
-<pre><code>user<span class="hljs-built_in">
+<pre><code>user
 users
-</span>item
+item
 items
 recommendation
 recommendations
@@ -141,9 +141,9 @@ content
 based
 algorithm
 algorithms
-recommender<span class="hljs-built_in">
+recommender
 system
-</span>systems
+systems
 data
 method
 using
@@ -177,7 +177,7 @@ preference
 preferences
 </code></pre><p>(Complete list with more meaningless terms like preposition can be found <a href="https://github.com/takuti-sandbox/tmp/blob/12b2c4c1c1f60de05e78bb60fc8d84d99cf16385/python/recsys-word-cloud/stopwords.txt">here</a>.)</p>
 <p>Again, create word cloud images with <code>--stopwords</code> option:</p>
-<pre><code>$ <span class="hljs-keyword">echo</span> 14 15 16 17 | xargs -n 1 -I{} wordcloud_cli.py <span class="hljs-params">--text</span> csv/recsys{}<span class="hljs-string">.csv</span> <span class="hljs-params">--imagefile</span> png/recsys{}<span class="hljs-string">.png</span> <span class="hljs-params">--stopwords</span> stopwords.txt
+<pre><code>$ echo 14 15 16 17 | xargs -n 1 -I{} wordcloud_cli.py --text csv/recsys{}.csv --imagefile png/recsys{}.png --stopwords stopwords.txt
 </code></pre><table>
 <thead>
 <tr>
@@ -232,13 +232,14 @@ preferences
 
     <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
   </div>
 
   <h4><span class="symbol">search</span> See also</h4>
   <ul>
   
     
-    <li><a href="https://takuti.me/note/mlconf-sf-2018/">Attending MLconf SF 2018 #mlconf18</a>
+    <li><a href="https://takuti.me/note/hello-faust/">Feeding User-Item Interactions to Python-Based Streaming Recommendation Engine via Faust</a>
     
     <li><a href="https://takuti.me/note/hivemall-events-2018-autumn/">Apache Hivemall at #ODSCEurope, #RecSys2018, and #MbedConnect</a>
     
@@ -253,7 +254,7 @@ preferences
 </div>
 
     <footer>
-      &copy; 2012-2018 Takuya Kitazawa.
+      &copy; 2012-2019 Takuya Kitazawa.
     </footer>
 
     
