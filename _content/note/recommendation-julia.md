@@ -1,7 +1,7 @@
 ---
 date: 2017-01-14
 lang: en
-recommendations: [/note/flurs/, /note/recsys-wordcloud/, /note/hello-librec/]
+recommendations: [/note/flurs/, /note/hello-faust/, /note/recsys-wordcloud/]
 title: 'Recommendation.jl: Building Recommender Systems in Julia'
 ---
 

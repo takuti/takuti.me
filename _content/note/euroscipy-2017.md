@@ -1,7 +1,7 @@
 ---
 date: 2017-09-02
 lang: ja
-recommendations: [/note/pytorch-autograd/, /note/pyconjp-2015/, /note/master-graduate/]
+recommendations: [/note/pytorch-autograd/, /note/master-graduate/, /note/pyconjp-2015/]
 title: EuroSciPy 2017に参加してしゃべってきた
 ---
 

@@ -1,7 +1,7 @@
 ---
 date: 2017-01-21
 lang: en
-recommendations: [/note/recommendation-julia/, /note/hello-librec/, /note/recsys-wordcloud/]
+recommendations: [/note/hello-faust/, /note/recommendation-julia/, /note/hello-librec/]
 title: 'FluRS: A Python Library for Online Item Recommendation'
 ---
 
