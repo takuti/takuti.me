@@ -8,19 +8,19 @@ var request = require('sync-request');
 var del = require('del');
 var hjs = require('highlight.js');
 
-gulp.task('clean-content', function() {
+function cleanContent() {
   return del(['content/**/*']);
-});
+}
 
-gulp.task('compile-sass', function() {
-  gulp.src('_scss/*.scss')
+function compileSass() {
+  return gulp.src('_scss/*.scss')
       .pipe(plumber())
       .pipe(sass({outputStyle: 'compressed'}))
       .pipe(gulp.dest('static/css/'));
-});
+}
 
-gulp.task('compile-md', function() {
-  gulp.src('_content/**/*.{md,html}')
+function compileMd() {
+  return gulp.src('_content/**/*.{md,html}')
       // extract front matter as a string
       .pipe(data(function(file) {
         var contents = file.contents.toString();
@@ -60,11 +60,11 @@ gulp.task('compile-md', function() {
       .pipe(wrapper({ header: function(file){ return file.frontMatter + '\n'; } }))
 
       .pipe(gulp.dest('content/'));
-});
+}
 
-gulp.task('compile-md-preview', function() {
+function compileMdPreview() {
   // 'compile-md' task without tweet card embedding for efficiency
-  gulp.src('_content/**/*.{md,html}')
+  return gulp.src('_content/**/*.{md,html}')
       .pipe(data(function(file) {
         var contents = file.contents.toString();
         var content = contents.replace(/(---[\s\S]*?\n---\n)/m, function($1) {
@@ -85,11 +85,18 @@ gulp.task('compile-md-preview', function() {
       }))
       .pipe(wrapper({ header: function(file){ return file.frontMatter + '\n'; } }))
       .pipe(gulp.dest('content/'));
-});
+}
 
-gulp.task('watch', ['clean-content', 'compile-sass', 'compile-md-preview'], function(){
-  gulp.watch('_scss/*.scss', ['compile-sass']);
-  gulp.watch('_content/**/*.{md,html}', ['compile-md-preview']);
-});
+const buildPreview = gulp.parallel(compileSass, gulp.series(cleanContent, compileMdPreview));
 
-gulp.task('default', ['clean-content', 'compile-sass', 'compile-md']);
+function watchFiles() {
+  gulp.watch('_scss/*.scss', compileSass);
+  gulp.watch('_content/**/*.{md,html}', compileMdPreview);
+}
+
+const watch = gulp.series(buildPreview, watchFiles);
+
+const build = gulp.parallel(compileSass, gulp.series(cleanContent, compileMd));
+
+exports.watch = watch;
+exports.default = build;
