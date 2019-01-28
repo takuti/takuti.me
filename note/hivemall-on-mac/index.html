@@ -209,7 +209,7 @@ Time taken: 1.36 seconds, Fetched: 5 row(s)
 <span class="hljs-keyword">set</span> hivevar:k=<span class="hljs-number">10</span>;
 </code></pre>
 <p>対象ユーザに対して各映画の評価値を予測して、その上位k件の「おすすめ映画リスト」を返すクエリが以下：</p>
-<pre><code class="lang-sql">WITH top_k AS (
+<pre><code class="lang-sql"><span class="hljs-keyword">WITH</span> top_k <span class="hljs-keyword">AS</span> (
   <span class="hljs-keyword">SELECT</span>
     each_top_k(
           ${k}, u.userid, mf_predict(u.pu, i.qi, u.bu, i.bi),

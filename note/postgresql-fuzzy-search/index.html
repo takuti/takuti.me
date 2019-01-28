@@ -81,7 +81,7 @@ postgres (PostgreSQL) 9.6.3
     brewery_id <span class="hljs-built_in">int</span>,
     ounces <span class="hljs-built_in">real</span>
 );
-\copy beers from 'beers.csv' with csv;
+\copy beers from 'beers.csv' <span class="hljs-keyword">with</span> csv;
 </code></pre>
 <pre><code>sample=# select * from beers limit 5;
  key |  abv  | ibu |  id  |        name         |             style              | brewery_id | ounces
