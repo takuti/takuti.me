@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    
+    <meta name=description content="Apache Hivemall, a collection of machine-learning-related Hive user-defined functions (UDFs), offers Spark integration as documented here. Now, we will see how it works in PySpark.
+Note that Hivemall requires Spark 2.1&#43;. This article particularly uses Spark 2.3 and Hivemall 0.5.2, and the entire contents are available at this Google Colabo notebook.
+Installation We do need to set up Spark and Hadoop environment first of all. For example, if you are using Colabo, follow instructions as:" />
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Apache Hivemall in PySpark | takuti.me
+      
+    </title>
+    
+    <meta property="og:title" content="Apache Hivemall in PySpark">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2019-03-24">
+    <meta property="og:description" content="Apache Hivemall, a collection of machine-learning-related Hive user-defined functions (UDFs), offers Spark integration as documented here. Now, we will see how it works in PySpark.
+Note that Hivemall requires Spark 2.1&#43;. This article particularly uses Spark 2.3 and Hivemall 0.5.2, and the entire contents are available at this Google Colabo notebook.
+Installation We do need to set up Spark and Hadoop environment first of all. For example, if you are using Colabo, follow instructions as:">
+    
+    <meta property="og:url" content="https://takuti.me/note/hivemall-pyspark/">
+    <meta property="og:site_name" content="takuti.me">
+    <meta property="og:image" content="https://takuti.me/images/takuti.jpg">
+    
+    
+
+    <link rel="stylesheet" href="https://takuti.me/css/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-7190463694419594",
+              enable_page_level_ads: true
+         });
+    </script>
+    
+  </head>
+  <body>
+  <span class="header-icon">
+    <a href="https://takuti.me/"><img src="https://takuti.me/images/logo.png" alt="icon" /></a>
+  </span>
+
+
+<div id="container">
+
+<article>
+  <p class="meta">
+    2019-03-24
+  </p>
+  <h2>Apache Hivemall in PySpark</h2>
+
+  <div class="post">
+    
+<p><a href="https://github.com/apache/incubator-hivemall/">Apache Hivemall</a>, a collection of machine-learning-related Hive user-defined functions (UDFs), offers Spark integration as documented <a href="https://hivemall.incubator.apache.org/userguide/spark/getting_started/installation.html">here</a>. Now, we will see how it works in <a href="https://spark.apache.org/docs/2.2.0/api/python/index.html">PySpark</a>.</p>
+<p>Note that Hivemall requires Spark 2.1+. This article particularly uses Spark 2.3 and Hivemall 0.5.2, and the entire contents are available at <a href="https://colab.research.google.com/drive/1u9Mj6jc3oTkn02NAl2o2Vu_OkzyEn4ks">this Google Colabo notebook</a>.</p>
+<h3 id="installation">Installation</h3>
+<p>We do need to set up Spark and Hadoop environment first of all. For example, if you are using Colabo, follow <a href="https://mikestaszel.com/2018/03/07/apache-spark-on-google-colaboratory/">instructions</a> as:</p>
+<pre><code class="lang-sh">!apt-get install openjdk-8-jdk-headless -qq &gt; /dev/null
+!wget -q http://mirror.reverse.net/pub/apache/spark/spark-2.3.3/spark-2.3.3-bin-hadoop2.7.tgz
+!tar xf spark-2.3.3-bin-hadoop2.7.tgz
+!pip install -q findspark
+</code></pre>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> os
+os.environ[<span class="hljs-string">"JAVA_HOME"</span>] = <span class="hljs-string">"/usr/lib/jvm/java-8-openjdk-amd64"</span>
+os.environ[<span class="hljs-string">"SPARK_HOME"</span>] = <span class="hljs-string">"/content/spark-2.3.3-bin-hadoop2.7"</span>
+</code></pre>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> findspark
+findspark.init()
+</code></pre>
+<p>Next, download <code>hivemall-spark2.x-0.y.z-incubating-with-dependencies.jar</code> corresponding to your Spark version from the <a href="http://mirror.reverse.net/pub/apache/incubator/hivemall/">ASF repository</a>:</p>
+<pre><code class="lang-sh">wget -q http://mirror.reverse.net/pub/apache/incubator/hivemall/0.5.2-incubating/hivemall-spark2.3-0.5.2-incubating-with-dependencies.jar
+</code></pre>
+<h3 id="create-spark-session">Create Spark session</h3>
+<p>Connect to the Spark instance and start a new session:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> pyspark.sql <span class="hljs-keyword">import</span> SparkSession
+
+spark = SparkSession.builder.master(<span class="hljs-string">'local[*]'</span>).config(<span class="hljs-string">'spark.jars'</span>, <span class="hljs-string">'hivemall-spark2.3-0.5.2-incubating-with-dependencies.jar'</span>).enableHiveSupport().getOrCreate()
+</code></pre>
+<p>The Hivemall <code>.jar</code> file is explicitly loaded from <code>jars</code> option, and Hive connection and their UDF support are enabled by <code>enableHiveSupport()</code>.</p>
+<h3 id="register-hive-mall-udf-to-spark">Register Hive(mall) UDF to Spark</h3>
+<p>If a Spark session is instantiated with <code>enableHiveSupport()</code> as the above example, we can use Hive UDFs in Spark. <a href="https://github.com/bmc/spark-hive-udf">This GitHub repository</a> gives more explanation and examples.</p>
+<p>Basically, the only thing we have to do is to load a Hive function from <code>CREATE TEMPORARY FUNCTION</code> statement with its appropriate class path:</p>
+<pre><code class="lang-py">spark.sql(<span class="hljs-string">"CREATE TEMPORARY FUNCTION hivemall_version AS 'hivemall.HivemallVersionUDF'"</span>)
+</code></pre>
+<p>Eventually, Spark SQL allows us to use the UDF just like HiveQL:</p>
+<pre><code class="lang-py">spark.sql(<span class="hljs-string">"SELECT hivemall_version()"</span>).show()
+</code></pre>
+<pre><code>+------------------+
+|hivemall_version()|
++------------------+
+|  0.5.2-incubating|
++------------------+
+</code></pre><h3 id="example-binary-classification">Example: Binary classification</h3>
+<p>To give a practical example, let&#39;s solve a <a href="https://aws.amazon.com/blogs/machine-learning/predicting-customer-churn-with-amazon-machine-learning/">customer churn prediction problem</a> with simple binary classifier.</p>
+<h4 id="register-udfs">Register UDFs</h4>
+<p>Below is a minimal list of Hivemall functions to tackle the problem:</p>
+<pre><code class="lang-py"><span class="hljs-comment"># preprocessing</span>
+spark.sql(<span class="hljs-string">"CREATE TEMPORARY FUNCTION categorical_features AS 'hivemall.ftvec.trans.CategoricalFeaturesUDF'"</span>)
+spark.sql(<span class="hljs-string">"CREATE TEMPORARY FUNCTION quantitative_features AS 'hivemall.ftvec.trans.QuantitativeFeaturesUDF'"</span>)
+spark.sql(<span class="hljs-string">"CREATE TEMPORARY FUNCTION array_concat AS 'hivemall.tools.array.ArrayConcatUDF'"</span>)
+
+<span class="hljs-comment"># training</span>
+spark.sql(<span class="hljs-string">"CREATE TEMPORARY FUNCTION train_classifier AS 'hivemall.classifier.GeneralClassifierUDTF'"</span>)
+
+<span class="hljs-comment"># prediction and evaluation</span>
+spark.sql(<span class="hljs-string">"CREATE TEMPORARY FUNCTION sigmoid AS 'hivemall.tools.math.SigmoidGenericUDF'"</span>)
+spark.sql(<span class="hljs-string">"CREATE TEMPORARY FUNCTION extract_feature AS 'hivemall.ftvec.ExtractFeatureUDFWrapper'"</span>)
+spark.sql(<span class="hljs-string">"CREATE TEMPORARY FUNCTION extract_weight AS 'hivemall.ftvec.ExtractWeightUDFWrapper'"</span>)
+spark.sql(<span class="hljs-string">"CREATE TEMPORARY FUNCTION logloss AS 'hivemall.evaluation.LogarithmicLossUDAF'"</span>)
+spark.sql(<span class="hljs-string">"CREATE TEMPORARY FUNCTION auc AS 'hivemall.evaluation.AUCUDAF'"</span>)
+</code></pre>
+<h4 id="data-preparation">Data preparation</h4>
+<p>Dataset is a small CSV file having 3,333 records:</p>
+<pre><code class="lang-sh">wget -q http://dataminingconsultant.com/DKD2e_data_sets.zip
+unzip -j DKD2e_data_sets.zip <span class="hljs-string">"**/churn.txt"</span>
+</code></pre>
+<p>Create a Spark DataFrame from the CSV file:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> re
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+
+df = spark.createDataFrame(
+    pd.read_csv(<span class="hljs-string">'churn.txt'</span>).rename(<span class="hljs-keyword">lambda</span> c: re.sub(<span class="hljs-string">r'[^a-zA-Z0-9 ]'</span>, <span class="hljs-string">''</span>, str(c)).lower().replace(<span class="hljs-string">' '</span>, <span class="hljs-string">'_'</span>), axis=<span class="hljs-string">'columns'</span>))
+df.printSchema()
+</code></pre>
+<pre><code>root
+ |-- state: string (nullable = true)
+ |-- account_length: long (nullable = true)
+ |-- area_code: long (nullable = true)
+ |-- phone: string (nullable = true)
+ |-- intl_plan: string (nullable = true)
+ |-- vmail_plan: string (nullable = true)
+ |-- vmail_message: long (nullable = true)
+ |-- day_mins: double (nullable = true)
+ |-- day_calls: long (nullable = true)
+ |-- day_charge: double (nullable = true)
+ |-- eve_mins: double (nullable = true)
+ |-- eve_calls: long (nullable = true)
+ |-- eve_charge: double (nullable = true)
+ |-- night_mins: double (nullable = true)
+ |-- night_calls: long (nullable = true)
+ |-- night_charge: double (nullable = true)
+ |-- intl_mins: double (nullable = true)
+ |-- intl_calls: long (nullable = true)
+ |-- intl_charge: double (nullable = true)
+ |-- custserv_calls: long (nullable = true)
+ |-- churn: string (nullable = true)
+</code></pre><p>Notice that the column names are normalized just in case.</p>
+<p><a href="https://spark.apache.org/docs/preview/api/python/pyspark.sql.html#pyspark.sql.SparkSession.read"><code>SparkSession.read</code></a> can be an alternative option, while the example uses <a href="https://pandas.pydata.org/pandas-docs/version/0.17.0/generated/pandas.read_csv.html#pandas.read_csv"><code>pandas.read_csv()</code></a>:</p>
+<pre><code class="lang-py">df = spark.read.option(<span class="hljs-string">'header'</span>, <span class="hljs-keyword">True</span>).schema(schema).csv(<span class="hljs-string">'churn.txt'</span>)
+</code></pre>
+<p>Here, <code>schema</code> needs to be explicitly specified as follows, otherwise all columns are simply recognized as string:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> pyspark.sql.types <span class="hljs-keyword">import</span> StructType, StructField
+<span class="hljs-keyword">from</span> pyspark.sql.types <span class="hljs-keyword">import</span> DoubleType, IntegerType, StringType
+
+schema = StructType([
+    StructField(<span class="hljs-string">"A"</span>, IntegerType()),
+    StructField(<span class="hljs-string">"B"</span>, DoubleType()),
+    StructField(<span class="hljs-string">"C"</span>, StringType())
+])
+</code></pre>
+<p>Finally, split the records into 80% training and 20% validation samples:</p>
+<pre><code class="lang-py">df_train, df_test = df.randomSplit([<span class="hljs-number">0.8</span>, <span class="hljs-number">0.2</span>], seed=<span class="hljs-number">31</span>)
+</code></pre>
+<h4 id="training">Training</h4>
+<p>It&#39;s time to learn how to do machine learning with Hivemall; every single step of machine learning workflow can be implemented in the form of SQL-like query as shown in <a href="http://hivemall.incubator.apache.org/userguide/supervised_learning/tutorial.html">here</a>. In case of using Hivemall with PySpark, <code>createOrReplaceTempView(&#39;table_name&#39;)</code> enables those queries to access to Spark DataFrames:</p>
+<pre><code class="lang-py">df_train.createOrReplaceTempView(<span class="hljs-string">'train'</span>)
+</code></pre>
+<p>Replace the <code>train</code> table with vectorized training samples:</p>
+<pre><code class="lang-py">spark.sql(<span class="hljs-string">"""
+CREATE OR REPLACE TEMPORARY VIEW train AS
+SELECT
+  array_concat(
+    categorical_features(
+      array('intl_plan', 'vmail_plan'),
+      intl_plan, vmail_plan
+    ),
+    quantitative_features(
+      array('custserv_calls', 'account_length'),
+      custserv_calls, account_length
+    )
+  ) as features,
+  if(churn = 'True.', 1, 0) as label
+FROM
+  train
+"""</span>)
+</code></pre>
+<p>For the sake of simplicity, I randomly choose four attributes, <code>intl_plan</code> and <code>vmail_plan</code> for categorical features, and <code>custserve_calls</code> and <code>account_length</code> for quantitative features. Of course we can incorporate more attributes and/or apply more aggressive feature engineering techniques such as standardization in reality.</p>
+<p>Building a logistic regression model is done by just 10 lines of query:</p>
+<pre><code class="lang-py">df_model = spark.sql(<span class="hljs-string">"""
+SELECT
+  feature, avg(weight) as weight
+FROM (
+  SELECT
+    train_classifier(features, label) as (feature, weight)
+  FROM
+    train
+) t
+GROUP BY 1
+"""</span>)
+df_model.show()
+</code></pre>
+<pre><code>+--------------+-------------------+
+|       feature|             weight|
++--------------+-------------------+
+|custserv_calls|  9.037338733673096|
+|  intl_plan#no| -7.765866041183472|
+| vmail_plan#no|  3.730261445045471|
+|account_length|0.20337164402008057|
+|vmail_plan#yes| -5.873621702194214|
+| intl_plan#yes| 11.210701942443848|
++--------------+-------------------+
+</code></pre><p>Yes, Hivemall represents machine learning models in the form of table.</p>
+<h4 id="prediction">Prediction</h4>
+<p>Convert the 20% test set in the same way as the training samples, and <code>explode</code> them for prediction:</p>
+<pre><code class="lang-py">df_test.createOrReplaceTempView(<span class="hljs-string">'test'</span>)
+spark.sql(<span class="hljs-string">"""
+CREATE OR REPLACE TEMPORARY VIEW test AS
+SELECT
+  phone,
+  label,
+  extract_feature(fv) AS feature,
+  extract_weight(fv) AS value
+FROM (
+  SELECT
+    phone,
+    array_concat(
+      categorical_features(
+        array('intl_plan', 'vmail_plan'),
+        intl_plan, vmail_plan
+      ),
+      quantitative_features(
+        array('custserv_calls', 'account_length'),
+        custserv_calls, account_length
+      )
+    ) as features,
+    if(churn = 'True.', 1, 0) as label
+  FROM
+    test
+) t1
+LATERAL VIEW explode(features) t2 AS fv
+"""</span>)
+</code></pre>
+<p>Join the logistic regression model with test samples and their feature set, and take sigmoid of weighted sum:</p>
+<pre><code class="lang-py">df_model.createOrReplaceTempView(<span class="hljs-string">'model'</span>)
+df_prediction = spark.sql(<span class="hljs-string">"""
+SELECT
+  phone,
+  label as expected,
+  sigmoid(sum(weight * value)) as prob
+FROM
+  test t LEFT OUTER JOIN model m
+  ON t.feature = m.feature
+GROUP BY 1, 2
+"""</span>)
+df_prediction.show()
+</code></pre>
+<pre><code>+--------+--------+----------+
+|   phone|expected|      prob|
++--------+--------+----------+
+|414-9054|       0|       1.0|
+|372-1493|       0|       1.0|
+|339-7541|       1|       1.0|
+|400-3150|       0|       1.0|
+|365-3562|       0|       1.0|
+|356-2992|       0| 0.9999807|
+...
+</code></pre><p>Since we did nothing special to achieve a better prediction model, prediction results are obviously poor.</p>
+<h4 id="evaluation">Evaluation</h4>
+<p>Anyway, once prediction results are obtained, we can evaluate the accuracy of prediction. For instance, Hivemall supports Area Under the ROC Curve (AUC) and Log Loss metric for binary classification:</p>
+<pre><code class="lang-py">df_prediction.createOrReplaceTempView(<span class="hljs-string">'prediction'</span>)
+spark.sql(<span class="hljs-string">"""
+SELECT
+  sum(IF(IF(prob &gt;= 0.5, 1, 0) = expected, 1.0, 0.0)) / count(1) AS accuracy,
+  auc(prob, expected) AS auc,
+  logloss(prob, expected) AS logloss
+FROM (
+  SELECT prob, expected
+  FROM prediction
+  ORDER BY prob DESC
+) t
+"""</span>).show()
+</code></pre>
+<pre><code>+--------------------+------------------+------------------+
+|            accuracy|               auc|           logloss|
++--------------------+------------------+------------------+
+|0.157037037037037...|0.6012885662431942|24.322495101659264|
++--------------------+------------------+------------------+
+</code></pre><p>Again, the result is just an example, and we do need to tweak the model to make accurate prediction.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>As the example above shows, we have successfully used Hivemall in combination with PySpark. That is, we can directly access to the Hivemall capabilities from Python code for each of preprocessing, training, prediction, and evaluation phase.</p>
+<p>In practice, I can easily imagine jointly using the other Python packages e.g., scikit-learn for training, Airflow for workflow management, Flask for providing REST APIs. This fact definitely expands the potential uses of Hivemall.</p>
+
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
+  </div>
+
+  <h4><span class="symbol">search</span> See also</h4>
+  <ul>
+  
+    
+    <li><a href="https://takuti.me/note/getting-out-of-the-box/">「ていねいなコミュニケーション」</a>
+    
+    <li><a href="https://takuti.me/note/hello-faust/">Feeding User-Item Interactions to Python-Based Streaming Recommendation Engine via Faust</a>
+    
+    <li><a href="https://takuti.me/note/mlconf-sf-2018/">Attending MLconf SF 2018 #mlconf18</a>
+    
+  
+  </ul>
+  <a href="https://takuti.me/note">&raquo; more</a>
+
+</article>
+<span class="symbol">user</span> <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>) is a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Arm Treasure Data</a></b> and committer of <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b>.
+
+</div>
+
+    <footer>
+      &copy; 2012-2019 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+
