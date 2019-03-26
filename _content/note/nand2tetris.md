@@ -1,7 +1,7 @@
 ---
 date: 2017-05-21
 lang: ja
-recommendations: [/note/designing-data-intensive-applications/, /note/recommender-libraries/,
+recommendations: [/note/recommender-libraries/, /note/designing-data-intensive-applications/,
   /note/euroscipy-2017/]
 title: 『コンピュータシステムの理論と実装』は“娯楽”である
 ---

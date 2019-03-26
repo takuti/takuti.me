@@ -1,7 +1,8 @@
 ---
 date: 2019-02-03
 lang: ja
-title: '「ていねいなコミュニケーション」'
+recommendations: [/note/dmm-eikaiwa/, /note/todays-art-taro/, /note/20140713/]
+title: 「ていねいなコミュニケーション」
 ---
 
 『**[自分の小さな「箱」から脱出する方法](https://amzn.to/2CMhJ7p)**』という本を読んで、なんというか、いろいろと恥ずかしくなった。
