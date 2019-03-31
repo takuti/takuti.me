@@ -7,7 +7,7 @@ title: 'Recommendation.jl: Building Recommender Systems in Julia'
 
 I have recently published [Recommendation.jl](https://github.com/takuti/Recommendation.jl), a Julia package for recommender systems. The package is already registered in [METADATA.jl](https://github.com/JuliaLang/METADATA.jl), so it can be installed by:
 
-```
+```sh
 $ julia
 julia> Pkg.add("Recommendation")
 ```
@@ -31,7 +31,7 @@ Static analysis on a local machine with classical techniques is essentially impo
 
 In general, recommender systems somehow handle a number of events which represents user-item interactions. So, our package describes each event as an `Event` composite type:
 
-```jl
+```julia
 type Event
     user::Int
     item::Int
@@ -43,7 +43,7 @@ A field `value` can be unary or arbitrary real number depending on the feedback 
 
 In order to represent a series of `Event`, we define a data accessor as follows:
 
-```jl
+```julia
 immutable DataAccessor
     events::Array{Event,1}
     R::AbstractMatrix
@@ -69,7 +69,7 @@ Once a dataset is converted into a data accessor, we can launch various kinds of
 
 In particular, what `recommend()` does is to compute ranking scores for all possible user-item pairs and return top-$k$ highest-ranked items. Since this recommendation procedure is always same regardless of recommenders, the function is precomposed in the package:
 
-```jl
+```julia
 function recommend(rec::Recommender, u::Int, k::Int, candidates::Array{Int})
     d = Dict{Int,Float64}()
     for candidate in candidates
@@ -84,7 +84,7 @@ The `recommend()` function actually works correctly, but the implementation is n
 
 Another common function is `check_build_status()`. The function checks a recommenders' build state and throws an error if it is still not built:
 
-```jl
+```julia
 function check_build_status(rec::Recommender)
     if !haskey(rec.states, :is_built) || !rec.states[:is_built]
         error("Recommender $(typeof(rec)) is not built before making recommendation")
@@ -96,7 +96,7 @@ end
 
 To give an example, the following code demonstrates implementation of the simple popularity-based recommender:
 
-```jl
+```julia
 immutable MostPopular <: Recommender
     da::DataAccessor
     scores::AbstractVector
@@ -128,7 +128,7 @@ The `MostPopular` recommender type is initialized by a data accessor, and a reco
 
 It should be noticed that `predict()` does not necessarily to be implemented because `recommend()` internally uses scores obtained from `ranking()`. In case only `predict()` is implemented on a recommender, `ranking()` works as an alias of the `predict()` function by default:
 
-```jl
+```julia
 function predict(rec::Recommender, u::Int, i::Int)
     error("predict is not implemented for recommender type $(typeof(rec))")
 end
@@ -153,7 +153,7 @@ in addition to converting own data into a data accessor. The flexible data acces
 
 Integrating a data accessor, recommender and metric eventually enable us to compute the accuracy of recommendation. Here, I give an example of the whole procedure using Recommendation.jl:
 
-```jl
+```julia
 using Recommendation
 
 const n_user = 5
