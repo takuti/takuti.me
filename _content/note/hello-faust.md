@@ -1,7 +1,7 @@
 ---
 date: 2019-01-14
 lang: en
-recommendations: [/note/flurs/, /note/recommendation-julia/, /note/recsys-wordcloud/]
+recommendations: [/note/flurs/, /note/recommendation-julia/, /note/recommendation-julia-documenter/]
 title: Feeding User-Item Interactions to Python-Based Streaming Recommendation Engine
   via Faust
 ---

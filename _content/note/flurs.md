@@ -1,7 +1,7 @@
 ---
 date: 2017-01-21
 lang: en
-recommendations: [/note/hello-faust/, /note/recommendation-julia/, /note/hello-librec/]
+recommendations: [/note/hello-faust/, /note/recommendation-julia/, /note/recommendation-julia-documenter/]
 title: 'FluRS: A Python Library for Online Item Recommendation'
 ---
 
