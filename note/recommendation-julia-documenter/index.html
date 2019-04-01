@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    
+    <meta name=description content="When I was a master&#39;s student, I had developed Recommendation.jl, a collection of well-known recommendation techniques written in Julia:
+ Recommendation.jl: Building Recommender Systems in Julia  Recently I have been working on creating its documentation site by using Documenter.jl, a documentation generator for Julia. This article describes how the tool allows me to easily create the website and what I&#39;m writing on it.
+Importance of documentation for Julia packages In fact, I do not actively add state-of-the-art recommendation techniques to the Recommendation." />
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Publishing My Master&#39;s Thesis with Documenter.jl | takuti.me
+      
+    </title>
+    
+    <meta property="og:title" content="Publishing My Master&#39;s Thesis with Documenter.jl">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2019-03-31">
+    <meta property="og:description" content="When I was a master&#39;s student, I had developed Recommendation.jl, a collection of well-known recommendation techniques written in Julia:
+ Recommendation.jl: Building Recommender Systems in Julia  Recently I have been working on creating its documentation site by using Documenter.jl, a documentation generator for Julia. This article describes how the tool allows me to easily create the website and what I&#39;m writing on it.
+Importance of documentation for Julia packages In fact, I do not actively add state-of-the-art recommendation techniques to the Recommendation.">
+    
+    <meta property="og:url" content="https://takuti.me/note/recommendation-julia-documenter/">
+    <meta property="og:site_name" content="takuti.me">
+    <meta property="og:image" content="https://takuti.me/images/takuti.jpg">
+    
+    
+
+    <link rel="stylesheet" href="https://takuti.me/css/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-7190463694419594",
+              enable_page_level_ads: true
+         });
+    </script>
+    
+  </head>
+  <body>
+  <span class="header-icon">
+    <a href="https://takuti.me/"><img src="https://takuti.me/images/logo.png" alt="icon" /></a>
+  </span>
+
+
+<div id="container">
+
+<article>
+  <p class="meta">
+    2019-03-31
+  </p>
+  <h2>Publishing My Master&#39;s Thesis with Documenter.jl</h2>
+
+  <div class="post">
+    
+<p>When I was a master&#39;s student, I had developed <a href="https://github.com/takuti/Recommendation.jl">Recommendation.jl</a>, a collection of well-known recommendation techniques written in Julia:</p>
+<ul>
+<li><a href="https://takuti.me/note/recommendation-julia">Recommendation.jl: Building Recommender Systems in Julia</a></li>
+</ul>
+<p>Recently I have been working on creating its <a href="https://takuti.github.io/Recommendation.jl/latest/">documentation site</a> by using <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a>, a documentation generator for Julia. This article describes how the tool allows me to easily create the website and what I&#39;m writing on it.</p>
+<h3 id="importance-of-documentation-for-julia-packages">Importance of documentation for Julia packages</h3>
+<p>In fact, I do not actively add state-of-the-art recommendation techniques to the Recommendation.jl package because the package simply focuses on providing a way to test well-studied traditional methods, with leaving room for user-side customization. I personally believe everything in the package is trivial in the field of recommender systems, and hence I did not write any dedicated documentations so far.</p>
+<p>However, even if the implemented techniques are widely known (e.g., collaborative filtering, matrix factorization), I recently realized that explicitly documenting their underlying scientific concepts and mathematical equations is beneficial to provide a better understanding of the package, especially in case of the Julia programming language.</p>
+<p>Most importantly, Julia is designed for high-performance scientific computing, mostly in academia. As an alternative option to MATLAB, the language gives an easy access to complex scientific techniques to those who are relatively familiar with their theoretical aspect. Consequently, documentation of third-party Julia packages needs to be structured properly for the unique demographics.</p>
+<p>To give an example, when I see a <a href="https://juliastats.github.io/Distributions.jl/stable/multivariate.html#Distributions-1">documentation page of Distribution.jl</a>, it shows the probability density functions of a variety of distributions. On the other hand, <a href="https://scikit-learn.org/stable/modules/mixture.html">scikit-learn documentation</a> explains a similar topic in a more intuitive and visually stimulating way by showing abundant figures and function interfaces.</p>
+<p>For the reasons that I mentioned above, documentation should be written for the right readers in the right way, and the detailed theoretical descriptions help Julia users a lot in practice.</p>
+<h3 id="documenter-jl">Documenter.jl</h3>
+<p>Once I figured out the importance of theoretical documentation, I googled an effective way and finally found Documenter.jl. By the way, I do like Julia&#39;s language ecosystem that consists of such a variety of community-owned utility repositories like <a href="https://github.com/JuliaLang/METADATA.jl">METADATA.jl</a> and <a href="https://github.com/JuliaGraphics/julia-logo-graphics">julia-logo-graphics</a>; it simply makes developers comfortable.</p>
+<p>We can easily create our documentation website by using Documenter.jl as follows:</p>
+<ol>
+<li>Install Documenter.jl:<pre><code class="lang-julia"> julia&gt; <span class="hljs-keyword">import</span> Pkg; Pkg.add(<span class="hljs-string">"Documenter"</span>)
+</code></pre>
+</li>
+<li>Write Markdown documents under <code>docs/src</code> and/or write docstrings in your source code.</li>
+<li><p>Create <code>docs/make.jl</code> like:</p>
+<pre><code class="lang-julia"> <span class="hljs-keyword">using</span> Documenter, Recommendation
+
+ makedocs(
+     format = :html,
+     modules = [Recommendation],
+     sitename = <span class="hljs-string">"Recommendation.jl"</span>,
+     authors = <span class="hljs-string">"Takuya Kitazawa"</span>,
+     linkcheck = !(<span class="hljs-string">"skiplinks"</span> <span class="hljs-keyword">in</span> <span class="hljs-literal">ARGS</span>),
+     pages = [
+         <span class="hljs-string">"Home"</span> =&gt; <span class="hljs-string">"index.md"</span>,
+         <span class="hljs-string">"Getting Started"</span> =&gt; <span class="hljs-string">"getting_started.md"</span>,
+         <span class="hljs-string">"References"</span> =&gt; [
+             <span class="hljs-string">"notation.md"</span>,
+             <span class="hljs-string">"baseline.md"</span>,
+             <span class="hljs-string">"collaborative_filtering.md"</span>,
+             <span class="hljs-string">"content_based_filtering.md"</span>,
+             <span class="hljs-string">"evaluation.md"</span>,
+         ],
+     ],
+ )
+
+ deploydocs(
+     repo = <span class="hljs-string">"github.com/takuti/Recommendation.jl.git"</span>,
+     target = <span class="hljs-string">"build"</span>,
+ )
+</code></pre>
+</li>
+<li>Compile documentation:<pre><code class="lang-sh"> $ julia docs/make.jl
+</code></pre>
+</li>
+<li>Open and check the site from <code>docs/build/index.html</code>.</li>
+<li><a href="https://juliadocs.github.io/Documenter.jl/stable/man/hosting/#gh-pages-Branch-1">Push to your GitHub repo to update a <code>gh-pages</code> branch.</a></li>
+</ol>
+<p>That&#39;s all. Thanks to Documenter, you can flexibly organize your pages in <code>makedocs(pages=[])</code>, and the website will automatically be published under <code>gh-pages</code> according to the <code>deploydocs()</code> configuration. Of course, the tool does support MathJax-based LaTeX syntax as well as <a href="https://juliadocs.github.io/Documenter.jl/stable/man/syntax/">many other useful syntax</a>.</p>
+<h3 id="porting-my-master-s-thesis-to-the-recommendation-jl-documentation">Porting my master&#39;s thesis to the Recommendation.jl documentation</h3>
+<p>Finally, I have been published the first version of Recommendation.jl documentation site. As I described above, the pages describe the theoretical detail of common recommendation techniques e.g., <a href="https://takuti.github.io/Recommendation.jl/latest/collaborative_filtering">collaborative filtering</a>.</p>
+<p>It should be noted that these contents are originally from <code>.tex</code> files of my master&#39;s thesis. The thesis was entitled as &quot;<strong>Persistently Cold-Starting Online Item Recommendation for Implicit Feedback Data</strong>,&quot; and I spent a lot of time to survey classical recommendation techniques. The topics are also compatible with <a href="https://www.coursera.org/specializations/recommender-systems">Recommender Systems Specialization in Coursera</a>; it is a great introductory course to see the inside of recommender systems.</p>
+<p>While our thesis becomes publicly available after graduation, re-publishing it on the Internet in a different format gives another chance to attract attention and get feedback from more people. Building a relevant Julia package and writing its documentation (with Documenter.jl) would be a great option to do so.</p>
+<p>Let&#39;s say, my master&#39;s thesis has been reborn on the website.</p>
+
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
+  </div>
+
+  <h4><span class="symbol">search</span> See also</h4>
+  <ul>
+  
+    
+    <li><a href="https://takuti.me/note/hello-faust/">Feeding User-Item Interactions to Python-Based Streaming Recommendation Engine via Faust</a>
+    
+    <li><a href="https://takuti.me/note/flurs/">FluRS: A Python Library for Online Item Recommendation</a>
+    
+    <li><a href="https://takuti.me/note/recommendation-julia/">Recommendation.jl: Building Recommender Systems in Julia</a>
+    
+  
+  </ul>
+  <a href="https://takuti.me/note">&raquo; more</a>
+
+</article>
+<span class="symbol">user</span> <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>) is a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Arm Treasure Data</a></b> and committer of <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b>.
+
+</div>
+
+    <footer>
+      &copy; 2012-2019 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+
