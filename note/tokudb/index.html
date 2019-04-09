@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    
+    <meta name=description content="TokuDB is a high-performance, scalable storage engine for MySQL/MariaDB. Since the engine is optimized for a large volume of data, nowadays it would become a reasonable option to build an in-house big data analytics solution.
+As the first step toward making sure its effectiveness and efficiency, I simply tried to enable the storage engine in MariaDB running on an AWS EC2 instance. Let me share the whole procedure so that everyone can easily deep-dive into TokuDB itself, rather than some troublesome chores." />
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        TokuDB in MariaDB (on Ubuntu) | takuti.me
+      
+    </title>
+    
+    <meta property="og:title" content="TokuDB in MariaDB (on Ubuntu)">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2019-04-07">
+    <meta property="og:description" content="TokuDB is a high-performance, scalable storage engine for MySQL/MariaDB. Since the engine is optimized for a large volume of data, nowadays it would become a reasonable option to build an in-house big data analytics solution.
+As the first step toward making sure its effectiveness and efficiency, I simply tried to enable the storage engine in MariaDB running on an AWS EC2 instance. Let me share the whole procedure so that everyone can easily deep-dive into TokuDB itself, rather than some troublesome chores.">
+    
+    <meta property="og:url" content="https://takuti.me/note/tokudb/">
+    <meta property="og:site_name" content="takuti.me">
+    <meta property="og:image" content="https://takuti.me/images/takuti.jpg">
+    
+    
+
+    <link rel="stylesheet" href="https://takuti.me/css/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-7190463694419594",
+              enable_page_level_ads: true
+         });
+    </script>
+    
+  </head>
+  <body>
+  <span class="header-icon">
+    <a href="https://takuti.me/"><img src="https://takuti.me/images/logo.png" alt="icon" /></a>
+  </span>
+
+
+<div id="container">
+
+<article>
+  <p class="meta">
+    2019-04-07
+  </p>
+  <h2>TokuDB in MariaDB (on Ubuntu)</h2>
+
+  <div class="post">
+    
+<p><a href="https://github.com/percona/tokudb-engine">TokuDB</a> is a high-performance, scalable storage engine for MySQL/MariaDB. Since the engine is optimized for a large volume of data, nowadays it would become a reasonable option to build an in-house big data analytics solution.</p>
+<p>As the first step toward making sure its effectiveness and efficiency, I simply tried to enable the storage engine in MariaDB running on an AWS EC2 instance. Let me share the whole procedure so that everyone can easily deep-dive into TokuDB itself, rather than some troublesome chores.</p>
+<p>First, create an AWS EC2 instance with a security group that accepts <code>port=3306</code> inbound request, and install the components as:</p>
+<pre><code class="lang-sh">sudo apt-get update
+sudo apt-get install mariadb-server mariadb-plugin-tokudb
+</code></pre>
+<p>Second, un-comment <code>plugin-load-add</code> in <code>/etc/mysql/mariadb.conf.d/tokudb.cnf</code>:</p>
+<pre><code class="lang-yml"><span class="hljs-string">[mariadb]</span>
+<span class="hljs-comment"># See https://mariadb.com/kb/en/how-to-enable-tokudb-in-mariadb/</span>
+<span class="hljs-comment"># for instructions how to enable TokuDB</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># See https://mariadb.com/kb/en/tokudb-differences/ for differences</span>
+<span class="hljs-comment"># between TokuDB in MariaDB and TokuDB from http://www.tokutek.com/</span>
+
+<span class="hljs-string">plugin-load-add=ha_tokudb.so</span>
+</code></pre>
+<p>Meanwhile, update <code>bind-address</code> configured in <code>/etc/mysql/mariadb.conf.d/50-server.cnf</code> as follows:</p>
+<pre><code class="lang-yml"><span class="hljs-comment"># this is read by the standalone daemon and embedded servers</span>
+<span class="hljs-string">[server]</span>
+
+<span class="hljs-comment"># this is only for the mysqld standalone daemon</span>
+<span class="hljs-string">[mysqld]</span>
+
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># * Basic Settings</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-string">user</span>            <span class="hljs-string">=</span> <span class="hljs-string">mysql</span>
+<span class="hljs-string">pid-file</span>        <span class="hljs-string">=</span> <span class="hljs-string">/var/run/mysqld/mysqld.pid</span>
+<span class="hljs-string">socket</span>          <span class="hljs-string">=</span> <span class="hljs-string">/var/run/mysqld/mysqld.sock</span>
+<span class="hljs-string">port</span>            <span class="hljs-string">=</span> <span class="hljs-number">3306</span>
+<span class="hljs-string">basedir</span>         <span class="hljs-string">=</span> <span class="hljs-string">/usr</span>
+<span class="hljs-string">datadir</span>         <span class="hljs-string">=</span> <span class="hljs-string">/var/lib/mysql</span>
+<span class="hljs-string">tmpdir</span>          <span class="hljs-string">=</span> <span class="hljs-string">/tmp</span>
+<span class="hljs-string">lc-messages-dir</span> <span class="hljs-string">=</span> <span class="hljs-string">/usr/share/mysql</span>
+<span class="hljs-string">skip-external-locking</span>
+
+<span class="hljs-comment"># Instead of skip-networking the default is now to listen only on</span>
+<span class="hljs-comment"># localhost which is more compatible and is not less secure.</span>
+<span class="hljs-string">bind-address</span>            <span class="hljs-string">=</span> <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>
+</code></pre>
+<p>Run the server:</p>
+<pre><code class="lang-sh"><span class="hljs-comment"># https://support.rackspace.com/how-to/installing-mysql-server-on-ubuntu/</span>
+<span class="hljs-comment"># sudo ufw allow mysql</span>
+sudo systemctl restart mysql
+sudo mysql
+</code></pre>
+<p>Next, create a user in the MySQL console:</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">'username'</span>@<span class="hljs-string">'localhost'</span> <span class="hljs-keyword">IDENTIFIED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">'password'</span>;
+<span class="hljs-keyword">GRANT</span> ALL <span class="hljs-keyword">PRIVILEGES</span> <span class="hljs-keyword">ON</span> *.* <span class="hljs-keyword">TO</span> <span class="hljs-string">'username'</span>@<span class="hljs-string">'localhost'</span> <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">OPTION</span>;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">'username'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">IDENTIFIED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">'password'</span>;
+<span class="hljs-keyword">GRANT</span> ALL <span class="hljs-keyword">PRIVILEGES</span> <span class="hljs-keyword">ON</span> *.* <span class="hljs-keyword">TO</span> <span class="hljs-string">'username'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">OPTION</span>;
+<span class="hljs-keyword">FLUSH</span> <span class="hljs-keyword">PRIVILEGES</span>;
+</code></pre>
+<p>Create and see a dummy table with the TokuDB engine:</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">database</span> foo;
+<span class="hljs-keyword">use</span> foo;
+
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> sample_tokudb (
+  <span class="hljs-keyword">id</span> <span class="hljs-built_in">int</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT,
+  <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">128</span>),
+  age <span class="hljs-built_in">integer</span>,
+  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-keyword">id</span>)
+) <span class="hljs-keyword">ENGINE</span>=TokuDB;
+
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> sample_tokudb (<span class="hljs-keyword">name</span>, age) <span class="hljs-keyword">VALUES</span> (<span class="hljs-string">'Joe'</span>, <span class="hljs-number">28</span>);
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> sample_tokudb (<span class="hljs-keyword">name</span>, age) <span class="hljs-keyword">VALUES</span> (<span class="hljs-string">'Katie'</span>, <span class="hljs-number">30</span>);
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> sample_tokudb (<span class="hljs-keyword">name</span>, age) <span class="hljs-keyword">VALUES</span> (<span class="hljs-string">'Tom'</span>, <span class="hljs-number">26</span>);
+
+<span class="hljs-comment">-- make sure if it's created with the TokuDB engine</span>
+<span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">STATUS</span> <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">Name</span> = <span class="hljs-string">'sample_tokudb'</span>;
+</code></pre>
+<p>Finally, we can remotely connect to a TokuDB-enabled table hosted by the MariaDB server:</p>
+<pre><code class="lang-sh">mysql -u username -h <span class="hljs-variable">$EC2_HOST</span> -d sample_tokudb -p
+</code></pre>
+<p>We are now ready to play with the high-performance storage engine.</p>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="http://www.bictor.com/2015/07/19/enabling-tokudb-engine-in-mariadb/">Enabling TokuDB engine in MariaDB</a></li>
+<li><a href="https://stackoverflow.com/questions/9766014/connect-to-mysql-on-amazon-ec2-from-a-remote-server">Connect to mysql on Amazon EC2 from a remote server - Stack Overflow</a></li>
+<li><a href="https://stackoverflow.com/questions/1559955/host-xxx-xx-xxx-xxx-is-not-allowed-to-connect-to-this-mysql-server">Host &#39;xxx.xx.xxx.xxx&#39; is not allowed to connect to this MySQL server - Stack Overflow</a></li>
+<li><a href="https://www.cyberciti.biz/tips/how-do-i-enable-remote-access-to-mysql-database-server.html">How Do I Enable Remote Access To MySQL Database Server?</a></li>
+</ul>
+
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
+  </div>
+
+  <h4><span class="symbol">search</span> See also</h4>
+  <ul>
+  
+    
+    <li><a href="https://takuti.me/note/">Notes</a>
+    
+    <li><a href="https://takuti.me/note/recommendation-julia-documenter/">Publishing My Master&#39;s Thesis with Documenter.jl</a>
+    
+    <li><a href="https://takuti.me/note/hivemall-pyspark/">Apache Hivemall in PySpark</a>
+    
+  
+  </ul>
+  <a href="https://takuti.me/note">&raquo; more</a>
+
+</article>
+<span class="symbol">user</span> <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>) is a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Arm Treasure Data</a></b> and committer of <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b>.
+
+</div>
+
+    <footer>
+      &copy; 2012-2019 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+
