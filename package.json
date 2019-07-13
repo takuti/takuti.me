@@ -3,9 +3,11 @@
   "author": "takuti",
   "license": "MIT",
   "version": "1.0.0",
-  "scripts": {
-    "precommit": "lint-staged",
-    "lint:css": "stylelint --fix \"_scss/**/*.{css,scss}\""
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "lint:css": "stylelint --fix \"_scss/**/*.{css,scss}\""
+    }
   },
   "dependencies": {},
   "devDependencies": {
