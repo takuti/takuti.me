@@ -1,8 +1,7 @@
 ---
 date: 2018-11-02
 lang: en
-recommendations: [/note/hivemall-events-2018-autumn/, /note/spark-rdd-cached-vs-uncached/,
-  /note/recsys-wordcloud/]
+recommendations: [/note/hivemall-events-2018-autumn/, /note/umap-2019/, /note/spark-rdd-cached-vs-uncached/]
 title: Sending Sensor Data from Mbed Simulator to Treasure Data
 ---
 

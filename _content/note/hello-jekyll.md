@@ -1,7 +1,7 @@
 ---
 date: 2014-03-31
 lang: ja
-recommendations: [/note/dmm-eikaiwa/, /note/toefl-20140527/, /note/travis-gh-pages-deployment/]
+recommendations: [/note/dmm-eikaiwa/, /note/toefl-20140527/, /note/https/]
 tags: [Diary]
 title: ブログをWordPressからJekyllに変えた
 ---

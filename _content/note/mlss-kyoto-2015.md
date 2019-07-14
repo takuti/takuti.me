@@ -1,7 +1,7 @@
 ---
 date: 2015-10-03
 lang: en
-recommendations: [/note/mlconf-sf-2018/, /note/phpcon-2015/, /note/pyconjp-2015/]
+recommendations: [/note/phpcon-2015/, /note/mlconf-sf-2018/, /note/pyconjp-2015/]
 title: 'Machine Learning Summer School 2015 Kyoto #MLSSKYOTO'
 ---
 

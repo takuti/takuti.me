@@ -1,7 +1,7 @@
 ---
 date: 2017-02-04
 lang: ja
-recommendations: [/note/move-to-gh-pages/, /note/hello-jekyll/, /note/crx-dev-using-angularjs/]
+recommendations: [/note/hello-jekyll/, /note/why-spark/, /note/crx-dev-using-angularjs/]
 title: サイトをHTTPSにした
 ---
 
