@@ -8,8 +8,7 @@
 Hugo and direnv can be installed from homebrew:
 
 ```
-$ brew install hugo
-$ brew install direnv
+$ brew install hugo direnv
 ```
 
 ### Gulp
@@ -26,11 +25,11 @@ $ npm install
 [recommend.py](./scripts/recommend.py) depends on MeCab Japanese morphological analyzer:
 
 ```sh
-brew install mecab
-brew install mecab-ipadic
+brew install mecab mecab-ipadic
 git clone --depth 1 git@github.com:neologd/mecab-ipadic-neologd.git
 cd mecab-ipadic-neologd
 ./bin/install-mecab-ipadic-neologd -n
+pip install mecab-python3
 ```
 
 ## Usage
