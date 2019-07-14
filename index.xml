@@ -5,10 +5,20 @@
     <link>https://takuti.me/</link>
     <description>Recent content on takuti.me</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://takuti.me/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>User Modeling, Adaptation, Personalization for Marketing #UMAP2019</title>
+      <link>https://takuti.me/note/umap-2019/</link>
+      <pubDate>Sat, 13 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://takuti.me/note/umap-2019/</guid>
+      <description>It has been a month since I presented at The 27th ACM Conference On User Modeling, Adaptation And Personalization (UMAP2019) held in Larnaca, Cyprus:  Zero-Coding UMAP in Marketing: A Scalable Platform for Profiling and Predicting Customer Behavior by Just Clicking on the Screen  * You can download the PDF file from: here
+You may also be interested in a following video I created during the submission process of the demo paper:</description>
+    </item>
     
     <item>
       <title>TokuDB in MariaDB (on Ubuntu)</title>
@@ -230,7 +240,7 @@ Eventual Consistencyでよい ACID (Atomicity, Consistency, Isolation, Durabilit
 そんな感想を抱きつつ、以下、（教科書的な内容が中心だけど）いくつかポインタとしてメモを共有。
 追記 (2017/12/03) 紹介していただき、ありがとうございます！
 スレッドに関しては、今回は使う側の注意に焦点を当てており、スレッドを作る側、制御する側は特に踏み込めていないところです。
-&amp;mdash; Kenichiro Murata (@muraken720) December 1, 2017
+&amp;mdash; Kenichiro Murata🦊🤘 (@muraken720) December 1, 2017
  とのことです！
 2. 基本的な書き方を身につける  変数名の前後に _ をつけるのはもはや不要 IDEで書くのが当たり前なので、フィールドとローカル変数の名前が一緒でも区別がつく フレームワークによっては末尾の _ によって変数のバインドに失敗するものもある   変数は名詞、メソッドは動詞で命名 booleanの変数名に isXxx とつけるのは違う 変数名は xxx で、問い合わせるメソッドが isXxx と命名されるべき      3. 型を極める  autoboxing, unboxing 原則としてautoboxing, unboxingは使用せず、明示的に変換 ファイル操作、DBアクセス、HTTPリクエストなどの結果得られる値を保持する場合はラッパークラスを使う 数値計算はプリミティブ型を使う 記述量の削減（型の変換を明記しないこと）が効果的な場合に限り、autoboxing, unboxingを利用     インタフェース 絶対publicになるが、著者は省略せずに public interface と書く    4.</description>
     </item>
