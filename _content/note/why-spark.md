@@ -1,7 +1,7 @@
 ---
 date: 2017-04-09
 lang: ja
-recommendations: [/note/coursera-scala-specialization/, /note/hivemall-pyspark/, /note/spark-rdd-cached-vs-uncached/]
+recommendations: [/note/coursera-scala-specialization/, /note/hivemall-pyspark/, /note/dynamo-style/]
 title: なぜSparkか
 ---
 

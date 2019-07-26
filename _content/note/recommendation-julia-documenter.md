@@ -1,7 +1,7 @@
 ---
 date: 2019-03-31
 lang: en
-recommendations: [/note/recommendation-julia/, /note/flurs/, /note/hello-faust/]
+recommendations: [/note/juliacon-2019/, /note/recommendation-julia/, /note/flurs/]
 title: Publishing My Master's Thesis with Documenter.jl
 ---
 
