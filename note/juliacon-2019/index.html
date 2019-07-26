@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
+    <meta charset="utf-8">
+    <meta name=keywords content="takuti,たくち" />
+    
+    <meta name=description content="I have attended and presented at JuliaCon 2019 held in Baltimore, MD, USA:
+ Recommendation.jl: Building Recommender Systems in Julia   Recording is available at YouTube:
+ The 10-min lightning talk was very short. But it was a great opportunity to introduce my Recommendation.jl package and hear the comments from the audiences. Plus, I was inspired a lot by the other sessions and nice people I&#39;ve met throughout the conference." />
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Lightning Talk about Recommender Systems in Julia at #JuliaCon 2019 | takuti.me
+      
+    </title>
+    
+    <meta property="og:title" content="Lightning Talk about Recommender Systems in Julia at #JuliaCon 2019">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2019-07-26">
+    <meta property="og:description" content="I have attended and presented at JuliaCon 2019 held in Baltimore, MD, USA:
+ Recommendation.jl: Building Recommender Systems in Julia   Recording is available at YouTube:
+ The 10-min lightning talk was very short. But it was a great opportunity to introduce my Recommendation.jl package and hear the comments from the audiences. Plus, I was inspired a lot by the other sessions and nice people I&#39;ve met throughout the conference.">
+    
+    <meta property="og:url" content="https://takuti.me/note/juliacon-2019/">
+    <meta property="og:site_name" content="takuti.me">
+    <meta property="og:image" content="https://takuti.me/images/takuti.jpg">
+    
+    
+
+    <link rel="stylesheet" href="https://takuti.me/css/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+    <link rel="shortcut icon" href="https://takuti.me/images/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="https://takuti.me/index.xml" />
+    
+    <script async custom-element="amp-auto-ads"
+            src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+    
+  </head>
+  <body>
+  <span class="header-icon">
+    <a href="https://takuti.me/"><img src="https://takuti.me/images/logo.png" alt="icon" /></a>
+  </span>
+
+
+<div id="container">
+
+<article>
+  <p class="meta">
+    2019-07-26
+  </p>
+  <h2>Lightning Talk about Recommender Systems in Julia at #JuliaCon 2019</h2>
+
+  <div class="post">
+    
+<p>I have attended and presented at <a href="https://juliacon.org/2019/">JuliaCon 2019</a> held in Baltimore, MD, USA:</p>
+<ul>
+<li><strong><a href="https://pretalx.com/juliacon2019/talk/FFXKCX/">Recommendation.jl: Building Recommender Systems in Julia</a></strong></li>
+</ul>
+<script async class="speakerdeck-embed" data-id="7c5a8d8d54b44719b535f7e9b9764efc" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+
+<p>Recording is available at YouTube:</p>
+<iframe width="560" height="315" style="max-width: 100%;" src="https://www.youtube.com/embed/kC8LKQ_YjyM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>The 10-min lightning talk was very short. But it was a great opportunity to introduce my <a href="https://github.com/takuti/Recommendation.jl/">Recommendation.jl</a> package and hear the comments from the audiences. Plus, I was inspired a lot by the other sessions and nice people I&#39;ve met throughout the conference.</p>
+<h3 id="recommender-systems-in-julia">Recommender Systems in Julia</h3>
+<p>As I spoke, since recommendation is not only about machine learning, I&#39;m trying to keep the Recommendation.jl package as simple as possible with leaving enough space for user-side customization. This approach works particularly well for Julia because of its easiness, efficiency, and great package ecosystem.</p>
+<p>In fact, due to the limited number of practical use cases, I&#39;m still unsure if I created the package in the right way. However, a fact that Recommendation.jl is used in a book &quot;<a href="https://www.packtpub.com/big-data-and-business-intelligence/julia-programming-projects">Julia Programming Projects</a>&quot; hopefully shows a certain degree of usability:</p>
+<blockquote>
+<p>In this article, we will look at machine learning based recommendations using Julia. We will make recommendations using a Julia package called ‘Recommendation’.<br /><br />
+This article is an excerpt from a book written by Adrian Salceanu titled <a href="https://www.packtpub.com/big-data-and-business-intelligence/julia-programming-projects">Julia Programming Projects</a>.<br/><br />
+<em>&mdash; <a href="https://hub.packtpub.com/how-to-make-machine-learning-based-recommendations-using-julia-tutorial/">How to make machine learning based recommendations using Julia [Tutorial]</a></em></p>
+</blockquote>
+<p><em>Didn&#39;t know the book until very recently! I&#39;d like to thank the author because it strongly motivates me to work more heavily on the personal project :)</em></p>
+<p>Meanwhile, someone at the conference said to me like:</p>
+<blockquote>
+<p>Oh, are you the author of Recommendation.jl? My first Julia code was actually with the recommendation package!</p>
+</blockquote>
+<p>That&#39;s the power of the Julia ecosystem...everyone can easily and equally accessible to a wide variety of community-developed packages, and using the packages in their code is quite straightforward.</p>
+<p>After my talk, Abhijith Chandraprabhu, a person working dedicatedly for the Julia Computing organization and creator of <a href="https://github.com/abhijithch/RecSys.jl">RecSys.jl</a>, reached out to me. We shared a lot of our experiences and opinions for Julia and recommender systems, even during the conference dinner and Inner Harbor cruise. It was the most meaningful time at this conference.</p>
+<p>Excited to contribute more to the Recommender Systems in Julia field from now on.</p>
+<h3 id="julia-ecosystem-in-2019">Julia Ecosystem in 2019</h3>
+<p>To be ready for the presentation, I have revisited my code and released <a href="https://github.com/takuti/Recommendation.jl/releases/tag/v0.3.0">v0.3.0</a> of the recommendation package. For this purpose, walking through the &quot;<a href="https://benlauwens.github.io/ThinkJulia.jl/latest/book.html">Think Julia</a>&quot; book was so helpful to make sure my understanding of the basics.</p>
+<p>Interestingly, as an inactive holiday Julia programmer, I always find something new every time I review my Julia code thanks to the actively developed ecosystem. For example, this time I noticed that the community has developed <a href="https://github.com/JuliaRegistries/Registrator.jl">Registrator.jl</a> and changed a way to release Julia packages; the official registry has been moved from <a href="https://github.com/JuliaLang/METADATA.jl">METADATA.jl</a> to <a href="https://github.com/JuliaRegistries/General">JuliaRegistries/General</a>. </p>
+<p>Therefore, I was able to catch up recent progress on the Julia community before going to Baltimore. Currently, in combination with my JuliaCon 2019 experience, I believe the following topics particularly play an important role in the entire language ecosystem:</p>
+<ul>
+<li>Maturity of the language itself since the <a href="https://julialang.org/blog/2018/08/one-point-zero">last year&#39;s announcement of Julia 1.0.0</a></li>
+<li>GPU/hardware-based acceleration e.g., &quot;<a href="https://www.youtube.com/watch?v=QeG1IWeVKek">XLA.jl: Julia on TPUs</a>&quot;<ul>
+<li><a href="https://juliacomputing.com/domains/gpus.html">GPUs &mdash; Julia Computing</a></li>
+<li><a href="https://juliacomputing.com/domains/parallel-computing.html">Parallel Computing &mdash; Julia Computing</a></li>
+</ul>
+</li>
+<li>Machine learning toolkits e.g., &quot;<a href="https://www.youtube.com/watch?v=ByFglWPqNlg">MLJ - Machine Learning in Julia</a>&quot;<ul>
+<li><a href="https://juliacomputing.com/domains/ml-and-ai.html">Machine Learning and Artificial Intelligence &mdash; Julia Computing</a></li>
+</ul>
+</li>
+</ul>
+<p>Meanwhile, I enjoyed a <a href="https://www.youtube.com/watch?v=BjMgo3liDZ8">keynote talk by Prof. Madeleine Udell from Cornell</a>. She introduced <a href="https://github.com/madeleineudell/LowRankModels.jl">LowRankModels.jl</a>, and the topic is exactly the one that I studied in my master&#39;s project.</p>
+<h3 id="julia-unifies-academia-and-industry">Julia Unifies Academia and Industry</h3>
+<p>The reason why I&#39;m working as a data science engineer in the industry is that here is the great place to work in the middle of scientific algorithms and real-world applications; I do like scientific theories, but I strongly believe almost all of them are useless without practical real-world implementation. On that point, the Julia community is exceptionally attractive as an intersection between academia and industry.</p>
+<p>Importantly, <a href="https://www.youtube.com/watch?v=yx6lBSHqGfc">Julia Survey Results</a> demonstrated that the most common non-Julia language expertise of Julia programmers includes not only &quot;fashionable&quot; modern languages (e.g., Python, R, JavaScript, Scala) but also more like specialist-focused ones such as C, C++, MATLAB, Fortran. Thus, the community has an incredible diversity of technical background, and it certainly has a positive impact on creating innovative ideas and implementing them in the real world.</p>
+<p>At JuliaCon 2019, I met a wide variety of professionals and students coming from different fields and geographical locations. Can you imagine a situation that everyone including university professors, industrial researchers, data scientists, financial analysts, software engineers, students studying in different departments, and weekend coders gathers together at the single location? JuliaCon does make it real. </p>
+<p>To be honest, I didn&#39;t expect such an exciting and productive conference experience. Thank you all of the community members for making it possible!</p>
+
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="takuti">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
+  </div>
+
+  <h4><span class="symbol">search</span> See also</h4>
+  <ul>
+  
+    
+    <li><a href="https://takuti.me/note/recommendation-julia-documenter/">Publishing My Master&#39;s Thesis with Documenter.jl</a>
+    
+    <li><a href="https://takuti.me/note/flurs/">FluRS: A Python Library for Online Item Recommendation</a>
+    
+    <li><a href="https://takuti.me/note/recommendation-julia/">Recommendation.jl: Building Recommender Systems in Julia</a>
+    
+  
+  </ul>
+  <a href="https://takuti.me/note">&raquo; more</a>
+
+</article>
+
+<amp-auto-ads type="adsense"
+              data-ad-client="ca-pub-7190463694419594">
+</amp-auto-ads>
+<span class="symbol">user</span> <b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>) is a data science engineer at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Arm Treasure Data</a></b> and committer of <b><a href="https://hivemall.incubator.apache.org/" class="post-style" target="_blank" rel="noopener">Apache Hivemall</a></b>.
+
+</div>
+
+    <footer>
+      &copy; 2012-2019 Takuya Kitazawa.
+    </footer>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+    <script>
+      renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+            ]
+        }
+      );
+
+      var inlineMathArray = document.querySelectorAll("script[type='math/tex']");
+      for (var i = 0; i < inlineMathArray.length; i++) {
+        var inlineMath = inlineMathArray[i];
+        var tex = inlineMath.innerText || inlineMath.textContent;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex, {displayMode: false});
+        inlineMath.parentNode.replaceChild(replaced, inlineMath);
+      }
+
+      var displayMathArray = document.querySelectorAll("script[type='math/tex; mode=display']");
+      for (var i = 0; i < displayMathArray.length; i++) {
+        var displayMath = displayMathArray[i];
+        var tex = displayMath.innerHTML;
+        var replaced = document.createElement("span");
+        replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
+        displayMath.parentNode.replaceChild(replaced, displayMath);
+      }
+    </script>
+    
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-28919399-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+
