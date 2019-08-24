@@ -1,5 +1,8 @@
-[takuti.me](http://takuti.me) [![Build Status](https://travis-ci.org/takuti/takuti.me.svg?branch=master)](https://travis-ci.org/takuti/takuti.me)
+[takuti.me](http://takuti.me) 
 ===
+
+[![Build Status](https://travis-ci.org/takuti/takuti.me.svg?branch=master)](https://travis-ci.org/takuti/takuti.me)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9f1d80fa-3dbf-42d7-b7c7-3ad9317ee08e/deploy-status)](https://app.netlify.com/sites/takuti/deploys)
 
 ## Dependancies
 
