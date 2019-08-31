@@ -1,7 +1,7 @@
 ---
 date: 2017-06-26
 lang: en
-recommendations: [/note/move-to-gh-pages/, /note/hugo-markdown-and-mathjax/, /note/hugo-kramdown-and-katex/]
+recommendations: [/note/move-to-gh-pages/, /note/hello-netlify/, /note/hugo-markdown-and-mathjax/]
 title: Deploying Static Site to GitHub Pages via Travis CI
 ---
 
