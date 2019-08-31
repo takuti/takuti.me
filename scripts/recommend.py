@@ -41,6 +41,10 @@ def extract_contents(paths):
 
         m = RE_FRONT_MATTER.search(content)
 
+        if m is None:
+            contents.append('')
+            continue
+
         # remove front matter
         content = content.replace(m.group(0), '')
 
@@ -77,6 +81,9 @@ def process_article(path, recommend_permalinks):
         content = f.read()
 
     m = RE_FRONT_MATTER.search(content)
+    if m is None:
+        return
+
     front_matter = yaml.load(m.group(1))
 
     front_matter['recommendations'] = recommend_permalinks
