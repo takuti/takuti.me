@@ -28,7 +28,7 @@
 </section>
 
 <section>
-  <h3>Recent blog articles</h3>
+  <h2>Recent blog articles</h2>
   <ul>
   {{ range first 5 (where (where .Data.Pages "Section" "note") ".Params.lang" "en")}}
     <li><a href="{{ .Permalink }}">{{ .Title }}</a>
@@ -38,8 +38,8 @@
 </section>
 
 <section id="conferences">
-  <h3>Conference talks and publications</h3>
-    <iframe width="560" height="315" style="max-width: 100%;" src="https://www.youtube.com/embed/videoseries?list=PLlPB-75bA51dGSvPdvkciCrQEi266Xjha" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <h2>Conference talks and publications</h2>
+    <center><iframe width="560" height="315" style="max-width: 100%;" src="https://www.youtube.com/embed/videoseries?list=PLlPB-75bA51dGSvPdvkciCrQEi266Xjha" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
     <ul>
       <li><b>Recommendation.jl: Building Recommender Systems in Julia</b> @ <a href="https://juliacon.org/2019/"  target="_blank" rel="noopener">JuliaCon 2019</a><br />
           <span class="symbol">image</span><a href="https://speakerdeck.com/takuti/recommendation-dot-jl-building-recommender-systems-in-julia" target="_blank" rel="noopener">Slides</a> /

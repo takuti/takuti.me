@@ -24,10 +24,12 @@ h2,
 h3,
 h4 {
   color: $color-black;
+}
 
-  & .symbol {
-    font-weight: normal;
-  }
+h2 {
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 2em;
 }
 
 h3 {
@@ -257,7 +259,7 @@ blockquote {
 }
 
 .symbol {
-  font-family: 'LigatureSymbols';
+  font-family: 'LigatureSymbols', sans-serif;
   -webkit-text-rendering: optimizeLegibility;
   -moz-text-rendering: optimizeLegibility;
   -ms-text-rendering: optimizeLegibility;
@@ -271,6 +273,13 @@ blockquote {
   line-height: 1.3em;
   display: inline-block;
   margin: 0 0.25em;
+
+  h1 &,
+  h2 &,
+  h3 &,
+  h4 & {
+    font-weight: normal;
+  }
 }
 
 a.amazon-btn {
