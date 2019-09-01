@@ -180,6 +180,22 @@ header.header-image {
   }
 }
 
+section.portfolio {
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    &:first-child {
+      border-top: 1px solid #eee;
+    }
+
+    border-bottom: 1px solid #eee;
+    padding: 0.6em;
+  }
+}
+
 #container {
   width: $content-width;
   max-width: 90%;
