@@ -34,12 +34,7 @@ h2 {
 
 h3 {
   font-size: 1.3em;
-
-  &::before {
-    content: '#';
-    padding-right: 1em;
-    color: lighten($color-black, 40%);
-  }
+  margin-top: 2em;
 }
 
 h1,
@@ -169,7 +164,11 @@ header.header-image {
     width: $content-width;
     margin: 0 auto;
     text-align: center;
-    font-size: 2em;
+
+    &::first-line {
+      font-size: 2em;
+    }
+
     letter-spacing: 1px;
     color: #fff;
     position: relative;
@@ -324,7 +323,10 @@ blockquote {
     height: 200px;
 
     span {
-      font-size: 1.4em;
+      &::first-line {
+        font-size: 1.4em;
+      }
+
       letter-spacing: 0;
       width: 90%;
     }
