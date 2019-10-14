@@ -62,7 +62,7 @@ title: ルールベースは『人工知能』か
 <div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom: 1;overflow: hidden;">
 <div class="booklink-image" style="float:left;margin:0 15px 10px 0;"><a href="http://www.amazon.co.jp/exec/obidos/asin/4022735155/takuti-22/" name="booklink" rel="nofollow" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41luUaSrmXL._SL160_.jpg" style="border: none;" /></a></div>
 <div class="booklink-info" style="line-height:120%;/zoom: 1;overflow: hidden;">
-<div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/asin/4022735155/takuti-22/" rel="nofollow" name="booklink" target="_blank">クラウドからAIへ アップル、グーグル、フェイスブックの次なる主戦場 (朝日新書)</a>
+<div class="booklink-name" style="margin-bottom:10px;line-height:120%"><a href="http://www.amazon.co.jp/exec/obidos/asin/4022735155/takuti-22/" rel="nofollow" name="booklink" target="_blank">クラウドからAIへ アップル、グーグル、フェイスブックの次なる主戦場 (朝日新書)</a></div>
 <div class="booklink-powered-date" style="font-size:8pt;margin-top:5px;font-family:verdana;line-height:120%">posted with <a href="http://yomereba.com" rel="nofollow" target="_blank">ヨメレバ</a></div>
 </div>
 <div class="booklink-detail" style="margin-bottom:5px;">小林雅一 朝日新聞出版 2013-07-12    </div>
