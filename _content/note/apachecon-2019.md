@@ -2,7 +2,7 @@
 date: 2019-10-26
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/hivemall-pyspark/, /note/umap-2019/]
-title: 'ApacheCon North America #ACNA19 & Europe 2019 #ACEU19'
+title: 'ApacheCon 2019 North America #ACNA19 & Europe #ACEU19'
 ---
 
 As a committer/PPMC of [Apache Hivemall](https://github.com/apache/incubator-hivemall) (incubating), I have attended and presented at [ApacheCon North America](https://www.apachecon.com/acna19/) and [ApacheCon Europe](https://aceu19.apachecon.com). 
