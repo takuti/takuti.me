@@ -1,6 +1,8 @@
 ---
 date: 2019-10-14
 lang: ja
+recommendations: [/note/the-amazon-way-on-iot/, /note/trends-in-real-world-recommender-systems-2017/,
+  /note/two-decades-of-amazon-recommender/]
 title: ストーリーを伝えられないプロダクトの虚しさ
 ---
 

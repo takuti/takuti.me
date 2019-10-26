@@ -1,7 +1,7 @@
 ---
 date: 2018-11-22
 lang: en
-recommendations: [/note/hivemall-events-2018-autumn/, /note/umap-2019/, /note/mlss-kyoto-2015/]
+recommendations: [/note/hivemall-events-2018-autumn/, /note/umap-2019/, /note/apachecon-2019/]
 title: 'Attending MLconf SF 2018 #mlconf18'
 ---
 

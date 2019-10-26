@@ -1,7 +1,7 @@
 ---
 date: 2019-03-24
 lang: en
-recommendations: [/note/hivemall-events-2018-autumn/, /note/hivemall-on-docker/, /note/why-spark/]
+recommendations: [/note/hivemall-events-2018-autumn/, /note/apachecon-2019/, /note/hivemall-on-docker/]
 title: Apache Hivemall in PySpark
 ---
 

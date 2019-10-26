@@ -1,7 +1,7 @@
 ---
 date: 2017-02-11
 lang: ja
-recommendations: [/note/hivemall-on-docker/, /note/recommender-libraries/, /note/hivemall-pyspark/]
+recommendations: [/note/hivemall-on-docker/, /note/recommender-libraries/, /note/hivemall-events-2018-autumn/]
 title: MacのローカルにHivemallを導入してアイテム推薦をするまで
 ---
 
