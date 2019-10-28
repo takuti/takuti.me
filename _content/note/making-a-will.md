@@ -1,5 +1,6 @@
 ---
 date: 2019-09-15
+draft: true
 lang: ja
 recommendations: [/note/todays-art-taro/, /note/getting-out-of-the-box/, /note/dmm-eikaiwa/]
 title: 遺言状をつくった
