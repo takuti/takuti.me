@@ -90,6 +90,10 @@ table {
 article {
   margin: 0 auto 50px;
 
+  .katex {
+    font-size: $default-font-size;
+  }
+
   .meta {
     font-size: 0.8em;
     color: lighten($color-black, 20%);
