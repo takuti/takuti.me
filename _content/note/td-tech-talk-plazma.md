@@ -1,8 +1,8 @@
 ---
 date: 2018-02-25
 lang: ja
-recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/td-intern-2016/,
-  /note/yahoo-egads/]
+recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/2020/,
+  /note/td-intern-2016/]
 title: 'Hivemall, Digdag, 自然言語処理, 機械学習などについて話しました #tdtech'
 ---
 
