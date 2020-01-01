@@ -6,12 +6,15 @@
 $color-black: #555;
 $color-dark-blue: #00496e;
 $content-width: 800px;
+$default-font-size: 15px;
 
 html,
 body {
   background: #fff;
   height: 100%;
-  font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+  font-size: $default-font-size;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+  line-height: 1.75;
   color: $color-black;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
