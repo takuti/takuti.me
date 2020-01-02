@@ -116,7 +116,7 @@ article {
   }
 
   [id^="fn_"],
- [id*=" fn_"] {
+  [id*=" fn_"] {
     font-size: 0.8em;
     margin: 2em 0;
     color: lighten($color-black, 10%);
@@ -198,12 +198,8 @@ section.portfolio {
     list-style: none;
 
     li {
-      &:first-child {
-        border-top: 1px solid #eee;
-      }
-
-      border-bottom: 1px solid #eee;
-      padding: 0.6em;
+      border: none;
+      padding: 1em 0;
     }
 
     padding-left: 0 !important;
@@ -226,21 +222,22 @@ section.portfolio {
     }
   }
 
-  a.more {
+  a.btn {
     display: inline-block;
-    border: 1px solid $color-black;
-    padding: 0.2em 1em;
-    margin-top: 0.5em;
-    color: $color-black;
+    border: 1px solid lighten($color-black, 20%);
+    padding: 0.1em 0.75em;
+    margin: 0.75em 0.5em 0 0;
+    color: lighten($color-black, 5%);
     text-decoration: none;
 
     &:visited {
-      color: $color-black;
+      color: lighten($color-black, 5%);
     }
 
     &:hover {
       color: #fff;
-      background: $color-black;
+      border-color: lighten($color-black, 5%);
+      background: lighten($color-black, 5%);
     }
   }
 }
