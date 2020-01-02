@@ -293,13 +293,13 @@ pre code,
 
 blockquote {
   padding-left: 15px;
-  border-left: 3px solid #eee;
   margin-bottom: 1em;
 
   & > p {
     margin-left: -15px;
     padding: 1em;
     background: lighten($color-black, 64%);
+    border-left: 3px solid #eee;
   }
 }
 
