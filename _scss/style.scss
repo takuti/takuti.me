@@ -189,6 +189,16 @@ header.header-image {
 section.portfolio {
   ul {
     list-style: none;
+
+    li {
+      &:first-child {
+        border-top: 1px solid #eee;
+      }
+
+      border-bottom: 1px solid #eee;
+      padding: 0.6em;
+    }
+
     padding-left: 0 !important;
   }
 
@@ -209,13 +219,22 @@ section.portfolio {
     }
   }
 
-  li {
-    &:first-child {
-      border-top: 1px solid #eee;
+  a.more {
+    display: inline-block;
+    border: 1px solid $color-black;
+    padding: 0.2em 1em;
+    margin-top: 0.5em;
+    color: $color-black;
+    text-decoration: none;
+
+    &:visited {
+      color: $color-black;
     }
 
-    border-bottom: 1px solid #eee;
-    padding: 0.6em;
+    &:hover {
+      color: #fff;
+      background: $color-black;
+    }
   }
 }
 
