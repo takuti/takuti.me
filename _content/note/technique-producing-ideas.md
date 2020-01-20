@@ -1,7 +1,7 @@
 ---
 date: 2020-01-05
 lang: en
-recommendations: [/note/mlss-kyoto-2015/, /note/new-year-resolution-2017/, /note/iotswc-2019/]
+recommendations: [/note/mlss-kyoto-2015/, /note/nrf-2020/, /note/new-year-resolution-2017/]
 title: How to Produce Ideas
 ---
 
