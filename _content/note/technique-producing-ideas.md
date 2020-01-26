@@ -1,7 +1,7 @@
 ---
 date: 2020-01-05
 lang: en
-recommendations: [/note/mlss-kyoto-2015/, /note/nrf-2020/, /note/new-year-resolution-2017/]
+recommendations: [/note/revisit-design-thinking/, /note/mlss-kyoto-2015/, /note/nrf-2020/]
 title: How to Produce Ideas
 ---
 
