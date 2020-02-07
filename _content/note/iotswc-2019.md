@@ -1,7 +1,7 @@
 ---
 date: 2019-11-17
 lang: en
-recommendations: [/note/apachecon-2019/, /note/hivemall-events-2018-autumn/, /note/data-leaders-summit-europe-2019/]
+recommendations: [/note/becoming-a-product-manager/, /note/apachecon-2019/, /note/hivemall-events-2018-autumn/]
 title: What I've Seen at IoT Solutions World Congress 2019
 ---
 

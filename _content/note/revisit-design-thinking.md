@@ -1,7 +1,8 @@
 ---
 date: 2020-01-26
 lang: en
-recommendations: [/note/technique-producing-ideas/, /note/nrf-2020/, /note/iotswc-2019/]
+recommendations: [/note/technique-producing-ideas/, /note/becoming-a-product-manager/,
+  /note/nrf-2020/]
 title: Design Thinking = Capturing the World Like a Designer
 ---
 
