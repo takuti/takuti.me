@@ -1,7 +1,7 @@
 ---
 date: 2017-06-18
 lang: ja
-recommendations: [/note/deep-work/, /note/getting-out-of-the-box/, /note/soft-skills/]
+recommendations: [/note/ielts-20200201/, /note/deep-work/, /note/getting-out-of-the-box/]
 title: 'DMM英会話を1ヶ月間やってみて思う、オンライン英会話は『やらないよりマシ』なのか問題 #DMM英会話'
 ---
 
