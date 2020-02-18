@@ -8,6 +8,23 @@ var request = require('sync-request');
 var del = require('del');
 var hjs = require('highlight.js');
 
+var kramed = require('kramed');
+var renderer = new kramed.Renderer();
+renderer.table = function (header, body) {
+  // table container + original renderer
+  // https://github.com/GitbookIO/kramed/blob/9d96b7ac9e063b94d51423d8cd450f4a7c7eb1f3/lib/renderer.js#L96-L105
+  return '<div class="table-container">\n'
+    + '<table>\n'
+    + '<thead>\n'
+    + header
+    + '</thead>\n'
+    + '<tbody>\n'
+    + body
+    + '</tbody>\n'
+    + '</table>\n'
+    + '</div>\n';
+};
+
 function cleanContent() {
   return del(['content/**/*']);
 }
@@ -53,7 +70,8 @@ function compileMd() {
           } catch (TypeError) {
             return code;
           }
-        }
+        },
+        renderer: renderer
       }))
 
       // insert the extracted front matter at the head of the converted html
@@ -81,7 +99,8 @@ function compileMdPreview() {
           } catch (TypeError) {
             return code;
           }
-        }
+        },
+        renderer: renderer
       }))
       .pipe(wrapper({ header: function(file){ return file.frontMatter + '\n'; } }))
       .pipe(gulp.dest('content/'));
