@@ -1,7 +1,7 @@
 ---
 date: 2019-10-14
 lang: ja
-recommendations: [/note/design-engineer/, /note/2020/, /note/the-amazon-way-on-iot/]
+recommendations: [/note/design-engineer/, /note/after-digital/, /note/2020/]
 title: ストーリーを伝えられないプロダクトの虚しさ
 ---
 

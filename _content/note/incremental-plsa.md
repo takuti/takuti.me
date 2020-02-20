@@ -1,8 +1,8 @@
 ---
 date: 2017-06-04
 lang: ja
-recommendations: [/note/data-skeptic-recommender-systems/, /note/two-decades-of-amazon-recommender/,
-  /note/trends-in-real-world-recommender-systems-2017/]
+recommendations: [/note/data-skeptic-recommender-systems/, /note/trends-in-real-world-recommender-systems-2017/,
+  /note/two-decades-of-amazon-recommender/]
 title: Q&Aサイトにおける質問推薦、そして Incremental Probabilistic Latent Semantic Analysis
 ---
 

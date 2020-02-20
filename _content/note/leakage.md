@@ -1,7 +1,7 @@
 ---
 date: 2017-07-16
 lang: ja
-recommendations: [/note/data-stream-mining/, /note/yahoo-egads/, /note/holt-winters/]
+recommendations: [/note/yahoo-egads/, /note/data-stream-mining/, /note/holt-winters/]
 title: Leakage in Data Mining
 ---
 

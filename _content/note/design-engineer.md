@@ -1,7 +1,7 @@
 ---
 date: 2019-12-10
 lang: ja
-recommendations: [/note/tech-design-story/, /note/2020/, /note/the-amazon-way-on-iot/]
+recommendations: [/note/tech-design-story/, /note/2020/, /note/after-digital/]
 title: デザインエンジニアになろう
 ---
 
