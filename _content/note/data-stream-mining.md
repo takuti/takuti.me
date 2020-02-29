@@ -1,7 +1,7 @@
 ---
 date: 2015-12-08
 lang: ja
-recommendations: [/note/leakage/, /note/designing-data-intensive-applications/, /note/trends-in-real-world-recommender-systems-2017/]
+recommendations: [/note/leakage/, /note/designing-data-intensive-applications/, /note/holt-winters/]
 title: ストリームデータ解析の世界
 ---
 
