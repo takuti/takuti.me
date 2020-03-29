@@ -1,7 +1,7 @@
 ---
 date: 2017-02-25
 lang: en
-recommendations: [/note/coursera-scala-specialization/, /note/mlss-kyoto-2015/, /note/pyconjp-2015/]
+recommendations: [/note/coursera-scala-specialization/, /note/mlss-kyoto-2015/, /note/python-concurrent-futures/]
 title: Parallel Programming vs. Concurrent Programming
 ---
 
