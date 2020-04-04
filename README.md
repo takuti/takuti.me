@@ -11,7 +11,7 @@
 Hugo and direnv can be installed from homebrew:
 
 ```
-$ brew install hugo direnv
+$ brew install hugo direnv git-lfs
 ```
 
 ### Gulp
