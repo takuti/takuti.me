@@ -59,7 +59,7 @@ function compileMd() {
           }
         }
 
-        file.contents = new Buffer(content);
+        file.contents = new Buffer.from(content);
       }))
 
       // convert markdown content into html (except for the front matter)
@@ -90,7 +90,7 @@ function compileMdPreview() {
           return '';
         });
 
-        file.contents = new Buffer(content);
+        file.contents = new Buffer.from(content);
       }))
       .pipe(kramdown({
         highlight: function (code, lang) {
