@@ -1,7 +1,8 @@
 ---
 date: 2019-11-10
 lang: en
-recommendations: [/note/hivemall-events-2018-autumn/, /note/mbed-simulator-td/, /note/becoming-a-product-manager/]
+recommendations: [/note/augmented-analytics/, /note/hivemall-events-2018-autumn/,
+  /note/becoming-a-product-manager/]
 title: Rethinking the Role of Data Leaders @ Data Leaders Summit Europe 2019
 ---
 

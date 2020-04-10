@@ -1,6 +1,7 @@
 ---
 date: 2020-04-04
 lang: en
+recommendations: [/note/fermenting-thoughts/, /note/stop-drinking-alone/, /note/becoming-a-product-manager/]
 title: Life with (Partially) Broken iPhone
 ---
 

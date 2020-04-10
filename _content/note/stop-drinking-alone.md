@@ -1,7 +1,7 @@
 ---
 date: 2019-09-08
 lang: en
-recommendations: [/note/fermenting-thoughts/, /note/new-year-resolution-2017/, /note/mlconf-sf-2018/]
+recommendations: [/note/fermenting-thoughts/, /note/life-with-broken-iphone/, /note/new-year-resolution-2017/]
 title: I Stopped Drinking Alone for 4 Months
 ---
 

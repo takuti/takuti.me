@@ -1,7 +1,7 @@
 ---
 date: 2019-04-07
 lang: en
-recommendations: [/note/hello-faust/, /note/hivemall-events-2018-autumn/, /note/data-leaders-summit-europe-2019/]
+recommendations: [/note/hello-faust/, /note/hivemall-events-2018-autumn/, /note/augmented-analytics/]
 title: TokuDB in MariaDB (on Ubuntu)
 ---
 
