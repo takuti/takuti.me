@@ -13,11 +13,16 @@ body {
   background: #fff;
   height: 100%;
   font-size: $default-font-size;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   line-height: 1.75;
   color: $color-black;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-feature-settings: "kern", "pwid";
+  -moz-font-feature-settings: "kern", "pwid";
+  font-feature-settings: "kern", "pwid";
+  -webkit-font-kerning: normal;
+  font-kerning: normal;
   margin: 0;
   padding: 0;
 }
