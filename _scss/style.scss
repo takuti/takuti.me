@@ -163,13 +163,46 @@ dl.entry-list {
 }
 
 header {
-  position: fixed;
-  top: 32px;
-  left: 32px;
-  z-index: 100;
+  width: $content-width;
+  margin: 0 auto;
+  padding: 32px;
 
-  img {
-    width: 64px;
+  .left {
+    height: 48px;
+
+    img {
+      width: 48px;
+      vertical-align: middle;
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    float: right;
+
+    a {
+      display: inline-block;
+      margin-left: 32px;
+      text-align: right;
+      color: $color-black;
+      font-weight: bold;
+      border-top: solid 2px rgba(0, 0, 0, 0);
+      border-bottom: solid 2px rgba(0, 0, 0, 0);
+
+      &:visited {
+        color: $color-black;
+        border-top: solid 2px rgba(0, 0, 0, 0);
+        border-bottom: solid 2px rgba(0, 0, 0, 0);
+      }
+
+      &:hover {
+        text-decoration: none;
+        border-top: solid 2px rgba(0, 0, 0, 0);
+        border-bottom: solid 2px $color-black;
+      }
+    }
   }
 }
 
@@ -178,6 +211,7 @@ section.header-band {
   display: block;
   width: 100%;
   height: 200px;
+  margin-bottom: 32px;
 
   span {
     display: block;
@@ -260,7 +294,7 @@ section.portfolio {
 #container {
   width: $content-width;
   max-width: 90%;
-  margin: 40px auto 50px;
+  margin: 0 auto 50px;
 
   ul {
     margin-left: 0;
@@ -366,6 +400,7 @@ blockquote {
   }
 
   #container,
+  header,
   footer,
   nav {
     padding: 0 5%;
@@ -373,17 +408,15 @@ blockquote {
   }
 
   header {
-    top: 16px;
-    left: 16px;
+    padding: 32px 0;
 
-    img {
-      width: 48px;
+    .right {
+      display: inline;
+      float: none;
     }
   }
 
   section.header-band {
-    height: 200px;
-
     span {
       &::first-line {
         font-size: 1.4em;
@@ -392,10 +425,5 @@ blockquote {
       letter-spacing: 0;
       width: 90%;
     }
-  }
-
-  .entry-list,
-  article {
-    margin-top: 100px;
   }
 }
