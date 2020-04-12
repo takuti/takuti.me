@@ -1,4 +1,6 @@
 ---
+aliases: [/note/coursera-scala-specialization/]
+categories: [プログラミング]
 date: 2017-10-28
 lang: ja
 recommendations: [/ja/note/why-spark/, /ja/note/python-concurrent-futures/, /ja/note/recommender-libraries/]

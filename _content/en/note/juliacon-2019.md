@@ -1,4 +1,5 @@
 ---
+categories: [programming, conference, recommender systems]
 date: 2019-07-26
 lang: en
 recommendations: [/note/recommendation-julia-documenter/, /note/recommendation-julia/,

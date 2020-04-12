@@ -1,4 +1,6 @@
 ---
+aliases: [/note/after-digital/]
+categories: [本, デザイン, データサイエンス]
 date: 2020-02-20
 lang: ja
 recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/the-amazon-way-on-iot/]

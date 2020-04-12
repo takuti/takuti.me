@@ -1,4 +1,6 @@
 ---
+aliases: [/note/https/]
+categories: [プログラミング]
 date: 2017-02-04
 lang: ja
 recommendations: [/ja/note/hello-jekyll/, /ja/note/deep-work/, /ja/note/making-a-will/]

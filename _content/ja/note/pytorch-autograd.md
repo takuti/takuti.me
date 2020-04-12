@@ -1,4 +1,6 @@
 ---
+aliases: [/note/pytorch-autograd/]
+categories: [プログラミング, 機械学習]
 date: 2017-09-23
 lang: ja
 recommendations: [/ja/note/pytorch-mf/, /ja/note/euroscipy-2017/, /ja/note/adjusting-for-oversampling-and-undersampling/]

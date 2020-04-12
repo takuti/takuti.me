@@ -1,4 +1,6 @@
 ---
+aliases: [/note/incremental-plsa/]
+categories: [情報推薦, 自然言語処理, 機械学習]
 date: 2017-06-04
 lang: ja
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/trends-in-real-world-recommender-systems-2017/,

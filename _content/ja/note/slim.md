@@ -1,4 +1,6 @@
 ---
+aliases: [/note/slim/]
+categories: [機械学習, 情報推薦]
 date: 2017-02-18
 lang: ja
 recommendations: [/ja/note/coursera-recommender-systems/, /ja/note/two-decades-of-amazon-recommender/,

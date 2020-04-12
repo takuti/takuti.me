@@ -1,4 +1,6 @@
 ---
+aliases: [/note/adjusting-for-oversampling-and-undersampling/]
+categories: [機械学習]
 date: 2017-11-04
 lang: ja
 recommendations: [/ja/note/auc/, /ja/note/holt-winters/, /ja/note/acroquest-javabook/]

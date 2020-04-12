@@ -1,4 +1,6 @@
 ---
+aliases: [/note/recommender-libraries/]
+categories: [情報推薦, 機械学習, プログラミング]
 date: 2017-05-14
 lang: ja
 recommendations: [/ja/note/hello-librec/, /ja/note/trends-in-real-world-recommender-systems-2017/,

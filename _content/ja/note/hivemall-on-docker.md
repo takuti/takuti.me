@@ -1,4 +1,6 @@
 ---
+aliases: [/note/hivemall-on-docker/]
+categories: [機械学習, プログラミング]
 date: 2017-05-07
 lang: ja
 recommendations: [/ja/note/hivemall-on-mac/, /ja/note/recommender-libraries/, /ja/note/td-intern-2016/]

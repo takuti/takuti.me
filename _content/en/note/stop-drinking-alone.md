@@ -1,4 +1,5 @@
 ---
+categories: [diary]
 date: 2019-09-08
 lang: en
 recommendations: [/note/fermenting-thoughts/, /note/life-with-broken-iphone/, /note/new-year-resolution-2017/]

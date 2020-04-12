@@ -1,4 +1,6 @@
 ---
+aliases: [/note/dynamo-style/]
+categories: [システム]
 date: 2017-12-22
 lang: ja
 recommendations: [/ja/note/amazon-dynamo-paper/, /ja/note/designing-data-intensive-applications/,

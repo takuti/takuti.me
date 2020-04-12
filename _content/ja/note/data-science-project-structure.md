@@ -1,4 +1,6 @@
 ---
+aliases: [/note/data-science-project-structure/]
+categories: [機械学習, データサイエンス]
 date: 2017-12-16
 lang: ja
 recommendations: [/ja/note/euroscipy-2017/, /ja/note/leakage/, /ja/note/acroquest-javabook/]

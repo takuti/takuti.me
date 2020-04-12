@@ -1,4 +1,6 @@
 ---
+aliases: [/note/fastcat/]
+categories: [プログラミング]
 date: 2017-08-06
 lang: ja
 recommendations: [/ja/note/gensim-jawiki/, /ja/note/job-title-normalization/, /ja/note/leakage/]

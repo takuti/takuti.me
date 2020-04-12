@@ -1,4 +1,5 @@
 ---
+categories: [diary]
 date: 2020-04-04
 lang: en
 recommendations: [/note/fermenting-thoughts/, /note/mlss-kyoto-2015/, /note/stop-drinking-alone/]

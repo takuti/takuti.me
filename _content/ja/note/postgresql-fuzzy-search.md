@@ -1,4 +1,6 @@
 ---
+aliases: [/note/postgresql-fuzzy-search/]
+categories: [プログラミング, 自然言語処理]
 date: 2017-08-09
 lang: ja
 recommendations: [/ja/note/levenshtein-distance/, /ja/note/hive-fuzzy-search/, /ja/note/designing-data-intensive-applications/]

@@ -1,4 +1,5 @@
 ---
+categories: [conference, machine learning, data science]
 date: 2018-10-26
 lang: en
 recommendations: [/note/mbed-simulator-td/, /note/apachecon-2019/, /note/hivemall-pyspark/]

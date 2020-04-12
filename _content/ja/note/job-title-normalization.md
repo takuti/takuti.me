@@ -1,4 +1,6 @@
 ---
+aliases: [/note/job-title-normalization/]
+categories: [プログラミング, 自然言語処理]
 date: 2017-07-09
 lang: ja
 recommendations: [/ja/note/levenshtein-distance/, /ja/note/fastcat/, /ja/note/leakage/]

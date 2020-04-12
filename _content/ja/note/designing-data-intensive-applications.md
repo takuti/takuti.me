@@ -1,4 +1,6 @@
 ---
+aliases: [/note/designing-data-intensive-applications/]
+categories: [本, システム]
 date: 2017-12-30
 lang: ja
 recommendations: [/ja/note/dynamo-style/, /ja/note/amazon-dynamo-paper/, /ja/note/data-stream-mining/]

@@ -1,4 +1,6 @@
 ---
+aliases: [/note/dmm-eikaiwa/]
+categories: [日記]
 date: 2017-06-18
 lang: ja
 recommendations: [/ja/note/ielts-20200201/, /ja/note/deep-work/, /ja/note/getting-out-of-the-box/]

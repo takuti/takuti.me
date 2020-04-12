@@ -1,4 +1,6 @@
 ---
+aliases: [/note/two-decades-of-amazon-recommender/]
+categories: [情報推薦]
 date: 2017-06-10
 lang: ja
 recommendations: [/ja/note/coursera-recommender-systems/, /ja/note/slim/, /ja/note/data-skeptic-recommender-systems/]

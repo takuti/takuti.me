@@ -1,4 +1,5 @@
 ---
+categories: [design]
 date: 2020-01-26
 lang: en
 recommendations: [/note/technique-producing-ideas/, /note/fermenting-thoughts/, /note/becoming-a-product-manager/]

@@ -1,4 +1,5 @@
 ---
+categories: [design, data science]
 date: 2020-04-11
 lang: en
 recommendations: [/note/data-leaders-summit-europe-2019/, /note/hivemall-events-2018-autumn/,

@@ -1,4 +1,5 @@
 ---
+categories: [recommender systems, programming]
 date: 2019-03-31
 lang: en
 recommendations: [/note/juliacon-2019/, /note/recommendation-julia/, /note/flurs/]

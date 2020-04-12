@@ -1,4 +1,6 @@
 ---
+aliases: [/note/igo-ruby-neologd/]
+categories: [プログラミング, 自然言語処理]
 date: 2017-09-17
 lang: ja
 recommendations: [/ja/note/hatena-keyword-to-ipadic/, /ja/note/twitter-bot/, /ja/note/recommender-libraries/]

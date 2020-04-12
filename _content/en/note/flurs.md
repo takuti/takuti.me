@@ -1,4 +1,5 @@
 ---
+categories: [recommender systems, machine learning, programming]
 date: 2017-01-21
 lang: en
 recommendations: [/note/hello-faust/, /note/recommendation-julia/, /note/recommendation-julia-documenter/]

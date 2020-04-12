@@ -1,4 +1,6 @@
 ---
+aliases: [/note/deep-work/]
+categories: [本]
 date: 2017-03-25
 lang: ja
 recommendations: [/ja/note/dmm-eikaiwa/, /ja/note/soft-skills/, /ja/note/the-amazon-way-on-iot/]

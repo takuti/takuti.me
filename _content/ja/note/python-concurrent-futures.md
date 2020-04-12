@@ -1,4 +1,6 @@
 ---
+aliases: [/note/python-concurrent-futures/]
+categories: [プログラミング, システム]
 date: 2017-10-01
 lang: ja
 recommendations: [/ja/note/euroscipy-2017/, /ja/note/acroquest-javabook/, /ja/note/coursera-scala-specialization/]

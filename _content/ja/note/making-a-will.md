@@ -1,4 +1,6 @@
 ---
+aliases: [/note/making-a-will/]
+categories: [日記]
 date: 2019-09-15
 draft: true
 lang: ja

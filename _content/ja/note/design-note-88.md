@@ -1,4 +1,6 @@
 ---
+aliases: [/note/design-note-88/]
+categories: [本, デザイン]
 date: 2020-02-29
 lang: ja
 recommendations: [/ja/note/design-engineer/, /ja/note/tech-design-story/, /ja/note/2020/]

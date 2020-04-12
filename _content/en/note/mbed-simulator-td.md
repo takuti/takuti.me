@@ -1,4 +1,5 @@
 ---
+categories: [programming]
 date: 2018-11-02
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/data-leaders-summit-europe-2019/,

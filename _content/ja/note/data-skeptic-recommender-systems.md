@@ -1,4 +1,6 @@
 ---
+aliases: [/note/data-skeptic-recommender-systems/]
+categories: [情報推薦]
 date: 2017-11-17
 lang: ja
 recommendations: [/ja/note/trends-in-real-world-recommender-systems-2017/, /ja/note/practical-machine-learning/,

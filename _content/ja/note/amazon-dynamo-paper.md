@@ -1,4 +1,6 @@
 ---
+aliases: [/note/amazon-dynamo-paper/]
+categories: [システム]
 date: 2017-12-09
 lang: ja
 recommendations: [/ja/note/dynamo-style/, /ja/note/the-amazon-way-on-iot/, /ja/note/designing-data-intensive-applications/]

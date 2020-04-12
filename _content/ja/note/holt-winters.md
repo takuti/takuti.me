@@ -1,4 +1,6 @@
 ---
+aliases: [/note/holt-winters/]
+categories: [機械学習, プログラミング]
 date: 2017-08-26
 lang: ja
 recommendations: [/ja/note/yahoo-egads/, /ja/note/adjusting-for-oversampling-and-undersampling/,

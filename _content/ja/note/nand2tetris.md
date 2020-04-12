@@ -1,4 +1,6 @@
 ---
+aliases: [/note/nand2tetris/]
+categories: [本, プログラミング, システム]
 date: 2017-05-21
 lang: ja
 recommendations: [/ja/note/designing-data-intensive-applications/, /ja/note/recommender-libraries/,

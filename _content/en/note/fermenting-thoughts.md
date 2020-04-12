@@ -1,4 +1,5 @@
 ---
+categories: [diary]
 date: 2020-03-29
 lang: en
 recommendations: [/note/technique-producing-ideas/, /note/revisit-design-thinking/,

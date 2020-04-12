@@ -1,8 +1,8 @@
 ---
+categories: [diary]
 date: 2014-11-09
 lang: en
 recommendations: [/note/new-year-resolution-2017/, /note/move-to-gh-pages/, /note/travis-gh-pages-deployment/]
-tags: [Diary]
 title: Hello English Entries
 ---
 

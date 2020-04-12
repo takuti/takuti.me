@@ -1,4 +1,6 @@
 ---
+aliases: [/note/auc-parallel/]
+categories: [機械学習]
 date: 2017-03-10
 lang: ja
 recommendations: [/ja/note/auc/, /ja/note/adjusting-for-oversampling-and-undersampling/,

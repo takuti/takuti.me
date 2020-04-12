@@ -1,4 +1,5 @@
 ---
+categories: [diary, data science]
 date: 2020-02-07
 lang: en
 recommendations: [/note/iotswc-2019/, /note/nrf-2020/, /note/fermenting-thoughts/]

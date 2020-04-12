@@ -1,4 +1,6 @@
 ---
+aliases: [/note/hivemall-on-mac/]
+categories: [機械学習, 情報推薦]
 date: 2017-02-11
 lang: ja
 recommendations: [/ja/note/hivemall-on-docker/, /ja/note/recommender-libraries/, /ja/note/hive-fuzzy-search/]

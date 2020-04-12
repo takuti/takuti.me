@@ -1,4 +1,5 @@
 ---
+categories: [diary]
 date: 2017-01-07
 lang: en
 recommendations: [/note/hello-english/, /note/mlss-kyoto-2015/, /note/stop-drinking-alone/]

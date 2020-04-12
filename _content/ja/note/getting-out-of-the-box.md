@@ -1,4 +1,6 @@
 ---
+aliases: [/note/getting-out-of-the-box/]
+categories: [本, 日記]
 date: 2019-02-03
 lang: ja
 recommendations: [/ja/note/dmm-eikaiwa/, /ja/note/todays-art-taro/, /ja/note/2020/]

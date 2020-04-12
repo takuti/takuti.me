@@ -1,4 +1,6 @@
 ---
+aliases: [/note/coursera-recommender-systems/]
+categories: [情報推薦]
 date: 2017-01-27
 lang: ja
 recommendations: [/ja/note/slim/, /ja/note/two-decades-of-amazon-recommender/, /ja/note/trends-in-real-world-recommender-systems-2017/]

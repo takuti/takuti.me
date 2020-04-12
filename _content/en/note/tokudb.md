@@ -1,4 +1,5 @@
 ---
+categories: [programming]
 date: 2019-04-07
 lang: en
 recommendations: [/note/hello-faust/, /note/augmented-analytics/, /note/hivemall-events-2018-autumn/]

@@ -1,4 +1,6 @@
 ---
+aliases: [/note/leakage/]
+categories: [機械学習, データサイエンス]
 date: 2017-07-16
 lang: ja
 recommendations: [/ja/note/yahoo-egads/, /ja/note/data-stream-mining/, /ja/note/holt-winters/]

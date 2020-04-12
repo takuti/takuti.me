@@ -1,4 +1,5 @@
 ---
+categories: [conference, machine learning]
 date: 2019-10-26
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/iotswc-2019/, /note/hivemall-pyspark/]

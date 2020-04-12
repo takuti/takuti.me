@@ -1,4 +1,5 @@
 ---
+categories: [programming, recommender systems]
 date: 2019-07-26
 draft: true
 lang: en
