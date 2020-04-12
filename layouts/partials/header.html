@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="/index.xml" />
-    {{ if eq .Section "note" }}
+    {{ if and .IsPage (eq .Section "note") }}
     {{ if gt (sub (now.Unix) (.Date.Unix)) 604800 }}
     <script data-ad-client="ca-pub-7190463694419594" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     {{ end }}
