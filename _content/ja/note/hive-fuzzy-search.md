@@ -1,7 +1,7 @@
 ---
 date: 2017-08-20
 lang: ja
-recommendations: [/note/postgresql-fuzzy-search/, /note/hivemall-on-mac/, /note/why-spark/]
+recommendations: [/ja/note/hivemall-on-mac/, /ja/note/postgresql-fuzzy-search/, /ja/note/why-spark/]
 title: HiveでテキストのFuzzy Search
 ---
 

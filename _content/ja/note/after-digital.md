@@ -1,7 +1,7 @@
 ---
 date: 2020-02-20
 lang: ja
-recommendations: [/note/tech-design-story/, /note/design-engineer/, /note/the-amazon-way-on-iot/]
+recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/the-amazon-way-on-iot/]
 title: データ時代の「リアル」の価値
 ---
 

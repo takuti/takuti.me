@@ -1,7 +1,8 @@
 ---
 date: 2017-10-14
 lang: ja
-recommendations: [/note/pytorch-autograd/, /note/coursera-recommender-systems/, /note/slim/]
+recommendations: [/ja/note/pytorch-autograd/, /ja/note/coursera-recommender-systems/,
+  /ja/note/slim/]
 title: PyTorchでもMatrix Factorizationがしたい！
 ---
 

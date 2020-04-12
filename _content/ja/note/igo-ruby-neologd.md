@@ -1,7 +1,7 @@
 ---
 date: 2017-09-17
 lang: ja
-recommendations: [/note/hatena-keyword-to-ipadic/, /note/twitter-bot/, /note/recommender-libraries/]
+recommendations: [/ja/note/hatena-keyword-to-ipadic/, /ja/note/twitter-bot/, /ja/note/recommender-libraries/]
 title: igo-rubyを新語辞書NEologdでナウい感じにする
 ---
 

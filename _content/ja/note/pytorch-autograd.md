@@ -1,7 +1,7 @@
 ---
 date: 2017-09-23
 lang: ja
-recommendations: [/note/pytorch-mf/, /note/euroscipy-2017/, /note/holt-winters/]
+recommendations: [/ja/note/pytorch-mf/, /ja/note/euroscipy-2017/, /ja/note/adjusting-for-oversampling-and-undersampling/]
 title: PyTorchのautogradと仲良くなりたい
 ---
 

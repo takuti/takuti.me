@@ -1,7 +1,7 @@
 ---
 date: 2017-07-02
 lang: ja
-recommendations: [/note/dmm-eikaiwa/, /note/deep-work/, /note/2020/]
+recommendations: [/ja/note/deep-work/, /ja/note/dmm-eikaiwa/, /ja/note/2020/]
 title: いまさら Soft Skills を読んだ
 ---
 

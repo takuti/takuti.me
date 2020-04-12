@@ -1,8 +1,8 @@
 ---
 date: 2017-03-04
 lang: ja
-recommendations: [/note/auc-parallel/, /note/adjusting-for-oversampling-and-undersampling/,
-  /note/holt-winters/]
+recommendations: [/ja/note/auc-parallel/, /ja/note/adjusting-for-oversampling-and-undersampling/,
+  /ja/note/holt-winters/]
 title: Area Under the ROC Curve (AUC) を実装する
 ---
 

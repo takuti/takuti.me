@@ -1,7 +1,7 @@
 ---
 date: 2020-02-29
 lang: ja
-recommendations: [/note/design-engineer/, /note/tech-design-story/, /note/2020/]
+recommendations: [/ja/note/design-engineer/, /ja/note/tech-design-story/, /ja/note/2020/]
 title: “好き”を可視化しながら、デザインノート No.88『ブランディングデザインの成功法』を読む
 ---
 

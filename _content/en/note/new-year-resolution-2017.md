@@ -1,7 +1,7 @@
 ---
 date: 2017-01-07
 lang: en
-recommendations: [/note/hello-english/, /note/stop-drinking-alone/, /note/fermenting-thoughts/]
+recommendations: [/note/hello-english/, /note/mlss-kyoto-2015/, /note/stop-drinking-alone/]
 title: 'My New Year''s Resolution 2017: Write an Article Every Week'
 ---
 

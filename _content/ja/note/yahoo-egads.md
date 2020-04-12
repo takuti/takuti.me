@@ -1,7 +1,7 @@
 ---
 date: 2017-09-10
 lang: ja
-recommendations: [/note/holt-winters/, /note/leakage/, /note/data-stream-mining/]
+recommendations: [/ja/note/holt-winters/, /ja/note/leakage/, /ja/note/data-stream-mining/]
 title: Yahoo!の異常検知フレームワーク"EGADS"
 ---
 

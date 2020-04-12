@@ -1,8 +1,8 @@
 ---
 date: 2017-12-01
 lang: ja
-recommendations: [/note/adjusting-for-oversampling-and-undersampling/, /note/python-concurrent-futures/,
-  /note/why-spark/]
+recommendations: [/ja/note/adjusting-for-oversampling-and-undersampling/, /ja/note/python-concurrent-futures/,
+  /ja/note/why-spark/]
 title: 『Java本格入門』メモ
 ---
 

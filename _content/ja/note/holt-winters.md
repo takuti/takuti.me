@@ -1,8 +1,8 @@
 ---
 date: 2017-08-26
 lang: ja
-recommendations: [/note/yahoo-egads/, /note/adjusting-for-oversampling-and-undersampling/,
-  /note/leakage/]
+recommendations: [/ja/note/yahoo-egads/, /ja/note/adjusting-for-oversampling-and-undersampling/,
+  /ja/note/leakage/]
 title: 異常検知のための未来予測：オウム返し的手法からHolt-Winters Methodまで
 ---
 

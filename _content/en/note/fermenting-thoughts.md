@@ -2,7 +2,7 @@
 date: 2020-03-29
 lang: en
 recommendations: [/note/technique-producing-ideas/, /note/revisit-design-thinking/,
-  /note/becoming-a-product-manager/]
+  /note/life-with-broken-iphone/]
 title: The Hardest Part of 2020's Strategic Ideation
 ---
 

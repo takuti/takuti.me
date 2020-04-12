@@ -3,8 +3,8 @@ date: 2014-09-01
 description: 無料で公開されている電子書籍『実践 機械学習』の原著のほうを読みました。
 keywords: [機械学習, オライリー, 実践機械学習, レコメンデーション, 協調フィルタリング]
 lang: ja
-recommendations: [/note/data-skeptic-recommender-systems/, /note/two-decades-of-amazon-recommender/,
-  /note/trends-in-real-world-recommender-systems-2017/]
+recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/two-decades-of-amazon-recommender/,
+  /ja/note/trends-in-real-world-recommender-systems-2017/]
 tags: [Machine Learning]
 title: 【実践 機械学習】レコメンデーションをシンプルに、賢く実現するための3か条
 ---

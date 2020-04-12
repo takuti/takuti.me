@@ -1,7 +1,7 @@
 ---
 date: 2017-07-09
 lang: ja
-recommendations: [/note/levenshtein-distance/, /note/fastcat/, /note/leakage/]
+recommendations: [/ja/note/levenshtein-distance/, /ja/note/fastcat/, /ja/note/leakage/]
 title: Job Titleの前処理＆クラスタリングをどうやって実現するか問題
 ---
 

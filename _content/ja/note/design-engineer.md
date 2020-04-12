@@ -1,7 +1,7 @@
 ---
 date: 2019-12-10
 lang: ja
-recommendations: [/note/tech-design-story/, /note/design-note-88/, /note/2020/]
+recommendations: [/ja/note/design-note-88/, /ja/note/tech-design-story/, /ja/note/2020/]
 title: デザインエンジニアになろう
 ---
 

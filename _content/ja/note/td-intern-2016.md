@@ -1,7 +1,7 @@
 ---
 date: 2016-10-04
 lang: ja
-recommendations: [/note/master-graduate/, /note/yahoo-egads/, /note/holt-winters/]
+recommendations: [/ja/note/master-graduate/, /ja/note/hivemall-on-docker/, /ja/note/yahoo-egads/]
 title: 'Treasure Dataインターンにみる機械学習のリアル #td_intern'
 ---
 

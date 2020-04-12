@@ -1,7 +1,7 @@
 ---
 date: 2020-01-05
 lang: en
-recommendations: [/note/revisit-design-thinking/, /note/fermenting-thoughts/, /note/becoming-a-product-manager/]
+recommendations: [/note/revisit-design-thinking/, /note/fermenting-thoughts/, /note/mlss-kyoto-2015/]
 title: How to Produce Ideas
 ---
 

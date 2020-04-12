@@ -1,7 +1,7 @@
 ---
 date: 2017-12-16
 lang: ja
-recommendations: [/note/leakage/, /note/euroscipy-2017/, /note/designing-data-intensive-applications/]
+recommendations: [/ja/note/euroscipy-2017/, /ja/note/leakage/, /ja/note/acroquest-javabook/]
 title: データサイエンスプロジェクトのディレクトリ構成どうするか問題
 ---
 

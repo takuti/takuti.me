@@ -1,7 +1,8 @@
 ---
 date: 2017-10-06
 lang: ja
-recommendations: [/note/amazon-dynamo-paper/, /note/leakage/, /note/trends-in-real-world-recommender-systems-2017/]
+recommendations: [/ja/note/amazon-dynamo-paper/, /ja/note/trends-in-real-world-recommender-systems-2017/,
+  /ja/note/design-engineer/]
 title: The Amazon Way on IoT - Amazonのビジネスから学ぶ、10の原則
 ---
 

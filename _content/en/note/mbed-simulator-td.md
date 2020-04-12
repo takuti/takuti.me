@@ -2,7 +2,7 @@
 date: 2018-11-02
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/data-leaders-summit-europe-2019/,
-  /note/iotswc-2019/]
+  /note/umap-2019/]
 title: Sending Sensor Data from Mbed Simulator to Treasure Data
 ---
 

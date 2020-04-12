@@ -1,7 +1,8 @@
 ---
 date: 2017-04-09
 lang: ja
-recommendations: [/note/coursera-scala-specialization/, /note/hivemall-pyspark/, /note/dynamo-style/]
+recommendations: [/ja/note/coursera-scala-specialization/, /ja/note/dynamo-style/,
+  /ja/note/data-stream-mining/]
 title: なぜSparkか
 ---
 

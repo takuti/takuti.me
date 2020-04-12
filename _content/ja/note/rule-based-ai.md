@@ -1,7 +1,7 @@
 ---
 date: 2017-10-21
 lang: ja
-recommendations: [/note/from-cloud-to-ai/, /note/2020/, /note/the-amazon-way-on-iot/]
+recommendations: [/ja/note/from-cloud-to-ai/, /ja/note/2020/, /ja/note/the-amazon-way-on-iot/]
 title: ルールベースは『人工知能』か
 ---
 

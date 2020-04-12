@@ -7,7 +7,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 RE_FRONT_MATTER = re.compile('---\n([\s\S]*?\n)---\n')
-RE_PATH_TO_PERMALINK = re.compile('(/note/.+?)(\.md|\.html)')
+RE_PATH_TO_PERMALINK = re.compile('((/ja){0,1}/note/.+?)(\.md|\.html)')
 RE_VALID_WORD = re.compile('^[ぁ-んーァ-ヶー一-龠a-zA-Zａ-ｚＡ-Ｚ]+$')
 RE_INVALID_WORD = re.compile('^([^一-龠]{1,2}|[ぁ-んー]{1,3})$')
 
@@ -91,14 +91,19 @@ def process_article(path, recommend_permalinks):
         f.write(content.replace(m.group(1), yaml.dump(front_matter, allow_unicode=True)))
 
 
-def main():
-    path_dir = os.path.join(os.path.dirname(__file__), '..', '_content', 'note')
+def run(lang):
+    path_dir = os.path.join(os.path.dirname(__file__), '..', '_content', lang, 'note')
     paths = [os.path.join(path_dir, f) for f in os.listdir(path_dir)]
 
     rec = recommend_content_based_cf(paths, topk=3)
 
     for path, recos in rec:
         process_article(path, recos)
+
+
+def main():
+    run('en')
+    run('ja')
 
 
 if __name__ == '__main__':

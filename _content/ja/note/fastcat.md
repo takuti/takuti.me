@@ -1,7 +1,7 @@
 ---
 date: 2017-08-06
 lang: ja
-recommendations: [/note/gensim-jawiki/, /note/job-title-normalization/, /note/leakage/]
+recommendations: [/ja/note/gensim-jawiki/, /ja/note/job-title-normalization/, /ja/note/leakage/]
 title: ローカルのRedis上でWikipediaカテゴリをシュッとdigる
 ---
 

@@ -1,8 +1,8 @@
 ---
 date: 2017-03-10
 lang: ja
-recommendations: [/note/auc/, /note/adjusting-for-oversampling-and-undersampling/,
-  /note/python-concurrent-futures/]
+recommendations: [/ja/note/auc/, /ja/note/adjusting-for-oversampling-and-undersampling/,
+  /ja/note/python-concurrent-futures/]
 title: Area Under the ROC Curve (AUC) を並列で計算するときに気をつけること
 ---
 

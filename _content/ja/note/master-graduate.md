@@ -1,8 +1,8 @@
 ---
 date: 2017-03-31
 lang: ja
-recommendations: [/note/recsys-2016/, /note/trends-in-real-world-recommender-systems-2017/,
-  /note/td-intern-2016/]
+recommendations: [/ja/note/recsys-2016/, /ja/note/trends-in-real-world-recommender-systems-2017/,
+  /ja/note/td-intern-2016/]
 title: 修士課程で機械学習が専門ではない指導教員の下で機械学習を学ぶために
 ---
 

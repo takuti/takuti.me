@@ -1,7 +1,7 @@
 ---
 date: 2019-03-24
 lang: en
-recommendations: [/note/hivemall-events-2018-autumn/, /note/hivemall-on-docker/, /note/apachecon-2019/]
+recommendations: [/note/hivemall-events-2018-autumn/, /note/apachecon-2019/, /note/spark-rdd-cached-vs-uncached/]
 title: Apache Hivemall in PySpark
 ---
 

@@ -1,8 +1,8 @@
 ---
 date: 2017-11-17
 lang: ja
-recommendations: [/note/trends-in-real-world-recommender-systems-2017/, /note/practical-machine-learning/,
-  /note/recommender-libraries/]
+recommendations: [/ja/note/trends-in-real-world-recommender-systems-2017/, /ja/note/practical-machine-learning/,
+  /ja/note/recommender-libraries/]
 title: Podcast "Data Skeptic" の推薦システム回が良すぎて3回聞いた
 ---
 

@@ -1,7 +1,7 @@
 ---
 date: 2017-06-10
 lang: ja
-recommendations: [/note/coursera-recommender-systems/, /note/slim/, /note/data-skeptic-recommender-systems/]
+recommendations: [/ja/note/coursera-recommender-systems/, /ja/note/slim/, /ja/note/data-skeptic-recommender-systems/]
 title: Amazonの推薦システムの20年
 ---
 

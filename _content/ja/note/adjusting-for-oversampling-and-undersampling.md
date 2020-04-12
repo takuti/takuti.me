@@ -1,7 +1,7 @@
 ---
 date: 2017-11-04
 lang: ja
-recommendations: [/note/holt-winters/, /note/auc/, /note/acroquest-javabook/]
+recommendations: [/ja/note/auc/, /ja/note/holt-winters/, /ja/note/acroquest-javabook/]
 title: Over-/Under-samplingをして学習した2クラス分類器の予測確率を調整する式
 ---
 

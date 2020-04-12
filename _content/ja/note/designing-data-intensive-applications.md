@@ -1,7 +1,7 @@
 ---
 date: 2017-12-30
 lang: ja
-recommendations: [/note/dynamo-style/, /note/amazon-dynamo-paper/, /note/data-stream-mining/]
+recommendations: [/ja/note/dynamo-style/, /ja/note/amazon-dynamo-paper/, /ja/note/data-stream-mining/]
 title: '"Designing Data-Intensive Applications"は濃密すぎる一冊だったので2018年の自分にも読んでもらいたい'
 ---
 

@@ -1,8 +1,8 @@
 ---
 date: 2017-04-23
 lang: ja
-recommendations: [/note/recommender-libraries/, /note/trends-in-real-world-recommender-systems-2017/,
-  /note/data-skeptic-recommender-systems/]
+recommendations: [/ja/note/recommender-libraries/, /ja/note/trends-in-real-world-recommender-systems-2017/,
+  /ja/note/data-skeptic-recommender-systems/]
 title: Java製の推薦システム用ライブラリ LibRec を動かしてみる
 ---
 

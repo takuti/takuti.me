@@ -1,7 +1,7 @@
 ---
 date: 2019-02-03
 lang: ja
-recommendations: [/note/dmm-eikaiwa/, /note/todays-art-taro/, /note/2020/]
+recommendations: [/ja/note/dmm-eikaiwa/, /ja/note/todays-art-taro/, /ja/note/2020/]
 title: 「ていねいなコミュニケーション」
 ---
 

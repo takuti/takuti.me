@@ -1,8 +1,7 @@
 ---
 date: 2018-10-26
 lang: en
-recommendations: [/note/mbed-simulator-td/, /note/data-leaders-summit-europe-2019/,
-  /note/apachecon-2019/]
+recommendations: [/note/mbed-simulator-td/, /note/apachecon-2019/, /note/hivemall-pyspark/]
 title: 'Apache Hivemall at #ODSCEurope, #RecSys2018, and #MbedConnect'
 ---
 

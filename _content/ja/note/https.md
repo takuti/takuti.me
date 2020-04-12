@@ -1,7 +1,7 @@
 ---
 date: 2017-02-04
 lang: ja
-recommendations: [/note/hello-jekyll/, /note/making-a-will/, /note/why-spark/]
+recommendations: [/ja/note/hello-jekyll/, /ja/note/deep-work/, /ja/note/making-a-will/]
 title: サイトをHTTPSにした
 ---
 

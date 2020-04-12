@@ -1,7 +1,7 @@
 ---
 date: 2017-10-28
 lang: ja
-recommendations: [/note/why-spark/, /note/parallel-vs-concurrent/, /note/spark-rdd-cached-vs-uncached/]
+recommendations: [/ja/note/why-spark/, /ja/note/python-concurrent-futures/, /ja/note/recommender-libraries/]
 title: Courseraの"Functional Programming in Scala Specialization"を修了した
 ---
 

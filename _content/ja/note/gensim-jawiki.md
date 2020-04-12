@@ -1,7 +1,7 @@
 ---
 date: 2017-07-22
 lang: ja
-recommendations: [/note/fastcat/, /note/recommender-libraries/, /note/incremental-plsa/]
+recommendations: [/ja/note/fastcat/, /ja/note/recommender-libraries/, /ja/note/incremental-plsa/]
 title: gensimでWikipedia日本語版からコーパスを作ってトピックモデリング
 ---
 

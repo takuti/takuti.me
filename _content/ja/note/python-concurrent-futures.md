@@ -1,7 +1,7 @@
 ---
 date: 2017-10-01
 lang: ja
-recommendations: [/note/euroscipy-2017/, /note/acroquest-javabook/, /note/why-spark/]
+recommendations: [/ja/note/euroscipy-2017/, /ja/note/acroquest-javabook/, /ja/note/coursera-scala-specialization/]
 title: Pythonのconcurrent.futuresを試す
 ---
 
