@@ -10,6 +10,16 @@ buildFuture = true
 [permalinks]
   note = "/note/:filename/"
 
+DefaultContentLanguage = "en"
+
+[languages]
+  [languages.en]
+    weight = 1
+    contentDir = "content/en"
+  [languages.ja]
+    weight = 2
+    contentDir = "content/ja"
+
 [params]
   author = "takuti"
   description = "Takuya Kitazawa, a product developer at Arm Treasure Data."

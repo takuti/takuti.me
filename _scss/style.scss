@@ -169,7 +169,12 @@ header {
 
     a {
       display: inline-block;
-      margin-left: 32px;
+
+      margin: 0 16px;
+      &:last-child {
+        margin-right: 0;
+      }
+
       text-align: right;
       color: $color-black;
       font-weight: bold;
@@ -182,6 +187,7 @@ header {
         border-bottom: solid 2px rgba(0, 0, 0, 0);
       }
 
+      &.selected,
       &:hover {
         text-decoration: none;
         border-top: solid 2px rgba(0, 0, 0, 0);
@@ -407,6 +413,10 @@ blockquote {
     .right {
       display: inline;
       float: none;
+
+      a:first-child {
+        margin-left: 32px;
+      }
     }
   }
 
