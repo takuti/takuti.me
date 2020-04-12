@@ -49,7 +49,7 @@
   </head>
   <body>
   <header>
-    {{ if eq .LanguagePrefix "" }}<!-- English -->
+    {{ if eq .Site.LanguagePrefix "" }}<!-- English -->
     <span class="left">
       <a href="/"><img src="/images/logo.png" alt="icon" /></a>
     </span>
@@ -57,16 +57,25 @@
       <a href="/">About</a>
       <a href="/note">Blog</a>&nbsp;&nbsp;|&nbsp;&nbsp;
       <a href="/" class="selected">English</a>
-      <a href="/ja">日本語</a>
+      {{ if .IsPage }}
+      <a href="/ja/note">日本語</a>
+      {{ else }}
+      <a href="/ja{{ .RelPermalink }}">日本語</a>
+      {{ end }}
     </span>
     {{ else }}<!-- Japanese -->
+
     <span class="left">
       <a href="/ja"><img src="/images/logo.png" alt="icon" /></a>
     </span>
     <span class="right">
       <a href="/ja">About</a>
       <a href="/ja/note">Blog</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-      <a href="/">English</a>
+      {{ if .IsPage }}
+      <a href="/note">English</a>
+      {{ else }}
+      <a href="{{ substr .RelPermalink 3 }}">English</a>
+      {{ end }}
       <a href="/ja" class="selected">日本語</a>
     </span>
     {{ end }}

@@ -83,15 +83,8 @@
 
 <section class="portfolio">
   <h2>Articles</h2>
-  <h3>English</h3>
   <ul>
   {{ range first 5 (where (where .Data.Pages "Section" "note") ".Params.lang" "en")}}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a>
-  {{ end }}
-  </ul>
-  <h3>Japanese</h3>
-  <ul>
-  {{ range first 5 (where (where .Data.Pages "Section" "note") ".Params.lang" "ja")}}
     <li><a href="{{ .Permalink }}">{{ .Title }}</a>
   {{ end }}
   </ul>
