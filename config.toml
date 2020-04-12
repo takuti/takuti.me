@@ -1,6 +1,6 @@
 canonifyurls = true
 
-disableKinds = ["taxonomy", "taxonomyTerm"]
+disableKinds = ["taxonomyTerm"]
 
 baseurl = "https://takuti.me"
 title = "takuti.me"
@@ -9,6 +9,10 @@ buildFuture = true
 
 [permalinks]
   note = "/note/:filename/"
+  categories = "/note/category/:slug/"
+
+[taxonomies]
+  category = "categories"
 
 DefaultContentLanguage = "en"
 

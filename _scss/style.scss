@@ -134,6 +134,24 @@ dl.entry-list {
     display: inline-block;
   }
 
+  .category {
+    display: inline-block;
+    font-size: 0.8em;
+
+    padding: 0 0.75em;
+    margin: 0 0 0 0.4em;
+    border-radius: 4px;
+    text-decoration: none;
+
+    background-color: lighten($color-black, 60%);
+    color: $color-black;
+
+    &:hover {
+      background-color: $color-black;
+      color: #fff;
+    }
+  }
+
   dt {
     padding-top: 0.5em;
     font-size: 0.8em;
@@ -220,6 +238,14 @@ section.header-band {
       &.meta {
         color: lighten($color-black, 20%);
         margin-top: 1em;
+
+        a {
+          color: $color-black;
+
+          &:visited {
+            color: $color-black;
+          }
+        }
       }
     }
 

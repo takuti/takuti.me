@@ -1,16 +1,19 @@
 {{ partial "header.html" . }}
 
+<section class="header-band">
+  <span>
+    <p class="title">Category: <b>{{ .Title }}</b></p>
+  </span>
+</section>
+
 <div id="container">
 
 <dl class="entry-list">
-  {{ range (where .Data.Pages "Section" "note")}}
+  {{ range .Pages}}
   <dt>
   <span class="date">
     {{ .Date.Format "2006-01-02" }}
   </span>
-  {{ range (.GetTerms "categories") }}
-  <a href="{{ .Permalink }}" class="category">{{ .LinkTitle }}</a>
-  {{ end }}
   </dt>
   <dd>
     <a href="{{ .Permalink }}">{{ .Title }}</a>

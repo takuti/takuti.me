@@ -1,11 +1,17 @@
 {{ partial "header.html" . }}
 
-  <section class="header-band">
-    <span>
-      <p class="title">{{ .Title }}</p>
-      <p class="meta">{{ .Date.Format "2006-01-02" }}</p>
-    </span>
-  </section>
+<section class="header-band">
+  <span>
+    <p class="title">{{ .Title }}</p>
+    <p class="meta">
+      {{ .Date.Format "2006-01-02" }}
+      {{ range (.GetTerms "categories") }}
+      / <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+      {{ end }}
+    </p>
+  </span>
+</section>
+
 <div id="container">
 
 <article>
