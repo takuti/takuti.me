@@ -454,8 +454,14 @@ blockquote {
 
   section.header-band {
     span {
-      p.title {
-        font-size: 1.4em;
+      p {
+        &.title {
+          font-size: 1.4em;
+        }
+
+        &.meta {
+          font-size: 0.9em;
+        }
       }
 
       letter-spacing: 0;
