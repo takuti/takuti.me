@@ -56,7 +56,6 @@
     <span class="right">
       <a href="/">About</a>
       <a href="/note">Blog</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-      <a href="{{ .RelPermalink }}" class="selected">English</a>
       {{ if in .RelPermalink "/note" }}
       <a href="/ja/note">日本語</a>
       {{ else }}
@@ -76,7 +75,6 @@
       {{ else }}
       <a href="{{ substr .RelPermalink 3 }}">English</a>
       {{ end }}
-      <a href="{{ .RelPermalink }}" class="selected">日本語</a>
     </span>
     {{ end }}
   </header>

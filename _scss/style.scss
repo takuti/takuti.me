@@ -205,7 +205,6 @@ header {
         border-bottom: solid 2px rgba(0, 0, 0, 0);
       }
 
-      &.selected,
       &:hover {
         text-decoration: none;
         border-top: solid 2px rgba(0, 0, 0, 0);
@@ -440,8 +439,11 @@ blockquote {
       display: inline;
       float: none;
 
+      a {
+        margin: 0 8px;
+      }
       a:first-child {
-        margin-left: 32px;
+        margin-left: 16px;
       }
     }
   }
