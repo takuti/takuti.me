@@ -84,7 +84,7 @@
 <section class="portfolio">
   <h2>Articles</h2>
   <ul>
-  {{ range first 5 (where .Site.Pages "Section" "note")}}
+  {{ range first 5 (where .Site.RegularPages "Section" "note")}}
     <li><a href="{{ .Permalink }}">{{ .Title }}</a>
   {{ end }}
   </ul>
