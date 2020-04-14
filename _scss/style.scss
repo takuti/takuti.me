@@ -11,7 +11,7 @@ $default-font-size: 15px;
 html,
 body {
   background: #fff;
-  height: 100%;
+  min-height: 101%;
   font-size: $default-font-size;
   font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   line-height: 1.75;
@@ -319,7 +319,6 @@ section.portfolio {
 #container {
   width: $content-width;
   max-width: 90%;
-  min-height: 70%;
   margin: 0 auto 50px;
 
   div.ad {
