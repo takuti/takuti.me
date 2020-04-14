@@ -322,8 +322,9 @@ section.portfolio {
   margin: 0 auto 50px;
 
   div.ad {
-    background-color: lighten($color-black, 66%);
-    overflow-x: auto;
+    background-color: lighten($color-black, 50%);
+    overflow-x: hidden;
+    text-align: center;
     margin: 2em 0;
   }
 
