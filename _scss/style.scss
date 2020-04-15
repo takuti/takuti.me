@@ -36,7 +36,6 @@ h4 {
 
 h2 {
   font-size: 1.5em;
-  text-align: center;
   margin-top: 2em;
 }
 
@@ -127,6 +126,7 @@ dl.entry-list {
 
     &:hover {
       text-decoration: none;
+      color: $color-dark-blue;
     }
   }
 
@@ -257,25 +257,17 @@ section.header-band {
   }
 }
 
-section.portfolio {
-  ul {
-    list-style: none;
+#container {
+  width: $content-width;
+  max-width: 90%;
+  margin: 0 auto 50px;
 
-    li {
-      &:first-child {
-        border-top: 1px solid #eee;
-      }
-
-      border-bottom: 1px solid #eee;
-      padding: 0.6em;
-    }
-
-    padding-left: 0 !important;
-  }
-
-  h3 {
-    margin-top: 0;
+  div.ad {
+    background-color: lighten($color-black, 50%);
+    overflow-x: hidden;
     text-align: center;
+    margin: 2em 0;
+    padding: 1em;
   }
 
   span.iframe-container {
@@ -297,35 +289,19 @@ section.portfolio {
 
   a.btn {
     display: inline-block;
-    border: 1px solid lighten($color-black, 50%);
     padding: 0.1em 0.75em;
-    margin: 0.75em 0.5em 0.75em 0;
-    color: lighten($color-black, 10%);
+    color: #fff;
+    background-color: $color-black;
     border-radius: 4px;
     text-decoration: none;
 
     &:visited {
-      color: lighten($color-black, 5%);
+      color: #fff;
     }
 
     &:hover {
-      color: #fff;
-      border-color: lighten($color-black, 5%);
-      background: lighten($color-black, 5%);
+      background-color: $color-dark-blue;
     }
-  }
-}
-
-#container {
-  width: $content-width;
-  max-width: 90%;
-  margin: 0 auto 50px;
-
-  div.ad {
-    background-color: lighten($color-black, 50%);
-    overflow-x: hidden;
-    text-align: center;
-    margin: 2em 0;
   }
 
   ul {

@@ -1,0 +1,20 @@
+{{ partial "header.html" . }}
+
+<div id="container">
+
+<dl class="entry-list">
+  {{ range (where .Data.Pages "Section" "work")}}
+  <dt>
+  <span class="date">
+    {{ .Params.meta }}
+  </span>
+  </dt>
+  <dd>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </dd>
+{{ end }}
+</dl>
+
+</div>
+
+{{ partial "footer.html" . }}

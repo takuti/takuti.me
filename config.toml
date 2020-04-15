@@ -8,6 +8,7 @@ title = "takuti.me"
 buildFuture = true
 
 [permalinks]
+  work = "/work/:filename/"
   note = "/note/:filename/"
   categories = "/note/category/:slug/"
 
