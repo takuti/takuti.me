@@ -1,0 +1,12 @@
+<ul>
+{{ if isset .Params "recommendations" }}
+  {{ range where (where .Site.Pages "Section" "note") "RelPermalink" "in" .Params.recommendations }}
+  <li><a href="{{ .Permalink }}">{{ .Title }}</a>
+  {{ end }}
+{{ else }}
+  {{ range first 3 (where (where .Site.Pages "Section" "note") "Permalink" "!=" .Page.Permalink) }}
+  <li><a href="{{ .Permalink }}">{{ .Title }}</a>
+  {{ end }}
+{{ end }}
+</ul>
+<a href="{{ .Site.LanguagePrefix }}/note">&raquo; more</a>
