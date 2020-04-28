@@ -14,8 +14,7 @@ title: AngularJSでChromeExtension開発をするならCSPに気をつけよう
 <li>ng-appの横にng-cspと書いてあげる</li>
 <li><a href="http://code.angularjs.org/snapshot/angular-csp.css">angular-csp.css</a>をローカルに持ってきてロードしてあげる</li>
 </ol>
-<p>以下詳細。<br />
-<!--more--></p>
+<p>以下詳細。</p>
 <h3>CSP (Content Security Policy) とは</h3>
 <p>すごーくざっくりと言えば、XSSをはじめとする<strong>攻撃に利用されそうな機能に対して与える制限</strong>のこと。</p>
 <p>そのような機能の分かりやすい例としては<strong>eval()</strong>でしょう。ご存知の通りevalは与えられた文字列をソースとしてなんでもかんでも解釈・実行してしまうため、脆弱性があった際に与える影響は絶大です。</p>

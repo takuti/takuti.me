@@ -13,9 +13,8 @@ title: はてなキーワードを使ってigo-ruby(MeCab)用の辞書をナウ�
 「<strong>ニューラルネットワーク</strong>」を分かち書きすると「<strong>ニュー　ラ　ル　ネットワーク</strong>」になっちゃいます。</p>
 <p>形態素解析器の応用例が増えてくる中で必要となるのは、上記で挙げたようなナウいワードを1つの単語として扱ってくれることです。</p>
 <p>例えば<a href="http://buzztter.com/#/ja">buzztter</a>のようなサービスでは、「ニコニコ動画」は「ニコニコ動画」でいて欲しいし、「ニューラルネットワーク」は「ニューラルネットワーク」のままであってほしいわけですね。</p>
-<p>僕も最近ちょっと辞書をナウくする必要が出たので、早速<a href="http://developer.hatena.ne.jp/ja/documents/keyword/misc/catalog">公開されているはてなキーワードのデータ</a>を使ってやってみました。<br />
-<!--more--><br />
-はてなキーワードのデータから辞書を作るコード（仮）は以下。<br />
+<p>僕も最近ちょっと辞書をナウくする必要が出たので、早速<a href="http://developer.hatena.ne.jp/ja/documents/keyword/misc/catalog">公開されているはてなキーワードのデータ</a>を使ってやってみました。</p>
+<p>はてなキーワードのデータから辞書を作るコード（仮）は以下。<br />
 <strong><a href="https://github.com/takuti/twitter_bot/blob/master/tool/hatena2dic.rb">takuti / twitter_bot / tool / hatena2dic.rb</a></strong></p>
 <p>はてなキーワードのデータはキーワードそのものとふりがながタブ区切りで各行に書かれているので、それに合わせる形でそれぞれを読んであげる。元データの文字コードはEUC-JP。</p>
 <p>そしてお好みの条件で辞書に加えたくないキーワードなんかも除外する。<br />
