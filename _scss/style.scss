@@ -116,53 +116,6 @@ article {
   }
 }
 
-dl.entry-list {
-  a {
-    color: $color-black;
-
-    &:visited {
-      color: $color-black;
-    }
-
-    &:hover {
-      text-decoration: none;
-      color: $color-dark-blue;
-    }
-  }
-
-  .date {
-    display: inline-block;
-  }
-
-  .category {
-    display: inline-block;
-    font-size: 0.8em;
-    padding: 0 0.75em;
-    margin: 0 0 0 0.4em;
-    border-radius: 4px;
-    text-decoration: none;
-    background-color: lighten($color-black, 60%);
-    color: $color-black;
-
-    &:hover {
-      background-color: $color-black;
-      color: #fff;
-    }
-  }
-
-  dt {
-    padding-top: 0.5em;
-    font-size: 0.8em;
-    color: lighten($color-black, 40%);
-  }
-
-  dd {
-    margin: 0;
-    padding: 0 0 0.5em;
-    font-weight: bold;
-  }
-}
-
 header {
   width: $content-width;
   margin: 0 auto;
@@ -213,11 +166,12 @@ header {
 }
 
 section.header-band {
-  background-color: lighten($color-black, 64%);
   display: block;
   width: 100%;
   height: 256px;
   margin-bottom: 32px;
+  border-top: 2px #eee solid;
+  border-bottom: 2px #eee solid;
 
   span {
     display: block;
@@ -303,6 +257,65 @@ section.header-band {
       margin-bottom: 0.2em;
     }
   }
+
+  dl.entry-list {
+    a {
+      color: $color-black;
+
+      &:visited {
+        color: $color-black;
+      }
+
+      &:hover {
+        text-decoration: none;
+        color: $color-dark-blue;
+      }
+    }
+
+    .date {
+      display: inline-block;
+    }
+
+    .category {
+      display: inline-block;
+      font-size: 0.8em;
+      padding: 0 0.75em;
+      margin: 0 0 0 0.4em;
+      border-radius: 4px;
+      text-decoration: none;
+      background-color: lighten($color-black, 60%);
+      color: $color-black;
+
+      &:hover {
+        background-color: $color-black;
+        color: #fff;
+      }
+    }
+
+    dt {
+      padding-top: 0.5em;
+      font-size: 0.8em;
+      color: lighten($color-black, 40%);
+    }
+
+    dd {
+      margin: 0;
+      padding: 0 0 0.5em;
+      font-weight: bold;
+    }
+  }
+
+  blockquote {
+    padding-left: 15px;
+    margin-bottom: 1em;
+
+    & > p {
+      margin-left: -15px;
+      padding: 1em;
+      background: lighten($color-black, 64%);
+      border-left: 3px solid #eee;
+    }
+  }
 }
 
 footer {
@@ -341,18 +354,6 @@ pre code,
   box-shadow: inset 0 0 0 1px #e4ebf2;
   border-radius: 4px;
   overflow: auto;
-}
-
-blockquote {
-  padding-left: 15px;
-  margin-bottom: 1em;
-
-  & > p {
-    margin-left: -15px;
-    padding: 1em;
-    background: lighten($color-black, 64%);
-    border-left: 3px solid #eee;
-  }
 }
 
 @font-face {
