@@ -39,9 +39,9 @@
       "node ./scripts/imagemin.js",
       "git add"
     ],
-    "_content/note/*.{md,html}": [
+    "_content/{en,ja}/note/*.{md,html}": [
       "python ./scripts/recommend.py",
-      "git add _content/note"
+      "git add _content/en/note _content/ja/note"
     ]
   }
 }
