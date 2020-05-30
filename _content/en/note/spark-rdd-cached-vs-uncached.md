@@ -2,7 +2,7 @@
 categories: [programming]
 date: 2017-04-16
 lang: en
-recommendations: [/note/mlss-kyoto-2015/, /note/hivemall-pyspark/, /note/hivemall-events-2018-autumn/]
+recommendations: [/note/coursera-scala-capstone/, /note/mlss-kyoto-2015/, /note/hivemall-pyspark/]
 title: Comparison of Running Time of Cached/Uncached Spark RDD
 ---
 

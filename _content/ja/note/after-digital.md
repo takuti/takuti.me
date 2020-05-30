@@ -3,7 +3,8 @@ aliases: [/note/after-digital/]
 categories: [本, デザイン, データサイエンス]
 date: 2020-02-20
 lang: ja
-recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/the-amazon-way-on-iot/]
+recommendations: [/ja/note/tech-design-story/, /ja/note/cognitive-science-and-behavioral-economics/,
+  /ja/note/design-engineer/]
 title: データ時代の「リアル」の価値
 ---
 

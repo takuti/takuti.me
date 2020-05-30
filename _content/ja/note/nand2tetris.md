@@ -3,8 +3,8 @@ aliases: [/note/nand2tetris/]
 categories: [本, プログラミング, システム]
 date: 2017-05-21
 lang: ja
-recommendations: [/ja/note/designing-data-intensive-applications/, /ja/note/recommender-libraries/,
-  /ja/note/euroscipy-2017/]
+recommendations: [/ja/note/cognitive-science-and-behavioral-economics/, /ja/note/designing-data-intensive-applications/,
+  /ja/note/recommender-libraries/]
 title: 『コンピュータシステムの理論と実装』は“娯楽”である
 ---
 

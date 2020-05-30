@@ -2,8 +2,8 @@
 categories: [diary]
 date: 2020-03-29
 lang: en
-recommendations: [/note/technique-producing-ideas/, /note/revisit-design-thinking/,
-  /note/life-with-broken-iphone/]
+recommendations: [/note/working-from-home-202004/, /note/technique-producing-ideas/,
+  /note/revisit-design-thinking/]
 title: The Hardest Part of 2020's Strategic Ideation
 ---
 

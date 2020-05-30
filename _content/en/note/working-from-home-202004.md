@@ -1,8 +1,8 @@
 ---
+categories: [diary]
 date: 2020-04-18
 lang: en
 recommendations: [/note/fermenting-thoughts/, /note/stop-drinking-alone/, /note/life-with-broken-iphone/]
-categories: [diary]
 title: How I'm Working From Home
 ---
 

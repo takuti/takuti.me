@@ -2,7 +2,7 @@
 categories: [diary]
 date: 2017-01-07
 lang: en
-recommendations: [/note/hello-english/, /note/mlss-kyoto-2015/, /note/stop-drinking-alone/]
+recommendations: [/note/hello-english/, /note/coursera-scala-capstone/, /note/mlss-kyoto-2015/]
 title: 'My New Year''s Resolution 2017: Write an Article Every Week'
 ---
 

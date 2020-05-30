@@ -3,7 +3,7 @@ aliases: [/note/design-engineer/]
 categories: [本, デザイン]
 date: 2019-12-10
 lang: ja
-recommendations: [/ja/note/design-note-88/, /ja/note/tech-design-story/, /ja/note/2020/]
+recommendations: [/ja/note/design-note-88/, /ja/note/tech-design-story/, /ja/note/cognitive-science-and-behavioral-economics/]
 title: デザインエンジニアになろう
 ---
 

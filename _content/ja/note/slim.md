@@ -4,7 +4,7 @@ categories: [機械学習, 情報推薦]
 date: 2017-02-18
 lang: ja
 recommendations: [/ja/note/coursera-recommender-systems/, /ja/note/two-decades-of-amazon-recommender/,
-  /ja/note/tf-idf/]
+  /ja/note/pytorch-mf/]
 title: '"SLIM: Sparse Linear Methods for Top-N Recommender Systems"を読んだ'
 ---
 

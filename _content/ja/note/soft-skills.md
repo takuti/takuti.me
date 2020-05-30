@@ -3,7 +3,7 @@ aliases: [/note/soft-skills/]
 categories: [本]
 date: 2017-07-02
 lang: ja
-recommendations: [/ja/note/deep-work/, /ja/note/dmm-eikaiwa/, /ja/note/2020/]
+recommendations: [/ja/note/dmm-eikaiwa/, /ja/note/design-engineer/, /ja/note/2020/]
 title: いまさら Soft Skills を読んだ
 ---
 

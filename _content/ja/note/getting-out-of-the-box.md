@@ -3,7 +3,7 @@ aliases: [/note/getting-out-of-the-box/]
 categories: [本, 日記]
 date: 2019-02-03
 lang: ja
-recommendations: [/ja/note/dmm-eikaiwa/, /ja/note/todays-art-taro/, /ja/note/2020/]
+recommendations: [/ja/note/life-with-covid-19/, /ja/note/dmm-eikaiwa/, /ja/note/cognitive-science-and-behavioral-economics/]
 title: 「ていねいなコミュニケーション」
 ---
 

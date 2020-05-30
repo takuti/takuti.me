@@ -3,7 +3,7 @@ aliases: [/note/deep-work/]
 categories: [本]
 date: 2017-03-25
 lang: ja
-recommendations: [/ja/note/dmm-eikaiwa/, /ja/note/soft-skills/, /ja/note/the-amazon-way-on-iot/]
+recommendations: [/ja/note/life-with-covid-19/, /ja/note/dmm-eikaiwa/, /ja/note/soft-skills/]
 title: '"Deep Work"を読んだけど微妙だったから皆は"How to Write a Lot"と"エッセンシャル思考"を読めばいい'
 ---
 

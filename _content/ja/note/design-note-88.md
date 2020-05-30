@@ -3,7 +3,7 @@ aliases: [/note/design-note-88/]
 categories: [本, デザイン]
 date: 2020-02-29
 lang: ja
-recommendations: [/ja/note/design-engineer/, /ja/note/tech-design-story/, /ja/note/2020/]
+recommendations: [/ja/note/design-engineer/, /ja/note/tech-design-story/, /ja/note/cognitive-science-and-behavioral-economics/]
 title: “好き”を可視化しながら、デザインノート No.88『ブランディングデザインの成功法』を読む
 ---
 

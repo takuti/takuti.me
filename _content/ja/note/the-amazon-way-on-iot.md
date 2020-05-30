@@ -3,8 +3,8 @@ aliases: [/note/the-amazon-way-on-iot/]
 categories: [本]
 date: 2017-10-06
 lang: ja
-recommendations: [/ja/note/amazon-dynamo-paper/, /ja/note/trends-in-real-world-recommender-systems-2017/,
-  /ja/note/design-engineer/]
+recommendations: [/ja/note/amazon-dynamo-paper/, /ja/note/cognitive-science-and-behavioral-economics/,
+  /ja/note/trends-in-real-world-recommender-systems-2017/]
 title: The Amazon Way on IoT - Amazonのビジネスから学ぶ、10の原則
 ---
 
