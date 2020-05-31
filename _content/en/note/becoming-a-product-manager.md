@@ -2,7 +2,7 @@
 categories: [diary, data science]
 date: 2020-02-07
 lang: en
-recommendations: [/note/iotswc-2019/, /note/nrf-2020/, /note/data-leaders-summit-europe-2019/]
+recommendations: [/note/iotswc-2019/, /note/learn-how-others-work/, /note/nrf-2020/]
 title: Why a Data Science Engineer Becomes a Product Manager
 ---
 
