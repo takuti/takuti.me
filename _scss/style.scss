@@ -145,21 +145,15 @@ header {
       }
 
       text-align: right;
-      color: $color-black;
       font-weight: bold;
-      border-top: solid 2px rgba(0, 0, 0, 0);
-      border-bottom: solid 2px rgba(0, 0, 0, 0);
 
       &:visited {
         color: $color-black;
-        border-top: solid 2px rgba(0, 0, 0, 0);
-        border-bottom: solid 2px rgba(0, 0, 0, 0);
       }
 
       &:hover {
         text-decoration: none;
-        border-top: solid 2px rgba(0, 0, 0, 0);
-        border-bottom: solid 2px $color-black;
+        color: $color-dark-blue;
       }
     }
   }
