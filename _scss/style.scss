@@ -98,6 +98,23 @@ table {
 article {
   margin: 0 auto 50px;
 
+  h2 {
+    margin-top: 0;
+  }
+
+  p.meta {
+    margin-bottom: 0;
+    color: lighten($color-black, 20%);
+
+    a {
+      color: lighten($color-black, 20%);
+
+      &:visited {
+        color: lighten($color-black, 20%);
+      }
+    }
+  }
+
   .katex {
     font-size: $default-font-size;
   }
@@ -156,51 +173,6 @@ header {
         color: $color-dark-blue;
       }
     }
-  }
-}
-
-section.header-band {
-  display: block;
-  width: 100%;
-  height: 256px;
-  margin-bottom: 32px;
-  border-top: 2px #eee solid;
-  border-bottom: 2px #eee solid;
-
-  span {
-    display: block;
-    width: $content-width;
-    margin: 0 auto;
-    text-align: center;
-
-    p {
-      margin: 0;
-      padding: 0;
-
-      &.title {
-        font-size: 1.8em;
-      }
-
-      &.meta {
-        color: lighten($color-black, 20%);
-        margin-top: 1em;
-
-        a {
-          color: $color-black;
-
-          &:visited {
-            color: $color-black;
-          }
-        }
-      }
-    }
-
-    letter-spacing: 1px;
-    position: relative;
-    float: left;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 }
 
@@ -391,23 +363,6 @@ pre code,
       a:first-child {
         margin-left: 16px;
       }
-    }
-  }
-
-  section.header-band {
-    span {
-      p {
-        &.title {
-          font-size: 1.4em;
-        }
-
-        &.meta {
-          font-size: 0.9em;
-        }
-      }
-
-      letter-spacing: 0;
-      width: 90%;
     }
   }
 }

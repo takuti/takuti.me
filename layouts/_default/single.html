@@ -1,24 +1,19 @@
 {{ partial "header.html" . }}
 
-<section class="header-band">
-  <span>
-    <p class="title">{{ .Title }}</p>
-    <p class="meta">
-      {{ .Date.Format "2006-01-02" }}
-      {{ range (.GetTerms "categories") }}
-      / <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
-      {{ end }}
-    </p>
-  </span>
-</section>
-
 <div id="container">
 
-{{ if gt (sub (now.Unix) (.Date.Unix)) 604800 }}
-{{ partial "ad-horizontal.html" . }}
-{{ end }}
-
 <article>
+  <p class="meta">
+    {{ .Date.Format "January 2, 2006" }}
+    {{ range (.GetTerms "categories") }}
+    / <a href="{{ .Permalink }}" class="category">{{ .LinkTitle }}</a>
+    {{ end }}
+  </p>
+  <h2>{{ .Title }}</h2>
+
+  {{ if gt (sub (now.Unix) (.Date.Unix)) 604800 }}
+  {{ partial "ad-horizontal.html" . }}
+  {{ end }}
 
   <div class="post">
     {{ .Content }}
