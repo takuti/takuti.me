@@ -172,6 +172,10 @@ header {
         text-decoration: none;
         color: $color-dark-blue;
       }
+
+      i.fas {
+        vertical-align: middle;
+      }
     }
   }
 }
@@ -351,18 +355,5 @@ pre code,
 
   header {
     padding: 32px 0;
-
-    .right {
-      display: inline;
-      float: none;
-
-      a {
-        margin: 0 8px;
-      }
-
-      a:first-child {
-        margin-left: 16px;
-      }
-    }
   }
 }
