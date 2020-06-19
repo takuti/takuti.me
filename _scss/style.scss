@@ -369,30 +369,6 @@ pre code,
   font-style: normal;
 }
 
-.symbol {
-  font-family: 'LigatureSymbols', sans-serif;
-  -webkit-text-rendering: optimizeLegibility;
-  -moz-text-rendering: optimizeLegibility;
-  -ms-text-rendering: optimizeLegibility;
-  -o-text-rendering: optimizeLegibility;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  -ms-font-smoothing: antialiased;
-  -o-font-smoothing: antialiased;
-  font-size: 1.3em;
-  line-height: 1.3em;
-  display: inline-block;
-  margin: 0 0.25em;
-
-  h1 &,
-  h2 &,
-  h3 &,
-  h4 & {
-    font-weight: normal;
-  }
-}
-
 /* responsive */
 @media screen and (max-width: 960px) {
   body {
