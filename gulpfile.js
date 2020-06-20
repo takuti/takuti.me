@@ -24,6 +24,27 @@ renderer.table = function (header, body) {
     + '</table>\n'
     + '</div>\n';
 };
+renderer.heading = function(text, level, raw) {
+  var id = /({#)(.+)(})/g.exec(raw);
+  id = id? id[2] : null;
+
+  if (!id && renderer.options.headerAutoId !== false) id = renderer._createId(raw)
+
+  var h = '<h'
+    + level
+    + (id? ' id="' + id + '"' : '')
+    + '>'
+    + text.replace(/{#.+}/g, '')
+    + '</h'
+    + level
+    + '>\n';
+
+  if (level === 3) {
+    h = '\n<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7190463694419594" data-ad-slot="1312340535" data-ad-format="auto" data-full-width-responsive="false"></ins> <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>\n\n' + h;
+  }
+
+  return h;
+};
 
 function cleanContent() {
   return del(['content/**/*']);

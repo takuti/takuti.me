@@ -11,10 +11,6 @@
   </p>
   <h2>{{ .Title }}</h2>
 
-  {{ if gt (sub (now.Unix) (.Date.Unix)) 604800 }}
-  {{ partial "ad-horizontal.html" . }}
-  {{ end }}
-
   <div class="post">
     {{ .Content }}
     {{ partial "social.html" . }}
