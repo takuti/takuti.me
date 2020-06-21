@@ -2,7 +2,7 @@
 categories: [日記]
 date: 2020-04-30
 lang: ja
-recommendations: [/ja/note/deep-work/, /ja/note/todays-art-taro/, /ja/note/dmm-eikaiwa/]
+recommendations: [/ja/note/deep-work/, /ja/note/think/, /ja/note/todays-art-taro/]
 title: 貯金を取り崩しながら生きている感覚
 ---
 

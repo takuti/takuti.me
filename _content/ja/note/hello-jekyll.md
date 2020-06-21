@@ -3,7 +3,7 @@ aliases: [/note/hello-jekyll/]
 categories: [日記]
 date: 2014-03-31
 lang: ja
-recommendations: [/ja/note/ielts-20200201/, /ja/note/dmm-eikaiwa/, /ja/note/https/]
+recommendations: [/ja/note/ielts-20200201/, /ja/note/dmm-eikaiwa/, /ja/note/toefl-20140527/]
 title: ブログをWordPressからJekyllに変えた
 ---
 

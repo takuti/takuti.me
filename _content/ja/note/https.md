@@ -3,7 +3,7 @@ aliases: [/note/https/]
 categories: [プログラミング]
 date: 2017-02-04
 lang: ja
-recommendations: [/ja/note/hello-jekyll/, /ja/note/crx-dev-using-angularjs/, /ja/note/making-a-will/]
+recommendations: [/ja/note/hello-jekyll/, /ja/note/crx-dev-using-angularjs/, /ja/note/why-spark/]
 title: サイトをHTTPSにした
 ---
 

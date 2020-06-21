@@ -2,7 +2,7 @@
 categories: [日記, デザイン]
 date: 2020-04-25
 lang: ja
-recommendations: [/ja/note/cognitive-science-and-behavioral-economics/, /ja/note/tech-design-story/,
+recommendations: [/ja/note/tech-design-story/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/2020/]
 title: “いいもの”ってなんだろう
 ---

@@ -3,8 +3,7 @@ aliases: [/note/after-digital/]
 categories: [本, デザイン, データサイエンス]
 date: 2020-02-20
 lang: ja
-recommendations: [/ja/note/tech-design-story/, /ja/note/cognitive-science-and-behavioral-economics/,
-  /ja/note/design-engineer/]
+recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/cognitive-science-and-behavioral-economics/]
 title: データ時代の「リアル」の価値
 ---
 

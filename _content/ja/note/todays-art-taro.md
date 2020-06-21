@@ -3,7 +3,7 @@ aliases: [/note/todays-art-taro.html]
 categories: [本]
 date: 2014-02-28
 lang: ja
-recommendations: [/ja/note/life-with-covid-19/, /ja/note/6brains-of-the-world/, /ja/note/cognitive-science-and-behavioral-economics/]
+recommendations: [/ja/note/life-with-covid-19/, /ja/note/6brains-of-the-world/, /ja/note/think/]
 title: 岡本太郎に学ぶ、芸術と人生。
 ---
 <div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom: 1;overflow: hidden;">
