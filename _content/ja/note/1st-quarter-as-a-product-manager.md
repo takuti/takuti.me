@@ -1,5 +1,6 @@
 ---
 date: 2020-07-04
+draft: true
 lang: ja
 recommendations: [/ja/note/design-engineer/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/2020/]
