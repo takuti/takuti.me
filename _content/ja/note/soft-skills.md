@@ -3,7 +3,7 @@ aliases: [/note/soft-skills/]
 categories: [本]
 date: 2017-07-02
 lang: ja
-recommendations: [/ja/note/dmm-eikaiwa/, /ja/note/1st-quarter-as-a-product-manager/,
+recommendations: [/ja/note/first-quarter-as-a-product-manager/, /ja/note/dmm-eikaiwa/,
   /ja/note/2020/]
 title: いまさら Soft Skills を読んだ
 ---

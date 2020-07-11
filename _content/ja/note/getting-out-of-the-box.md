@@ -3,7 +3,8 @@ aliases: [/note/getting-out-of-the-box/]
 categories: [本, 日記]
 date: 2019-02-03
 lang: ja
-recommendations: [/ja/note/dmm-eikaiwa/, /ja/note/life-with-covid-19/, /ja/note/cognitive-science-and-behavioral-economics/]
+recommendations: [/ja/note/first-quarter-as-a-product-manager/, /ja/note/life-with-covid-19/,
+  /ja/note/dmm-eikaiwa/]
 title: 「ていねいなコミュニケーション」
 ---
 
