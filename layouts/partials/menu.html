@@ -1,0 +1,20 @@
+<nav class="menu">
+    <ul class="menu__inner">
+        {{- $currentPage := . -}}
+        {{ range .Site.Menus.main -}}
+            <li><a href="{{ .URL | absLangURL }}">{{ .Name }}</a></li>
+        {{- end }}
+
+      {{ if .IsTranslated }}
+        {{ range .Translations }}
+          <li><a href="{{ .RelPermalink }}">{{ .Language.LanguageName }} <span class="flag flag-icon flag-icon-{{ index $.Site.Data.langFlags (.Lang) }} flag-icon-squared"></span></a></li>
+        {{ end }}
+      {{ else }}
+        {{ if eq .Site.Language.Lang "ja" }}
+        <li><a href="/">English <span class="flag flag-icon flag-icon-us flag-icon-squared"></span></a></li>
+        {{ else }}
+        <li><a href="/ja">日本語 <span class="flag flag-icon flag-icon-jp flag-icon-squared"></span></a></li>
+        {{ end }}
+      {{ end }}
+    </ul>
+</nav>
