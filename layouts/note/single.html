@@ -99,6 +99,8 @@
 
             See also:
             {{ partial "list-recommendations.html" . }}
+
+            {{ partial "ad-horizontal.html" . }}
         </div>
 
         {{ if and (not $.Site.Params.DisableReadOtherPosts) (or .NextInSection .PrevInSection) }}
@@ -107,8 +109,6 @@
             <span class="pagination__title-h">{{ .Site.Params.ReadOtherPosts }}</span>
             <hr />
             </div>
-
-            {{ partial "ad-horizontal.html" . }}
 
             <div class="pagination__buttons">
             {{ if .NextInSection }}
@@ -131,7 +131,6 @@
             </div>
         </div>
         {{ end }}
-
 
         {{ if .Site.DisqusShortname }}
         {{ if not (eq .Params.Comments "false") }}
