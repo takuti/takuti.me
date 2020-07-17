@@ -1,5 +1,11 @@
 canonifyurls = true
 
+hasCJKLanguage = true
+googleAnalytics = "UA-28919399-2"
+
+theme = "hello-friend-ng"
+paginate = 20
+
 disableKinds = ["taxonomyTerm"]
 
 baseurl = "https://takuti.me"
@@ -19,12 +25,77 @@ DefaultContentLanguage = "en"
 
 [languages]
   [languages.en]
+    languageName = "English"
     weight = 1
     contentDir = "content/en"
+    [languages.en.params]
+      homeSubtitle = "Machine Learning & Data Science Product Developer"
+    [languages.en.params.logo]
+      logoText = "takuti.me"
+      logoHomeLink = "/"
+
   [languages.ja]
+    languageName = "日本語"
     weight = 2
     contentDir = "content/ja"
+    [languages.ja.params]
+      homeSubtitle = "データサイエンスエンジニア/プロダクトマネージャー @ Treasure Data"
+    [languages.ja.params.logo]
+      logoText = "takuti.me"
+      logoHomeLink = "/ja"
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name       = "About"
+    url        = "/about"
+  [[menu.main]]
+    identifier = "work"
+    name       = "Work"
+    url        = "/work"
+  [[menu.main]]
+    identifier = "note"
+    name       = "Note"
+    url        = "/note"
+
+[author]
+  name = "Takuya Kitazawa"
 
 [params]
-  author = "takuti"
-  description = "Takuya Kitazawa, a product developer at Arm Treasure Data."
+  description = "Takuya Kitazawa, a product developer at Treasure Data."
+  keywords = "takuti,たくち"
+  images = ["/images/takuti.jpg"]
+
+  defaultTheme = "light"
+  customCSS  = ["/css/style.css"]
+  EnableSharingButtons = true
+
+  [params.portrait]
+    path     = "/images/takuti.jpg"
+    alt      = "Portrait"
+    maxWidth = "256px"
+
+  # Social icons
+  [[params.social]]
+    name = "twitter"
+    url  = "https://twitter.com/takuti/"
+
+  [[params.social]]
+    name = "email"
+    url  = "mailto:k.takuti@gmail.com"
+
+  [[params.social]]
+    name = "github"
+    url  = "https://github.com/takuti"
+
+  [[params.social]]
+    name = "linkedin"
+    url  = "https://linkedin.com/in/takuti"
+
+  [[params.social]]
+    name = "instagram"
+    url  = "https://instagram.com/takuti/"
+
+  [[params.social]]
+    name = "youtube"
+    url  = "https://www.youtube.com/playlist?list=PLlPB-75bA51dGSvPdvkciCrQEi266Xjha"
