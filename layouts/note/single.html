@@ -99,8 +99,6 @@
 
             See also:
             {{ partial "list-recommendations.html" . }}
-
-            {{ partial "ad-horizontal.html" . }}
         </div>
 
         {{ if and (not $.Site.Params.DisableReadOtherPosts) (or .NextInSection .PrevInSection) }}
@@ -139,6 +137,8 @@
             </div>
         {{ end }}
         {{ end }}
+
+          {{ partial "ad-horizontal.html" . }}
 
     </main>
     <!-- AMP -->
