@@ -73,7 +73,7 @@ DefaultContentLanguage = "en"
   [params.portrait]
     path     = "/images/takuti.jpg"
     alt      = "Portrait"
-    maxWidth = "256px"
+    maxWidth = "128px"
 
   # Social icons
   [[params.social]]
