@@ -3,7 +3,7 @@ aliases: [/note/making-a-will/]
 categories: [日記]
 date: 2020-05-22
 lang: ja
-recommendations: [/ja/note/think/, /ja/note/life-with-covid-19/, /ja/note/dmm-eikaiwa/]
+recommendations: [/ja/note/think/, /ja/note/life-with-covid-19/, /ja/note/feel/]
 title: 遺言状を書いた（そしてアップデートした）
 ---
 

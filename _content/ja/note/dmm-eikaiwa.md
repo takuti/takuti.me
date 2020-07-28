@@ -3,7 +3,7 @@ aliases: [/note/dmm-eikaiwa/]
 categories: [日記]
 date: 2017-06-18
 lang: ja
-recommendations: [/ja/note/ielts-20200201/, /ja/note/life-with-covid-19/, /ja/note/getting-out-of-the-box/]
+recommendations: [/ja/note/ielts-20200201/, /ja/note/life-with-covid-19/, /ja/note/toefl-20140527/]
 title: 'DMM英会話を1ヶ月間やってみて思う、オンライン英会話は『やらないよりマシ』なのか問題 #DMM英会話'
 ---
 
