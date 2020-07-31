@@ -2,7 +2,7 @@
 categories: [日記]
 date: 2020-07-05
 lang: ja
-recommendations: [/ja/note/hello-jekyll/, /ja/note/think/, /ja/note/first-quarter-as-a-product-manager/]
+recommendations: [/ja/note/oyo-life-202007/, /ja/note/hello-jekyll/, /ja/note/think/]
 title: まっさらな地図を手に入れた
 ---
 
