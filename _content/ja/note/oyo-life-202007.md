@@ -24,7 +24,7 @@ title: 軽やかに生きたくて。
 
 処分に際して、書籍は[買取王子](https://www.kaitoriouji.jp/)、服や靴は[古着deワクチン](https://furugidevaccine.etsl.jp/)、アウトドアブランドのモノは[リアルクローズ](https://www.realclothes.jp/apparel/outdoor.html)、その他の家具家電や粗大ごみは[くらしのマーケット](https://curama.jp/)に掲載されている不用品回収業者に依頼した。量が量なのでフリマアプリは使っていない。
 
-ちなみにOYO LIFEの類似サービスには[ADDress](https://address.love/)や[HafH](https://hafh.com/)というものがあり、ADDressがシェアハウス（日本全国）、Haffはゲストハウス（日本全国＋世界各地）、OYO LIFEはマンスリーマンション（関東一都三県）を主な物件として扱っている点が異なる。
+ちなみにOYO LIFEの類似サービスには[ADDress](https://address.love/)や[HafH](https://hafh.com/)というものがあり、ADDressがシェアハウス（日本全国）、HafHはゲストハウス（日本全国＋世界各地）、OYO LIFEはマンスリーマンション（関東一都三県）を主な物件として扱っている点が異なる。
 
 - [【定額住み放題・徹底比較】サブスク型住居「ADDress」「HafH」「OYO LIFE」の違い？多拠点居住に最適なコリビングサービスどれを選ぶ？](https://yoshikazu-komatsu.com/coliving/)
 
