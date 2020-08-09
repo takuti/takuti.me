@@ -10,5 +10,10 @@ I'm passionate about bridging a gap between scientific theory and real-world pra
   <iframe src="https://www.youtube.com/embed/videoseries?list=PLlPB-75bA51dGSvPdvkciCrQEi266Xjha" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </span>
 
-- Hobby: Traveling, Running, Hiking, Drinking.
-- Home: Nakano, Tokyo, Japan
+<div class="pagination__buttons">
+  <span class="button">
+    <a href="/cv">
+        <span class="button__text">See my resume</span>
+    </a>
+  </span>
+</div>

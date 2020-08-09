@@ -12,5 +12,10 @@ title: "Takuya Kitazawa"
   <iframe src="https://www.youtube.com/embed/videoseries?list=PLlPB-75bA51dGSvPdvkciCrQEi266Xjha" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </span>
 
-- 趣味は旅行、マラソン、登山。お酒が好き。
-- 長野県出身。いまは東京都中野区。
+<div class="pagination__buttons">
+  <span class="button">
+    <a href="/cv">
+        <span class="button__text">レジュメはこちら</span>
+    </a>
+  </span>
+</div>
