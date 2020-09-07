@@ -1,0 +1,21 @@
+{{ partial "header.html" . }}
+
+<div id="container">
+<h2><i class="fas fa-folder-open"></i>&nbsp;&nbsp;{{ .Title }}</h2>
+
+<dl class="entry-list">
+  {{ range .Pages}}
+  <dt>
+  <span class="date">
+    {{ .Date.Format "2006-01-02" }}
+  </span>
+  </dt>
+  <dd>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </dd>
+{{ end }}
+</dl>
+
+</div>
+
+{{ partial "footer.html" . }}

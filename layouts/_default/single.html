@@ -1,36 +1,32 @@
-{{ define "main" }}
-    <main class="post">
-        <div class="post-info">
-            {{ if .IsTranslated }}
-                {{ i18n "postAvailable" }}
-                {{ range .Translations }}
-                    <a href="{{ .Permalink }}"><span class="flag flag-icon flag-icon-{{ index $.Site.Data.langFlags (.Lang) }} flag-icon-squared"></span></a>
-                {{ end}}
-            {{ end }}
-          </p>
-        </div>
+{{ partial "header.html" . }}
 
-        <article>
-            <h1 class="post-title">
-                <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-            </h1>
+<div id="container">
 
-            {{- if .Params.toc }}
-                <hr />
-                <aside id="toc">
-                <div class="toc-title">{{ i18n "tableOfContents" }}</div>
-                    {{ .TableOfContents }}
-                </aside>
-                <hr />
-            {{- end }}
+<article>
+  <p class="meta">
+    {{ .Date.Format "January 2, 2006" }}
+    {{ range (.GetTerms "categories") }}
+    / <a href="{{ .Permalink }}" class="category">{{ .LinkTitle }}</a>
+    {{ end }}
+  </p>
+  <h2>{{ .Title }}</h2>
 
-            {{ with .Params.Cover }}
-                <img src="/{{ . }}" class="post-cover" />
-            {{ end }}
+  <div class="post">
+    {{ .Content }}
+    {{ partial "social.html" . }}
+  </div>
 
-            <div class="post-content">
-                {{ .Content }}
-            </div>
-        </article>
-    </main>
-{{ end }}
+  {{ partial "ad-horizontal.html" . }}
+
+  <h4><i class="fas fa-search"></i>&nbsp;&nbsp;See also</h4>
+  {{ partial "list-recommendations.html" . }}
+
+</article>
+<!-- AMP -->
+<amp-auto-ads type="adsense"
+              data-ad-client="ca-pub-7190463694419594">
+</amp-auto-ads>
+{{ partial "author.html" . }}
+</div>
+
+{{ partial "footer.html" . }}

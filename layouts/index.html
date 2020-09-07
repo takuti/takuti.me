@@ -1,0 +1,40 @@
+{{ partial "header.html" . }}
+
+<div id="container">
+
+<section>
+  <h2>&#x1f44b; Hi, I'm Takuya</h2>
+  <p><b>Machine Learning &amp; Data Science Product Developer</b></p>
+  <p>I'm passionate about bridging a gap between scientific theory and real-world practice in industry. At <a href="https://www.treasuredata.com/" target="_blank" rel="noopener">Arm Treasure Data</a>, an organization building an enterprise-grade big data analytics platform, I have been practically acted as a data scientist, technical evangelist, sales engineer, product manager, machine learning engineer, and software engineer through the experience of contributing to <a href="https://github.com/apache/incubator-hivemall/" target="_blank" rel="noopener">OSS for scalable ML</a>, building <a href="https://speakerdeck.com/takuti/machine-learning-and-natural-language-processing-on-treasure-cdp" target="_blank" rel="noopener">out-of-the-box ML application</a>, presenting at <a href="#work">conferences</a>, and working on a variety of customer-facing opportunities. My current interest is particularly in designing user experience of technologically advanced products in the ML, data science, and IoT domain.</p>
+  <p>
+    <i class="fas fa-heart"></i>&nbsp;&nbsp;Traveling, Running, Hiking, Drinking.
+  </p>
+  <p>
+    <i class="fas fa-home"></i>&nbsp;&nbsp;Nakano, Tokyo, Japan<br />
+    <i class="fas fa-envelope"></i>&nbsp;&nbsp;k.<b>takuti</b> at gmail.com<br />
+  </p>
+  <p>
+    <i class="fab fa-twitter"></i>&nbsp;&nbsp;<a href="http://twitter.com/takuti/" target="_blank" rel="noopener">twitter.com/<b>takuti</b></a><br />
+    <i class="fab fa-github"></i>&nbsp;&nbsp;<a href="https://github.com/takuti" target="_blank" rel="noopener">github.com/<b>takuti</b></a><br />
+    <i class="fab fa-speaker-deck"></i>&nbsp;&nbsp;<a href="https://speakerdeck.com/takuti" target="_blank" rel="noopener">speakerdeck.com/<b>takuti</b></a><br />
+    <i class="fab fa-linkedin"></i>&nbsp;&nbsp;<a href="http://linkedin.com/in/takuti" target="_blank" rel="noopener">linkedin.com/in/<b>takuti</b></a><br />
+    <i class="fab fa-instagram"></i>&nbsp;&nbsp;<a href="https://instagram.com/takuti/" target="_blank" rel="noopener">instagram.com/<b>takuti</b></a>
+  </p>
+</section>
+
+<section>
+  <h2 id="work">Work</h2>
+  <span class="iframe-container">
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLlPB-75bA51dGSvPdvkciCrQEi266Xjha" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </span>
+  {{ partial "list-work.html" . }}
+</section>
+
+<section>
+  <h2>Articles</h2>
+  {{ partial "list-recent-notes.html" . }}
+</section>
+
+</div>
+
+{{ partial "footer.html" . }}

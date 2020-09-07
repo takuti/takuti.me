@@ -1,74 +1,22 @@
-{{ define "main" }}
-    <main class="post">
+{{ partial "header.html" . }}
 
-        <div class="post-info">
-          <p>
-            {{ if .IsTranslated }}
-                {{ i18n "postAvailable" }}
-                {{ range .Translations }}
-                    <a href="{{ .Permalink }}"><span class="flag flag-icon flag-icon-{{ index $.Site.Data.langFlags (.Lang) }} flag-icon-squared"></span></a>
-                {{ end}}
-            {{ end }}
-          </p>
-        </div>
+<div id="container">
 
-        <article>
-            <h1 class="post-title">
-                <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-            </h1>
+<article>
+  <p class="meta">
+    {{ .Date.Format "January, 2006" }}
+    {{ range (.GetTerms "categories") }}
+    <a href="{{ .Permalink }}" class="category">{{ .LinkTitle }}</a>
+    {{ end }}
+  </p>
+  <h2>{{ .Title }}</h2>
 
-            {{- if .Params.toc }}
-                <hr />
-                <aside id="toc">
-                <div class="toc-title">{{ i18n "tableOfContents" }}</div>
-                    {{ .TableOfContents }}
-                </aside>
-                <hr />
-            {{- end }}
+  <div class="post">
+    {{ .Content }}
+    {{ partial "social.html" . }}
+  </div>
 
-            {{ with .Params.Cover }}
-                <img src="/{{ . }}" class="post-cover" />
-            {{ end }}
+</article>
+</div>
 
-            <div class="post-content">
-                {{ .Content }}
-            </div>
-        </article>
-
-        <hr />
-
-        {{ if and (not $.Site.Params.DisableReadOtherPosts) (or .NextInSection .PrevInSection) }}
-            <div class="pagination">
-                <div class="pagination__title">
-                    <span class="pagination__title-h">{{ .Site.Params.ReadOtherPosts }}</span>
-                </div>
-
-                <div class="pagination__buttons">
-                    {{ if .NextInSection }}
-                        <span class="button previous">
-                            <a href="{{ .NextInSection.Permalink }}">
-                                <span class="button__icon">←</span>
-                                <span class="button__text">{{ .NextInSection.Title }}</span>
-                            </a>
-                        </span>
-                    {{ end }}
-
-                    {{ if .PrevInSection }}
-                        <span class="button next">
-                            <a href="{{ .PrevInSection.Permalink }}">
-                                <span class="button__text">{{ .PrevInSection.Title }}</span>
-                                <span class="button__icon">→</span>
-                            </a>
-                        </span>
-                    {{ end }}
-                </div>
-            </div>
-        {{ end }}
-
-        {{- if .Site.DisqusShortname }}
-            <div id="comments" class="thin">
-                {{ template "_internal/disqus.html" . }}
-            </div>
-        {{- end }}
-    </main>
-{{ end }}
+{{ partial "footer.html" . }}

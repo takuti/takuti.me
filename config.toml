@@ -3,7 +3,6 @@ canonifyurls = true
 hasCJKLanguage = true
 googleAnalytics = "UA-28919399-2"
 
-theme = "hello-friend-ng"
 paginate = 20
 
 disableKinds = ["taxonomyTerm"]
