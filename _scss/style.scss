@@ -116,15 +116,6 @@ article {
     }
   }
 
-  .in-article-box {
-    display: block;
-    font-size: 0.9em;
-
-    padding: 1em;
-    margin: 3em 0;
-    box-shadow: 0 0px 2px rgba(0,0,0,0.2);
-  }
-
   .katex {
     font-size: $default-font-size;
   }
@@ -280,22 +271,6 @@ nav {
       display: inline-block;
     }
 
-    .category {
-      display: inline-block;
-      font-size: 0.8em;
-      padding: 0 0.75em;
-      margin: 0 0 0 0.4em;
-      border-radius: 4px;
-      text-decoration: none;
-      background-color: lighten($color-black, 60%);
-      color: $color-black;
-
-      &:hover {
-        background-color: $color-black;
-        color: #fff;
-      }
-    }
-
     dt {
       padding-top: 0.5em;
       font-size: 0.8em;
@@ -318,6 +293,31 @@ nav {
       padding: 1em;
       background: lighten($color-black, 64%);
       border-left: 3px solid #eee;
+    }
+  }
+
+  .outer-box {
+    display: block;
+    font-size: 0.9em;
+
+    padding: 1em;
+    margin: 3em 0;
+    box-shadow: 0 0px 2px rgba(0,0,0,0.2);
+  }
+
+  .category {
+    display: inline-block;
+    font-size: 0.8em;
+    padding: 0 0.75em;
+    margin: 0 0 0 0.4em;
+    border-radius: 4px;
+    text-decoration: none;
+    background-color: lighten($color-black, 64%);
+    color: $color-black;
+
+    &:hover {
+      background-color: $color-black;
+      color: #fff;
     }
   }
 }

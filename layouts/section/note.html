@@ -2,15 +2,21 @@
 
 <div id="container">
 
+<span class="outer-box">
+<h4><i class="fas fa-folder-open"></i>&nbsp;&nbsp;Categories</h4>
+<p>
+{{range ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
+   <a href="{{.Permalink}}" class="category">{{.Title}}</a>
+{{end}}
+ </p>
+</span>
+
 <dl class="entry-list">
   {{ range (where .Data.Pages "Section" "note")}}
   <dt>
   <span class="date">
     {{ .Date.Format "2006-01-02" }}
   </span>
-  {{ range first 1 (.GetTerms "categories") }}
-  <a href="{{ .Permalink }}" class="category">{{ .LinkTitle }}</a>
-  {{ end }}
   </dt>
   <dd>
     <a href="{{ .Permalink }}">{{ .Title }}</a>

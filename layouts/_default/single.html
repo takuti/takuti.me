@@ -3,15 +3,15 @@
 <div id="container">
 
 <article>
-  <p class="in-article-box meta">
+  <p class="outer-box meta">
     <a href="{{ "/" | absLangURL }}">Home</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
     <a href="{{ "/note" | absLangURL }}">Blog</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-    {{ range first 1 (.GetTerms "categories") }}
-    <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+    {{ range $i, $v := (.GetTerms "categories") }}
+    {{ if not (eq $i 0) }}, {{ end }}<a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
     {{ end }}&nbsp;&nbsp;&gt;&nbsp;&nbsp;
     <a href="{{ .Permalink }}">{{ .Title }}</a>
   </p>
-  <p class="meta">
+  <p>
     {{ .Date.Format "January 2, 2006" }}
   </p>
   <h2>{{ .Title }}</h2>
@@ -19,11 +19,11 @@
   <div class="post">
     {{ partial "social.html" . }}
     {{ .Content }}
-    <span class="in-article-box">
+    <span class="outer-box">
       {{ partial "author.html" . }}
     </span>
     {{ partial "social.html" . }}
-    <span class="in-article-box">
+    <span class="outer-box">
       {{ partial "list-recommendations.html" . }}
     </span>
   </div>
