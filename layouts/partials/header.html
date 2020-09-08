@@ -44,32 +44,26 @@
   </head>
   <body>
   <header>
-    {{ if eq .Site.LanguagePrefix "" }}<!-- English -->
+    <nav>
     <span class="left">
-      <a href="/"><img src="/images/logo.png" alt="icon" /></a>
+      <a href="{{ "/" | absLangURL }}"><img src="/images/logo.png" alt="icon" />&nbsp;&nbsp;takuti.me</a>
     </span>
     <span class="right">
-      <a href="/">About</a>
-      <a href="/note">Blog</a>
+      <a href="{{ "/" | absLangURL }}">About</a>
+      <a href="{{ "/note" | absLangURL }}">Blog</a>
       {{ if in .RelPermalink "/note" }}
-      <a href="/ja/note"><i class="fas fa-language fa-2x"></i></a>
+        {{ if eq .Site.LanguagePrefix "" }}<!-- English -->
+          <a href="/ja/note"><i class="fas fa-language fa-2x"></i></a>
+        {{ else }}
+          <a href="/note"><i class="fas fa-language fa-2x"></i></a>
+        {{ end }}
       {{ else }}
-      <a href="/ja{{ .RelPermalink }}"><i class="fas fa-language fa-2x"></i></a>
+        {{ if eq .Site.LanguagePrefix "" }}<!-- English -->
+          <a href="/ja{{ .RelPermalink }}"><i class="fas fa-language fa-2x"></i></a>
+        {{ else }}
+          <a href="{{ substr .RelPermalink 3 }}"><i class="fas fa-language fa-2x"></i></a>
+        {{ end }}
       {{ end }}
     </span>
-    {{ else }}<!-- Japanese -->
-
-    <span class="left">
-      <a href="/ja"><img src="/images/logo.png" alt="icon" /></a>
-    </span>
-    <span class="right">
-      <a href="/ja">About</a>
-      <a href="/ja/note">Blog</a>
-      {{ if in .RelPermalink "/note" }}
-      <a href="/note"><i class="fas fa-language fa-2x"></i></a>
-      {{ else }}
-      <a href="{{ substr .RelPermalink 3 }}"><i class="fas fa-language fa-2x"></i></a>
-      {{ end }}
-    </span>
-    {{ end }}
+    </nav>
   </header>

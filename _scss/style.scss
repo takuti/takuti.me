@@ -134,15 +134,35 @@ article {
 }
 
 header {
+  width: 100%;
+  position: fixed;
+  background: #fff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+  top: 0;
+  left: 0;
+  z-index: 100;
+  -webkit-transition: -webkit-transform .4s ease;
+  transition: -webkit-transform .4s ease;
+  transition: transform .4s ease;
+  transition: transform .4s ease, -webkit-transform .4s ease;
+}
+
+.header-unpinned {
+  -webkit-transform: translateY(-150%);
+  transform: translateY(-150%);
+}
+
+nav {
   width: $content-width;
   margin: 0 auto;
-  padding: 32px;
+  padding: 16px 0;
 
   .left {
-    height: 48px;
+    height: 24px;
+    padding: 0;
 
     img {
-      width: 48px;
+      width: 24px;
       vertical-align: middle;
     }
   }
@@ -150,33 +170,37 @@ header {
   .right {
     display: flex;
     align-items: center;
-    height: 48px;
+    height: 24px;
     float: right;
+  }
 
-    a {
-      display: inline-block;
-      margin: 0 16px;
+  a {
+    display: inline-block;
+    margin: 0 16px;
 
-      &:last-child {
-        margin-right: 0;
-      }
+    &:first-child {
+      margin-left: 0;
+    }
 
-      text-align: right;
-      font-weight: bold;
+    &:last-child {
+      margin-right: 0;
+    }
+
+    text-align: right;
+    font-weight: bold;
+    color: $color-black;
+
+    &:visited {
       color: $color-black;
+    }
 
-      &:visited {
-        color: $color-black;
-      }
+    &:hover {
+      text-decoration: none;
+      color: $color-dark-blue;
+    }
 
-      &:hover {
-        text-decoration: none;
-        color: $color-dark-blue;
-      }
-
-      i.fas {
-        vertical-align: middle;
-      }
+    i.fas {
+      vertical-align: middle;
     }
   }
 }
@@ -184,7 +208,7 @@ header {
 #container {
   width: $content-width;
   max-width: 90%;
-  margin: 0 auto 50px;
+  margin: 100px auto 50px;
 
   span.iframe-container {
     display: block;
@@ -347,14 +371,13 @@ pre code,
   }
 
   #container,
-  header,
   footer,
   nav {
     padding: 0 5%;
     width: 90%;
   }
 
-  header {
-    padding: 32px 0;
+  nav {
+    padding: 16px 0;
   }
 }
