@@ -5,7 +5,14 @@
   </span>
   <span class="right">
     <a href="{{ "/" | absLangURL }}">About</a>
-    <a href="{{ "/note" | absLangURL }}">Blog</a>
+    <span class="menu__single">
+      <a href="{{ "/note" | absLangURL }}" class="init-bottom">Blog</a><i class="fas fa-angle-down"></i>
+      <ul class="menu__second-level">
+        {{range ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
+         <li><a href="{{.Permalink}}">{{.Title}}</a>
+        {{end}}
+      </ul>
+    </span>
     {{ if in .RelPermalink "/note" }}
       {{ if eq .Site.LanguagePrefix "" }}<!-- English -->
         <a href="/ja/note"><i class="fas fa-language fa-2x"></i></a>
