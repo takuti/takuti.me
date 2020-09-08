@@ -1,6 +1,6 @@
 ---
 aliases: [/note/td-intern-2016/]
-categories: [機械学習, 日記]
+categories: [機械学習]
 date: 2016-10-04
 lang: ja
 recommendations: [/ja/note/master-graduate/, /ja/note/hivemall-on-docker/, /ja/note/yahoo-egads/]

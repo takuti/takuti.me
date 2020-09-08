@@ -1,6 +1,6 @@
 ---
 aliases: [/note/nand2tetris/]
-categories: [本, プログラミング, システム]
+categories: [読書記録, プログラミング, コンピュータシステム]
 date: 2017-05-21
 lang: ja
 recommendations: [/ja/note/cognitive-science-and-behavioral-economics/, /ja/note/recommender-libraries/,

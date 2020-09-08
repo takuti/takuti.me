@@ -1,5 +1,5 @@
 ---
-categories: [programming]
+categories: [Programming]
 date: 2017-06-26
 lang: en
 recommendations: [/note/move-to-gh-pages/, /note/hello-netlify/, /note/hugo-markdown-and-mathjax/]

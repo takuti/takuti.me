@@ -1,7 +1,8 @@
 ---
-categories: [design]
+categories: [Design]
 date: 2020-08-16
 lang: en
+recommendations: [/note/revisit-design-thinking/, /note/learn-how-others-work/, /note/technique-producing-ideas/]
 title: Language as a Design Tool
 ---
 

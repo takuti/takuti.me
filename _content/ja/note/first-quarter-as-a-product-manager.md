@@ -1,5 +1,5 @@
 ---
-categories: [日記]
+categories: [エッセイ]
 date: 2020-07-11
 lang: ja
 recommendations: [/ja/note/design-engineer/, /ja/note/cognitive-science-and-behavioral-economics/,

@@ -1,6 +1,6 @@
 ---
 aliases: [/note/acroquest-javabook/]
-categories: [本, プログラミング]
+categories: [読書記録, プログラミング]
 date: 2017-12-01
 lang: ja
 recommendations: [/ja/note/adjusting-for-oversampling-and-undersampling/, /ja/note/python-concurrent-futures/,

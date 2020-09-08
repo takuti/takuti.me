@@ -1,6 +1,6 @@
 ---
 aliases: [/note/todays-art-taro.html]
-categories: [本]
+categories: [読書記録]
 date: 2014-02-28
 lang: ja
 recommendations: [/ja/note/life-with-covid-19/, /ja/note/6brains-of-the-world/, /ja/note/think/]

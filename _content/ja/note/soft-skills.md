@@ -1,6 +1,6 @@
 ---
 aliases: [/note/soft-skills/]
-categories: [本]
+categories: [読書記録]
 date: 2017-07-02
 lang: ja
 recommendations: [/ja/note/first-quarter-as-a-product-manager/, /ja/note/dmm-eikaiwa/,

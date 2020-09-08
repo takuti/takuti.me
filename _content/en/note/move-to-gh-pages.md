@@ -1,5 +1,5 @@
 ---
-categories: [programming]
+categories: [Programming]
 date: 2017-04-30
 lang: en
 recommendations: [/note/travis-gh-pages-deployment/, /note/hello-netlify/, /note/hugo-markdown-and-mathjax/]

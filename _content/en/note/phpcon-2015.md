@@ -1,5 +1,5 @@
 ---
-categories: [conference]
+categories: [Conference]
 date: 2015-10-04
 lang: en
 recommendations: [/note/pyconjp-2015/, /note/mlss-kyoto-2015/, /note/mlconf-sf-2018/]

@@ -1,5 +1,5 @@
 ---
-categories: [diary]
+categories: [Essay]
 date: 2020-04-18
 lang: en
 recommendations: [/note/fermenting-thoughts/, /note/stop-drinking-alone/, /note/life-with-broken-iphone/]

@@ -1,5 +1,5 @@
 ---
-categories: [diary]
+categories: [Essay]
 date: 2020-05-01
 lang: en
 recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/revisit-design-thinking/]

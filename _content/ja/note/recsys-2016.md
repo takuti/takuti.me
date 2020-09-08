@@ -1,6 +1,6 @@
 ---
 aliases: [/note/recsys-2016/]
-categories: [情報推薦, カンファレンス]
+categories: [情報推薦, イベント参加記]
 date: 2016-09-28
 lang: ja
 recommendations: [/ja/note/master-graduate/, /ja/note/trends-in-real-world-recommender-systems-2017/,

@@ -1,9 +1,9 @@
 ---
-categories: [diary]
+categories: [Essay]
 date: 2020-05-31
 lang: en
-recommendations: [/note/becoming-a-product-manager/, /note/revisit-design-thinking/,
-  /note/coursera-scala-capstone/]
+recommendations: [/note/becoming-a-product-manager/, /note/machine-learning-product/,
+  /note/language-as-a-design-tool/]
 title: Don't "Guess" How People in Other Roles Work
 ---
 

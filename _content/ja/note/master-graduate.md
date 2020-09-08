@@ -1,6 +1,6 @@
 ---
 aliases: [/note/master-graduate/]
-categories: [日記, 機械学習]
+categories: [エッセイ, 機械学習]
 date: 2017-03-31
 lang: ja
 recommendations: [/ja/note/recsys-2016/, /ja/note/trends-in-real-world-recommender-systems-2017/,

@@ -1,5 +1,5 @@
 ---
-categories: [machine learning]
+categories: [Machine Learning]
 date: 2015-04-21
 lang: en
 recommendations: [/note/hugo-kramdown-and-katex/, /note/mlss-kyoto-2015/, /note/data-leaders-summit-europe-2019/]

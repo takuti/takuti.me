@@ -1,8 +1,8 @@
 ---
-categories: [日記]
+categories: [エッセイ]
 date: 2020-07-31
 lang: ja
-recommendations: [/ja/note/room-hunting-202006/, /ja/note/think/, /ja/note/feel/]
+recommendations: [/ja/note/oyo-life-202008/, /ja/note/room-hunting-202006/, /ja/note/think/]
 title: 軽やかに生きたくて。
 ---
 

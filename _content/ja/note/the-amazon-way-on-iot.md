@@ -1,6 +1,6 @@
 ---
 aliases: [/note/the-amazon-way-on-iot/]
-categories: [本]
+categories: [読書記録]
 date: 2017-10-06
 lang: ja
 recommendations: [/ja/note/amazon-dynamo-paper/, /ja/note/trends-in-real-world-recommender-systems-2017/,

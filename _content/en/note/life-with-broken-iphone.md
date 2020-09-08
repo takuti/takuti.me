@@ -1,5 +1,5 @@
 ---
-categories: [diary]
+categories: [Essay]
 date: 2020-04-04
 lang: en
 recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/mlss-kyoto-2015/]

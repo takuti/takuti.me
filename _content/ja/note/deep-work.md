@@ -1,6 +1,6 @@
 ---
 aliases: [/note/deep-work/]
-categories: [本]
+categories: [読書記録]
 date: 2017-03-25
 lang: ja
 recommendations: [/ja/note/life-with-covid-19/, /ja/note/dmm-eikaiwa/, /ja/note/soft-skills/]

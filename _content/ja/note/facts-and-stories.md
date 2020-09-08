@@ -1,5 +1,5 @@
 ---
-categories: [日記, デザイン]
+categories: [エッセイ, デザイン]
 date: 2020-04-25
 lang: ja
 recommendations: [/ja/note/tech-design-story/, /ja/note/cognitive-science-and-behavioral-economics/,

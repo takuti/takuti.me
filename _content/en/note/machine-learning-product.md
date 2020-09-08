@@ -1,7 +1,9 @@
 ---
-categories: [machine learning]
+categories: [Machine Learning]
 date: 2020-08-29
 lang: en
+recommendations: [/note/learn-how-others-work/, /note/becoming-a-product-manager/,
+  /note/fermenting-thoughts/]
 title: What I Think About When I Talk About ML Product
 ---
 

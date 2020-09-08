@@ -1,6 +1,6 @@
 ---
 aliases: [/note/rule-based-ai/]
-categories: [機械学習, 日記, データサイエンス]
+categories: [機械学習, エッセイ, データサイエンス]
 date: 2017-10-21
 lang: ja
 recommendations: [/ja/note/from-cloud-to-ai/, /ja/note/2020/, /ja/note/the-amazon-way-on-iot/]

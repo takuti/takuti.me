@@ -1,8 +1,8 @@
 ---
-categories: [diary, reading]
+categories: [Essay, Book]
 date: 2020-01-05
 lang: en
-recommendations: [/note/revisit-design-thinking/, /note/fermenting-thoughts/, /note/mlss-kyoto-2015/]
+recommendations: [/note/revisit-design-thinking/, /note/fermenting-thoughts/, /note/language-as-a-design-tool/]
 title: How to Produce Ideas
 ---
 

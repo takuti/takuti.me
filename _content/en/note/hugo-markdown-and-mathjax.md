@@ -1,5 +1,5 @@
 ---
-categories: [programming]
+categories: [Programming]
 date: 2015-10-19
 lang: en
 recommendations: [/note/hugo-kramdown-and-katex/, /note/travis-gh-pages-deployment/,

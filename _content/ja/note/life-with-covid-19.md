@@ -1,5 +1,5 @@
 ---
-categories: [日記]
+categories: [エッセイ]
 date: 2020-04-30
 lang: ja
 recommendations: [/ja/note/deep-work/, /ja/note/think/, /ja/note/todays-art-taro/]

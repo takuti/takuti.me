@@ -1,5 +1,5 @@
 ---
-categories: [diary]
+categories: [Essay]
 date: 2019-09-08
 lang: en
 recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/coursera-scala-capstone/]

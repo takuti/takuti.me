@@ -1,5 +1,5 @@
 ---
-categories: [デザイン, 本, データサイエンス]
+categories: [デザイン, 読書記録, データサイエンス]
 date: 2020-05-16
 lang: ja
 recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/2020/]

@@ -1,8 +1,8 @@
 ---
-categories: [programming]
+categories: [Programming]
 date: 2017-02-25
 lang: en
-recommendations: [/note/coursera-scala-capstone/, /note/mlss-kyoto-2015/, /note/spark-rdd-cached-vs-uncached/]
+recommendations: [/note/coursera-scala-capstone/, /note/mlss-kyoto-2015/, /note/phpcon-2015/]
 title: Parallel Programming vs. Concurrent Programming
 ---
 

@@ -1,5 +1,5 @@
 ---
-categories: [diary]
+categories: [Essay]
 date: 2017-01-07
 lang: en
 recommendations: [/note/hello-english/, /note/coursera-scala-capstone/, /note/mlss-kyoto-2015/]

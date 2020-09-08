@@ -1,5 +1,5 @@
 ---
-categories: [conference]
+categories: [Conference]
 date: 2019-11-17
 lang: en
 recommendations: [/note/becoming-a-product-manager/, /note/apachecon-2019/, /note/data-leaders-summit-europe-2019/]

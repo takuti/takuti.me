@@ -1,5 +1,5 @@
 ---
-categories: [conference, data science]
+categories: [Conference, Data Science]
 date: 2019-11-10
 lang: en
 recommendations: [/note/augmented-analytics/, /note/hivemall-events-2018-autumn/,

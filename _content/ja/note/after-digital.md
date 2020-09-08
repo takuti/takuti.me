@@ -1,6 +1,6 @@
 ---
 aliases: [/note/after-digital/]
-categories: [本, デザイン, データサイエンス]
+categories: [読書記録, デザイン, データサイエンス]
 date: 2020-02-20
 lang: ja
 recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/cognitive-science-and-behavioral-economics/]

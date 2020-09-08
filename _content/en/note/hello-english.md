@@ -1,5 +1,5 @@
 ---
-categories: [diary]
+categories: [Essay]
 date: 2014-11-09
 lang: en
 recommendations: [/note/new-year-resolution-2017/, /note/move-to-gh-pages/, /note/travis-gh-pages-deployment/]

@@ -1,6 +1,6 @@
 ---
 aliases: [/note/data-stream-mining/]
-categories: [機械学習, システム]
+categories: [機械学習, コンピュータシステム]
 date: 2015-12-08
 lang: ja
 recommendations: [/ja/note/leakage/, /ja/note/designing-data-intensive-applications/,

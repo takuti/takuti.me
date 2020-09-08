@@ -1,8 +1,9 @@
 ---
-categories: [日記]
+categories: [エッセイ]
 date: 2020-08-21
 lang: ja
-title: "程よく疎な隅田川の東側で、ものたりない夏を静かに過ごす #オヨライフ"
+recommendations: [/ja/note/oyo-life-202007/, /ja/note/room-hunting-202006/, /ja/note/think/]
+title: '程よく疎な隅田川の東側で、ものたりない夏を静かに過ごす #オヨライフ'
 ---
 
 ものたりない、2020年の夏。

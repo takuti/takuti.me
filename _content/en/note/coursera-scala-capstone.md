@@ -1,8 +1,8 @@
 ---
-categories: [programming]
+categories: [Programming]
 date: 2020-05-26
 lang: en
-recommendations: [/note/learn-how-others-work/, /note/parallel-vs-concurrent/, /note/spark-rdd-cached-vs-uncached/]
+recommendations: [/note/parallel-vs-concurrent/, /note/learn-how-others-work/, /note/spark-rdd-cached-vs-uncached/]
 title: Completed Functional Programming in Scala Specialization on Coursera, Finally
 ---
 

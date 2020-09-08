@@ -1,5 +1,5 @@
 ---
-categories: [recommender systems, programming]
+categories: [Recommender Systems, Programming]
 date: 2019-01-14
 lang: en
 recommendations: [/note/flurs/, /note/recommendation-julia/, /note/recommendation-julia-documenter/]

@@ -1,8 +1,8 @@
 ---
-categories: [machine learning]
+categories: [Machine Learning]
 date: 2015-10-03
 lang: en
-recommendations: [/note/learn-how-others-work/, /note/fermenting-thoughts/, /note/mlconf-sf-2018/]
+recommendations: [/note/fermenting-thoughts/, /note/mlconf-sf-2018/, /note/phpcon-2015/]
 title: 'Machine Learning Summer School 2015 Kyoto #MLSSKYOTO'
 ---
 

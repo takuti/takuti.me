@@ -1,6 +1,6 @@
 ---
 aliases: [/note/euroscipy-2017/]
-categories: [プログラミング, カンファレンス]
+categories: [プログラミング, イベント参加記]
 date: 2017-09-02
 lang: ja
 recommendations: [/ja/note/pytorch-autograd/, /ja/note/master-graduate/, /ja/note/chiir-2017/]

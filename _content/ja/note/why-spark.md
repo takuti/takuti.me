@@ -1,6 +1,6 @@
 ---
 aliases: [/note/why-spark/]
-categories: [システム, プログラミング]
+categories: [コンピュータシステム, プログラミング]
 date: 2017-04-09
 lang: ja
 recommendations: [/ja/note/coursera-scala-specialization/, /ja/note/dynamo-style/,

@@ -1,10 +1,9 @@
 ---
-categories: [programming, recommender systems]
+categories: [Programming, Recommender Systems]
 date: 2019-07-26
 draft: true
 lang: en
-recommendations: [/note/revisit-design-thinking/, /note/hugo-markdown-and-mathjax/,
-  /note/issue-driven/]
+recommendations: [/note/hugo-kramdown-and-katex/, /note/stop-drinking-alone/, /note/hugo-markdown-and-mathjax/]
 title: Factorization Machines in Julia
 ---
 

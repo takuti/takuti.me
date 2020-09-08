@@ -7,7 +7,7 @@
     <a href="{{ "/" | absLangURL }}">Home</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
     <a href="{{ "/note" | absLangURL }}">Blog</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
     {{ range $i, $v := (.GetTerms "categories") }}
-    {{ if not (eq $i 0) }}, {{ end }}<a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+    {{ if not (eq $i 0) }}/ {{ end }}<a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
     {{ end }}&nbsp;&nbsp;&gt;&nbsp;&nbsp;
     <a href="{{ .Permalink }}">{{ .Title }}</a>
   </p>

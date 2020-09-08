@@ -1,6 +1,6 @@
 ---
 aliases: [/note/td-tech-talk-plazma/]
-categories: [機械学習, 自然言語処理, カンファレンス]
+categories: [機械学習, 自然言語処理, イベント参加記]
 date: 2018-02-25
 lang: ja
 recommendations: [/ja/note/trends-in-real-world-recommender-systems-2017/, /ja/note/2020/,

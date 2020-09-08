@@ -1,8 +1,9 @@
 ---
-categories: [design]
+categories: [Design]
 date: 2020-01-26
 lang: en
-recommendations: [/note/technique-producing-ideas/, /note/fermenting-thoughts/, /note/learn-how-others-work/]
+recommendations: [/note/technique-producing-ideas/, /note/language-as-a-design-tool/,
+  /note/fermenting-thoughts/]
 title: Design Thinking = Capturing the World Like a Designer
 ---
 

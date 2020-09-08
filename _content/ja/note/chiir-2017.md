@@ -1,6 +1,6 @@
 ---
 aliases: [/note/chiir-2017/]
-categories: [機械学習, 情報推薦, カンファレンス]
+categories: [機械学習, 情報推薦, イベント参加記]
 date: 2017-03-18
 lang: ja
 recommendations: [/ja/note/master-graduate/, /ja/note/recsys-2016/, /ja/note/euroscipy-2017/]

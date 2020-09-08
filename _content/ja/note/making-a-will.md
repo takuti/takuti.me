@@ -1,6 +1,6 @@
 ---
 aliases: [/note/making-a-will/]
-categories: [日記]
+categories: [エッセイ]
 date: 2020-05-22
 lang: ja
 recommendations: [/ja/note/think/, /ja/note/life-with-covid-19/, /ja/note/feel/]

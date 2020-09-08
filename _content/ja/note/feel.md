@@ -1,5 +1,5 @@
 ---
-categories: [日記]
+categories: [エッセイ]
 date: 2020-07-28
 lang: ja
 recommendations: [/ja/note/think/, /ja/note/life-with-covid-19/, /ja/note/first-quarter-as-a-product-manager/]

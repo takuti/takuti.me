@@ -1,6 +1,6 @@
 ---
 aliases: [/note/practical-machine-learning/]
-categories: [機械学習, 本, 情報推薦]
+categories: [機械学習, 読書記録, 情報推薦]
 date: 2014-09-01
 description: 無料で公開されている電子書籍『実践 機械学習』の原著のほうを読みました。
 keywords: [機械学習, オライリー, 実践機械学習, レコメンデーション, 協調フィルタリング]

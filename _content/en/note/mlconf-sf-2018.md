@@ -1,5 +1,5 @@
 ---
-categories: [conference, machine learning]
+categories: [Conference, Machine Learning]
 date: 2018-11-22
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/mlss-kyoto-2015/, /note/umap-2019/]

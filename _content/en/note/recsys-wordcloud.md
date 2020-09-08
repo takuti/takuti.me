@@ -1,5 +1,5 @@
 ---
-categories: [recommender systems, programming]
+categories: [Recommender Systems, Programming]
 date: 2017-11-11
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/hello-faust/, /note/recommendation-julia-documenter/]

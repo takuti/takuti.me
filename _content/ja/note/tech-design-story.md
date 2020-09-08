@@ -1,6 +1,6 @@
 ---
 aliases: [/note/tech-design-story/]
-categories: [デザイン, 本, データサイエンス]
+categories: [デザイン, 読書記録, データサイエンス]
 date: 2019-10-14
 lang: ja
 recommendations: [/ja/note/design-engineer/, /ja/note/after-digital/, /ja/note/2020/]

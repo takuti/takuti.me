@@ -1,5 +1,5 @@
 ---
-categories: [diary]
+categories: [Essay]
 date: 2020-03-29
 lang: en
 recommendations: [/note/working-from-home-202004/, /note/technique-producing-ideas/,

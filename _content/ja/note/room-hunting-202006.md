@@ -1,8 +1,8 @@
 ---
-categories: [日記]
+categories: [エッセイ]
 date: 2020-07-05
 lang: ja
-recommendations: [/ja/note/oyo-life-202007/, /ja/note/hello-jekyll/, /ja/note/think/]
+recommendations: [/ja/note/oyo-life-202007/, /ja/note/oyo-life-202008/, /ja/note/hello-jekyll/]
 title: まっさらな地図を手に入れた
 ---
 

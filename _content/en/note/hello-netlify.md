@@ -1,5 +1,5 @@
 ---
-categories: [programming]
+categories: [Programming]
 date: 2019-08-31
 lang: en
 recommendations: [/note/move-to-gh-pages/, /note/travis-gh-pages-deployment/, /note/hugo-markdown-and-mathjax/]
