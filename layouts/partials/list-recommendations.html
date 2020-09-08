@@ -17,9 +17,6 @@
   <span class="date">
     {{ .Date.Format "2006-01-02" }}
   </span>
-  {{ range first 1 (.GetTerms "categories") }}
-  <a href="{{ .Permalink }}" class="category">{{ .LinkTitle }}</a>
-  {{ end }}
   </dt>
   <dd>
     <a href="{{ .Permalink }}">{{ .Title }}</a>
