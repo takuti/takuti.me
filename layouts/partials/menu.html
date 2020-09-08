@@ -6,7 +6,7 @@
   <span class="right">
     <a href="{{ "/" | absLangURL }}">About</a>
     <span class="menu__single">
-      <a href="{{ "/note" | absLangURL }}" class="init-bottom">Blog</a><i class="fas fa-angle-down"></i>
+      <a href="{{ "/note" | absLangURL }}" class="init-bottom">Blog&nbsp;&nbsp;<i class="fas fa-angle-down"></i></a>
       <ul class="menu__second-level">
         {{range ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
          <li><a href="{{.Permalink}}">{{.Title}}</a>
