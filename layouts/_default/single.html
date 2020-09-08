@@ -3,30 +3,36 @@
 <div id="container">
 
 <article>
+  <p class="in-article-box meta">
+    <a href="{{ "/" | absLangURL }}">Home</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+    <a href="{{ "/note" | absLangURL }}">Blog</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+    {{ range first 1 (.GetTerms "categories") }}
+    <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+    {{ end }}&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </p>
   <p class="meta">
     {{ .Date.Format "January 2, 2006" }}
-    {{ range (.GetTerms "categories") }}
-    / <a href="{{ .Permalink }}" class="category">{{ .LinkTitle }}</a>
-    {{ end }}
   </p>
   <h2>{{ .Title }}</h2>
 
   <div class="post">
-    {{ .Content }}
     {{ partial "social.html" . }}
+    {{ .Content }}
+    <span class="in-article-box">
+      {{ partial "author.html" . }}
+    </span>
+    {{ partial "social.html" . }}
+    <span class="in-article-box">
+      {{ partial "list-recommendations.html" . }}
+    </span>
   </div>
-
-  {{ partial "ad-horizontal.html" . }}
-
-  <h4><i class="fas fa-search"></i>&nbsp;&nbsp;See also</h4>
-  {{ partial "list-recommendations.html" . }}
 
 </article>
 <!-- AMP -->
 <amp-auto-ads type="adsense"
               data-ad-client="ca-pub-7190463694419594">
 </amp-auto-ads>
-{{ partial "author.html" . }}
 </div>
 
 {{ partial "footer.html" . }}

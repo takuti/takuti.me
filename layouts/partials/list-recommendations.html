@@ -1,12 +1,29 @@
-<ul>
+<h4><i class="fas fa-search"></i>&nbsp;&nbsp;See also</h4>
+<dl class="entry-list">
 {{ if isset .Params "recommendations" }}
   {{ range where (where .Site.RegularPages "Section" "note") "RelPermalink" "in" .Params.recommendations }}
-  <li><a href="{{ .Permalink }}">{{ .Title }}</a>
+  <dt>
+  <span class="date">
+    {{ .Date.Format "2006-01-02" }}
+  </span>
+  </dt>
+  <dd>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </dd>
   {{ end }}
 {{ else }}
   {{ range first 3 (where (where .Site.RegularPages "Section" "note") "Permalink" "!=" .Page.Permalink) }}
-  <li><a href="{{ .Permalink }}">{{ .Title }}</a>
+  <dt>
+  <span class="date">
+    {{ .Date.Format "2006-01-02" }}
+  </span>
+  {{ range first 1 (.GetTerms "categories") }}
+  <a href="{{ .Permalink }}" class="category">{{ .LinkTitle }}</a>
+  {{ end }}
+  </dt>
+  <dd>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </dd>
   {{ end }}
 {{ end }}
-</ul>
-<a href="{{ .Site.LanguagePrefix }}/note">&raquo; more</a>
+</dl>

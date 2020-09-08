@@ -103,16 +103,26 @@ article {
   }
 
   p.meta {
-    margin-bottom: 0;
-    color: lighten($color-black, 20%);
-
     a {
-      color: lighten($color-black, 20%);
+      color: $color-black;
+
+      &:hover {
+        text-decoration: none;
+      }
 
       &:visited {
-        color: lighten($color-black, 20%);
+        color: $color-black;
       }
     }
+  }
+
+  .in-article-box {
+    display: block;
+    font-size: 0.9em;
+
+    padding: 1em;
+    margin: 3em 0;
+    box-shadow: 0 0px 2px rgba(0,0,0,0.2);
   }
 
   .katex {
