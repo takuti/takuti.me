@@ -1,5 +1,5 @@
 <dl class="entry-list">
-  {{ range (where .Site.RegularPages "Section" "work")}}
+  {{ range first 5 (where .Site.RegularPages "Section" "work")}}
   <dt>
   <span class="date">
     {{ .Params.meta }}
@@ -10,3 +10,4 @@
   </dd>
 {{ end }}
 </dl>
+<a href="{{ .Site.LanguagePrefix }}/work/" class="btn"><i class="fas fa-angle-right"></i>&nbsp;&nbsp;More</a>
