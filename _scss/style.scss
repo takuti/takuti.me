@@ -176,12 +176,13 @@ nav {
 
     .menu__single {
       font-size: 0.9em;
+      position: relative;
 
       ul.menu__second-level {
         position: absolute;
         top: 30px;
-        left: 60%;
-        width: 40%;
+        left: -200%;
+        width: 300%;
         background: lighten($color-black, 75%);
         -webkit-transition: all .2s ease;
         transition: all .2s ease;
@@ -210,7 +211,7 @@ nav {
       }
 
       &:hover ul.menu__second-level {
-        top: 45px;
+        top: 30px;
         visibility: visible;
         opacity: 1;
       }
