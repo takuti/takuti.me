@@ -1,5 +1,4 @@
 const header = document.getElementsByTagName("header")[0];
-console.log(header);
 
 const hH = header.clientHeight;
 const winH = window.innerHeight;
