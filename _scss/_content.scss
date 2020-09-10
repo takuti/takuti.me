@@ -1,0 +1,114 @@
+#container {
+  width: $content-width;
+  max-width: 90%;
+  margin: 100px auto 50px;
+
+  span.iframe-container {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    margin-bottom: 2em;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  a.btn {
+    display: inline-block;
+    padding: 0.2em 0.75em;
+    color: #fff;
+    background-color: $color-black;
+    border-radius: 4px;
+    text-decoration: none;
+
+    &:visited {
+      color: #fff;
+    }
+
+    &:hover {
+      background-color: $color-dark-blue;
+    }
+  }
+
+  ul {
+    margin-left: 0;
+    padding-left: 1.5em;
+
+    li {
+      margin-bottom: 0.2em;
+    }
+  }
+
+  dl.entry-list {
+    a {
+      color: $color-black;
+
+      &:visited {
+        color: $color-black;
+      }
+
+      &:hover {
+        text-decoration: none;
+        color: $color-dark-blue;
+      }
+    }
+
+    .date {
+      display: inline-block;
+    }
+
+    dt {
+      padding-top: 0.5em;
+      font-size: 0.8em;
+      color: lighten($color-black, 40%);
+    }
+
+    dd {
+      margin: 0;
+      padding: 0 0 0.5em;
+      font-weight: bold;
+    }
+  }
+
+  blockquote {
+    padding-left: 15px;
+    margin-bottom: 1em;
+
+    & > p {
+      margin-left: -15px;
+      padding: 1em;
+      background: lighten($color-black, 75%);
+      border-left: 3px solid #eee;
+    }
+  }
+
+  .outer-box {
+    display: block;
+    font-size: 0.9em;
+    padding: 1em;
+    margin: 3em 0;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .category {
+    display: inline-block;
+    padding: 0 0.75em;
+    margin: 0.8em 0 0 0.4em;
+    border-radius: 4px;
+    text-decoration: none;
+    background-color: lighten($color-black, 64%);
+    color: $color-black;
+
+    &:hover {
+      background-color: $color-black;
+      color: #fff;
+    }
+  }
+}

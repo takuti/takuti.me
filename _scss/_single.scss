@@ -1,0 +1,38 @@
+article {
+  margin: 0 auto 50px;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  p.meta {
+    a {
+      color: $color-black;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      &:visited {
+        color: $color-black;
+      }
+    }
+  }
+
+  .katex {
+    font-size: $default-font-size;
+  }
+
+  img {
+    display: block;
+    margin: 0.5em 0;
+    max-width: 100%;
+  }
+
+  [id^="fn_"],
+  [id*=" fn_"] {
+    font-size: 0.8em;
+    margin: 2em 0;
+    color: lighten($color-black, 10%);
+  }
+}

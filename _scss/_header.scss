@@ -1,0 +1,117 @@
+header {
+  width: 100%;
+  position: fixed;
+  background: #fff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+  top: 0;
+  left: 0;
+  z-index: 100;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+}
+
+.header-unpinned {
+  -webkit-transform: translateY(-150%);
+  transform: translateY(-150%);
+}
+
+nav {
+  width: $content-width;
+  margin: 0 auto;
+  padding: 16px 0;
+
+  a {
+    display: inline-block;
+    margin: 0 16px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    text-align: right;
+    font-weight: bold;
+    color: $color-black;
+
+    &:visited {
+      color: $color-black;
+    }
+
+    &:hover {
+      color: $color-black;
+      text-decoration: none;
+    }
+
+    i.fas {
+      vertical-align: middle;
+    }
+  }
+
+  .left {
+    height: 24px;
+    padding: 0;
+
+    img {
+      width: 24px;
+      vertical-align: middle;
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    height: 28px;
+    float: right;
+    position: relative;
+
+    .menu__single {
+      font-size: 0.9em;
+
+      ul.menu__second-level {
+        position: absolute;
+        top: 29px;
+        right: 0;
+        width: 256px;
+        background: #fff;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        padding: 0;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+
+        li {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          border-bottom: 1px solid lighten($color-black, 70%);
+
+          a {
+            display: inline-box;
+            text-align: center;
+            padding: 1em 0;
+            width: 100%;
+
+            &:hover {
+              background: lighten($color-black, 70%);
+            }
+          }
+        }
+
+        visibility: hidden;
+        opacity: 0;
+        z-index: 1;
+      }
+
+      &:hover ul.menu__second-level {
+        top: 29px;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}

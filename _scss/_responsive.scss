@@ -1,0 +1,17 @@
+/* responsive */
+@media screen and (max-width: 960px) {
+  body {
+    width: 100%;
+  }
+
+  #container,
+  footer,
+  nav {
+    padding: 0 5%;
+    width: 90%;
+  }
+
+  nav {
+    padding: 16px 0;
+  }
+}
