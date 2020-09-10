@@ -1,4 +1,4 @@
-<h4><i class="fas fa-search"></i>&nbsp;&nbsp;See also</h4>
+<h4><i class="fas fa-search"></i>&nbsp;&nbsp;{{ i18n "seeAlso" }}</h4>
 <dl class="entry-list">
 {{ if isset .Params "recommendations" }}
   {{ range where (where .Site.RegularPages "Section" "note") "RelPermalink" "in" .Params.recommendations }}

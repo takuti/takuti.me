@@ -1,4 +1,8 @@
-<h4><i class="fas fa-user"></i>&nbsp;&nbsp;About me</h4>
+<h4><i class="fas fa-user"></i>&nbsp;&nbsp;{{ i18n "aboutMe" }}</h4>
 <p>
-<a href="{{ .Site.LanguagePrefix }}"><b>Takuya Kitazawa</b></a> (a.k.a. <b>takuti</b>) is working on machine learning, data science, and product development at <b><a href="https://www.treasuredata.com/" class="post-style" target="_blank" rel="noopener">Arm Treasure Data</a></b>. Opinions are my own.
+{{ .Site.Params.bio | safeHTML }}
+</p>
+<p>
+  <i class="fab fa-twitter"></i>&nbsp;&nbsp;<a href="http://twitter.com/takuti/" target="_blank" rel="noopener">twitter.com/<b>takuti</b></a><br />
+  <i class="fab fa-linkedin"></i>&nbsp;&nbsp;<a href="http://linkedin.com/in/takuti" target="_blank" rel="noopener">linkedin.com/in/<b>takuti</b></a>
 </p>

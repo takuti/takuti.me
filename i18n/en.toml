@@ -1,0 +1,17 @@
+[home]
+other = "Home"
+
+[blog]
+other = "Blog"
+
+[aboutMe]
+other = "Author: Takuya Kitazawa"
+
+[seeAlso]
+other = "See also"
+
+[more]
+other = "More"
+
+[notFound]
+other = "Oops, page not found…"
