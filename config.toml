@@ -3,8 +3,6 @@ canonifyurls = true
 hasCJKLanguage = true
 googleAnalytics = "UA-28919399-2"
 
-paginate = 20
-
 disableKinds = ["taxonomyTerm"]
 
 baseurl = "https://takuti.me"
@@ -28,73 +26,18 @@ DefaultContentLanguage = "en"
     weight = 1
     contentDir = "content/en"
     [languages.en.params]
-      homeSubtitle = "Machine Learning & Data Science Product Developer"
-    [languages.en.params.logo]
-      logoText = "takuti.me"
-      logoHomeLink = "/"
+      bio = 'Takuya Kitazawa (a.k.a. takuti) is working on machine learning, data science, and product development at <a href="http://treasuredata.com/" target="_blank" rel="noopener">Arm Treasure Data</a>. Opinions are my own.'
 
   [languages.ja]
     languageName = "日本語"
     weight = 2
     contentDir = "content/ja"
     [languages.ja.params]
-      homeSubtitle = "データサイエンスエンジニア/プロダクトマネージャー @ Treasure Data"
-    [languages.ja.params.logo]
-      logoText = "takuti.me"
-      logoHomeLink = "/ja"
-
-[menu]
-  [[menu.main]]
-    identifier = "about"
-    name       = "About"
-    url        = "/about"
-  [[menu.main]]
-    identifier = "work"
-    name       = "Work"
-    url        = "/work"
-  [[menu.main]]
-    identifier = "note"
-    name       = "Note"
-    url        = "/note"
+      bio = '<a href="http://treasuredata.co.jp/" target="_blank" rel="noopener">トレジャーデータ</a>で機械学習・プロダクト開発をしています。趣味は旅行、マラソン、登山。お酒が好き。長野県出身。いまは東京都墨田区。（※発言は個人の見解です）'
 
 [author]
   name = "Takuya Kitazawa"
 
 [params]
   description = "Takuya Kitazawa, a product developer at Treasure Data."
-  keywords = "takuti,たくち"
-  images = ["/images/takuti.jpg"]
-
-  defaultTheme = "light"
-  customCSS  = ["/css/style.css"]
-  EnableSharingButtons = true
-
-  [params.portrait]
-    path     = "/images/takuti.jpg"
-    alt      = "Portrait"
-    maxWidth = "128px"
-
-  # Social icons
-  [[params.social]]
-    name = "twitter"
-    url  = "https://twitter.com/takuti/"
-
-  [[params.social]]
-    name = "email"
-    url  = "mailto:k.takuti@gmail.com"
-
-  [[params.social]]
-    name = "github"
-    url  = "https://github.com/takuti"
-
-  [[params.social]]
-    name = "linkedin"
-    url  = "https://linkedin.com/in/takuti"
-
-  [[params.social]]
-    name = "instagram"
-    url  = "https://instagram.com/takuti/"
-
-  [[params.social]]
-    name = "youtube"
-    url  = "https://www.youtube.com/playlist?list=PLlPB-75bA51dGSvPdvkciCrQEi266Xjha"
+  keywords = "Takuya Kitazawa,takuti,たくち,Machine Learning,機械学習,Recommender Systems,推薦システム,Data Science,データサイエンス"
