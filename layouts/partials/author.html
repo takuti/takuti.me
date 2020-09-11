@@ -1,6 +1,6 @@
-<h4><i class="fas fa-user"></i>&nbsp;&nbsp;{{ i18n "aboutMe" }}</h4>
+<h4><i class="fas fa-user"></i>&nbsp;&nbsp;{{ i18n "author" }}: {{ .Site.Params.name }}</h4>
 <p>
-{{ .Site.Params.bio | safeHTML }}
+{{ .Site.Params.bio | safeHTML }} {{ i18n "disclaimer" }}
 </p>
 <p>
   <i class="fab fa-twitter"></i>&nbsp;&nbsp;<a href="http://twitter.com/takuti/" target="_blank" rel="noopener">twitter.com/<b>takuti</b></a><br />

@@ -4,8 +4,11 @@ other = "Home"
 [blog]
 other = "Blog"
 
-[aboutMe]
-other = "Author: Takuya Kitazawa"
+[author]
+other = "Author"
+
+[disclaimer]
+other = "Opinions are my own."
 
 [seeAlso]
 other = "See also"

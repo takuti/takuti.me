@@ -4,8 +4,11 @@ other = "ホーム"
 [blog]
 other = "ブログ"
 
-[aboutMe]
-other = "書いた人：たくち"
+[author]
+other = "書いた人"
+
+[disclaimer]
+other = "（※発言は個人の見解です）"
 
 [seeAlso]
 other = "あわせて読みたい"
