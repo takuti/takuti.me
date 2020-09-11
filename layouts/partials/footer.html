@@ -31,7 +31,8 @@
       for (var i = 0; i < displayMathArray.length; i++) {
         var displayMath = displayMathArray[i];
         var tex = displayMath.innerHTML;
-        var replaced = document.createElement("span");
+        var replaced = document.createElement("div");
+        replaced.style.cssText = "overflow-x: scroll;"
         replaced.innerHTML = katex.renderToString(tex.replace(/%.*/g, ''), {displayMode: true});
         displayMath.parentNode.replaceChild(replaced, displayMath);
       }
