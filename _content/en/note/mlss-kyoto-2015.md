@@ -1,6 +1,8 @@
 ---
 categories: [Machine Learning]
 date: 2015-10-03
+keywords: [optimization, learning, learn, really, aspects, theoretical, professor,
+  random, representation, problems]
 lang: en
 recommendations: [/note/fermenting-thoughts/, /note/mlconf-sf-2018/, /note/phpcon-2015/]
 title: 'Machine Learning Summer School 2015 Kyoto #MLSSKYOTO'

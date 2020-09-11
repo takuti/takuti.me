@@ -1,6 +1,7 @@
 ---
 categories: [エッセイ, 読書記録]
 date: 2020-06-21
+keywords: [問題, 考える, はじめて, 考え, イシュー, スーパー, mdash, 自分, 答え, note]
 lang: ja
 recommendations: [/ja/note/life-with-covid-19/, /ja/note/feel/, /ja/note/cognitive-science-and-behavioral-economics/]
 title: 「考えること」

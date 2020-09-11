@@ -67,16 +67,23 @@ def recommend_content_based_cf(paths, topk=3):
 
     # build model
     vectorizer = TfidfVectorizer(max_df=0.95, min_df=2, tokenizer=tokenizer, stop_words='english')
+
     tfidf = vectorizer.fit_transform(samples)
+
+    indices = tfidf.toarray().argsort(axis=1)[:, ::-1]
+    keywords = np.array(vectorizer.get_feature_names())[indices]
+
     similarities = cosine_similarity(tfidf)
 
     for i, path in enumerate(paths):
         # find top-k most-similar articles (except for target article itself which is similarity=1.0)
         top_indices = np.argsort(similarities[i, :])[::-1][1:(topk + 1)]
-        yield (path, [path_to_permalink(paths[j]) for j in top_indices])
+        recommend_permalinks = [path_to_permalink(paths[j]) for j in top_indices]
+
+        yield (path, keywords[i, :10].tolist(), recommend_permalinks)
 
 
-def process_article(path, recommend_permalinks):
+def process_article(path, keywords, recommend_permalinks):
     with open(path) as f:
         content = f.read()
 
@@ -86,6 +93,7 @@ def process_article(path, recommend_permalinks):
 
     front_matter = yaml.load(m.group(1))
 
+    front_matter['keywords'] = keywords
     front_matter['recommendations'] = recommend_permalinks
     with open(path, 'w') as f:
         f.write(content.replace(m.group(1), yaml.dump(front_matter, allow_unicode=True)))
@@ -95,10 +103,9 @@ def run(lang):
     path_dir = os.path.join(os.path.dirname(__file__), '..', '_content', lang, 'note')
     paths = [os.path.join(path_dir, f) for f in os.listdir(path_dir)]
 
-    rec = recommend_content_based_cf(paths, topk=3)
-
-    for path, recos in rec:
-        process_article(path, recos)
+    res = recommend_content_based_cf(paths, topk=3)
+    for path, keywords, recommend_permalinks in res:
+        process_article(path, keywords, recommend_permalinks)
 
 
 def main():

@@ -2,6 +2,7 @@
 aliases: [/note/euroscipy-2017/]
 categories: [プログラミング, イベント参加記]
 date: 2017-09-02
+keywords: [発表, python, pytorch, euroscipy, カンファレンス, keynote, 飲ん, 参加, パッケージ, 実験]
 lang: ja
 recommendations: [/ja/note/pytorch-autograd/, /ja/note/master-graduate/, /ja/note/chiir-2017/]
 title: EuroSciPy 2017に参加してしゃべってきた

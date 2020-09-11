@@ -1,6 +1,7 @@
 ---
 categories: [Programming]
 date: 2019-08-31
+keywords: [git, pages, github, site, travis, files, publishing, hugo, auto, deployment]
 lang: en
 recommendations: [/note/move-to-gh-pages/, /note/travis-gh-pages-deployment/, /note/hugo-markdown-and-mathjax/]
 title: Hello Netrify for Hosting a Static Site

@@ -1,6 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2020-07-11
+keywords: [チーム, メンバー, 自分, プロダクトマネージャー, 組織, 仲間, 世界, 製品, エンジニア, プロジェクト]
 lang: ja
 recommendations: [/ja/note/design-engineer/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/the-amazon-way-on-iot/]

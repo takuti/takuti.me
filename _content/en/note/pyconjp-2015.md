@@ -1,6 +1,8 @@
 ---
 categories: [Conference]
 date: 2015-10-13
+keywords: [python, talk, possibilities, talks, programming, tools, use, science, click,
+  keynote]
 lang: en
 recommendations: [/note/phpcon-2015/, /note/mlss-kyoto-2015/, /note/hivemall-events-2018-autumn/]
 title: 'PyCon JP 2015 #pyconjp'

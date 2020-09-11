@@ -3,7 +3,7 @@
   <head>
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
-    <meta name=keywords content="{{ if .Keywords }}{{ range .Keywords }}{{ . }}, {{ end }}{{ else }}{{ .Site.Params.keywords }}{{ end }}" />
+    <meta name=keywords content="{{ if .Keywords }}{{ range .Keywords }}{{ . }},{{ end }}{{ else }}{{ .Site.Params.keywords }}{{ end }}" />
     {{ if .IsPage }}
     <meta name=description content="{{ .Summary }}" />
     {{ else }}

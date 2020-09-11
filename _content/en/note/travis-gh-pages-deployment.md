@@ -1,6 +1,8 @@
 ---
 categories: [Programming]
 date: 2017-06-26
+keywords: [travis, repository, deployment, takuti, github, pages, hugo, commit, public,
+  deploy]
 lang: en
 recommendations: [/note/move-to-gh-pages/, /note/hello-netlify/, /note/hugo-markdown-and-mathjax/]
 title: Deploying Static Site to GitHub Pages via Travis CI

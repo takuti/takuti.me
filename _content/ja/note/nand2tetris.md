@@ -2,6 +2,7 @@
 aliases: [/note/nand2tetris/]
 categories: [読書記録, プログラミング, コンピュータシステム]
 date: 2017-05-21
+keywords: [実装, hack, 言語, 娯楽, メモリ, 俯瞰, 感想, ハードウェア, boolean, 本書]
 lang: ja
 recommendations: [/ja/note/cognitive-science-and-behavioral-economics/, /ja/note/recommender-libraries/,
   /ja/note/designing-data-intensive-applications/]

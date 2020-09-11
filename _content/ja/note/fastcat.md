@@ -2,6 +2,7 @@
 aliases: [/note/fastcat/]
 categories: [プログラミング]
 date: 2017-08-06
+keywords: [カテゴリ, computer, wikipedia, データ, 上位, computing, 概念, 公式, 使える, 表現]
 lang: ja
 recommendations: [/ja/note/gensim-jawiki/, /ja/note/job-title-normalization/, /ja/note/leakage/]
 title: ローカルのRedis上でWikipediaカテゴリをシュッとdigる

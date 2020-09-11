@@ -1,6 +1,7 @@
 ---
 categories: [エッセイ, デザイン]
 date: 2020-04-25
+keywords: [ストーリー, 良さ, いいもの, 客観, 主観, 欲しい, 注文, 手動, 料理, 苦労]
 lang: ja
 recommendations: [/ja/note/tech-design-story/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/2020/]

@@ -2,6 +2,7 @@
 aliases: [/note/chiir-2017/]
 categories: [機械学習, 情報推薦, イベント参加記]
 date: 2017-03-18
+keywords: [情報検索, 検索, chiir, ユーザ, 会議, 画像, ノルウェー, 動画, web, 分野]
 lang: ja
 recommendations: [/ja/note/master-graduate/, /ja/note/recsys-2016/, /ja/note/euroscipy-2017/]
 title: '情報検索・インタラクション系の国際会議 CHIIR2017 に参加した #chiir2017'

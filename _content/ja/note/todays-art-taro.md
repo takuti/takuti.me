@@ -2,6 +2,7 @@
 aliases: [/note/todays-art-taro.html]
 categories: [読書記録]
 date: 2014-02-28
+keywords: [芸術, 自由, 僕ら, 生き方, 就活, 自己, 感情, 全力, 正直, 自分]
 lang: ja
 recommendations: [/ja/note/life-with-covid-19/, /ja/note/6brains-of-the-world/, /ja/note/think/]
 title: 岡本太郎に学ぶ、芸術と人生。

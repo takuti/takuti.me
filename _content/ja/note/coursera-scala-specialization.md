@@ -2,6 +2,7 @@
 aliases: [/note/coursera-scala-specialization/]
 categories: [プログラミング]
 date: 2017-10-28
+keywords: [scala, spark, rdd, parallel, functional, 課題, 並列, concurrent, コレクション, コース]
 lang: ja
 recommendations: [/ja/note/why-spark/, /ja/note/python-concurrent-futures/, /ja/note/recommender-libraries/]
 title: Courseraの"Functional Programming in Scala Specialization"を修了した

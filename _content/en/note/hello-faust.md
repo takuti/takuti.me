@@ -1,6 +1,8 @@
 ---
 categories: [Recommender Systems, Programming]
 date: 2019-01-14
+keywords: [recommendation, stream, flurs, incremental, engine, user, streams, python,
+  model, implementation]
 lang: en
 recommendations: [/note/flurs/, /note/recommendation-julia/, /note/recommendation-julia-documenter/]
 title: Feeding User-Item Interactions to Python-Based Streaming Recommendation Engine

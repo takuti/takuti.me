@@ -1,6 +1,8 @@
 ---
 categories: [Design, Data Science]
 date: 2020-04-11
+keywords: [analytics, data, nlp, insights, good, business, scientists, visual, area,
+  generated]
 lang: en
 recommendations: [/note/data-leaders-summit-europe-2019/, /note/hivemall-events-2018-autumn/,
   /note/becoming-a-product-manager/]

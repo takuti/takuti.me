@@ -2,6 +2,7 @@
 aliases: [/note/master-graduate/]
 categories: [エッセイ, 機械学習]
 date: 2017-03-31
+keywords: [インターン, テーマ, 会議, 機械学習, 研究, 投稿, サマースクール, machines, factorization, 指導]
 lang: ja
 recommendations: [/ja/note/recsys-2016/, /ja/note/trends-in-real-world-recommender-systems-2017/,
   /ja/note/td-intern-2016/]
