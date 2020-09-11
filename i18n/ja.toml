@@ -7,6 +7,12 @@ other = "ブログ"
 [author]
 other = "書いた人"
 
+[supportCoffee]
+other = "コーヒーを贈る"
+
+[supportWishlist]
+other = "ほしい物リスト"
+
 [disclaimer]
 other = "（※発言は個人の見解です）"
 

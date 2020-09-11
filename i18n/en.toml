@@ -7,6 +7,12 @@ other = "Blog"
 [author]
 other = "Author"
 
+[supportCoffee]
+other = "Give me a coffee"
+
+[supportWishlist]
+other = "Support from my wishlist"
+
 [disclaimer]
 other = "Opinions are my own."
 
