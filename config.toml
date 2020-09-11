@@ -28,6 +28,7 @@ DefaultContentLanguage = "en"
     [languages.en.params]
       name = "Takuya Kitazawa"
       bio = '<b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>) is working on machine learning, data science, and product development at <a href="http://treasuredata.com/" target="_blank" rel="noopener">Arm Treasure Data</a>.'
+      featured = ["/note/becoming-a-product-manager/", "/note/hivemall-events-2018-autumn/", "/note/parallel-vs-concurrent/"]
 
   [languages.ja]
     languageName = "日本語"
@@ -36,6 +37,7 @@ DefaultContentLanguage = "en"
     [languages.ja.params]
       name = "たくち"
       bio = '<b>たくち</b>です。<a href="http://treasuredata.co.jp/" target="_blank" rel="noopener">トレジャーデータ</a>で機械学習・データサイエンス・プロダクト開発をやっています。趣味は旅行、マラソン、登山。お酒が好き。長野県出身。いまは東京都墨田区。'
+      featured = ["/ja/note/data-science-project-structure/", "/ja/note/two-decades-of-amazon-recommender/", "/ja/note/master-graduate/"]
 
 [author]
   name = "Takuya Kitazawa"

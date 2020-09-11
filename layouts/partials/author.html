@@ -1,11 +1,23 @@
-<h4><i class="fas fa-user"></i>&nbsp;&nbsp;{{ i18n "author" }}: {{ .Site.Params.name }}</h4>
+<h4><i class="fas fa-user"></i>&nbsp;&nbsp;{{ i18n "author" }}: <a href="{{ "/" | absLangURL }}">{{ .Site.Params.name }}</a></h4>
 <p>
 {{ .Site.Params.bio | safeHTML }} {{ i18n "disclaimer" }}
 </p>
+<h4><i class="fas fa-star"></i>&nbsp;&nbsp;{{ i18n "popularArticles" }}</h4>
 <p>
-  <i class="fab fa-twitter"></i>&nbsp;&nbsp;<a href="http://twitter.com/takuti/" target="_blank" rel="noopener">twitter.com/<b>takuti</b></a><br />
-  <i class="fab fa-linkedin"></i>&nbsp;&nbsp;<a href="http://linkedin.com/in/takuti" target="_blank" rel="noopener">linkedin.com/in/<b>takuti</b></a>
+<dl class="entry-list">
+  {{ range where (where .Site.RegularPages "Section" "note") "RelPermalink" "in" .Site.Params.featured }}
+  <dt>
+  <span class="date">
+    {{ .Date.Format "2006-01-02" }}
+  </span>
+  </dt>
+  <dd>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </dd>
+  {{ end }}
+</dl>
 </p>
+<h4><i class="fas fa-gift"></i>&nbsp;&nbsp;{{ i18n "support" }}</h4>
 <p>
   <a href="https://www.buymeacoffee.com/takuti" class="btn" target="_blank" rel="noopener"><i class="fa fa-coffee"></i>&nbsp;&nbsp;{{ i18n "supportCoffee" }}</a>
   <a href="https://www.amazon.jp/hz/wishlist/ls/18KSCRB1ZR3W" class="btn" target="_blank" rel="noopener"><i class="fab fa-amazon"></i>&nbsp;&nbsp;{{ i18n "supportWishlist" }}</a>

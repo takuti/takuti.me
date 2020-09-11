@@ -7,6 +7,12 @@ other = "Blog"
 [author]
 other = "Author"
 
+[popularArticles]
+other = "Popular articles"
+
+[support]
+other = "Support"
+
 [supportCoffee]
 other = "Give me a coffee"
 
