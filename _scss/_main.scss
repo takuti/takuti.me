@@ -3,16 +3,13 @@ body {
   background: #fff;
   min-height: 101%;
   font-size: $default-font-size;
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", Helvetica, Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   line-height: 1.75;
   color: $color-black;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-feature-settings: "kern", "pkna";
-  -moz-font-feature-settings: "kern", "pkna";
-  font-feature-settings: "kern", "pkna";
-  -webkit-font-kerning: normal;
-  font-kerning: normal;
+  font-feature-settings: "liga", "tnum", "case", "calt", "zero", "ss01", "locl";
+  -webkit-text-size-adjust: 100%;
   margin: 0;
   padding: 0;
 }
