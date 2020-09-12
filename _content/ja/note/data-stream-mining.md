@@ -2,7 +2,7 @@
 aliases: [/note/data-stream-mining/]
 categories: [機械学習, コンピュータシステム]
 date: 2015-12-08
-keywords: [データ, スケッチ, 解析, ストリーム, 近似, 手法, 分野, 理論, 推定, 空間]
+keywords: [データ, スケッチ, 解析, ストリーム, 近似, 手法, 分野, 推定, 空間, 理論]
 lang: ja
 recommendations: [/ja/note/leakage/, /ja/note/designing-data-intensive-applications/,
   /ja/note/trends-in-real-world-recommender-systems-2017/]

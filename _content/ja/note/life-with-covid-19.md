@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2020-04-30
-keywords: [deep, 調子, 時間, 昨日, 遠く, 散歩, 人生, 瞬間, 日常, 静か]
+keywords: [調子, deep, 時間, 昨日, 遠く, 散歩, 人生, 瞬間, 日常, 岡本太郎]
 lang: ja
 recommendations: [/ja/note/deep-work/, /ja/note/think/, /ja/note/todays-art-taro/]
 title: 貯金を取り崩しながら生きている感覚

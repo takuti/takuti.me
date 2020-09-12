@@ -2,9 +2,10 @@
 aliases: [/note/design-note-88/]
 categories: [読書記録, デザイン]
 date: 2020-02-29
-keywords: [デザイン, ジャッジ, ブランド, 嫌い, トレーニング, 分析, ストーリー, 練習, センス, 写真]
+keywords: [デザイン, ジャッジ, ブランド, 嫌い, トレーニング, 分析, ストーリー, 練習, 粒度, センス]
 lang: ja
-recommendations: [/ja/note/design-engineer/, /ja/note/tech-design-story/, /ja/note/cognitive-science-and-behavioral-economics/]
+recommendations: [/ja/note/design-engineer/, /ja/note/coursera-ui-ux-specialization/,
+  /ja/note/tech-design-story/]
 title: “好き”を可視化しながら、デザインノート No.88『ブランディングデザインの成功法』を読む
 ---
 

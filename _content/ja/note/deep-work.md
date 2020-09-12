@@ -4,7 +4,7 @@ categories: [読書記録]
 date: 2017-03-25
 keywords: [deep, work, 時間, 集中, 作業, 思考, エッセンシャル, 一定, 主張, 価値]
 lang: ja
-recommendations: [/ja/note/life-with-covid-19/, /ja/note/dmm-eikaiwa/, /ja/note/soft-skills/]
+recommendations: [/ja/note/life-with-covid-19/, /ja/note/dmm-eikaiwa/, /ja/note/coursera-ui-ux-specialization/]
 title: '"Deep Work"を読んだけど微妙だったから皆は"How to Write a Lot"と"エッセンシャル思考"を読めばいい'
 ---
 
