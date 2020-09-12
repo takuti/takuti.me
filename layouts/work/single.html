@@ -3,12 +3,7 @@
 <div id="container">
 
 <article>
-  <p class="meta">
-    {{ .Date.Format "January, 2006" }}
-    {{ range (.GetTerms "categories") }}
-    <a href="{{ .Permalink }}" class="category">{{ .LinkTitle }}</a>
-    {{ end }}
-  </p>
+  {{ .Date.Format "January, 2006" }}
   <h2>{{ .Title }}</h2>
 
   <div class="post">
