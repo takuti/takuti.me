@@ -36,7 +36,7 @@ DefaultContentLanguage = "en"
     contentDir = "content/ja"
     [languages.ja.params]
       name = "たくち"
-      bio = '<b>たくち</b>です。<a href="http://treasuredata.co.jp/" target="_blank" rel="noopener">トレジャーデータ</a>で機械学習・データサイエンス・プロダクト開発をやっています。趣味は旅行、マラソン、登山。お酒が好き。長野県出身。いまは東京都墨田区。'
+      bio = '<b>たくち</b>です。<a href="http://treasuredata.co.jp/" target="_blank" rel="noopener">トレジャーデータ</a>で機械学習・データサイエンス・プロダクト開発をやっています。趣味は旅行、マラソン、登山。コーヒーとお酒とハンバーガーが好き。長野県出身。いまは東京都墨田区。'
       featured = ["/ja/note/data-science-project-structure/", "/ja/note/two-decades-of-amazon-recommender/", "/ja/note/master-graduate/"]
 
 [author]
