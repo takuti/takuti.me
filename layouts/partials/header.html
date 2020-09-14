@@ -18,23 +18,8 @@
         {{ .Title }} | {{ .Site.Title }}
       {{ end }}
     </title>
-    <!-- Start of Open Graph -->
-    <meta property="og:title" content="{{ .Title }}">
-    {{ if .IsPage }}
-    <meta property="og:type" content="article">
-    <meta property="article:published_time" content="{{ .Date.Format "2006-01-02" }}">
-    <meta property="og:description" content="{{ .Summary }}">
-    {{ else }}
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="{{ .Site.Params.description }}">
-    {{ end }}
-    <meta property="og:url" content="{{ .Permalink }}">
-    <meta property="og:site_name" content="{{ .Site.Title }}">
-    <meta property="og:image" content="{{ .Site.BaseURL }}/images/takuti.jpg">
-    {{ range .Params.tags }}
-    <meta property="og:tags" content="{{ . }}">
-    {{ end }}
-    <!-- End of Open Graph -->
+
+    {{ template "_internal/opengraph.html" . }}
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
