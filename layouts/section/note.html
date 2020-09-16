@@ -3,12 +3,27 @@
 <div id="container">
 
 <span class="outer-box">
-<h4><i class="fas fa-folder-open"></i>&nbsp;&nbsp;Categories</h4>
+<h4><i class="fas fa-star"></i>&nbsp;&nbsp;{{ i18n "popularArticles" }}</h4>
+<p>
+<dl class="entry-list">
+  {{ range where (where .Site.RegularPages "Section" "note") "RelPermalink" "in" .Site.Params.featured }}
+  <dt>
+  <span class="date">
+    {{ .Date.Format "2006-01-02" }}
+  </span>
+  </dt>
+  <dd>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </dd>
+  {{ end }}
+</dl>
+</p>
+<h4><i class="fas fa-folder-open"></i>&nbsp;&nbsp;{{ i18n "categories" }}</h4>
 <p>
 {{range ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
-   <a href="{{.Permalink}}" class="category">{{.Title}}</a>
+  <a href="{{.Permalink}}" class="category">{{.Title}}</a>
 {{end}}
- </p>
+</p>
 </span>
 
 <dl class="entry-list">
