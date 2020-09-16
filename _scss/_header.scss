@@ -70,8 +70,6 @@ nav {
     position: relative;
 
     .menu__single {
-      font-size: 0.9em;
-
       ul.menu__second-level {
         position: absolute;
         top: 29px;
@@ -82,6 +80,7 @@ nav {
         transition: all 0.2s ease;
         padding: 0;
         box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+        font-size: 0.9em;
 
         li {
           list-style: none;
