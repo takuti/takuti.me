@@ -4,9 +4,9 @@
 
 <article>
   <p class="outer-box meta">
-    <a href="{{ "/" | absLangURL }}">{{ i18n "home" }}</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-    <a href="{{ "/note" | absLangURL }}">{{ i18n "blog" }}</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-    {{ range $i, $v := (.GetTerms "categories") }}
+    <i class="fas fa-home"></i> <a href="{{ "/" | absLangURL }}">{{ i18n "home" }}</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+    <i class="fas fa-pen"></i> <a href="{{ "/note" | absLangURL }}">{{ i18n "blog" }}</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+    <i class="fas fa-folder-open"></i>{{ range $i, $v := (.GetTerms "categories") }}
     {{ if not (eq $i 0) }}/ {{ end }}<a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
     {{ end }}&nbsp;&nbsp;&gt;&nbsp;&nbsp;
     <a href="{{ .Permalink }}">{{ .Title }}</a>
