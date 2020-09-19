@@ -2,7 +2,7 @@
 aliases: [/note/levenshtein-distance/]
 categories: [プログラミング, 自然言語処理]
 date: 2017-07-28
-keywords: [編集, 距離, 文字列, 文字, job, distance, title, levenshtein, クラスタリング, 追加]
+keywords: [編集, 距離, 文字列, 文字, job, title, levenshtein, distance, クラスタリング, 追加]
 lang: ja
 recommendations: [/ja/note/job-title-normalization/, /ja/note/postgresql-fuzzy-search/,
   /ja/note/acroquest-javabook/]

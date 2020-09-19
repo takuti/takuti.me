@@ -2,7 +2,7 @@
 aliases: [/note/tech-design-story/]
 categories: [デザイン, 読書記録, データサイエンス]
 date: 2019-10-14
-keywords: [テクノロジー, プロダクト, ストーリー, story, デザイン, design, tech, 体験, 小売, 店舗]
+keywords: [テクノロジー, デザイン, プロダクト, ストーリー, story, design, tech, 体験, 小売, 再生]
 lang: ja
 recommendations: [/ja/note/design-engineer/, /ja/note/after-digital/, /ja/note/2020/]
 title: ストーリーを伝えられないプロダクトの虚しさ

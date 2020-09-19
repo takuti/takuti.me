@@ -2,7 +2,7 @@
 aliases: [/note/td-tech-talk-plazma/]
 categories: [機械学習, 自然言語処理, イベント参加記]
 date: 2018-02-25
-keywords: [talk, plazma, 機械学習, 聴衆, 自然言語処理, 可能, アルゴリズム, 動く, お話, tech]
+keywords: [talk, plazma, 機械学習, 聴衆, 自然言語処理, 可能, アルゴリズム, 動く, tech, お話]
 lang: ja
 recommendations: [/ja/note/trends-in-real-world-recommender-systems-2017/, /ja/note/2020/,
   /ja/note/td-intern-2016/]

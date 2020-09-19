@@ -2,7 +2,7 @@
 aliases: [/note/holt-winters/]
 categories: [機械学習, プログラミング]
 date: 2017-08-26
-keywords: [予測, method, 手法, 周期, データ, ing, 時系列, 観測, 最適, series]
+keywords: [予測, method, 手法, 周期, データ, ing, 時系列, 観測, 最適, exponential]
 lang: ja
 recommendations: [/ja/note/yahoo-egads/, /ja/note/adjusting-for-oversampling-and-undersampling/,
   /ja/note/leakage/]

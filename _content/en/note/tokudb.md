@@ -1,7 +1,7 @@
 ---
 categories: [Programming]
 date: 2019-04-07
-keywords: [engine, xxx, aws, server, overflow, enable, performance, connect, instance,
+keywords: [engine, xxx, aws, overflow, server, enable, performance, connect, instance,
   high]
 lang: en
 recommendations: [/note/hello-faust/, /note/augmented-analytics/, /note/hivemall-events-2018-autumn/]
