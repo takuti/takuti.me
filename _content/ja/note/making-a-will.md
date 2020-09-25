@@ -4,7 +4,7 @@ categories: [エッセイ]
 date: 2020-05-22
 keywords: [希望, 人生, 残さ, 下書き, デジタル, 変更, 書い, 意義, 指定, 生き]
 lang: ja
-recommendations: [/ja/note/think/, /ja/note/life-with-covid-19/, /ja/note/self-investment/]
+recommendations: [/ja/note/think/, /ja/note/life-with-covid-19/, /ja/note/feel/]
 title: 遺言状を書いた（そしてアップデートした）
 ---
 

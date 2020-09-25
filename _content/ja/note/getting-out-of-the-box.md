@@ -4,8 +4,8 @@ categories: [読書記録, エッセイ]
 date: 2019-02-03
 keywords: [相手, 自分, ていねい, 悪い, コミュニケーション, 期待, 小さな, 思考, 正当, 冷静]
 lang: ja
-recommendations: [/ja/note/first-quarter-as-a-product-manager/, /ja/note/life-with-covid-19/,
-  /ja/note/dmm-eikaiwa/]
+recommendations: [/ja/note/first-quarter-as-a-product-manager/, /ja/note/dmm-eikaiwa/,
+  /ja/note/life-with-covid-19/]
 title: 「ていねいなコミュニケーション」
 ---
 
