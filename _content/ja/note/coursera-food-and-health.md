@@ -3,7 +3,7 @@ categories: [エッセイ]
 date: 2020-09-26
 keywords: [資産, 食事, 炭水化物, 身体, バランス, 野菜, カロリー, 運用, 自分, を通して]
 lang: ja
-recommendations: [/ja/note/self-investment/, /ja/note/soft-skills/, /ja/note/life-with-covid-19/]
+recommendations: [/ja/note/self-investment/, /ja/note/soft-skills/, /ja/note/coursera-ui-ux-specialization/]
 title: 食と栄養について学んでいる。
 ---
 

@@ -1,9 +1,9 @@
 ---
 categories: [エッセイ]
 date: 2020-08-21
-keywords: [oyo, life, 沿い, ちょうど, 周辺, 東京, 住む, 会え, リモート, 帰省]
+keywords: [oyo, ものたりない, life, 沿い, ちょうど, 周辺, 東京, 会え, 帰省, 住む]
 lang: ja
-recommendations: [/ja/note/oyo-life-202007/, /ja/note/room-hunting-202006/, /ja/note/think/]
+recommendations: [/ja/note/oyo-life-202010/, /ja/note/oyo-life-202007/, /ja/note/room-hunting-202006/]
 title: '程よく疎な隅田川の東側で、ものたりない夏を静かに過ごす #オヨライフ'
 ---
 
