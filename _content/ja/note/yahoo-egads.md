@@ -4,7 +4,7 @@ categories: [機械学習]
 date: 2017-09-10
 keywords: [時系列, 異常, データ, 異常検知, モデル, 検知, 観測, フィルタリング, アルゴリズム, モデリング]
 lang: ja
-recommendations: [/ja/note/holt-winters/, /ja/note/leakage/, /ja/note/data-stream-mining/]
+recommendations: [/ja/note/leakage/, /ja/note/holt-winters/, /ja/note/data-stream-mining/]
 title: Yahoo!の異常検知フレームワーク"EGADS"
 ---
 

@@ -5,7 +5,7 @@ date: 2017-03-04
 keywords: [positive, auc, サンプル, 'true', 面積, label, ラベル, スコア, roc, 長方形]
 lang: ja
 recommendations: [/ja/note/auc-parallel/, /ja/note/adjusting-for-oversampling-and-undersampling/,
-  /ja/note/holt-winters/]
+  /ja/note/incremental-plsa/]
 title: Area Under the ROC Curve (AUC) を実装する
 ---
 

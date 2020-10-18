@@ -2,7 +2,7 @@
 aliases: [/note/hello-librec/]
 categories: [情報推薦, プログラミング]
 date: 2017-04-23
-keywords: [librec, 推薦, ライブラリ, アルゴリズム, julia, flurs, 実装, recommendation, プロジェクト, note]
+keywords: [librec, 推薦, アルゴリズム, ライブラリ, julia, flurs, 実装, recommendation, プロジェクト, note]
 lang: ja
 recommendations: [/ja/note/recommender-libraries/, /ja/note/trends-in-real-world-recommender-systems-2017/,
   /ja/note/data-skeptic-recommender-systems/]

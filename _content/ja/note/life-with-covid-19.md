@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2020-04-30
-keywords: [調子, 昨日, deep, 時間, 散歩, 遠く, 日常, 瞬間, 人生, working]
+keywords: [調子, 昨日, deep, 時間, 散歩, 遠く, 瞬間, 日常, 人生, working]
 lang: ja
 recommendations: [/ja/note/deep-work/, /ja/note/think/, /ja/note/todays-art-taro/]
 title: 貯金を取り崩しながら生きている感覚
