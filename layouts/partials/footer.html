@@ -39,7 +39,18 @@
     </script>
     {{ end }}
 
-    {{ template "_internal/google_analytics.html" . }}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Avoid using an official template "_internal/google_analytics.html" until https://github.com/gohugoio/hugo/issues/4327 is resolved. -->
+    {{ with .Site.GoogleAnalytics }}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '{{ . }}');
+    </script>
+    {{ end }}
 
     <script src="/js/menu.js"></script>
   </body>
