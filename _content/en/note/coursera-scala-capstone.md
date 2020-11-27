@@ -1,11 +1,10 @@
 ---
 categories: [Programming]
 date: 2020-05-26
-keywords: [scala, project, specialization, programming, functional, certificate, coursera,
-  mile, education, complete]
+keywords: [project, scala, specialization, programming, functional, coursera, certificate,
+  education, complete, temperature]
 lang: en
-recommendations: [/note/spark-rdd-cached-vs-uncached/, /note/parallel-vs-concurrent/,
-  /note/learn-how-others-work/]
+recommendations: [/note/parallel-vs-concurrent/, /note/learn-how-others-work/, /note/spark-rdd-cached-vs-uncached/]
 title: Completed Functional Programming in Scala Specialization on Coursera, Finally
 ---
 

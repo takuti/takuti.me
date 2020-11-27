@@ -1,9 +1,9 @@
 ---
 categories: [エッセイ, デザイン]
 date: 2020-04-25
-keywords: [ストーリー, 良さ, いいもの, 客観, 主観, 欲しい, 苦労, 注文, 手動, 用品]
+keywords: [ストーリー, 良さ, いいもの, 客観, 主観, 欲しい, 手動, 注文, 用品, 苦労]
 lang: ja
-recommendations: [/ja/note/cognitive-science-and-behavioral-economics/, /ja/note/tech-design-story/,
+recommendations: [/ja/note/tech-design-story/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/2020/]
 title: “いいもの”ってなんだろう
 ---

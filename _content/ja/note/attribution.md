@@ -1,8 +1,8 @@
 ---
 categories: [データサイエンス, プログラミング]
 date: 2020-10-18
-keywords: [holt, winters, instagram, マーケティング, value, facebook, 手法, チャネル, twitter,
-  基づく]
+keywords: [winters, holt, instagram, value, マーケティング, facebook, 手法, チャネル, twitter,
+  ヒューリスティクス]
 lang: ja
 recommendations: [/ja/note/holt-winters/, /ja/note/yahoo-egads/, /ja/note/data-stream-mining/]
 title: マーケティング最適化のためのアトリビューション：単一タッチポイント全振りパターンからShapley Valueモデルまで

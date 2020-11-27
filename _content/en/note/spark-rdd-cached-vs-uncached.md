@@ -1,7 +1,7 @@
 ---
 categories: [Programming]
 date: 2017-04-16
-keywords: [scala, rdd, distributed, map, spark, collection, model, data, code, course]
+keywords: [rdd, distributed, map, scala, spark, collection, model, data, code, course]
 lang: en
 recommendations: [/note/coursera-scala-capstone/, /note/mlss-kyoto-2015/, /note/hivemall-events-2018-autumn/]
 title: Comparison of Running Time of Cached/Uncached Spark RDD

@@ -1,10 +1,10 @@
 ---
 categories: [Programming]
 date: 2018-11-02
-keywords: [mbed, data, treasure, device, pelion, sensor, arm, demo, platform, condition]
+keywords: [mbed, data, treasure, pelion, device, sensor, arm, demo, platform, condition]
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/data-leaders-summit-europe-2019/,
-  /note/umap-2019/]
+  /note/iotswc-2019/]
 title: Sending Sensor Data from Mbed Simulator to Treasure Data
 ---
 

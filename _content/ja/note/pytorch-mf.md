@@ -3,7 +3,7 @@ aliases: [/note/pytorch-mf/]
 categories: [プログラミング, 情報推薦, 機械学習]
 date: 2017-10-14
 keywords: [pytorch, autograd, factorization, matrix, 行列, times, mathbb, optim, アイテム,
-  表す]
+  損失]
 lang: ja
 recommendations: [/ja/note/pytorch-autograd/, /ja/note/coursera-recommender-systems/,
   /ja/note/slim/]

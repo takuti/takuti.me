@@ -2,7 +2,7 @@
 aliases: [/note/igo-ruby-neologd/]
 categories: [プログラミング, 自然言語処理]
 date: 2017-09-17
-keywords: [igo, 辞書, ruby, 久しぶり, 動い, 使っ, メンテナンス, yootakuti, ナウく, hatena]
+keywords: [igo, 辞書, ruby, 久しぶり, 動い, 使っ, マルコフ連鎖, vps, yootakuti, ナウく]
 lang: ja
 recommendations: [/ja/note/hatena-keyword-to-ipadic/, /ja/note/twitter-bot/, /ja/note/recommender-libraries/]
 title: igo-rubyを新語辞書NEologdでナウい感じにする

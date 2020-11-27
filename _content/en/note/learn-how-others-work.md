@@ -1,7 +1,7 @@
 ---
 categories: [Essay]
 date: 2020-05-31
-keywords: [product, guess, finance, introduction, managers, design, engineers, designers,
+keywords: [product, guess, design, finance, introduction, managers, engineers, designers,
   work, understand]
 lang: en
 recommendations: [/note/becoming-a-product-manager/, /note/machine-learning-product/,
