@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ, デザイン]
 date: 2020-09-12
-keywords: [デザイン, デザイナー, design, コース, specialization, 仕事, プロトタイプ, ツール, coursera, 入門]
+keywords: [デザイン, デザイナー, design, コース, 仕事, specialization, プロトタイプ, ツール, 入門, coursera]
 lang: ja
 recommendations: [/ja/note/design-engineer/, /ja/note/design-note-88/, /ja/note/tech-design-story/]
 title: なぜUI/UXデザイナーの仕事は批判の的になるのか？その謎を解明すべく我々は（以下略）

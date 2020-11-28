@@ -4,7 +4,7 @@ categories: [英語学習]
 date: 2017-06-18
 keywords: [教材, オンライン, toefl, ヶ月, 話す, vocabulary, 時間, 自分, 反復, ニュース]
 lang: ja
-recommendations: [/ja/note/ielts-20200201/, /ja/note/toefl-20140527/, /ja/note/getting-out-of-the-box/]
+recommendations: [/ja/note/ielts-20200201/, /ja/note/toefl-20140527/, /ja/note/life-with-covid-19/]
 title: 'DMM英会話を1ヶ月間やってみて思う、オンライン英会話は『やらないよりマシ』なのか問題 #DMM英会話'
 ---
 

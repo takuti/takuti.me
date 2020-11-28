@@ -2,7 +2,7 @@
 aliases: [/note/design-engineer/]
 categories: [読書記録, デザイン]
 date: 2019-12-10
-keywords: [デザイン, プロダクト, エンジニア, 人材, イノベーション, プロダクトマネージャー, プロトタイピング, 本書, スキル, c型]
+keywords: [デザイン, プロダクト, エンジニア, 人材, イノベーション, プロダクトマネージャー, 本書, プロトタイピング, スキル, c型]
 lang: ja
 recommendations: [/ja/note/tech-design-story/, /ja/note/design-note-88/, /ja/note/coursera-ui-ux-specialization/]
 title: デザインエンジニアになろう
