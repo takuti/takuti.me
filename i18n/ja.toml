@@ -4,6 +4,9 @@ other = "ホーム"
 [blog]
 other = "ブログ"
 
+[aboutMe]
+other = "プロフィール"
+
 [categories]
 other = "カテゴリ一覧"
 

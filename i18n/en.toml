@@ -4,6 +4,9 @@ other = "Home"
 [blog]
 other = "Blog"
 
+[aboutMe]
+other = "About"
+
 [categories]
 other = "Categories"
 
