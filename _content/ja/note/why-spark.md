@@ -2,7 +2,7 @@
 aliases: [/note/why-spark/]
 categories: [コンピュータシステム, プログラミング]
 date: 2017-04-09
-keywords: [spark, 処理, scala, データ, hadoop, インメモリ, データサイエンス, ディスク, mapreduce, ノード]
+keywords: [spark, 処理, scala, hadoop, データ, インメモリ, データサイエンス, ディスク, ノード, mapreduce]
 lang: ja
 recommendations: [/ja/note/coursera-scala-specialization/, /ja/note/dynamo-style/,
   /ja/note/data-stream-mining/]

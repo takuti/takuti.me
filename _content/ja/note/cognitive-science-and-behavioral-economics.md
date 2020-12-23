@@ -1,9 +1,9 @@
 ---
 categories: [デザイン, 読書記録, データサイエンス]
 date: 2020-05-16
-keywords: [認知科学, ストーリー, コンテクスト, デザイン, プロダクト, mdash, 行動, 人間, 説明, データ]
+keywords: [認知科学, 行動経済学, ストーリー, ジョブ, コンテクスト, デザイン, 不合理, プロダクト, mdash, 行動]
 lang: ja
-recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/2020/]
+recommendations: [/ja/note/business-communication/, /ja/note/design-engineer/, /ja/note/tech-design-story/]
 title: データよりもストーリーを、相関よりも因果を。
 ---
 

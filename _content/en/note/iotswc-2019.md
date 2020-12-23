@@ -1,8 +1,8 @@
 ---
 categories: [Conference]
 date: 2019-11-17
-keywords: [iot, blockchain, poc, data, world, chain, iotswc, systems, technology,
-  conference]
+keywords: [iot, blockchain, poc, data, world, iotswc, systems, technology, conference,
+  technologies]
 lang: en
 recommendations: [/note/becoming-a-product-manager/, /note/apachecon-2019/, /note/data-leaders-summit-europe-2019/]
 title: What I've Seen at IoT Solutions World Congress 2019

@@ -2,7 +2,7 @@
 aliases: [/note/hello-jekyll/]
 categories: [プログラミング]
 date: 2014-03-31
-keywords: [はてブ, ielts, jekyll, 疲れ, toefl, 変わる, 東京, 先日, 変え, takuti]
+keywords: [はてブ, jekyll, ielts, 疲れ, toefl, 変わる, 東京, 先日, 変え, takuti]
 lang: ja
 recommendations: [/ja/note/ielts-20200201/, /ja/note/room-hunting-202006/, /ja/note/dmm-eikaiwa/]
 title: ブログをWordPressからJekyllに変えた

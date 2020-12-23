@@ -1,7 +1,7 @@
 ---
 categories: [Programming]
 date: 2017-06-26
-keywords: [travis, repository, deployment, takuti, github, pages, hugo, commit, public,
+keywords: [travis, repository, deployment, github, takuti, pages, hugo, commit, public,
   deploy]
 lang: en
 recommendations: [/note/move-to-gh-pages/, /note/hello-netlify/, /note/hugo-markdown-and-mathjax/]

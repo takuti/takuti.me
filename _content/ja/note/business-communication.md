@@ -1,7 +1,10 @@
 ---
 categories: [エッセイ]
 date: 2020-12-08
+keywords: [コンサル, 期待値, 顧客, クライアント, 一年, 仕事, 不合理, プロダクト, コミュニケーション, 経験]
 lang: ja
+recommendations: [/ja/note/cognitive-science-and-behavioral-economics/, /ja/note/first-quarter-as-a-product-manager/,
+  /ja/note/design-engineer/]
 title: プロダクトマネジメントとコンサル、その交差点。
 ---
 

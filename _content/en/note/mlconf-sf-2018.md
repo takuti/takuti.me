@@ -1,7 +1,7 @@
 ---
 categories: [Conference, Machine Learning]
 date: 2018-11-22
-keywords: [scalable, conference, ing, single, stream, program, session, efforts, industrial,
+keywords: [scalable, conference, single, stream, efforts, program, session, ing, industrial,
   paper]
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/mlss-kyoto-2015/, /note/umap-2019/]

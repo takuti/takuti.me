@@ -2,9 +2,9 @@
 aliases: [/note/after-digital/]
 categories: [読書記録, デザイン, データサイエンス]
 date: 2020-02-20
-keywords: [オフライン, オンライン, 店舗, 体験, デジタル, 接点, 顧客, 小売, データ, 商品]
+keywords: [オフライン, オンライン, 体験, デジタル, 接点, 店舗, 顧客, 小売, データ, 商品]
 lang: ja
-recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/cognitive-science-and-behavioral-economics/]
+recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/the-amazon-way-on-iot/]
 title: データ時代の「リアル」の価値
 ---
 

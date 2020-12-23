@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2020-07-05
-keywords: [東京, 地図, 自分, 理由, まっさら, 探し, 瞬間, 無力, 特急, 塗りつぶし]
+keywords: [東京, 地図, 自分, 理由, まっさら, 探し, 瞬間, 無力, 地方, 塗りつぶし]
 lang: ja
 recommendations: [/ja/note/oyo-life-202007/, /ja/note/oyo-life-202010/, /ja/note/oyo-life-202008/]
 title: まっさらな地図を手に入れた

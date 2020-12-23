@@ -5,7 +5,7 @@ date: 2017-03-10
 keywords: [マージ, auc, 面積, プロセス, 'true', 並列, 結果, サンプル, positive, ソート]
 lang: ja
 recommendations: [/ja/note/auc/, /ja/note/adjusting-for-oversampling-and-undersampling/,
-  /ja/note/python-concurrent-futures/]
+  /ja/note/td-intern-2016/]
 title: Area Under the ROC Curve (AUC) を並列で計算するときに気をつけること
 ---
 

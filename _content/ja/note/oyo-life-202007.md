@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2020-07-31
-keywords: [life, oyo, 生活, 引っ越し, 処分, 物件, 自分, 部屋, 入れ, 探し]
+keywords: [life, oyo, 生活, 引っ越し, 処分, 物件, 自分, 部屋, 探し, 入れ]
 lang: ja
 recommendations: [/ja/note/oyo-life-202010/, /ja/note/oyo-life-202008/, /ja/note/room-hunting-202006/]
 title: 軽やかに生きたくて。
