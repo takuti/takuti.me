@@ -9,7 +9,6 @@
       "lint:css": "stylelint --fix \"_scss/**/*.{css,scss}\""
     }
   },
-  "dependencies": {},
   "devDependencies": {
     "del": "^5.1.0",
     "gulp": "^4.0.2",
@@ -21,7 +20,9 @@
     "highlight.js": "^10.2.0",
     "husky": "^4.3.0",
     "imagemin-cli": "^6.0.0",
+    "ini": "^1.3.8",
     "lint-staged": "^10.3.0",
+    "minimist": "^1.2.5",
     "node-sass": "^4.14.1",
     "stylelint": "^13.7.0",
     "stylelint-config-standard": "^20.0.0",
