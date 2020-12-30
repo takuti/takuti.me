@@ -1,9 +1,10 @@
 ---
 categories: [エッセイ]
 date: 2020-07-31
-keywords: [life, oyo, 生活, 引っ越し, 処分, 物件, 自分, 部屋, 探し, 入れ]
+keywords: [life, oyo, 生活, 引っ越し, 物件, 処分, ダンボール, 自分, 部屋, 探し]
 lang: ja
-recommendations: [/ja/note/oyo-life-202010/, /ja/note/oyo-life-202008/, /ja/note/room-hunting-202006/]
+recommendations: [/ja/note/oyo-life-202010/, /ja/note/capitalism-in-anthropocene/,
+  /ja/note/oyo-life-202008/]
 title: 軽やかに生きたくて。
 ---
 

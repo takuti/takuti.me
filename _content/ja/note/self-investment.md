@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ, 読書記録]
 date: 2020-09-19
-keywords: [投資, 資産, 時間, 分散投資, 原則, 長期, 継続, リバランス, 経験, 成功]
+keywords: [投資, 資産, 時間, 分散投資, 原則, 長期, リバランス, 継続, 経験, 成功]
 lang: ja
 recommendations: [/ja/note/coursera-food-and-health/, /ja/note/deep-work/, /ja/note/life-with-covid-19/]
 title: 自己投資の大原則

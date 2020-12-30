@@ -2,8 +2,8 @@
 aliases: [/note/hive-fuzzy-search/]
 categories: [プログラミング, 自然言語処理]
 date: 2017-08-20
-keywords: [postgresql, search, hive, mapreduce, 試し, ならでは, fuzzystrmatch, like, trgm,
-  join]
+keywords: [search, postgresql, hive, mapreduce, 試し, like, join, trgm, fuzzystrmatch,
+  ならでは]
 lang: ja
 recommendations: [/ja/note/hivemall-on-mac/, /ja/note/postgresql-fuzzy-search/, /ja/note/why-spark/]
 title: HiveでテキストのFuzzy Search
