@@ -2,7 +2,7 @@
 aliases: [/note/trends-in-real-world-recommender-systems-2017/]
 categories: [イベント参加記, 情報推薦]
 date: 2017-11-23
-keywords: [推薦, システム, 手法, セミナー, 応用, note, アルゴリズム, recsys, 機械学習, データ]
+keywords: [推薦, システム, 手法, セミナー, 応用, note, アルゴリズム, recsys, 機械学習, トレンド]
 lang: ja
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/recommender-libraries/,
   /ja/note/coursera-recommender-systems/]

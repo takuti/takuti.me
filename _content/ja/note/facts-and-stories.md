@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ, デザイン]
 date: 2020-04-25
-keywords: [ストーリー, 良さ, いいもの, 客観, 主観, 欲しい, 注文, 苦労, 用品, 手動]
+keywords: [ストーリー, 良さ, いいもの, 客観, 主観, 欲しい, 苦労, 手動, 注文, 用品]
 lang: ja
 recommendations: [/ja/note/tech-design-story/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/2020/]
