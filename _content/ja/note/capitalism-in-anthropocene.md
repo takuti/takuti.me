@@ -1,10 +1,9 @@
 ---
 categories: [エッセイ, 読書記録]
 date: 2020-12-30
-keywords: [社会, 生活, 仕事, 自分, 相対的, 問題解決, 上位, 構築, 環境, 商品]
+keywords: [資本主義, 社会, 資本論, 新世, 脱成長, 使用価値, コミュニズム, 生活, 仕事, 自分]
 lang: ja
-recommendations: [/ja/note/oyo-life-202007/, /ja/note/first-quarter-as-a-product-manager/,
-  /ja/note/cognitive-science-and-behavioral-economics/]
+recommendations: [/ja/note/2021/, /ja/note/oyo-life-202007/, /ja/note/first-quarter-as-a-product-manager/]
 title: 「今年手放してよかったもの」
 ---
 

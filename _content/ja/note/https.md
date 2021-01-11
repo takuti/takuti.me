@@ -2,9 +2,9 @@
 aliases: [/note/https/]
 categories: [プログラミング]
 date: 2017-02-04
-keywords: [サイト, 唯一, トップページ, 懸念, はてブ, 従う, 事項, 仕方, 諦め, 適当]
+keywords: [サイト, 唯一, 懸念, トップページ, はてブ, 事項, 従う, 仕方, 諦め, 適当]
 lang: ja
-recommendations: [/ja/note/hello-jekyll/, /ja/note/crx-dev-using-angularjs/, /ja/note/why-spark/]
+recommendations: [/ja/note/hello-jekyll/, /ja/note/why-spark/, /ja/note/crx-dev-using-angularjs/]
 title: サイトをHTTPSにした
 ---
 
