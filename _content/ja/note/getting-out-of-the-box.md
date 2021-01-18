@@ -2,10 +2,9 @@
 aliases: [/note/getting-out-of-the-box/]
 categories: [読書記録, エッセイ]
 date: 2019-02-03
-keywords: [相手, 自分, ていねい, 悪い, 信じ, コミュニケーション, 期待, 小さな, 思考, 非難]
+keywords: [相手, 自分, ていねい, 悪い, 信じ, コミュニケーション, 期待, 小さな, 思考, 正当]
 lang: ja
-recommendations: [/ja/note/be-mindful/, /ja/note/first-quarter-as-a-product-manager/,
-  /ja/note/life-with-covid-19/]
+recommendations: [/ja/note/be-mindful/, /ja/note/life-with-covid-19/, /ja/note/first-quarter-as-a-product-manager/]
 title: 「ていねいなコミュニケーション」
 ---
 

@@ -2,7 +2,7 @@
 aliases: [/note/hivemall-on-docker/]
 categories: [機械学習, プログラミング]
 date: 2017-05-07
-keywords: [mac, hivemall, ローカル, 導入, 進む, 試し, アイテム, 推薦, 越し, version]
+keywords: [mac, hivemall, ローカル, 整備, 導入, 進む, 試し, アイテム, 推薦, amaya]
 lang: ja
 recommendations: [/ja/note/hivemall-on-mac/, /ja/note/recommender-libraries/, /ja/note/td-intern-2016/]
 title: Hivemall on Dockerを試すぜ
