@@ -50,7 +50,7 @@ Note that this task takes long time to get JSON from twitter, for each twitter U
 If you want to track file modification in real-time, run
 
 ```
-$ gulp watch
+$ gulp watch --dev
 ```
 
 and

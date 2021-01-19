@@ -26,7 +26,8 @@
     "node-sass": "^4.14.1",
     "stylelint": "^13.7.0",
     "stylelint-config-standard": "^20.0.0",
-    "sync-request": "^6.1.0"
+    "sync-request": "^6.1.0",
+    "yargs": "^7.1.1"
   },
   "stylelint": {
     "extends": "stylelint-config-standard"
