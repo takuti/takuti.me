@@ -42,7 +42,7 @@ I should create new contents in *_content/* directory and sass files in *_scss/*
 ### Generate css and html contents
 
 ```
-$ gulp
+$ npx gulp
 ```
 
 Note that this task takes long time to get JSON from twitter, for each twitter URL.
@@ -50,16 +50,8 @@ Note that this task takes long time to get JSON from twitter, for each twitter U
 If you want to track file modification in real-time, run
 
 ```
-$ gulp watch --dev
+$ npx gulp watch
 ```
-
-and
-
-```
-$ hugo server --watch
-```
-
-at the same time.
 
 ## License
 
