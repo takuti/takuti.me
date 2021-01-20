@@ -1,10 +1,10 @@
 ---
 categories: [Conference]
 date: 2015-10-04
-keywords: [phpcon, performance, testing, database, conference, released, october,
+keywords: [phpcon, testing, performance, database, conference, october, released,
   soon, keynote, machine]
 lang: en
-recommendations: [/note/pyconjp-2015/, /note/mlss-kyoto-2015/, /note/hivemall-events-2018-autumn/]
+recommendations: [/note/pyconjp-2015/, /note/mlss-kyoto-2015/, /note/datavis-2020/]
 title: 'Japan PHP Conference 2015 #phpcon2015'
 ---
 
