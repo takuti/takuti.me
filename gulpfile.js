@@ -4,12 +4,12 @@ const sass = require('gulp-sass');
 const data = require('gulp-data');
 const kramdown = require('gulp-kramdown');
 const wrapper = require('gulp-wrapper');
+
 const request = require('sync-request');
 const del = require('del');
 const { highlight } = require('highlight.js');
-
-const { argv } = require('yargs');
-const dev = !(argv.dev === undefined);
+const { exec } = require('child_process');
+const browserSync = require('browser-sync');
 
 const { Renderer } = require('kramed');
 const renderer = new Renderer();
@@ -26,6 +26,11 @@ renderer.table = (header, body) =>
     + '</tbody>\n'
     + '</table>\n'
     + '</div>\n';
+
+let watching = false;
+const turnWatchingOn = () => {
+  watching = true;
+};
 
 const cleanContent = () => del(['content/**/*']);
 
@@ -45,7 +50,7 @@ const compileContent = () =>
         return '';
       });
 
-      if (!dev) {
+      if (!watching) {
         const tweetUrls = content.match(/(https?:\/\/twitter\.com\/[a-zA-Z0-9_]+\/status(es)?\/([0-9]+)\/?)/g);
 
         // convert all tweet urls into tweet cards
@@ -80,10 +85,26 @@ const compileContent = () =>
 
     .pipe(dest('content/'));
 
+const buildHugo = () => exec(watching ? 'hugo -D -b="http://localhost:3000"' : 'hugo -v');
+
 const watchFiles = () => {
+  turnWatchingOn();
+
+  browserSync.init({
+    files: ['public/**/*'],
+    server: {
+      baseDir: 'public/'
+    },
+    port: 3000,
+    open: true
+  });
+
   watch('_scss/*.scss', { ignoreInitial: false }, compileSass);
-  watch('_content/**/*.{md,html}', { ignoreInitial: false }, compileContent);
+  watch('_content/**/*.{md,html}', { ignoreInitial: false }, series(compileContent, buildHugo));
 };
 
 exports.watch = series(cleanContent, watchFiles);
-exports.default = parallel(compileSass, series(cleanContent, compileContent));
+exports.default = parallel(
+  compileSass,
+  series(cleanContent, compileContent, buildHugo)
+);
