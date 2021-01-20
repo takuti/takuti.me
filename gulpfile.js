@@ -7,7 +7,7 @@ const wrapper = require('gulp-wrapper');
 
 const request = require('sync-request');
 const del = require('del');
-const { highlight } = require('highlight.js');
+const { highlight, highlightAuto, getLanguage } = require('highlight.js');
 const { exec } = require('child_process');
 const browserSync = require('browser-sync');
 
@@ -72,7 +72,8 @@ const compileContent = () =>
     .pipe(kramdown({
       highlight: (code, lang) => {
         try {
-          return highlight(lang, code).value;
+          const f = getLanguage(lang) ? highlight : highlightAuto;
+          return f(lang, code).value;
         } catch (TypeError) {
           return code;
         }
