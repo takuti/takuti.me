@@ -1,13 +1,15 @@
-language: c
+language: go
 os: linux
 
 dist: trusty
 
+sudo: false
+
 before_script:
   - npm install -g gulp-cli
   - npm install
-  - sudo apt-get --yes install snapd
-  - sudo snap install hugo
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.80.0/hugo_0.80.0_Linux-64bit.deb
+  - sudo dpkg -i hugo*.deb
 
 script:
   - npx gulp
