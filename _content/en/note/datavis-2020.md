@@ -2,11 +2,9 @@
 categories: [Programming]
 date: 2021-01-21
 draft: true
-keywords: [visualization, ourse, basics, data, released, make, javascript, video,
-  optimization, performance]
+keywords: [zero, finding, fine, fix, flexible, flexibly, flow, flurs, focus, focused]
 lang: en
-recommendations: [/note/data-leaders-summit-europe-2019/, /note/learn-how-others-work/,
-  /note/mlss-kyoto-2015/]
+recommendations: [/note/recommendation-julia/, /note/stop-drinking-alone/, /note/hugo-markdown-and-mathjax/]
 title: 'Datavis 2020: A Free Online Course About D3.js & React'
 ---
 

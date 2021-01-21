@@ -1,7 +1,7 @@
 ---
 categories: [Essay]
 date: 2020-03-29
-keywords: [problems, staying, concentration, away, product, focus, problem, thoughts,
+keywords: [problems, staying, concentration, away, focus, product, problem, thoughts,
   ideas, refresh]
 lang: en
 recommendations: [/note/working-from-home-202004/, /note/technique-producing-ideas/,

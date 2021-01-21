@@ -1,9 +1,9 @@
 ---
 categories: [Programming]
 date: 2020-11-28
-keywords: [html, latex, writing, web, pdf, website, based, academic, icons, tex]
+keywords: [html, latex, writing, web, pdf, website, based, academic, icons, font]
 lang: en
-recommendations: [/note/hugo-kramdown-and-katex/, /note/new-year-resolution-2017/,
+recommendations: [/note/new-year-resolution-2017/, /note/hugo-kramdown-and-katex/,
   /note/umap-2019/]
 title: Are You Still Writing a Resume in Word/LaTeX?
 ---

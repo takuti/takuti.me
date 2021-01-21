@@ -45,6 +45,12 @@ def extract_contents(paths):
             contents.append('')
             continue
 
+        # avoid recommending draft articles by making their contents empty
+        front_matter = yaml.load(m.group(1))
+        if 'draft' in front_matter and front_matter['draft']:
+            contents.append('')
+            continue
+
         # remove front matter
         content = content.replace(m.group(0), '')
 
