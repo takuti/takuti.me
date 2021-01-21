@@ -8,7 +8,7 @@ const wrapper = require('gulp-wrapper');
 const request = require('sync-request');
 const del = require('del');
 const { highlight, highlightAuto, getLanguage } = require('highlight.js');
-const { exec } = require('child_process');
+const { execSync } = require('child_process');
 const browserSync = require('browser-sync');
 
 const { Renderer } = require('kramed');
@@ -86,7 +86,14 @@ const compileContent = () =>
 
     .pipe(dest('content/'));
 
-const buildHugo = () => exec(watching ? 'hugo -D -b="http://localhost:3000"' : 'hugo -v');
+const buildHugo = (done) => {
+  const res = execSync(
+    watching ? 'hugo -D -b="http://localhost:3000"' : 'hugo -v',
+    { encoding: 'utf-8' }
+  );
+  console.log(res);
+  done();
+};
 
 const watchFiles = () => {
   turnWatchingOn();
