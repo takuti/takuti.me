@@ -10,7 +10,7 @@ before_script:
   - sudo snap install hugo
 
 script:
-  - gulp && /snap/bin/hugo
+  - npx gulp
 
 branches:
   only:
