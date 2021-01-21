@@ -4,7 +4,7 @@ os: linux
 dist: trusty
 
 before_script:
-  - npm install -g gulp
+  - npm install -g gulp-cli
   - npm install
   - sudo apt-get --yes install snapd
   - sudo snap install hugo
