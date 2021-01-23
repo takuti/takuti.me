@@ -1,8 +1,8 @@
 ---
 categories: [Recommender Systems, Programming]
 date: 2017-01-14
-keywords: [recommendation, julia, age, package, factorization, installed, method,
-  improvements, promising, registered]
+keywords: [recommendation, julia, age, factorization, package, improvements, registered,
+  method, tensor, promising]
 lang: en
 recommendations: [/note/recommendation-julia-documenter/, /note/juliacon-2019/, /note/flurs/]
 title: 'Recommendation.jl: Building Recommender Systems in Julia'

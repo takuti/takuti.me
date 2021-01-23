@@ -1,7 +1,7 @@
 ---
 categories: [Recommender Systems, Programming]
 date: 2017-11-11
-keywords: [recsys, matrix, cloud, rating, word, trends, images, collaborative, papers,
+keywords: [recsys, matrix, rating, word, cloud, trends, images, filtering, papers,
   group]
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/hello-faust/, /note/recommendation-julia-documenter/]

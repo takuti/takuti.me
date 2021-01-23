@@ -1,11 +1,10 @@
 ---
 categories: [Design, Data Science]
 date: 2020-04-11
-keywords: [analytics, data, nlp, insights, good, business, scientists, visual, generated,
-  area]
+keywords: [analytics, augmented, dashboard, data, nlp, insights, good, business, scientists,
+  visual]
 lang: en
-recommendations: [/note/data-leaders-summit-europe-2019/, /note/hivemall-events-2018-autumn/,
-  /note/becoming-a-product-manager/]
+recommendations: [/note/datavis-2020/, /note/data-leaders-summit-europe-2019/, /note/hivemall-events-2018-autumn/]
 title: 'What Makes a Good Dashboard: The Rise of Augmented Analytics'
 ---
 
