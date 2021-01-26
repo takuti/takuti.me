@@ -1,5 +1,5 @@
 ---
-categories: [Programming]
+categories: [Programming, Data Science]
 date: 2021-01-23
 keywords: [visualization, dashboard, data, ourse, augmented, official, analytics,
   basics, modern, interactive]
