@@ -1,7 +1,7 @@
 ---
 categories: [Essay]
 date: 2019-09-08
-keywords: [drinking, bar, good, habit, coffee, enjoy, fine, healthy, completely, day]
+keywords: [drinking, good, bar, habit, coffee, enjoy, fine, completely, day, healthy]
 lang: en
 recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/resume-in-html/]
 title: I Stopped Drinking Alone for 4 Months

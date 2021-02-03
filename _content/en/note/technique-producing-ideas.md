@@ -1,8 +1,8 @@
 ---
 categories: [Essay, Book]
 date: 2020-01-05
-keywords: [ideas, raw, experiences, inputs, gathering, problem, material, idea, producing,
-  information]
+keywords: [ideas, experiences, inputs, raw, gathering, problem, material, idea, producing,
+  knowledge]
 lang: en
 recommendations: [/note/revisit-design-thinking/, /note/fermenting-thoughts/, /note/language-as-a-design-tool/]
 title: How to Produce Ideas

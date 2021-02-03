@@ -2,10 +2,11 @@
 categories: [Programming, Recommender Systems]
 date: 2019-07-26
 draft: true
-keywords: [zero, final, finance, financial, finding, findings, fine, fix, flexible,
-  flexibly]
+keywords: [zero, flexible, filtering, final, finally, finance, financial, finding,
+  findings, fine]
 lang: en
-recommendations: [/note/recommendation-julia/, /note/stop-drinking-alone/, /note/hugo-markdown-and-mathjax/]
+recommendations: [/note/hugo-kramdown-and-katex/, /note/revisit-design-thinking/,
+  /note/stop-drinking-alone/]
 title: Factorization Machines in Julia
 ---
 
