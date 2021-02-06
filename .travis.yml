@@ -12,7 +12,7 @@ before_script:
   - sudo dpkg -i hugo*.deb
 
 script:
-  - npx gulp
+  - npm run build
 
 branches:
   only:
