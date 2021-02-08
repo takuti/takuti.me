@@ -1,9 +1,9 @@
 ---
 categories: [エッセイ, 読書記録]
 date: 2020-12-30
-keywords: [資本主義, 社会, 資本論, 新世, コミュニズム, 脱成長, 使用価値, 生活, 仕事, 希少性]
+keywords: [資本主義, 社会, コミュニズム, 脱成長, 使用価値, 資本論, 新世, 生活, 希少性, 危機]
 lang: ja
-recommendations: [/ja/note/2021/, /ja/note/oyo-life-202007/, /ja/note/first-quarter-as-a-product-manager/]
+recommendations: [/ja/note/2021/, /ja/note/oyo-life-202007/, /ja/note/boredom/]
 title: 「今年手放してよかったもの」
 ---
 

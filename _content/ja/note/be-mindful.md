@@ -1,9 +1,9 @@
 ---
 categories: [エッセイ]
 date: 2020-11-29
-keywords: [集中, ゆっくり, マインド, 仕事, 相手, 反応, note, ヶ月, 生き, 尊重]
+keywords: [集中, ゆっくり, マインド, 仕事, 相手, 反応, note, はっきり, 批判, 去年]
 lang: ja
-recommendations: [/ja/note/life-with-covid-19/, /ja/note/getting-out-of-the-box/,
+recommendations: [/ja/note/getting-out-of-the-box/, /ja/note/life-with-covid-19/,
   /ja/note/coursera-ui-ux-specialization/]
 title: 「マインドフル」であることの効用を実感しつつある
 ---

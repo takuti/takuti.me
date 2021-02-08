@@ -2,7 +2,7 @@
 aliases: [/note/soft-skills/]
 categories: [読書記録]
 date: 2017-07-02
-keywords: [運動, 戦略的, ソフトウェア, マインドセット, エンジニア, 書か, ブログ, マーケティング, 勉強, 生き方]
+keywords: [運動, 戦略的, ソフトウェア, マインドセット, エンジニア, 書か, ブログ, 勉強, マーケティング, 生き方]
 lang: ja
 recommendations: [/ja/note/first-quarter-as-a-product-manager/, /ja/note/dmm-eikaiwa/,
   /ja/note/self-investment/]
