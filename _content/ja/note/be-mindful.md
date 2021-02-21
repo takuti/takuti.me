@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2020-11-29
-keywords: [集中, ゆっくり, マインド, 仕事, 相手, 反応, note, はっきり, 批判, 去年]
+keywords: [集中, ゆっくり, 仕事, マインド, 相手, note, 去年, 反応, はっきり, 尊重]
 lang: ja
 recommendations: [/ja/note/getting-out-of-the-box/, /ja/note/life-with-covid-19/,
   /ja/note/coursera-ui-ux-specialization/]

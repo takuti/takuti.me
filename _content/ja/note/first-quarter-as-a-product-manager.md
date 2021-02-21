@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2020-07-11
-keywords: [メンバー, チーム, 自分, 闘う, 組織, 仲間, プロダクトマネージャー, 世界, エンジニア, 製品]
+keywords: [メンバー, チーム, 自分, 闘う, 組織, 仲間, プロダクトマネージャー, エンジニア, 世界, 製品]
 lang: ja
 recommendations: [/ja/note/design-engineer/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/coursera-ui-ux-specialization/]

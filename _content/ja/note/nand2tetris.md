@@ -2,10 +2,10 @@
 aliases: [/note/nand2tetris/]
 categories: [読書記録, プログラミング, コンピュータシステム]
 date: 2017-05-21
-keywords: [実装, hack, 言語, 娯楽, メモリ, 俯瞰, ハードウェア, language, boolean, 感想]
+keywords: [実装, hack, 言語, 娯楽, メモリ, 俯瞰, boolean, ハードウェア, language, 感想]
 lang: ja
 recommendations: [/ja/note/recommender-libraries/, /ja/note/cognitive-science-and-behavioral-economics/,
-  /ja/note/coursera-ui-ux-specialization/]
+  /ja/note/euroscipy-2017/]
 title: 『コンピュータシステムの理論と実装』は“娯楽”である
 ---
 
