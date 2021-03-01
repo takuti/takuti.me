@@ -2,7 +2,7 @@
 aliases: [/note/coursera-recommender-systems/]
 categories: [情報推薦]
 date: 2017-01-27
-keywords: [行列, 推薦, アイテム, ユーザ, 類似, 手法, 観測, factorization, matrix, 協調フィルタリング]
+keywords: [行列, 推薦, アイテム, ユーザ, 類似, 手法, matrix, factorization, 観測, 協調フィルタリング]
 lang: ja
 recommendations: [/ja/note/slim/, /ja/note/two-decades-of-amazon-recommender/, /ja/note/trends-in-real-world-recommender-systems-2017/]
 title: Courseraの推薦システムのコースを修了した
