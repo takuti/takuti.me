@@ -2,7 +2,7 @@
 aliases: [/note/dmm-eikaiwa/]
 categories: [英語学習]
 date: 2017-06-18
-keywords: [教材, オンライン, toefl, 話す, ヶ月, vocabulary, 時間, ニュース, 翌日, 自分]
+keywords: [教材, オンライン, toefl, 話す, ヶ月, vocabulary, 時間, skype, 自分, 反復]
 lang: ja
 recommendations: [/ja/note/ielts-20200201/, /ja/note/toefl-20140527/, /ja/note/soft-skills/]
 title: 'DMM英会話を1ヶ月間やってみて思う、オンライン英会話は『やらないよりマシ』なのか問題 #DMM英会話'

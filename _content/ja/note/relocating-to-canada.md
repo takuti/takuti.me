@@ -1,10 +1,10 @@
 ---
 categories: [エッセイ]
 date: 2021-02-28
-keywords: [日本, 海外, 移住, 会社, アメリカ, プロダクトマネージャー, 申請, 手続き, note, 住ん]
+keywords: [カナダ, 日本, 移住, 海外, 会社, canada, アメリカ, プロダクトマネージャー, バンクーバー, 手続き]
 lang: ja
-recommendations: [/ja/note/first-quarter-as-a-product-manager/, /ja/note/room-hunting-202006/,
-  /ja/note/2021/]
+recommendations: [/ja/note/first-quarter-as-a-product-manager/, /ja/note/travel-to-canada-210226/,
+  /ja/note/room-hunting-202006/]
 title: トレジャーデータ株式会社を退職して Treasure Data (Canada) に入社しました
 ---
 

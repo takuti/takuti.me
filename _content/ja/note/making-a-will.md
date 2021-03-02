@@ -2,7 +2,7 @@
 aliases: [/note/making-a-will/]
 categories: [エッセイ]
 date: 2020-05-22
-keywords: [遺言状, 遺言, 希望, 人生, 執行, 残さ, 下書き, 遺産, デジタル, 変更]
+keywords: [遺言状, 遺言, 希望, 人生, 遺産, 下書き, 執行, 残さ, デジタル, 変更]
 lang: ja
 recommendations: [/ja/note/will-202102/, /ja/note/think/, /ja/note/relocating-to-canada/]
 title: 遺言状を書いた（そしてアップデートした）
