@@ -1,5 +1,5 @@
 ---
-categories: [エッセイ]
+categories: [生活・人生]
 date: 2020-09-26
 keywords: [資産, 炭水化物, 食事, 身体, 野菜, バランス, カロリー, 運用, 自分, コース]
 lang: ja

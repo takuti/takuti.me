@@ -1,6 +1,6 @@
 ---
 aliases: [/note/master-graduate/]
-categories: [エッセイ, 機械学習]
+categories: [生活・人生, 機械学習]
 date: 2017-03-31
 keywords: [インターン, テーマ, 会議, 機械学習, 研究, 投稿, サマースクール, 学会, machines, factorization]
 lang: ja

@@ -1,6 +1,6 @@
 ---
 aliases: [/note/making-a-will/]
-categories: [エッセイ]
+categories: [生活・人生]
 date: 2020-05-22
 keywords: [遺言状, 遺言, 希望, 人生, 遺産, 残さ, 執行, 下書き, デジタル, 変更]
 lang: ja

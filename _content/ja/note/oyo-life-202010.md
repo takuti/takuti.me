@@ -1,5 +1,5 @@
 ---
-categories: [エッセイ]
+categories: [生活・人生]
 date: 2020-10-03
 keywords: [oyo, 物件, life, 暮らし, 契約, キャンペーン, マンスリーマンション, 部屋, 賃貸, ネット]
 lang: ja

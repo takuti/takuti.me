@@ -1,5 +1,5 @@
 ---
-categories: [エッセイ]
+categories: [生活・人生]
 date: 2021-02-28
 keywords: [日本, カナダ, 移住, 海外, 会社, アメリカ, プロダクトマネージャー, canada, バンクーバー, 手続き]
 lang: ja

@@ -1,5 +1,5 @@
 ---
-categories: [エッセイ]
+categories: [生活・人生]
 date: 2020-08-21
 keywords: [oyo, ものたりない, life, 沿い, 中央線, ちょうど, 周辺, 東京, 美術館, リモート]
 lang: ja
