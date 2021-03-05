@@ -2,7 +2,7 @@
 aliases: [/note/deep-work/]
 categories: [読書記録]
 date: 2017-03-25
-keywords: [deep, work, 集中, 時間, 作業, 思考, 一定, 大事, エッセンシャル, 価値]
+keywords: [deep, work, 集中, 時間, 作業, 思考, 一定, エッセンシャル, 大事, 価値]
 lang: ja
 recommendations: [/ja/note/life-with-covid-19/, /ja/note/self-investment/, /ja/note/dmm-eikaiwa/]
 title: '"Deep Work"を読んだけど微妙だったから皆は"How to Write a Lot"と"エッセンシャル思考"を読めばいい'

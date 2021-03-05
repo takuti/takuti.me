@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2021-02-28
-keywords: [カナダ, 日本, 移住, 海外, 会社, canada, アメリカ, プロダクトマネージャー, バンクーバー, 手続き]
+keywords: [日本, カナダ, 移住, 海外, 会社, アメリカ, プロダクトマネージャー, canada, バンクーバー, 手続き]
 lang: ja
 recommendations: [/ja/note/first-quarter-as-a-product-manager/, /ja/note/travel-to-canada-210226/,
   /ja/note/room-hunting-202006/]

@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2020-10-03
-keywords: [oyo, 物件, life, 暮らし, 契約, キャンペーン, 部屋, マンスリーマンション, 賃貸, ネット]
+keywords: [oyo, 物件, life, 暮らし, 契約, キャンペーン, マンスリーマンション, 部屋, 賃貸, ネット]
 lang: ja
 recommendations: [/ja/note/oyo-life-202007/, /ja/note/oyo-life-202008/, /ja/note/room-hunting-202006/]
 title: お手軽賃貸サービス "OYO LIFE" 所感

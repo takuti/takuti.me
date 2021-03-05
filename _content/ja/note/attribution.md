@@ -1,7 +1,7 @@
 ---
 categories: [データサイエンス, プログラミング]
 date: 2020-10-18
-keywords: [holt, winters, value, facebook, instagram, 手法, マーケティング, twitter, チャネル,
+keywords: [holt, winters, value, instagram, facebook, 手法, twitter, マーケティング, チャネル,
   ヒューリスティクス]
 lang: ja
 recommendations: [/ja/note/holt-winters/, /ja/note/customer-centric-marketing/, /ja/note/yahoo-egads/]

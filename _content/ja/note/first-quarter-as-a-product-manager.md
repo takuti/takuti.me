@@ -3,7 +3,7 @@ categories: [エッセイ]
 date: 2020-07-11
 keywords: [メンバー, チーム, 自分, 闘う, 組織, 仲間, プロダクトマネージャー, エンジニア, 世界, 製品]
 lang: ja
-recommendations: [/ja/note/design-engineer/, /ja/note/relocating-to-canada/, /ja/note/cognitive-science-and-behavioral-economics/]
+recommendations: [/ja/note/relocating-to-canada/, /ja/note/design-engineer/, /ja/note/cognitive-science-and-behavioral-economics/]
 title: 僕は「世界で闘うプロダクトマネージャー」にはなれない。
 ---
 

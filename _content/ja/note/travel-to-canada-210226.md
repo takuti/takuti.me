@@ -1,9 +1,9 @@
 ---
 categories: [生活・人生]
 date: 2021-03-01
-keywords: [ホテル, 予約, 政府, post, 滞在, day, カナダ, takuya, 案内, kitazawa]
+keywords: [ホテル, 予約, 政府, post, 滞在, kitazawa, takuya, day, 案内, カナダ]
 lang: ja
-recommendations: [/ja/note/relocating-to-canada/, /ja/note/chiir-2017/, /ja/note/oyo-life-202010/]
+recommendations: [/ja/note/relocating-to-canada/, /ja/note/ielts-20210226/, /ja/note/chiir-2017/]
 title: コロナ禍でのカナダ渡航（2021年2月26日・入国後PCR検査義務化後）
 ---
 
