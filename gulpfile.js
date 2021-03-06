@@ -7,9 +7,13 @@ const wrapper = require('gulp-wrapper');
 
 const request = require('sync-request');
 const del = require('del');
-const { highlight, highlightAuto, getLanguage } = require('highlight.js');
 const { execSync } = require('child_process');
 const browserSync = require('browser-sync');
+
+const { highlight, highlightAuto, getLanguage } = require('highlight.js');
+const escapeHighlightedCode = (highlightedCode) => {
+  return highlightedCode.replace(/{/g, '&lbrace;');
+};
 
 const { Renderer } = require('kramed');
 const renderer = new Renderer();
@@ -73,7 +77,7 @@ const compileContent = () =>
       highlight: (code, lang) => {
         try {
           const f = getLanguage(lang) ? highlight : highlightAuto;
-          return f(lang, code).value;
+          return escapeHighlightedCode(f(lang, code).value);
         } catch (TypeError) {
           return code;
         }
