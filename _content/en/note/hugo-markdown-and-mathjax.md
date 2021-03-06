@@ -1,7 +1,7 @@
 ---
 categories: [Programming]
 date: 2015-10-19
-keywords: [hugo, markdown, site, mathjax, kramdown, jekyll, issue, correctly, files,
+keywords: [hugo, markdown, site, mathjax, kramdown, issue, jekyll, correctly, files,
   rake]
 lang: en
 recommendations: [/note/hugo-kramdown-and-katex/, /note/travis-gh-pages-deployment/,

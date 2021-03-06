@@ -1,7 +1,7 @@
 ---
 categories: [Machine Learning]
 date: 2015-10-03
-keywords: [optimization, learn, learning, really, theoretical, random, professor,
+keywords: [optimization, learning, learn, really, theoretical, random, professor,
   try, like, mathematica]
 lang: en
 recommendations: [/note/mlconf-sf-2018/, /note/learn-how-others-work/, /note/fermenting-thoughts/]

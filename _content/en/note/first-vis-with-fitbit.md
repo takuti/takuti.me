@@ -4,7 +4,7 @@ date: 2021-02-03
 keywords: [fitbit, activity, minutes, visualization, sketch, data, problem, chart,
   react, images]
 lang: en
-recommendations: [/note/datavis-2020/, /note/data-leaders-summit-europe-2019/, /note/mlss-kyoto-2015/]
+recommendations: [/note/datavis-2020/, /note/data-leaders-summit-europe-2019/, /note/augmented-analytics/]
 title: Practicing D3 Interactive Data Visualization with Fitbit Activity/Sleep Log
 ---
 

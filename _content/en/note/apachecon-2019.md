@@ -2,7 +2,7 @@
 categories: [Conference, Machine Learning]
 date: 2019-10-26
 keywords: [apachecon, apache, iot, hivemall, community, projects, talk, cdp, session,
-  kafka]
+  pyspark]
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/iotswc-2019/, /note/hivemall-pyspark/]
 title: 'ApacheCon 2019 North America #ACNA19 & Europe #ACEU19'

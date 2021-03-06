@@ -4,8 +4,8 @@ date: 2019-07-26
 keywords: [julia, recommendation, community, package, computing, ecosystem, recommendations,
   book, developed, onference]
 lang: en
-recommendations: [/note/recommendation-julia-documenter/, /note/recommendation-julia/,
-  /note/flurs/]
+recommendations: [/note/recommendation-julia-documenter/, /note/julia-travis-ci-to-github-actions/,
+  /note/recommendation-julia/]
 title: 'Lightning Talk about Recommender Systems in Julia at #JuliaCon 2019'
 ---
 

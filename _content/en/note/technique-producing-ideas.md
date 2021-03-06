@@ -1,7 +1,7 @@
 ---
 categories: [Essay, Book]
 date: 2020-01-05
-keywords: [ideas, experiences, inputs, raw, gathering, problem, material, idea, producing,
+keywords: [ideas, experiences, raw, inputs, gathering, problem, material, idea, producing,
   knowledge]
 lang: en
 recommendations: [/note/revisit-design-thinking/, /note/fermenting-thoughts/, /note/language-as-a-design-tool/]
