@@ -1,7 +1,7 @@
 ---
 categories: [Essay]
 date: 2014-11-09
-keywords: [blog, japanese, japan, write, posts, takuti, english, ese, articles, specific]
+keywords: [blog, japanese, japan, write, posts, takuti, ese, english, articles, applications]
 lang: en
 recommendations: [/note/new-year-resolution-2017/, /note/move-to-gh-pages/, /note/travis-gh-pages-deployment/]
 title: Hello English Entries

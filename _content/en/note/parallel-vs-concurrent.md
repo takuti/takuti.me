@@ -4,7 +4,7 @@ date: 2017-02-25
 keywords: [parallel, concurrent, programming, actions, progress, executed, multiple,
   definition, systems, difference]
 lang: en
-recommendations: [/note/coursera-scala-capstone/, /note/mlss-kyoto-2015/, /note/spark-rdd-cached-vs-uncached/]
+recommendations: [/note/coursera-scala-capstone/, /note/mlss-kyoto-2015/, /note/mlconf-sf-2018/]
 title: Parallel Programming vs. Concurrent Programming
 ---
 

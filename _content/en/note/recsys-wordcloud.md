@@ -1,8 +1,8 @@
 ---
 categories: [Recommender Systems, Programming]
 date: 2017-11-11
-keywords: [recsys, matrix, cloud, rating, word, collaborative, filtering, group, papers,
-  images]
+keywords: [recsys, matrix, rating, word, cloud, group, collaborative, papers, filtering,
+  trends]
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/hello-faust/, /note/recommendation-julia-documenter/]
 title: Understanding Research Trends in Recommender Systems from Word Cloud
