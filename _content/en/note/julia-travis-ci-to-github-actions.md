@@ -1,7 +1,7 @@
 ---
 categories: [Programming]
 date: 2021-03-06
-keywords: [julia, travis, project, actions, github, year, bot, referred, request,
+keywords: [julia, travis, project, actions, github, year, request, bot, summarizes,
   yml]
 lang: en
 recommendations: [/note/juliacon-2019/, /note/recommendation-julia-documenter/, /note/travis-gh-pages-deployment/]

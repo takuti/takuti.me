@@ -1,11 +1,11 @@
 ---
 categories: [Essay]
 date: 2021-03-21
-keywords: [vancouver, japan, live, treasure, country, product, years, manager, know,
-  data]
+keywords: [vancouver, japan, live, treasure, country, product, years, manager, international,
+  know]
 lang: en
-recommendations: [/note/becoming-a-product-manager/, /note/working-from-home-202004/,
-  /note/hivemall-events-2018-autumn/]
+recommendations: [/note/becoming-a-product-manager/, /note/hivemall-events-2018-autumn/,
+  /note/working-from-home-202004/]
 title: 'Moving to Canada: Adding Randomness to My Life'
 ---
 
@@ -27,11 +27,11 @@ Of course, there are some tactical reasons as follows:
 
 That said, my personal motivation is simply experiencing life in a foreign country, and I've been seeking the opportunity over the past few years.
 
-Even though I spent half a year outside of Japan in 2019, everything was a part of my limited experience as an internal traveler.
+Even though I spent half a year outside of Japan in 2019, everything was a part of my limited experience as an international traveler.
 
 https://twitter.com/takuti/status/1207165848135168002
 
-*How does my impression change if I live there? Is Japan the best country to live in for me?*&mdash;I'm not sure, because I haven't experienced it yet. So, let's do some experiments and collect evidence.
+*How does my impression change if I live there? Is Japan the best country to live in for me?*&mdash;I'm not sure, because I haven't experienced it yet. So, let me do some experiments and collect evidence.
 
 ### Why NOW?
 
@@ -51,9 +51,9 @@ Life is unpredictable, and it's the beauty for us. At the same time, we don't kn
 
 In 20+ countries I've ever visited, Oslo, Norway, and Vancouver, Canada are the only destinations I can realistically consider the possibility of living in the place, except Japan.
 
-The last time I came to Vancouver was in 2018 when I [presented at RecSys 2018](/note/hivemall-events-2018-autumn/). During the limited period of stay, I deeply enjoyed the fabulous views from the city, the extremely walkable area of downtown, and high-quality local beers and coffee shops. Coincidentally, Treasure Data officially opens its Canada office in Vancouver next year.
+The last time I came to Vancouver was in 2018 when I [presented at RecSys 2018](/note/hivemall-events-2018-autumn/). During the limited period of stay, I deeply enjoyed the fabulous views from the city, the extremely walkable area of downtown, and high-quality local beers and coffee shops. Coincidentally, Treasure Data officially opened its Canada office in Vancouver next year.
 
-Importantly, Vancouver and Oslo share a lot of similarities with my hometown, Nagano, Japan, in terms of nature. For example, these three locations are in a relatively cold environment surrounded by mountains and are equally the places where Winter Olympics have been held in 1952 (Oslo), 1998 (Nagano), and 2010 (Vancouver). Since I like enjoying nature and going on hikes in my daily life, life in these cities sounds very attractive to me.
+Importantly, Vancouver and Oslo share a lot of similarities with my hometown, Nagano, Japan, in terms of nature. For example, these three locations are in a relatively cold environment surrounded by mountains and are equally the places where Winter Olympics have been held in 1952 (Oslo), 1998 (Nagano), and 2010 (Vancouver). Since I like enjoying nature and going on hikes in my daily life, living in these cities sounds very attractive to me.
 
 For the reasons above, Vancouver was the best, most desirable choice for me compared to the other foreign entities the company may offer (e.g., California, USA, and London, UK).
 
