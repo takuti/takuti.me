@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2020-12-08
-keywords: [コンサル, 期待値, 顧客, クライアント, 一年, 仕事, プロダクト, 不合理, 経験, 話す]
+keywords: [コンサル, 期待値, 顧客, クライアント, 一年, 仕事, プロダクト, 不合理, 経験, コントロール]
 lang: ja
 recommendations: [/ja/note/customer-centric-marketing/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/first-quarter-as-a-product-manager/]

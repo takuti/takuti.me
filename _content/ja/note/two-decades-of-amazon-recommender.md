@@ -2,7 +2,7 @@
 aliases: [/note/two-decades-of-amazon-recommender/]
 categories: [情報推薦]
 date: 2017-06-10
-keywords: [アイテム, 推薦, 購入, ユーザ, 閲覧, 協調フィルタリング, amazon, 商品, テレビ, 買っ]
+keywords: [アイテム, 推薦, 購入, ユーザ, 協調フィルタリング, amazon, 閲覧, テレビ, 商品, 買っ]
 lang: ja
 recommendations: [/ja/note/coursera-recommender-systems/, /ja/note/slim/, /ja/note/data-skeptic-recommender-systems/]
 title: Amazonの推薦システムの20年

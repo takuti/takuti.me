@@ -2,7 +2,7 @@
 aliases: [/note/recsys-2016/]
 categories: [情報推薦, イベント参加記]
 date: 2016-09-28
-keywords: [会議, ボランティア, recsys, 学生, 推薦, ワークショップ, 発表, トップ, 本会議, 行く]
+keywords: [会議, ボランティア, recsys, 学生, 推薦, ワークショップ, 発表, トップ, 本会議, セッション]
 lang: ja
 recommendations: [/ja/note/master-graduate/, /ja/note/trends-in-real-world-recommender-systems-2017/,
   /ja/note/data-skeptic-recommender-systems/]

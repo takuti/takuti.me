@@ -2,10 +2,10 @@
 aliases: [/note/postgresql-fuzzy-search/]
 categories: [プログラミング, 自然言語処理]
 date: 2017-08-09
-keywords: [distance, levenshtein, seven, 検索, fuzzystrmatch, postgresql, trgm, weeks,
-  databases, 思い出]
+keywords: [levenshtein, distance, seven, 検索, fuzzystrmatch, postgresql, trgm, weeks,
+  databases, 編集]
 lang: ja
-recommendations: [/ja/note/levenshtein-distance/, /ja/note/hive-fuzzy-search/, /ja/note/chiir-2017/]
+recommendations: [/ja/note/levenshtein-distance/, /ja/note/hive-fuzzy-search/, /ja/note/designing-data-intensive-applications/]
 title: あのときのビールをもう一度（PostgreSQLでFuzzy Searchを試す）
 ---
 

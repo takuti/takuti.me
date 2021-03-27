@@ -2,7 +2,7 @@
 aliases: [/note/gensim-jawiki/]
 categories: [プログラミング, 機械学習, 自然言語処理]
 date: 2017-07-22
-keywords: [トピック, latest, ドキュメント, wikipedia, 使っ, lsi, lda, 入手, カブトムシ, 英語版]
+keywords: [トピック, latest, ドキュメント, wikipedia, 使っ, index, 英語版, カブトムシ, 入手, lda]
 lang: ja
 recommendations: [/ja/note/fastcat/, /ja/note/recommender-libraries/, /ja/note/incremental-plsa/]
 title: gensimでWikipedia日本語版からコーパスを作ってトピックモデリング

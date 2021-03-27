@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ, 読書記録]
 date: 2020-06-21
-keywords: [問題, 考える, 考え, はじめて, スーパー, イシュー, 答え, 自分, 二度と, driven]
+keywords: [問題, 考える, 考え, はじめて, イシュー, スーパー, 答え, 自分, 元通り, driven]
 lang: ja
 recommendations: [/ja/note/life-with-covid-19/, /ja/note/feel/, /ja/note/cognitive-science-and-behavioral-economics/]
 title: 「考えること」
