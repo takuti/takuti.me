@@ -2,7 +2,7 @@
 aliases: [/note/holt-winters/]
 categories: [機械学習, プログラミング]
 date: 2017-08-26
-keywords: [holt, winters, 予測, method, 手法, 返し, 周期, データ, ing, 時系列]
+keywords: [winters, holt, 予測, method, 手法, 返し, 周期, データ, ing, 時系列]
 lang: ja
 recommendations: [/ja/note/attribution/, /ja/note/yahoo-egads/, /ja/note/adjusting-for-oversampling-and-undersampling/]
 title: 異常検知のための未来予測：オウム返し的手法からHolt-Winters Methodまで

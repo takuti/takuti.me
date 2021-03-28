@@ -2,7 +2,7 @@
 aliases: [/note/python-concurrent-futures/]
 categories: [プログラミング, コンピュータシステム]
 date: 2017-10-01
-keywords: [並列化, futures, マルチスレッド, concurrent, 処理, プロセス, pool, multiprocessing, レッド,
+keywords: [並列化, マルチスレッド, futures, concurrent, 処理, プロセス, pool, multiprocessing, レッド,
   スレッド]
 lang: ja
 recommendations: [/ja/note/euroscipy-2017/, /ja/note/acroquest-javabook/, /ja/note/coursera-scala-specialization/]

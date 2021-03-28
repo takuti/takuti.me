@@ -2,7 +2,7 @@
 aliases: [/note/data-skeptic-recommender-systems/]
 categories: [情報推薦]
 date: 2017-11-17
-keywords: [推薦, システム, 先生, konstan, ユーザ, ページ, グループ, メニュー, grouplens, セレンディピティ]
+keywords: [推薦, システム, 先生, konstan, ユーザ, ページ, メニュー, グループ, grouplens, セレンディピティ]
 lang: ja
 recommendations: [/ja/note/trends-in-real-world-recommender-systems-2017/, /ja/note/practical-machine-learning/,
   /ja/note/recommender-libraries/]

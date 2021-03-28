@@ -76,14 +76,14 @@ def recommend_content_based_cf(paths, topk=3):
 
     tfidf = vectorizer.fit_transform(samples)
 
-    indices = tfidf.toarray().argsort(axis=1)[:, ::-1]
+    indices = tfidf.toarray().argsort(axis=1, kind='stable')[:, ::-1]
     keywords = np.array(vectorizer.get_feature_names())[indices]
 
     similarities = cosine_similarity(tfidf)
 
     for i, path in enumerate(paths):
         # find top-k most-similar articles (except for target article itself which is similarity=1.0)
-        top_indices = np.argsort(similarities[i, :])[::-1][1:(topk + 1)]
+        top_indices = np.argsort(similarities[i, :], kind='stable')[::-1][1:(topk + 1)]
         recommend_permalinks = [path_to_permalink(paths[j]) for j in top_indices]
 
         yield (path, keywords[i, :10].tolist(), recommend_permalinks)
