@@ -1,8 +1,8 @@
 ---
 categories: [Programming, Data Science]
 date: 2021-03-13
-keywords: [visualization, countries, obtained, air, data, travel, significant, react,
-  geographical, flew]
+keywords: [flight, visualization, countries, obtained, data, travel, significant,
+  react, geographical, flew]
 lang: en
 recommendations: [/note/datavis-2020/, /note/first-vis-with-fitbit/, /note/augmented-analytics/]
 title: How Much CO2 Emissions Have Your Flights Made?

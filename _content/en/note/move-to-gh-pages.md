@@ -1,7 +1,7 @@
 ---
 categories: [Programming]
 date: 2017-04-30
-keywords: [github, pages, site, takuti, domain, hugo, generated, directory, hosted,
+keywords: [github, pages, site, takuti, hugo, domain, generated, directory, hosted,
   page]
 lang: en
 recommendations: [/note/travis-gh-pages-deployment/, /note/hello-netlify/, /note/hugo-markdown-and-mathjax/]

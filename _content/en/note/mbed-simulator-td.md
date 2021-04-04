@@ -1,7 +1,7 @@
 ---
 categories: [Programming]
 date: 2018-11-02
-keywords: [mbed, data, pelion, device, treasure, sensor, arm, demo, platform, condition]
+keywords: [mbed, data, pelion, treasure, sensor, device, arm, demo, platform, condition]
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/data-leaders-summit-europe-2019/,
   /note/iotswc-2019/]

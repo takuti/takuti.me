@@ -1,9 +1,11 @@
 ---
 categories: [Programming]
 date: 2017-04-16
-keywords: [scala, rdd, distributed, map, spark, collection, model, data, code, strength]
+keywords: [scala, rdd, operations, distributed, map, spark, collection, model, data,
+  code]
 lang: en
-recommendations: [/note/coursera-scala-capstone/, /note/mlss-kyoto-2015/, /note/hivemall-pyspark/]
+recommendations: [/note/coursera-scala-capstone/, /note/coursera-supply-chain-management/,
+  /note/mlss-kyoto-2015/]
 title: Comparison of Running Time of Cached/Uncached Spark RDD
 ---
 

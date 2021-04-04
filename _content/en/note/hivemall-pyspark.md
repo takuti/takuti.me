@@ -1,8 +1,8 @@
 ---
 categories: [Machine Learning, Programming]
 date: 2019-03-24
-keywords: [hivemall, spark, training, pyspark, uses, prediction, python, example,
-  tweak, successfully]
+keywords: [hivemall, spark, training, pyspark, uses, prediction, python, scikit, notebook,
+  hadoop]
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/apachecon-2019/, /note/pyconjp-2015/]
 title: Apache Hivemall in PySpark

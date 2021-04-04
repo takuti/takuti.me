@@ -1,10 +1,10 @@
 ---
 categories: [Machine Learning]
 date: 2015-10-03
-keywords: [optimization, learn, learning, really, theoretical, professor, try, like,
+keywords: [optimization, learn, really, learning, theoretical, professor, like, try,
   mathematica, aspects]
 lang: en
-recommendations: [/note/mlconf-sf-2018/, /note/learn-how-others-work/, /note/fermenting-thoughts/]
+recommendations: [/note/mlconf-sf-2018/, /note/fermenting-thoughts/, /note/learn-how-others-work/]
 title: 'Machine Learning Summer School 2015 Kyoto #MLSSKYOTO'
 ---
 

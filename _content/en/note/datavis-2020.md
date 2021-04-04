@@ -4,7 +4,7 @@ date: 2021-01-23
 keywords: [datavis, visualization, fitbit, chart, dashboard, data, ourse, react, official,
   augmented]
 lang: en
-recommendations: [/note/first-vis-with-fitbit/, /note/flight-emissions/, /note/augmented-analytics/]
+recommendations: [/note/first-vis-with-fitbit/, /note/augmented-analytics/, /note/flight-emissions/]
 title: 'Datavis 2020: A Free Online Course About D3.js & React'
 ---
 
