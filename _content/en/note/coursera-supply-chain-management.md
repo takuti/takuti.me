@@ -8,7 +8,7 @@ recommendations: [/note/machine-learning-product/, /note/learn-how-others-work/,
 title: The Essence of Supply Chain Management
 ---
 
-On Coursera, I have completed [Supply Chain Management Specialization](https://www.coursera.org/specializations/supply-chain-management) offered by Rutgers University, which consists of four different topics in an end-to-end supply chain management process:
+On Coursera, I have [completed **Supply Chain Management Specialization**](https://coursera.org/verify/specialization/CR3YNENM4MYG) offered by Rutgers University, which consists of four different topics in an end-to-end supply chain management process:
 
 1. Logistics
 2. Operations
