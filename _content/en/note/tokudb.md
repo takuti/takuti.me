@@ -1,8 +1,8 @@
 ---
 categories: [Programming]
 date: 2019-04-07
-keywords: [engine, xxx, aws, server, overflow, enable, performance, connect, instance,
-  high]
+keywords: [engine, xxx, storage, aws, overflow, server, performance, enable, connect,
+  instance]
 lang: en
 recommendations: [/note/hello-faust/, /note/hivemall-events-2018-autumn/, /note/data-leaders-summit-europe-2019/]
 title: TokuDB in MariaDB (on Ubuntu)
