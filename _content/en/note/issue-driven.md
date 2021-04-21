@@ -3,7 +3,7 @@ categories: [Essay]
 date: 2020-05-01
 keywords: [issue, driven, quality, time, approach, work, deliver, problem, home, productivity]
 lang: en
-recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/revisit-design-thinking/]
+recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/hugo-markdown-and-mathjax/]
 title: Issue-Driven Makes You Professional
 ---
 

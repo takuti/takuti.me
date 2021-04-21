@@ -1,7 +1,7 @@
 ---
 categories: [Programming, Conference, Recommender Systems]
 date: 2019-07-26
-keywords: [julia, recommendation, community, package, computing, ecosystem, book,
+keywords: [julia, recommendation, package, community, computing, ecosystem, book,
   recommendations, onference, industry]
 lang: en
 recommendations: [/note/recommendation-julia-documenter/, /note/julia-travis-ci-to-github-actions/,

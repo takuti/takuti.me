@@ -5,7 +5,7 @@ keywords: [data, leaders, business, scientist, head, scientists, summit, organiz
   panel, company]
 lang: en
 recommendations: [/note/augmented-analytics/, /note/hivemall-events-2018-autumn/,
-  /note/mbed-simulator-td/]
+  /note/becoming-a-product-manager/]
 title: Rethinking the Role of Data Leaders @ Data Leaders Summit Europe 2019
 ---
 

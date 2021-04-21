@@ -1,7 +1,7 @@
 ---
 categories: [Programming, Data Science]
 date: 2021-01-23
-keywords: [datavis, visualization, fitbit, chart, dashboard, data, ourse, react, official,
+keywords: [datavis, visualization, fitbit, chart, dashboard, data, react, ourse, official,
   augmented]
 lang: en
 recommendations: [/note/first-vis-with-fitbit/, /note/augmented-analytics/, /note/flight-emissions/]
