@@ -1,7 +1,7 @@
 ---
 categories: [Recommender Systems, Programming]
 date: 2019-01-14
-keywords: [recommendation, stream, flurs, incremental, engine, user, streams, items,
+keywords: [recommendation, stream, flurs, incremental, engine, user, items, streams,
   python, recommender]
 lang: en
 recommendations: [/note/flurs/, /note/recommendation-julia/, /note/recommendation-julia-documenter/]

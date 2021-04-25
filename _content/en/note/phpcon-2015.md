@@ -1,7 +1,7 @@
 ---
 categories: [Conference]
 date: 2015-10-04
-keywords: [phpcon, testing, performance, conference, database, october, released,
+keywords: [phpcon, performance, testing, conference, database, october, released,
   soon, machine, keynote]
 lang: en
 recommendations: [/note/pyconjp-2015/, /note/mlss-kyoto-2015/, /note/mlconf-sf-2018/]

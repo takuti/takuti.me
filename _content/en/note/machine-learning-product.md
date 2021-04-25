@@ -1,8 +1,8 @@
 ---
 categories: [Machine Learning]
 date: 2020-08-29
-keywords: [product, business, problems, solution, cost, solving, technical, model,
-  questions, strategy]
+keywords: [product, business, solution, problems, cost, solving, technical, model,
+  questions, human]
 lang: en
 recommendations: [/note/learn-how-others-work/, /note/becoming-a-product-manager/,
   /note/coursera-supply-chain-management/]

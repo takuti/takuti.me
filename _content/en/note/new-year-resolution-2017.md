@@ -1,7 +1,7 @@
 ---
 categories: [Essay]
 date: 2017-01-07
-keywords: [articles, skills, writing, books, goals, write, read, months, professional,
+keywords: [articles, skills, writing, books, write, goals, months, read, professional,
   courses]
 lang: en
 recommendations: [/note/hello-english/, /note/resume-in-html/, /note/mlss-kyoto-2015/]
