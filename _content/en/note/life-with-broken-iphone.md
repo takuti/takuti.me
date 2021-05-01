@@ -3,7 +3,7 @@ categories: [Essay]
 date: 2020-04-04
 keywords: [iphone, broken, apps, screen, internet, phone, bank, check, device, half]
 lang: en
-recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/mlss-kyoto-2015/]
+recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/issue-driven/]
 title: Life with (Partially) Broken iPhone
 ---
 

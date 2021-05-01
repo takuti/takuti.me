@@ -1,7 +1,7 @@
 ---
 categories: [Machine Learning]
 date: 2020-08-29
-keywords: [product, business, solution, problems, cost, solving, technical, model,
+keywords: [product, business, solution, problems, solving, cost, model, technical,
   questions, human]
 lang: en
 recommendations: [/note/learn-how-others-work/, /note/becoming-a-product-manager/,
