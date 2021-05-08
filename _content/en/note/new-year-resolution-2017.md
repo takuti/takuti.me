@@ -2,7 +2,7 @@
 categories: [Essay]
 date: 2017-01-07
 keywords: [articles, skills, writing, books, write, goals, months, read, professional,
-  week]
+  courses]
 lang: en
 recommendations: [/note/hello-english/, /note/resume-in-html/, /note/coursera-scala-capstone/]
 title: 'My New Year''s Resolution 2017: Write an Article Every Week'

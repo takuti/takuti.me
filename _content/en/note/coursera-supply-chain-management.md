@@ -1,10 +1,11 @@
 ---
 categories: [Data Science]
 date: 2021-04-04
-keywords: [cost, right, demand, average, operations, method, logistics, inventory,
-  forecasting, value]
+keywords: [cost, right, demand, average, operations, method, forecasting, value, process,
+  mean]
 lang: en
-recommendations: [/note/machine-learning-product/, /note/learn-how-others-work/, /note/environmental-problems-and-business/]
+recommendations: [/note/supply-chain-analytics/, /note/machine-learning-product/,
+  /note/learn-how-others-work/]
 title: The Essence of Supply Chain Management
 ---
 

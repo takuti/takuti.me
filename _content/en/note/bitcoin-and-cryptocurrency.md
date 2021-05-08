@@ -2,7 +2,7 @@
 categories: [Programming]
 date: 2021-04-19
 keywords: [blockchain, transaction, bitcoin, transactions, decentralized, consensus,
-  network, nodes, block, hash]
+  nodes, block, network, hash]
 lang: en
 recommendations: [/note/coursera-blockchain-specialization/, /note/iotswc-2019/, /note/becoming-a-product-manager/]
 title: Learning Cryptocurrency with Code

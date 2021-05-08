@@ -1,10 +1,11 @@
 ---
 categories: [Business, Data Science]
 date: 2021-05-07
-draft: true
-keywords: [zero, youtube, yml, yesterday, 'yes', years, yearly, year, yay, xxx]
+keywords: [strategy, pull, push, inventory, cost, product, distribution, analytics,
+  unit, intuition]
 lang: en
-recommendations: [/note/julia-factorization-machines/, /note/hello-netlify/, /note/machine-learning-product/]
+recommendations: [/note/coursera-supply-chain-management/, /note/machine-learning-product/,
+  /note/becoming-a-product-manager/]
 title: Actionable Insights from Supply Chain Analytics
 ---
 
@@ -40,10 +41,12 @@ Once the problem to solve and potential solution are identified, we'll try to ha
 An entire supply chain can be simplified as follows:
 
 ```
-Factories -> DC (order fulfillment, inventory) -> [Push] Store / [Pull] Customer
+                                                   ---> [Push] Store
+Factories ---> DC (order fulfillment, inventory) --|
+                                                   <--- [Pull] Customer
 ```
 
-First, inventory at warehouses is a key piece to balance supply and demand. On one hand, inventory enables companies to economically store a huge amount of products at a lower price in a scalable manner. On the other hand, if market speed doesn't match the warehousing strategy and there are remaining stocks when a new product has been introduced, the company has to "wait" until all inventories are sold.
+First, inventory at warehouses is a key piece to balance supply and demand. On one hand, inventory enables companies to economically store a huge amount of products at a lower price in a scalable manner. On the other hand, if market speed doesn't match the warehousing strategy and there are remaining stocks when a new product is introduced, the company has to "wait" until all inventories are sold.
 
 Secondly, different products require to have different distribution strategies. To give an example, for an expensive product such as cars, computers, and mobile phones, batch and infrequent replenishment via truckload should work sufficiently. Meanwhile, fresh items sold at grocery stores (e.g., vegetables, flowers) need to be continuously replenished via a less-than-truckload.
 
@@ -58,7 +61,7 @@ Therefore, an intuition of [push-pull strategy](https://en.wikipedia.org/wiki/Pu
 
 We then quantify the push vs. pull strategy to confirm the intuition and find out the best option to take.
 
-On either Excel spreadsheet or your preferred programming tool, inventory holding, shipping, picking/packing, sales volume cost can be collected, calculated, and compared as:
+On either Excel spreadsheet or your preferred programming tool, inventory holding, shipping, picking/packing, sales volume cost can be collected, calculated, and compared as follows:
 
 - Inventory holding cost at stores:
   - Inventory cost per week per unit 
