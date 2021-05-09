@@ -14,40 +14,64 @@ title: 'A Journey of Sustainable Development #SDGMOOC'
 
 _\* Credit: Azote Images for Stockholm Resilience Centre, Stockholm University_
 
-The point is **SDGs are mutually dependent**; our life (society) relies fully on the natural resources (biosphere), and economy exists on the top of human life. Therefore, each of us can contribute to SDGs both in personal and business. 
+The point is **SDGs are mutually dependent**; our life (society) relies fully on the natural resources (biosphere), and the economy exists on the top of human life. Therefore, there is a wide variety of opportunities for each of us to contribute to SDGs both in personal and business. 
 
-Key takeaways can be explained by the following quotes captured from the course videos.
+### Taking responsibility in an infinite journey
 
-> Sustainability is a journey and not a destination.<br/><br/>&mdash;Bob Collymore, A former CEO of [Safaricom](https://www.safaricom.co.ke/)
+Key takeaways can be explained by the quotes captured from the course videos.
 
-Most importantly, the issues in ecological, social, and economical sustainability are made up of many different factors, and there is no clear "goal" that we can stop maintaining the sustainability. When you eat, buy, move, work&mdash;Throughout our entire life, we have to keep thinking the problems and taking as many actions as possible. That's the only way to achieve SDGs in the true sense.
+First of all, the issues in ecological, social, and economical sustainability are made up of many different factors, and there is no clear "goal" that we can stop maintaining sustainability. 
 
-What I really like about the course is they emphasized an importance of system thinking, which requires us to holistically consider mutually dependent problems while comparing synergies vs. trade-offs. If you start using a shopping bag to reduce consumption of plastic bags, that's great. However, where is your shopping bag created? Typically, such mass products are created in lower income counties, and economical/social sustainability remains even though your effort mitigates a ecological problem.
+> **Sustainability is a journey** and not a destination.<br/><br/>&mdash;Bob Collymore, A former CEO of [Safaricom](https://www.safaricom.co.ke/)
 
-> Too many companies are hiding behind charity while they say we take our responsibility. Charity is not taking responsibility, taking responsibility is changing the core of your operations.<br/><br/>&mdash;Arjen Boekhold, Co-founder of [Tony's Chocolonely](https://tonyschocolonely.com/us/en/our-mission)
+When you eat, buy, move, work&mdash;Throughout our entire life, we have to be considerate of the problems and take as many actions as possible. That's the only way to achieve SDGs in the true sense.
 
-Additionally, the actions must be taken responsibly. It is important to be serious about the issues as a personal matter, and short-term (or even one-time), indirect contribution won't be sufficient. It's better than nothing though. Hence, having a solid plan is important to seriously tackle the problems, and [Your Plan, Your Planet by Google](https://yourplanyourplanet.sustainability.google/) and [The Lazy Person’s Guide to Saving the World](https://www.un.org/sustainabledevelopment/takeaction/) can be a good place to begin with.
+What I really like about the course is they emphasized the importance of system thinking, which requires us to holistically consider mutually dependent problems while comparing synergies vs. trade-offs. 
 
-Speaking of SDGs in business, sustainability is a big business opportunity for companies as I described in **[Environmental Problems Through the Lens of Business](/note/environmental-problems-and-business/)**. In fact, the goals cannot be achieved without a deep, long-term integration with business, and what solving global problems needs includes but are not limited to funding/financial strategy, project management, and business development.
+For instance, if you start using a shopping bag to reduce the consumption of plastic bags, that's great. However, where is your shopping bag created, by whom? Typically, such mass products are created in lower-income counties, and the challenge about economical/social sustainability remains even though your effort mitigates an ecological problem.
 
-Unfortunately, there is a contradiction that truly meaningful business from the sustainable perspective is less profitable. To overcome the problem, a drastic change of the system is needed; if there is a high tax rate for human activities that cause air pollution, if product prices reflect social impact to prices, if plastic is more expensive, ...these are the points discussed in **[My First Impression After Reading Bill Gates's "How to Avoid a Climate Disaster"](/note/how-to-avoid-a-climate-disaster/)**.
+Consequently, short-term mitigation focusing only on a single aspect of the problems won't be sufficient, and the actions must be taken more responsibly; it is important to be serious about the issues as a personal matter.
 
-### Hamming bird challenges
+To begin with, having a solid plan is important to deeply engage in the problems, and looking into [Your Plan, Your Planet by Google](https://yourplanyourplanet.sustainability.google/) and [The Lazy Person’s Guide to Saving the World](https://www.un.org/sustainabledevelopment/takeaction/) can be the first step.
 
-- SDG tracker https://sdg-tracker.org/
+Speaking of SDGs in business, sustainability is a big business opportunity for companies as I described in **[Environmental Problems Through the Lens of Business](/note/environmental-problems-and-business/)**. That said...
 
-1. Calculate env footprint - https://www.footprintcalculator.org/result1
-2. Try to reduce the use of plastic, and recycle them / Reuse coffee cups, take a bag to groccery store
-3. Take a look at clothes tag, check origin, see if brand is included to transparency list: https://www.fashionrevolution.org/about/transparency/
-4. subconscious associations for people who are different from you, for example in their gender, religion, race or political views. These associations may steer your behavior without you being aware of it. The test that assesses them is called the Implicit Association Test (IAT).  https://implicit.harvard.edu/implicit/takeatest.html
-5. Trace the origin of my lunch; how the ingredients respect people & environment; transparency
-6. Possibility of collaboration. My company - How do they contribute to SGDs? Are there any "unusual" collaboration partners that could help the organization make an impact on SDGs while maintaining both sides's benefits & strengths?
-7. System mapping - "Cup of coffee" -> what's needed? what's considered? https://medium.com/disruptive-design/tools-for-systems-thinkers-systems-mapping-2db5cf30ab3a
+> Too many companies are hiding behind charity while they say we take our responsibility. **Charity is not taking responsibility**, taking responsibility is changing the core of your operations.<br/><br/>&mdash;Arjen Boekhold, Co-founder of [Tony's Chocolonely](https://tonyschocolonely.com/us/en/our-mission)
 
+The goals cannot be achieved without a deep, long-term integration with business, and solving global problems needs includes but are not limited to funding/financial strategy, project management, and business development.
 
+Unfortunately, there is a contradiction that truly meaningful business from the sustainable perspective is less profitable. To overcome the problem, a drastic change of the system is needed: 
+
+- if there were a high tax rate for human activities that cause air pollution; 
+- if the social impact were reflected in product prices;
+- if plastic were more expensive.
+
+These possibilities have been discussed in **[My First Impression After Reading Bill Gates's "How to Avoid a Climate Disaster"](/note/how-to-avoid-a-climate-disaster/)**.
+
+### Hummingbird challenges: What "I" can do
+
+If we look at [SDG Tracker](https://sdg-tracker.org/), the data makes me feel like SGDs are highly ambitious challenges that there is very little thing I can do. It is true&mdash;Each of us doesn't have enough power of changing the world, and I'm just one of the 8 billion people on the earth, like a little hummingbird in a large forest. 
+
+However, individuals' actions are surely propagated to others, and what the hummingbird did does have a meaning in the long run.
+
+Below is a list of hummingbird challenges the course requested us to tackle, and I had a great opportunity to think of where "I" am and what "I" can do, as a personal matter.
+
+1. Calculate my ecological footprint by using a [tool](https://www.footprintcalculator.org/).
+2. Try to reduce the use of plastic, and recycle them e.g., reusing coffee cups, taking a bag to grocery stores.
+3. Take a look at tags on my clothes, and check their origin. See how much transparency the brand provides (c.f. [Fashion Transparency Index](https://www.fashionrevolution.org/about/transparency/)).
+4. Assess my subconscious associations for people who are different from you, by using the [Implicit Association Test](https://implicit.harvard.edu/implicit/takeatest.html).
+5. Trace the origin of my lunch; how much its production process is transparent, and how they respect people and the environment throughout the process.
+6. Review how my employer contributes to SDGs. Imagine the possibility of "unusual" collaboration with partners that could help the organization to make an impact on SDGs while maintaining benefits & strengths.
+7. Try [system mapping](https://medium.com/disruptive-design/tools-for-systems-thinkers-systems-mapping-2db5cf30ab3a), like a word association game. For example, to make up a cup of coffee, what's needed? What kind of factors to be considered from the biosphere, society, and economy?
 
 ### My action items
 
+To summarize, SGDs are the core of saving our day-to-day life with loved ones, and persistently accumulating small changes on my own responsibility is the only way to grab the "normal" in the future.
+
+What I'm recently trying to do is as follows:
+
 1. Reduce daily energy use and save electricity & water.
-2. Review my job through the lens of SDGs and choose a career that I can believe it's meaningful; avoid [bullshit jobs](https://en.wikipedia.org/wiki/Bullshit_Jobs).
-3. Make meat-free day(s), and regularly eat more vegetable and less meat.
+2. Review my job through the lens of SDGs and choose a career that I can believe it's truly meaningful for our life; avoid [bullshit jobs](https://en.wikipedia.org/wiki/Bullshit_Jobs).
+3. Make a meat-free day(s), and regularly eat more vegetables and less meat.
+
+What do you do?
