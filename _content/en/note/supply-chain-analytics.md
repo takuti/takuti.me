@@ -40,11 +40,7 @@ Once the problem to solve and potential solution are identified, we'll try to ha
 
 An entire supply chain can be simplified as follows:
 
-```
-                                                   ---> [Push] Store
-Factories ---> DC (order fulfillment, inventory) --|
-                                                   <--- [Pull] Customer
-```
+![push-pull-flow](/images/supply-chain-analytics/push-pull-flow.png)
 
 First, inventory at warehouses is a key piece to balance supply and demand. On one hand, inventory enables companies to economically store a huge amount of products at a lower price in a scalable manner. On the other hand, if market speed doesn't match the warehousing strategy and there are remaining stocks when a new product is introduced, the company has to "wait" until all inventories are sold.
 
