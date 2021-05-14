@@ -1,11 +1,11 @@
 ---
 categories: [Book]
 date: 2021-04-25
-keywords: [government, book, environmental, new, emissions, technology, energy, numbers,
+keywords: [government, book, environmental, new, emissions, technology, numbers, energy,
   demand, change]
 lang: en
 recommendations: [/note/environmental-problems-and-business/, /note/flight-emissions/,
-  /note/coursera-supply-chain-management/]
+  /note/sdg-mooc/]
 title: My First Impression After Reading Bill Gates's "How to Avoid a Climate Disaster"
 ---
 

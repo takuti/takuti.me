@@ -1,8 +1,8 @@
 ---
 categories: [Data Science]
 date: 2021-04-04
-keywords: [cost, right, demand, average, operations, method, forecasting, value, process,
-  mean]
+keywords: [cost, right, demand, average, operations, method, forecasting, value, mean,
+  logistics]
 lang: en
 recommendations: [/note/supply-chain-analytics/, /note/machine-learning-product/,
   /note/learn-how-others-work/]

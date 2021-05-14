@@ -1,10 +1,11 @@
 ---
 categories: [Business]
 date: 2021-05-14
-draft: true
-keywords: [zero, youtube, yml, yesterday, 'yes', years, yearly, year, yay, xxx]
+keywords: [sustainability, business, responsibility, problems, goals, reduce, sustainable,
+  actions, challenges, avoid]
 lang: en
-recommendations: [/note/julia-factorization-machines/, /note/hello-netlify/, /note/machine-learning-product/]
+recommendations: [/note/environmental-problems-and-business/, /note/machine-learning-product/,
+  /note/how-to-avoid-a-climate-disaster/]
 title: 'A Journey of Sustainable Development #SDGMOOC'
 ---
 
@@ -38,7 +39,7 @@ Speaking of SDGs in business, sustainability is a big business opportunity for c
 
 > Too many companies are hiding behind charity while they say we take our responsibility. **Charity is not taking responsibility**, taking responsibility is changing the core of your operations.<br/><br/>&mdash;Arjen Boekhold, Co-founder of [Tony's Chocolonely](https://tonyschocolonely.com/us/en/our-mission)
 
-The goals cannot be achieved without a deep, long-term integration with business, and solving global problems needs includes but are not limited to funding/financial strategy, project management, and business development.
+The goals cannot be achieved without a deep, long-term integration with business, and solving global problems also needs funding/financial strategy, project management, and business development.
 
 Unfortunately, there is a contradiction that truly meaningful business from the sustainable perspective is less profitable. To overcome the problem, a drastic change of the system is needed: 
 
@@ -57,12 +58,12 @@ However, individuals' actions are surely propagated to others, and what the humm
 Below is a list of hummingbird challenges the course requested us to tackle, and I had a great opportunity to think of where "I" am and what "I" can do, as a personal matter.
 
 1. Calculate my ecological footprint by using a [tool](https://www.footprintcalculator.org/).
-2. Try to reduce the use of plastic, and recycle them e.g., reusing coffee cups, taking a bag to grocery stores.
+2. Try to reduce the daily use of plastic, and recycle them e.g., reusing coffee cups, taking a bag to grocery stores.
 3. Take a look at tags on my clothes, and check their origin. See how much transparency the brand provides (c.f. [Fashion Transparency Index](https://www.fashionrevolution.org/about/transparency/)).
-4. Assess my subconscious associations for people who are different from you, by using the [Implicit Association Test](https://implicit.harvard.edu/implicit/takeatest.html).
+4. Assess my subconscious associations for people who are different from me, by using the [Implicit Association Test](https://implicit.harvard.edu/implicit/takeatest.html).
 5. Trace the origin of my lunch; how much its production process is transparent, and how they respect people and the environment throughout the process.
 6. Review how my employer contributes to SDGs. Imagine the possibility of "unusual" collaboration with partners that could help the organization to make an impact on SDGs while maintaining benefits & strengths.
-7. Try [system mapping](https://medium.com/disruptive-design/tools-for-systems-thinkers-systems-mapping-2db5cf30ab3a), like a word association game. For example, to make up a cup of coffee, what's needed? What kind of factors to be considered from the biosphere, society, and economy?
+7. Try [system mapping](https://medium.com/disruptive-design/tools-for-systems-thinkers-systems-mapping-2db5cf30ab3a), like a word association game. For example, to make up a cup of coffee, what's needed? What kind of factors to be considered in the biosphere, society, and economy?
 
 ### My action items
 
@@ -70,8 +71,8 @@ To summarize, SGDs are the core of saving our day-to-day life with loved ones, a
 
 What I'm recently trying to do is as follows:
 
-1. Reduce daily energy use and save electricity & water.
-2. Review my job through the lens of SDGs and choose a career that I can believe it's truly meaningful for our life; avoid [bullshit jobs](https://en.wikipedia.org/wiki/Bullshit_Jobs).
-3. Make a meat-free day(s), and regularly eat more vegetables and less meat.
+1. Reduce daily energy (electricity and water) use and plastic consumption as much as possible.
+2. Review my job through the lens of SDGs and choose a career that I can believe it's truly meaningful for our life. That is, avoid [bullshit jobs](https://en.wikipedia.org/wiki/Bullshit_Jobs).
+3. Make a meat-free day(s) and swap whey protein powder for vegan protein powder, and regularly eat more vegetables and less meat.
 
-What do you do?
+So, what do you do?

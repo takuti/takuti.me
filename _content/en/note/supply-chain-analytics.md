@@ -1,8 +1,8 @@
 ---
 categories: [Business, Data Science]
 date: 2021-05-07
-keywords: [strategy, pull, push, inventory, cost, product, distribution, analytics,
-  unit, intuition]
+keywords: [strategy, pull, push, inventory, cost, distribution, product, analytics,
+  unit, stores]
 lang: en
 recommendations: [/note/coursera-supply-chain-management/, /note/machine-learning-product/,
   /note/becoming-a-product-manager/]

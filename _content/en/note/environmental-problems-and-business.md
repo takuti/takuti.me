@@ -4,8 +4,7 @@ date: 2021-04-30
 keywords: [green, energy, building, water, environmental, problems, business, renewable,
   people, ourse]
 lang: en
-recommendations: [/note/how-to-avoid-a-climate-disaster/, /note/machine-learning-product/,
-  /note/coursera-supply-chain-management/]
+recommendations: [/note/how-to-avoid-a-climate-disaster/, /note/sdg-mooc/, /note/machine-learning-product/]
 title: Environmental Problems Through the Lens of Business
 ---
 
