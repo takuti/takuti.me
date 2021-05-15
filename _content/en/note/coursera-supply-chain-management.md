@@ -1,5 +1,5 @@
 ---
-categories: [Data Science]
+categories: [Data Science & Analytics]
 date: 2021-04-04
 keywords: [cost, right, demand, average, operations, method, forecasting, value, mean,
   logistics]

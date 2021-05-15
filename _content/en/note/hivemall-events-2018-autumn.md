@@ -1,5 +1,5 @@
 ---
-categories: [Conference, Machine Learning, Data Science]
+categories: [Conference, Machine Learning, Data Science & Analytics]
 date: 2018-10-26
 keywords: [hivemall, data, mbed, hive, conference, recsys, session, query, capability,
   connect]

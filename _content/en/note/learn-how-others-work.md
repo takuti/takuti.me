@@ -1,5 +1,5 @@
 ---
-categories: [Essay]
+categories: [Life & Work]
 date: 2020-05-31
 keywords: [guess, product, finance, managers, introduction, design, engineers, designers,
   understand, work]

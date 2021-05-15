@@ -1,9 +1,10 @@
 ---
-categories: [Essay]
+categories: [Life & Work]
 date: 2019-09-08
-keywords: [drinking, habit, bar, good, enjoy, fine, coffee, didn, completely, day]
+keywords: [drinking, bar, habit, good, fine, enjoy, coffee, didn, completely, healthy]
 lang: en
-recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/sdg-mooc/]
+recommendations: [/note/non-alcohol-decaf-meat-free/, /note/working-from-home-202004/,
+  /note/fermenting-thoughts/]
 title: I Stopped Drinking Alone for 4 Months
 ---
 

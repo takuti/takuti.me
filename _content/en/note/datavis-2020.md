@@ -1,5 +1,5 @@
 ---
-categories: [Programming, Data Science]
+categories: [Programming, Data Science & Analytics]
 date: 2021-01-23
 keywords: [datavis, visualization, fitbit, chart, dashboard, data, react, official,
   augmented, ourse]

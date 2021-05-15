@@ -1,5 +1,5 @@
 ---
-categories: [Design, Data Science]
+categories: [Design, Data Science & Analytics]
 date: 2020-04-11
 keywords: [analytics, augmented, dashboard, data, nlp, insights, scientists, visual,
   good, business]

@@ -1,5 +1,5 @@
 ---
-categories: [Essay, Book]
+categories: [Life & Work, Business, Design]
 date: 2020-01-05
 keywords: [ideas, experiences, inputs, raw, gathering, idea, problem, producing, material,
   information]

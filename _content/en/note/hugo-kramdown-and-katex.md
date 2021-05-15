@@ -2,7 +2,7 @@
 categories: [Programming]
 date: 2017-05-28
 keywords: [katex, markdown, latex, kramdown, mathjax, syntax, rendering, processor,
-  equation, normal]
+  equation, hugo]
 lang: en
 recommendations: [/note/hugo-markdown-and-mathjax/, /note/travis-gh-pages-deployment/,
   /note/normal-equation/]

@@ -1,9 +1,10 @@
 ---
-categories: [Essay]
+categories: [Life & Work]
 date: 2020-04-18
-keywords: [coffee, home, day, stay, pomodoro, healthy, time, life, physically, working]
+keywords: [home, coffee, day, stay, pomodoro, healthy, life, time, physically, working]
 lang: en
-recommendations: [/note/fermenting-thoughts/, /note/stop-drinking-alone/, /note/life-with-broken-iphone/]
+recommendations: [/note/fermenting-thoughts/, /note/non-alcohol-decaf-meat-free/,
+  /note/stop-drinking-alone/]
 title: How I'm Working From Home
 ---
 

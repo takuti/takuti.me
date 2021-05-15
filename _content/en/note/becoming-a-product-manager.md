@@ -1,5 +1,5 @@
 ---
-categories: [Essay, Data Science]
+categories: [Life & Work, Data Science & Analytics]
 date: 2020-02-07
 keywords: [product, experience, iot, theory, technologies, user, science, data, practice,
   engineer]

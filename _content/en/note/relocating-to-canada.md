@@ -1,8 +1,8 @@
 ---
-categories: [Essay]
+categories: [Life & Work]
 date: 2021-03-21
-keywords: [vancouver, japan, live, treasure, country, product, years, manager, international,
-  know]
+keywords: [vancouver, canada, japan, live, treasure, country, product, years, manager,
+  international]
 lang: en
 recommendations: [/note/becoming-a-product-manager/, /note/hivemall-events-2018-autumn/,
   /note/working-from-home-202004/]

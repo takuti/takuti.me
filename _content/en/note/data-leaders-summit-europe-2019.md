@@ -1,5 +1,5 @@
 ---
-categories: [Conference, Data Science]
+categories: [Conference, Data Science & Analytics]
 date: 2019-11-10
 keywords: [data, leaders, scientist, head, scientists, business, summit, panel, organization,
   leader]

@@ -1,5 +1,5 @@
 ---
-categories: [Design]
+categories: [Design, Business]
 date: 2020-01-26
 keywords: [thinking, gne, design, ideas, solving, problem, practice, designer, mdash,
   designers]

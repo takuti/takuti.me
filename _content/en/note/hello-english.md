@@ -1,5 +1,5 @@
 ---
-categories: [Essay]
+categories: [Life & Work]
 date: 2014-11-09
 keywords: [blog, japanese, write, japan, posts, takuti, articles, ese, english, applications]
 lang: en

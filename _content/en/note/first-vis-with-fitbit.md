@@ -1,10 +1,10 @@
 ---
-categories: [Programming, Data Science]
+categories: [Programming, Data Science & Analytics]
 date: 2021-02-03
-keywords: [fitbit, active, activity, minutes, visualization, sketch, pandemic, data,
-  chart, react]
+keywords: [sleep, fitbit, active, activity, minutes, visualization, sketch, pandemic,
+  data, chart]
 lang: en
-recommendations: [/note/datavis-2020/, /note/data-leaders-summit-europe-2019/, /note/flight-emissions/]
+recommendations: [/note/datavis-2020/, /note/non-alcohol-decaf-meat-free/, /note/data-leaders-summit-europe-2019/]
 title: Practicing D3 Interactive Data Visualization with Fitbit Activity/Sleep Log
 ---
 

@@ -1,5 +1,5 @@
 ---
-categories: [Business, Data Science]
+categories: [Business, Data Science & Analytics]
 date: 2021-05-07
 keywords: [strategy, pull, push, inventory, cost, distribution, product, analytics,
   unit, stores]

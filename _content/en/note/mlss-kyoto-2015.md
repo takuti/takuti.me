@@ -4,7 +4,7 @@ date: 2015-10-03
 keywords: [lecture, optimization, learn, really, learning, theoretical, aspects, professor,
   try, mathematica]
 lang: en
-recommendations: [/note/mlconf-sf-2018/, /note/learn-how-others-work/, /note/phpcon-2015/]
+recommendations: [/note/mlconf-sf-2018/, /note/phpcon-2015/, /note/learn-how-others-work/]
 title: 'Machine Learning Summer School 2015 Kyoto #MLSSKYOTO'
 ---
 
