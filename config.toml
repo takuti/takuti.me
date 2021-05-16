@@ -27,7 +27,7 @@ DefaultContentLanguage = "en"
     contentDir = "content/en"
     [languages.en.params]
       name = "Takuya Kitazawa"
-      bio = '<b>Takuya Kitazawa</b> (a.k.a. <b>takuti</b>) is working on machine learning, data science, and product development at <a href="http://treasuredata.com/" target="_blank" rel="noopener">Treasure Data</a>.'
+      bio = '<b>Takuya Kitazawa</b> is working on machine learning, data science, and product development at <a href="http://treasuredata.com/" target="_blank" rel="noopener">Treasure Data</a>.'
       featured = ["/note/becoming-a-product-manager/", "/note/hivemall-events-2018-autumn/", "/note/parallel-vs-concurrent/"]
       blogDescription = "Writing about what I think, learned, and experienced."
 
