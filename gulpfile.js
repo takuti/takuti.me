@@ -113,6 +113,7 @@ const watchFiles = () => {
 
   watch('_scss/*.scss', { ignoreInitial: false }, compileSass);
   watch('_content/**/*.{md,html}', { ignoreInitial: false }, series(compileContent, buildHugo));
+  watch('layouts/**/*.html', { ignoreInitial: false }, buildHugo);
 };
 
 exports.watch = series(cleanContent, watchFiles);
