@@ -2,7 +2,7 @@
 categories: [Life & Work]
 date: 2020-05-31
 keywords: [guess, product, finance, managers, introduction, design, engineers, designers,
-  understand, work]
+  understand, roles]
 lang: en
 recommendations: [/note/becoming-a-product-manager/, /note/machine-learning-product/,
   /note/language-as-a-design-tool/]

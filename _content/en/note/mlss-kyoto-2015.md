@@ -1,7 +1,7 @@
 ---
 categories: [Machine Learning]
 date: 2015-10-03
-keywords: [lecture, optimization, learn, really, learning, theoretical, aspects, professor,
+keywords: [lecture, optimization, really, learning, learn, theoretical, aspects, professor,
   try, mathematica]
 lang: en
 recommendations: [/note/mlconf-sf-2018/, /note/phpcon-2015/, /note/learn-how-others-work/]

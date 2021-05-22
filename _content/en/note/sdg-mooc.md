@@ -4,8 +4,8 @@ date: 2021-05-14
 keywords: [sustainability, business, responsibility, problems, goals, reduce, actions,
   sustainable, challenges, social]
 lang: en
-recommendations: [/note/environmental-problems-and-business/, /note/machine-learning-product/,
-  /note/non-alcohol-decaf-meat-free/]
+recommendations: [/note/environmental-problems-and-business/, /note/unusual-drinking-and-eating-habits/,
+  /note/machine-learning-product/]
 title: 'A Journey of Sustainable Development #SDGMOOC'
 ---
 
