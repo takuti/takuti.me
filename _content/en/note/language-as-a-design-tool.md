@@ -1,7 +1,7 @@
 ---
 categories: [Design]
 date: 2020-08-16
-keywords: [visual, design, idea, app, elements, problem, description, prototyping,
+keywords: [visual, design, idea, app, elements, description, problem, prototyping,
   good, non]
 lang: en
 recommendations: [/note/revisit-design-thinking/, /note/learn-how-others-work/, /note/technique-producing-ideas/]

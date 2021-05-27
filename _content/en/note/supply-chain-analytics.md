@@ -5,7 +5,7 @@ keywords: [strategy, pull, push, inventory, cost, distribution, product, analyti
   unit, stores]
 lang: en
 recommendations: [/note/coursera-supply-chain-management/, /note/machine-learning-product/,
-  /note/becoming-a-product-manager/]
+  /note/product-management-and-bullshit-job/]
 title: Actionable Insights from Supply Chain Analytics
 ---
 

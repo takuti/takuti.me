@@ -2,10 +2,10 @@
 categories: [Machine Learning]
 date: 2020-08-29
 keywords: [product, business, solution, problems, solving, cost, model, technical,
-  questions, customers]
+  questions, human]
 lang: en
-recommendations: [/note/learn-how-others-work/, /note/becoming-a-product-manager/,
-  /note/sdg-mooc/]
+recommendations: [/note/product-management-and-bullshit-job/, /note/learn-how-others-work/,
+  /note/becoming-a-product-manager/]
 title: What I Think About When I Talk About ML Product
 ---
 

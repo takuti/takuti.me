@@ -4,7 +4,8 @@ date: 2020-02-07
 keywords: [product, experience, iot, theory, technologies, user, science, data, practice,
   engineer]
 lang: en
-recommendations: [/note/iotswc-2019/, /note/learn-how-others-work/, /note/machine-learning-product/]
+recommendations: [/note/iotswc-2019/, /note/product-management-and-bullshit-job/,
+  /note/learn-how-others-work/]
 title: Why a Data Science Engineer Becomes a Product Manager
 ---
 

@@ -1,7 +1,7 @@
 ---
 categories: [Design, Business]
 date: 2020-01-26
-keywords: [thinking, gne, design, ideas, solving, problem, practice, designer, mdash,
+keywords: [thinking, gne, design, ideas, solving, capturing, problem, practice, designer,
   designers]
 lang: en
 recommendations: [/note/technique-producing-ideas/, /note/fermenting-thoughts/, /note/language-as-a-design-tool/]

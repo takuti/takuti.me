@@ -4,8 +4,8 @@ date: 2021-03-21
 keywords: [vancouver, canada, japan, live, treasure, country, product, years, manager,
   international]
 lang: en
-recommendations: [/note/becoming-a-product-manager/, /note/hivemall-events-2018-autumn/,
-  /note/working-from-home-202004/]
+recommendations: [/note/becoming-a-product-manager/, /note/product-management-and-bullshit-job/,
+  /note/hivemall-events-2018-autumn/]
 title: 'Moving to Canada: Adding Randomness to My Life'
 ---
 
