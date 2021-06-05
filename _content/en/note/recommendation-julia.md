@@ -1,10 +1,10 @@
 ---
 categories: [Recommender Systems, Programming]
 date: 2017-01-14
-keywords: [recommendation, julia, age, factorization, package, waiting, tensor, returns,
-  registered, naive]
+keywords: [recommendation, julia, age, factorization, package, waiting, tensor, sorted,
+  returns, registered]
 lang: en
-recommendations: [/note/recommendation-julia-documenter/, /note/juliacon-2019/, /note/flurs/]
+recommendations: [/note/recommendation-julia-documenter/, /note/juliacon-2019/, /note/hello-faust/]
 title: 'Recommendation.jl: Building Recommender Systems in Julia'
 ---
 
