@@ -1,7 +1,7 @@
 ---
 categories: [読書記録]
 date: 2021-01-04
-keywords: [顧客, マーケティング, 起点, ストーリー, 分析, プロダクト, データ, 施策, セグメント, コモディティ化]
+keywords: [顧客, マーケティング, 起点, ストーリー, 分析, データ, プロダクト, 施策, セグメント, コモディティ化]
 lang: ja
 recommendations: [/ja/note/business-communication/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/tech-design-story/]

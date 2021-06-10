@@ -1,7 +1,7 @@
 ---
 categories: [読書記録]
 date: 2021-02-08
-keywords: [退屈, 消費, 興奮, 浪費, mdash, 獲得, 倫理学, 状態, 当たり前, 僕ら]
+keywords: [退屈, 消費, 興奮, 浪費, mdash, 獲得, 状態, 倫理学, 当たり前, 僕ら]
 lang: ja
 recommendations: [/ja/note/2021/, /ja/note/the-gifts-in-the-world/, /ja/note/capitalism-in-anthropocene/]
 title: 退屈な毎日の彩り方─『暇と退屈の倫理学』の理論と実践

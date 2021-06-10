@@ -2,7 +2,7 @@
 aliases: [/note/leakage/]
 categories: [機械学習, データサイエンス]
 date: 2017-07-16
-keywords: [データ, kdd, 変数, 特徴, 学習, 正当, 評価, 映画, タスク, タイムスタンプ]
+keywords: [データ, kdd, 変数, 特徴, 学習, 評価, 正当, 映画, タスク, タイムスタンプ]
 lang: ja
 recommendations: [/ja/note/yahoo-egads/, /ja/note/data-stream-mining/, /ja/note/designing-data-intensive-applications/]
 title: Leakage in Data Mining

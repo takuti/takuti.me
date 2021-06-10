@@ -2,7 +2,7 @@
 aliases: [/note/job-title-normalization/]
 categories: [プログラミング, 自然言語処理]
 date: 2017-07-09
-keywords: [title, job, marketing, クラスタ, クラスタリング, 処理, manager, linkedin, ベース, function]
+keywords: [title, job, marketing, クラスタ, クラスタリング, 処理, linkedin, manager, ベース, function]
 lang: ja
 recommendations: [/ja/note/levenshtein-distance/, /ja/note/fastcat/, /ja/note/leakage/]
 title: Job Titleの前処理＆クラスタリングをどうやって実現するか問題
