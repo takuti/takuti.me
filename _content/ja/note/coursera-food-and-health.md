@@ -1,7 +1,7 @@
 ---
 categories: [生活・人生]
 date: 2020-09-26
-keywords: [資産, 炭水化物, 身体, 食事, 野菜, バランス, 摂取, カロリー, 運用, 自分]
+keywords: [資産, 炭水化物, 食事, 身体, 野菜, バランス, 摂取, カロリー, 運用, 自分]
 lang: ja
 recommendations: [/ja/note/self-investment/, /ja/note/will-202102/, /ja/note/mountains-101/]
 title: 食と栄養について学んでいる。

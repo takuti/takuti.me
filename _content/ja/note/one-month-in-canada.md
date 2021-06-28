@@ -4,7 +4,7 @@ date: 2021-03-26
 keywords: [隔離, canada, カナダ, 手続き, 部屋, 物件, 海外, 電話, 日本, バンクーバー]
 lang: ja
 recommendations: [/ja/note/travel-to-canada-210226/, /ja/note/relocating-to-canada/,
-  /ja/note/oyo-life-202010/]
+  /ja/note/4-months-after-moving-to-canada/]
 title: 【コロナ禍でのカナダ移住】渡航の前後1ヶ月間を振り返る
 ---
 
