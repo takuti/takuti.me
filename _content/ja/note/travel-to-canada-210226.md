@@ -3,7 +3,7 @@ categories: [生活・人生]
 date: 2021-03-01
 keywords: [ホテル, 隔離, 予約, pcr検査, 政府, 入国, post, 陰性, 滞在, 自主]
 lang: ja
-recommendations: [/ja/note/one-month-in-canada/, /ja/note/relocating-to-canada/, /ja/note/4-months-after-moving-to-canada/]
+recommendations: [/ja/note/one-month-in-canada/, /ja/note/relocating-to-canada/, /ja/note/four-months-after-moving-to-canada/]
 title: コロナ禍でのカナダ渡航（2021年2月26日・入国後PCR検査義務化後）
 ---
 
