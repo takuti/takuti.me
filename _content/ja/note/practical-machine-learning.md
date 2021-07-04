@@ -6,7 +6,7 @@ description: 無料で公開されている電子書籍『実践 機械学習』
 keywords: [推薦, 傾向, 履歴, 行動, システム, 見つけ出す, mahout, amazon, アニメ, 好ま]
 lang: ja
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/two-decades-of-amazon-recommender/,
-  /ja/note/trends-in-real-world-recommender-systems-2017/]
+  /ja/note/recommender-systems-on-blockchain/]
 title: 【実践 機械学習】レコメンデーションをシンプルに、賢く実現するための3か条
 ---
 
