@@ -1,7 +1,7 @@
 ---
 categories: [生活・人生]
 date: 2021-02-28
-keywords: [日本, カナダ, 海外, 移住, 会社, アメリカ, プロダクトマネージャー, canada, 手続き, note]
+keywords: [日本, カナダ, 海外, 移住, 会社, アメリカ, プロダクトマネージャー, canada, 手続き, 申請]
 lang: ja
 recommendations: [/ja/note/one-month-in-canada/, /ja/note/four-months-after-moving-to-canada/,
   /ja/note/product-management-and-bullshit-job/]
