@@ -2,7 +2,7 @@
 categories: [Life & Work]
 date: 2021-05-26
 keywords: [product, love, job, customers, manager, strong, communication, execution,
-  bullshit, products]
+  products, bullshit]
 lang: en
 recommendations: [/note/machine-learning-product/, /note/becoming-a-product-manager/,
   /note/learn-how-others-work/]
