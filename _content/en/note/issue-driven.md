@@ -1,8 +1,8 @@
 ---
 categories: [Life & Work, Business]
 date: 2020-05-01
-keywords: [issue, driven, quality, time, work, approach, deliver, home, deliverables,
-  problem]
+keywords: [issue, driven, quality, time, approach, work, deliver, home, deliverables,
+  talk]
 lang: en
 recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/hugo-markdown-and-mathjax/]
 title: Issue-Driven Makes You Professional

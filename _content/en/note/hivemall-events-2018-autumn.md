@@ -1,7 +1,7 @@
 ---
 categories: [Conference, Machine Learning, Data Science & Analytics]
 date: 2018-10-26
-keywords: [hivemall, data, mbed, hive, conference, recsys, session, query, capability,
+keywords: [hivemall, data, mbed, hive, conference, session, recsys, query, capability,
   connect]
 lang: en
 recommendations: [/note/mbed-simulator-td/, /note/apachecon-2019/, /note/hivemall-pyspark/]

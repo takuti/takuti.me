@@ -1,16 +1,16 @@
 ---
 categories: [Recommender Systems, Data Science & Analytics, Machine Learning]
-date: 2021-07-17
-draft: true
-keywords: [zero, youtube, yml, yesterday, 'yes', years, yearly, year, yay, xxx]
+date: 2021-07-15
+keywords: [user, recommendation, systems, recommendations, stakeholders, social, accuracy,
+  metrics, recommenders, maximize]
 lang: en
-recommendations: [/note/julia-factorization-machines/, /note/hello-netlify/, /note/indigenous-canada/]
+recommendations: [/note/hello-faust/, /note/recsys-wordcloud/, /note/becoming-a-product-manager/]
 title: Reviewing Ethical Challenges in Recommender Systems
 ---
 
 As I captured in [Understanding Research Trends in Recommender Systems from Word Cloud](/note/recsys-wordcloud/), many real-life applications are nowadays applying recommendation techniques to a wide variety of datasets and scenarios.
 
-However, their objective focuses too much on the accuracy of recommendations. That is, the major goal of many recommender systems is to accurately capture user preference and maximize the chance of positive user-item interactions, and hence consideration about surrounding non-accuracy-related problems is lacking.
+However, their objective focuses too much on the accuracy of recommendations. That is, the major goal of many recommender systems is to accurately capture user preference and maximize the chance of positive user-item interactions, and hence consideration about surrounding non-performance-related problems is lacking. In that sense, I have to hesitantly say that [my past studies](/work/) are not an exception; over the past few years, I cared only about how to improve the accuracy of recommendations in a scalable manner.
 
 By contrast, a survey paper "[Recommender systems and their ethical challenges](https://link.springer.com/article/10.1007/s00146-020-00950-y)" shows an important concept of **multi-stakeholder recommender systems** and argues how today's recommender research unintentionally helps to pose ethical challenges to the world. I believe having such an ethical perspective is one of the most important responsibilities for the developers of modern intelligent systems. Notice that, since we are engaging with the advanced systems literary on a second-by-second basis in our daily life e.g., on a mobile phone, e-commerce, social networks, and maps, it's critical for all of us to rethink the definition of good recommender systems.
 

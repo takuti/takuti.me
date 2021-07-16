@@ -1,7 +1,7 @@
 ---
 categories: [Programming]
 date: 2019-04-07
-keywords: [engine, xxx, storage, stack, aws, overflow, server, performance, enable,
+keywords: [engine, xxx, storage, stack, aws, overflow, server, enable, performance,
   connect]
 lang: en
 recommendations: [/note/hello-faust/, /note/hivemall-events-2018-autumn/, /note/data-leaders-summit-europe-2019/]
