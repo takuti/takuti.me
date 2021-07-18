@@ -1,7 +1,7 @@
 ---
 categories: [Programming]
 date: 2017-04-16
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Comparison%20of%20Running%20Time%20of%20Cached/Uncached%20Spark%20RDD,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Comparison%20of%20Running%20Time%20of%20Cached%20Uncached%20Spark%20RDD,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [scala, rdd, operations, distributed, map, spark, collection, model, data,
   code]
 lang: en

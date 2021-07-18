@@ -108,7 +108,7 @@ def process_article(path, keywords, recommend_permalinks):
         og_image += 'Sawarabi%20Gothic_32_bold:'
     else:
         og_image += 'Open%20Sans_32:'
-    og_image += quote(front_matter['title']) + ',co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg'
+    og_image += quote(front_matter['title'].replace('/', ' ')) + ',co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg'
     front_matter['images'] = [og_image]
 
     with open(path, 'w') as f:

@@ -1,7 +1,7 @@
 ---
 categories: [Programming, Data Science & Analytics]
 date: 2021-02-03
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Practicing%20D3%20Interactive%20Data%20Visualization%20with%20Fitbit%20Activity/Sleep%20Log,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Practicing%20D3%20Interactive%20Data%20Visualization%20with%20Fitbit%20Activity%20Sleep%20Log,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [sleep, fitbit, active, activity, minutes, visualization, sketch, data,
   pandemic, chart]
 lang: en
