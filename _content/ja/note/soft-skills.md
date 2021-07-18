@@ -2,7 +2,8 @@
 aliases: [/note/soft-skills/]
 categories: [読書記録]
 date: 2017-07-02
-keywords: [運動, 戦略的, マインドセット, エンジニア, ソフトウェア, 書か, 生き方, ブログ, 勉強, マーケティング]
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%81%84%E3%81%BE%E3%81%95%E3%82%89%20Soft%20Skills%20%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A0,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
+keywords: [運動, 戦略的, マインドセット, ソフトウェア, エンジニア, 書か, 生き方, ブログ, 勉強, マーケティング]
 lang: ja
 recommendations: [/ja/note/product-management-and-bullshit-job/, /ja/note/first-quarter-as-a-product-manager/,
   /ja/note/self-investment/]

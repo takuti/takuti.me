@@ -1,6 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2019-09-08
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:I%20Stopped%20Drinking%20Alone%20for%204%20Months,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [drinking, cafe, habit, bar, good, fine, enjoy, coffee, didn, completely]
 lang: en
 recommendations: [/note/unusual-drinking-and-eating-habits/, /note/working-from-home-202004/,

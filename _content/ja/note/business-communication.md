@@ -1,6 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2020-12-08
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%83%97%E3%83%AD%E3%83%80%E3%82%AF%E3%83%88%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88%E3%81%A8%E3%82%B3%E3%83%B3%E3%82%B5%E3%83%AB%E3%80%81%E3%81%9D%E3%81%AE%E4%BA%A4%E5%B7%AE%E7%82%B9%E3%80%82,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [コンサル, 期待値, クライアント, 顧客, 一年, 仕事, 不合理, プロダクト, 経験, 話す]
 lang: ja
 recommendations: [/ja/note/customer-centric-marketing/, /ja/note/cognitive-science-and-behavioral-economics/,

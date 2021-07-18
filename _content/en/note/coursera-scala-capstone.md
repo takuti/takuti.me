@@ -1,6 +1,7 @@
 ---
 categories: [Programming]
 date: 2020-05-26
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Completed%20Functional%20Programming%20in%20Scala%20Specialization%20on%20Coursera%2C%20Finally,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [scala, project, specialization, programming, functional, certificate, mile,
   fun, coursera, education]
 lang: en

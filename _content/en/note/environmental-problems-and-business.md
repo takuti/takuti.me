@@ -1,6 +1,7 @@
 ---
 categories: [Business]
 date: 2021-04-30
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Environmental%20Problems%20Through%20the%20Lens%20of%20Business,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [green, energy, building, water, environmental, problems, business, renewable,
   people, ourse]
 lang: en

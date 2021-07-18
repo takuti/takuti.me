@@ -2,6 +2,7 @@
 aliases: [/note/recommender-libraries/]
 categories: [情報推薦, 機械学習, プログラミング]
 date: 2017-05-14
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E6%8E%A8%E8%96%A6%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEOSS%E3%81%9F%E3%81%A1,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [推薦, ライブラリ, 実装, github, java, factorization, machines, アルゴリズム, mahout, librec]
 lang: ja
 recommendations: [/ja/note/hello-librec/, /ja/note/trends-in-real-world-recommender-systems-2017/,

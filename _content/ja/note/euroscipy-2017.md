@@ -2,6 +2,7 @@
 aliases: [/note/euroscipy-2017/]
 categories: [プログラミング, イベント参加記]
 date: 2017-09-02
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:EuroSciPy%202017%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%A6%E3%81%97%E3%82%83%E3%81%B9%E3%81%A3%E3%81%A6%E3%81%8D%E3%81%9F,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [発表, python, pytorch, euroscipy, カンファレンス, keynote, 飲ん, 実験, 参加, パッケージ]
 lang: ja
 recommendations: [/ja/note/pytorch-autograd/, /ja/note/master-graduate/, /ja/note/chiir-2017/]

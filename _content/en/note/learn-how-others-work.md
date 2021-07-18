@@ -1,6 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2020-05-31
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Don%27t%20%22Guess%22%20How%20People%20in%20Other%20Roles%20Work,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [guess, product, finance, introduction, managers, design, engineers, designers,
   understand, roles]
 lang: en

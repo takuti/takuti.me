@@ -1,6 +1,7 @@
 ---
 categories: [Conference, Machine Learning, Data Science & Analytics]
 date: 2018-10-26
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Apache%20Hivemall%20at%20%23ODSCEurope%2C%20%23RecSys2018%2C%20and%20%23MbedConnect,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [hivemall, data, mbed, hive, conference, session, recsys, query, capability,
   connect]
 lang: en

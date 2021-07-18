@@ -1,6 +1,7 @@
 ---
 categories: [Recommender Systems, Machine Learning, Programming]
 date: 2017-01-21
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:FluRS%3A%20A%20Python%20Library%20for%20Online%20Item%20Recommendation,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [library, flurs, recommendation, feature, recommenders, techniques, julia,
   unlike, ready, implementing]
 lang: en

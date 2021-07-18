@@ -1,6 +1,7 @@
 ---
 categories: [Programming]
 date: 2021-04-19
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Learning%20Cryptocurrency%20with%20Code,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [blockchain, transaction, bitcoin, transactions, decentralized, consensus,
   nodes, block, network, hash]
 lang: en

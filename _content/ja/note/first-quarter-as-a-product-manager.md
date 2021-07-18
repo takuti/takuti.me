@@ -1,6 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2020-07-11
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E5%83%95%E3%81%AF%E3%80%8C%E4%B8%96%E7%95%8C%E3%81%A7%E9%97%98%E3%81%86%E3%83%97%E3%83%AD%E3%83%80%E3%82%AF%E3%83%88%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC%E3%80%8D%E3%81%AB%E3%81%AF%E3%81%AA%E3%82%8C%E3%81%AA%E3%81%84%E3%80%82,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [信用, チーム, メンバー, 自分, 闘う, 組織, 仲間, プロダクトマネージャー, エンジニア, 世界]
 lang: ja
 recommendations: [/ja/note/product-management-and-bullshit-job/, /ja/note/relocating-to-canada/,

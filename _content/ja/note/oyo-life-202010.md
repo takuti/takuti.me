@@ -1,6 +1,7 @@
 ---
 categories: [生活・人生]
 date: 2020-10-03
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%81%8A%E6%89%8B%E8%BB%BD%E8%B3%83%E8%B2%B8%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%20%22OYO%20LIFE%22%20%E6%89%80%E6%84%9F,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [oyo, 物件, life, 暮らし, 契約, キャンペーン, 家賃, 賃貸, マンスリーマンション, 部屋]
 lang: ja
 recommendations: [/ja/note/oyo-life-202007/, /ja/note/oyo-life-202008/, /ja/note/one-month-in-canada/]

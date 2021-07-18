@@ -1,6 +1,7 @@
 ---
 categories: [Machine Learning]
 date: 2020-08-29
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:What%20I%20Think%20About%20When%20I%20Talk%20About%20ML%20Product,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [product, business, solution, problems, solving, cost, model, technical,
   questions, human]
 lang: en

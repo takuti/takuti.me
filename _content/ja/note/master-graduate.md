@@ -2,6 +2,7 @@
 aliases: [/note/master-graduate/]
 categories: [生活・人生, 機械学習]
 date: 2017-03-31
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E4%BF%AE%E5%A3%AB%E8%AA%B2%E7%A8%8B%E3%81%A7%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%81%8C%E5%B0%82%E9%96%80%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84%E6%8C%87%E5%B0%8E%E6%95%99%E5%93%A1%E3%81%AE%E4%B8%8B%E3%81%A7%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%82%92%E5%AD%A6%E3%81%B6%E3%81%9F%E3%82%81%E3%81%AB,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [インターン, テーマ, 会議, 機械学習, 研究, 投稿, 学会, サマースクール, machines, factorization]
 lang: ja
 recommendations: [/ja/note/recsys-2016/, /ja/note/td-intern-2016/, /ja/note/trends-in-real-world-recommender-systems-2017/]

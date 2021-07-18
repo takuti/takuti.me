@@ -2,7 +2,8 @@
 aliases: [/note/design-engineer/]
 categories: [読書記録, デザイン]
 date: 2019-12-10
-keywords: [デザイン, プロダクト, エンジニア, 人材, イノベーション, プロダクトマネージャー, プロトタイピング, 本書, c型, ユーザ]
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E3%81%AA%E3%82%8D%E3%81%86,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
+keywords: [デザイン, プロダクト, エンジニア, 人材, イノベーション, プロダクトマネージャー, プロトタイピング, c型, 本書, ユーザ]
 lang: ja
 recommendations: [/ja/note/design-note-88/, /ja/note/tech-design-story/, /ja/note/coursera-ui-ux-specialization/]
 title: デザインエンジニアになろう

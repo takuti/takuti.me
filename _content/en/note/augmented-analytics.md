@@ -1,6 +1,7 @@
 ---
 categories: [Design, Data Science & Analytics]
 date: 2020-04-11
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:What%20Makes%20a%20Good%20Dashboard%3A%20The%20Rise%20of%20Augmented%20Analytics,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [analytics, augmented, dashboard, data, nlp, insights, scientists, visual,
   good, business]
 lang: en

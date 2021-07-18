@@ -2,6 +2,7 @@
 aliases: [/note/acroquest-javabook/]
 categories: [読書記録, プログラミング]
 date: 2017-12-01
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%80%8EJava%E6%9C%AC%E6%A0%BC%E5%85%A5%E9%96%80%E3%80%8F%E3%83%A1%E3%83%A2,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [クラス, インスタンス, オブジェクト, メソッド, 変数, 処理, 例外, 文字列, 操作, 同期]
 lang: ja
 recommendations: [/ja/note/adjusting-for-oversampling-and-undersampling/, /ja/note/python-concurrent-futures/,

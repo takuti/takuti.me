@@ -2,6 +2,7 @@
 aliases: [/note/making-a-will/]
 categories: [生活・人生]
 date: 2020-05-22
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E9%81%BA%E8%A8%80%E7%8A%B6%E3%82%92%E6%9B%B8%E3%81%84%E3%81%9F%EF%BC%88%E3%81%9D%E3%81%97%E3%81%A6%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E3%81%97%E3%81%9F%EF%BC%89,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [遺言状, 遺言, 希望, 人生, 遺産, 執行, 下書き, 残さ, デジタル, 変更]
 lang: ja
 recommendations: [/ja/note/will-202102/, /ja/note/four-months-after-moving-to-canada/,

@@ -1,6 +1,7 @@
 ---
 categories: [Conference]
 date: 2019-11-17
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:What%20I%27ve%20Seen%20at%20IoT%20Solutions%20World%20Congress%202019,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [iot, blockchain, poc, data, world, iotswc, systems, conference, technology,
   gap]
 lang: en

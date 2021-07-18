@@ -1,6 +1,7 @@
 ---
 categories: [Design, Business]
 date: 2020-01-26
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Design%20Thinking%20%3D%20Capturing%20the%20World%20Like%20a%20Designer,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [thinking, gne, design, ideas, solving, capturing, problem, practice, designer,
   designers]
 lang: en

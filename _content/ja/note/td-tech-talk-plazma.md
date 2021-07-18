@@ -2,6 +2,7 @@
 aliases: [/note/td-tech-talk-plazma/]
 categories: [機械学習, 自然言語処理, イベント参加記]
 date: 2018-02-25
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:Hivemall%2C%20Digdag%2C%20%E8%87%AA%E7%84%B6%E8%A8%80%E8%AA%9E%E5%87%A6%E7%90%86%2C%20%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%81%AA%E3%81%A9%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E8%A9%B1%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%20%23tdtech,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [talk, plazma, 機械学習, 聴衆, 自然言語処理, day, アルゴリズム, 動く, 可能, お話]
 lang: ja
 recommendations: [/ja/note/2020/, /ja/note/trends-in-real-world-recommender-systems-2017/,

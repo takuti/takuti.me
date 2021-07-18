@@ -1,6 +1,7 @@
 ---
 categories: [生活・人生]
 date: 2021-03-01
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%82%B3%E3%83%AD%E3%83%8A%E7%A6%8D%E3%81%A7%E3%81%AE%E3%82%AB%E3%83%8A%E3%83%80%E6%B8%A1%E8%88%AA%EF%BC%882021%E5%B9%B42%E6%9C%8826%E6%97%A5%E3%83%BB%E5%85%A5%E5%9B%BD%E5%BE%8CPCR%E6%A4%9C%E6%9F%BB%E7%BE%A9%E5%8B%99%E5%8C%96%E5%BE%8C%EF%BC%89,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [ホテル, 隔離, 予約, pcr検査, 政府, 入国, post, 陰性, 滞在, 自主]
 lang: ja
 recommendations: [/ja/note/one-month-in-canada/, /ja/note/relocating-to-canada/, /ja/note/four-months-after-moving-to-canada/]

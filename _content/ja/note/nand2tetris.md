@@ -2,6 +2,7 @@
 aliases: [/note/nand2tetris/]
 categories: [読書記録, プログラミング, コンピュータシステム]
 date: 2017-05-21
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%80%8E%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E7%90%86%E8%AB%96%E3%81%A8%E5%AE%9F%E8%A3%85%E3%80%8F%E3%81%AF%E2%80%9C%E5%A8%AF%E6%A5%BD%E2%80%9D%E3%81%A7%E3%81%82%E3%82%8B,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [実装, hack, 言語, 娯楽, メモリ, 俯瞰, ハードウェア, language, boolean, 浅い]
 lang: ja
 recommendations: [/ja/note/recommender-libraries/, /ja/note/hello-librec/, /ja/note/cognitive-science-and-behavioral-economics/]

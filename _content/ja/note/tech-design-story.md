@@ -2,6 +2,7 @@
 aliases: [/note/tech-design-story/]
 categories: [デザイン, 読書記録, データサイエンス]
 date: 2019-10-14
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC%E3%82%92%E4%BC%9D%E3%81%88%E3%82%89%E3%82%8C%E3%81%AA%E3%81%84%E3%83%97%E3%83%AD%E3%83%80%E3%82%AF%E3%83%88%E3%81%AE%E8%99%9A%E3%81%97%E3%81%95,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [テクノロジー, デザイン, story, プロダクト, ストーリー, design, tech, 体験, 小売, 再生]
 lang: ja
 recommendations: [/ja/note/design-engineer/, /ja/note/after-digital/, /ja/note/2020/]

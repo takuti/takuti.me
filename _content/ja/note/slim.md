@@ -2,6 +2,7 @@
 aliases: [/note/slim/]
 categories: [機械学習, 情報推薦]
 date: 2017-02-18
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%22SLIM%3A%20Sparse%20Linear%20Methods%20for%20Top-N%20Recommender%20Systems%22%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A0,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [アイテム, textrm, item, mathbb, 行列, 推薦, サンプリング, times, 精度, ユーザ]
 lang: ja
 recommendations: [/ja/note/coursera-recommender-systems/, /ja/note/two-decades-of-amazon-recommender/,

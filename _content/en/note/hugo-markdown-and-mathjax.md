@@ -1,6 +1,7 @@
 ---
 categories: [Programming]
 date: 2015-10-19
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Migrate%20to%20Hugo%20from%20Jekyll%3A%20Another%20Solution%20for%20the%20MathJax%2BMarkdown%20Issue,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [hugo, markdown, site, mathjax, kramdown, jekyll, issue, correctly, files,
   rake]
 lang: en

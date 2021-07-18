@@ -2,6 +2,7 @@
 aliases: [/note/recsys-2016/]
 categories: [情報推薦, イベント参加記]
 date: 2016-09-28
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E6%8E%A8%E8%96%A6%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E3%83%88%E3%83%83%E3%83%97%E4%BC%9A%E8%AD%B0RecSys2016%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%9F%20%23recsys2016,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [会議, ボランティア, 学生, recsys, 推薦, ワークショップ, 発表, トップ, 本会議, セッション]
 lang: ja
 recommendations: [/ja/note/master-graduate/, /ja/note/trends-in-real-world-recommender-systems-2017/,

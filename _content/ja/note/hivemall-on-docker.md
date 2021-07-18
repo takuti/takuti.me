@@ -2,6 +2,7 @@
 aliases: [/note/hivemall-on-docker/]
 categories: [機械学習, プログラミング]
 date: 2017-05-07
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:Hivemall%20on%20Docker%E3%82%92%E8%A9%A6%E3%81%99%E3%81%9C,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [mac, hivemall, ローカル, 整備, 導入, 進む, 試し, アイテム, 推薦, 越し]
 lang: ja
 recommendations: [/ja/note/hivemall-on-mac/, /ja/note/recommender-libraries/, /ja/note/td-intern-2016/]

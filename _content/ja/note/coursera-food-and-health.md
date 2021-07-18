@@ -1,6 +1,7 @@
 ---
 categories: [生活・人生]
 date: 2020-09-26
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E9%A3%9F%E3%81%A8%E6%A0%84%E9%A4%8A%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E5%AD%A6%E3%82%93%E3%81%A7%E3%81%84%E3%82%8B%E3%80%82,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [資産, 炭水化物, 食事, 身体, 野菜, バランス, 摂取, カロリー, 運用, 自分]
 lang: ja
 recommendations: [/ja/note/self-investment/, /ja/note/will-202102/, /ja/note/mountains-101/]

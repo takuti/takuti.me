@@ -1,6 +1,7 @@
 ---
 categories: [Programming]
 date: 2019-08-31
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Hello%20Netrify%20for%20Hosting%20a%20Static%20Site,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [pages, git, github, site, scripts, travis, publishing, hugo, files, auto]
 lang: en
 recommendations: [/note/move-to-gh-pages/, /note/travis-gh-pages-deployment/, /note/hugo-markdown-and-mathjax/]

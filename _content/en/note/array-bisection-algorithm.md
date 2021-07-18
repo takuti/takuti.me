@@ -1,6 +1,7 @@
 ---
 categories: [Programming]
 date: 2021-06-05
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Understanding%20Array%20Bisection%20Algorithm,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [sorted, array, method, ondition, insert, dictionary, walking, naive, maintaining,
   log]
 lang: en

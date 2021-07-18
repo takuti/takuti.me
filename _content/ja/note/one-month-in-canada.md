@@ -1,6 +1,7 @@
 ---
 categories: [生活・人生]
 date: 2021-03-26
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%80%90%E3%82%B3%E3%83%AD%E3%83%8A%E7%A6%8D%E3%81%A7%E3%81%AE%E3%82%AB%E3%83%8A%E3%83%80%E7%A7%BB%E4%BD%8F%E3%80%91%E6%B8%A1%E8%88%AA%E3%81%AE%E5%89%8D%E5%BE%8C1%E3%83%B6%E6%9C%88%E9%96%93%E3%82%92%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8B,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [隔離, canada, カナダ, 手続き, 部屋, 物件, 海外, 電話, 日本, バンクーバー]
 lang: ja
 recommendations: [/ja/note/travel-to-canada-210226/, /ja/note/relocating-to-canada/,

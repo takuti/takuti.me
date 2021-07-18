@@ -1,6 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2021-05-21
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Unusual%20Drinking%20%26%20Eating%20Habits%3A%20Non-Alcohol%2C%20Decaf%2C%20Flexitarian,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [coffee, drinking, drink, eat, beer, protein, meat, food, vegan, day]
 lang: en
 recommendations: [/note/stop-drinking-alone/, /note/working-from-home-202004/, /note/sdg-mooc/]

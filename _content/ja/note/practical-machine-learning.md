@@ -3,6 +3,7 @@ aliases: [/note/practical-machine-learning/]
 categories: [機械学習, 読書記録, 情報推薦]
 date: 2014-09-01
 description: 無料で公開されている電子書籍『実践 機械学習』の原著のほうを読みました。
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%80%90%E5%AE%9F%E8%B7%B5%20%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%80%91%E3%83%AC%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AB%E3%80%81%E8%B3%A2%E3%81%8F%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AE3%E3%81%8B%E6%9D%A1,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [推薦, 傾向, 履歴, 行動, システム, 見つけ出す, mahout, amazon, アニメ, 好ま]
 lang: ja
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/two-decades-of-amazon-recommender/,

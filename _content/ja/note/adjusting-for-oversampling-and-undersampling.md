@@ -2,6 +2,7 @@
 aliases: [/note/adjusting-for-oversampling-and-undersampling/]
 categories: [機械学習]
 date: 2017-11-04
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:Over-/Under-sampling%E3%82%92%E3%81%97%E3%81%A6%E5%AD%A6%E7%BF%92%E3%81%97%E3%81%9F2%E3%82%AF%E3%83%A9%E3%82%B9%E5%88%86%E9%A1%9E%E5%99%A8%E3%81%AE%E4%BA%88%E6%B8%AC%E7%A2%BA%E7%8E%87%E3%82%92%E8%AA%BF%E6%95%B4%E3%81%99%E3%82%8B%E5%BC%8F,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [サンプル, 分類, クラス, 予測, 確率, rate, 調整, 学習, クリック, マイナー]
 lang: ja
 recommendations: [/ja/note/auc/, /ja/note/acroquest-javabook/, /ja/note/holt-winters/]

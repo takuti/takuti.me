@@ -2,6 +2,7 @@
 aliases: [/note/data-stream-mining/]
 categories: [機械学習, コンピュータシステム]
 date: 2015-12-08
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%A0%E3%83%87%E3%83%BC%E3%82%BF%E8%A7%A3%E6%9E%90%E3%81%AE%E4%B8%96%E7%95%8C,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [データ, スケッチ, 解析, ストリーム, 近似, 手法, 空間, 推定, 計算, 分野]
 lang: ja
 recommendations: [/ja/note/leakage/, /ja/note/designing-data-intensive-applications/,

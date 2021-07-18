@@ -1,6 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2020-04-30
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E8%B2%AF%E9%87%91%E3%82%92%E5%8F%96%E3%82%8A%E5%B4%A9%E3%81%97%E3%81%AA%E3%81%8C%E3%82%89%E7%94%9F%E3%81%8D%E3%81%A6%E3%81%84%E3%82%8B%E6%84%9F%E8%A6%9A,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [調子, deep, 時間, 昨日, 遠く, 散歩, 人生, 日常, 自炊, 岡本太郎]
 lang: ja
 recommendations: [/ja/note/deep-work/, /ja/note/think/, /ja/note/be-mindful/]

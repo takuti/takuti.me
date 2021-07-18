@@ -1,6 +1,7 @@
 ---
 categories: [Programming]
 date: 2017-06-26
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Deploying%20Static%20Site%20to%20GitHub%20Pages%20via%20Travis%20CI,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [travis, repository, deployment, pages, takuti, github, hugo, commit, bot,
   site]
 lang: en

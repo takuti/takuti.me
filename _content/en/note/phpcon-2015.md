@@ -1,6 +1,7 @@
 ---
 categories: [Conference]
 date: 2015-10-04
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Japan%20PHP%20Conference%202015%20%23phpcon2015,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [phpcon, performance, testing, conference, database, october, released,
   soon, keynote, machine]
 lang: en

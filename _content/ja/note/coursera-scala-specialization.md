@@ -2,6 +2,7 @@
 aliases: [/note/coursera-scala-specialization/]
 categories: [プログラミング]
 date: 2017-10-28
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:Coursera%E3%81%AE%22Functional%20Programming%20in%20Scala%20Specialization%22%E3%82%92%E4%BF%AE%E4%BA%86%E3%81%97%E3%81%9F,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [scala, spark, rdd, parallel, functional, 課題, 並列, コレクション, concurrent, コース]
 lang: ja
 recommendations: [/ja/note/why-spark/, /ja/note/python-concurrent-futures/, /ja/note/coursera-ui-ux-specialization/]

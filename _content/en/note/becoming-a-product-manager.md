@@ -1,6 +1,7 @@
 ---
 categories: [Life & Work, Data Science & Analytics]
 date: 2020-02-07
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Why%20a%20Data%20Science%20Engineer%20Becomes%20a%20Product%20Manager,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [product, experience, iot, technologies, theory, user, science, data, practice,
   engineer]
 lang: en

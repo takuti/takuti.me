@@ -2,6 +2,7 @@
 aliases: [/note/https/]
 categories: [プログラミング]
 date: 2017-02-04
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92HTTPS%E3%81%AB%E3%81%97%E3%81%9F,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [発行, 証明書, サイト, トップページ, はてブ, 従う, 唯一, 事項, 諦め, 懸念]
 lang: ja
 recommendations: [/ja/note/one-month-in-canada/, /ja/note/hello-jekyll/, /ja/note/why-spark/]

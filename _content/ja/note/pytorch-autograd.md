@@ -2,6 +2,7 @@
 aliases: [/note/pytorch-autograd/]
 categories: [プログラミング, 機械学習]
 date: 2017-09-23
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:PyTorch%E3%81%AEautograd%E3%81%A8%E4%BB%B2%E8%89%AF%E3%81%8F%E3%81%AA%E3%82%8A%E3%81%9F%E3%81%84,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [pytorch, autograd, euroscipy, 損失, 変数, パラメータ, ステップ, 気持ち, 更新, 自動微分]
 lang: ja
 recommendations: [/ja/note/pytorch-mf/, /ja/note/euroscipy-2017/, /ja/note/adjusting-for-oversampling-and-undersampling/]

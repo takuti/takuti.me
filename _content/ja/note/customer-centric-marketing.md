@@ -1,7 +1,8 @@
 ---
 categories: [読書記録]
 date: 2021-01-04
-keywords: [顧客, マーケティング, 起点, ストーリー, 分析, データ, プロダクト, 施策, セグメント, コモディティ化]
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E9%A1%A7%E5%AE%A2%E8%B5%B7%E7%82%B9%E3%83%9E%E3%83%BC%E3%82%B1%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%AB%E3%82%88%E3%81%A3%E3%81%A6%E3%80%8C%E3%83%87%E3%83%BC%E3%82%BF%E3%80%8D%E3%81%8C%E3%80%8C%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC%E3%80%8D%E3%81%AB%E6%98%87%E8%8F%AF%E3%81%95%E3%82%8C%E3%82%8B,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
+keywords: [顧客, マーケティング, 起点, ストーリー, 分析, データ, プロダクト, 施策, コモディティ化, 一人]
 lang: ja
 recommendations: [/ja/note/business-communication/, /ja/note/first-step-for-understanding-users/,
   /ja/note/cognitive-science-and-behavioral-economics/]

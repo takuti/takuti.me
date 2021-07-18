@@ -1,6 +1,7 @@
 ---
 categories: [Programming, Data Science & Analytics]
 date: 2021-03-13
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:How%20Much%20CO2%20Emissions%20Have%20Your%20Flights%20Made%3F,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [emissions, flight, visualization, flights, countries, calculating, travel,
   react, obtained, geographical]
 lang: en

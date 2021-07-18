@@ -1,6 +1,7 @@
 ---
 categories: [Conference]
 date: 2015-10-13
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:PyCon%20JP%202015%20%23pyconjp,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [python, talk, possibilities, talks, programming, tools, use, fabric, keynote,
   science]
 lang: en

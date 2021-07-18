@@ -1,6 +1,7 @@
 ---
 categories: [Programming]
 date: 2017-05-28
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Hugo%20meets%20kramdown%20%2B%20KaTeX%20%23gohugo,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [katex, markdown, latex, kramdown, mathjax, syntax, rendering, processor,
   equation, hugo]
 lang: en

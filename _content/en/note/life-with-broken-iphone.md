@@ -1,6 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2020-04-04
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Life%20with%20%28Partially%29%20Broken%20iPhone,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [iphone, broken, apps, screen, internet, bank, check, phone, device, half]
 lang: en
 recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/issue-driven/]

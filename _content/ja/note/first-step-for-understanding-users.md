@@ -1,7 +1,8 @@
 ---
 categories: [エッセイ]
 date: 2021-07-08
-keywords: [テーマ, 現場, 製品, 体験, 第一歩, 開発, 顧客, ユーザ, ストーリー, 経験]
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E5%83%95%E3%81%AF%E3%80%8C%E3%83%A6%E3%83%BC%E3%82%B6%E7%90%86%E8%A7%A3%E3%80%8D%E3%82%92%E9%9B%A3%E3%81%97%E3%81%8F%E8%80%83%E3%81%88%E3%81%99%E3%81%8E%E3%81%A6%E3%81%84%E3%81%9F%E3%81%AE%E3%81%8B%E3%82%82%E3%81%97%E3%82%8C%E3%81%AA%E3%81%84%E3%80%82,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
+keywords: [テーマ, 現場, 製品, 体験, 第一歩, 開発, 顧客, ユーザ, 経験, ストーリー]
 lang: ja
 recommendations: [/ja/note/customer-centric-marketing/, /ja/note/product-management-and-bullshit-job/,
   /ja/note/business-communication/]

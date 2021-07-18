@@ -1,7 +1,8 @@
 ---
 categories: [エッセイ, 読書記録]
 date: 2020-06-21
-keywords: [問題, 考える, 考え, はじめて, イシュー, スーパー, 答え, 自分, 認知, 元通り]
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%80%8C%E8%80%83%E3%81%88%E3%82%8B%E3%81%93%E3%81%A8%E3%80%8D,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
+keywords: [考える, 問題, 考え, はじめて, イシュー, スーパー, 答え, 自分, 認知, 元通り]
 lang: ja
 recommendations: [/ja/note/life-with-covid-19/, /ja/note/feel/, /ja/note/cognitive-science-and-behavioral-economics/]
 title: 「考えること」

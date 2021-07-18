@@ -1,6 +1,7 @@
 ---
 categories: [生活・人生]
 date: 2021-02-28
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%83%88%E3%83%AC%E3%82%B8%E3%83%A3%E3%83%BC%E3%83%87%E3%83%BC%E3%82%BF%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%82%92%E9%80%80%E8%81%B7%E3%81%97%E3%81%A6%20Treasure%20Data%20%28Canada%29%20%E3%81%AB%E5%85%A5%E7%A4%BE%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [日本, カナダ, 海外, 移住, 会社, アメリカ, プロダクトマネージャー, canada, 手続き, 申請]
 lang: ja
 recommendations: [/ja/note/one-month-in-canada/, /ja/note/four-months-after-moving-to-canada/,

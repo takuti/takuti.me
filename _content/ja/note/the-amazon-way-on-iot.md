@@ -2,6 +2,7 @@
 aliases: [/note/the-amazon-way-on-iot/]
 categories: [読書記録]
 date: 2017-10-06
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:The%20Amazon%20Way%20on%20IoT%20-%20Amazon%E3%81%AE%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E3%81%8B%E3%82%89%E5%AD%A6%E3%81%B6%E3%80%8110%E3%81%AE%E5%8E%9F%E5%89%87,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [amazon, iot, ビジネス, データ, connected, 会社, 数式, イノベーション, 収集, サービス]
 lang: ja
 recommendations: [/ja/note/amazon-dynamo-paper/, /ja/note/trends-in-real-world-recommender-systems-2017/,

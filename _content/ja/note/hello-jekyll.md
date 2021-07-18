@@ -2,6 +2,7 @@
 aliases: [/note/hello-jekyll/]
 categories: [プログラミング]
 date: 2014-03-31
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92WordPress%E3%81%8B%E3%82%89Jekyll%E3%81%AB%E5%A4%89%E3%81%88%E3%81%9F,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [はてブ, jekyll, 疲れ, toefl, ielts, 変わる, 先日, 東京, 変え, takuti]
 lang: ja
 recommendations: [/ja/note/ielts-20200201/, /ja/note/ielts-20210226/, /ja/note/room-hunting-202006/]

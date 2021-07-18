@@ -1,10 +1,11 @@
 ---
 categories: [データサイエンス, プログラミング]
 date: 2020-10-18
-keywords: [winters, holt, value, facebook, instagram, 手法, チャネル, マーケティング, twitter,
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%83%9E%E3%83%BC%E3%82%B1%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E6%9C%80%E9%81%A9%E5%8C%96%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E3%82%A2%E3%83%88%E3%83%AA%E3%83%93%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%9A%E5%8D%98%E4%B8%80%E3%82%BF%E3%83%83%E3%83%81%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E5%85%A8%E6%8C%AF%E3%82%8A%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E3%81%8B%E3%82%89Shapley%20Value%E3%83%A2%E3%83%87%E3%83%AB%E3%81%BE%E3%81%A7,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
+keywords: [winters, holt, value, facebook, instagram, 手法, チャネル, twitter, マーケティング,
   ヒューリスティクス]
 lang: ja
-recommendations: [/ja/note/holt-winters/, /ja/note/customer-centric-marketing/, /ja/note/yahoo-egads/]
+recommendations: [/ja/note/holt-winters/, /ja/note/customer-centric-marketing/, /ja/note/algorithmic-marketing/]
 title: マーケティング最適化のためのアトリビューション：単一タッチポイント全振りパターンからShapley Valueモデルまで
 ---
 

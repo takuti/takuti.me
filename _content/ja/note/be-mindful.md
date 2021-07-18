@@ -1,6 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2020-11-29
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%80%8C%E3%83%9E%E3%82%A4%E3%83%B3%E3%83%89%E3%83%95%E3%83%AB%E3%80%8D%E3%81%A7%E3%81%82%E3%82%8B%E3%81%93%E3%81%A8%E3%81%AE%E5%8A%B9%E7%94%A8%E3%82%92%E5%AE%9F%E6%84%9F%E3%81%97%E3%81%A4%E3%81%A4%E3%81%82%E3%82%8B,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [集中, ゆっくり, 仕事, マインド, 相手, 去年, 尊重, はっきり, note, 生き]
 lang: ja
 recommendations: [/ja/note/getting-out-of-the-box/, /ja/note/life-with-covid-19/,

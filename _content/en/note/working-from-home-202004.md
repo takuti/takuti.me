@@ -1,6 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2020-04-18
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:How%20I%27m%20Working%20From%20Home,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [home, coffee, day, stay, pomodoro, healthy, time, physically, life, working]
 lang: en
 recommendations: [/note/fermenting-thoughts/, /note/unusual-drinking-and-eating-habits/,

@@ -1,6 +1,7 @@
 ---
 categories: [Recommender Systems, Programming]
 date: 2019-03-31
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Publishing%20My%20Master%27s%20Thesis%20with%20Documenter.jl,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [julia, documentation, recommendation, pages, filtering, website, mas, collaborative,
   techniques, theoretical]
 lang: en

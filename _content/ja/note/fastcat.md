@@ -2,7 +2,8 @@
 aliases: [/note/fastcat/]
 categories: [プログラミング]
 date: 2017-08-06
-keywords: [カテゴリ, computer, wikipedia, データ, 上位, computing, 概念, 使える, 公式, 表現]
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AERedis%E4%B8%8A%E3%81%A7Wikipedia%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E3%82%92%E3%82%B7%E3%83%A5%E3%83%83%E3%81%A8dig%E3%82%8B,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
+keywords: [カテゴリ, computer, wikipedia, データ, 上位, computing, 使える, 概念, 公式, 表現]
 lang: ja
 recommendations: [/ja/note/gensim-jawiki/, /ja/note/job-title-normalization/, /ja/note/leakage/]
 title: ローカルのRedis上でWikipediaカテゴリをシュッとdigる

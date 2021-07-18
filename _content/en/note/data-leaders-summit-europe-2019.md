@@ -1,6 +1,7 @@
 ---
 categories: [Conference, Data Science & Analytics]
 date: 2019-11-10
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Rethinking%20the%20Role%20of%20Data%20Leaders%20%40%20Data%20Leaders%20Summit%20Europe%202019,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [data, leaders, scientist, head, scientists, summit, business, panel, organization,
   analytics]
 lang: en

@@ -2,6 +2,7 @@
 aliases: [/note/designing-data-intensive-applications/]
 categories: [読書記録, コンピュータシステム]
 date: 2017-12-30
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%22Designing%20Data-Intensive%20Applications%22%E3%81%AF%E6%BF%83%E5%AF%86%E3%81%99%E3%81%8E%E3%82%8B%E4%B8%80%E5%86%8A%E3%81%A0%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A72018%E5%B9%B4%E3%81%AE%E8%87%AA%E5%88%86%E3%81%AB%E3%82%82%E8%AA%AD%E3%82%93%E3%81%A7%E3%82%82%E3%82%89%E3%81%84%E3%81%9F%E3%81%84,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [データ, data, ddia, システム, dynamo, 読ん, poster, データベース, 内容, スケーラビリティ]
 lang: ja
 recommendations: [/ja/note/dynamo-style/, /ja/note/amazon-dynamo-paper/, /ja/note/data-stream-mining/]

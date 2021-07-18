@@ -1,6 +1,7 @@
 ---
 categories: [Programming]
 date: 2018-11-02
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Sending%20Sensor%20Data%20from%20Mbed%20Simulator%20to%20Treasure%20Data,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [mbed, data, pelion, treasure, sensor, device, arm, demo, platform, temperature]
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/data-leaders-summit-europe-2019/,

@@ -1,6 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2017-01-07
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:My%20New%20Year%27s%20Resolution%202017%3A%20Write%20an%20Article%20Every%20Week,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [articles, skills, writing, write, books, read, professional, goals, months,
   courses]
 lang: en

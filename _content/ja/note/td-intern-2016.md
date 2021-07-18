@@ -2,6 +2,7 @@
 aliases: [/note/td-intern-2016/]
 categories: [機械学習]
 date: 2016-10-04
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:Treasure%20Data%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%B3%E3%81%AB%E3%81%BF%E3%82%8B%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%81%AE%E3%83%AA%E3%82%A2%E3%83%AB%20%23td_intern,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [インターン, メトリクス, datadog, hivemall, treasure, 異常検知, 実装, 機械学習, 目的, 異常]
 lang: ja
 recommendations: [/ja/note/master-graduate/, /ja/note/hivemall-on-docker/, /ja/note/yahoo-egads/]

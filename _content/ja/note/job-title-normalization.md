@@ -2,6 +2,7 @@
 aliases: [/note/job-title-normalization/]
 categories: [プログラミング, 自然言語処理]
 date: 2017-07-09
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:Job%20Title%E3%81%AE%E5%89%8D%E5%87%A6%E7%90%86%EF%BC%86%E3%82%AF%E3%83%A9%E3%82%B9%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%92%E3%81%A9%E3%81%86%E3%82%84%E3%81%A3%E3%81%A6%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B%E3%81%8B%E5%95%8F%E9%A1%8C,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [title, job, クラスタ, marketing, クラスタリング, 処理, linkedin, manager, ベース, function]
 lang: ja
 recommendations: [/ja/note/levenshtein-distance/, /ja/note/fastcat/, /ja/note/leakage/]

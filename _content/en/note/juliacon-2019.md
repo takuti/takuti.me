@@ -1,6 +1,7 @@
 ---
 categories: [Programming, Conference, Recommender Systems]
 date: 2019-07-26
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Lightning%20Talk%20about%20Recommender%20Systems%20in%20Julia%20at%20%23JuliaCon%202019,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [julia, recommendation, package, community, computing, ecosystem, book,
   recommendations, onference, developed]
 lang: en

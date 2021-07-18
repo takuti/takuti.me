@@ -1,6 +1,7 @@
 ---
 categories: [Recommender Systems, Programming]
 date: 2017-01-14
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Recommendation.jl%3A%20Building%20Recommender%20Systems%20in%20Julia,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [recommendation, julia, age, factorization, package, waiting, tensor, sorted,
   returns, registered]
 lang: en

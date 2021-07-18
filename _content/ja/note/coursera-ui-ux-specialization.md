@@ -1,6 +1,7 @@
 ---
 categories: [エッセイ, デザイン]
 date: 2020-09-12
+images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%81%AA%E3%81%9CUI/UX%E3%83%87%E3%82%B6%E3%82%A4%E3%83%8A%E3%83%BC%E3%81%AE%E4%BB%95%E4%BA%8B%E3%81%AF%E6%89%B9%E5%88%A4%E3%81%AE%E7%9A%84%E3%81%AB%E3%81%AA%E3%82%8B%E3%81%AE%E3%81%8B%EF%BC%9F%E3%81%9D%E3%81%AE%E8%AC%8E%E3%82%92%E8%A7%A3%E6%98%8E%E3%81%99%E3%81%B9%E3%81%8F%E6%88%91%E3%80%85%E3%81%AF%EF%BC%88%E4%BB%A5%E4%B8%8B%E7%95%A5%EF%BC%89,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [デザイン, design, デザイナー, コース, specialization, 仕事, プロトタイプ, ツール, sketch, 入門]
 lang: ja
 recommendations: [/ja/note/design-engineer/, /ja/note/design-note-88/, /ja/note/tech-design-story/]
