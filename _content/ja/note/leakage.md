@@ -2,7 +2,6 @@
 aliases: [/note/leakage/]
 categories: [機械学習, データサイエンス]
 date: 2017-07-16
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:Leakage%20in%20Data%20Mining,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [データ, kdd, 変数, 学習, 特徴, 評価, 正当, 映画, タスク, タイムスタンプ]
 lang: ja
 recommendations: [/ja/note/yahoo-egads/, /ja/note/data-stream-mining/, /ja/note/designing-data-intensive-applications/]

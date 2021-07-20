@@ -2,7 +2,6 @@
 aliases: [/note/trends-in-real-world-recommender-systems-2017/]
 categories: [イベント参加記, 情報推薦]
 date: 2017-11-23
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E7%AD%8B%E3%83%88%E3%83%AC%E3%80%81%E7%99%BB%E5%B1%B1%E3%80%81%E6%98%A8%E4%BB%8A%E3%81%AE%E6%8E%A8%E8%96%A6%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E3%83%88%E3%83%AC%E3%83%B3%E3%83%89%E3%81%AA%E3%81%A9%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E8%A9%B1%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [推薦, 手法, システム, セミナー, 応用, アルゴリズム, recsys, note, トレンド, 機械学習]
 lang: ja
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/recommender-libraries/,

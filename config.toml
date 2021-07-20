@@ -48,4 +48,4 @@ DefaultContentLanguage = "en"
   title = "takuti.me"
   description = "Takuya Kitazawa, a product developer at Treasure Data."
   keywords = "Takuya Kitazawa,takuti,たくち,Machine Learning,機械学習,Recommender Systems,推薦システム,Data Science,データサイエンス"
-  images = ["/images/takuti.jpg"]
+  images = ["/images/thumbnail.jpg", "/images/takuti.jpg"]

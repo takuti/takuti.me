@@ -1,7 +1,6 @@
 ---
 categories: [Recommender Systems, Programming]
 date: 2017-11-11
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Understanding%20Research%20Trends%20in%20Recommender%20Systems%20from%20Word%20Cloud,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [recsys, matrix, wordcloud, rating, cloud, word, group, filtering, collaborative,
   abstract]
 lang: en

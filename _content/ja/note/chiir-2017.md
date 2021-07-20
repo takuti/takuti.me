@@ -2,7 +2,6 @@
 aliases: [/note/chiir-2017/]
 categories: [機械学習, 情報推薦, イベント参加記]
 date: 2017-03-18
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E6%83%85%E5%A0%B1%E6%A4%9C%E7%B4%A2%E3%83%BB%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%A9%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%E7%B3%BB%E3%81%AE%E5%9B%BD%E9%9A%9B%E4%BC%9A%E8%AD%B0%20CHIIR2017%20%E3%81%AB%E5%8F%82%E5%8A%A0%E3%81%97%E3%81%9F%20%23chiir2017,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [情報検索, 検索, chiir, 会議, ユーザ, 画像, 動画, ノルウェー, web, 分野]
 lang: ja
 recommendations: [/ja/note/master-graduate/, /ja/note/recsys-2016/, /ja/note/euroscipy-2017/]

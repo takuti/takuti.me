@@ -1,7 +1,6 @@
 ---
 categories: [Programming]
 date: 2017-04-30
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Moving%20to%20GitHub%20Pages,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [github, pages, site, takuti, hugo, domain, generated, directory, hosted,
   page]
 lang: en

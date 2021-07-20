@@ -1,7 +1,6 @@
 ---
 categories: [Programming]
 date: 2017-02-25
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Parallel%20Programming%20vs.%20Concurrent%20Programming,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [parallel, concurrent, programming, progress, actions, simultaneously, executed,
   multiple, definition, difference]
 lang: en

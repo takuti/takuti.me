@@ -1,7 +1,6 @@
 ---
 categories: [エッセイ, 読書記録]
 date: 2020-12-30
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%80%8C%E4%BB%8A%E5%B9%B4%E6%89%8B%E6%94%BE%E3%81%97%E3%81%A6%E3%82%88%E3%81%8B%E3%81%A3%E3%81%9F%E3%82%82%E3%81%AE%E3%80%8D,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [資本主義, 社会, 脱成長, 使用価値, コミュニズム, 資本論, 新世, 環境負荷, 希少性, 生活]
 lang: ja
 recommendations: [/ja/note/2021/, /ja/note/mountains-101/, /ja/note/oyo-life-202007/]

@@ -1,7 +1,6 @@
 ---
 categories: [Life & Work]
 date: 2021-03-21
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Moving%20to%20Canada%3A%20Adding%20Randomness%20to%20My%20Life,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [vancouver, canada, japan, live, treasure, country, product, years, manager,
   international]
 lang: en

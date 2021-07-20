@@ -2,7 +2,6 @@
 aliases: [/note/data-science-project-structure/]
 categories: [機械学習, データサイエンス]
 date: 2017-12-16
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B9%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%A7%8B%E6%88%90%E3%81%A9%E3%81%86%E3%81%99%E3%82%8B%E3%81%8B%E5%95%8F%E9%A1%8C,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [practices, ディレクトリ, scientific, バージョン, データサイエンス, computing, プロジェクト, best,
   スクリプト, インストール]
 lang: ja

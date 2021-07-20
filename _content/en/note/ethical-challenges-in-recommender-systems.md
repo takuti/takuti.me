@@ -1,7 +1,6 @@
 ---
 categories: [Recommender Systems, Data Science & Analytics, Machine Learning]
 date: 2021-07-15
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Reviewing%20Ethical%20Challenges%20in%20Recommender%20Systems,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [user, recommendation, systems, recommendations, stakeholders, social, accuracy,
   metrics, recommenders, maximize]
 lang: en

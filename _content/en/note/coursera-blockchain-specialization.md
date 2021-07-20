@@ -1,7 +1,6 @@
 ---
 categories: [Programming]
 date: 2021-04-11
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:What%20Blockchain%20Brings%20to%20Real-World%20Applications,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [blockchain, decentralized, smart, specialization, transactions, contract,
   validation, application, transaction, solidity]
 lang: en

@@ -1,7 +1,6 @@
 ---
 categories: [Conference, Machine Learning]
 date: 2018-11-22
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Attending%20MLconf%20SF%202018%20%23mlconf18,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [scalable, conference, single, stream, session, program, industrial, efforts,
   paper, ing]
 lang: en

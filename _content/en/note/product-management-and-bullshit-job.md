@@ -1,7 +1,6 @@
 ---
 categories: [Life & Work]
 date: 2021-05-26
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Hi%20Product%20Managers%2C%20Are%20You%20Creating%20Products%20That%20%2AYou%2A%20Love%3F,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [product, love, job, customers, manager, strong, communication, execution,
   bullshit, products]
 lang: en

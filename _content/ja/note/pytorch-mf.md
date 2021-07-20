@@ -2,7 +2,6 @@
 aliases: [/note/pytorch-mf/]
 categories: [プログラミング, 情報推薦, 機械学習]
 date: 2017-10-14
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:PyTorch%E3%81%A7%E3%82%82Matrix%20Factorization%E3%81%8C%E3%81%97%E3%81%9F%E3%81%84%EF%BC%81,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [pytorch, autograd, matrix, factorization, 行列, times, optim, mathbb, アイテム,
   表す]
 lang: ja

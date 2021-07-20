@@ -1,7 +1,6 @@
 ---
 categories: [デザイン, 読書記録, データサイエンス]
 date: 2020-05-16
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%83%87%E3%83%BC%E3%82%BF%E3%82%88%E3%82%8A%E3%82%82%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC%E3%82%92%E3%80%81%E7%9B%B8%E9%96%A2%E3%82%88%E3%82%8A%E3%82%82%E5%9B%A0%E6%9E%9C%E3%82%92%E3%80%82,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [認知科学, 行動経済学, ジョブ, ストーリー, デザイン, コンテクスト, プロダクト, 不合理, mdash, 人間]
 lang: ja
 recommendations: [/ja/note/business-communication/, /ja/note/design-engineer/, /ja/note/tech-design-story/]

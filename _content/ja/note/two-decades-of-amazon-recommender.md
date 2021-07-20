@@ -2,7 +2,6 @@
 aliases: [/note/two-decades-of-amazon-recommender/]
 categories: [情報推薦]
 date: 2017-06-10
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:Amazon%E3%81%AE%E6%8E%A8%E8%96%A6%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE20%E5%B9%B4,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [アイテム, 推薦, 購入, ユーザ, amazon, 協調フィルタリング, 閲覧, テレビ, 商品, 買っ]
 lang: ja
 recommendations: [/ja/note/coursera-recommender-systems/, /ja/note/slim/, /ja/note/data-skeptic-recommender-systems/]

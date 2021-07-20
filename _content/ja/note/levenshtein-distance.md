@@ -2,7 +2,6 @@
 aliases: [/note/levenshtein-distance/]
 categories: [プログラミング, 自然言語処理]
 date: 2017-07-28
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%81%84%E3%81%BE%E3%81%95%E3%82%89%E7%B7%A8%E9%9B%86%E8%B7%9D%E9%9B%A2%20%28Levenshtein%20Distance%29%20%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B%E3%81%9C,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [編集, 距離, 文字列, 文字, title, levenshtein, distance, クラスタリング, job, アルゴリズム]
 lang: ja
 recommendations: [/ja/note/postgresql-fuzzy-search/, /ja/note/job-title-normalization/,

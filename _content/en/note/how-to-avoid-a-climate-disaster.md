@@ -1,7 +1,6 @@
 ---
 categories: [Business]
 date: 2021-04-25
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:My%20First%20Impression%20After%20Reading%20Bill%20Gates%27s%20%22How%20to%20Avoid%20a%20Climate%20Disaster%22,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [government, book, environmental, new, emissions, technology, numbers, energy,
   demand, change]
 lang: en

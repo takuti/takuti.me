@@ -2,7 +2,6 @@
 aliases: [/note/after-digital/]
 categories: [読書記録, デザイン, データサイエンス]
 date: 2020-02-20
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%83%87%E3%83%BC%E3%82%BF%E6%99%82%E4%BB%A3%E3%81%AE%E3%80%8C%E3%83%AA%E3%82%A2%E3%83%AB%E3%80%8D%E3%81%AE%E4%BE%A1%E5%80%A4,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [オフライン, オンライン, デジタル, 体験, 接点, 店舗, データ, 小売, 実店舗, 改善]
 lang: ja
 recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/first-step-for-understanding-users/]

@@ -2,7 +2,6 @@
 aliases: [/note/auc/]
 categories: [機械学習]
 date: 2017-03-04
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:Area%20Under%20the%20ROC%20Curve%20%28AUC%29%20%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%99%E3%82%8B,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [positive, auc, サンプル, 'true', 面積, label, ラベル, roc, スコア, 長方形]
 lang: ja
 recommendations: [/ja/note/auc-parallel/, /ja/note/adjusting-for-oversampling-and-undersampling/,

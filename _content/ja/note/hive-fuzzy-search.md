@@ -2,7 +2,6 @@
 aliases: [/note/hive-fuzzy-search/]
 categories: [プログラミング, 自然言語処理]
 date: 2017-08-20
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:Hive%E3%81%A7%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%81%AEFuzzy%20Search,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [search, postgresql, hive, mapreduce, 試し, 同等, 再現, ならでは, trgm, live]
 lang: ja
 recommendations: [/ja/note/hivemall-on-mac/, /ja/note/postgresql-fuzzy-search/, /ja/note/why-spark/]

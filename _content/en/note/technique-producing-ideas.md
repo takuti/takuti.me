@@ -1,7 +1,6 @@
 ---
 categories: [Life & Work, Business, Design]
 date: 2020-01-05
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:How%20to%20Produce%20Ideas,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [ideas, experiences, inputs, raw, gathering, idea, producing, material,
   problem, information]
 lang: en

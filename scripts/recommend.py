@@ -3,7 +3,6 @@ import re
 import yaml
 import MeCab
 import numpy as np
-from urllib.parse import quote
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -102,14 +101,6 @@ def process_article(path, keywords, recommend_permalinks):
 
     front_matter['keywords'] = keywords
     front_matter['recommendations'] = recommend_permalinks
-
-    og_image = 'https://res.cloudinary.com/takuti/image/upload/l_text:'
-    if front_matter['lang'] == 'ja':
-        og_image += 'Sawarabi%20Gothic_32_bold:'
-    else:
-        og_image += 'Open%20Sans_32:'
-    og_image += quote(front_matter['title'].replace('/', ' ')) + ',co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg'
-    front_matter['images'] = [og_image]
 
     with open(path, 'w') as f:
         f.write(content.replace(m.group(1), yaml.dump(front_matter, allow_unicode=True)))

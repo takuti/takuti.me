@@ -1,7 +1,6 @@
 ---
 categories: [Machine Learning, Programming]
 date: 2019-03-24
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Apache%20Hivemall%20in%20PySpark,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [hivemall, spark, training, pyspark, uses, prediction, python, scikit, notebook,
   hadoop]
 lang: en

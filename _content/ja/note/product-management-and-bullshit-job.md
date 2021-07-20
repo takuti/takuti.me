@@ -1,7 +1,6 @@
 ---
 categories: [エッセイ, 読書記録]
 date: 2021-06-09
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%83%97%E3%83%AD%E3%83%80%E3%82%AF%E3%83%88%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88%E3%81%AF%E3%80%8C%E3%82%AF%E3%82%BD%E3%81%A9%E3%81%86%E3%81%A7%E3%82%82%E3%81%84%E3%81%84%E4%BB%95%E4%BA%8B%E3%80%8D%E3%81%8B,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [仕事, 組織, product, 自分, プロダクトマネージャー, プロダクト, ソフトウェア, エンジニア, 確信, 情熱]
 lang: ja
 recommendations: [/ja/note/first-quarter-as-a-product-manager/, /ja/note/design-engineer/,

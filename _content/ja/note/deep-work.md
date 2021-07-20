@@ -2,7 +2,6 @@
 aliases: [/note/deep-work/]
 categories: [読書記録]
 date: 2017-03-25
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%22Deep%20Work%22%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A0%E3%81%91%E3%81%A9%E5%BE%AE%E5%A6%99%E3%81%A0%E3%81%A3%E3%81%9F%E3%81%8B%E3%82%89%E7%9A%86%E3%81%AF%22How%20to%20Write%20a%20Lot%22%E3%81%A8%22%E3%82%A8%E3%83%83%E3%82%BB%E3%83%B3%E3%82%B7%E3%83%A3%E3%83%AB%E6%80%9D%E8%80%83%22%E3%82%92%E8%AA%AD%E3%82%81%E3%81%B0%E3%81%84%E3%81%84,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [deep, work, 時間, 集中, 作業, 思考, 一定, 大事, エッセンシャル, 価値]
 lang: ja
 recommendations: [/ja/note/life-with-covid-19/, /ja/note/self-investment/, /ja/note/be-mindful/]

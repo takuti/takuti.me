@@ -1,7 +1,6 @@
 ---
 categories: [読書記録]
 date: 2021-02-08
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E9%80%80%E5%B1%88%E3%81%AA%E6%AF%8E%E6%97%A5%E3%81%AE%E5%BD%A9%E3%82%8A%E6%96%B9%E2%94%80%E3%80%8E%E6%9A%87%E3%81%A8%E9%80%80%E5%B1%88%E3%81%AE%E5%80%AB%E7%90%86%E5%AD%A6%E3%80%8F%E3%81%AE%E7%90%86%E8%AB%96%E3%81%A8%E5%AE%9F%E8%B7%B5,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [退屈, 消費, 興奮, 浪費, mdash, 獲得, 状態, 倫理学, 当たり前, 僕ら]
 lang: ja
 recommendations: [/ja/note/2021/, /ja/note/the-gifts-in-the-world/, /ja/note/capitalism-in-anthropocene/]

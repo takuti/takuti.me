@@ -1,7 +1,6 @@
 ---
 categories: [生活・人生, エッセイ]
 date: 2021-06-27
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E9%81%8E%E5%8E%BB%E3%81%AE%E8%87%AA%E5%88%86%E3%81%AB%E6%95%91%E3%82%8F%E3%82%8C%E3%82%8B%E3%80%82,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [カナダ, canada, 自分, サイコー, note, 移住, 日本, ヶ月, アイデンティティ, 感覚]
 lang: ja
 recommendations: [/ja/note/relocating-to-canada/, /ja/note/one-month-in-canada/, /ja/note/mountains-101/]

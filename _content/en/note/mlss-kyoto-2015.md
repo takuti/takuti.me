@@ -1,7 +1,6 @@
 ---
 categories: [Machine Learning]
 date: 2015-10-03
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Machine%20Learning%20Summer%20School%202015%20Kyoto%20%23MLSSKYOTO,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [lecture, optimization, really, learning, learn, theoretical, professor,
   try, mathematica, aspects]
 lang: en

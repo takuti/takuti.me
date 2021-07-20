@@ -2,7 +2,6 @@
 aliases: [/note/rule-based-ai/]
 categories: [機械学習, エッセイ, データサイエンス]
 date: 2017-10-21
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%83%AB%E3%83%BC%E3%83%AB%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AF%E3%80%8E%E4%BA%BA%E5%B7%A5%E7%9F%A5%E8%83%BD%E3%80%8F%E3%81%8B,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [人工知能, 言葉, 使わ, amazon, iot, バズワード, 具体, ホームページ, ベース, お客さん]
 lang: ja
 recommendations: [/ja/note/from-cloud-to-ai/, /ja/note/2020/, /ja/note/the-amazon-way-on-iot/]

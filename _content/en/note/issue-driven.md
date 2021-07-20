@@ -1,7 +1,6 @@
 ---
 categories: [Life & Work, Business]
 date: 2020-05-01
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Issue-Driven%20Makes%20You%20Professional,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [issue, driven, quality, time, approach, work, deliver, home, deliverables,
   talk]
 lang: en

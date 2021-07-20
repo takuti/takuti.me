@@ -1,7 +1,6 @@
 ---
 categories: [Business]
 date: 2021-05-14
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:A%20Journey%20of%20Sustainable%20Development%20%23SDGMOOC,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [sustainability, business, problems, responsibility, goals, reduce, actions,
   sustainable, avoid, social]
 lang: en

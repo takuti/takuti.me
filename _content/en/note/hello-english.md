@@ -1,7 +1,6 @@
 ---
 categories: [Life & Work]
 date: 2014-11-09
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Hello%20English%20Entries,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [blog, japanese, write, japan, posts, takuti, ese, english, articles, specific]
 lang: en
 recommendations: [/note/new-year-resolution-2017/, /note/move-to-gh-pages/, /note/travis-gh-pages-deployment/]

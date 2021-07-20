@@ -1,7 +1,6 @@
 ---
 categories: [Life & Work]
 date: 2020-03-29
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:The%20Hardest%20Part%20of%202020%27s%20Strategic%20Ideation,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [staying, problems, concentration, focus, away, thoughts, ideas, product,
   refresh, ideation]
 lang: en

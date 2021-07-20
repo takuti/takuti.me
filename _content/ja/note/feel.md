@@ -1,7 +1,6 @@
 ---
 categories: [エッセイ]
 date: 2020-07-28
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%80%8C%E8%80%83%E3%81%88%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%E3%80%8D,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [考える, 進学, 後悔, 就職, における, 考えれ, 無く, 意思決定, 物事, 快適]
 lang: ja
 recommendations: [/ja/note/think/, /ja/note/cognitive-science-and-behavioral-economics/,

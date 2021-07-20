@@ -2,7 +2,6 @@
 aliases: [/note/incremental-plsa/]
 categories: [情報推薦, 自然言語処理, 機械学習]
 date: 2017-06-04
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:Q%26A%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E8%B3%AA%E5%95%8F%E6%8E%A8%E8%96%A6%E3%80%81%E3%81%9D%E3%81%97%E3%81%A6%20Incremental%20Probabilistic%20Latent%20Semantic%20Analysis,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [質問, 推薦, ユーザ, incremental, beta, mathcal, 文書, negative, positive, フィードバック]
 lang: ja
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/trends-in-real-world-recommender-systems-2017/,

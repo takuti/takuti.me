@@ -1,7 +1,6 @@
 ---
 categories: [エッセイ, デザイン]
 date: 2020-04-25
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E2%80%9C%E3%81%84%E3%81%84%E3%82%82%E3%81%AE%E2%80%9D%E3%81%A3%E3%81%A6%E3%81%AA%E3%82%93%E3%81%A0%E3%82%8D%E3%81%86,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [ストーリー, 良さ, いいもの, 客観, 主観, 欲しい, 用品, 手動, 注文, 料理]
 lang: ja
 recommendations: [/ja/note/tech-design-story/, /ja/note/cognitive-science-and-behavioral-economics/,

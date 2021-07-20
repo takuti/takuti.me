@@ -1,7 +1,6 @@
 ---
 categories: [読書記録]
 date: 2021-01-18
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E5%83%95%E3%82%89%E3%81%AF%E5%90%8D%E3%82%82%E3%81%AA%E3%81%8D%E2%80%9C%E8%AA%B0%E3%81%8B%E2%80%9D%E3%81%8B%E3%82%89%E3%81%AE%E8%B4%88%E4%B8%8E%E3%81%AB%E6%B0%97%E4%BB%98%E3%81%84%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B%EF%BC%9F,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [贈与, 受け取っ, 資本主義, 誰か, 交換, 贈り物, 使命, 不合理, 僕ら, 極めて]
 lang: ja
 recommendations: [/ja/note/2021/, /ja/note/boredom/, /ja/note/will-202102/]

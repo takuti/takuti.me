@@ -1,7 +1,6 @@
 ---
 categories: [Programming]
 date: 2019-04-07
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:TokuDB%20in%20MariaDB%20%28on%20Ubuntu%29,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [engine, xxx, storage, stack, aws, overflow, server, enable, performance,
   connect]
 lang: en

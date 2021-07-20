@@ -2,7 +2,6 @@
 aliases: [/note/postgresql-fuzzy-search/]
 categories: [プログラミング, 自然言語処理]
 date: 2017-08-09
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%81%82%E3%81%AE%E3%81%A8%E3%81%8D%E3%81%AE%E3%83%93%E3%83%BC%E3%83%AB%E3%82%92%E3%82%82%E3%81%86%E4%B8%80%E5%BA%A6%EF%BC%88PostgreSQL%E3%81%A7Fuzzy%20Search%E3%82%92%E8%A9%A6%E3%81%99%EF%BC%89,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [levenshtein, distance, seven, 検索, trgm, postgresql, fuzzystrmatch, weeks,
   databases, 編集]
 lang: ja

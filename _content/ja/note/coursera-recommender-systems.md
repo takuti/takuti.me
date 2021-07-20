@@ -2,7 +2,6 @@
 aliases: [/note/coursera-recommender-systems/]
 categories: [情報推薦]
 date: 2017-01-27
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:Coursera%E3%81%AE%E6%8E%A8%E8%96%A6%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E3%82%B3%E3%83%BC%E3%82%B9%E3%82%92%E4%BF%AE%E4%BA%86%E3%81%97%E3%81%9F,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [行列, 推薦, アイテム, ユーザ, 類似, 手法, 観測, matrix, factorization, 協調フィルタリング]
 lang: ja
 recommendations: [/ja/note/slim/, /ja/note/two-decades-of-amazon-recommender/, /ja/note/trends-in-real-world-recommender-systems-2017/]

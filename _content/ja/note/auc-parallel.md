@@ -2,7 +2,6 @@
 aliases: [/note/auc-parallel/]
 categories: [機械学習]
 date: 2017-03-10
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:Area%20Under%20the%20ROC%20Curve%20%28AUC%29%20%E3%82%92%E4%B8%A6%E5%88%97%E3%81%A7%E8%A8%88%E7%AE%97%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AB%E6%B0%97%E3%82%92%E3%81%A4%E3%81%91%E3%82%8B%E3%81%93%E3%81%A8,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [マージ, auc, 面積, プロセス, 'true', 並列, 結果, サンプル, positive, ソート]
 lang: ja
 recommendations: [/ja/note/auc/, /ja/note/adjusting-for-oversampling-and-undersampling/,

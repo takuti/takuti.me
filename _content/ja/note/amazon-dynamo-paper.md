@@ -2,7 +2,6 @@
 aliases: [/note/amazon-dynamo-paper/]
 categories: [コンピュータシステム]
 date: 2017-12-09
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:Amazon%E3%81%AEDynamoDB%E8%AB%96%E6%96%87%E3%82%92%E7%9C%BA%E3%82%81%E3%81%9F,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [dynamo, amazon, sla, consistency, システム, 解決, write, ノード, サービス, 競合]
 lang: ja
 recommendations: [/ja/note/dynamo-style/, /ja/note/the-amazon-way-on-iot/, /ja/note/designing-data-intensive-applications/]

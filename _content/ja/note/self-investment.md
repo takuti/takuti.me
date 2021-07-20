@@ -1,7 +1,6 @@
 ---
 categories: [エッセイ, 読書記録]
 date: 2020-09-19
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E8%87%AA%E5%B7%B1%E6%8A%95%E8%B3%87%E3%81%AE%E5%A4%A7%E5%8E%9F%E5%89%87,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [投資, 資産, 時間, 分散投資, 原則, リバランス, 長期, 継続, 経験, 成功]
 lang: ja
 recommendations: [/ja/note/coursera-food-and-health/, /ja/note/will-202102/, /ja/note/deep-work/]

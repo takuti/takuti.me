@@ -1,7 +1,6 @@
 ---
 categories: [生活・人生]
 date: 2020-08-21
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E7%A8%8B%E3%82%88%E3%81%8F%E7%96%8E%E3%81%AA%E9%9A%85%E7%94%B0%E5%B7%9D%E3%81%AE%E6%9D%B1%E5%81%B4%E3%81%A7%E3%80%81%E3%82%82%E3%81%AE%E3%81%9F%E3%82%8A%E3%81%AA%E3%81%84%E5%A4%8F%E3%82%92%E9%9D%99%E3%81%8B%E3%81%AB%E9%81%8E%E3%81%94%E3%81%99%20%23%E3%82%AA%E3%83%A8%E3%83%A9%E3%82%A4%E3%83%95,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [ものたりない, oyo, life, 中央線, 沿い, ちょうど, 周辺, 東京, 美術館, リモート]
 lang: ja
 recommendations: [/ja/note/oyo-life-202010/, /ja/note/oyo-life-202007/, /ja/note/room-hunting-202006/]

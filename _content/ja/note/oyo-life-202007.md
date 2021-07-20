@@ -1,7 +1,6 @@
 ---
 categories: [生活・人生]
 date: 2020-07-31
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E8%BB%BD%E3%82%84%E3%81%8B%E3%81%AB%E7%94%9F%E3%81%8D%E3%81%9F%E3%81%8F%E3%81%A6%E3%80%82,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [life, oyo, 生活, 引っ越し, 住居, 物件, 処分, ダンボール, 自分, 部屋]
 lang: ja
 recommendations: [/ja/note/oyo-life-202010/, /ja/note/one-month-in-canada/, /ja/note/oyo-life-202008/]

@@ -2,7 +2,6 @@
 aliases: [/note/igo-ruby-neologd/]
 categories: [プログラミング, 自然言語処理]
 date: 2017-09-17
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:igo-ruby%E3%82%92%E6%96%B0%E8%AA%9E%E8%BE%9E%E6%9B%B8NEologd%E3%81%A7%E3%83%8A%E3%82%A6%E3%81%84%E6%84%9F%E3%81%98%E3%81%AB%E3%81%99%E3%82%8B,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [igo, 辞書, ruby, 久しぶり, 動い, 使っ, 賢く, 契約更新, マルコフ連鎖, ナウく]
 lang: ja
 recommendations: [/ja/note/hatena-keyword-to-ipadic/, /ja/note/twitter-bot/, /ja/note/recommender-libraries/]

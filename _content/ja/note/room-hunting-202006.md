@@ -1,7 +1,6 @@
 ---
 categories: [エッセイ]
 date: 2020-07-05
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%81%BE%E3%81%A3%E3%81%95%E3%82%89%E3%81%AA%E5%9C%B0%E5%9B%B3%E3%82%92%E6%89%8B%E3%81%AB%E5%85%A5%E3%82%8C%E3%81%9F,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [東京, 地図, 自分, まっさら, 理由, 探し, 特急, 無力, 塗りつぶし, 瞬間]
 lang: ja
 recommendations: [/ja/note/oyo-life-202007/, /ja/note/oyo-life-202010/, /ja/note/relocating-to-canada/]

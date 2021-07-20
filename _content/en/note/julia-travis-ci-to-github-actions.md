@@ -1,7 +1,6 @@
 ---
 categories: [Programming]
 date: 2021-03-06
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Moving%20Julia%20Project%20from%20Travis%20CI%20to%20GitHub%20Actions%20%23JuliaLang,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [julia, travis, project, github, actions, year, yml, summarizes, referred,
   bot]
 lang: en

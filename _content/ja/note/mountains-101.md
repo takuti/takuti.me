@@ -1,7 +1,6 @@
 ---
 categories: [生活・人生]
 date: 2021-06-19
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%80%8C%E5%B1%B1%E3%80%8D%E3%82%92%E9%80%9A%E3%81%97%E3%81%A6%E8%80%83%E3%81%88%E3%82%8B%E6%8C%81%E7%B6%9A%E5%8F%AF%E8%83%BD%E6%80%A7%E2%94%80Coursera%E3%81%AE%22Mountains%20101%22%E3%82%92%E5%8F%97%E8%AC%9B%E3%81%97%E3%81%A6,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [mountains, 生活, コース, 生きる, カナダ, 僕ら, 持続可能性, mdash, 進化, 危険]
 lang: ja
 recommendations: [/ja/note/capitalism-in-anthropocene/, /ja/note/2021/, /ja/note/four-months-after-moving-to-canada/]

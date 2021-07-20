@@ -1,7 +1,6 @@
 ---
 categories: [Programming]
 date: 2020-11-28
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Are%20You%20Still%20Writing%20a%20Resume%20in%20Word%20LaTeX%3F,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [html, latex, writing, web, pdf, website, based, icons, tex, font]
 lang: en
 recommendations: [/note/new-year-resolution-2017/, /note/hugo-kramdown-and-katex/,

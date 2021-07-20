@@ -2,7 +2,6 @@
 aliases: [/note/hivemall-on-mac/]
 categories: [機械学習, 情報推薦]
 date: 2017-02-11
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:Mac%E3%81%AE%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%ABHivemall%E3%82%92%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%A6%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0%E6%8E%A8%E8%96%A6%E3%82%92%E3%81%99%E3%82%8B%E3%81%BE%E3%81%A7,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [hive, hadoop, mac, hivemall, 動かす, 映画, インストール, 推薦, ローカル, ライブラリ]
 lang: ja
 recommendations: [/ja/note/hivemall-on-docker/, /ja/note/recommender-libraries/, /ja/note/hive-fuzzy-search/]

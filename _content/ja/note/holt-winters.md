@@ -2,7 +2,6 @@
 aliases: [/note/holt-winters/]
 categories: [機械学習, プログラミング]
 date: 2017-08-26
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E7%95%B0%E5%B8%B8%E6%A4%9C%E7%9F%A5%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E6%9C%AA%E6%9D%A5%E4%BA%88%E6%B8%AC%EF%BC%9A%E3%82%AA%E3%82%A6%E3%83%A0%E8%BF%94%E3%81%97%E7%9A%84%E6%89%8B%E6%B3%95%E3%81%8B%E3%82%89Holt-Winters%20Method%E3%81%BE%E3%81%A7,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [winters, holt, 予測, method, 手法, 返し, 周期, データ, ing, 時系列]
 lang: ja
 recommendations: [/ja/note/attribution/, /ja/note/yahoo-egads/, /ja/note/adjusting-for-oversampling-and-undersampling/]

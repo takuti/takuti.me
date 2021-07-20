@@ -2,7 +2,6 @@
 aliases: [/note/getting-out-of-the-box/]
 categories: [読書記録, エッセイ]
 date: 2019-02-03
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%80%8C%E3%81%A6%E3%81%84%E3%81%AD%E3%81%84%E3%81%AA%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%80%8D,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [相手, 自分, ていねい, 悪い, 信じ, 期待, コミュニケーション, 小さな, 思考, 非難]
 lang: ja
 recommendations: [/ja/note/be-mindful/, /ja/note/product-management-and-bullshit-job/,

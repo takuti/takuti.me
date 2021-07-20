@@ -1,7 +1,6 @@
 ---
 categories: [Data Science & Analytics]
 date: 2021-04-04
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:The%20Essence%20of%20Supply%20Chain%20Management,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [cost, right, demand, average, operations, method, forecasting, value, mean,
   logistics]
 lang: en

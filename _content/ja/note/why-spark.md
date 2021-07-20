@@ -2,7 +2,6 @@
 aliases: [/note/why-spark/]
 categories: [コンピュータシステム, プログラミング]
 date: 2017-04-09
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E3%81%AA%E3%81%9CSpark%E3%81%8B,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [spark, 処理, scala, hadoop, インメモリ, データ, データサイエンス, ディスク, ノード, mapreduce]
 lang: ja
 recommendations: [/ja/note/coursera-scala-specialization/, /ja/note/dynamo-style/,

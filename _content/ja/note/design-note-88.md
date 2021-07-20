@@ -2,7 +2,6 @@
 aliases: [/note/design-note-88/]
 categories: [読書記録, デザイン]
 date: 2020-02-29
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E2%80%9C%E5%A5%BD%E3%81%8D%E2%80%9D%E3%82%92%E5%8F%AF%E8%A6%96%E5%8C%96%E3%81%97%E3%81%AA%E3%81%8C%E3%82%89%E3%80%81%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%83%8E%E3%83%BC%E3%83%88%20No.88%E3%80%8E%E3%83%96%E3%83%A9%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%81%AE%E6%88%90%E5%8A%9F%E6%B3%95%E3%80%8F%E3%82%92%E8%AA%AD%E3%82%80,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [デザイン, ジャッジ, 嫌い, ブランド, トレーニング, 分析, 粒度, センス, 練習, ストーリー]
 lang: ja
 recommendations: [/ja/note/design-engineer/, /ja/note/coursera-ui-ux-specialization/,

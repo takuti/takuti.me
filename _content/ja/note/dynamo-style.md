@@ -2,7 +2,6 @@
 aliases: [/note/dynamo-style/]
 categories: [コンピュータシステム]
 date: 2017-12-22
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%22Dynamo-style%22%20%E3%81%AB%E5%AD%A6%E3%81%B6%20Replication%2C%20Partitioning%2C%20Consistent%20Hashing%20%E3%81%AE%E6%B0%97%E6%8C%81%E3%81%A1,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [ノード, レプリカ, dynamo, read, consistent, hashing, データ, replication, 分散, 書き込み]
 lang: ja
 recommendations: [/ja/note/amazon-dynamo-paper/, /ja/note/designing-data-intensive-applications/,

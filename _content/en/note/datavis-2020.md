@@ -1,7 +1,6 @@
 ---
 categories: [Programming, Data Science & Analytics]
 date: 2021-01-23
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Open%20Sans_32:Datavis%202020%3A%20A%20Free%20Online%20Course%20About%20D3.js%20%26%20React,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [datavis, visualization, fitbit, chart, dashboard, data, react, official,
   augmented, ourse]
 lang: en

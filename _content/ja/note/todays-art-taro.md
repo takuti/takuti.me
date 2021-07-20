@@ -2,7 +2,6 @@
 aliases: [/note/todays-art-taro.html]
 categories: [読書記録]
 date: 2014-02-28
-images: ['https://res.cloudinary.com/takuti/image/upload/l_text:Sawarabi%20Gothic_32_bold:%E5%B2%A1%E6%9C%AC%E5%A4%AA%E9%83%8E%E3%81%AB%E5%AD%A6%E3%81%B6%E3%80%81%E8%8A%B8%E8%A1%93%E3%81%A8%E4%BA%BA%E7%94%9F%E3%80%82,co_rgb:eee,w_800,c_fit/v1626628472/takuti_bgimyl.jpg']
 keywords: [芸術, 自由, 就活, 生き方, 僕ら, 自己, 感情, 全力, kindle, 楽天ブックス]
 lang: ja
 recommendations: [/ja/note/6brains-of-the-world/, /ja/note/life-with-covid-19/, /ja/note/think/]
