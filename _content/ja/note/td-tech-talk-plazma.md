@@ -2,10 +2,10 @@
 aliases: [/note/td-tech-talk-plazma/]
 categories: [機械学習, 自然言語処理, イベント参加記]
 date: 2018-02-25
-keywords: [talk, plazma, 機械学習, 聴衆, 自然言語処理, day, アルゴリズム, 動く, 可能, お話]
+keywords: [機械学習, talk, plazma, 聴衆, day, 自然言語処理, アルゴリズム, 動く, 可能, お話]
 lang: ja
-recommendations: [/ja/note/2020/, /ja/note/trends-in-real-world-recommender-systems-2017/,
-  /ja/note/td-intern-2016/]
+recommendations: [/ja/note/algorithmic-marketing/, /ja/note/trends-in-real-world-recommender-systems-2017/,
+  /ja/note/2020/]
 title: 'Hivemall, Digdag, 自然言語処理, 機械学習などについて話しました #tdtech'
 ---
 

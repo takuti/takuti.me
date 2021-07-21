@@ -4,7 +4,8 @@ categories: [プログラミング, 自然言語処理]
 date: 2017-07-09
 keywords: [title, job, クラスタ, marketing, クラスタリング, 処理, linkedin, manager, ベース, function]
 lang: ja
-recommendations: [/ja/note/levenshtein-distance/, /ja/note/fastcat/, /ja/note/leakage/]
+recommendations: [/ja/note/algorithmic-marketing/, /ja/note/levenshtein-distance/,
+  /ja/note/fastcat/]
 title: Job Titleの前処理＆クラスタリングをどうやって実現するか問題
 ---
 

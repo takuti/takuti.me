@@ -2,9 +2,9 @@
 aliases: [/note/rule-based-ai/]
 categories: [機械学習, エッセイ, データサイエンス]
 date: 2017-10-21
-keywords: [人工知能, 言葉, 使わ, amazon, iot, バズワード, 具体, ホームページ, ベース, お客さん]
+keywords: [人工知能, 言葉, 使わ, amazon, iot, バズワード, ホームページ, 具体, ベース, お客さん]
 lang: ja
-recommendations: [/ja/note/from-cloud-to-ai/, /ja/note/2020/, /ja/note/the-amazon-way-on-iot/]
+recommendations: [/ja/note/from-cloud-to-ai/, /ja/note/2020/, /ja/note/algorithmic-marketing/]
 title: ルールベースは『人工知能』か
 ---
 
