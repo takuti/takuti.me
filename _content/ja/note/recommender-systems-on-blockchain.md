@@ -1,7 +1,7 @@
 ---
 categories: [情報推薦, 機械学習]
 date: 2021-07-03
-keywords: [ブロックチェーン, 推薦, システム, トランザクション, 文献, 行動, ユーザ, 実行, データ, 透明性]
+keywords: [ブロックチェーン, 推薦, システム, トランザクション, 文献, 行動, ユーザ, データ, 実行, 透明性]
 lang: ja
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/trends-in-real-world-recommender-systems-2017/,
   /ja/note/practical-machine-learning/]

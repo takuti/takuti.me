@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2020-07-28
-keywords: [考える, 進学, 後悔, 就職, における, 考えれ, 無く, 意思決定, 物事, 快適]
+keywords: [考える, 進学, 後悔, 就職, における, 考えれ, 意思決定, 物事, 無く, 快適]
 lang: ja
 recommendations: [/ja/note/think/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/todays-art-taro/]
