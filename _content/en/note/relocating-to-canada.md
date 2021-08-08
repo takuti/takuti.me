@@ -1,7 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2021-03-21
-keywords: [vancouver, canada, japan, live, treasure, country, product, years, manager,
+keywords: [vancouver, canada, japan, live, treasure, country, years, product, manager,
   international]
 lang: en
 recommendations: [/note/becoming-a-product-manager/, /note/product-management-and-bullshit-job/,

@@ -1,7 +1,7 @@
 ---
 categories: [Business]
 date: 2021-04-25
-keywords: [government, book, environmental, new, emissions, technology, numbers, energy,
+keywords: [book, government, environmental, new, emissions, technology, numbers, energy,
   demand, change]
 lang: en
 recommendations: [/note/environmental-problems-and-business/, /note/flight-emissions/,
