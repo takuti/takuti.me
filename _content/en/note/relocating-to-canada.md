@@ -1,6 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2021-03-21
+images: [/images/relocating-to-canada/vancouver-harbour.jpeg]
 keywords: [vancouver, canada, japan, live, treasure, country, years, product, manager,
   international]
 lang: en
