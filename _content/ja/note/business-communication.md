@@ -4,7 +4,7 @@ date: 2020-12-08
 keywords: [コンサル, 期待値, クライアント, 顧客, 一年, 仕事, 不合理, プロダクト, 話す, 経験]
 lang: ja
 recommendations: [/ja/note/customer-centric-marketing/, /ja/note/cognitive-science-and-behavioral-economics/,
-  /ja/note/product-management-and-bullshit-job/]
+  /ja/note/product-management-myths/]
 title: プロダクトマネジメントとコンサル、その交差点。
 ---
 

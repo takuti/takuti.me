@@ -2,7 +2,7 @@
 aliases: [/note/acroquest-javabook/]
 categories: [読書記録, プログラミング]
 date: 2017-12-01
-keywords: [クラス, インスタンス, オブジェクト, メソッド, 変数, 処理, 例外, 文字列, 操作, 同期]
+keywords: [クラス, インスタンス, オブジェクト, メソッド, 処理, 変数, 例外, 文字列, 操作, 同期]
 lang: ja
 recommendations: [/ja/note/adjusting-for-oversampling-and-undersampling/, /ja/note/python-concurrent-futures/,
   /ja/note/why-spark/]

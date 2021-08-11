@@ -2,7 +2,7 @@
 aliases: [/note/adjusting-for-oversampling-and-undersampling/]
 categories: [機械学習]
 date: 2017-11-04
-keywords: [サンプル, 分類, クラス, 予測, 確率, rate, 調整, 学習, クリック, マイナー]
+keywords: [サンプル, クラス, 分類, 予測, 確率, rate, 調整, 学習, クリック, マイナー]
 lang: ja
 recommendations: [/ja/note/auc/, /ja/note/acroquest-javabook/, /ja/note/holt-winters/]
 title: Over-/Under-samplingをして学習した2クラス分類器の予測確率を調整する式
