@@ -1,7 +1,7 @@
 ---
 categories: [読書記録, 機械学習, データサイエンス]
 date: 2021-07-20
-keywords: [マーケティング, 機械学習, モデル, title, ベース, ルール, job, アルゴリズム, mdash, 最適化]
+keywords: [マーケティング, 機械学習, モデル, title, ルール, ベース, アルゴリズム, job, mdash, 最適化]
 lang: ja
 recommendations: [/ja/note/job-title-normalization/, /ja/note/2020/, /ja/note/td-tech-talk-plazma/]
 title: 『AIアルゴリズムマーケティング』は期待ハズレだったけど手元に置いておきたい一冊

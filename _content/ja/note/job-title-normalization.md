@@ -2,7 +2,7 @@
 aliases: [/note/job-title-normalization/]
 categories: [プログラミング, 自然言語処理]
 date: 2017-07-09
-keywords: [title, job, クラスタ, marketing, クラスタリング, 処理, linkedin, manager, ベース, function]
+keywords: [title, job, クラスタ, marketing, クラスタリング, 処理, linkedin, ベース, manager, function]
 lang: ja
 recommendations: [/ja/note/algorithmic-marketing/, /ja/note/levenshtein-distance/,
   /ja/note/fastcat/]

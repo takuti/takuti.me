@@ -1,7 +1,7 @@
 ---
 categories: [生活・人生]
 date: 2021-03-26
-keywords: [隔離, canada, カナダ, 手続き, 部屋, 物件, 電話, 海外, 日本, バンクーバー]
+keywords: [隔離, canada, カナダ, 手続き, 部屋, 物件, 電話, 海外, 日本, 発行]
 lang: ja
 recommendations: [/ja/note/travel-to-canada-210226/, /ja/note/relocating-to-canada/,
   /ja/note/four-months-after-moving-to-canada/]

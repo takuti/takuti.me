@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ, デザイン]
 date: 2020-09-12
-keywords: [デザイン, コース, design, デザイナー, 仕事, specialization, プロトタイプ, ツール, sketch, 入門]
+keywords: [デザイン, コース, design, デザイナー, specialization, 仕事, プロトタイプ, ツール, sketch, 入門]
 lang: ja
 recommendations: [/ja/note/design-engineer/, /ja/note/design-note-88/, /ja/note/product-management-myths/]
 title: なぜUI/UXデザイナーの仕事は批判の的になるのか？その謎を解明すべく我々は（以下略）

@@ -4,8 +4,7 @@ categories: [読書記録]
 date: 2017-10-06
 keywords: [amazon, iot, ビジネス, データ, connected, 会社, 数式, セキュリティ, 収集, イノベーション]
 lang: ja
-recommendations: [/ja/note/amazon-dynamo-paper/, /ja/note/product-management-myths/,
-  /ja/note/trends-in-real-world-recommender-systems-2017/]
+recommendations: [/ja/note/amazon-dynamo-paper/, /ja/note/leakage/, /ja/note/trends-in-real-world-recommender-systems-2017/]
 title: The Amazon Way on IoT - Amazonのビジネスから学ぶ、10の原則
 ---
 

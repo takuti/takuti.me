@@ -4,7 +4,7 @@ categories: [読書記録, デザイン, データサイエンス]
 date: 2020-02-20
 keywords: [オフライン, オンライン, デジタル, 体験, 店舗, 接点, データ, 実店舗, 改善, 小売]
 lang: ja
-recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/product-management-myths/]
+recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/the-amazon-way-on-iot/]
 title: データ時代の「リアル」の価値
 ---
 

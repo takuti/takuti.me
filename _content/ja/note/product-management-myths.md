@@ -1,7 +1,8 @@
 ---
 categories: [エッセイ, 読書記録]
 date: 2021-08-12
-keywords: [プロダクト, 職業, 仕事, プロダクトマネジメント, プロダクトマネージャー, デザイン, チーム, product, 開発, 信頼]
+keywords: [プロダクト, 職業, プロダクトマネジメント, 仕事, プロダクトマネージャー, デザイン, チーム, product, プロジェクトマネージャー,
+  開発]
 lang: ja
 recommendations: [/ja/note/product-management-and-bullshit-job/, /ja/note/design-engineer/,
   /ja/note/first-quarter-as-a-product-manager/]
@@ -11,6 +12,8 @@ title: いい加減、プロダクトマネージャーという職業に幻想�
 プロダクトマネージャー (PM) としてのこれまでの私的な経験を踏まえて、『[プロダクトマネジメントのすべて 事業戦略・IT開発・UXデザイン・マーケティングからチーム・組織運営まで](https://amzn.to/3s1E5eo)』を読んで思ったことをつらつらと。
 
 <a href="https://www.amazon.co.jp/dp/B08W51KLQJ?_encoding=UTF8&btkr=1&linkCode=li2&tag=takuti-22&linkId=57e691f2c065cfd2a7e5cce1266b5000&language=ja_JP&ref_=as_li_ss_il" target="_blank"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B08W51KLQJ&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=takuti-22&language=ja_JP" ></a><img src="https://ir-jp.amazon-adsystem.com/e/ir?t=takuti-22&language=ja_JP&l=li2&o=9&a=B08W51KLQJ" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+
+> （8/12 追記）冒頭で示しているように、本記事では**PM＝プロダクトマネージャー**として表記しています。後述の通りPMとプロジェクトマネージャーは異なるものであり、後者に対して略記は用いていません。
 
 - [プロダクトマネージャーは本当に“魅力的な職業”か](#%E3%83%97%E3%83%AD%E3%83%80%E3%82%AF%E3%83%88%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC%E3%81%AF%E6%9C%AC%E5%BD%93%E3%81%AB%E2%80%9C%E9%AD%85%E5%8A%9B%E7%9A%84%E3%81%AA%E8%81%B7%E6%A5%AD%E2%80%9D%E3%81%8B)
 - [“完璧な世界”など存在しない](#%E2%80%9C%E5%AE%8C%E7%92%A7%E3%81%AA%E4%B8%96%E7%95%8C%E2%80%9D%E3%81%AA%E3%81%A9%E5%AD%98%E5%9C%A8%E3%81%97%E3%81%AA%E3%81%84)

@@ -1,7 +1,7 @@
 ---
 categories: [読書記録, デザイン, データサイエンス]
 date: 2021-08-02
-keywords: [プロダクト, 行動, 変容, ユーザ, デザイン, 習慣, によって, 僕ら, 促す, 開発者]
+keywords: [プロダクト, 行動, 変容, ユーザ, デザイン, 習慣, によって, 僕ら, 開発者, 促す]
 lang: ja
 recommendations: [/ja/note/design-engineer/, /ja/note/product-management-myths/, /ja/note/cognitive-science-and-behavioral-economics/]
 title: 僕らはなぜ、誰のためにプロダクトを作るのか─行動変容デザインとその倫理的側面
