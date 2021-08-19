@@ -6,6 +6,8 @@
 
 ## Dependancies
 
+> Last tested in Node v16.6.2 and npm 7.20.3.
+
 ### System
 
 Hugo and direnv can be installed from homebrew:
@@ -24,6 +26,12 @@ $ npm install
 ```
 
 ### Pre-commit hook
+
+Husky helps setting up custom pre-commit hooks:
+
+```sh
+npm run prepare
+```
 
 [recommend.py](./scripts/recommend.py) depends on MeCab Japanese morphological analyzer:
 
