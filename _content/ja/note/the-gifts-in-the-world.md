@@ -1,7 +1,7 @@
 ---
 categories: [読書記録]
 date: 2021-01-18
-keywords: [贈与, 受け取っ, 資本主義, 誰か, 交換, 贈り物, 不合理, 使命, 僕ら, 極めて]
+keywords: [贈与, 受け取っ, 資本主義, 誰か, 交換, 贈り物, 不合理, 使命, 僕ら, 衝動]
 lang: ja
 recommendations: [/ja/note/2021/, /ja/note/boredom/, /ja/note/will-202102/]
 title: 僕らは名もなき“誰か”からの贈与に気付いているか？

@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ, 読書記録]
 date: 2021-08-12
-keywords: [プロダクト, 職業, プロダクトマネジメント, 仕事, プロダクトマネージャー, デザイン, チーム, product, プロジェクトマネージャー,
+keywords: [プロダクト, 職業, 仕事, プロダクトマネージャー, プロダクトマネジメント, デザイン, チーム, product, プロジェクトマネージャー,
   開発]
 lang: ja
 recommendations: [/ja/note/product-management-and-bullshit-job/, /ja/note/design-engineer/,

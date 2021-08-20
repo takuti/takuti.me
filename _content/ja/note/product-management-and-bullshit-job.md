@@ -3,8 +3,7 @@ categories: [エッセイ, 読書記録]
 date: 2021-06-09
 keywords: [仕事, 組織, product, 自分, プロダクトマネージャー, プロダクト, エンジニア, ソフトウェア, love, 確信]
 lang: ja
-recommendations: [/ja/note/product-management-myths/, /ja/note/first-quarter-as-a-product-manager/,
-  /ja/note/202108-job-change/]
+recommendations: [/ja/note/product-management-myths/, /ja/note/td-to-amazon/, /ja/note/first-quarter-as-a-product-manager/]
 title: プロダクトマネジメントは「クソどうでもいい仕事」か
 ---
 
