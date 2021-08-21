@@ -6,14 +6,14 @@
 
 ## Dependancies
 
-> Last tested in Node v16.6.2 and npm 7.20.3.
-
 ### System
 
 Hugo and direnv can be installed from homebrew:
 
 ```
-$ brew install hugo direnv git-lfs
+$ brew install hugo direnv git-lfs nodenv
+$ nodenv install
+$ nodenv rehash
 ```
 
 ### Gulp
