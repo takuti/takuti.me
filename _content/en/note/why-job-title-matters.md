@@ -1,8 +1,8 @@
 ---
 categories: [Life & Work]
 date: 2021-08-07
-keywords: [title, job, classification, software, engineer, product, uniqueness, typical,
-  commonly, person]
+keywords: [title, job, classification, software, engineer, product, uniqueness, commonly,
+  person, typical]
 lang: en
 recommendations: [/note/product-management-and-bullshit-job/, /note/becoming-a-product-manager/,
   /note/learn-how-others-work/]

@@ -2,11 +2,10 @@
 categories: [Life & Work]
 date: 2021-03-21
 images: [/images/relocating-to-canada/vancouver-harbour.jpeg]
-keywords: [vancouver, canada, japan, live, treasure, country, years, product, manager,
-  international]
+keywords: [vancouver, canada, japan, live, treasure, country, years, product, international,
+  manager]
 lang: en
-recommendations: [/note/becoming-a-product-manager/, /note/product-management-and-bullshit-job/,
-  /note/hivemall-events-2018-autumn/]
+recommendations: [/note/td-to-amazon/, /note/becoming-a-product-manager/, /note/product-management-and-bullshit-job/]
 title: 'Moving to Canada: Adding Randomness to My Life'
 ---
 

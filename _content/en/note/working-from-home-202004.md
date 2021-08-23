@@ -1,7 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2020-04-18
-keywords: [home, coffee, day, stay, pomodoro, healthy, time, physically, life, mentally]
+keywords: [home, coffee, day, pomodoro, stay, healthy, time, physically, life, working]
 lang: en
 recommendations: [/note/fermenting-thoughts/, /note/unusual-drinking-and-eating-habits/,
   /note/stop-drinking-alone/]

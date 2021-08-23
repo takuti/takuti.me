@@ -1,7 +1,7 @@
 ---
 categories: [Conference]
 date: 2019-11-17
-keywords: [iot, blockchain, poc, data, world, iotswc, systems, conference, technology,
+keywords: [iot, blockchain, poc, data, world, iotswc, conference, systems, technology,
   gap]
 lang: en
 recommendations: [/note/coursera-blockchain-specialization/, /note/becoming-a-product-manager/,

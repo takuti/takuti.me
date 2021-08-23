@@ -1,8 +1,8 @@
 ---
 categories: [Conference, Machine Learning]
 date: 2018-11-22
-keywords: [scalable, conference, single, stream, session, program, industrial, efforts,
-  paper, ing]
+keywords: [scalable, conference, amazon, single, stream, session, program, industrial,
+  efforts, paper]
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/umap-2019/, /note/nrf-2020/]
 title: 'Attending MLconf SF 2018 #mlconf18'

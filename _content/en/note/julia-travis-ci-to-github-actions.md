@@ -1,8 +1,8 @@
 ---
 categories: [Programming]
 date: 2021-03-06
-keywords: [julia, travis, project, github, actions, year, yml, summarizes, referred,
-  bot]
+keywords: [julia, travis, project, github, actions, yml, summarizes, referred, bot,
+  year]
 lang: en
 recommendations: [/note/juliacon-2019/, /note/recommendation-julia-documenter/, /note/travis-gh-pages-deployment/]
 title: 'Moving Julia Project from Travis CI to GitHub Actions #JuliaLang'
