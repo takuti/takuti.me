@@ -1,11 +1,11 @@
 ---
 categories: [Life & Work]
 date: 2021-08-07
-keywords: [title, job, classification, software, engineer, product, uniqueness, commonly,
-  person, typical]
+keywords: [title, job, titles, classification, software, engineer, product, uniqueness,
+  immigration, commonly]
 lang: en
-recommendations: [/note/product-management-and-bullshit-job/, /note/becoming-a-product-manager/,
-  /note/learn-how-others-work/]
+recommendations: [/note/product-management-and-bullshit-job/, /note/td-to-amazon/,
+  /note/becoming-a-product-manager/]
 title: Why Your Job Title Matters
 ---
 

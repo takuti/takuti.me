@@ -1,11 +1,11 @@
 ---
 categories: [Life & Work]
 date: 2021-05-26
-keywords: [product, love, job, customers, strong, communication, manager, execution,
-  confidence, bullshit]
+keywords: [product, job, love, customers, strong, communication, manager, execution,
+  confidence, products]
 lang: en
 recommendations: [/note/machine-learning-product/, /note/becoming-a-product-manager/,
-  /note/why-job-title-matters/]
+  /note/td-to-amazon/]
 title: Hi Product Managers, Are You Creating Products That *You* Love?
 ---
 

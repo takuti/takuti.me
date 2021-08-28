@@ -4,7 +4,7 @@ date: 2021-07-15
 keywords: [ethical, user, recommendation, systems, recommendations, stakeholders,
   social, accuracy, metrics, recommenders]
 lang: en
-recommendations: [/note/hello-faust/, /note/recsys-wordcloud/, /note/becoming-a-product-manager/]
+recommendations: [/note/hello-faust/, /note/td-to-amazon/, /note/recsys-wordcloud/]
 title: Reviewing Ethical Challenges in Recommender Systems
 ---
 

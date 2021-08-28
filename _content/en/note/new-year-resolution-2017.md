@@ -1,10 +1,10 @@
 ---
 categories: [Life & Work]
 date: 2017-01-07
-keywords: [articles, skills, writing, books, write, professional, goals, read, months,
-  courses]
+keywords: [articles, skills, writing, books, write, professional, read, months, goals,
+  book]
 lang: en
-recommendations: [/note/hello-english/, /note/coursera-scala-capstone/, /note/relocating-to-canada/]
+recommendations: [/note/hello-english/, /note/coursera-scala-capstone/, /note/td-to-amazon/]
 title: 'My New Year''s Resolution 2017: Write an Article Every Week'
 ---
 

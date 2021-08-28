@@ -3,7 +3,7 @@ categories: [Life & Work]
 date: 2020-04-04
 keywords: [iphone, broken, apps, screen, internet, bank, check, phone, device, conditions]
 lang: en
-recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/issue-driven/]
+recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/td-to-amazon/]
 title: Life with (Partially) Broken iPhone
 ---
 

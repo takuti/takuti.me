@@ -1,7 +1,7 @@
 ---
 categories: [Life & Work, Data Science & Analytics]
 date: 2020-02-07
-keywords: [product, iot, experience, theory, technologies, user, science, data, practice,
+keywords: [product, iot, experience, technologies, theory, user, science, data, practice,
   engineer]
 lang: en
 recommendations: [/note/iotswc-2019/, /note/product-management-and-bullshit-job/,

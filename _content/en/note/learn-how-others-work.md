@@ -5,7 +5,7 @@ keywords: [guess, product, finance, introduction, managers, design, engineers, d
   understand, roles]
 lang: en
 recommendations: [/note/product-management-and-bullshit-job/, /note/becoming-a-product-manager/,
-  /note/machine-learning-product/]
+  /note/td-to-amazon/]
 title: Don't "Guess" How People in Other Roles Work
 ---
 
