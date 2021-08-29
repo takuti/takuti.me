@@ -1,9 +1,9 @@
 // https://github.com/manaten/manaten.net/blob/1ee1f9cb8d1dabae56f0e3d9fe7cf0cb295535ab/scripts/imagemin.js
 'use strict';
-const imagemin = require('imagemin');
 const fs = require('fs');
 
 (async () => {
+  const imagemin = (await import('imagemin')).default;
   const input = process.argv.filter(arg => /(png|jpe?g|gif|svg)/.test(arg));
   const plugins = [
     'gifsicle',
