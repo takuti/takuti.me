@@ -16,6 +16,9 @@ other = "書いた人"
 [popularArticles]
 other = "過去の人気記事"
 
+[setupCall]
+other = "ミーティングを設定して直接話す"
+
 [support]
 other = "サポートする"
 
