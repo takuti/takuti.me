@@ -31,7 +31,7 @@
     <link rel="shortcut icon" href="/images/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="takuti.me" href="/index.xml" />
     {{ if and .IsPage (eq .Section "note") }}
-    {{ if gt (sub (now.Unix) (.Date.Unix)) 604800 }}
+    {{ if gt (sub (now.Unix) (.Date.Unix)) 31536000 }}
     <script data-ad-client="ca-pub-7190463694419594" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     {{ end }}
     {{ end }}
