@@ -1,9 +1,9 @@
 ---
 categories: [エッセイ, 読書記録]
 date: 2020-12-30
-keywords: [資本主義, 社会, 脱成長, 使用価値, コミュニズム, 資本論, 新世, 希少性, 生活, 環境負荷]
+keywords: [資本主義, 社会, 脱成長, 使用価値, コミュニズム, 資本論, 新世, 希少性, 生活, 危機]
 lang: ja
-recommendations: [/ja/note/2021/, /ja/note/mountains-101/, /ja/note/td-to-amazon/]
+recommendations: [/ja/note/2021/, /ja/note/mountains-101/, /ja/note/oyo-life-202007/]
 title: 「今年手放してよかったもの」
 ---
 

@@ -1,7 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2019-09-08
-keywords: [drinking, cafe, bar, habit, good, fine, enjoy, coffee, didn, completely]
+keywords: [drinking, cafe, habit, bar, good, fine, enjoy, coffee, completely, didn]
 lang: en
 recommendations: [/note/unusual-drinking-and-eating-habits/, /note/working-from-home-202004/,
   /note/fermenting-thoughts/]

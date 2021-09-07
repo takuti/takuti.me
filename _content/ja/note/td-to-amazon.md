@@ -1,7 +1,7 @@
 ---
 categories: [生活・人生]
 date: 2021-08-19
-keywords: [note, エンジニア, 自分, amazon, 退職, 転職, 経験, 仕事, キャリア, プロダクトマネージャー]
+keywords: [大企業, note, エンジニア, 自分, amazon, 退職, 経験, 仕事, 転職, キャリア]
 lang: ja
 recommendations: [/ja/note/product-management-and-bullshit-job/, /ja/note/relocating-to-canada/,
   /ja/note/first-quarter-as-a-product-manager/]

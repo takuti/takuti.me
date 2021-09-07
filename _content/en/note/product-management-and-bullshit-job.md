@@ -1,7 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2021-05-26
-keywords: [product, job, love, customers, strong, communication, manager, execution,
+keywords: [product, love, job, customers, strong, communication, manager, execution,
   confidence, products]
 lang: en
 recommendations: [/note/machine-learning-product/, /note/td-to-amazon/, /note/becoming-a-product-manager/]

@@ -2,7 +2,7 @@
 categories: [Programming, Data Science & Analytics]
 date: 2021-03-13
 keywords: [emissions, flight, visualization, flights, countries, emission, calculator,
-  calculating, travel, obtained]
+  calculating, obtained, geographical]
 lang: en
 recommendations: [/note/javascript-save-svg-as-image/, /note/how-to-avoid-a-climate-disaster/,
   /note/datavis-2020/]

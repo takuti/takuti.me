@@ -2,7 +2,7 @@
 aliases: [/note/getting-out-of-the-box/]
 categories: [読書記録, エッセイ]
 date: 2019-02-03
-keywords: [相手, 自分, ていねい, 悪い, 信じ, 期待, コミュニケーション, 小さな, 思考, 非難]
+keywords: [相手, 自分, ていねい, 悪い, 信じ, 期待, コミュニケーション, 思考, 小さな, 非難]
 lang: ja
 recommendations: [/ja/note/be-mindful/, /ja/note/product-management-and-bullshit-job/,
   /ja/note/td-to-amazon/]

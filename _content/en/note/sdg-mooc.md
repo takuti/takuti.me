@@ -2,7 +2,7 @@
 categories: [Business]
 date: 2021-05-14
 keywords: [sustainability, business, problems, responsibility, reduce, goals, actions,
-  sustainable, avoid, social]
+  sustainable, avoid, challenges]
 lang: en
 recommendations: [/note/environmental-problems-and-business/, /note/td-to-amazon/,
   /note/unusual-drinking-and-eating-habits/]
