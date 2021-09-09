@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2021-07-08
-keywords: [リアリティ, テーマ, 現場, 体験, 製品, 第一歩, 開発, 顧客, ユーザ, 経験]
+keywords: [リアリティ, テーマ, 体験, 現場, 製品, 第一歩, 開発, 顧客, 経験, ユーザ]
 lang: ja
 recommendations: [/ja/note/customer-centric-marketing/, /ja/note/product-management-myths/,
   /ja/note/hooked-design/]

@@ -1,9 +1,10 @@
 ---
 categories: [生活・人生]
 date: 2021-06-19
-keywords: [mountains, 生活, コース, 生きる, カナダ, 僕ら, 原子力発電, development, mdash, 進化]
+keywords: [mountains, 生活, コース, 生きる, カナダ, 僕ら, 原子力発電, sustainable, disaster, development]
 lang: ja
-recommendations: [/ja/note/capitalism-in-anthropocene/, /ja/note/2021/, /ja/note/four-months-after-moving-to-canada/]
+recommendations: [/ja/note/sustainable-capitalism/, /ja/note/capitalism-in-anthropocene/,
+  /ja/note/2021/]
 title: 「山」を通して考える持続可能性─Courseraの"Mountains 101"を受講して
 ---
 

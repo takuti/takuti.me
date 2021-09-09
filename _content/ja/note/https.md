@@ -2,7 +2,7 @@
 aliases: [/note/https/]
 categories: [プログラミング]
 date: 2017-02-04
-keywords: [発行, 証明書, サイト, トップページ, はてブ, 従う, 唯一, 事項, 諦め, 懸念]
+keywords: [発行, 証明書, サイト, トップページ, はてブ, 従う, 事項, 唯一, 諦め, 懸念]
 lang: ja
 recommendations: [/ja/note/one-month-in-canada/, /ja/note/hello-jekyll/, /ja/note/why-spark/]
 title: サイトをHTTPSにした
