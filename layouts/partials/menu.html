@@ -4,7 +4,7 @@
     <a href="{{ "/" | absLangURL }}"><img src="/images/logo.png" alt="icon" />&nbsp;&nbsp;takuti.me</a>
   </span>
   <span class="right">
-    <a href="{{ "/" | absLangURL }}">{{ i18n "aboutMe" }}</a>
+    <a href="{{ "/" | absLangURL }}" class="hide-responsive">{{ i18n "aboutMe" }}</a>
     <span class="menu__single">
       <a href="{{ "/note" | absLangURL }}" class="init-bottom">{{ i18n "blog" }}&nbsp;&nbsp;<i class="fas fa-angle-down"></i></a>
       <ul class="menu__second-level">
@@ -13,6 +13,7 @@
         {{end}}
       </ul>
     </span>
+    <a href={{ if eq .Site.Language.Lang "ja" }}"/ja/index.xml"{{ else }}"/index.xml"{{ end }} class="hide-responsive"><i class="fas fa-rss"></i></a>
     {{ if .IsTranslated }}
       {{ range .Translations }}
         <a href="{{ .RelPermalink }}"><i class="fas fa-language fa-2x"></i></a>
