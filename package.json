@@ -6,6 +6,7 @@
   "scripts": {
     "build": "gulp",
     "watch": "gulp watch",
+    "clean": "rm -rf public/",
     "prepare": "husky install"
   },
   "devDependencies": {
