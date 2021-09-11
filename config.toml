@@ -1,6 +1,8 @@
 canonifyurls = true
 
 hasCJKLanguage = true
+summaryLength = 100
+
 googleAnalytics = "UA-28919399-2"
 
 disableKinds = ["taxonomyTerm"]
