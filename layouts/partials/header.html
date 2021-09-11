@@ -29,7 +29,9 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
     <link rel="shortcut icon" href="/images/favicon.ico" />
-    <link rel="alternate" type="application/atom+xml" title="takuti.me" href="/index.xml" />
+    {{ with .OutputFormats.Get "rss" -}}
+      {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
     {{ if and .IsPage (eq .Section "note") }}
     {{ if gt (sub (now.Unix) (.Date.Unix)) 31536000 }}
     <script data-ad-client="ca-pub-7190463694419594" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
