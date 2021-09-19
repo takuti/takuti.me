@@ -2,7 +2,7 @@
 categories: [Recommender Systems, Data Science & Analytics, Machine Learning]
 date: 2021-07-15
 keywords: [ethical, user, recommendation, systems, recommendations, stakeholders,
-  social, accuracy, metrics, recommenders]
+  accuracy, metrics, social, recommenders]
 lang: en
 recommendations: [/note/hello-faust/, /note/td-to-amazon/, /note/recsys-wordcloud/]
 title: Reviewing Ethical Challenges in Recommender Systems

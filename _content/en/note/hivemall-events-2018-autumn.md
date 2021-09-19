@@ -4,7 +4,7 @@ date: 2018-10-26
 keywords: [hivemall, data, mbed, hive, conference, session, recsys, query, capability,
   connect]
 lang: en
-recommendations: [/note/mbed-simulator-td/, /note/apachecon-2019/, /note/hivemall-pyspark/]
+recommendations: [/note/mbed-simulator-td/, /note/hivemall-pyspark/, /note/apachecon-2019/]
 title: 'Apache Hivemall at #ODSCEurope, #RecSys2018, and #MbedConnect'
 ---
 

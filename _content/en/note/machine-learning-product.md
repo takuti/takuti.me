@@ -5,7 +5,7 @@ keywords: [product, business, solution, problems, solving, cost, model, technica
   questions, human]
 lang: en
 recommendations: [/note/product-management-and-bullshit-job/, /note/learn-how-others-work/,
-  /note/becoming-a-product-manager/]
+  /note/td-to-amazon/]
 title: What I Think About When I Talk About ML Product
 ---
 

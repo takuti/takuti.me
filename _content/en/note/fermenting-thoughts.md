@@ -1,7 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2020-03-29
-keywords: [staying, problems, concentration, away, focus, thoughts, ideas, product,
+keywords: [staying, concentration, problems, away, focus, thoughts, ideas, product,
   refresh, things]
 lang: en
 recommendations: [/note/working-from-home-202004/, /note/technique-producing-ideas/,

@@ -1,8 +1,8 @@
 ---
 categories: [Programming]
 date: 2021-06-05
-keywords: [sorted, array, method, ondition, insert, dictionary, walking, naive, maintaining,
-  elements]
+keywords: [sorted, array, method, ondition, insert, element, dictionary, walking,
+  naive, maintaining]
 lang: en
 recommendations: [/note/recommendation-julia/, /note/coursera-supply-chain-management/,
   /note/flurs/]
