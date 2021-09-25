@@ -1,7 +1,7 @@
 ---
 categories: [Data Science & Analytics]
 date: 2021-04-04
-keywords: [cost, suppliers, right, demand, average, operations, method, forecasting,
+keywords: [cost, right, suppliers, demand, average, operations, method, forecasting,
   value, logistics]
 lang: en
 recommendations: [/note/supply-chain-analytics/, /note/machine-learning-product/,

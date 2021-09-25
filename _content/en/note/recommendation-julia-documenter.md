@@ -2,7 +2,7 @@
 categories: [Recommender Systems, Programming]
 date: 2019-03-31
 keywords: [julia, documentation, recommendation, pages, filtering, website, mas, collaborative,
-  techniques, scientific]
+  techniques, theoretical]
 lang: en
 recommendations: [/note/juliacon-2019/, /note/recommendation-julia/, /note/julia-travis-ci-to-github-actions/]
 title: Publishing My Master's Thesis with Documenter.jl

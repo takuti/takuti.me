@@ -2,9 +2,9 @@
 categories: [Business]
 date: 2021-04-30
 keywords: [green, energy, building, water, environmental, problems, business, renewable,
-  people, generation]
+  people, buildings]
 lang: en
-recommendations: [/note/how-to-avoid-a-climate-disaster/, /note/sdg-mooc/, /note/sustainable-capitalism/]
+recommendations: [/note/how-to-avoid-a-climate-disaster/, /note/sdg-mooc/, /note/sustainability-at-big-tech/]
 title: Environmental Problems Through the Lens of Business
 ---
 

@@ -2,7 +2,7 @@
 categories: [Life & Work]
 date: 2021-03-21
 images: [/images/relocating-to-canada/vancouver-harbour.jpeg]
-keywords: [vancouver, canada, japan, live, treasure, country, years, product, international,
+keywords: [vancouver, japan, canada, live, treasure, country, years, product, international,
   manager]
 lang: en
 recommendations: [/note/td-to-amazon/, /note/becoming-a-product-manager/, /note/2021-bcat-best-brewery-experience-award/]

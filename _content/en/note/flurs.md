@@ -2,7 +2,7 @@
 categories: [Recommender Systems, Machine Learning, Programming]
 date: 2017-01-21
 keywords: [library, flurs, recommendation, feature, recommenders, techniques, julia,
-  unlike, implementing, ready]
+  implementing, unlike, ready]
 lang: en
 recommendations: [/note/hello-faust/, /note/recommendation-julia/, /note/recommendation-julia-documenter/]
 title: 'FluRS: A Python Library for Online Item Recommendation'

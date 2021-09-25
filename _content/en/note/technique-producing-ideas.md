@@ -1,7 +1,7 @@
 ---
 categories: [Life & Work, Business, Design]
 date: 2020-01-05
-keywords: [ideas, experiences, inputs, raw, gathering, idea, material, producing,
+keywords: [ideas, experiences, inputs, raw, gathering, idea, producing, material,
   problem, information]
 lang: en
 recommendations: [/note/revisit-design-thinking/, /note/fermenting-thoughts/, /note/language-as-a-design-tool/]

@@ -1,11 +1,11 @@
 ---
 categories: [Business]
 date: 2021-05-14
-keywords: [sustainability, business, problems, responsibility, reduce, goals, actions,
-  avoid, sustainable, challenges]
+keywords: [sdgs, sustainability, business, problems, responsibility, reduce, goals,
+  actions, sustainable, avoid]
 lang: en
-recommendations: [/note/environmental-problems-and-business/, /note/sustainable-capitalism/,
-  /note/td-to-amazon/]
+recommendations: [/note/sustainability-at-big-tech/, /note/environmental-problems-and-business/,
+  /note/sustainable-capitalism/]
 title: 'A Journey of Sustainable Development #SDGMOOC'
 ---
 

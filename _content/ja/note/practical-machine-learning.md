@@ -3,7 +3,7 @@ aliases: [/note/practical-machine-learning/]
 categories: [機械学習, 読書記録, 情報推薦]
 date: 2014-09-01
 description: 無料で公開されている電子書籍『実践 機械学習』の原著のほうを読みました。
-keywords: [推薦, 傾向, 履歴, 行動, システム, 見つけ出す, mahout, amazon, アニメ, 好ま]
+keywords: [推薦, 傾向, 履歴, 行動, システム, 見つけ出す, mahout, アニメ, amazon, 好ま]
 lang: ja
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/two-decades-of-amazon-recommender/,
   /ja/note/recommender-systems-on-blockchain/]

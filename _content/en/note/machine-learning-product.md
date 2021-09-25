@@ -1,8 +1,8 @@
 ---
 categories: [Machine Learning]
 date: 2020-08-29
-keywords: [product, business, solution, problems, solving, cost, model, technical,
-  questions, human]
+keywords: [product, business, solution, problems, solving, cost, model, questions,
+  technical, human]
 lang: en
 recommendations: [/note/product-management-and-bullshit-job/, /note/learn-how-others-work/,
   /note/td-to-amazon/]

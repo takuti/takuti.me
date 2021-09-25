@@ -1,8 +1,8 @@
 ---
 categories: [Programming]
 date: 2020-05-26
-keywords: [scala, project, specialization, programming, functional, certificate, mile,
-  fun, coursera, education]
+keywords: [scala, project, specialization, programming, functional, certificate, fun,
+  mile, education, coursera]
 lang: en
 recommendations: [/note/spark-rdd-cached-vs-uncached/, /note/parallel-vs-concurrent/,
   /note/learn-how-others-work/]
