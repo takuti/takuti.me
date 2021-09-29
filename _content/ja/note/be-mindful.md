@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2020-11-29
-keywords: [集中, ゆっくり, マインド, 仕事, 相手, 去年, 生き, 感覚, note, 過ごす]
+keywords: [集中, ゆっくり, マインド, 仕事, 相手, 去年, 生き, 感覚, 過ごす, 季節]
 lang: ja
 recommendations: [/ja/note/getting-out-of-the-box/, /ja/note/life-with-covid-19/,
   /ja/note/coursera-ui-ux-specialization/]

@@ -2,10 +2,10 @@
 aliases: [/note/soft-skills/]
 categories: [読書記録]
 date: 2017-07-02
-keywords: [運動, 頷き, 戦略的, マインドセット, 書か, エンジニア, ソフトウェア, 生き方, 勉強, ブログ]
+keywords: [運動, 頷き, 戦略的, マインドセット, 書か, エンジニア, 生き方, 勉強, ソフトウェア, ブログ]
 lang: ja
 recommendations: [/ja/note/td-to-amazon/, /ja/note/product-management-and-bullshit-job/,
-  /ja/note/first-quarter-as-a-product-manager/]
+  /ja/note/self-investment/]
 title: いまさら Soft Skills を読んだ
 ---
 

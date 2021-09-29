@@ -2,7 +2,7 @@
 aliases: [/note/amazon-dynamo-paper/]
 categories: [コンピュータシステム]
 date: 2017-12-09
-keywords: [dynamo, amazon, sla, consistency, システム, 解決, write, ノード, サービス, 競合]
+keywords: [dynamo, amazon, sla, consistency, システム, write, 解決, ノード, サービス, 競合]
 lang: ja
 recommendations: [/ja/note/dynamo-style/, /ja/note/designing-data-intensive-applications/,
   /ja/note/the-amazon-way-on-iot/]

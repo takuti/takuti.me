@@ -1,10 +1,11 @@
 ---
 categories: [エッセイ, 読書記録]
 date: 2021-08-12
-keywords: [プロダクト, 職業, 仕事, プロダクトマネジメント, プロダクトマネージャー, デザイン, プロジェクトマネージャー, チーム, 開発, product]
+keywords: [プロダクト, 職業, 仕事, プロダクトマネジメント, プロダクトマネージャー, デザイン, プロジェクトマネージャー, チーム, product,
+  開発]
 lang: ja
-recommendations: [/ja/note/product-management-and-bullshit-job/, /ja/note/design-engineer/,
-  /ja/note/first-quarter-as-a-product-manager/]
+recommendations: [/ja/note/empowered/, /ja/note/product-management-and-bullshit-job/,
+  /ja/note/design-engineer/]
 title: いい加減、プロダクトマネージャーという職業に幻想を抱くのはやめよう。
 ---
 
