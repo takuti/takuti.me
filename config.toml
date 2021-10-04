@@ -29,7 +29,7 @@ DefaultContentLanguage = "en"
     contentDir = "content/en"
     [languages.en.params]
       name = "Takuya Kitazawa"
-      bio = '<b>Takuya Kitazawa</b> is a software engineer based in Vancouver. I have worked as a full-stack software engineer, OSS developer, data scientist, machine learning engineer, and product manager for 6+ years.'
+      bio = '<b>Takuya Kitazawa</b> is a product developer working as a full-stack software engineer, OSS developer, data scientist, machine learning engineer, and product manager.'
       featured = ["/note/becoming-a-product-manager/", "/note/hivemall-events-2018-autumn/", "/note/parallel-vs-concurrent/"]
       blogDescription = "Writing about what I think, learned, and experienced."
 
