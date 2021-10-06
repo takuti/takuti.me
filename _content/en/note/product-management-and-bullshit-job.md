@@ -4,7 +4,7 @@ date: 2021-05-26
 keywords: [product, job, love, customers, manager, strong, communication, execution,
   confidence, products]
 lang: en
-recommendations: [/note/machine-learning-product/, /note/td-to-amazon/, /note/becoming-a-product-manager/]
+recommendations: [/note/td-to-amazon/, /note/machine-learning-product/, /note/becoming-a-product-manager/]
 title: Hi Product Managers, Are You Creating Products That *You* Love?
 ---
 

@@ -1,8 +1,8 @@
 ---
 categories: [Conference, Data Science & Analytics]
 date: 2019-11-10
-keywords: [data, leaders, head, scientists, summit, scientist, business, panel, organization,
-  analytics]
+keywords: [data, leaders, head, scientists, summit, scientist, business, panel, analytics,
+  organization]
 lang: en
 recommendations: [/note/augmented-analytics/, /note/hivemall-events-2018-autumn/,
   /note/becoming-a-product-manager/]

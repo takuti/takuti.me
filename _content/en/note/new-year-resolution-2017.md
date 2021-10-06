@@ -1,7 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2017-01-07
-keywords: [articles, skills, writing, books, write, professional, read, months, goals,
+keywords: [articles, skills, writing, books, write, professional, months, read, goals,
   week]
 lang: en
 recommendations: [/note/hello-english/, /note/coursera-scala-capstone/, /note/td-to-amazon/]

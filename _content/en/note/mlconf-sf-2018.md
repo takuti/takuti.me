@@ -1,7 +1,7 @@
 ---
 categories: [Conference, Machine Learning]
 date: 2018-11-22
-keywords: [scalable, conference, amazon, single, stream, session, program, industrial,
+keywords: [scalable, conference, amazon, single, stream, program, session, industrial,
   paper, efforts]
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/umap-2019/, /note/td-to-amazon/]

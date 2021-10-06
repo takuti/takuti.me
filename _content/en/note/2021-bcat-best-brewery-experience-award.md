@@ -2,7 +2,7 @@
 categories: [Life & Work]
 date: 2021-09-06
 images: [/images/2021-bcat-best-brewery-experience-award/herald_street_brew.jpeg]
-keywords: [brewery, brewing, beer, breweries, experience, brew, food, best, beers,
+keywords: [brewery, brewing, beer, breweries, experience, brew, food, beers, best,
   seating]
 lang: en
 recommendations: [/note/unusual-drinking-and-eating-habits/, /note/relocating-to-canada/,
