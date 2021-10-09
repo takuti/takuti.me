@@ -2,7 +2,7 @@
 aliases: [/note/td-intern-2016/]
 categories: [機械学習]
 date: 2016-10-04
-keywords: [インターン, メトリクス, datadog, hivemall, treasure, 異常検知, 実装, 機械学習, 目的, 異常]
+keywords: [インターン, メトリクス, datadog, hivemall, treasure, 異常検知, 機械学習, 実装, 目的, 異常]
 lang: ja
 recommendations: [/ja/note/master-graduate/, /ja/note/yahoo-egads/, /ja/note/hivemall-on-docker/]
 title: 'Treasure Dataインターンにみる機械学習のリアル #td_intern'

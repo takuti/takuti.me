@@ -5,7 +5,7 @@ date: 2016-09-28
 keywords: [会議, ボランティア, 学生, recsys, 推薦, ワークショップ, 発表, トップ, 本会議, セッション]
 lang: ja
 recommendations: [/ja/note/master-graduate/, /ja/note/trends-in-real-world-recommender-systems-2017/,
-  /ja/note/data-skeptic-recommender-systems/]
+  /ja/note/chiir-2017/]
 title: '推薦システムのトップ会議RecSys2016に参加した #recsys2016'
 ---
 

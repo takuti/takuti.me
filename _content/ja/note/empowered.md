@@ -1,9 +1,9 @@
 ---
 categories: [読書記録, デザイン]
 date: 2021-09-29
-keywords: [プロダクト, チーム, 顧客, 組織, 開発, ツール, 仕事, 役割, 倫理, 作る]
+keywords: [プロダクト, リーダー, チーム, 顧客, 組織, 開発, ツール, 仕事, 役割, 作る]
 lang: ja
-recommendations: [/ja/note/product-management-myths/, /ja/note/hooked-design/, /ja/note/product-management-and-bullshit-job/]
+recommendations: [/ja/note/product-management-myths/, /ja/note/hooked-design/, /ja/note/facebook-whistleblower/]
 title: ソフトウェアプロダクトマネジメントのバイブル "Inspired" の続編 "Empowered"、わかりみが深い。
 ---
 

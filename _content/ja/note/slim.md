@@ -2,7 +2,7 @@
 aliases: [/note/slim/]
 categories: [機械学習, 情報推薦]
 date: 2017-02-18
-keywords: [アイテム, textrm, item, mathbb, 行列, 推薦, サンプリング, times, 精度, ユーザ]
+keywords: [アイテム, textrm, item, mathbb, 行列, サンプリング, 推薦, times, 精度, ユーザ]
 lang: ja
 recommendations: [/ja/note/coursera-recommender-systems/, /ja/note/two-decades-of-amazon-recommender/,
   /ja/note/pytorch-mf/]
