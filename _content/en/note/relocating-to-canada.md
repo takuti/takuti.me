@@ -5,8 +5,7 @@ images: [/images/relocating-to-canada/vancouver-harbour.jpeg]
 keywords: [vancouver, japan, canada, live, treasure, country, years, product, international,
   manager]
 lang: en
-recommendations: [/note/td-to-amazon/, /note/2021-bcat-best-brewery-experience-award/,
-  /note/becoming-a-product-manager/]
+recommendations: [/note/td-to-amazon/, /note/becoming-a-product-manager/, /note/2021-bcat-best-brewery-experience-award/]
 title: 'Moving to Canada: Adding Randomness to My Life'
 ---
 

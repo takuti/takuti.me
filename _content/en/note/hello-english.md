@@ -1,7 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2014-11-09
-keywords: [blog, japanese, write, japan, takuti, posts, ese, english, articles, specific]
+keywords: [blog, japanese, write, japan, posts, ese, english, takuti, articles, applications]
 lang: en
 recommendations: [/note/new-year-resolution-2017/, /note/move-to-gh-pages/, /note/travis-gh-pages-deployment/]
 title: Hello English Entries

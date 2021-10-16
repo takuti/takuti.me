@@ -1,8 +1,8 @@
 ---
 categories: [Programming, Data Science & Analytics]
 date: 2021-03-13
-keywords: [emissions, flight, visualization, flights, countries, friendly, environmentally,
-  calculating, obtained, geographical]
+keywords: [emissions, flight, visualization, flights, countries, calculating, obtained,
+  geographical, friendly, flew]
 lang: en
 recommendations: [/note/javascript-save-svg-as-image/, /note/how-to-avoid-a-climate-disaster/,
   /note/datavis-2020/]

@@ -1,8 +1,8 @@
 ---
 categories: [Business]
 date: 2021-05-14
-keywords: [sdgs, sustainability, business, problems, responsibility, reduce, goals,
-  actions, sustainable, avoid]
+keywords: [sdgs, sustainability, business, responsibility, problems, reduce, actions,
+  goals, sustainable, avoid]
 lang: en
 recommendations: [/note/sustainability-at-big-tech/, /note/environmental-problems-and-business/,
   /note/sustainable-capitalism/]
