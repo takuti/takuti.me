@@ -1,6 +1,7 @@
 ---
 title: "FluRS: A Library for Streaming Recommendation Algorithms"
 date: 2017-08-01
+lastmod: 2017-08-01
 meta: EuroSciPy 2017
 ---
 

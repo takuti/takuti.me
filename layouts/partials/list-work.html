@@ -1,5 +1,5 @@
 <dl class="entry-list">
-  {{ range first 5 (where .Site.RegularPages "Section" "work")}}
+  {{ range first 5 (where .Site.RegularPages.ByLastmod.Reverse "Section" "work")}}
   <dt>
   <span class="date">
     {{ .Params.meta }}

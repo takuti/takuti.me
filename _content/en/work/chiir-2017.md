@@ -1,6 +1,7 @@
 ---
 title: "Sketching Dynamic User-Item Interactions for Online Item Recommendation"
 date: 2017-03-01
+lastmod: 2017-03-01
 meta: CHIIR 2017
 ---
 

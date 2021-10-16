@@ -1,6 +1,7 @@
 ---
 title: "What's New and Coming to Apache Hivemall: Building More Flexible Machine Learning Solution for Apache Hive and Spark"
 date: 2019-09-01
+lastmod: 2019-09-01
 meta: ApacheCon North America 2019
 ---
 

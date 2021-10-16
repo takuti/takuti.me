@@ -3,7 +3,7 @@
 <div id="container">
 
 <dl class="entry-list">
-  {{ range (where .Data.Pages "Section" "work")}}
+  {{ range (where .Data.Pages.ByLastmod.Reverse "Section" "work") }}
   <dt>
   <span class="date">
     {{ .Params.meta }}

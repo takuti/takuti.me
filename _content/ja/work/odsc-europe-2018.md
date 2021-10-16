@@ -1,6 +1,7 @@
 ---
 title: "Apache Hivemall: Query-Based Handy, Scalable Machine Learning on Hive"
 date: 2018-09-01
+lastmod: 2018-09-01
 meta: ODSC Europe 2018
 ---
 

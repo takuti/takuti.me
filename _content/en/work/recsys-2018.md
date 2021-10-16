@@ -1,6 +1,7 @@
 ---
 title: "Query-Based Simple and Scalable Recommender Systems with Apache Hivemall"
 date: 2018-10-01
+lastmod: 2018-10-01
 meta: RecSys 2018
 ---
 
