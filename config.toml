@@ -7,6 +7,8 @@ googleAnalytics = "UA-28919399-2"
 
 disableKinds = ["taxonomyTerm"]
 
+enableEmoji = true
+
 baseurl = "https://takuti.me"
 title = "takuti.me"
 
