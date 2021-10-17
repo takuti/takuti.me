@@ -2,8 +2,10 @@
 title: "What's New and Coming to Apache Hivemall: Building More Flexible Machine Learning Solution for Apache Hive and Spark"
 date: 2019-09-01
 lastmod: 2019-09-01
-meta: ApacheCon North America 2019
+meta: Tech Conference
 ---
+
+### ApacheCon North America 2019
 
 <b><a href="https://www.apachecon.com/acna19/s/#/scheduledEvent/1158" target="_blank" rel="noopener">What's New and Coming to Apache Hivemall: Building More Flexible Machine Learning Solution for Apache Hive and Spark</a></b> @ <a href="https://www.apachecon.com/acna19/"  target="_blank" rel="noopener">ApacheCon North America 2019</a>
 

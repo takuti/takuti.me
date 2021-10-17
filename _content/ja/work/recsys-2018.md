@@ -2,8 +2,10 @@
 title: "Query-Based Simple and Scalable Recommender Systems with Apache Hivemall"
 date: 2018-10-01
 lastmod: 2018-10-01
-meta: RecSys 2018
+meta: Academic Conference
 ---
+
+### RecSys 2018
 
 <b><a href="https://dl.acm.org/citation.cfm?id=3241592" target="_blank" rel="noopener">Query-Based Simple and Scalable Recommender Systems with Apache Hivemall</a></b> @ <a href="https://recsys.acm.org/recsys18/"  target="_blank" rel="noopener">RecSys 2018</a>
 

@@ -2,8 +2,10 @@
 title: "Recommendation.jl: Building Recommender Systems in Julia"
 date: 2019-07-01
 lastmod: 2019-07-01
-meta: JuliaCon 2019
+meta: Tech Conference
 ---
+
+### JuliaCon 2019
 
 <b>Recommendation.jl: Building Recommender Systems in Julia</b> @ <a href="https://juliacon.org/2019/"  target="_blank" rel="noopener">JuliaCon 2019</a>
 

@@ -3,12 +3,20 @@
 <div id="container">
 
 <article>
-  {{ .Date.Format "January, 2006" }}
+  {{ if eq .Date .Lastmod }}
+    {{ .Date.Format "January, 2006" }}
+  {{ else if eq (.Date.Format "2006") (.Lastmod.Format "2006") }}
+    {{ .Date.Format "Jan" }} - {{ .Lastmod.Format "Jan in 2006" }}
+  {{ else }}
+    {{ .Date.Format "2006" }} - {{ .Lastmod.Format "2006" }}
+  {{ end }}
   <h2>{{ .Title }}</h2>
 
   <div class="post">
     {{ .Content }}
-    {{ partial "social.html" . }}
+    <span class="outer-box">
+      {{ partial "author.html" . }}
+    </span>
   </div>
 
 </article>

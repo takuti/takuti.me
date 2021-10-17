@@ -2,8 +2,10 @@
 title: "Apache Hivemall: Query-Based Handy, Scalable Machine Learning on Hive"
 date: 2018-09-01
 lastmod: 2018-09-01
-meta: ODSC Europe 2018
+meta: Tech Conference
 ---
+
+### ODSC Europe 2018
 
 <b>Apache Hivemall: Query-Based Handy, Scalable Machine Learning on Hive</b> @ <a href="https://odsc.com/london"  target="_blank" rel="noopener">ODSC Europe 2018</a>
 

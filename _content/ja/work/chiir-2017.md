@@ -2,8 +2,10 @@
 title: "Sketching Dynamic User-Item Interactions for Online Item Recommendation"
 date: 2017-03-01
 lastmod: 2017-03-01
-meta: CHIIR 2017
+meta: Academic Conference
 ---
+
+### CHIIR 2017
 
 <b><a href="http://dl.acm.org/citation.cfm?id=3022152" target="_blank" rel="noopener">Sketching Dynamic User-Item Interactions for Online Item Recommendation</a></b> @ <a href="http://sigir.org/chiir2017/"  target="_blank" rel="noopener">CHIIR 2017</a>
 

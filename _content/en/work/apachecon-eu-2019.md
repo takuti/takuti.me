@@ -2,8 +2,10 @@
 title: "Apache Hivemall Meets PySpark: Scalable Machine Learning with Hive, Spark, and Python"
 date: 2019-10-01
 lastmod: 2019-10-01
-meta: ApacheCon Europe 2019
+meta: Tech Conference
 ---
+
+### ApacheCon Europe 2019
 
 <b><a href="https://aceu19.apachecon.com/session/apache-hivemall-meets-pyspark-scalable-machine-learning-hive-spark-and-python" target="_blank" rel="noopener">Apache Hivemall Meets PySpark: Scalable Machine Learning with Hive, Spark, and Python</a></b> @ <a href="https://aceu19.apachecon.com"  target="_blank" rel="noopener">ApacheCon Europe 2019</a>
 

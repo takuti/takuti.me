@@ -2,8 +2,10 @@
 title: "FluRS: A Library for Streaming Recommendation Algorithms"
 date: 2017-08-01
 lastmod: 2017-08-01
-meta: EuroSciPy 2017
+meta: Tech Conference
 ---
+
+### EuroSciPy 2017
 
 <b><a href="https://www.euroscipy.org/2017/descriptions/19827.html" target="_blank" rel="noopener">FluRS: A Library for Streaming Recommendation Algorithms</a></b> @ <a href="https://www.euroscipy.org/2017/"  target="_blank" rel="noopener">EuroSciPy 2017</a>
 

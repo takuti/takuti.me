@@ -2,8 +2,10 @@
 title: "Incremental Factorization Machines for Persistently Cold-starting Online Item Recommendation"
 date: 2016-09-01
 lastmod: 2016-09-01
-meta: RecProfile 2016
+meta: Academic Conference
 ---
+
+### RecProfile 2016
 
 <b><a href="https://arxiv.org/abs/1607.02858" target="_blank" rel="noopener">Incremental Factorization Machines for Persistently Cold-starting Online Item Recommendation</a></b> @ <a href="https://dl.acm.org/citation.cfm?id=2959204" target="_blank" rel="noopener">RecProfile 2016</a> (in conjunction with <a href="https://recsys.acm.org/recsys16/" target="_blank" rel="noopener">RecSys 2016</a>)
 
