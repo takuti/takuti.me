@@ -5,7 +5,7 @@ date: 2017-05-21
 keywords: [実装, コンピュータシステム, hack, 言語, 娯楽, 仕様, メモリ, 俯瞰, ハードウェア, language]
 lang: ja
 recommendations: [/ja/note/recommender-libraries/, /ja/note/cognitive-science-and-behavioral-economics/,
-  /ja/note/euroscipy-2017/]
+  /ja/note/hello-librec/]
 title: 『コンピュータシステムの理論と実装』は“娯楽”である
 ---
 

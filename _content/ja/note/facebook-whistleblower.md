@@ -1,7 +1,7 @@
 ---
 categories: [エッセイ]
 date: 2021-10-09
-keywords: [プロダクト, facebook, ソフトウェア, 開発, sns, アルゴリズム, テック, 倫理, 専門家, 利益]
+keywords: [プロダクト, facebook, ソフトウェア, sns, 開発, アルゴリズム, テック, 倫理, 専門家, 持続可能性]
 lang: ja
 recommendations: [/ja/note/empowered/, /ja/note/hooked-design/, /ja/note/product-management-myths/]
 title: Facebook内部告発の件、他人事ではない。
