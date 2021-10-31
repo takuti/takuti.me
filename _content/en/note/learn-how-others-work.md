@@ -1,7 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2020-05-31
-keywords: [guess, product, finance, introduction, design, managers, engineers, designers,
+keywords: [guess, product, finance, introduction, managers, design, engineers, designers,
   roles, work]
 lang: en
 recommendations: [/note/product-management-and-bullshit-job/, /note/becoming-a-product-manager/,

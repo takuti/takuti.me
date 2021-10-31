@@ -1,7 +1,7 @@
 ---
 categories: [Recommender Systems, Programming]
 date: 2019-01-14
-keywords: [recommendation, flurs, stream, incremental, engine, streams, python, user,
+keywords: [recommendation, flurs, stream, incremental, engine, streams, user, python,
   items, model]
 lang: en
 recommendations: [/note/flurs/, /note/recommendation-julia/, /note/ethical-challenges-in-recommender-systems/]

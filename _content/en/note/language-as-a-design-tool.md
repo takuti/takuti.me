@@ -2,7 +2,7 @@
 categories: [Design]
 date: 2020-08-16
 keywords: [visual, design, idea, app, elements, prototyping, description, problem,
-  decisions, good]
+  good, decisions]
 lang: en
 recommendations: [/note/revisit-design-thinking/, /note/learn-how-others-work/, /note/technique-producing-ideas/]
 title: Language as a Design Tool

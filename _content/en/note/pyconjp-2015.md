@@ -1,7 +1,7 @@
 ---
 categories: [Conference]
 date: 2015-10-13
-keywords: [python, talk, possibilities, talks, programming, tools, use, fabric, keynote,
+keywords: [python, talk, possibilities, talks, programming, use, fabric, tools, keynote,
   science]
 lang: en
 recommendations: [/note/phpcon-2015/, /note/hello-faust/, /note/hivemall-events-2018-autumn/]
