@@ -2,6 +2,7 @@
 aliases: [/note/yahoo-egads/]
 categories: [機械学習]
 date: 2017-09-10
+images: [/images/egads/architecture.png]
 keywords: [時系列, 異常, データ, 異常検知, モデル, 検知, 観測, フィルタリング, アルゴリズム, バッチ]
 lang: ja
 recommendations: [/ja/note/leakage/, /ja/note/holt-winters/, /ja/note/td-intern-2016/]

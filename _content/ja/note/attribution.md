@@ -1,6 +1,7 @@
 ---
 categories: [データサイエンス, プログラミング]
 date: 2020-10-18
+images: [/images/attribution/freq.png, /images/attribution/attribution.png]
 keywords: [winters, holt, value, instagram, facebook, 手法, チャネル, twitter, マーケティング,
   ヒューリスティクス]
 lang: ja

@@ -1,6 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2021-05-26
+images: [/images/product-management-and-bullshit-job/pm-skill-stack.png]
 keywords: [product, job, love, customers, manager, strong, communication, execution,
   confidence, ownership]
 lang: en

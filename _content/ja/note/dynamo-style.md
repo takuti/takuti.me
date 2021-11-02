@@ -2,6 +2,7 @@
 aliases: [/note/dynamo-style/]
 categories: [コンピュータシステム]
 date: 2017-12-22
+images: [/images/dynamo-style/consistent-hashing.png]
 keywords: [ノード, レプリカ, dynamo, read, consistent, hashing, データ, replication, 分散, 書き込み]
 lang: ja
 recommendations: [/ja/note/amazon-dynamo-paper/, /ja/note/designing-data-intensive-applications/,

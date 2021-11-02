@@ -1,6 +1,7 @@
 ---
 categories: [Programming, Data Science & Analytics]
 date: 2021-01-23
+images: [/images/datavis-2020/fitbit-official-dashboard.png, /images/datavis-2020/fitbit-steps-chart.png]
 keywords: [datavis, visualization, fitbit, chart, dashboard, data, react, official,
   augmented, ourse]
 lang: en

@@ -1,6 +1,7 @@
 ---
 categories: [Programming]
 date: 2020-05-26
+images: [/images/coursera-scala-capstone/certificate.png]
 keywords: [scala, project, specialization, programming, functional, certificate, fun,
   mile, education, coursera]
 lang: en

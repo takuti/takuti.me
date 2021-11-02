@@ -1,6 +1,8 @@
 ---
 categories: [Programming, Data Science & Analytics]
 date: 2021-02-03
+images: [/images/first-vis-with-fitbit/sketch.jpeg, /images/first-vis-with-fitbit/active-vs-sleep.png,
+  /images/first-vis-with-fitbit/active-vs-sleep-pre.png, /images/first-vis-with-fitbit/active-vs-sleep-post.png]
 keywords: [sleep, fitbit, active, activity, minutes, vis, sketch, visualization, data,
   pandemic]
 lang: en

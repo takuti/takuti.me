@@ -2,6 +2,7 @@
 aliases: [/note/designing-data-intensive-applications/]
 categories: [読書記録, コンピュータシステム]
 date: 2017-12-30
+images: [/images/ddia/poster.png]
 keywords: [データ, data, ddia, システム, dynamo, 読ん, poster, データベース, 内容, 話題]
 lang: ja
 recommendations: [/ja/note/dynamo-style/, /ja/note/amazon-dynamo-paper/, /ja/note/data-stream-mining/]

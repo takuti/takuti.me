@@ -1,6 +1,7 @@
 ---
 categories: [Programming, Data Science & Analytics]
 date: 2021-03-13
+images: [/images/flight-emissions/2019.png, /images/flight-emissions/2020.png]
 keywords: [emissions, flight, visualization, flights, countries, calculating, obtained,
   geographical, friendly, flew]
 lang: en

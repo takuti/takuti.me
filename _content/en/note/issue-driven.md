@@ -1,6 +1,7 @@
 ---
 categories: [Life & Work, Business]
 date: 2020-05-01
+images: [/images/issue-driven/issue-driven.png]
 keywords: [issue, driven, quality, time, approach, work, deliver, home, deliverables,
   talk]
 lang: en

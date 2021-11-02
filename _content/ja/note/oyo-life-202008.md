@@ -1,6 +1,7 @@
 ---
 categories: [生活・人生]
 date: 2020-08-21
+images: [/images/oyo-life-202008/skytree.jpg, /images/oyo-life-202008/mot.jpg, /images/oyo-life-202008/kebab.jpg]
 keywords: [ものたりない, oyo, life, 中央線, 沿い, ちょうど, 周辺, 東京, 美術館, 帰省]
 lang: ja
 recommendations: [/ja/note/oyo-life-202010/, /ja/note/oyo-life-202007/, /ja/note/room-hunting-202006/]

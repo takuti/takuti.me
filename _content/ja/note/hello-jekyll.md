@@ -2,6 +2,7 @@
 aliases: [/note/hello-jekyll/]
 categories: [プログラミング]
 date: 2014-03-31
+images: [/images/jekyll/2014-03-31-sakura.jpg]
 keywords: [はてブ, jekyll, 疲れ, toefl, ielts, 変わる, 東京, 先日, 変え, takuti]
 lang: ja
 recommendations: [/ja/note/ielts-20200201/, /ja/note/ielts-20210226/, /ja/note/room-hunting-202006/]

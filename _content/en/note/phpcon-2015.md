@@ -1,6 +1,7 @@
 ---
 categories: [Conference]
 date: 2015-10-04
+images: [/images/jekyll/2015-10-04-phpcon.jpg]
 keywords: [phpcon, performance, testing, conference, database, october, released,
   soon, keynote, machine]
 lang: en

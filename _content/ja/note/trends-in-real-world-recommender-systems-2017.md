@@ -2,6 +2,8 @@
 aliases: [/note/trends-in-real-world-recommender-systems-2017/]
 categories: [イベント参加記, 情報推薦]
 date: 2017-11-23
+images: [/images/201711/ibuki1.jpg, /images/201711/ibuki2.jpg, /images/201711/daimonji.jpg,
+  /images/201711/ginkaku.jpg]
 keywords: [推薦, 手法, システム, セミナー, 応用, アルゴリズム, recsys, note, 機械学習, トレンド]
 lang: ja
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/recommender-libraries/,

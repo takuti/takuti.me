@@ -1,6 +1,7 @@
 ---
 categories: [Conference, Machine Learning]
 date: 2019-10-26
+images: [/images/apachecon-2019/takuti.jpg]
 keywords: [apachecon, apache, iot, hivemall, community, projects, talk, cdp, session,
   pyspark]
 lang: en

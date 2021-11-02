@@ -1,6 +1,7 @@
 ---
 categories: [Programming]
 date: 2020-11-28
+images: [/images/resume-in-html/resume-latex.png, /images/resume-in-html/resume-html.png]
 keywords: [resume, html, latex, writing, web, pdf, website, based, icons, tex]
 lang: en
 recommendations: [/note/why-job-title-matters/, /note/javascript-save-svg-as-image/,

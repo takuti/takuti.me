@@ -1,6 +1,7 @@
 ---
 categories: [Programming]
 date: 2017-06-26
+images: [/images/hugo-site/travis-deploy-bot.png]
 keywords: [travis, repository, deployment, pages, hugo, github, takuti, commit, bot,
   site]
 lang: en

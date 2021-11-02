@@ -1,6 +1,9 @@
 ---
 categories: [Data Science & Analytics]
 date: 2021-04-04
+images: [/images/coursera-supply-chain-management/warehouse.png, /images/coursera-supply-chain-management/facilities.png,
+  /images/holt-winters/series.png, /images/holt-winters/base.png, /images/holt-winters/simple_average.png,
+  /images/holt-winters/moving_average.png, /images/holt-winters/smoothing.png]
 keywords: [cost, right, suppliers, demand, average, operations, method, forecasting,
   value, logistics]
 lang: en

@@ -1,6 +1,7 @@
 ---
 categories: [Recommender Systems, Programming]
 date: 2019-01-14
+images: [/images/recommender/incremental-recommendation.png]
 keywords: [recommendation, flurs, stream, incremental, engine, streams, user, python,
   items, model]
 lang: en
