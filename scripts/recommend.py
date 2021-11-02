@@ -14,9 +14,12 @@ RE_INVALID_WORD = re.compile('^([^一-龠]{1,2}|[ぁ-んー]{1,3})$')
 RE_PATH_TO_IMAGE = re.compile('/images/.+?(?:\.jpg|\.jpeg|\.png)')
 
 RE_FILTERS = [
-    re.compile('<.*?>'),  # HTML tag
-    re.compile('^(\$\$|```)(.*)\n(.*\n)+(\$\$|```)', re.MULTILINE),  # Markdown codefence / math block
-    re.compile('https?:\/\/[\S]+')  # URL
+    # HTML tag
+    re.compile('<.*?>'),
+    # Markdown codefence / math block
+    re.compile('^(\$\$|```)(.*)\n(.*\n)+(\$\$|```)', re.MULTILINE),
+    # URL
+    re.compile('https?:\/\/[\S]+')
 ]
 
 tagger = MeCab.Tagger('-d /usr/local/lib/mecab/dic/mecab-ipadic-neologd')
@@ -60,6 +63,7 @@ def extract_contents(paths):
 
         yield (path, content)
 
+
 def path_to_permalink(path):
     return RE_PATH_TO_PERMALINK.search(path).group(1) + '/'
 
@@ -68,7 +72,8 @@ def recommend_content_based_cf(articles, topk=3):
     """Content-based collaborative filtering
     """
     # build model
-    vectorizer = TfidfVectorizer(max_df=0.95, min_df=2, tokenizer=tokenizer, stop_words='english')
+    vectorizer = TfidfVectorizer(
+        max_df=0.95, min_df=2, tokenizer=tokenizer, stop_words='english')
 
     tfidf = vectorizer.fit_transform(articles.values())
 
@@ -79,9 +84,13 @@ def recommend_content_based_cf(articles, topk=3):
 
     paths = list(articles.keys())
     for i, path in enumerate(paths):
-        # find top-k most-similar articles (except for target article itself which is similarity=1.0)
-        top_indices = np.argsort(similarities[i, :], kind='stable')[::-1][1:(topk + 1)]
-        recommend_permalinks = [path_to_permalink(paths[j]) for j in top_indices]
+        # find top-k most-similar articles
+        # (except for target article itself which is similarity=1.0)
+        top_indices = np.argsort(
+            similarities[i, :], kind='stable')[::-1][1:(topk + 1)]
+        recommend_permalinks = [
+            path_to_permalink(paths[j]) for j in top_indices
+        ]
 
         yield (
             path, {
@@ -114,11 +123,14 @@ def process_article(path, custom_front_matter):
     front_matter = {**front_matter, **custom_front_matter}
 
     with open(path, 'w') as f:
-        f.write(content.replace(m.group(1), yaml.dump(front_matter, allow_unicode=True)))
+        f.write(content.replace(
+            m.group(1),
+            yaml.dump(front_matter, allow_unicode=True)))
 
 
 def run(lang):
-    path_dir = os.path.join(os.path.dirname(__file__), '..', '_content', lang, 'note')
+    path_dir = os.path.join(
+        os.path.dirname(__file__), '..', '_content', lang, 'note')
     paths = [os.path.join(path_dir, f) for f in os.listdir(path_dir)]
 
     articles = OrderedDict(extract_contents(paths))
