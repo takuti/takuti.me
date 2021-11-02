@@ -78,7 +78,7 @@ def recommend_content_based_cf(articles, topk=3):
     tfidf = vectorizer.fit_transform(articles.values())
 
     indices = tfidf.toarray().argsort(axis=1, kind='stable')[:, ::-1]
-    keywords = np.array(vectorizer.get_feature_names())[indices]
+    keywords = np.array(vectorizer.get_feature_names_out())[indices]
 
     similarities = cosine_similarity(tfidf)
 
