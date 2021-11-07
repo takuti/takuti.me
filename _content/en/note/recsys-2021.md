@@ -3,7 +3,7 @@ categories: [Recommender Systems]
 date: 2021-10-05
 images: [/images/recsys-2021/2021.png]
 keywords: [recsys, bias, papers, user, wordcloud, recommendations, recommender, metrics,
-  users, filter]
+  users, trends]
 lang: en
 recommendations: [/note/ethical-challenges-in-recommender-systems/, /note/recsys-wordcloud/,
   /note/td-to-amazon/]

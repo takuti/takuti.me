@@ -5,7 +5,7 @@ images: [/images/datavis-2020/fitbit-official-dashboard.png, /images/datavis-202
 keywords: [datavis, visualization, fitbit, chart, dashboard, data, react, official,
   augmented, ourse]
 lang: en
-recommendations: [/note/augmented-analytics/, /note/first-vis-with-fitbit/, /note/javascript-save-svg-as-image/]
+recommendations: [/note/first-vis-with-fitbit/, /note/augmented-analytics/, /note/javascript-save-svg-as-image/]
 title: 'Datavis 2020: A Free Online Course About D3.js & React'
 ---
 
