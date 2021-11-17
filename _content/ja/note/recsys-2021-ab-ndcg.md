@@ -18,7 +18,7 @@ RecSys 2021採択論文の中で気になっていた "[Towards Unified Metrics 
 
 ### 導入
 
-Top-$k$アイテム推薦において、その結果の精度と多様性を同時に測るための新たな評価指標 $\alpha\beta$-$\mathrm{nDCG@}k$ を提案する。
+Top-$k$アイテム推薦において、その結果の精度と多様性を同時に測るための新たな評価指標 <!--email_off-->$\alpha\beta$-$\mathrm{nDCG@}k$<!--/email_off--> を提案する。
 
 議論の起点となるのは、 *Item aspect* という“カテゴリ”に相当する概念。あるアイテム $i$ は、1つ以上の Aspect $a\_{\phi}$ に紐付く。そして“良い”推薦結果というものを定義するにあたって、マクロな視点で「カテゴリ単位で、推薦結果全体がユーザにもたらす満足度」の定量的表現を検討する、というのが本論文の仕事であると言える。
 
@@ -37,13 +37,13 @@ Top-$k$アイテム推薦において、その結果の精度と多様性を同�
 7. **Prefer More Aspect Combination**: ユーザは、ある2つのアイテムが等しく興味とマッチしている場合、これまでの推薦結果を振り返ってまだ十分に満足できていないカテゴリに属するアイテムをより一層好む。
 8. **Missing Over Non-Relevant**: ユーザは、明らかに低評価をつける（自分は既にそれが嫌いであると知っている）アイテムよりは、全く見たことのない未知のアイテムを好む。
 
-そして $\alpha\beta$-$\mathrm{nDCG@}k$ は上記すべての性質を定量的に評価することのできる指標である&mdash;すなわち性質を満たす推薦結果には高い値を、そうでない場合は低い値を返す&mdash;と。
+そして <!--email_off-->$\alpha\beta$-$\mathrm{nDCG@}k$<!--/email_off--> は上記すべての性質を定量的に評価することのできる指標である&mdash;すなわち性質を満たす推薦結果には高い値を、そうでない場合は低い値を返す&mdash;と。
 
 いかにも都合よく並べられた仮定であるように思えるが、「精度の最大化だけを目的にスコアリング/ソートされたような、冗長で“つまらない”推薦結果は評価しない」という主張には共感する。
 
-### $\alpha\beta$-$\mathrm{nDCG@}k$ の気持ち
+### <!--email_off-->$\alpha\beta$-$\mathrm{nDCG@}k$<!--/email_off--> の気持ち
 
-では『提案手法』である $\alpha\beta$-$\mathrm{nDCG@}k$ とは一体どのようなものなのか。
+では『提案手法』である <!--email_off-->$\alpha\beta$-$\mathrm{nDCG@}k$<!--/email_off--> とは一体どのようなものなのか。
 
 Top-$k$ランキング推薦における評価指標 [Normalized Discounted Cumulative Gain](https://en.wikipedia.org/wiki/Discounted_cumulative_gain) (nDCG) とは、あるランク $1 \leq j \leq k$ における推薦の“質” (Gain) が $G\_j$ で与えられるとき、$G\_1, G\_2, \cdots, G\_j, \cdots, G\_{k - 1}, G\_k$ を総合的にみて次のように定量的な評価を与えるものである：
 
@@ -78,7 +78,7 @@ $\alpha(u,i)$ はユーザ・アイテムペアから想定される適当な値
 
 $\beta(u)$ はユーザの評価の確度（どれだけ評価値が信用できるか；どれだけ評価がブレるか）を示すパラメータ。この値の最適化も、残念ながら著者は Future Work としている。
 
-このように、Gain の計算に $\alpha$, $\beta$ という2つのパラメータが含まれる独自の nDCG であるから、提案手法を $\alpha\beta$-$\mathrm{nDCG@}k$ と呼んでいる。
+このように、Gain の計算に $\alpha$, $\beta$ という2つのパラメータが含まれる独自の nDCG であるから、提案手法を <!--email_off-->$\alpha\beta$-$\mathrm{nDCG@}k$<!--/email_off--> と呼んでいる。
 
 先の確率の推定に至るまでの式変形は正直追いきれていない部分もあるため、ここでは著者プレゼンテーションのスライドを引用するに留めたい。
 
@@ -106,7 +106,7 @@ $$
 \prod_{\ell=1}^{k-1} \left( 1 - P(a_{\phi} \mid u, i_{\ell}) \right)
 $$
 
-先の例で言えば、$j=1$で既に『鬼滅の刃』をオススメしていたとしても、$P(a\_{\textrm{アニメ}} \mid u,i\_1 ) = 0.16$ と低い値を示しているのであれば、たとえ多様性を考慮したとしてもまずは引き続き $a\_{\textrm{アニメ}}$ をオススメしたい、という話になる。したがって、たとえば同カテゴリに紐付く映画『呪術廻戦』は $j=2$ でも有望な候補となりうる。一方、仮に $\beta(u)=0.9$ で $P(a\_{\textrm{アニメ}} \mid u,i\_1 ) = 0.72$ であった場合、$j=2$ 以下、より早い段階で「もうアニメは十分です」というタイミングが訪れ、過度なアニメ映画の推薦は $\alpha\beta$-$\mathrm{nDCG@}k$ の低下に直結する。
+先の例で言えば、$j=1$で既に『鬼滅の刃』をオススメしていたとしても、$P(a\_{\textrm{アニメ}} \mid u,i\_1 ) = 0.16$ と低い値を示しているのであれば、たとえ多様性を考慮したとしてもまずは引き続き $a\_{\textrm{アニメ}}$ をオススメしたい、という話になる。したがって、たとえば同カテゴリに紐付く映画『呪術廻戦』は $j=2$ でも有望な候補となりうる。一方、仮に $\beta(u)=0.9$ で $P(a\_{\textrm{アニメ}} \mid u,i\_1 ) = 0.72$ であった場合、$j=2$ 以下、より早い段階で「もうアニメは十分です」というタイミングが訪れ、過度なアニメ映画の推薦は <!--email_off-->$\alpha\beta$-$\mathrm{nDCG@}k$<!--/email_off--> の低下に直結する。
 
 ### ランキング評価指標を評価する
 
@@ -116,26 +116,26 @@ $$
 2. ランキング内での大小様々な順位変化をどれだけ差別化して捉えられるか
 3. テストデータを減らした時に、指標が過度に反応しないか
 
-例えばTop-$k$推薦結果の1位と$k$位を入れ替えて評価させてみる。このとき、$\alpha\beta$-$\mathrm{nDCG@}k$ はきちんと反応して低下すべきである。それもできるだけ敏感に、顕著に。
+例えばTop-$k$推薦結果の1位と$k$位を入れ替えて評価させてみる。このとき、<!--email_off-->$\alpha\beta$-$\mathrm{nDCG@}k$<!--/email_off--> はきちんと反応して低下すべきである。それもできるだけ敏感に、顕著に。
 
 推薦されたアイテムの順番を“あえて”入れ替えるという話を聞くと、2017年のGroupLensの研究 "[Cycling and Serpentining Approaches for Top-N Item Lists](https://dl.acm.org/citation.cfm?id=2998211)" を思い出す。
 
 <iframe src="//www.slideshare.net/slideshow/embed_code/key/zjZEohHOa3yb9U" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/QianZhao12/toward-better-interactions-in-recommender-systems-cycling-and-serpentining-approaches-for-topn-item-lists" title="Toward Better Interactions in Recommender Systems: Cycling and Serpentining Approaches for Top-N Item Lists" target="_blank">Toward Better Interactions in Recommender Systems: Cycling and Serpentining Approaches for Top-N Item Lists</a> </strong> from <strong><a href="https://www.slideshare.net/QianZhao12" target="_blank">Qian Zhao</a></strong> </div>
 
-「ご丁寧に上から順番に、明らかに高評価をつけるようなアイテムが列挙されていても退屈だ」という課題意識は $\alpha\beta$-$\mathrm{nDCG@}k$ の研究のモチベーションと類似している。
+「ご丁寧に上から順番に、明らかに高評価をつけるようなアイテムが列挙されていても退屈だ」という課題意識は <!--email_off-->$\alpha\beta$-$\mathrm{nDCG@}k$<!--/email_off--> の研究のモチベーションと類似している。
 
-ミネソタ大学の研究はMovieLensサイト上でのオンライン評価を中心に議論が展開されていたが、このような実アプリケーションを $\alpha\beta$-$\mathrm{nDCG@}k$ で評価した時にどのような知見が得られるのかは大変興味深い。
+ミネソタ大学の研究はMovieLensサイト上でのオンライン評価を中心に議論が展開されていたが、このような実アプリケーションを <!--email_off-->$\alpha\beta$-$\mathrm{nDCG@}k$<!--/email_off--> で評価した時にどのような知見が得られるのかは大変興味深い。
 
 その点において、やはり今回紹介した論文が「オフラインでの精度評価」に議論を限定してしまっている点が個人的にはとても惜しい。後続研究に期待である。
 
 ### 雑感
 
-というわけで、精度と多様性を統合した新しい推薦システム評価指標 $\alpha\beta$-$\mathrm{nDCG@}k$ を見た。冒頭にも述べたとおり、推薦結果の多様性という漠然とした問いに対して「“良い”ランキング推薦結果とはどのようなものか」を慎重に考え直すことによって立ち向かう、時代を反映した有意義な論文であったように思う。
+というわけで、精度と多様性を統合した新しい推薦システム評価指標 <!--email_off-->$\alpha\beta$-$\mathrm{nDCG@}k$<!--/email_off--> を見た。冒頭にも述べたとおり、推薦結果の多様性という漠然とした問いに対して「“良い”ランキング推薦結果とはどのようなものか」を慎重に考え直すことによって立ち向かう、時代を反映した有意義な論文であったように思う。
 
 しかし、そもそも精度と多様性を統合した単一の指標というものが本当に必要なのだろうか？
 
-実験・評価用途であれば、精度指標 (Precision, Recall, nDCG) に加えて（比較的ナイーブな、独自の定義の下に）Novelty, Diversity も別途測定している研究は多数存在する。両者は常にトレードオフの関係にあるので、この場合は最終的には「手法Aは Precision が物凄く良いけれど、Diversity は手法Bに劣る」みたいな議論が展開される。これは $\alpha\beta$-$\mathrm{nDCG@}k$ として両者を畳み込んでしまった後ではおそらく困難な議論だ。
+実験・評価用途であれば、精度指標 (Precision, Recall, nDCG) に加えて（比較的ナイーブな、独自の定義の下に）Novelty, Diversity も別途測定している研究は多数存在する。両者は常にトレードオフの関係にあるので、この場合は最終的には「手法Aは Precision が物凄く良いけれど、Diversity は手法Bに劣る」みたいな議論が展開される。これは <!--email_off-->$\alpha\beta$-$\mathrm{nDCG@}k$<!--/email_off--> として両者を畳み込んでしまった後ではおそらく困難な議論だ。
 
-また、推薦アルゴリズムの学習に（損失関数として）用いるには明らかに議論が不足している。これは、Learning to Rank を始めとするランキング最適化手法の大衆化に伴い特に重要になっている視点だ。そもそも $\alpha$ や $\beta$ といったパラメータの値すら曖昧なのだ。なにをもって「最適な $\alpha\beta$-$\mathrm{nDCG@}k$」とするかは未だ自明ではない。
+また、推薦アルゴリズムの学習に（損失関数として）用いるには明らかに議論が不足している。これは、Learning to Rank を始めとするランキング最適化手法の大衆化に伴い特に重要になっている視点だ。そもそも $\alpha$ や $\beta$ といったパラメータの値すら曖昧なのだ。なにをもって「最適な <!--email_off-->$\alpha\beta$-$\mathrm{nDCG@}k$<!--/email_off-->」とするかは未だ自明ではない。
 
 新しいパラメータを導入して作られた「わたしのかんがえたさいきょうの○○」は、ユースケースを限定してカリカリにチューニングされた状況下では良いのかもしれないが、そうでなければ議論をややこしくするだけの恐れもある。あなたにとっての「良い推薦システム」の定義はなんですか？まずはそんな根本的な問いについて今一度本気を出して考えてみることが、いまを生きる研究者・開発者には求められているのかもしれない。
