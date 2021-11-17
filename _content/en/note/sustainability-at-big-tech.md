@@ -5,7 +5,7 @@ images: [/images/sustainability-at-big-tech/thumbnail.png]
 keywords: [sustainability, carbon, microsoft, word, amazon, cloud, google, netflix,
   energy, tech]
 lang: en
-recommendations: [/note/sustainable-capitalism/, /note/sdg-mooc/, /note/environmental-problems-and-business/]
+recommendations: [/note/sdg-mooc/, /note/sustainable-capitalism/, /note/environmental-problems-and-business/]
 title: Understanding Big Tech's Sustainable Commitment with Word Cloud
 ---
  

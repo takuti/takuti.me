@@ -2,7 +2,7 @@
 categories: [データサイエンス, プログラミング]
 date: 2020-10-18
 images: [/images/attribution/freq.png, /images/attribution/attribution.png]
-keywords: [winters, holt, value, instagram, facebook, 手法, チャネル, twitter, マーケティング,
+keywords: [winters, holt, value, instagram, facebook, チャネル, 手法, twitter, マーケティング,
   ヒューリスティクス]
 lang: ja
 recommendations: [/ja/note/holt-winters/, /ja/note/customer-centric-marketing/, /ja/note/algorithmic-marketing/]

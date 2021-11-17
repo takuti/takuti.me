@@ -5,7 +5,7 @@ date: 2017-06-10
 images: [/images/jekyll/2014-09-01-amazon.png, /images/recommender/cf.png]
 keywords: [アイテム, 推薦, 購入, ユーザ, 協調フィルタリング, 閲覧, amazon, テレビ, 商品, 買っ]
 lang: ja
-recommendations: [/ja/note/coursera-recommender-systems/, /ja/note/slim/, /ja/note/data-skeptic-recommender-systems/]
+recommendations: [/ja/note/coursera-recommender-systems/, /ja/note/slim/, /ja/note/practical-machine-learning/]
 title: Amazonの推薦システムの20年
 ---
 
