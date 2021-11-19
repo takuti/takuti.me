@@ -1,12 +1,25 @@
 ---
-categories: [Recommender Systems]
+categories:
+- Recommender Systems
 date: 2021-10-05
-images: [/images/recsys-2021/2021.png]
-keywords: [recsys, bias, papers, user, wordcloud, recommendations, recommender, metrics,
-  users, accuracy]
+images:
+- /images/recsys-2021/2021.png
+keywords:
+- recsys
+- bias
+- papers
+- user
+- wordcloud
+- recommendations
+- recommender
+- metrics
+- users
+- accuracy
 lang: en
-recommendations: [/note/ethical-challenges-in-recommender-systems/, /note/recsys-wordcloud/,
-  /note/td-to-amazon/]
+recommendations:
+- /note/ethical-challenges-in-recommender-systems/
+- /note/recsys-wordcloud/
+- /note/td-to-amazon/
 title: 'User-Centricity Matters: My Reading List from RecSys 2021'
 ---
  

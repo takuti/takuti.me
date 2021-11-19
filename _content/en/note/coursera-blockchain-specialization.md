@@ -1,11 +1,25 @@
 ---
-categories: [Programming]
+categories:
+- Programming
 date: 2021-04-11
-images: [/images/coursera-blockchain-specialization/blockchain-overview.png]
-keywords: [blockchain, decentralized, smart, specialization, transactions, contract,
-  validation, application, transaction, solidity]
+images:
+- /images/coursera-blockchain-specialization/blockchain-overview.png
+keywords:
+- blockchain
+- decentralized
+- smart
+- specialization
+- transactions
+- contract
+- validation
+- application
+- transaction
+- solidity
 lang: en
-recommendations: [/note/bitcoin-and-cryptocurrency/, /note/iotswc-2019/, /note/coursera-supply-chain-management/]
+recommendations:
+- /note/bitcoin-and-cryptocurrency/
+- /note/iotswc-2019/
+- /note/coursera-supply-chain-management/
 title: What Blockchain Brings to Real-World Applications
 ---
 

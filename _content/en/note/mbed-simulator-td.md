@@ -1,12 +1,28 @@
 ---
-categories: [Programming]
+categories:
+- Programming
 date: 2018-11-02
-images: [/images/arm/pelion-overview.jpg, /images/arm/mbed-simulator-td/mbed-to-td.png,
-  /images/arm/mbed-simulator-td/simulator.png, /images/arm/mbed-simulator-td/records.png]
-keywords: [mbed, data, pelion, treasure, sensor, device, arm, demo, platform, temperature]
+images:
+- /images/arm/pelion-overview.jpg
+- /images/arm/mbed-simulator-td/mbed-to-td.png
+- /images/arm/mbed-simulator-td/simulator.png
+- /images/arm/mbed-simulator-td/records.png
+keywords:
+- mbed
+- data
+- pelion
+- treasure
+- sensor
+- device
+- arm
+- demo
+- platform
+- temperature
 lang: en
-recommendations: [/note/hivemall-events-2018-autumn/, /note/data-leaders-summit-europe-2019/,
-  /note/iotswc-2019/]
+recommendations:
+- /note/hivemall-events-2018-autumn/
+- /note/data-leaders-summit-europe-2019/
+- /note/iotswc-2019/
 title: Sending Sensor Data from Mbed Simulator to Treasure Data
 ---
 

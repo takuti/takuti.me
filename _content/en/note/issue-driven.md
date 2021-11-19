@@ -1,11 +1,26 @@
 ---
-categories: [Life & Work, Business]
+categories:
+- Life & Work
+- Business
 date: 2020-05-01
-images: [/images/issue-driven/issue-driven.png]
-keywords: [issue, driven, quality, time, approach, work, deliver, home, deliverables,
-  talk]
+images:
+- /images/issue-driven/issue-driven.png
+keywords:
+- issue
+- driven
+- quality
+- time
+- approach
+- work
+- deliver
+- home
+- deliverables
+- talk
 lang: en
-recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/revisit-design-thinking/]
+recommendations:
+- /note/working-from-home-202004/
+- /note/fermenting-thoughts/
+- /note/revisit-design-thinking/
 title: Issue-Driven Makes You Professional
 ---
 

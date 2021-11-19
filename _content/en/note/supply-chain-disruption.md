@@ -1,11 +1,25 @@
 ---
-categories: [Business]
+categories:
+- Business
 date: 2021-11-12
-images: [/images/supply-chain-disruption/cargo-map.png]
-keywords: [jit, supply, disruption, local, operations, demand, port, resilient, redundancy,
-  pandemic]
+images:
+- /images/supply-chain-disruption/cargo-map.png
+keywords:
+- jit
+- supply
+- disruption
+- local
+- operations
+- demand
+- port
+- resilient
+- redundancy
+- pandemic
 lang: en
-recommendations: [/note/coursera-supply-chain-management/, /note/td-to-amazon/, /note/how-to-avoid-a-climate-disaster/]
+recommendations:
+- /note/coursera-supply-chain-management/
+- /note/td-to-amazon/
+- /note/how-to-avoid-a-climate-disaster/
 title: What Container and JIT Mean for Today's Supply Chain Disruption
 ---
  

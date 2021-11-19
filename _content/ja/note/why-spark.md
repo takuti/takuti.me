@@ -1,13 +1,31 @@
 ---
-aliases: [/note/why-spark/]
-categories: [コンピュータシステム, プログラミング]
+aliases:
+- /note/why-spark/
+categories:
+- コンピュータシステム
+- プログラミング
 date: 2017-04-09
-images: [/images/why-spark/top-paying-tech.png, /images/why-spark/lr-iterations.png,
-  /images/why-spark/coffee.png, /images/why-spark/trend.png]
-keywords: [spark, 処理, scala, hadoop, インメモリ, データ, データサイエンス, ディスク, ノード, mapreduce]
+images:
+- /images/why-spark/top-paying-tech.png
+- /images/why-spark/lr-iterations.png
+- /images/why-spark/coffee.png
+- /images/why-spark/trend.png
+keywords:
+- spark
+- 処理
+- scala
+- hadoop
+- インメモリ
+- データ
+- データサイエンス
+- ディスク
+- ノード
+- mapreduce
 lang: ja
-recommendations: [/ja/note/coursera-scala-specialization/, /ja/note/dynamo-style/,
-  /ja/note/acroquest-javabook/]
+recommendations:
+- /ja/note/coursera-scala-specialization/
+- /ja/note/dynamo-style/
+- /ja/note/acroquest-javabook/
 title: なぜSparkか
 ---
 

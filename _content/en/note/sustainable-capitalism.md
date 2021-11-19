@@ -1,11 +1,25 @@
 ---
-categories: [Business]
+categories:
+- Business
 date: 2021-09-18
-images: [/images/sustainable-capitalism/sustainable-capitalism.png]
-keywords: [capitalism, sustainable, term, sustainability, long, investment, short,
-  externalities, profitability, generation]
+images:
+- /images/sustainable-capitalism/sustainable-capitalism.png
+keywords:
+- capitalism
+- sustainable
+- term
+- sustainability
+- long
+- investment
+- short
+- externalities
+- profitability
+- generation
 lang: en
-recommendations: [/note/sustainability-at-big-tech/, /note/sdg-mooc/, /note/td-to-amazon/]
+recommendations:
+- /note/sustainability-at-big-tech/
+- /note/sdg-mooc/
+- /note/td-to-amazon/
 title: 'Sustainable Capitalism: The Importance of Long-Term Thinking and Adaptivity'
 ---
  

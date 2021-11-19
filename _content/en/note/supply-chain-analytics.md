@@ -1,12 +1,27 @@
 ---
-categories: [Business, Data Science & Analytics]
+categories:
+- Business
+- Data Science & Analytics
 date: 2021-05-07
-images: [/images/supply-chain-analytics/push-pull-flow.png, /images/supply-chain-analytics/push-vs-pull.png]
-keywords: [strategy, pull, push, cost, inventory, analytics, distribution, product,
-  unit, stores]
+images:
+- /images/supply-chain-analytics/push-pull-flow.png
+- /images/supply-chain-analytics/push-vs-pull.png
+keywords:
+- strategy
+- pull
+- push
+- cost
+- inventory
+- analytics
+- distribution
+- product
+- unit
+- stores
 lang: en
-recommendations: [/note/coursera-supply-chain-management/, /note/machine-learning-product/,
-  /note/supply-chain-disruption/]
+recommendations:
+- /note/coursera-supply-chain-management/
+- /note/machine-learning-product/
+- /note/supply-chain-disruption/
 title: Actionable Insights from Supply Chain Analytics
 ---
 

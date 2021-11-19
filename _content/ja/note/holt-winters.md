@@ -1,11 +1,29 @@
 ---
-aliases: [/note/holt-winters/]
-categories: [機械学習, プログラミング]
+aliases:
+- /note/holt-winters/
+categories:
+- 機械学習
+- プログラミング
 date: 2017-08-26
-images: [/images/holt-winters/series.png, /images/holt-winters/triple_smoothing.png]
-keywords: [winters, holt, 予測, method, 返し, 周期, 手法, データ, 時系列, ing]
+images:
+- /images/holt-winters/series.png
+- /images/holt-winters/triple_smoothing.png
+keywords:
+- winters
+- holt
+- 予測
+- method
+- 返し
+- 周期
+- 手法
+- データ
+- 時系列
+- ing
 lang: ja
-recommendations: [/ja/note/attribution/, /ja/note/yahoo-egads/, /ja/note/adjusting-for-oversampling-and-undersampling/]
+recommendations:
+- /ja/note/attribution/
+- /ja/note/yahoo-egads/
+- /ja/note/adjusting-for-oversampling-and-undersampling/
 title: 異常検知のための未来予測：オウム返し的手法からHolt-Winters Methodまで
 ---
 

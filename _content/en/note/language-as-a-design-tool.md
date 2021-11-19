@@ -1,11 +1,26 @@
 ---
-categories: [Design]
+categories:
+- Design
 date: 2020-08-16
-images: [/images/language-as-a-design-tool/Accutive.png, /images/language-as-a-design-tool/prototyping.png]
-keywords: [visual, design, idea, app, elements, prototyping, description, problem,
-  decisions, good]
+images:
+- /images/language-as-a-design-tool/Accutive.png
+- /images/language-as-a-design-tool/prototyping.png
+keywords:
+- visual
+- design
+- idea
+- app
+- elements
+- prototyping
+- description
+- problem
+- decisions
+- good
 lang: en
-recommendations: [/note/revisit-design-thinking/, /note/learn-how-others-work/, /note/technique-producing-ideas/]
+recommendations:
+- /note/revisit-design-thinking/
+- /note/learn-how-others-work/
+- /note/technique-producing-ideas/
 title: Language as a Design Tool
 ---
 

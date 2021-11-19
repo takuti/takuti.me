@@ -1,10 +1,25 @@
 ---
-categories: [Life & Work]
+categories:
+- Life & Work
 date: 2021-11-06
-images: [/images/audio-journaling/voice-memos.png]
-keywords: [voice, habit, self, speak, didn, audio, recording, day, time, action]
+images:
+- /images/audio-journaling/voice-memos.png
+keywords:
+- voice
+- habit
+- self
+- speak
+- didn
+- audio
+- recording
+- day
+- time
+- action
 lang: en
-recommendations: [/note/working-from-home-202004/, /note/td-to-amazon/, /note/stop-drinking-alone/]
+recommendations:
+- /note/working-from-home-202004/
+- /note/td-to-amazon/
+- /note/stop-drinking-alone/
 title: I Tried Audio Journaling for 30 Days
 ---
  

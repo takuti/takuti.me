@@ -1,11 +1,27 @@
 ---
-categories: [Programming, Data Science & Analytics]
+categories:
+- Programming
+- Data Science & Analytics
 date: 2021-01-23
-images: [/images/datavis-2020/fitbit-official-dashboard.png, /images/datavis-2020/fitbit-steps-chart.png]
-keywords: [datavis, visualization, fitbit, chart, dashboard, data, react, official,
-  augmented, ourse]
+images:
+- /images/datavis-2020/fitbit-official-dashboard.png
+- /images/datavis-2020/fitbit-steps-chart.png
+keywords:
+- datavis
+- visualization
+- fitbit
+- chart
+- dashboard
+- data
+- react
+- official
+- augmented
+- ourse
 lang: en
-recommendations: [/note/first-vis-with-fitbit/, /note/augmented-analytics/, /note/javascript-save-svg-as-image/]
+recommendations:
+- /note/first-vis-with-fitbit/
+- /note/augmented-analytics/
+- /note/javascript-save-svg-as-image/
 title: 'Datavis 2020: A Free Online Course About D3.js & React'
 ---
 

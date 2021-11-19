@@ -1,11 +1,25 @@
 ---
-categories: [Life & Work]
+categories:
+- Life & Work
 date: 2021-10-16
-images: [/images/sustainable-diets/fitbit-food-tracking.png]
-keywords: [food, eating, eat, protein, diet, day, tracking, meat, meals, habits]
+images:
+- /images/sustainable-diets/fitbit-food-tracking.png
+keywords:
+- food
+- eating
+- eat
+- protein
+- diet
+- day
+- tracking
+- meat
+- meals
+- habits
 lang: en
-recommendations: [/note/unusual-drinking-and-eating-habits/, /note/working-from-home-202004/,
-  /note/stop-drinking-alone/]
+recommendations:
+- /note/unusual-drinking-and-eating-habits/
+- /note/working-from-home-202004/
+- /note/stop-drinking-alone/
 title: My 30-Day Food Tracking Challenge from Sustainable Diet Perspective
 ---
  

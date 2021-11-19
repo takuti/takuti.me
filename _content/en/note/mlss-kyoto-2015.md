@@ -1,12 +1,27 @@
 ---
-categories: [Machine Learning]
+categories:
+- Machine Learning
 date: 2015-10-03
-images: [/images/jekyll/2015-10-03-sensu.jpg, /images/jekyll/2015-10-03-bamboo.jpg,
-  /images/jekyll/2015-10-03-masu.jpg]
-keywords: [lecture, optimization, really, learning, learn, theoretical, mathematica,
-  professor, machines, try]
+images:
+- /images/jekyll/2015-10-03-sensu.jpg
+- /images/jekyll/2015-10-03-bamboo.jpg
+- /images/jekyll/2015-10-03-masu.jpg
+keywords:
+- lecture
+- optimization
+- really
+- learning
+- learn
+- theoretical
+- mathematica
+- professor
+- machines
+- try
 lang: en
-recommendations: [/note/phpcon-2015/, /note/mlconf-sf-2018/, /note/learn-how-others-work/]
+recommendations:
+- /note/phpcon-2015/
+- /note/mlconf-sf-2018/
+- /note/learn-how-others-work/
 title: 'Machine Learning Summer School 2015 Kyoto #MLSSKYOTO'
 ---
 

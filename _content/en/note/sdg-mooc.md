@@ -1,12 +1,25 @@
 ---
-categories: [Business]
+categories:
+- Business
 date: 2021-05-14
-images: [/images/sdg-mooc/sdgs-wedding-cake.jpeg]
-keywords: [sdgs, sustainability, business, responsibility, problems, reduce, actions,
-  goals, sustainable, avoid]
+images:
+- /images/sdg-mooc/sdgs-wedding-cake.jpeg
+keywords:
+- sdgs
+- sustainability
+- business
+- responsibility
+- problems
+- reduce
+- actions
+- goals
+- sustainable
+- avoid
 lang: en
-recommendations: [/note/sustainability-at-big-tech/, /note/environmental-problems-and-business/,
-  /note/sustainable-capitalism/]
+recommendations:
+- /note/sustainability-at-big-tech/
+- /note/environmental-problems-and-business/
+- /note/sustainable-capitalism/
 title: 'A Journey of Sustainable Development #SDGMOOC'
 ---
 

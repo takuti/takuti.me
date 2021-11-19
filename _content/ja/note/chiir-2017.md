@@ -1,12 +1,33 @@
 ---
-aliases: [/note/chiir-2017/]
-categories: [機械学習, 情報推薦, イベント参加記]
+aliases:
+- /note/chiir-2017/
+categories:
+- 機械学習
+- 情報推薦
+- イベント参加記
 date: 2017-03-18
-images: [/images/chiir-2017/program.jpg, /images/chiir-2017/city-hall.jpg, /images/chiir-2017/tutorial1.jpg,
-  /images/chiir-2017/instagram.png, /images/chiir-2017/human.jpg]
-keywords: [情報検索, chiir, 検索, 会議, 画像, ユーザ, 動画, ノルウェー, web, 情報]
+images:
+- /images/chiir-2017/program.jpg
+- /images/chiir-2017/city-hall.jpg
+- /images/chiir-2017/tutorial1.jpg
+- /images/chiir-2017/instagram.png
+- /images/chiir-2017/human.jpg
+keywords:
+- 情報検索
+- chiir
+- 検索
+- 会議
+- 画像
+- ユーザ
+- 動画
+- ノルウェー
+- web
+- 情報
 lang: ja
-recommendations: [/ja/note/master-graduate/, /ja/note/recsys-2016/, /ja/note/euroscipy-2017/]
+recommendations:
+- /ja/note/master-graduate/
+- /ja/note/recsys-2016/
+- /ja/note/euroscipy-2017/
 title: '情報検索・インタラクション系の国際会議 CHIIR2017 に参加した #chiir2017'
 ---
 
