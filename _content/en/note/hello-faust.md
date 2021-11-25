@@ -12,8 +12,8 @@ keywords:
 - incremental
 - engine
 - streams
-- user
 - python
+- user
 - items
 - model
 lang: en

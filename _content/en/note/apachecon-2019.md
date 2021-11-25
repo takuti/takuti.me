@@ -10,12 +10,12 @@ keywords:
 - apache
 - iot
 - hivemall
-- community
 - projects
+- community
 - talk
 - cdp
-- session
 - pyspark
+- north
 lang: en
 recommendations:
 - /note/iotswc-2019/

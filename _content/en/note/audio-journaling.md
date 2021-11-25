@@ -7,6 +7,7 @@ images:
 keywords:
 - voice
 - habit
+- reflection
 - self
 - speak
 - didn
@@ -14,7 +15,6 @@ keywords:
 - recording
 - day
 - time
-- action
 lang: en
 recommendations:
 - /note/working-from-home-202004/

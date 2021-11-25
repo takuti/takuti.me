@@ -8,18 +8,18 @@ keywords:
 - recsys
 - bias
 - papers
+- echo
 - user
 - wordcloud
 - recommendations
-- recommender
 - metrics
+- recommender
 - users
-- accuracy
 lang: en
 recommendations:
+- /note/recsys-2021-echo-chambers-and-filter-bubbles/
 - /note/ethical-challenges-in-recommender-systems/
 - /note/recsys-wordcloud/
-- /note/td-to-amazon/
 title: 'User-Centricity Matters: My Reading List from RecSys 2021'
 ---
  

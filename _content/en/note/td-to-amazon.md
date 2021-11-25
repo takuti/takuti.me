@@ -12,9 +12,9 @@ keywords:
 - job
 - engineer
 - positive
-- ethical
 - want
-- big
+- ethical
+- impacts
 lang: en
 recommendations:
 - /note/product-management-and-bullshit-job/

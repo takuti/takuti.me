@@ -8,17 +8,17 @@ keywords:
 - sustainability
 - carbon
 - microsoft
+- facebook
 - word
 - amazon
 - cloud
 - google
 - netflix
 - energy
-- tech
 lang: en
 recommendations:
-- /note/sdg-mooc/
 - /note/sustainable-capitalism/
+- /note/sdg-mooc/
 - /note/environmental-problems-and-business/
 title: Understanding Big Tech's Sustainable Commitment with Word Cloud
 ---

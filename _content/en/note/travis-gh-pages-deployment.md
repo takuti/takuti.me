@@ -6,15 +6,15 @@ images:
 - /images/hugo-site/travis-deploy-bot.png
 keywords:
 - travis
-- repository
 - deployment
+- repository
 - pages
 - hugo
-- github
 - takuti
+- github
 - commit
-- bot
 - site
+- directory
 lang: en
 recommendations:
 - /note/move-to-gh-pages/

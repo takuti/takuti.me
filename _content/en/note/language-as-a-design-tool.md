@@ -14,8 +14,8 @@ keywords:
 - prototyping
 - description
 - problem
-- decisions
 - good
+- fundamentals
 lang: en
 recommendations:
 - /note/revisit-design-thinking/

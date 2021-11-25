@@ -9,8 +9,8 @@ keywords:
 - broken
 - screen
 - apps
-- internet
 - bank
+- internet
 - check
 - phone
 - device

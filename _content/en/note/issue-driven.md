@@ -10,8 +10,8 @@ keywords:
 - driven
 - quality
 - time
-- approach
 - work
+- approach
 - deliver
 - home
 - deliverables
@@ -20,7 +20,7 @@ lang: en
 recommendations:
 - /note/working-from-home-202004/
 - /note/fermenting-thoughts/
-- /note/revisit-design-thinking/
+- /note/coursera-supply-chain-management/
 title: Issue-Driven Makes You Professional
 ---
 

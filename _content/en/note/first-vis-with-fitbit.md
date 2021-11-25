@@ -23,7 +23,7 @@ lang: en
 recommendations:
 - /note/datavis-2020/
 - /note/javascript-save-svg-as-image/
-- /note/audio-journaling/
+- /note/unusual-drinking-and-eating-habits/
 title: Practicing D3 Interactive Data Visualization with Fitbit Activity/Sleep Log
 ---
 
