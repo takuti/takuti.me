@@ -1,0 +1,7 @@
+[build]
+  publish = "public/"
+  command = "npm run build"
+
+[build.environment]
+  GIT_LFS_ENABLED = "true"
+  HUGO_VERSION = "0.88.1"
