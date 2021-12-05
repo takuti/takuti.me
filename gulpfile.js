@@ -1,6 +1,5 @@
 const { src, dest, watch, series, parallel } = require('gulp');
 const plumber = require('gulp-plumber');
-const sass = require('gulp-sass')(require('node-sass'));
 const data = require('gulp-data');
 const kramdown = require('gulp-kramdown');
 const wrapper = require('gulp-wrapper');
@@ -37,12 +36,6 @@ const turnWatchingOn = () => {
 };
 
 const cleanContent = () => del(['content/**/*']);
-
-const compileSass = () =>
-  src('_scss/*.scss')
-    .pipe(plumber())
-    .pipe(sass({ outputStyle: 'compressed' }))
-    .pipe(dest('static/css/'));
 
 const compileContent = () =>
   src('_content/**/*.{md,html}')
@@ -111,13 +104,9 @@ const watchFiles = () => {
     open: true
   });
 
-  watch('_scss/*.scss', { ignoreInitial: false }, compileSass);
   watch('_content/**/*.{md,html}', { ignoreInitial: false }, series(compileContent, buildHugo));
   watch('layouts/**/*.html', { ignoreInitial: false }, buildHugo);
 };
 
 exports.watch = series(cleanContent, watchFiles);
-exports.default = parallel(
-  compileSass,
-  series(cleanContent, compileContent, buildHugo)
-);
+exports.default = series(cleanContent, compileContent, buildHugo);
