@@ -33,12 +33,10 @@
   },
   "lint-staged": {
     "*.{css,scss}": [
-      "stylelint --fix",
-      "git add"
+      "stylelint --fix"
     ],
     "*.{png,jpeg,jpg,gif}": [
-      "node ./scripts/imagemin.js",
-      "git add"
+      "node ./scripts/imagemin.js"
     ],
     "_content/{en,ja}/note/*.{md,html}": [
       "python ./scripts/recommend.py",
