@@ -23,6 +23,7 @@
     "ini": "^2.0.0",
     "lint-staged": "^11.1.2",
     "minimist": "^1.2.5",
+    "phantomjs-prebuilt": "^2.1.16",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "sync-request": "^6.1.0"
@@ -42,6 +43,10 @@
     "_content/{en,ja}/note/*.{md,html}": [
       "python ./scripts/recommend.py",
       "git add -u _content/en/note _content/ja/note"
+    ],
+    "static/cv/index.html": [
+      "phantomjs ./scripts/toPDF.js 'static/cv/index.html' static/cv/Takuya_Kitazawa.pdf A4",
+      "git add static/cv/Takuya_Kitazawa.pdf"
     ]
   }
 }
