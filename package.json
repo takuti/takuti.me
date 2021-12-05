@@ -32,7 +32,7 @@
     "extends": "stylelint-config-standard"
   },
   "lint-staged": {
-    "_scss/**/*.{css,scss}": [
+    "*.{css,scss}": [
       "stylelint --fix",
       "git add"
     ],
