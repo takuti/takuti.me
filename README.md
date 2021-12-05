@@ -21,7 +21,7 @@ $ nodenv rehash
 We will use gulp tasks to compile sass files, so required npm modules are:
 
 ```
-$ npm install --g gulp
+$ npm install -g gulp-cli
 $ npm install
 ```
 
