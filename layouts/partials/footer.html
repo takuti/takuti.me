@@ -52,6 +52,11 @@
     </script>
     {{ end }}
 
-    <script src="/js/menu.js"></script>
+    {{ with resources.Get "js/menu.ts" }}
+    {{ $defines := dict "process.env.NODE_ENV" `"development"` }}
+    {{ $opts := dict "minify" true "defines" $defines }}
+    {{ $built := . | js.Build $opts | fingerprint }}
+    <script type="text/javascript" src="{{ $built.RelPermalink }}" defer></script>
+    {{ end }}
   </body>
 </html>
