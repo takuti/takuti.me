@@ -1,5 +1,4 @@
-const { src, dest, watch, series, parallel } = require('gulp');
-const plumber = require('gulp-plumber');
+const { src, dest, watch, series } = require('gulp');
 const data = require('gulp-data');
 const kramdown = require('gulp-kramdown');
 const wrapper = require('gulp-wrapper');
