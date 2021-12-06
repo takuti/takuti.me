@@ -12,13 +12,13 @@ keywords:
 - winters
 - holt
 - 予測
+- smooth
 - method
 - 返し
 - 周期
 - 手法
 - データ
 - 時系列
-- ing
 lang: ja
 recommendations:
 - /ja/note/attribution/

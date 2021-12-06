@@ -16,8 +16,8 @@ keywords:
 - 行列
 - times
 - optim
-- mathbb
 - アイテム
+- mathbb
 - 表す
 lang: ja
 recommendations:

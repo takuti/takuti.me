@@ -10,8 +10,8 @@ description: 無料で公開されている電子書籍『実践 機械学習』
 images:
 - /images/jekyll/2014-09-01-amazon.png
 keywords:
-- 傾向
 - 推薦
+- 傾向
 - 履歴
 - 行動
 - システム

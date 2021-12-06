@@ -13,9 +13,9 @@ images:
 - /images/chiir-2017/instagram.png
 - /images/chiir-2017/human.jpg
 keywords:
-- 情報検索
 - chiir
 - 検索
+- 情報検索
 - 会議
 - 画像
 - ユーザ

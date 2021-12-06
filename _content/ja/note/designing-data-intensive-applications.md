@@ -11,8 +11,8 @@ keywords:
 - データ
 - data
 - ddia
-- システム
 - dynamo
+- システム
 - 読ん
 - poster
 - データベース

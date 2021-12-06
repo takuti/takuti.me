@@ -17,8 +17,8 @@ keywords:
 - セミナー
 - 応用
 - アルゴリズム
-- recsys
 - 機械学習
+- recsys
 - note
 - トレンド
 lang: ja

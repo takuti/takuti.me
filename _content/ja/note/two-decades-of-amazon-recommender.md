@@ -22,7 +22,7 @@ lang: ja
 recommendations:
 - /ja/note/coursera-recommender-systems/
 - /ja/note/slim/
-- /ja/note/practical-machine-learning/
+- /ja/note/reranking-for-popularity-bias/
 title: Amazonの推薦システムの20年
 ---
 
