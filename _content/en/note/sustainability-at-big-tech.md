@@ -1,25 +1,11 @@
 ---
-categories:
-- Business
+categories: [Business]
 date: 2021-09-24
-images:
-- /images/sustainability-at-big-tech/thumbnail.png
-keywords:
-- sustainability
-- carbon
-- microsoft
-- facebook
-- word
-- amazon
-- cloud
-- google
-- netflix
-- energy
+images: [/images/sustainability-at-big-tech/thumbnail.png]
+keywords: [sustainability, carbon, microsoft, facebook, word, amazon, cloud, google,
+  netflix, energy]
 lang: en
-recommendations:
-- /note/sustainable-capitalism/
-- /note/sdg-mooc/
-- /note/environmental-problems-and-business/
+recommendations: [/note/sustainable-capitalism/, /note/sdg-mooc/, /note/environmental-problems-and-business/]
 title: Understanding Big Tech's Sustainable Commitment with Word Cloud
 ---
  

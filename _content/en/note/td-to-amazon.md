@@ -1,25 +1,12 @@
 ---
-categories:
-- Life & Work
+categories: [Life & Work]
 date: 2021-08-28
-images:
-- /images/td-to-amazon/path.jpeg
-keywords:
-- amazon
-- product
-- company
-- note
-- job
-- engineer
-- positive
-- want
-- ethical
-- impacts
+images: [/images/td-to-amazon/path.jpeg]
+keywords: [amazon, product, company, note, job, engineer, positive, want, ethical,
+  impacts]
 lang: en
-recommendations:
-- /note/product-management-and-bullshit-job/
-- /note/becoming-a-product-manager/
-- /note/why-job-title-matters/
+recommendations: [/note/product-management-and-bullshit-job/, /note/becoming-a-product-manager/,
+  /note/why-job-title-matters/]
 title: 'Next "Dot" in Journey: Curiosity-Driven Job Change in Canada (Aug 2021)'
 ---
  

@@ -1,26 +1,11 @@
 ---
-categories:
-- Programming
+categories: [Programming]
 date: 2020-11-28
-images:
-- /images/resume-in-html/resume-latex.png
-- /images/resume-in-html/resume-html.png
-keywords:
-- resume
-- html
-- latex
-- writing
-- web
-- pdf
-- website
-- icons
-- based
-- tex
+images: [/images/resume-in-html/resume-latex.png, /images/resume-in-html/resume-html.png]
+keywords: [resume, html, latex, writing, web, pdf, website, icons, based, tex]
 lang: en
-recommendations:
-- /note/why-job-title-matters/
-- /note/javascript-save-svg-as-image/
-- /note/hugo-kramdown-and-katex/
+recommendations: [/note/why-job-title-matters/, /note/javascript-save-svg-as-image/,
+  /note/hugo-kramdown-and-katex/]
 title: Are You Still Writing a Resume in Word/LaTeX?
 ---
 

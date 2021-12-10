@@ -1,31 +1,13 @@
 ---
-aliases:
-- /note/recsys-2016/
-categories:
-- 情報推薦
-- イベント参加記
+aliases: [/note/recsys-2016/]
+categories: [情報推薦, イベント参加記]
 date: 2016-09-28
-images:
-- /images/recsys-2016/welcome.jpg
-- /images/recsys-2016/beer.jpg
-- /images/recsys-2016/museum.jpg
-- /images/recsys-2016/view.jpg
-keywords:
-- 会議
-- ボランティア
-- 学生
-- recsys
-- ワークショップ
-- 推薦
-- 発表
-- トップ
-- 本会議
-- セッション
+images: [/images/recsys-2016/welcome.jpg, /images/recsys-2016/beer.jpg, /images/recsys-2016/museum.jpg,
+  /images/recsys-2016/view.jpg]
+keywords: [会議, ボランティア, 学生, recsys, ワークショップ, 推薦, 発表, トップ, 本会議, セッション]
 lang: ja
-recommendations:
-- /ja/note/master-graduate/
-- /ja/note/trends-in-real-world-recommender-systems-2017/
-- /ja/note/chiir-2017/
+recommendations: [/ja/note/master-graduate/, /ja/note/trends-in-real-world-recommender-systems-2017/,
+  /ja/note/chiir-2017/]
 title: '推薦システムのトップ会議RecSys2016に参加した #recsys2016'
 ---
 

@@ -1,29 +1,12 @@
 ---
-categories:
-- Recommender Systems
-- Programming
+categories: [Recommender Systems, Programming]
 date: 2017-11-11
-images:
-- /images/wordcloud/recsys2014.png
-- /images/wordcloud/recsys2015.png
-- /images/wordcloud/recsys2016.png
-- /images/wordcloud/recsys2017.png
-keywords:
-- recsys
-- matrix
-- wordcloud
-- rating
-- cloud
-- word
-- group
-- filtering
-- collaborative
-- abstract
+images: [/images/wordcloud/recsys2014.png, /images/wordcloud/recsys2015.png, /images/wordcloud/recsys2016.png,
+  /images/wordcloud/recsys2017.png]
+keywords: [recsys, matrix, wordcloud, rating, cloud, word, group, filtering, collaborative,
+  abstract]
 lang: en
-recommendations:
-- /note/recsys-2021/
-- /note/hivemall-events-2018-autumn/
-- /note/ethical-challenges-in-recommender-systems/
+recommendations: [/note/recsys-2021/, /note/hivemall-events-2018-autumn/, /note/ethical-challenges-in-recommender-systems/]
 title: Understanding Research Trends in Recommender Systems from Word Cloud
 ---
 

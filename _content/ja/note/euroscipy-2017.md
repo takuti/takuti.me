@@ -1,31 +1,12 @@
 ---
-aliases:
-- /note/euroscipy-2017/
-categories:
-- プログラミング
-- イベント参加記
+aliases: [/note/euroscipy-2017/]
+categories: [プログラミング, イベント参加記]
 date: 2017-09-02
-images:
-- /images/euroscipy-2017/venue.jpg
-- /images/euroscipy-2017/road.jpg
-- /images/euroscipy-2017/social.jpg
-- /images/euroscipy-2017/name.jpg
-keywords:
-- 発表
-- python
-- pytorch
-- euroscipy
-- カンファレンス
-- keynote
-- 飲ん
-- 実験
-- 参加
-- パッケージ
+images: [/images/euroscipy-2017/venue.jpg, /images/euroscipy-2017/road.jpg, /images/euroscipy-2017/social.jpg,
+  /images/euroscipy-2017/name.jpg]
+keywords: [発表, python, pytorch, euroscipy, カンファレンス, keynote, 飲ん, 実験, 参加, パッケージ]
 lang: ja
-recommendations:
-- /ja/note/pytorch-autograd/
-- /ja/note/master-graduate/
-- /ja/note/chiir-2017/
+recommendations: [/ja/note/pytorch-autograd/, /ja/note/master-graduate/, /ja/note/chiir-2017/]
 title: EuroSciPy 2017に参加してしゃべってきた
 ---
 

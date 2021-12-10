@@ -1,25 +1,12 @@
 ---
-categories:
-- Programming
+categories: [Programming]
 date: 2020-05-26
-images:
-- /images/coursera-scala-capstone/certificate.png
-keywords:
-- scala
-- project
-- specialization
-- programming
-- functional
-- certificate
-- fun
-- mile
-- education
-- coursera
+images: [/images/coursera-scala-capstone/certificate.png]
+keywords: [scala, project, specialization, programming, functional, certificate, fun,
+  mile, education, coursera]
 lang: en
-recommendations:
-- /note/spark-rdd-cached-vs-uncached/
-- /note/parallel-vs-concurrent/
-- /note/learn-how-others-work/
+recommendations: [/note/spark-rdd-cached-vs-uncached/, /note/parallel-vs-concurrent/,
+  /note/learn-how-others-work/]
 title: Completed Functional Programming in Scala Specialization on Coursera, Finally
 ---
 
