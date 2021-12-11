@@ -2,8 +2,8 @@
 categories: [データサイエンス, プログラミング]
 date: 2020-10-18
 images: [/images/attribution/freq.png, /images/attribution/attribution.png]
-keywords: [winters, holt, value, instagram, facebook, チャネル, 手法, twitter, マーケティング,
-  ヒューリスティクス]
+keywords: [attribution, コンバージョン, winters, holt, アトリビューション, instagram, facebook, チャネル,
+  手法, twitter]
 lang: ja
 recommendations: [/ja/note/holt-winters/, /ja/note/customer-centric-marketing/, /ja/note/algorithmic-marketing/]
 title: マーケティング最適化のためのアトリビューション：単一タッチポイント全振りパターンからShapley Valueモデルまで

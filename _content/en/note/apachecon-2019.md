@@ -2,8 +2,8 @@
 categories: [Conference, Machine Learning]
 date: 2019-10-26
 images: [/images/apachecon-2019/takuti.jpg]
-keywords: [apachecon, apache, iot, hivemall, projects, community, talk, cdp, pyspark,
-  north]
+keywords: [apachecon, apache, iot, hivemall, projects, community, beam, talk, cdp,
+  america]
 lang: en
 recommendations: [/note/iotswc-2019/, /note/hivemall-events-2018-autumn/, /note/hivemall-pyspark/]
 title: 'ApacheCon 2019 North America #ACNA19 & Europe #ACEU19'

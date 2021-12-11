@@ -3,9 +3,9 @@ aliases: [/note/two-decades-of-amazon-recommender/]
 categories: [情報推薦]
 date: 2017-06-10
 images: [/images/jekyll/2014-09-01-amazon.png, /images/recommender/cf.png]
-keywords: [アイテム, 推薦, 購入, ユーザ, 協調フィルタリング, 閲覧, amazon, テレビ, 商品, 買っ]
+keywords: [アイテム, 推薦, 購入, 協調フィルタリング, 閲覧, amazon, ユーザ, テレビ, 商品, 本稿]
 lang: ja
-recommendations: [/ja/note/coursera-recommender-systems/, /ja/note/slim/, /ja/note/reranking-for-popularity-bias/]
+recommendations: [/ja/note/coursera-recommender-systems/, /ja/note/slim/, /ja/note/recsys-2021-ab-ndcg/]
 title: Amazonの推薦システムの20年
 ---
 

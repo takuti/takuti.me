@@ -2,9 +2,9 @@
 categories: [エッセイ]
 date: 2020-04-30
 images: [/images/life-with-covid-19/convergence.png]
-keywords: [調子, deep, 時間, 散歩, 昨日, 遠く, 日常, 人生, 自炊, working]
+keywords: [調子, deep, 時間, 散歩, 昨日, 遠く, convergence, 日常, 人生, 自炊]
 lang: ja
-recommendations: [/ja/note/deep-work/, /ja/note/think/, /ja/note/be-mindful/]
+recommendations: [/ja/note/deep-work/, /ja/note/think/, /ja/note/four-months-after-moving-to-canada/]
 title: 貯金を取り崩しながら生きている感覚
 ---
 

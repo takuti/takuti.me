@@ -4,10 +4,10 @@ date: 2021-04-04
 images: [/images/coursera-supply-chain-management/warehouse.png, /images/coursera-supply-chain-management/facilities.png,
   /images/holt-winters/series.png, /images/holt-winters/base.png, /images/holt-winters/simple_average.png,
   /images/holt-winters/moving_average.png, /images/holt-winters/smoothing.png]
-keywords: [cost, right, suppliers, demand, average, method, operations, forecasting,
-  logistics, value]
+keywords: [cost, suppliers, demand, operations, average, method, logistics, winters,
+  mode, holt]
 lang: en
-recommendations: [/note/supply-chain-disruption/, /note/supply-chain-analytics/, /note/machine-learning-product/]
+recommendations: [/note/supply-chain-analytics/, /note/supply-chain-disruption/, /note/machine-learning-product/]
 title: The Essence of Supply Chain Management
 ---
 

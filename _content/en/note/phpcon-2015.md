@@ -2,10 +2,10 @@
 categories: [Conference]
 date: 2015-10-04
 images: [/images/jekyll/2015-10-04-phpcon.jpg]
-keywords: [phpcon, performance, testing, conference, database, released, october,
-  keynote, soon, machine]
+keywords: [php, phpcon, performance, testing, conference, database, rasmus, released,
+  october, keynote]
 lang: en
-recommendations: [/note/pyconjp-2015/, /note/mlconf-sf-2018/, /note/mlss-kyoto-2015/]
+recommendations: [/note/pyconjp-2015/, /note/hivemall-events-2018-autumn/, /note/mlss-kyoto-2015/]
 title: 'Japan PHP Conference 2015 #phpcon2015'
 ---
 

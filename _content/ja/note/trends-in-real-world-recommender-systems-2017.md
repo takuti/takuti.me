@@ -4,10 +4,10 @@ categories: [イベント参加記, 情報推薦]
 date: 2017-11-23
 images: [/images/201711/ibuki1.jpg, /images/201711/ibuki2.jpg, /images/201711/daimonji.jpg,
   /images/201711/ginkaku.jpg]
-keywords: [推薦, 手法, システム, セミナー, 応用, アルゴリズム, 機械学習, recsys, note, トレンド]
+keywords: [推薦, 手法, システム, セミナー, ibuki, 応用, アルゴリズム, 機械学習, recsys, note]
 lang: ja
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/recommender-libraries/,
-  /ja/note/recommender-systems-on-blockchain/]
+  /ja/note/coursera-recommender-systems/]
 title: 筋トレ、登山、昨今の推薦システムのトレンドなどについて話しました
 ---
 

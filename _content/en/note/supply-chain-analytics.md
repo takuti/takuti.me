@@ -2,8 +2,8 @@
 categories: [Business, Data Science & Analytics]
 date: 2021-05-07
 images: [/images/supply-chain-analytics/push-pull-flow.png, /images/supply-chain-analytics/push-vs-pull.png]
-keywords: [strategy, pull, push, cost, inventory, analytics, distribution, product,
-  unit, stores]
+keywords: [strategy, pull, push, vasta, cost, inventory, analytics, distribution,
+  product, unit]
 lang: en
 recommendations: [/note/coursera-supply-chain-management/, /note/machine-learning-product/,
   /note/supply-chain-disruption/]

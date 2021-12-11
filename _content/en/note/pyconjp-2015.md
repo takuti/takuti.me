@@ -2,10 +2,10 @@
 categories: [Conference]
 date: 2015-10-13
 images: [/images/jekyll/2015-10-13-pycon-entrance.jpg, /images/jekyll/2015-10-13-pycon-closing.png]
-keywords: [python, talk, possibilities, talks, programming, use, tools, fabric, keynote,
-  science]
+keywords: [python, talk, pycon, pandas, possibilities, grpc, talks, programming, 範囲,
+  morphological]
 lang: en
-recommendations: [/note/phpcon-2015/, /note/hello-faust/, /note/hivemall-events-2018-autumn/]
+recommendations: [/note/hello-faust/, /note/hivemall-events-2018-autumn/, /note/phpcon-2015/]
 title: 'PyCon JP 2015 #pyconjp'
 ---
 

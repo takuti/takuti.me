@@ -2,8 +2,8 @@
 categories: [Recommender Systems, Programming]
 date: 2019-01-14
 images: [/images/recommender/incremental-recommendation.png]
-keywords: [recommendation, flurs, stream, incremental, engine, streams, python, user,
-  items, model]
+keywords: [recommendation, flurs, stream, incremental, engine, faust, streams, python,
+  user, items]
 lang: en
 recommendations: [/note/flurs/, /note/recommendation-julia/, /note/ethical-challenges-in-recommender-systems/]
 title: Feeding User-Item Interactions to Python-Based Streaming Recommendation Engine

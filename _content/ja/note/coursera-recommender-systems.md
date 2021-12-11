@@ -4,9 +4,9 @@ categories: [情報推薦]
 date: 2017-01-27
 images: [/images/recommender/user-item-matrix.png, /images/recommender/cf.png, /images/recommender/svd.png,
   /images/recommender/mf.png]
-keywords: [行列, 推薦, アイテム, ユーザ, 類似, 観測, factorization, matrix, 手法, 協調フィルタリング]
+keywords: [行列, 推薦, アイテム, 類似, factorization, ユーザ, matrix, 手法, 協調フィルタリング, 観測]
 lang: ja
-recommendations: [/ja/note/slim/, /ja/note/two-decades-of-amazon-recommender/, /ja/note/trends-in-real-world-recommender-systems-2017/]
+recommendations: [/ja/note/two-decades-of-amazon-recommender/, /ja/note/slim/, /ja/note/trends-in-real-world-recommender-systems-2017/]
 title: Courseraの推薦システムのコースを修了した
 ---
 

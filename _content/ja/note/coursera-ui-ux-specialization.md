@@ -3,9 +3,9 @@ categories: [エッセイ, デザイン]
 date: 2020-09-12
 images: [/images/coursera-ui-ux-specialization/sitemap.png, /images/coursera-ui-ux-specialization/figma.png,
   /images/coursera-ui-ux-specialization/sketch.png]
-keywords: [デザイン, コース, design, デザイナー, specialization, 仕事, プロトタイプ, ツール, sketch, 入門]
+keywords: [デザイン, コース, design, デザイナー, specialization, 仕事, プロトタイプ, ツール, sketch, ビジュアル]
 lang: ja
-recommendations: [/ja/note/design-engineer/, /ja/note/design-note-88/, /ja/note/product-management-myths/]
+recommendations: [/ja/note/design-engineer/, /ja/note/product-management-myths/, /ja/note/design-note-88/]
 title: なぜUI/UXデザイナーの仕事は批判の的になるのか？その謎を解明すべく我々は（以下略）
 ---
 

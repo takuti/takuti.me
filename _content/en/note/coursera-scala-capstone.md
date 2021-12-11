@@ -2,8 +2,8 @@
 categories: [Programming]
 date: 2020-05-26
 images: [/images/coursera-scala-capstone/certificate.png]
-keywords: [scala, project, specialization, programming, functional, certificate, fun,
-  mile, education, coursera]
+keywords: [scala, project, specialization, programming, functional, certificate, stones,
+  apstone, fun, mile]
 lang: en
 recommendations: [/note/spark-rdd-cached-vs-uncached/, /note/parallel-vs-concurrent/,
   /note/learn-how-others-work/]

@@ -3,7 +3,7 @@ categories: [生活・人生]
 date: 2021-03-26
 images: [/images/one-month-in-canada/day10-test-waiting.png, /images/one-month-in-canada/area-before.png,
   /images/one-month-in-canada/area-after.png]
-keywords: [隔離, canada, カナダ, 手続き, 部屋, 物件, 電話, 海外, 日本, 発行]
+keywords: [隔離, canada, カナダ, 手続き, 部屋, 物件, 電話, 海外, 日本, sin]
 lang: ja
 recommendations: [/ja/note/travel-to-canada-210226/, /ja/note/relocating-to-canada/,
   /ja/note/four-months-after-moving-to-canada/]

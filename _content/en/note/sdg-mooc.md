@@ -2,8 +2,8 @@
 categories: [Business]
 date: 2021-05-14
 images: [/images/sdg-mooc/sdgs-wedding-cake.jpeg]
-keywords: [sdgs, sustainability, business, responsibility, problems, reduce, actions,
-  goals, sustainable, avoid]
+keywords: [sdgs, plastic, hummingbird, sustainability, business, responsibility, wedding,
+  cake, bag, problems]
 lang: en
 recommendations: [/note/sustainability-at-big-tech/, /note/environmental-problems-and-business/,
   /note/sustainable-capitalism/]
