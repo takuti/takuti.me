@@ -60,13 +60,11 @@ def extract_contents(paths):
         m = RE_FRONT_MATTER.search(content)
 
         if m is None:
-            yield (path, '')
             continue
 
         # avoid recommending draft articles by making their contents empty
         front_matter = yaml.safe_load(m.group(1))
         if 'draft' in front_matter and front_matter['draft']:
-            yield (path, '')
             continue
 
         # remove front matter
