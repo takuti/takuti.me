@@ -136,7 +136,8 @@ def process_article(path, custom_front_matter):
     with open(path, 'w') as f:
         f.write(content.replace(
             m.group(1),
-            yaml.dump(front_matter, allow_unicode=True, default_flow_style=None)))
+            yaml.dump(front_matter, allow_unicode=True,
+                      default_flow_style=None)))
 
 
 def run(lang):
