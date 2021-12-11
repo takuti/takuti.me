@@ -3,6 +3,7 @@ import re
 import yaml
 import MeCab
 import numpy as np
+import requests
 from collections import OrderedDict
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -26,6 +27,14 @@ tagger = MeCab.Tagger('-d /usr/local/lib/mecab/dic/mecab-ipadic-neologd')
 tagger.parse('')
 
 
+# https://gist.github.com/sebleier/554280
+STOPWORDS_GIST = 'https://gist.githubusercontent.com/rg089/' + \
+    '35e00abf8941d72d419224cfd5b5925d/raw/' + \
+    '12d899b70156fd0041fa9778d657330b024b959c/stopwords.txt'
+stopwords_list = requests.get(STOPWORDS_GIST).content
+stopwords = set(stopwords_list.decode().splitlines())
+
+
 def tokenizer(doc):
     # TODO: more aggressive preprocessing e.g., filtering out URLs
     def get_tokens(text):
@@ -34,8 +43,11 @@ def tokenizer(doc):
             yield node.surface.lower()
             node = node.next
 
-    return [token for token in get_tokens(doc) if 2 <= len(token) <= 15 and
-            RE_VALID_WORD.match(token) and not RE_INVALID_WORD.match(token)]
+    return [token for token in get_tokens(doc)
+            if 2 <= len(token) <= 15 and
+            RE_VALID_WORD.match(token) and
+            not RE_INVALID_WORD.match(token) and
+            token not in stopwords]
 
 
 def extract_contents(paths):
@@ -72,8 +84,7 @@ def recommend_content_based_cf(articles, topk=3):
     """Content-based collaborative filtering
     """
     # build model
-    vectorizer = TfidfVectorizer(
-        max_df=0.95, min_df=2, tokenizer=tokenizer, stop_words='english')
+    vectorizer = TfidfVectorizer(max_df=0.95, tokenizer=tokenizer)
 
     tfidf = vectorizer.fit_transform(articles.values())
 
