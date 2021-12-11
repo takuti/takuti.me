@@ -50,7 +50,7 @@ def extract_contents(paths):
             continue
 
         # avoid recommending draft articles by making their contents empty
-        front_matter = yaml.load(m.group(1))
+        front_matter = yaml.safe_load(m.group(1))
         if 'draft' in front_matter and front_matter['draft']:
             yield (path, '')
             continue
@@ -116,7 +116,7 @@ def process_article(path, custom_front_matter):
     if m is None:
         return
 
-    front_matter = yaml.load(m.group(1))
+    front_matter = yaml.safe_load(m.group(1))
     # "images" shouldn't be overrode if already exist
     if 'images' in front_matter and 'images' in custom_front_matter:
         del custom_front_matter['images']
