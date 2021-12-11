@@ -8,19 +8,21 @@ from collections import OrderedDict
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-RE_FRONT_MATTER = re.compile('---\n([\s\S]*?\n)---\n')
-RE_PATH_TO_PERMALINK = re.compile('((/ja){0,1}/note/.+?)(\.md|\.html)')
-RE_VALID_WORD = re.compile('^[ぁ-んーァ-ヶー一-龠a-zA-Zａ-ｚＡ-Ｚ]+$')
-RE_INVALID_WORD = re.compile('^([^一-龠]{1,2}|[ぁ-んー]{1,3})$')
-RE_PATH_TO_IMAGE = re.compile('/images/.+?(?:\.jpg|\.jpeg|\.png)')
+RE_FRONT_MATTER = re.compile(r'---\n([\s\S]*?\n)---\n')
+RE_PATH_TO_PERMALINK = re.compile(r'((/ja){0,1}/note/.+?)(\.md|\.html)')
+RE_VALID_WORD = re.compile(r'^[ぁ-んーァ-ヶー一-龠a-zA-Zａ-ｚＡ-Ｚ]+$')
+RE_INVALID_WORD = re.compile(r'^([^一-龠]{1,2}|[ぁ-んー]{1,3})$')
+RE_PATH_TO_IMAGE = re.compile(r'/images/.+?(?:\.jpg|\.jpeg|\.png)')
 
 RE_FILTERS = [
     # HTML tag
-    re.compile('<.*?>'),
+    re.compile(r'<.*?>'),
     # Markdown codefence / math block
-    re.compile('^(\$\$|```)(.*)\n(.*\n)+(\$\$|```)', re.MULTILINE),
+    re.compile(r'^(\$\$|```)(.*)\n(.*\n)+(\$\$|```)', re.MULTILINE),
+    # inline math
+    re.compile(r'\$(.*)\$'),
     # URL
-    re.compile('https?:\/\/[\S]+')
+    re.compile(r'https?:\/\/[\S]+')
 ]
 
 tagger = MeCab.Tagger('-d /usr/local/lib/mecab/dic/mecab-ipadic-neologd')
