@@ -31,6 +31,8 @@ In Atomic Habits, I value a statement that **having a strong identity is the cor
 One example in the book is that, if I want to run constantly e.g., for losing weight, an identity "I am a runner" becomes stronger encouragement to myself than an explicit target such as "I will run three times a week" and "I will lose 5kg of body weight next year". I like the simple idea; we sometimes over-strategize action plans, but a clear and strong identity should naturally tell us what to do in practice.
  
 Ultimately, every single action associated with a habit can be seen as **casting a vote on our desired identity**. For me, this foundational motivation sounds critical to make the habits meaningful in a true sense, and the essential habits could last longer and be more impactful as part of life-time vision.
+
+With that in mind, let's do a thought experiment based on the insightful idea.
  
 ### "What are my identities?"
  
@@ -40,7 +42,7 @@ This is an interesting question that also reminds me the discussion about "[Why 
  
 Here, I have a strong confidence that "product developer", "minimalist", "traveler", and "hiker & runner" are my identities that stay as a core of my life, at least over the last and next few years[^1].
  
-Secondly, a follow-up question would be: "What kind of characteristics does a well-established \_\_IDENTITY\_\_ show?"
+Secondly, a follow-up question would be: "What kind of characteristics does a well-established \_\_IDENTITY\_\_ show?"[^2]
  
 In my perspective, a well-established "traveler", for example, is someone who is:
  
@@ -75,3 +77,5 @@ Last but not least, a table below is the (intermediate) thoughts about my identi
 These are still work-in-progress ideas, but, as part of fleshing out 2021 annual review and 2022 resolution, I'd like to spend more time this month on thinking deeply about my own identity and key habits I need.
  
 [^1]: "Craft beer enthusiast" is a bit too specific as an identity, but it could be a part of "traveler". As mentioned in Atomic Habits, the loss of identity is a risk, and it's important to leave room for future adjustment. If my health didn't allow me to take alcohol, what should I do?
+
+[^2]: It should be noticed that we see many stereotypes to answer the question, but it is okay as long as you are thinking about yourself. Just be mindful not to directly apply/force these stereotypes to any particular third person.
