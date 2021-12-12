@@ -2,7 +2,7 @@
 categories: [Business]
 date: 2021-11-12
 images: [/images/supply-chain-disruption/cargo-map.png]
-keywords: [cargo, jit, supply, disruption, ports, local, operations, demand, china,
+keywords: [cargo, jit, supply, disruption, ports, operations, demand, local, china,
   port]
 lang: en
 recommendations: [/note/coursera-supply-chain-management/, /note/td-to-amazon/, /note/supply-chain-analytics/]
