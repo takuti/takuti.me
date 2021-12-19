@@ -4,7 +4,7 @@ categories: [イベント参加記, 情報推薦]
 date: 2017-11-23
 images: [/images/201711/ibuki1.jpg, /images/201711/ibuki2.jpg, /images/201711/daimonji.jpg,
   /images/201711/ginkaku.jpg]
-keywords: [推薦, 手法, システム, セミナー, ibuki, 応用, アルゴリズム, 機械学習, recsys, note]
+keywords: [推薦, 手法, システム, セミナー, ibuki, 応用, アルゴリズム, recsys, 機械学習, note]
 lang: ja
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/recommender-libraries/,
   /ja/note/coursera-recommender-systems/]

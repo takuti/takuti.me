@@ -4,7 +4,7 @@ categories: [プログラミング, 情報推薦, 機械学習]
 date: 2017-10-14
 images: [/images/recommender/mf.png]
 keywords: [pytorch, torch, autograd, factorization, matrix, factors, optim, item,
-  損失, 当然]
+  損失, recommender]
 lang: ja
 recommendations: [/ja/note/pytorch-autograd/, /ja/note/coursera-recommender-systems/,
   /ja/note/euroscipy-2017/]

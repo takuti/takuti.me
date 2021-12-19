@@ -3,7 +3,7 @@ aliases: [/note/hello-jekyll/]
 categories: [プログラミング]
 date: 2014-03-31
 images: [/images/jekyll/2014-03-31-sakura.jpg]
-keywords: [sakura, 苦戦, 気分転換, 模試, リダイレクト, rssフィード, はてブ, jekyll, 疲れ, toefl]
+keywords: [sakura, 気分転換, 模試, リダイレクト, rssフィード, 苦戦, はてブ, jekyll, 疲れ, toefl]
 lang: ja
 recommendations: [/ja/note/ielts-20200201/, /ja/note/ielts-20210226/, /ja/note/room-hunting-202006/]
 title: ブログをWordPressからJekyllに変えた
