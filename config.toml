@@ -12,8 +12,6 @@ enableEmoji = true
 baseurl = "https://takuti.me"
 title = "takuti.me"
 
-buildFuture = true
-
 [permalinks]
   work = "/work/:filename/"
   note = "/note/:filename/"
