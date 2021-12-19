@@ -5,6 +5,7 @@
 [build.environment]
   GIT_LFS_ENABLED = "true"
   HUGO_VERSION = "0.88.1"
+  TZ = "America/Vancouver"
 
 # Asset Optimization
 [build.processing]
