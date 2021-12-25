@@ -7,7 +7,7 @@ recommendations: [/ja/note/oyo-life-202007/, /ja/note/oyo-life-202008/, /ja/note
 title: お手軽賃貸サービス "OYO LIFE" 所感
 ---
 
-[身軽さと刺激を求めて](/ja/note/oyo-life-202007)OYO LIFEを利用し始めてから早2ヶ月。ちょっぴり特別なひと夏を過ごしたこの部屋とも、もうお別れだ。
+[身軽さと刺激を求めて](/ja/note/oyo-life-202007)OYO LIFEを利用し始めてから早2ヶ月。ちょっぴり特別なひと夏を過ごしたこの部屋とも、もうお別れだ。
 
 > [OYO LIFE](https://www.oyolife.co.jp/)のような「短期で住居を転々とする生活」に利用できるサービス*（中略）*類似サービスには[ADDress](https://address.love/)や[HafH](https://hafh.com/)というものがあり、ADDressがシェアハウス（日本全国）、HafHはゲストハウス（日本全国＋世界各地）、OYO LIFEはマンスリーマンション（関東一都三県）を主な物件として扱っている点が異なる。
 
