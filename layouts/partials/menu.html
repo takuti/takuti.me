@@ -13,7 +13,7 @@
         {{end}}
       </ul>
     </span>
-    <a href={{ if eq .Site.Language.Lang "ja" }}"/ja/index.xml"{{ else }}"/index.xml"{{ end }} class="hide-responsive"><i class="fas fa-rss"></i></a>
+    <a href="{{ "/index.xml" | absLangURL }}" class="hide-responsive"><i class="fas fa-rss"></i></a>
     {{ if .IsTranslated }}
       {{ range .Translations }}
         <a href="{{ .RelPermalink }}"><i class="fas fa-language fa-2x"></i></a>
