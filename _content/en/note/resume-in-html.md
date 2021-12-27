@@ -5,7 +5,7 @@ images: [/images/resume-in-html/resume-latex.png, /images/resume-in-html/resume-
 keywords: [resume, html, latex, writing, web, pdf, website, customizability, icons,
   based]
 lang: en
-recommendations: [/note/why-job-title-matters/, /note/hugo-kramdown-and-katex/, /note/new-year-resolution-2017/]
+recommendations: [/note/why-job-title-matters/, /note/hugo-kramdown-and-katex/, /note/umap-2019/]
 title: Are You Still Writing a Resume in Word/LaTeX?
 ---
 

@@ -5,7 +5,7 @@ images: [/images/sustainable-capitalism/sustainable-capitalism.png]
 keywords: [capitalism, sustainable, term, sustainability, long, investment, short,
   profitability, generation, externalities]
 lang: en
-recommendations: [/note/sustainability-at-big-tech/, /note/sdg-mooc/, /note/td-to-amazon/]
+recommendations: [/note/sustainability-at-big-tech/, /note/td-to-amazon/, /note/sdg-mooc/]
 title: 'Sustainable Capitalism: The Importance of Long-Term Thinking and Adaptivity'
 ---
  

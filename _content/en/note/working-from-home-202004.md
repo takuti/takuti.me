@@ -3,8 +3,8 @@ categories: [Life & Work]
 date: 2020-04-18
 images: [/images/working-from-home-202004/coffee-accessories-1.jpg, /images/working-from-home-202004/coffee-accessories-2.jpg,
   /images/working-from-home-202004/microwave-steamer.jpg, /images/working-from-home-202004/humidifier.jpg]
-keywords: [coffee, day, accessories, pomodoro, stay, steamer, humidifier, healthy,
-  wfh, time]
+keywords: [coffee, accessories, day, pomodoro, steamer, humidifier, stay, healthy,
+  wfh, cook]
 lang: en
 recommendations: [/note/fermenting-thoughts/, /note/unusual-drinking-and-eating-habits/,
   /note/stop-drinking-alone/]

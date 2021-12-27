@@ -5,7 +5,7 @@ images: [/images/flight-emissions/2019.png, /images/flight-emissions/2020.png]
 keywords: [emissions, flight, visualization, flights, tonnes, airport, countries,
   produces, longitude, latitude]
 lang: en
-recommendations: [/note/javascript-save-svg-as-image/, /note/datavis-2020/, /note/how-to-avoid-a-climate-disaster/]
+recommendations: [/note/javascript-save-svg-as-image/, /note/datavis-2020/, /note/annual-review-2021/]
 title: How Much CO2 Emissions Have Your Flights Made?
 ---
 

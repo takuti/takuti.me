@@ -5,7 +5,7 @@ images: [/images/audio-journaling/voice-memos.png]
 keywords: [journaling, voice, habit, memos, reflection, speak, everyday, journals,
   audio, recording]
 lang: en
-recommendations: [/note/atomic-habits/, /note/working-from-home-202004/, /note/td-to-amazon/]
+recommendations: [/note/atomic-habits/, /note/annual-review-2021/, /note/working-from-home-202004/]
 title: I Tried Audio Journaling for 30 Days
 ---
  

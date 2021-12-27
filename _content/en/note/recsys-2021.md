@@ -2,7 +2,7 @@
 categories: [Recommender Systems]
 date: 2021-10-05
 images: [/images/recsys-2021/2021.png]
-keywords: [recsys, bias, papers, echo, wordcloud, user, recommendations, metrics,
+keywords: [recsys, bias, papers, wordcloud, echo, user, recommendations, metrics,
   recommender, users]
 lang: en
 recommendations: [/note/recsys-2021-echo-chambers-and-filter-bubbles/, /note/recsys-wordcloud/,
