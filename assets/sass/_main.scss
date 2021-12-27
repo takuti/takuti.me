@@ -69,10 +69,11 @@ code {
   box-shadow: inset 0 0 0 1px #e4ebf2;
   border-radius: 4px;
   overflow: scroll;
-  font-family: 'Menlo', 'Monaco', Courier, monospace;
+  font-family: Menlo, Monaco, Courier, monospace;
 }
 
-pre code,
+/* overwrite hljs setting */
+pre code.hljs,
 .prettyprint {
   font-size: 13px;
   word-wrap: break-word;
@@ -81,8 +82,6 @@ pre code,
   padding: 16px;
   padding-bottom: 14px;
   display: block;
-  color: $color-black;
-  background: #fff;
   border: none;
   box-shadow: inset 0 0 0 1px #e4ebf2;
   border-radius: 4px;
