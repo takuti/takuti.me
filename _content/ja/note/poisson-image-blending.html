@@ -88,24 +88,25 @@ $$
 <dt>$g_p$</dt>
 <dd>ソース画像からマスクをかけて切り抜いた部分の中にある点 $p$ でのRGB値</dd>
 <dt>$v_{pq}$</dt>
-<dd>ある点 $p$ とその近傍点のうちの1つ $q$ の間の勾配<br /><strong>Importing</strong> $g_p-g_q$<br /><strong>Mixing</strong> ベース画像の勾配の方が大きければ $f^\*_p - f^\*_q$, そうじゃなければ $g_p-g_q$</dd>
+<dd>ある点 $p$ とその近傍点のうちの1つ $q$ の間の勾配<br /><strong>Importing</strong> $g_p-g_q$<br /><strong>Mixing</strong> ベース画像の勾配の方が大きければ $f^*_p - f^*_q$, そうじゃなければ $g_p-g_q$</dd>
 </dl>
 <p>これに沿って実際に合成を行っている（＝$f_p$を求めている）コードは、ざっくりと流れを追うと以下のような感じ。</p>
-<pre class="prettyprint lang-js">
+
+```js
 do {
   // 全ピクセルを見る 今回は簡単のため画像の端のピクセルは考慮しない
-  for(var y=1; y&lt;base_size.height-1; y++) {
-    for(var x=1; x&lt;base_size.width-1; x++) {
+  for(var y=1; y<base_size.height-1; y++) {
+    for(var x=1; x<base_size.width-1; x++) {
       if(/* もしStep2で塗ったマスク領域の中なら合成後のRGB値を推定 */) {
 
         // そのピクセルのRGB各色について連立一次方程式を解く
-        for(var rgb=0; rgb&lt;3; rgb++) {
+        for(var rgb=0; rgb<3; rgb++) {
           var sum_fq = 0;       // (1)
           var sum_boundary = 0; // (2)
           var sum_vpq = 0;      // (3)
 
           // 近傍点（4点）それぞれについて
-          for(var i=0; i&lt;num_neighbors; i++) {
+          for(var i=0; i<num_neighbors; i++) {
 
             if(/* もし近傍点がStep2で塗ったマスク領域の中なら */) {
               // (1)の加算
@@ -126,7 +127,8 @@ do {
   }
   if(/* 全ピクセルの推定が終わったので収束判定 */) break;
 } while(true);
-</pre>
+```
+
 <p><a href="https://github.com/takuti/poisson-image-blending">takuti / poisson-image-blending</a></p>
 <p>(1)〜(3)は先に示した $f_p = $ の式の右辺、分子の3つ項に対応します。</p>
 <dl>

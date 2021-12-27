@@ -47,9 +47,11 @@ title: AngularJSでChromeExtension開発をするならCSPに気をつけよう
 <p>の3つ。</p>
 <p>AngularJSでは実行速度向上のためにeval相当の記述を利用している箇所があり、そこがChromeExtensionのCSPに引っかかっているのです。10041行目(angular.js v1.2.0)から定義されているgetterFn関数です。これがChromeExtensionでAngularJSが動かなかった原因。</p>
 <p>そして、この問題への対処法は<a href="http://docs.angularjs.org/api/ng.directive:ngCsp">AngularJS公式で用意されています</a>。やり方は<strong>ng-appと一緒にng-cspと書いてあげるだけ</strong>。</p>
-<pre class="prettyprint lang-html">
-&lt;html lang=&quot;ja&quot; ng-app ng-csp&gt;
-</pre>
+
+```html
+<html lang="ja" ng-app ng-csp>
+```
+
 <p>これで、AngularJSが実行速度向上を諦めるモードになります。そんなわけですべての式の評価にかかる速度が30%減になってしまうようですが、仕方ない。</p>
 <p>しかしどうやら30%の速度だけでは等価交換にならなかったようで、CSPによって影響を受けたままのものがまだあります。それはCSSの一部。</p>
 <p>angular.js(v1.2.0)の最下部では、AngularJSの導入に伴って必要となるCSSをまとめてjQueryでhead要素の先頭に埋め込んでいます。これは例えばバリデーション時に表示するエラーメッセージのhidden制御なんかが関係してくる。</p>

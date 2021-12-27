@@ -19,17 +19,20 @@ title: HTML5 Canvasの回転と角丸についてメモ
 <p>そんなときは、「現時点でのcanvasそのものの左上を円の中心にズラしてから回転させる。回転が終わったらズラした分を元に戻す。」という方法をとるみたいです。</p>
 <p>【参考】<a href="http://tech.kayac.com/archive/canvas-tutorial.html">今更聞けないcanvasの基礎の基礎 | tech.kayac.com - KAYAC engineers' blog</a></p>
 <p>つまり、canvas全体を回転の中心にしたい座標（今回は400x400のcanvasに描画した半径200の円の中心なので(200,200)）の分だけ移動して、本来回転させたかった角度で回転させたら、移動させた分を元に戻す、と。</p>
-<pre class="prettyprint lang-js">
+
+```js
 ctx.translate(200,200);
 ctx.rotate(30*Math.PI/180);
 ctx.translate(-200,-200);
-</pre>
+```
+
 <p>デキター！</p>
 <p>ちなみに、<strong>rotate()</strong>の状態を解除する方法も分からなくて悲しみました。</p>
 <p><strong>rotate(θ)</strong>をした後に何もしないと、以後の描画処理が全て角度θだけ回転した状態で行われてしまうんですね。だから、もう回転の必要がなくなったらそれを解除して、全く回転していない状態に戻してあげる必要があるというわけなんだとか。</p>
 <p>そこでよく使われるのが<strong>save()</strong>と<strong>restore()</strong>で、これらを使うと描画状態（回転情報も含んでいる<strong>変換行列</strong>など）を保存して、復元することができる。</p>
 <p>全く回転していない状態を<strong>save()</strong>して、回転の必要がなくなったところですぐ<strong>restore()</strong>してあげれば、その後もイメージどおりに描画できるんですね！</p>
-<pre class="prettyprint lang-js">
+
+```js
 ctx.save(); // 変換行列の初期状態（全く回転していない状態）を保存
 
 rotateSomething(); // 回転を含む処理
@@ -37,7 +40,8 @@ rotateSomething(); // 回転を含む処理
 // 回転を含む処理の後には必ず変換行列を初期状態に戻し、再度保存しておく
 ctx.restore();
 ctx.save();
-</pre>
+```
+
 <p><strong>save()</strong>と<strong>restore()</strong>はスタックのPushとPopに対応するので、一度<strong>restore()</strong>をしてしまうとせっかく保存していた初期状態の情報が消えてしまいます。そのため、<strong>restore()</strong>の直後にもう一度<strong>save()</strong>をして、次の回転を含む処理に備えます。</p>
 <p>というわけで、移動させてから回転させてまた戻すことと、回転した状態を解除することによって、イメージ通りの回転を含む描画処理いろいろができました。</p>
 <h3>角丸な長方形</h3>

@@ -80,7 +80,7 @@ print(x.grad)  # => [4.5, 4.5; 4.5, 4.5]
 model = BoWClassifier(NUM_LABELS, VOCAB_SIZE)
 
 # negative log likelihood loss
-# input will be a pair of &lt;log probs computed by model, target label&gt;
+# input will be a pair of <log probs computed by model, target label>
 loss_function = nn.NLLLoss()
 
 # SGD optimizer for model parameters

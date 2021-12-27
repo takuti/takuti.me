@@ -73,8 +73,7 @@ code {
 }
 
 /* overwrite hljs setting */
-pre code.hljs,
-.prettyprint {
+pre code.hljs {
   font-size: 13px;
   word-wrap: break-word;
   -webkit-font-smoothing: subpixel-antialiased;

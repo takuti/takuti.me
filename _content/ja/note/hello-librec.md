@@ -113,13 +113,13 @@ System.out.println("RMSE:" + recommender.evaluate(evaluator)); // => RMSE:0.8352
 
 ```java
 // set id list of filter
-List&lt;String&gt; userIdList = new ArrayList&lt;String&gt;();
-List&lt;String&gt; itemIdList = new ArrayList&lt;String&gt;();
+List<String> userIdList = new ArrayList<String>();
+List<String> itemIdList = new ArrayList<String>();
 userIdList.add("1");
 itemIdList.add("70");
 
 // filter the recommended result
-List&lt;RecommendedItem&gt; recommendedItemList = recommender.getRecommendedList();
+List<RecommendedItem> recommendedItemList = recommender.getRecommendedList();
 GenericRecommendedFilter filter = new GenericRecommendedFilter();
 filter.setUserIdList(userIdList);
 filter.setItemIdList(itemIdList);
