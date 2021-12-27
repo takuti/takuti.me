@@ -36,11 +36,6 @@
     {{ with .OutputFormats.Get "rss" -}}
       {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end -}}
-    {{ if and .IsPage (eq .Section "note") }}
-    {{ if gt (sub (now.Unix) (.Date.Unix)) 31536000 }}
-    <script data-ad-client="ca-pub-7190463694419594" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    {{ end }}
-    {{ end }}
   </head>
   <body>
     {{ partial "menu.html" . }}
