@@ -70,7 +70,7 @@ const compileContent = () =>
       highlight: (code, lang) => {
         try {
           const f = getLanguage(lang) ? highlight : highlightAuto;
-          return escapeHighlightedCode(f(lang, code).value);
+          return escapeHighlightedCode(f(code, {language: lang}).value);
         } catch (TypeError) {
           return code;
         }
