@@ -66,6 +66,7 @@ const compileContent = () =>
 
     // convert markdown content into html (except for the front matter)
     .pipe(kramdown({
+      langPrefix: 'hljs lang-',
       highlight: (code, lang) => {
         try {
           const f = getLanguage(lang) ? highlight : highlightAuto;
