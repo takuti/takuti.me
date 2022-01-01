@@ -2,7 +2,7 @@
 aliases: [/note/design-note-88/]
 categories: [読書記録, デザイン]
 date: 2020-02-29
-keywords: [デザイン, ジャッジ, 嫌い, ブランド, トレーニング, 分析, 粒度, センス, 練習, 写真]
+keywords: [デザイン, ジャッジ, ブランド, ノート, 嫌い, トレーニング, 雑誌, 三色ボールペン, 分析, 粒度]
 lang: ja
 recommendations: [/ja/note/design-engineer/, /ja/note/coursera-ui-ux-specialization/,
   /ja/note/tech-design-story/]

@@ -2,7 +2,7 @@
 aliases: [/note/nand2tetris/]
 categories: [読書記録, プログラミング, コンピュータシステム]
 date: 2017-05-21
-keywords: [実装, コンピュータシステム, hack, 言語, 娯楽, 仕様, メモリ, 俯瞰, ハードウェア, language]
+keywords: [実装, tetris, nan, 機械語, hdl, コンピュータシステム, hack, 忍耐力, アセンブリ, jack]
 lang: ja
 recommendations: [/ja/note/recommender-libraries/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/hello-librec/]

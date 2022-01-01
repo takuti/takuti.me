@@ -2,7 +2,7 @@
 aliases: [/note/auc-parallel/]
 categories: [機械学習]
 date: 2017-03-10
-keywords: [マージ, auc, 面積, プロセス, 'true', 並列, サンプル, 結果, ソート, positive]
+keywords: [マージ, auc, 面積, 'true', プロセス, 並列, サンプル, 結果, positive, ソート]
 lang: ja
 recommendations: [/ja/note/auc/, /ja/note/adjusting-for-oversampling-and-undersampling/,
   /ja/note/td-intern-2016/]

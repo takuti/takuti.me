@@ -1,9 +1,10 @@
 ---
 categories: [エッセイ]
 date: 2021-07-08
-keywords: [リアリティ, テーマ, 体験, 製品, 現場, 第一歩, 開発, 顧客, 知ら, 経験]
+keywords: [リアリティ, テーマ, プロデューサー, 体験, 製品, 現場, 第一歩, 男子新体操, 取材, 初見]
 lang: ja
-recommendations: [/ja/note/customer-centric-marketing/, /ja/note/hooked-design/, /ja/note/product-management-myths/]
+recommendations: [/ja/note/customer-centric-marketing/, /ja/note/product-management-myths/,
+  /ja/note/hooked-design/]
 title: 僕は「ユーザ理解」を難しく考えすぎていたのかもしれない。
 ---
 

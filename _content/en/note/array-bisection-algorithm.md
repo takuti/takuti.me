@@ -1,8 +1,8 @@
 ---
 categories: [Programming]
 date: 2021-06-05
-keywords: [sorted, array, method, searching, ondition, insert, element, dictionary,
-  binary, walking]
+keywords: [arr, sorted, array, method, val, insertion, bisection, sequentially, queue,
+  heap]
 lang: en
 recommendations: [/note/recommendation-julia/, /note/coursera-supply-chain-management/,
   /note/flurs/]

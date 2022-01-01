@@ -1,10 +1,11 @@
 ---
 categories: [Machine Learning]
 date: 2015-04-21
-keywords: [equation, regression, linear, mathbf, normal, derive, explain, optimal,
+keywords: [equation, regression, derivation, linear, normal, derive, explain, optimal,
   details, model]
 lang: en
-recommendations: [/note/hugo-kramdown-and-katex/, /note/mlss-kyoto-2015/, /note/machine-learning-product/]
+recommendations: [/note/hugo-kramdown-and-katex/, /note/machine-learning-product/,
+  /note/mlss-kyoto-2015/]
 title: How to Derive the Normal Equation
 ---
 

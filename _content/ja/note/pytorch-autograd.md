@@ -2,9 +2,9 @@
 aliases: [/note/pytorch-autograd/]
 categories: [プログラミング, 機械学習]
 date: 2017-09-23
-keywords: [pytorch, autograd, euroscipy, 損失, パラメータ, 変数, ステップ, 気持ち, 更新, 自動微分]
+keywords: [loss, pytorch, autograd, euroscipy, 触っ, optimizer, backward, 損失, 変数, パラメータ]
 lang: ja
-recommendations: [/ja/note/pytorch-mf/, /ja/note/euroscipy-2017/, /ja/note/adjusting-for-oversampling-and-undersampling/]
+recommendations: [/ja/note/pytorch-mf/, /ja/note/euroscipy-2017/, /ja/note/recommender-libraries/]
 title: PyTorchのautogradと仲良くなりたい
 ---
 

@@ -1,8 +1,8 @@
 ---
 categories: [Life & Work]
 date: 2021-08-07
-keywords: [title, job, titles, classification, software, engineer, product, immigration,
-  person, uniqueness]
+keywords: [title, job, titles, classification, software, engineer, product, stereotype,
+  immigration, uniqueness]
 lang: en
 recommendations: [/note/product-management-and-bullshit-job/, /note/td-to-amazon/,
   /note/becoming-a-product-manager/]

@@ -1,8 +1,8 @@
 ---
 categories: [Conference, Machine Learning]
 date: 2018-11-22
-keywords: [scalable, conference, amazon, single, stream, program, session, industrial,
-  paper, efforts]
+keywords: [mlconf, sagemaker, edo, scalable, satellite, conference, stream, program,
+  amazon, single]
 lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/umap-2019/, /note/iotswc-2019/]
 title: 'Attending MLconf SF 2018 #mlconf18'

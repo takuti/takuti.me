@@ -1,7 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2019-09-08
-keywords: [drinking, cafe, bar, habit, good, fine, enjoy, coffee, week, didn]
+keywords: [drinking, cafe, bar, good, habit, fine, enjoy, coffee, weird, rule]
 lang: en
 recommendations: [/note/unusual-drinking-and-eating-habits/, /note/working-from-home-202004/,
   /note/sustainable-diets/]

@@ -1,10 +1,11 @@
 ---
 categories: [Programming]
 date: 2017-04-30
-keywords: [github, pages, site, takuti, hugo, domain, generated, directory, hosted,
-  page]
+keywords: [github, cloudflare, site, custom, takuti, hugo, domain, https, generated,
+  directory]
 lang: en
-recommendations: [/note/travis-gh-pages-deployment/, /note/hello-netlify/, /note/hugo-markdown-and-mathjax/]
+recommendations: [/note/travis-gh-pages-deployment/, /note/hugo-markdown-and-mathjax/,
+  /note/hello-netlify/]
 title: Moving to GitHub Pages
 ---
 

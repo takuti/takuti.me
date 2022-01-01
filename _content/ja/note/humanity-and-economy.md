@@ -3,7 +3,7 @@ categories: [読書記録, エッセイ]
 date: 2021-10-24
 keywords: [衝動, 展示, 浪費, 消費, 芸術, 人生, 打算, アート, sustainable, ビジネス]
 lang: ja
-recommendations: [/ja/note/boredom/, /ja/note/todays-art-taro/, /ja/note/2021/]
+recommendations: [/ja/note/boredom/, /ja/note/2021/, /ja/note/sustainable-capitalism/]
 title: 経済的合理性だけでは語れない“豊かさ”について
 ---
 

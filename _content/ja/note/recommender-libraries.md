@@ -2,7 +2,7 @@
 aliases: [/note/recommender-libraries/]
 categories: [情報推薦, 機械学習, プログラミング]
 date: 2017-05-14
-keywords: [推薦, ライブラリ, 実装, github, java, factorization, machines, mahout, librec, アルゴリズム]
+keywords: [推薦, ライブラリ, 実装, java, github, factorization, machines, mahout, librec, アルゴリズム]
 lang: ja
 recommendations: [/ja/note/hello-librec/, /ja/note/trends-in-real-world-recommender-systems-2017/,
   /ja/note/data-skeptic-recommender-systems/]

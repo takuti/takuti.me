@@ -1,9 +1,9 @@
 ---
 categories: [エッセイ]
 date: 2021-09-08
-keywords: [持続可能性, 組織, 大企業, キャピタリズム, 資本主義, エコバック, sustainability, 追求, 社会問題, 事業]
+keywords: [持続可能性, 組織, 大企業, carbon, 資本主義, キャピタリズム, エコバック, sustainability, 追求, 社会問題]
 lang: ja
-recommendations: [/ja/note/mountains-101/, /ja/note/2021/, /ja/note/td-to-amazon/]
+recommendations: [/ja/note/2021/, /ja/note/mountains-101/, /ja/note/td-to-amazon/]
 title: 「サステナブル・キャピタリズム」とは何か
 ---
 

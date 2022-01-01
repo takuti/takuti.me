@@ -2,7 +2,7 @@
 aliases: [/note/master-graduate/]
 categories: [生活・人生, 機械学習]
 date: 2017-03-31
-keywords: [インターン, テーマ, 会議, 機械学習, 研究, 投稿, 学会, サマースクール, machines, factorization]
+keywords: [インターン, テーマ, 会議, mlss, 機械学習, 研究, 投稿, 学会, サマースクール, machines]
 lang: ja
 recommendations: [/ja/note/recsys-2016/, /ja/note/td-intern-2016/, /ja/note/trends-in-real-world-recommender-systems-2017/]
 title: 修士課程で機械学習が専門ではない指導教員の下で機械学習を学ぶために

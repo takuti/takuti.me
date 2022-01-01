@@ -1,10 +1,9 @@
 ---
 categories: [読書記録]
 date: 2021-01-04
-keywords: [顧客, マーケティング, 起点, ストーリー, 分析, データ, 施策, プロダクト, コモディティ化, セグメント]
+keywords: [顧客, マーケティング, アイデア, 起点, ストーリー, 分析, データ, 施策, プロダクト, コモディティ化]
 lang: ja
-recommendations: [/ja/note/business-communication/, /ja/note/first-step-for-understanding-users/,
-  /ja/note/empowered/]
+recommendations: [/ja/note/business-communication/, /ja/note/empowered/, /ja/note/first-step-for-understanding-users/]
 title: 顧客起点マーケティングによって「データ」が「ストーリー」に昇華される
 ---
 

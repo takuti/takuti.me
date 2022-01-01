@@ -2,9 +2,9 @@
 aliases: [/note/the-amazon-way-on-iot/]
 categories: [読書記録]
 date: 2017-10-06
-keywords: [amazon, iot, ビジネス, データ, connected, 会社, 数式, セキュリティ, 収集, イノベーション]
+keywords: [amazon, iot, ビジネス, データ, connected, devices, 会社, 技師, relentless, セキュリティ]
 lang: ja
-recommendations: [/ja/note/amazon-dynamo-paper/, /ja/note/td-to-amazon/, /ja/note/leakage/]
+recommendations: [/ja/note/amazon-dynamo-paper/, /ja/note/td-to-amazon/, /ja/note/product-management-myths/]
 title: The Amazon Way on IoT - Amazonのビジネスから学ぶ、10の原則
 ---
 

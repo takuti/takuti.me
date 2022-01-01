@@ -1,8 +1,8 @@
 ---
 categories: [Design, Business]
 date: 2020-01-26
-keywords: [gne, thinking, design, ideas, solving, eye, capturing, problem, practice,
-  designer]
+keywords: [gne, thinking, design, solving, ideas, capturing, eye, problem, designer,
+  practice]
 lang: en
 recommendations: [/note/technique-producing-ideas/, /note/fermenting-thoughts/, /note/language-as-a-design-tool/]
 title: Design Thinking = Capturing the World Like a Designer

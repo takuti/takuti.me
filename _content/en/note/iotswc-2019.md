@@ -1,8 +1,8 @@
 ---
 categories: [Conference]
 date: 2019-11-17
-keywords: [iot, blockchain, poc, data, world, iotswc, conference, technology, systems,
-  sessions]
+keywords: [iot, blockchain, poc, data, productization, iotswc, conference, technology,
+  systems, sessions]
 lang: en
 recommendations: [/note/coursera-blockchain-specialization/, /note/becoming-a-product-manager/,
   /note/apachecon-2019/]

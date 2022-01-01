@@ -1,8 +1,8 @@
 ---
 categories: [Programming]
 date: 2021-09-04
-keywords: [image, save, visualization, html, line, fitbit, interactive, flight, javascript,
-  file]
+keywords: [image, svg, download, canvas, save, html, visualization, todataurl, snippet,
+  blob]
 lang: en
 recommendations: [/note/flight-emissions/, /note/first-vis-with-fitbit/, /note/datavis-2020/]
 title: Save HTML <svg> as an Image

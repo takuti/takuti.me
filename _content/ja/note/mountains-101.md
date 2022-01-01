@@ -1,7 +1,7 @@
 ---
 categories: [生活・人生]
 date: 2021-06-19
-keywords: [mountains, 生活, コース, 生きる, カナダ, 原子力発電, disaster, development, avoid, 僕ら]
+keywords: [山岳, mountains, 生活, コース, 生きる, 氷河, environmental, カナダ, 原子力発電, disaster]
 lang: ja
 recommendations: [/ja/note/sustainable-capitalism/, /ja/note/capitalism-in-anthropocene/,
   /ja/note/2021/]

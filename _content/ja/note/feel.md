@@ -1,9 +1,9 @@
 ---
 categories: [エッセイ]
 date: 2020-07-28
-keywords: [考える, 進学, 後悔, 就職, における, 考えれ, 物事, 無く, 考え, 快適]
+keywords: [考える, 進学, 後悔, 就職, 考えれ, における, 物事, 無く, 快適, 考え]
 lang: ja
-recommendations: [/ja/note/think/, /ja/note/td-to-amazon/, /ja/note/todays-art-taro/]
+recommendations: [/ja/note/td-to-amazon/, /ja/note/think/, /ja/note/cognitive-science-and-behavioral-economics/]
 title: 「考えないこと」
 ---
 

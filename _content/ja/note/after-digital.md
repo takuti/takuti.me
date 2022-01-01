@@ -2,9 +2,9 @@
 aliases: [/note/after-digital/]
 categories: [読書記録, デザイン, データサイエンス]
 date: 2020-02-20
-keywords: [オフライン, オンライン, デジタル, 体験, 店舗, 接点, 実店舗, 改善, データ, 小売]
+keywords: [オフライン, オンライン, リアルワールド, デジタル, 体験, 店舗, ジャーニー, 接点, 実店舗, 改善]
 lang: ja
-recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/the-amazon-way-on-iot/]
+recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/product-management-myths/]
 title: データ時代の「リアル」の価値
 ---
 

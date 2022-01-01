@@ -1,10 +1,10 @@
 ---
 categories: [Programming]
 date: 2017-02-25
-keywords: [parallel, concurrent, programming, progress, actions, simultaneously, executed,
-  multiple, difference, definition]
+keywords: [parallel, concurrent, programming, progress, concurrency, actions, simultaneously,
+  executed, definitions, multiple]
 lang: en
-recommendations: [/note/coursera-scala-capstone/, /note/mlconf-sf-2018/, /note/phpcon-2015/]
+recommendations: [/note/coursera-scala-capstone/, /note/mlconf-sf-2018/, /note/ethical-challenges-in-recommender-systems/]
 title: Parallel Programming vs. Concurrent Programming
 ---
 

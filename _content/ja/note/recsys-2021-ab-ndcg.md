@@ -1,9 +1,12 @@
 ---
 categories: [情報推薦]
 date: 2021-11-17
-lang: ja
 images: []
-title: 'もしも推薦システムの精度と多様性が単一の指標で測れたら'
+keywords: [推薦, アイテム, 評価, aspect, ランキング, カテゴリ, 指標, 好む, ユーザ, 結果]
+lang: ja
+recommendations: [/ja/note/reranking-for-popularity-bias/, /ja/note/data-skeptic-recommender-systems/,
+  /ja/note/two-decades-of-amazon-recommender/]
+title: もしも推薦システムの精度と多様性が単一の指標で測れたら
 ---
 
 RecSys 2021採択論文の中で気になっていた "[Towards Unified Metrics for Accuracy and Diversity for Recommender Systems](https://dl.acm.org/doi/10.1145/3460231.3474234)" を読んだ。

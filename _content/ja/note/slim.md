@@ -2,10 +2,10 @@
 aliases: [/note/slim/]
 categories: [機械学習, 情報推薦]
 date: 2017-02-18
-keywords: [アイテム, textrm, item, mathbb, 行列, サンプリング, 推薦, times, 精度, ユーザ]
+keywords: [slim, アイテム, 推薦, サンプリング, 行列, 精度, 正則化, 実測, linear, 手法]
 lang: ja
 recommendations: [/ja/note/coursera-recommender-systems/, /ja/note/two-decades-of-amazon-recommender/,
-  /ja/note/pytorch-mf/]
+  /ja/note/recsys-2021-ab-ndcg/]
 title: '"SLIM: Sparse Linear Methods for Top-N Recommender Systems"を読んだ'
 ---
 

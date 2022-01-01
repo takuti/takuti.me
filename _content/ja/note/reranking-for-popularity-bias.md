@@ -1,8 +1,11 @@
 ---
 categories: [情報推薦]
 date: 2021-12-05
-lang: ja
 images: []
+keywords: [tail, 推薦, アイテム, long, head, short, 多様性, 論文, 指標, 後処理]
+lang: ja
+recommendations: [/ja/note/recsys-2021-ab-ndcg/, /ja/note/two-decades-of-amazon-recommender/,
+  /ja/note/data-skeptic-recommender-systems/]
 title: 後処理による人気アイテムの“格下げ”で確保する推薦多様性
 ---
 

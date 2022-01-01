@@ -1,8 +1,7 @@
 ---
 categories: [Programming]
 date: 2019-04-07
-keywords: [engine, xxx, storage, aws, stack, server, overflow, enable, performance,
-  connect]
+keywords: [engine, tokudb, mysql, mariadb, xxx, storage, remote, aws, stack, server]
 lang: en
 recommendations: [/note/hello-faust/, /note/hivemall-events-2018-autumn/, /note/data-leaders-summit-europe-2019/]
 title: TokuDB in MariaDB (on Ubuntu)

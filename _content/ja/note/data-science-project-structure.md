@@ -2,10 +2,10 @@
 aliases: [/note/data-science-project-structure/]
 categories: [機械学習, データサイエンス]
 date: 2017-12-16
-keywords: [practices, ディレクトリ, scientific, バージョン, computing, データサイエンス, プロジェクト, best,
-  スクリプト, インストール]
+keywords: [practices, ディレクトリ, scientific, バージョン, computing, データサイエンス, プロジェクト, ソースコード,
+  ソフトウェア開発, スクリプト]
 lang: ja
-recommendations: [/ja/note/euroscipy-2017/, /ja/note/leakage/, /ja/note/acroquest-javabook/]
+recommendations: [/ja/note/euroscipy-2017/, /ja/note/acroquest-javabook/, /ja/note/why-spark/]
 title: データサイエンスプロジェクトのディレクトリ構成どうするか問題
 ---
 
