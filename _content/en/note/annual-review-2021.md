@@ -4,7 +4,7 @@ date: 2021-12-26
 keywords: [note, year, product, identity, aligned, sustainability, traveler, lot,
   learning, travel]
 lang: en
-recommendations: [/note/atomic-habits/, /note/td-to-amazon/, /note/sustainability-at-big-tech/]
+recommendations: [/note/atomic-habits/, /note/td-to-amazon/, /note/ethical-product-developer/]
 title: 'My 2021 Annual Review: A Year of Divergence (And Slowly Started Converging)'
 ---
  

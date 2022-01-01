@@ -1,10 +1,10 @@
 ---
 categories: [Life & Work, Data Science & Analytics]
 date: 2020-02-07
-keywords: [product, iot, experience, technologies, theory, user, science, data, real,
+keywords: [product, iot, experience, technologies, theory, science, user, data, real,
   practice]
 lang: en
-recommendations: [/note/iotswc-2019/, /note/td-to-amazon/, /note/product-management-and-bullshit-job/]
+recommendations: [/note/iotswc-2019/, /note/ethical-product-developer/, /note/td-to-amazon/]
 title: Why a Data Science Engineer Becomes a Product Manager
 ---
 

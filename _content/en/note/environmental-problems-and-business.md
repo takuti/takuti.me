@@ -1,7 +1,7 @@
 ---
 categories: [Business]
 date: 2021-04-30
-keywords: [green, energy, building, water, environmental, problems, business, renewable,
+keywords: [green, energy, building, water, problems, environmental, business, renewable,
   people, buildings]
 lang: en
 recommendations: [/note/how-to-avoid-a-climate-disaster/, /note/sdg-mooc/, /note/sustainability-at-big-tech/]

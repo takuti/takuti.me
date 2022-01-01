@@ -6,7 +6,7 @@ keywords: [amazon, company, product, note, job, engineer, positive, ethical, imp
   big]
 lang: en
 recommendations: [/note/product-management-and-bullshit-job/, /note/becoming-a-product-manager/,
-  /note/annual-review-2021/]
+  /note/ethical-product-developer/]
 title: 'Next "Dot" in Journey: Curiosity-Driven Job Change in Canada (Aug 2021)'
 ---
  

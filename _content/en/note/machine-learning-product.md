@@ -1,11 +1,11 @@
 ---
 categories: [Machine Learning]
 date: 2020-08-29
-keywords: [product, business, solution, problems, solving, cost, loop, questions,
-  model, technical]
+keywords: [product, business, problems, solution, solving, cost, loop, model, technical,
+  questions]
 lang: en
-recommendations: [/note/product-management-and-bullshit-job/, /note/learn-how-others-work/,
-  /note/becoming-a-product-manager/]
+recommendations: [/note/product-management-and-bullshit-job/, /note/ethical-product-developer/,
+  /note/learn-how-others-work/]
 title: What I Think About When I Talk About ML Product
 ---
 
