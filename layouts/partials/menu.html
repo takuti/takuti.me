@@ -5,9 +5,9 @@
   </span>
   <span class="right">
     <a href="{{ "/" | absLangURL }}" class="hide-responsive">{{ i18n "aboutMe" }}</a>
-    <span class="menu__single">
+    <span class="menu-single">
       <a href="{{ "/note" | absLangURL }}" class="init-bottom">{{ i18n "blog" }}&nbsp;&nbsp;<i class="fas fa-angle-down"></i></a>
-      <ul class="menu__second-level">
+      <ul class="menu-second-level">
         {{range ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
          <li><a href="{{.Permalink}}">{{.Title}}</a>
         {{end}}
