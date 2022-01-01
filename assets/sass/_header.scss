@@ -2,18 +2,14 @@ header {
   width: 100%;
   position: fixed;
   background: #fff;
-  box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
   top: 0;
   left: 0;
   z-index: 100;
-  transition: -webkit-transform 0.4s ease;
-  transition: -webkit-transform 0.4s ease;
   transition: transform 0.4s ease;
-  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
 }
 
 .header-unpinned {
-  transform: translateY(-150%);
   transform: translateY(-150%);
 }
 
@@ -76,9 +72,8 @@ nav {
         width: 256px;
         background: #fff;
         transition: all 0.2s ease;
-        transition: all 0.2s ease;
         padding: 0;
-        box-shadow: 0 0 8px rgb(0 0 0 / 5%);
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
         font-size: 0.9em;
 
         li {
