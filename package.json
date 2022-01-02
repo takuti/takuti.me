@@ -7,7 +7,8 @@
     "build": "gulp",
     "watch": "gulp watch",
     "clean": "rm -rf public/",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint:sass": "stylelint assets/sass/*.scss"
   },
   "devDependencies": {
     "browser-sync": "^2.27.7",
@@ -26,14 +27,19 @@
     "minimist": "^1.2.5",
     "phantomjs-prebuilt": "^2.1.16",
     "stylelint": "^14.1.0",
-    "stylelint-config-standard": "^24.0.0",
+    "stylelint-config-standard-scss": "^3.0.0",
     "sync-request": "^6.1.0"
   },
   "stylelint": {
-    "extends": "stylelint-config-standard"
+    "extends": "stylelint-config-standard-scss",
+    "rules": {
+      "alpha-value-notation": null,
+      "scss/no-global-function-names": null,
+      "color-function-notation": "legacy"
+    }
   },
   "lint-staged": {
-    "*.{css,scss}": [
+    "*.scss": [
       "stylelint --fix"
     ],
     "*.{png,jpeg,jpg,gif}": [

@@ -1,6 +1,5 @@
-
 @charset 'UTF-8';
-
+/* stylelint-disable */
 @import '/css/normalize.css';
 @import 'variables';
 @import 'main';
@@ -9,3 +8,4 @@
 @import 'single';
 @import 'footer';
 @import 'responsive';
+/* stylelint-enable */
