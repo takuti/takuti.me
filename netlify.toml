@@ -3,12 +3,13 @@
   command = "npm run build"
 
 [build.environment]
-  GIT_LFS_ENABLED = "true"
-  # Add mp3 to the default:
-  # https://github.com/netlify/build-image/blob/focal/buildbot-git-config#L2
-  GIT_LFS_FETCH_INCLUDE = "*.jpg,*.png,*.jpeg,*.svg,*.gif,*.pdf,*.mp4,*.bmp,*.webp,*.mp3"
   HUGO_VERSION = "0.88.1"
   TZ = "America/Vancouver"
+  # The following variables should be set in the Netlify UI:
+  # GIT_LFS_ENABLED = "true"
+  # GIT_LFS_FETCH_INCLUDE = "*.jpg,*.png,*.jpeg,*.svg,*.gif,*.pdf,*.mp4,*.bmp,*.webp,*.mp3"
+  # ^ adding mp3 to the default
+  # https://github.com/netlify/build-image/blob/focal/buildbot-git-config#L2
 
 # Asset Optimization
 [build.processing]
