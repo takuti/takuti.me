@@ -4,22 +4,11 @@ import MeCab
 import requests
 
 from prelims import StaticSitePostsHandler
-from prelims.processor import BaseFrontMatterProcessor, Recommender
+from prelims.processor import OpenGraphFilePathExtractor, Recommender
 
 
 RE_VALID_WORD = re.compile(r'^[ぁ-んーァ-ヶー一-龠a-zA-Zａ-ｚＡ-Ｚ]+$')
 RE_INVALID_WORD = re.compile(r'^([^一-龠]{1,2}|[ぁ-んー]{1,3})$')
-RE_PATH_TO_IMAGE = re.compile(r'/images/.+?(?:\.jpg|\.jpeg|\.png)')
-
-
-class ImageExtractor(BaseFrontMatterProcessor):
-
-    def process(self, posts):
-        for post in posts:
-            images = RE_PATH_TO_IMAGE.findall(post.content)
-            if len(images) == 0:
-                continue
-            post.update('images', images)
 
 
 tagger = MeCab.Tagger('-d /usr/local/lib/mecab/dic/mecab-ipadic-neologd')
@@ -55,9 +44,11 @@ def run(lang):
     permalink_base = '' if lang == 'en' else '/ja'
     permalink_base += '/note'
     handler = StaticSitePostsHandler(path_dir)
-    recommender = Recommender(permalink_base=permalink_base, tokenizer=tokenizer)
+    recommender = Recommender(permalink_base=permalink_base,
+                              tokenizer=tokenizer)
     handler.register_processor(recommender)
-    handler.register_processor(ImageExtractor())
+    file_path_extractor = OpenGraphFilePathExtractor(image_base='/images')
+    handler.register_processor(file_path_extractor)
     handler.execute()
 
 

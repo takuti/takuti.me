@@ -1,2 +1,2 @@
-prelims
+prelims==0.0.2
 mecab-python3
