@@ -1,7 +1,7 @@
 ---
 categories: [Business]
 date: 2021-04-25
-keywords: [government, nuclear, book, environmental, numbers, technology, energy,
+keywords: [government, nuclear, book, environmental, technology, numbers, energy,
   demand, safer, gigawatts]
 lang: en
 recommendations: [/note/environmental-problems-and-business/, /note/flight-emissions/,

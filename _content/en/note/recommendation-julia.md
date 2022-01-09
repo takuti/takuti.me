@@ -4,7 +4,7 @@ date: 2017-01-14
 keywords: [recommendation, julia, age, factorization, package, tuples, till, sco,
   releases, libraries]
 lang: en
-recommendations: [/note/juliacon-2019/, /note/recommendation-julia-documenter/, /note/flurs/]
+recommendations: [/note/juliacon-2019/, /note/recommendation-julia-documenter/, /note/recommendation-julia-v040/]
 title: 'Recommendation.jl: Building Recommender Systems in Julia'
 ---
 

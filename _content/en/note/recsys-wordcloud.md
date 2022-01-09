@@ -4,7 +4,7 @@ date: 2017-11-11
 images: [/images/wordcloud/recsys2014.png, /images/wordcloud/recsys2015.png, /images/wordcloud/recsys2016.png,
   /images/wordcloud/recsys2017.png]
 keywords: [recsys, matrix, wordcloud, rating, cloud, group, filtering, collaborative,
-  abstract, word]
+  word, abstract]
 lang: en
 recommendations: [/note/recsys-2021/, /note/ethical-challenges-in-recommender-systems/,
   /note/hivemall-events-2018-autumn/]
