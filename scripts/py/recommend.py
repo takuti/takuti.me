@@ -40,7 +40,7 @@ def tokenizer(doc):
 
 def run(lang):
     path_dir = os.path.join(
-        os.path.dirname(__file__), '..', '_content', lang, 'note')
+        os.path.dirname(__file__), '..', '..', '_content', lang, 'note')
     permalink_base = '' if lang == 'en' else '/ja'
     permalink_base += '/note'
     handler = StaticSitePostsHandler(path_dir)

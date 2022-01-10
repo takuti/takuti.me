@@ -33,14 +33,14 @@ Husky helps setting up custom pre-commit hooks:
 npm run prepare
 ```
 
-[recommend.py](./scripts/recommend.py) depends on [prelims](https://github.com/takuti/prelims) and MeCab Japanese morphological analyzer:
+[recommend.py](./scripts/py/recommend.py) depends on [prelims](https://github.com/takuti/prelims) and MeCab Japanese morphological analyzer:
 
 ```sh
 brew install mecab mecab-ipadic
 git clone --depth 1 git@github.com:neologd/mecab-ipadic-neologd.git
 cd mecab-ipadic-neologd
 ./bin/install-mecab-ipadic-neologd -n
-pip install -r scripts/requirements.txt
+pip install -r scripts/py/requirements.txt
 ```
 
 ## Usage

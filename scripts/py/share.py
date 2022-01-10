@@ -89,7 +89,7 @@ def tweet(text):
 
 
 def run():
-    root_dir = os.path.join(os.path.dirname(__file__), '..')
+    root_dir = os.path.join(os.path.dirname(__file__), '..', '..')
     repo = Repo(root_dir)
     assert not repo.bare
 
