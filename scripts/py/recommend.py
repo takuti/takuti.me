@@ -44,7 +44,7 @@ def run(lang):
     permalink_base = '' if lang == 'en' else '/ja'
     permalink_base += '/note'
     handler = StaticSitePostsHandler(path_dir)
-    recommender = Recommender(permalink_base=permalink_base,
+    recommender = Recommender(permalink_base=permalink_base, max_df=0.95,
                               tokenizer=tokenizer)
     handler.register_processor(recommender)
     file_path_extractor = OpenGraphFilePathExtractor(image_base='/images')
