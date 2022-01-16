@@ -5,8 +5,8 @@ date: 2022-01-01
 keywords: [product, ethical, developer, developers, unethical, clear, capitalism,
   egative, decisions, development]
 lang: en
-recommendations: [/note/product-management-and-bullshit-job/, /note/becoming-a-product-manager/,
-  /note/machine-learning-product/]
+recommendations: [/note/product-management-and-bullshit-job/, /note/machine-learning-product/,
+  /note/becoming-a-product-manager/]
 title: Ethical Product Developer
 ---
 

@@ -1,7 +1,7 @@
 ---
 categories: [Life & Work]
 date: 2021-05-21
-keywords: [coffee, decaf, drinking, drink, eat, protein, meat, beer, diet, caffeine]
+keywords: [coffee, decaf, drinking, drink, eat, protein, meat, beer, food, caffeine]
 lang: en
 recommendations: [/note/stop-drinking-alone/, /note/sustainable-diets/, /note/working-from-home-202004/]
 title: 'Unusual Drinking & Eating Habits: Non-Alcohol, Decaf, Flexitarian'

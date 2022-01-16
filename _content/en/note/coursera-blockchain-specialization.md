@@ -2,7 +2,7 @@
 categories: [Programming]
 date: 2021-04-11
 images: [/images/coursera-blockchain-specialization/blockchain-overview.png]
-keywords: [blockchain, decentralized, smart, transactions, specialization, contract,
+keywords: [blockchain, decentralized, smart, specialization, transactions, contract,
   validation, application, transaction, solidity]
 lang: en
 recommendations: [/note/bitcoin-and-cryptocurrency/, /note/iotswc-2019/, /note/becoming-a-product-manager/]

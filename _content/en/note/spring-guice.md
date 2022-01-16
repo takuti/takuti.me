@@ -4,8 +4,8 @@ date: 2021-10-30
 images: [/images/spring-guice/uml.png]
 keywords: [guice, spring, injection, application, dependency, framework, party, class,
   based, testability]
-recommendations: [/note/becoming-a-product-manager/, /note/machine-learning-product/,
-  /note/language-as-a-design-tool/]
+recommendations: [/note/becoming-a-product-manager/, /note/language-as-a-design-tool/,
+  /note/machine-learning-product/]
 title: Cross-Framework Dependency Injection with spring-guice
 ---
  
