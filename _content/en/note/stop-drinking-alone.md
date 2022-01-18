@@ -1,11 +1,11 @@
 ---
 categories: [Life & Work]
 date: 2019-09-08
-keywords: [drinking, cafe, bar, good, habit, fine, enjoy, coffee, weird, rule]
 lang: en
+title: I Stopped Drinking Alone for 4 Months
+keywords: [drinking, cafe, bar, good, habit, fine, enjoy, coffee, weird, rule]
 recommendations: [/note/unusual-drinking-and-eating-habits/, /note/working-from-home-202004/,
   /note/sustainable-diets/]
-title: I Stopped Drinking Alone for 4 Months
 ---
 
 From March 2019 to July 2019, I experimentally stopped drinking alcohol **alone**. A key question was: *"Do I become more productive and healthy?"* 

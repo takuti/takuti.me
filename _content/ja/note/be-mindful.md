@@ -1,11 +1,11 @@
 ---
 categories: [エッセイ]
 date: 2020-11-29
-keywords: [集中, ゆっくり, マインド, 仕事, 配る, マインドフルネス, ハンド, 相手, 去年, 過ごす]
 lang: ja
+title: 「マインドフル」であることの効用を実感しつつある
+keywords: [集中, ゆっくり, マインド, 仕事, 配る, マインドフルネス, ハンド, 相手, 去年, 過ごす]
 recommendations: [/ja/note/getting-out-of-the-box/, /ja/note/life-with-covid-19/,
   /ja/note/coursera-ui-ux-specialization/]
-title: 「マインドフル」であることの効用を実感しつつある
 ---
 
 今年も残すところあと一ヶ月。「最高の年だった」とは到底言い難いけれど、[一年前](http://takuti.hatenablog.com/entry/2019/12/18/203809)よりは今のほうがずっと「生きている」という感じがするので、概ね良い一年であったことは間違いない。

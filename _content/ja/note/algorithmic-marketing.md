@@ -1,10 +1,10 @@
 ---
 categories: [読書記録, 機械学習, データサイエンス]
 date: 2021-07-20
-keywords: [マーケティング, 機械学習, アナリティクス, モデル, ルール, ベース, title, job, アルゴリズム, 需要予測]
 lang: ja
-recommendations: [/ja/note/job-title-normalization/, /ja/note/2020/, /ja/note/td-tech-talk-plazma/]
 title: 『AIアルゴリズムマーケティング』は期待ハズレだったけど手元に置いておきたい一冊
+keywords: [マーケティング, 機械学習, アナリティクス, モデル, ルール, ベース, title, job, アルゴリズム, 需要予測]
+recommendations: [/ja/note/job-title-normalization/, /ja/note/2020/, /ja/note/td-tech-talk-plazma/]
 ---
 
 『[AIアルゴリズムマーケティング 自動化のための機械学習/経済モデル、ベス トプラクティス、アーキテクチャ](https://amzn.to/36FqnE7)』、積読消化メモ。

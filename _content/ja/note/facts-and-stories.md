@@ -1,11 +1,11 @@
 ---
 categories: [エッセイ, デザイン]
 date: 2020-04-25
-keywords: [ストーリー, 良さ, 豆皿, いいもの, 日本酒, 客観, 主観, 砥部焼, コーヒーミル, キッチン]
 lang: ja
+title: “いいもの”ってなんだろう
+keywords: [ストーリー, 良さ, 豆皿, いいもの, 日本酒, 客観, 主観, 砥部焼, コーヒーミル, キッチン]
 recommendations: [/ja/note/tech-design-story/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/2020/]
-title: “いいもの”ってなんだろう
 ---
 
 GWは愛媛をひとり旅の予定だったので、偶然見つけたデザイン誌 **[d design travel EHIME](https://amzn.to/3amaWjw)** を読んでいた[^1]。

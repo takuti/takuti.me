@@ -3,10 +3,10 @@ aliases: [/note/designing-data-intensive-applications/]
 categories: [読書記録, コンピュータシステム]
 date: 2017-12-30
 images: [/images/ddia/poster.png]
-keywords: [データ, data, ddia, dynamo, システム, 読ん, poster, データベース, 内容, 話題]
 lang: ja
-recommendations: [/ja/note/dynamo-style/, /ja/note/amazon-dynamo-paper/, /ja/note/data-stream-mining/]
 title: '"Designing Data-Intensive Applications"は濃密すぎる一冊だったので2018年の自分にも読んでもらいたい'
+keywords: [データ, data, ddia, dynamo, システム, 読ん, poster, データベース, 内容, 話題]
+recommendations: [/ja/note/dynamo-style/, /ja/note/amazon-dynamo-paper/, /ja/note/data-stream-mining/]
 ---
 
 分散システムに関する理解を整理するための一冊として素晴らしい、という声があり気になっていた "**[Designing Data-Intensive Applications](https://dataintensive.net/)**" を一通り読んだ：

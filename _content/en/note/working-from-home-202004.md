@@ -3,12 +3,12 @@ categories: [Life & Work]
 date: 2020-04-18
 images: [/images/working-from-home-202004/coffee-accessories-1.jpg, /images/working-from-home-202004/coffee-accessories-2.jpg,
   /images/working-from-home-202004/microwave-steamer.jpg, /images/working-from-home-202004/humidifier.jpg]
+lang: en
+title: How I'm Working From Home
 keywords: [coffee, accessories, day, pomodoro, steamer, humidifier, stay, healthy,
   wfh, cook]
-lang: en
 recommendations: [/note/fermenting-thoughts/, /note/unusual-drinking-and-eating-habits/,
   /note/stop-drinking-alone/]
-title: How I'm Working From Home
 ---
 
 We have spent more than a month since working-from-home (WFH) accidentally becomes a global trend. Although I'm still actively adapting my life to the situation day by day, I already got a few solid takeaways from the experience as follows:

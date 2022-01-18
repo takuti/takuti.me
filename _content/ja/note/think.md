@@ -1,10 +1,10 @@
 ---
 categories: [エッセイ, 読書記録]
 date: 2020-06-21
-keywords: [新玉ねぎ, 問題, 考える, はじめて, 考え, イシュー, スーパー, ものごと, まなざし, いっしょ]
 lang: ja
-recommendations: [/ja/note/life-with-covid-19/, /ja/note/feel/, /ja/note/cognitive-science-and-behavioral-economics/]
 title: 「考えること」
+keywords: [新玉ねぎ, 問題, 考える, はじめて, 考え, イシュー, スーパー, ものごと, まなざし, いっしょ]
+recommendations: [/ja/note/life-with-covid-19/, /ja/note/feel/, /ja/note/cognitive-science-and-behavioral-economics/]
 ---
 
 暇だけど、暇じゃない。そんな状態が長く続いている。

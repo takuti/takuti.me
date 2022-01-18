@@ -2,11 +2,11 @@
 aliases: [/note/data-skeptic-recommender-systems/]
 categories: [情報推薦]
 date: 2017-11-17
-keywords: [推薦, システム, 先生, konstan, serpentining, cycling, ユーザ, ワイン, ページ, メニュー]
 lang: ja
+title: Podcast "Data Skeptic" の推薦システム回が良すぎて3回聞いた
+keywords: [推薦, システム, 先生, konstan, serpentining, cycling, ユーザ, ワイン, ページ, メニュー]
 recommendations: [/ja/note/trends-in-real-world-recommender-systems-2017/, /ja/note/recsys-2021-ab-ndcg/,
   /ja/note/recommender-systems-on-blockchain/]
-title: Podcast "Data Skeptic" の推薦システム回が良すぎて3回聞いた
 ---
 
 推薦システムの業界で知らぬものはいない、ミネソタ大学のレジェンド級プロフェッサー[Joseph Konstan先生](http://konstan.umn.edu/)が Podcast "Data Skeptic" に出演していた：

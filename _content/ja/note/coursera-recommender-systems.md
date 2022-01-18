@@ -4,10 +4,10 @@ categories: [情報推薦]
 date: 2017-01-27
 images: [/images/recommender/user-item-matrix.png, /images/recommender/cf.png, /images/recommender/svd.png,
   /images/recommender/mf.png]
-keywords: [行列, 推薦, アイテム, 類似, factorization, ユーザ, matrix, 手法, 協調フィルタリング, 観測]
 lang: ja
-recommendations: [/ja/note/two-decades-of-amazon-recommender/, /ja/note/slim/, /ja/note/trends-in-real-world-recommender-systems-2017/]
 title: Courseraの推薦システムのコースを修了した
+keywords: [行列, 推薦, アイテム, 類似, factorization, ユーザ, matrix, 手法, 協調フィルタリング, 観測]
+recommendations: [/ja/note/two-decades-of-amazon-recommender/, /ja/note/slim/, /ja/note/trends-in-real-world-recommender-systems-2017/]
 ---
 
 昨年の話だけど、Courseraで開講されていた "**Introduction to Recommender Systems**" を履修・修了した。教えてくれたのはこの分野で知らぬ者はいない、ミネソタ大学の[Joseph Konstan先生](http://konstan.umn.edu/)。2000年あたりの協調フィルタリングなど古典的な推薦手法に関する文献を漁ると、必ず彼のグループの論文にたどり着く。かの有名な[MovieLensデータセット](https://grouplens.org/datasets/movielens/)（画像処理でいうMNIST的な、定番データセット）も、このグループが提供している。

@@ -1,10 +1,10 @@
 ---
 categories: [生活・人生]
 date: 2020-10-03
-keywords: [oyo, 物件, life, 暮らし, 契約, 入居, キャンペーン, 家賃, 賃貸, マンスリーマンション]
 lang: ja
-recommendations: [/ja/note/oyo-life-202007/, /ja/note/one-month-in-canada/, /ja/note/oyo-life-202008/]
 title: お手軽賃貸サービス "OYO LIFE" 所感
+keywords: [oyo, 物件, life, 暮らし, 契約, 入居, キャンペーン, 家賃, 賃貸, マンスリーマンション]
+recommendations: [/ja/note/oyo-life-202007/, /ja/note/one-month-in-canada/, /ja/note/oyo-life-202008/]
 ---
 
 [身軽さと刺激を求めて](/ja/note/oyo-life-202007)OYO LIFEを利用し始めてから早2ヶ月。ちょっぴり特別なひと夏を過ごしたこの部屋とも、もうお別れだ。

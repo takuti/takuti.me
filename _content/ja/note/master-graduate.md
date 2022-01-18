@@ -2,10 +2,10 @@
 aliases: [/note/master-graduate/]
 categories: [生活・人生, 機械学習]
 date: 2017-03-31
-keywords: [インターン, テーマ, 会議, mlss, 機械学習, 研究, 投稿, 学会, サマースクール, machines]
 lang: ja
-recommendations: [/ja/note/recsys-2016/, /ja/note/td-intern-2016/, /ja/note/trends-in-real-world-recommender-systems-2017/]
 title: 修士課程で機械学習が専門ではない指導教員の下で機械学習を学ぶために
+keywords: [インターン, テーマ, 会議, mlss, 機械学習, 研究, 投稿, 学会, サマースクール, machines]
+recommendations: [/ja/note/recsys-2016/, /ja/note/td-intern-2016/, /ja/note/trends-in-real-world-recommender-systems-2017/]
 ---
 
 [会津大学から東大情報理工へ進学](http://takuti.hatenablog.com/entry/2015/03/06/210735)して早2年、この春無事に修士号をゲットした。めでたい。

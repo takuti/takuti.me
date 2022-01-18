@@ -1,12 +1,12 @@
 ---
 categories: [Machine Learning]
 date: 2020-08-29
+lang: en
+title: What I Think About When I Talk About ML Product
 keywords: [product, business, problems, solution, solving, cost, loop, model, technical,
   questions]
-lang: en
 recommendations: [/note/product-management-and-bullshit-job/, /note/ethical-product-developer/,
   /note/learn-how-others-work/]
-title: What I Think About When I Talk About ML Product
 ---
 
 Everyone wants to leverage machine learning (ML) in their daily work, and I'm sure they will be excited about your awesome ML product whatever the detail is. But, what do *we, as a product developer,* really have to think about when we create ML products?

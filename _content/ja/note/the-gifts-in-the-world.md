@@ -1,10 +1,10 @@
 ---
 categories: [読書記録]
 date: 2021-01-18
-keywords: [贈与, 受け取っ, 資本主義, 誰か, 交換, 贈り物, 不合理, 使命, 等価, 僕ら]
 lang: ja
-recommendations: [/ja/note/2021/, /ja/note/boredom/, /ja/note/will-202102/]
 title: 僕らは名もなき“誰か”からの贈与に気付いているか？
+keywords: [贈与, 受け取っ, 資本主義, 誰か, 交換, 贈り物, 不合理, 使命, 等価, 僕ら]
+recommendations: [/ja/note/2021/, /ja/note/boredom/, /ja/note/will-202102/]
 ---
 
 『[世界は贈与でできている 資本主義の「すきま」を埋める倫理学](https://amzn.to/3nRLHMP)』を読んだ（Audibleで聴いた）。資本主義の「すきま」、この考え方がポイントだ。

@@ -2,12 +2,12 @@
 aliases: [/note/job-title-normalization/]
 categories: [プログラミング, 自然言語処理]
 date: 2017-07-09
+lang: ja
+title: Job Titleの前処理＆クラスタリングをどうやって実現するか問題
 keywords: [title, job, クラスタ, marketing, クラスタリング, engineering, 処理, linkedin, function,
   executive]
-lang: ja
 recommendations: [/ja/note/algorithmic-marketing/, /ja/note/levenshtein-distance/,
   /ja/note/fastcat/]
-title: Job Titleの前処理＆クラスタリングをどうやって実現するか問題
 ---
 
 LinkedIn など、**Job Title**（職場での肩書き）をユーザに入力させるサービスは世の中にたくさんある。機械学習、データマイニングの文脈で、このデータをいかに扱うかという話。

@@ -2,11 +2,11 @@
 categories: [Conference]
 date: 2015-10-13
 images: [/images/jekyll/2015-10-13-pycon-entrance.jpg, /images/jekyll/2015-10-13-pycon-closing.png]
+lang: en
+title: 'PyCon JP 2015 #pyconjp'
 keywords: [python, talk, pycon, pandas, possibilities, grpc, talks, programming, 範囲,
   morphological]
-lang: en
 recommendations: [/note/hello-faust/, /note/hivemall-events-2018-autumn/, /note/phpcon-2015/]
-title: 'PyCon JP 2015 #pyconjp'
 ---
 
 Following [phpcon2015](http://phpcon.php.gr.jp/2015/), I have attended [PyCon JP 2015](https://pycon.jp/2015/en/) at the end of last week.

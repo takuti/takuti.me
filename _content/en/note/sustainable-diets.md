@@ -2,11 +2,11 @@
 categories: [Life & Work]
 date: 2021-10-16
 images: [/images/sustainable-diets/fitbit-food-tracking.png]
-keywords: [food, eating, eat, diets, protein, diet, meat, day, tracking, meals]
 lang: en
+title: My 30-Day Food Tracking Challenge from Sustainable Diet Perspective
+keywords: [food, eating, eat, diets, protein, diet, meat, day, tracking, meals]
 recommendations: [/note/unusual-drinking-and-eating-habits/, /note/working-from-home-202004/,
   /note/stop-drinking-alone/]
-title: My 30-Day Food Tracking Challenge from Sustainable Diet Perspective
 ---
  
 In September, I experimentally tracked what I ate (foods, calories, and their macros) through the Fitbit app[^1]. The main objective was to review my eating habits and hopefully gain some weight.

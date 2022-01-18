@@ -4,10 +4,10 @@ categories: [機械学習, 情報推薦, イベント参加記]
 date: 2017-03-18
 images: [/images/chiir-2017/program.jpg, /images/chiir-2017/city-hall.jpg, /images/chiir-2017/tutorial1.jpg,
   /images/chiir-2017/instagram.png, /images/chiir-2017/human.jpg]
-keywords: [chiir, 検索, 情報検索, 会議, 画像, ユーザ, ノルウェー, 動画, retrieval, interactive]
 lang: ja
-recommendations: [/ja/note/master-graduate/, /ja/note/recsys-2016/, /ja/note/euroscipy-2017/]
 title: '情報検索・インタラクション系の国際会議 CHIIR2017 に参加した #chiir2017'
+keywords: [chiir, 検索, 情報検索, 会議, 画像, ユーザ, ノルウェー, 動画, retrieval, interactive]
+recommendations: [/ja/note/master-graduate/, /ja/note/recsys-2016/, /ja/note/euroscipy-2017/]
 ---
 
 2017年3月7日から10日までノルウェー・オスロで開催された情報検索・インタラクション系の国際会議 [The ACM SIGIR Conference on Human Information Interaction & Retrieval 2017](http://sigir.org/chiir2017/) （CHIIR2017;

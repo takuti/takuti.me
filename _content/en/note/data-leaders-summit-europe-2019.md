@@ -1,12 +1,12 @@
 ---
 categories: [Conference, Data Science & Analytics]
 date: 2019-11-10
+lang: en
+title: Rethinking the Role of Data Leaders @ Data Leaders Summit Europe 2019
 keywords: [data, leaders, head, scientists, summit, business, scientist, panel, analytics,
   organization]
-lang: en
 recommendations: [/note/augmented-analytics/, /note/hivemall-events-2018-autumn/,
   /note/becoming-a-product-manager/]
-title: Rethinking the Role of Data Leaders @ Data Leaders Summit Europe 2019
 ---
 
 After [my speaking session at ApacheCon Europe](/note/apachecon-2019) in Berlin, luckily I've got a chance to attend Day 2 sessions of [Data Leaders Summit Europe](https://datainsight.wbresearch.com):

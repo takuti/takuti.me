@@ -2,11 +2,11 @@
 aliases: [/note/fastcat/]
 categories: [プログラミング]
 date: 2017-08-06
-keywords: [カテゴリ, computers, computer, ダンプ, wikipedia, mysql, hardware, 下位, データ, 上位]
 lang: ja
+title: ローカルのRedis上でWikipediaカテゴリをシュッとdigる
+keywords: [カテゴリ, computers, computer, ダンプ, wikipedia, mysql, hardware, 下位, データ, 上位]
 recommendations: [/ja/note/recsys-2021-ab-ndcg/, /ja/note/job-title-normalization/,
   /ja/note/gensim-jawiki/]
-title: ローカルのRedis上でWikipediaカテゴリをシュッとdigる
 ---
 
 Wikipediaは[APIがあったり](https://www.mediawiki.org/wiki/API:Main_page)、[データのMySQLダンプを惜しみなく公開していたりする](https://dumps.wikimedia.org/enwiki/latest/)。便利。しかし、いかんせん規模が大きいので、APIアクセスやRDBへの問い合わせに依存したデータ収集は辛いものがある。

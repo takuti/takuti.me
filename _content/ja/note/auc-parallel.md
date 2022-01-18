@@ -2,11 +2,11 @@
 aliases: [/note/auc-parallel/]
 categories: [機械学習]
 date: 2017-03-10
-keywords: [マージ, auc, 面積, 'true', プロセス, 並列, サンプル, 結果, positive, ソート]
 lang: ja
+title: Area Under the ROC Curve (AUC) を並列で計算するときに気をつけること
+keywords: [マージ, auc, 面積, 'true', プロセス, 並列, サンプル, 結果, positive, ソート]
 recommendations: [/ja/note/auc/, /ja/note/adjusting-for-oversampling-and-undersampling/,
   /ja/note/td-intern-2016/]
-title: Area Under the ROC Curve (AUC) を並列で計算するときに気をつけること
 ---
 
 ### 追記 (2017/03/10)

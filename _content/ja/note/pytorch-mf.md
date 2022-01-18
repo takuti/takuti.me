@@ -3,12 +3,12 @@ aliases: [/note/pytorch-mf/]
 categories: [プログラミング, 情報推薦, 機械学習]
 date: 2017-10-14
 images: [/images/recommender/mf.png]
+lang: ja
+title: PyTorchでもMatrix Factorizationがしたい！
 keywords: [pytorch, torch, autograd, factorization, matrix, factors, optim, item,
   損失, recommender]
-lang: ja
 recommendations: [/ja/note/pytorch-autograd/, /ja/note/coursera-recommender-systems/,
   /ja/note/euroscipy-2017/]
-title: PyTorchでもMatrix Factorizationがしたい！
 ---
 
 『[PyTorchのautogradと仲良くなりたい](/note/pytorch-autograd)』でPyTorchに入門したので、応用例としてMatrix FactorizationをPyTorchで実装してみようね [^1]。

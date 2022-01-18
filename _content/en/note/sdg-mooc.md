@@ -2,12 +2,12 @@
 categories: [Business]
 date: 2021-05-14
 images: [/images/sdg-mooc/sdgs-wedding-cake.jpeg]
+lang: en
+title: 'A Journey of Sustainable Development #SDGMOOC'
 keywords: [sdgs, plastic, hummingbird, sustainability, business, responsibility, wedding,
   cake, bag, problems]
-lang: en
 recommendations: [/note/sustainability-at-big-tech/, /note/environmental-problems-and-business/,
   /note/sustainable-capitalism/]
-title: 'A Journey of Sustainable Development #SDGMOOC'
 ---
 
 [Driving business towards the Sustainable Development Goals](https://www.coursera.org/learn/sdgbusiness) offered by Erasmus University Rotterdam was one of the best online courses I've ever taken. By showing real-world business cases, the well-structured course gave me a clear understanding of individual Sustainable Development Goals (SDGs) following [the "wedding cake" model](https://www.stockholmresilience.org/research/research-news/2016-06-14-how-food-connects-all-the-sdgs.html):

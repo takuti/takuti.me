@@ -2,11 +2,11 @@
 aliases: [/note/auc/]
 categories: [機械学習]
 date: 2017-03-04
-keywords: [auc, 'true', positive, サンプル, 面積, label, ラベル, roc, 長方形, スコア]
 lang: ja
+title: Area Under the ROC Curve (AUC) を実装する
+keywords: [auc, 'true', positive, サンプル, 面積, label, ラベル, roc, 長方形, スコア]
 recommendations: [/ja/note/auc-parallel/, /ja/note/adjusting-for-oversampling-and-undersampling/,
   /ja/note/recsys-2021-ab-ndcg/]
-title: Area Under the ROC Curve (AUC) を実装する
 ---
 
 ### 追記 (2017/03/10)

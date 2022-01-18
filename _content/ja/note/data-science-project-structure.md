@@ -2,11 +2,11 @@
 aliases: [/note/data-science-project-structure/]
 categories: [機械学習, データサイエンス]
 date: 2017-12-16
+lang: ja
+title: データサイエンスプロジェクトのディレクトリ構成どうするか問題
 keywords: [practices, ディレクトリ, scientific, バージョン, computing, データサイエンス, プロジェクト, ソースコード,
   ソフトウェア開発, スクリプト]
-lang: ja
 recommendations: [/ja/note/euroscipy-2017/, /ja/note/acroquest-javabook/, /ja/note/why-spark/]
-title: データサイエンスプロジェクトのディレクトリ構成どうするか問題
 ---
 
 あるいは、論文 "**[Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)**" および "**[Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)**" について。

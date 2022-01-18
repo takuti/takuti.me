@@ -1,10 +1,10 @@
 ---
 categories: [Life & Work]
 date: 2014-11-09
-keywords: [blog, japanese, write, japan, ese, takuti, posts, english, articles, switches]
 lang: en
-recommendations: [/note/new-year-resolution-2017/, /note/move-to-gh-pages/, /note/annual-review-2021/]
 title: Hello English Entries
+keywords: [blog, japanese, write, japan, ese, takuti, posts, english, articles, switches]
+recommendations: [/note/new-year-resolution-2017/, /note/move-to-gh-pages/, /note/annual-review-2021/]
 ---
 
 Hi, I'm takuti.

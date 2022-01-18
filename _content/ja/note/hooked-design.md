@@ -1,10 +1,10 @@
 ---
 categories: [読書記録, デザイン, データサイエンス]
 date: 2021-08-02
-keywords: [プロダクト, 行動, 変容, ユーザ, 報酬, デザイン, 習慣, 痛み, ビタミン剤, hooked]
 lang: ja
-recommendations: [/ja/note/empowered/, /ja/note/design-engineer/, /ja/note/product-management-myths/]
 title: 僕らはなぜ、誰のためにプロダクトを作るのか─行動変容デザインとその倫理的側面
+keywords: [プロダクト, 行動, 変容, ユーザ, 報酬, デザイン, 習慣, 痛み, ビタミン剤, hooked]
+recommendations: [/ja/note/empowered/, /ja/note/design-engineer/, /ja/note/product-management-myths/]
 ---
 
 『[行動を変えるデザイン](https://amzn.to/3fnyom9)』を読んだ。「何らかの行動をユーザに自然と促すプロダクト」のデザインに焦点をあてており、心のはたらきや認知の特性を理解することから始めている点が、他のユーザ分析・プロダクトデザイン手法を説いた書籍と一線を画す。

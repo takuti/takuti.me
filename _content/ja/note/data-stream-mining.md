@@ -2,11 +2,11 @@
 aliases: [/note/data-stream-mining/]
 categories: [機械学習, コンピュータシステム]
 date: 2015-12-08
-keywords: [データ, スケッチ, 解析, ストリーム, 近似, 性質, 手法, 推定, 計算, 理論]
 lang: ja
+title: ストリームデータ解析の世界
+keywords: [データ, スケッチ, 解析, ストリーム, 近似, 性質, 手法, 推定, 計算, 理論]
 recommendations: [/ja/note/designing-data-intensive-applications/, /ja/note/leakage/,
   /ja/note/trends-in-real-world-recommender-systems-2017/]
-title: ストリームデータ解析の世界
 ---
 
 【**[機械学習アドベントカレンダー2015](http://qiita.com/advent-calendar/2015/machinelearning)** 8日目】

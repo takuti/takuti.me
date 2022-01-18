@@ -2,11 +2,11 @@
 categories: [情報推薦]
 date: 2021-12-05
 images: []
-keywords: [tail, 推薦, アイテム, long, head, short, 多様性, 論文, 指標, 後処理]
 lang: ja
+title: 後処理による人気アイテムの“格下げ”で確保する推薦多様性
+keywords: [tail, 推薦, アイテム, long, head, short, 多様性, 論文, 指標, 後処理]
 recommendations: [/ja/note/recsys-2021-ab-ndcg/, /ja/note/two-decades-of-amazon-recommender/,
   /ja/note/data-skeptic-recommender-systems/]
-title: 後処理による人気アイテムの“格下げ”で確保する推薦多様性
 ---
 
 『[もしも推薦システムの精度と多様性が単一の指標で測れたら](/ja/note/recsys-2021-ab-ndcg/)』で、直近のRecSys 2021で発表された新しい推薦システムの評価指標 <!--email_off-->$\alpha\beta$-$\mathrm{nDCG@}k$<!--/email_off--> を見た。以降、引き続き推薦多様性についてサーベイしているのだけれど、どうやら僕はいきなりエクストリームな論文を読んでしまっていたらしい。

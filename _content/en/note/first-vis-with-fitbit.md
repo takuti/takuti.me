@@ -3,11 +3,11 @@ categories: [Programming, Data Science & Analytics]
 date: 2021-02-03
 images: [/images/first-vis-with-fitbit/sketch.jpeg, /images/first-vis-with-fitbit/active-vs-sleep.png,
   /images/first-vis-with-fitbit/active-vs-sleep-pre.png, /images/first-vis-with-fitbit/active-vs-sleep-post.png]
+lang: en
+title: Practicing D3 Interactive Data Visualization with Fitbit Activity/Sleep Log
 keywords: [sleep, fitbit, active, activity, vis, minutes, sketch, visualization, data,
   correlations]
-lang: en
 recommendations: [/note/datavis-2020/, /note/javascript-save-svg-as-image/, /note/data-leaders-summit-europe-2019/]
-title: Practicing D3 Interactive Data Visualization with Fitbit Activity/Sleep Log
 ---
 
 As I introduced in **[Datavis 2020: A Free Online Course About D3.js & React](/note/end/datavis-2020)**, the online course told me the basics of how to effectively and efficiently create interactive data visualization using D3 and React. 

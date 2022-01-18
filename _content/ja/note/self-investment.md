@@ -1,10 +1,10 @@
 ---
 categories: [エッセイ, 読書記録]
 date: 2020-09-19
-keywords: [安全資産, リスク資産, 投資, 資産, 時間, 分散投資, 原則, リバランス, 長期, 継続]
 lang: ja
-recommendations: [/ja/note/coursera-food-and-health/, /ja/note/deep-work/, /ja/note/will-202102/]
 title: 自己投資の大原則
+keywords: [安全資産, リスク資産, 投資, 資産, 時間, 分散投資, 原則, リバランス, 長期, 継続]
+recommendations: [/ja/note/coursera-food-and-health/, /ja/note/deep-work/, /ja/note/will-202102/]
 ---
 
 みなさん“投資”してますか？まだの方は『[投資の大原則](https://amzn.to/2FgSxeR)』を今すぐ読んで、どうぞ。

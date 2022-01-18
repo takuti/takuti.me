@@ -3,10 +3,10 @@ aliases: [/note/two-decades-of-amazon-recommender/]
 categories: [情報推薦]
 date: 2017-06-10
 images: [/images/jekyll/2014-09-01-amazon.png, /images/recommender/cf.png]
-keywords: [アイテム, 推薦, 購入, 協調フィルタリング, 閲覧, amazon, ユーザ, テレビ, 商品, 本稿]
 lang: ja
-recommendations: [/ja/note/coursera-recommender-systems/, /ja/note/slim/, /ja/note/recsys-2021-ab-ndcg/]
 title: Amazonの推薦システムの20年
+keywords: [アイテム, 推薦, 購入, 協調フィルタリング, 閲覧, amazon, ユーザ, テレビ, 商品, 本稿]
+recommendations: [/ja/note/coursera-recommender-systems/, /ja/note/slim/, /ja/note/recsys-2021-ab-ndcg/]
 ---
 
 [IEEE Internet Computing](https://www.computer.org/csdl/mags/ic/index.html)の2017年5・6月号に "**[Two Decades of Recommender Systems at Amazon.com](https://www.computer.org/csdl/mags/ic/2017/03/mic2017030012.html)**" という記事が掲載された。

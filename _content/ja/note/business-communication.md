@@ -1,11 +1,11 @@
 ---
 categories: [エッセイ]
 date: 2020-12-08
-keywords: [コンサル, 期待値, クライアント, 顧客, 一年, 仕事, コミットメント, 不合理, プロダクト, コントロール]
 lang: ja
+title: プロダクトマネジメントとコンサル、その交差点。
+keywords: [コンサル, 期待値, クライアント, 顧客, 一年, 仕事, コミットメント, 不合理, プロダクト, コントロール]
 recommendations: [/ja/note/customer-centric-marketing/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/product-management-myths/]
-title: プロダクトマネジメントとコンサル、その交差点。
 ---
 
 先日、僭越ながら『**[機械学習エンジニアのキャリアパス。プロダクトマネージャーという選択肢が拓く可能性](https://offers.jp/media/sidejob/workstyle/a_1905)**』という記事を執筆する機会をいただきました。

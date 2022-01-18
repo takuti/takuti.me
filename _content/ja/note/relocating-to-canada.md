@@ -1,11 +1,11 @@
 ---
 categories: [生活・人生]
 date: 2021-02-28
-keywords: [日本, カナダ, 海外, 転籍, 移住, 会社, アメリカ, canada, プロダクトマネージャー, 手続き]
 lang: ja
+title: トレジャーデータ株式会社を退職して Treasure Data (Canada) に入社しました
+keywords: [日本, カナダ, 海外, 転籍, 移住, 会社, アメリカ, canada, プロダクトマネージャー, 手続き]
 recommendations: [/ja/note/one-month-in-canada/, /ja/note/four-months-after-moving-to-canada/,
   /ja/note/td-to-amazon/]
-title: トレジャーデータ株式会社を退職して Treasure Data (Canada) に入社しました
 ---
 
 [大学院を修了してから](/ja/note/master-graduate)4年強の間勤めたトレジャーデータ株式会社を28歳の誕生日（2月25日）付で退職して、翌日から所属がカナダ支社の Treasure Data (Canada)[^1]（以下、TD Canada）になった。

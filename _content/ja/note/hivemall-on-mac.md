@@ -2,10 +2,10 @@
 aliases: [/note/hivemall-on-mac/]
 categories: [機械学習, 情報推薦]
 date: 2017-02-11
-keywords: [hive, hadoop, mac, hivemall, 動かす, 映画, インストール, 推薦, ローカル, ライブラリ]
 lang: ja
-recommendations: [/ja/note/hivemall-on-docker/, /ja/note/recommender-libraries/, /ja/note/hive-fuzzy-search/]
 title: MacのローカルにHivemallを導入してアイテム推薦をするまで
+keywords: [hive, hadoop, mac, hivemall, 動かす, 映画, インストール, 推薦, ローカル, ライブラリ]
+recommendations: [/ja/note/hivemall-on-docker/, /ja/note/recommender-libraries/, /ja/note/hive-fuzzy-search/]
 ---
 
 昨年、Hive向けの機械学習ライブラリ **[Hivemall](https://hivemall.incubator.apache.org/)** が[Apache Software Foundationのincubatorプロジェクトになった](http://itpro.nikkeibp.co.jp/atcl/column/15/061500148/100300084/)。[Treasure Dataがオフィシャルでサポートしている](https://docs.treasuredata.com/articles/hive-hivemall)ということもあり、名前くらいは聞いたことがあるという人も多いと思う。

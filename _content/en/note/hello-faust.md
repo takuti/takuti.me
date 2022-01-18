@@ -2,12 +2,12 @@
 categories: [Recommender Systems, Programming]
 date: 2019-01-14
 images: [/images/recommender/incremental-recommendation.png]
-keywords: [recommendation, stream, incremental, flurs, engine, faust, streams, python,
-  user, items]
 lang: en
-recommendations: [/note/flurs/, /note/recommendation-julia/, /note/ethical-challenges-in-recommender-systems/]
 title: Feeding User-Item Interactions to Python-Based Streaming Recommendation Engine
   via Faust
+keywords: [recommendation, stream, incremental, flurs, engine, faust, streams, python,
+  user, items]
+recommendations: [/note/flurs/, /note/recommendation-julia/, /note/ethical-challenges-in-recommender-systems/]
 ---
 
 *Streaming recommendation* is one of the most challenging topics in the field of recommender systems. The task requires recommendation engine to incrementally and promptly update recommendation model as new user-item interaction comes in to data streams (e.g., click, purchase, watch). I previously [studied such incremental recommendation techniques](https://arxiv.org/abs/1607.02858), and eventually published a Python library named **[FluRS](https://github.com/takuti/flurs)** to make their implementation and evaluation easier.

@@ -2,10 +2,10 @@
 aliases: [/note/hive-fuzzy-search/]
 categories: [プログラミング, 自然言語処理]
 date: 2017-08-20
-keywords: [fuzzy, postgresql, search, hive, mapreduce, 試し, 発音, 先週, soundex, sample]
 lang: ja
-recommendations: [/ja/note/hivemall-on-mac/, /ja/note/postgresql-fuzzy-search/, /ja/note/why-spark/]
 title: HiveでテキストのFuzzy Search
+keywords: [fuzzy, postgresql, search, hive, mapreduce, 試し, 発音, 先週, soundex, sample]
+recommendations: [/ja/note/hivemall-on-mac/, /ja/note/postgresql-fuzzy-search/, /ja/note/why-spark/]
 ---
 
 先週は[PostgreSQL上でテキストのFuzzy Searchを試した](/note/postgresql-fuzzy-search)。そのときは [fuzzystrmatch](https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html) や [pg_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) といったモジュールが活躍していた。

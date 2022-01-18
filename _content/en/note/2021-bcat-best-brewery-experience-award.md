@@ -2,12 +2,12 @@
 categories: [Life & Work]
 date: 2021-09-06
 images: [/images/2021-bcat-best-brewery-experience-award/herald_street_brew.jpeg]
+lang: en
+title: 'Voting for 2021 #BCAleTrail Best Brewery Experience Award'
 keywords: [brewery, brewing, breweries, award, kettle, experience, brew, beer, street,
   herald]
-lang: en
 recommendations: [/note/unusual-drinking-and-eating-habits/, /note/relocating-to-canada/,
   /note/annual-review-2021/]
-title: 'Voting for 2021 #BCAleTrail Best Brewery Experience Award'
 ---
  
 As a foreign worker who has been in the country only for half a year, there is nothing much to say about the ongoing Canadian federal election campaign. But don't worry, we have yet another voting opportunity: **[2021 BC Ale Trail Best Brewery Experience Award](https://bcaletrail.ca/2021-bcat-best-brewery-experience-award/)**.

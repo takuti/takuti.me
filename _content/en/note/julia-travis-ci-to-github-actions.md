@@ -1,11 +1,11 @@
 ---
 categories: [Programming]
 date: 2021-03-06
+lang: en
+title: 'Moving Julia Project from Travis CI to GitHub Actions #JuliaLang'
 keywords: [julia, travis, project, github, actions, workflows, undergone, tokenize,
   tagbot, statistics]
-lang: en
 recommendations: [/note/juliacon-2019/, /note/recommendation-julia-documenter/, /note/travis-gh-pages-deployment/]
-title: 'Moving Julia Project from Travis CI to GitHub Actions #JuliaLang'
 ---
 
 Thanks to a pull-request "[Install TagBot as a GitHub Action](https://github.com/takuti/Recommendation.jl/pull/12)", which was created by a bot, I realized now is the time to move one of my Julia projects, [Recommendation.jl](https://github.com/takuti/Recommendation.jl), from Travis CI to GitHub Actions.

@@ -1,11 +1,11 @@
 ---
 categories: [生活・人生]
 date: 2021-06-19
-keywords: [山岳, mountains, 生活, コース, 生きる, 氷河, environmental, カナダ, 原子力発電, disaster]
 lang: ja
+title: 「山」を通して考える持続可能性─Courseraの"Mountains 101"を受講して
+keywords: [山岳, mountains, 生活, コース, 生きる, 氷河, environmental, カナダ, 原子力発電, disaster]
 recommendations: [/ja/note/sustainable-capitalism/, /ja/note/capitalism-in-anthropocene/,
   /ja/note/2021/]
-title: 「山」を通して考える持続可能性─Courseraの"Mountains 101"を受講して
 ---
 
 [バンクーバーに移住してから](/ja/note/relocating-to-canada/)4ヶ月弱。特筆すべきは、都市部の利便性を損なわずに自然に囲まれた生活を送ることのできる素晴らしさだろう。公園や遊歩道が多く、日々の散歩やランニングにさえ今までにない充実感を覚えるし、山でのアクティビティにも事欠かない。知り合う人がもれなく何らかのアウトドア趣味を持っているのも印象的で、コロナ禍で行動が制限された昨年の夏は、専門店で品薄が相次いだと友人が言っていた。

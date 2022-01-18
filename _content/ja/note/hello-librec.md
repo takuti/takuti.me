@@ -2,11 +2,11 @@
 aliases: [/note/hello-librec/]
 categories: [情報推薦, プログラミング]
 date: 2017-04-23
-keywords: [librec, 推薦, ライブラリ, アルゴリズム, julia, flurs, 実装, recommendation, プロジェクト, 思い返す]
 lang: ja
+title: Java製の推薦システム用ライブラリ LibRec を動かしてみる
+keywords: [librec, 推薦, ライブラリ, アルゴリズム, julia, flurs, 実装, recommendation, プロジェクト, 思い返す]
 recommendations: [/ja/note/recommender-libraries/, /ja/note/trends-in-real-world-recommender-systems-2017/,
   /ja/note/data-skeptic-recommender-systems/]
-title: Java製の推薦システム用ライブラリ LibRec を動かしてみる
 ---
 
 **[LibRec](http://www.librec.net/)** というJava製の推薦システム用ライブラリがある。

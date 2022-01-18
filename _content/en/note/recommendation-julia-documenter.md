@@ -1,11 +1,11 @@
 ---
 categories: [Recommender Systems, Programming]
 date: 2019-03-31
+lang: en
+title: Publishing My Master's Thesis with Documenter.jl
 keywords: [julia, documentation, documenter, recommendation, thesis, docs, filtering,
   website, mas, techniques]
-lang: en
 recommendations: [/note/juliacon-2019/, /note/recommendation-julia/, /note/julia-travis-ci-to-github-actions/]
-title: Publishing My Master's Thesis with Documenter.jl
 ---
 
 When I was a master's student, I had developed [Recommendation.jl](https://github.com/takuti/Recommendation.jl), a collection of well-known recommendation techniques written in Julia:

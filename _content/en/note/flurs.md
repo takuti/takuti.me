@@ -1,11 +1,11 @@
 ---
 categories: [Recommender Systems, Machine Learning, Programming]
 date: 2017-01-21
+lang: en
+title: 'FluRS: A Python Library for Online Item Recommendation'
 keywords: [library, flurs, recommendation, feature, techniques, recommenders, julia,
   implementing, ready, event]
-lang: en
 recommendations: [/note/hello-faust/, /note/recommendation-julia/, /note/recommendation-julia-documenter/]
-title: 'FluRS: A Python Library for Online Item Recommendation'
 ---
 
 Last week, I introduced a Julia package for recommender systems: [Recommendation.jl: Building Recommender Systems in Julia](http://takuti.me/note/recommendation-julia/).

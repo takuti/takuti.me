@@ -2,10 +2,10 @@
 categories: [コンピュータシステム, データサイエンス, 機械学習]
 date: 2021-12-19
 images: []
-keywords: [airflow, aws, mwaa, オペレーター, apache, emr, ワークフロー, モニタリング, ロギング, リリース]
 lang: ja
-recommendations: [/ja/note/the-amazon-way-on-iot/, /ja/note/why-spark/, /ja/note/amazon-dynamo-paper/]
 title: AWSのマネージドAirflow "MWAA" 所感
+keywords: [airflow, aws, mwaa, オペレーター, apache, emr, ワークフロー, モニタリング, ロギング, リリース]
+recommendations: [/ja/note/the-amazon-way-on-iot/, /ja/note/why-spark/, /ja/note/amazon-dynamo-paper/]
 ---
 
 [Google Cloud Composer](https://cloud.google.com/composer/docs/concepts/overview)のリリース（2018年7月19日GA）から遅れること2年数ヶ月、AWSは2020年11月24日に **Managed Workflows for Apache Airflow** (**MWAA**) をリリースした。

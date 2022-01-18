@@ -1,12 +1,12 @@
 ---
 categories: [Machine Learning]
 date: 2015-04-21
+lang: en
+title: How to Derive the Normal Equation
 keywords: [equation, regression, derivation, linear, normal, derive, explain, optimal,
   details, model]
-lang: en
 recommendations: [/note/hugo-kramdown-and-katex/, /note/machine-learning-product/,
   /note/mlss-kyoto-2015/]
-title: How to Derive the Normal Equation
 ---
 
 In the linear regression tasks, the normal equation is widely used to find optimal parameters. However, [Pattern Recognition and Machine Learning](http://www.springer.com/gp/book/9780387310732) (RPML), one of the most popular machine learning textbooks, does not explain details of the derivation process. So, this article demonstrates how to derive the equation.

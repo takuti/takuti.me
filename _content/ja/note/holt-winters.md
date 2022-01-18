@@ -3,10 +3,10 @@ aliases: [/note/holt-winters/]
 categories: [機械学習, プログラミング]
 date: 2017-08-26
 images: [/images/holt-winters/series.png, /images/holt-winters/triple_smoothing.png]
-keywords: [winters, holt, 予測, smooth, method, triple, 返し, 周期, 手法, データ]
 lang: ja
-recommendations: [/ja/note/attribution/, /ja/note/yahoo-egads/, /ja/note/data-stream-mining/]
 title: 異常検知のための未来予測：オウム返し的手法からHolt-Winters Methodまで
+keywords: [winters, holt, 予測, smooth, method, triple, 返し, 周期, 手法, データ]
+recommendations: [/ja/note/attribution/, /ja/note/yahoo-egads/, /ja/note/data-stream-mining/]
 ---
 
 **Holt-Winters Method**（別名: **Triple Exponential Smoothing**）というデータの予測手法がある。これについて[素晴らしい解説記事](https://grisha.org/blog/2016/01/29/triple-exponential-smoothing-forecasting/)があるので読みながら実装していた。

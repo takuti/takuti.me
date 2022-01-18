@@ -2,11 +2,11 @@
 aliases: [/note/coursera-scala-specialization/]
 categories: [プログラミング]
 date: 2017-10-28
+lang: ja
+title: Courseraの"Functional Programming in Scala Specialization"を修了した
 keywords: [scala, programming, spark, rdd, parallel, functional, 課題, 並列, dataframe,
   コレクション]
-lang: ja
 recommendations: [/ja/note/why-spark/, /ja/note/python-concurrent-futures/, /ja/note/coursera-ui-ux-specialization/]
-title: Courseraの"Functional Programming in Scala Specialization"を修了した
 ---
 
 ここ1年くらい暇を見つけてちまちまと遊んでいたCourseraの "**[Functional Programming in Scala Specialization](https://www.coursera.org/specializations/scala)**" という一連のプログラムを修了した。

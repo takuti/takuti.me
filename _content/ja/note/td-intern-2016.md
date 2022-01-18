@@ -3,11 +3,11 @@ aliases: [/note/td-intern-2016/]
 categories: [機械学習]
 date: 2016-10-04
 images: [/images/td/hivemall-icon.png, /images/td/dd-anomaly.png]
+lang: ja
+title: 'Treasure Dataインターンにみる機械学習のリアル #td_intern'
 keywords: [インターン, datadog, メトリクス, hivemall, changefinder, treasure, 異常検知, 機械学習, 実装,
   同席]
-lang: ja
 recommendations: [/ja/note/master-graduate/, /ja/note/yahoo-egads/, /ja/note/hello-librec/]
-title: 'Treasure Dataインターンにみる機械学習のリアル #td_intern'
 ---
 
 8月1日から9月30日まで、大学院の同期で小学生時代は落ち着きがなかった [@ganmacs](https://twitter.com/ganmacs) と、小学校の給食ではソフト麺が出なかった [@amaya382](https://twitter.com/amaya382) と一緒に **Treasure Data** (TD) **Summer Internship** に参加した。

@@ -1,11 +1,11 @@
 ---
 categories: [Programming]
 date: 2021-09-04
+lang: en
+title: Save HTML <svg> as an Image
 keywords: [image, svg, download, canvas, save, html, visualization, todataurl, snippet,
   blob]
-lang: en
 recommendations: [/note/flight-emissions/, /note/first-vis-with-fitbit/, /note/datavis-2020/]
-title: Save HTML <svg> as an Image
 ---
 
 After playing with [interactive data visualization using D3.js and React](/note/datavis-2020/), I wanted to have a "Download" function so that I can easily save the visualization as an image rather than taking a screenshot of a browser window:

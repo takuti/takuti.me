@@ -3,11 +3,11 @@ aliases: [/note/adjusting-for-oversampling-and-undersampling/]
 categories: [機械学習]
 date: 2017-11-04
 images: [/images/misc/oversampling_and_undersampling.jpg]
+lang: ja
+title: Over-/Under-samplingをして学習した2クラス分類器の予測確率を調整する式
 keywords: [oversampling, undersampling, サンプル, クラス, 分類, 予測, 確率, imbalanced, downsampling,
   rate]
-lang: ja
 recommendations: [/ja/note/auc/, /ja/note/acroquest-javabook/, /ja/note/holt-winters/]
-title: Over-/Under-samplingをして学習した2クラス分類器の予測確率を調整する式
 ---
 
 不均衡データ (**imbalanced data**) からクラス分類を行うとき、マイナーなクラスに属するサンプルの **oversampling** や、メジャーなクラスに属するサンプルの **undersampling** (downsampling とも) が大切（cf.『[不均衡データのクラス分類](https://www.slideshare.net/sfchaos/ss-11307051)』）：

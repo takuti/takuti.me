@@ -2,11 +2,11 @@
 categories: [Conference, Machine Learning]
 date: 2019-10-26
 images: [/images/apachecon-2019/takuti.jpg]
+lang: en
+title: 'ApacheCon 2019 North America #ACNA19 & Europe #ACEU19'
 keywords: [apachecon, apache, iot, hivemall, projects, community, beam, talk, cdp,
   america]
-lang: en
 recommendations: [/note/iotswc-2019/, /note/hivemall-events-2018-autumn/, /note/hivemall-pyspark/]
-title: 'ApacheCon 2019 North America #ACNA19 & Europe #ACEU19'
 ---
 
 As a committer/PPMC of [Apache Hivemall](https://github.com/apache/incubator-hivemall) (incubating), I have attended and presented at [ApacheCon North America](https://www.apachecon.com/acna19/) and [ApacheCon Europe](https://aceu19.apachecon.com). 

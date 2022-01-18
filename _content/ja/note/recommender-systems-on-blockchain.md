@@ -1,11 +1,11 @@
 ---
 categories: [情報推薦, 機械学習]
 date: 2021-07-03
-keywords: [ブロックチェーン, 推薦, システム, smart, contract, トランザクション, blockchain, 文献, 行動, 実行]
 lang: ja
+title: 推薦システムとブロックチェーン
+keywords: [ブロックチェーン, 推薦, システム, smart, contract, トランザクション, blockchain, 文献, 行動, 実行]
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/trends-in-real-world-recommender-systems-2017/,
   /ja/note/recommender-libraries/]
-title: 推薦システムとブロックチェーン
 ---
 
 P2Pネットワーク上の“信用”を担保したトランザクションの記録とそれに対する計算処理の実行 &mdash; "**[What Blockchain Brings to Real-World Applications](/note/coursera-blockchain-specialization/)**" でまとめたように、ブロックチェーン技術によって拡がるアプリケーションの可能性は未知数であり、その議論は[暗号通貨](/note/cryptocurrency/)に留まらない。

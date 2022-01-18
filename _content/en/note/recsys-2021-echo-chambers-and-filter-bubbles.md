@@ -1,12 +1,12 @@
 ---
 categories: [Recommender Systems]
 date: 2021-11-24
-keywords: [echo, misinformation, chamber, bubbles, user, chambers, filter, graph,
-  embedding, recommending]
 lang: en
-recommendations: [/note/recsys-2021/, /note/the-power-of-diverse-thinking/, /note/ethical-challenges-in-recommender-systems/]
 title: How Can Recommender Systems Contribute to Mitigate Echo Chambers and Filter
   Bubbles?
+keywords: [echo, misinformation, chamber, bubbles, user, chambers, filter, graph,
+  embedding, recommending]
+recommendations: [/note/recsys-2021/, /note/the-power-of-diverse-thinking/, /note/ethical-challenges-in-recommender-systems/]
 ---
  
 As I summarized in "[User-Centricity Matters: My Reading List from RecSys 2021](/note/recsys-2021/)", the field of recommender systems has clearly entered a new phase of research trend that focuses more on their downstream impact, and it is particularly interesting to see that RecSys 2021 had a dedicated session called *Echo Chambers and Filter Bubbles* with three of the following papers:

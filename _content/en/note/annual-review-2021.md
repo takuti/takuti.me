@@ -1,11 +1,11 @@
 ---
 categories: [Life & Work]
 date: 2021-12-26
+lang: en
+title: 'My 2021 Annual Review: A Year of Divergence (And Slowly Started Converging)'
 keywords: [note, year, product, identity, aligned, sustainability, traveler, lot,
   learning, travel]
-lang: en
 recommendations: [/note/atomic-habits/, /note/td-to-amazon/, /note/ethical-product-developer/]
-title: 'My 2021 Annual Review: A Year of Divergence (And Slowly Started Converging)'
 ---
  
 First of all, I'd like to thank everyone who has read my blog posts this year and commented on LinkedIn, Twitter, or even during a virtual/in-person chat. Your perspective mattered a lot, and I was able to effectively clarify, solidify, and sometimes refine my personal ideas as a result of these interactions. Thank you.

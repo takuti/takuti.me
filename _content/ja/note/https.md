@@ -2,10 +2,10 @@
 aliases: [/note/https/]
 categories: [プログラミング]
 date: 2017-02-04
-keywords: [https化, 発行, nginx, certbot, 証明書, サイト, 残ら, 権限, 旧名, wget]
 lang: ja
-recommendations: [/ja/note/one-month-in-canada/, /ja/note/why-spark/, /ja/note/hello-jekyll/]
 title: サイトをHTTPSにした
+keywords: [https化, 発行, nginx, certbot, 証明書, サイト, 残ら, 権限, 旧名, wget]
+recommendations: [/ja/note/one-month-in-canada/, /ja/note/why-spark/, /ja/note/hello-jekyll/]
 ---
 
 今はとてもいい時代なので **[Let's Encrypt](https://letsencrypt.org/)** が無料でSSL証明書を発行してくれる。というわけで、サイトのHTTPS化を行った。

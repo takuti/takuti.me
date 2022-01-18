@@ -1,10 +1,10 @@
 ---
 categories: [Life & Work]
 date: 2021-05-21
-keywords: [coffee, decaf, drinking, drink, eat, protein, meat, beer, food, caffeine]
 lang: en
-recommendations: [/note/stop-drinking-alone/, /note/sustainable-diets/, /note/working-from-home-202004/]
 title: 'Unusual Drinking & Eating Habits: Non-Alcohol, Decaf, Flexitarian'
+keywords: [coffee, decaf, drinking, drink, eat, protein, meat, beer, food, caffeine]
+recommendations: [/note/stop-drinking-alone/, /note/sustainable-diets/, /note/working-from-home-202004/]
 ---
 
 It's been almost 3 months after [moving to Canada](/note/relocating-to-canada/). Overall, Vancouver is a too good place to live because of its coffee, craft beer, and food culture. There are so many breweries, cafes, and restaurants we can enjoy drinking and eating, and my alcohol and caffeine intake have clearly been increased since I came to the country.

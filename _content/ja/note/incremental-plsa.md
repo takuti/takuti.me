@@ -2,11 +2,11 @@
 aliases: [/note/incremental-plsa/]
 categories: [情報推薦, 自然言語処理, 機械学習]
 date: 2017-06-04
-keywords: [plsa, 質問, 推薦, incremental, ユーザ, 短期, 文書, negative, トピック, positive]
 lang: ja
+title: Q&Aサイトにおける質問推薦、そして Incremental Probabilistic Latent Semantic Analysis
+keywords: [plsa, 質問, 推薦, incremental, ユーザ, 短期, 文書, negative, トピック, positive]
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/trends-in-real-world-recommender-systems-2017/,
   /ja/note/two-decades-of-amazon-recommender/]
-title: Q&Aサイトにおける質問推薦、そして Incremental Probabilistic Latent Semantic Analysis
 ---
 
 トピックモデリングの一手法として有名な **Probabilistic Latent Semantic Analysis (PLSA)** を incremental（逐次更新可能, オンライン型）アルゴリズムに拡張して、Yahoo!知恵袋のようなQ&Aサイトの質問推薦に応用した論文を読んだ：

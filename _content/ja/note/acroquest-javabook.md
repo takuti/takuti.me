@@ -2,11 +2,11 @@
 aliases: [/note/acroquest-javabook/]
 categories: [読書記録, プログラミング]
 date: 2017-12-01
-keywords: [クラス, インスタンス, オブジェクト, メソッド, synchronized, 処理, 変数, 例外, 文字列, 同期]
 lang: ja
+title: 『Java本格入門』メモ
+keywords: [クラス, インスタンス, オブジェクト, メソッド, synchronized, 処理, 変数, 例外, 文字列, 同期]
 recommendations: [/ja/note/adjusting-for-oversampling-and-undersampling/, /ja/note/python-concurrent-futures/,
   /ja/note/why-spark/]
-title: 『Java本格入門』メモ
 ---
 
 来月、ついに長い沈黙を破ってEffective Javaの第3版が発売される：**[Effective Java (3rd Edition)](https://www.amazon.co.jp/Effective-Java-3rd-Joshua-Bloch/dp/0134685997)**

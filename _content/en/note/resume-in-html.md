@@ -2,11 +2,11 @@
 categories: [Programming]
 date: 2020-11-28
 images: [/images/resume-in-html/resume-latex.png, /images/resume-in-html/resume-html.png]
+lang: en
+title: Are You Still Writing a Resume in Word/LaTeX?
 keywords: [resume, html, latex, writing, web, pdf, website, customizability, icons,
   tex]
-lang: en
 recommendations: [/note/why-job-title-matters/, /note/hugo-kramdown-and-katex/, /note/umap-2019/]
-title: Are You Still Writing a Resume in Word/LaTeX?
 ---
 
 Over the past few years, I have been using LaTeX for writing a resume. 

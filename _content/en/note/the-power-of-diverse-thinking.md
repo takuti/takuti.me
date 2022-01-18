@@ -4,14 +4,14 @@ date: 2022-01-16
 lang: en
 title: '"Diversity" Means More Than What We Typically Think'
 audio: [/audio/the-power-of-diverse-thinking.mp3]
-keywords: [diversification, diversity, diverse, body, bubbles, filter, user, echo,
-  chambers, voices]
-recommendations: [/note/recsys-2021-echo-chambers-and-filter-bubbles/, /note/recsys-2021/,
-  /note/ethical-challenges-in-recommender-systems/]
 images: [/images/the-power-of-diverse-thinking/similar-vs-diverse.png]
 summary: It clearly goes beyond how it's been normally discussed in business, and
   that's why my recent interest is outside of traditional accuracy/business metrics
   that we can "easily" optimize.
+keywords: [diversification, diversity, diverse, body, bubbles, filter, user, echo,
+  chambers, voices]
+recommendations: [/note/recsys-2021-echo-chambers-and-filter-bubbles/, /note/recsys-2021/,
+  /note/ethical-challenges-in-recommender-systems/]
 ---
 
 My recent reading of "[The Power of Diverse Thinking](https://www.amazon.com/Rebel-Ideas-Power-Diverse-Thinking-ebook/dp/B088DRDNN5/)" was eye-opening, and one of the key takeaways was "**we won't realize the benefit of diversity until it's actually diversified**."

@@ -1,11 +1,11 @@
 ---
 categories: [Life & Work]
 date: 2017-01-07
+lang: en
+title: 'My New Year''s Resolution 2017: Write an Article Every Week'
 keywords: [articles, skills, writing, books, professional, months, write, read, commits,
   april]
-lang: en
 recommendations: [/note/hello-english/, /note/annual-review-2021/, /note/coursera-scala-capstone/]
-title: 'My New Year''s Resolution 2017: Write an Article Every Week'
 ---
 
 In this year, I focus on writing more and more articles on this blog. In particular, I write an article every week; **52** articles should be published until the end of 2017. Each post probably describes what I have created, read, and experienced in a week. Note that the articles will be written both in Japanese and English depending on the contents.

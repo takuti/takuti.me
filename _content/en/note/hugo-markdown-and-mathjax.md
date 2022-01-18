@@ -1,12 +1,12 @@
 ---
 categories: [Programming]
 date: 2015-10-19
+lang: en
+title: 'Migrate to Hugo from Jekyll: Another Solution for the MathJax+Markdown Issue'
 keywords: [hugo, markdown, site, mathjax, kramdown, jekyll, spf, issue, correctly,
   mixed]
-lang: en
 recommendations: [/note/hugo-kramdown-and-katex/, /note/travis-gh-pages-deployment/,
   /note/move-to-gh-pages/]
-title: 'Migrate to Hugo from Jekyll: Another Solution for the MathJax+Markdown Issue'
 ---
 
 ### Migrate to Hugo from Jekyll

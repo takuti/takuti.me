@@ -1,12 +1,12 @@
 ---
 categories: [Programming]
 date: 2021-06-05
+lang: en
+title: Understanding Array Bisection Algorithm
 keywords: [arr, sorted, array, method, val, insertion, bisection, sequentially, queue,
   heap]
-lang: en
 recommendations: [/note/recommendation-julia/, /note/coursera-supply-chain-management/,
   /note/flurs/]
-title: Understanding Array Bisection Algorithm
 ---
 
 Given a sorted array `arr`, **[Array Bisection Algorithm](https://en.wikipedia.org/wiki/Bisection_method)** (a.k.a. Bisection Method, Binary Search Method) enables us to find an insertion point `i` for a new element `val` such that `arr[i-1] < val <= arr[i]` (or, `arr[i] < val <= arr[i+1]`).

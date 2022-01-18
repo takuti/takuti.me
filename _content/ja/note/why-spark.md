@@ -4,11 +4,11 @@ categories: [コンピュータシステム, プログラミング]
 date: 2017-04-09
 images: [/images/why-spark/top-paying-tech.png, /images/why-spark/lr-iterations.png,
   /images/why-spark/coffee.png, /images/why-spark/trend.png]
-keywords: [spark, 処理, scala, インメモリ, hadoop, データ, データサイエンス, ディスク, ノード, mapreduce]
 lang: ja
+title: なぜSparkか
+keywords: [spark, 処理, scala, インメモリ, hadoop, データ, データサイエンス, ディスク, ノード, mapreduce]
 recommendations: [/ja/note/coursera-scala-specialization/, /ja/note/dynamo-style/,
   /ja/note/data-stream-mining/]
-title: なぜSparkか
 ---
 
 今週から Coursera の [Big Data Analysis with Scala and Spark](https://www.coursera.org/learn/scala-spark-big-data) を受講している。その初回で出てきた "*Why Scala? Why Spark?*" に関する議論をざっくりとまとめる。（導入なので『RDDとは』みたいな話はしない）

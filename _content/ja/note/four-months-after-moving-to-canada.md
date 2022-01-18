@@ -1,10 +1,10 @@
 ---
 categories: [生活・人生, エッセイ]
 date: 2021-06-27
-keywords: [canada, カナダ, 自分, サイコー, note, 移住, ヶ月, 日本, アイデンティティ, 感覚]
 lang: ja
-recommendations: [/ja/note/relocating-to-canada/, /ja/note/one-month-in-canada/, /ja/note/td-to-amazon/]
 title: 過去の自分に救われる。
+keywords: [canada, カナダ, 自分, サイコー, note, 移住, ヶ月, 日本, アイデンティティ, 感覚]
+recommendations: [/ja/note/relocating-to-canada/, /ja/note/one-month-in-canada/, /ja/note/td-to-amazon/]
 ---
 
 早いもので、カナダ移住から4ヶ月が経過した。

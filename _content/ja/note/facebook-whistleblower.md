@@ -1,10 +1,10 @@
 ---
 categories: [エッセイ]
 date: 2021-10-09
-keywords: [プロダクト, facebook, 証言, 公聴会, ソフトウェア, sns, 開発, システム障害, アルゴリズム, テック]
 lang: ja
-recommendations: [/ja/note/empowered/, /ja/note/hooked-design/, /ja/note/product-management-myths/]
 title: Facebook内部告発の件、他人事ではない。
+keywords: [プロダクト, facebook, 証言, 公聴会, ソフトウェア, sns, 開発, システム障害, アルゴリズム, テック]
+recommendations: [/ja/note/empowered/, /ja/note/hooked-design/, /ja/note/product-management-myths/]
 ---
 
 テック系メディアの枠を超えた幅広い媒体での連日の報道を見て、何やらとんでもなく歴史的な瞬間に立ち会っているような気分になってきた。興奮さめやらぬうちに、個人的に思ったことを書き留めておく。

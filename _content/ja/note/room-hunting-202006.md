@@ -1,10 +1,10 @@
 ---
 categories: [エッセイ]
 date: 2020-07-05
-keywords: [東京, 新幹線, 三島, 地図, 自分, まっさら, 探し, 理由, 通勤, 日本地図]
 lang: ja
-recommendations: [/ja/note/oyo-life-202007/, /ja/note/oyo-life-202010/, /ja/note/relocating-to-canada/]
 title: まっさらな地図を手に入れた
+keywords: [東京, 新幹線, 三島, 地図, 自分, まっさら, 探し, 理由, 通勤, 日本地図]
+recommendations: [/ja/note/oyo-life-202007/, /ja/note/oyo-life-202010/, /ja/note/relocating-to-canada/]
 ---
 
 旅を繰り返し、自分だけの地図を塗りつぶしていく感覚。実績解除の瞬間はいつも気持ちがいい。

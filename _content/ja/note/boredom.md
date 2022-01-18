@@ -1,11 +1,11 @@
 ---
 categories: [読書記録]
 date: 2021-02-08
-keywords: [退屈, 気晴らし, 消費, 興奮, 浪費, mdash, 獲得, 状態, 倫理学, 冒険]
 lang: ja
+title: 退屈な毎日の彩り方─『暇と退屈の倫理学』の理論と実践
+keywords: [退屈, 気晴らし, 消費, 興奮, 浪費, mdash, 獲得, 状態, 倫理学, 冒険]
 recommendations: [/ja/note/humanity-and-economy/, /ja/note/the-gifts-in-the-world/,
   /ja/note/2021/]
-title: 退屈な毎日の彩り方─『暇と退屈の倫理学』の理論と実践
 ---
 
 2020年はやたらと國分功一郎・著『[暇と退屈の倫理学](https://amzn.to/39SCobR)』の引用を見聞きする機会が多かったように思う。

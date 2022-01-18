@@ -4,11 +4,11 @@ categories: [情報推薦, イベント参加記]
 date: 2016-09-28
 images: [/images/recsys-2016/welcome.jpg, /images/recsys-2016/beer.jpg, /images/recsys-2016/museum.jpg,
   /images/recsys-2016/view.jpg]
-keywords: [会議, ボランティア, 学生, recsys, ワークショップ, 推薦, 発表, トップ, 本会議, セッション]
 lang: ja
+title: '推薦システムのトップ会議RecSys2016に参加した #recsys2016'
+keywords: [会議, ボランティア, 学生, recsys, ワークショップ, 推薦, 発表, トップ, 本会議, セッション]
 recommendations: [/ja/note/master-graduate/, /ja/note/trends-in-real-world-recommender-systems-2017/,
   /ja/note/data-skeptic-recommender-systems/]
-title: '推薦システムのトップ会議RecSys2016に参加した #recsys2016'
 ---
 
 推薦システムのトップ会議 [RecSys2016](https://recsys.acm.org/recsys16/) が9月15日から19日までアメリカのボストンで開催され、ワークショップ発表者＆学生ボランティアとして参加してきた。これまで学会発表はひとりで行くことが多く、今回も例外ではなかったが、ボランティアのおかげで他の学生との交流や伝説的な研究者との接触が多くてとても楽しめた。みんなもやると良いと思う。

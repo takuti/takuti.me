@@ -1,10 +1,10 @@
 ---
 categories: [デザイン, 読書記録, データサイエンス]
 date: 2020-05-16
-keywords: [認知科学, 行動経済学, ジョブ, コンテクスト, ストーリー, デザイン, 不合理, プロダクト, 説明, 人間]
 lang: ja
-recommendations: [/ja/note/hooked-design/, /ja/note/business-communication/, /ja/note/design-engineer/]
 title: データよりもストーリーを、相関よりも因果を。
+keywords: [認知科学, 行動経済学, ジョブ, コンテクスト, ストーリー, デザイン, 不合理, プロダクト, 説明, 人間]
+recommendations: [/ja/note/hooked-design/, /ja/note/business-communication/, /ja/note/design-engineer/]
 ---
 
 Netflixの "[Inside Bill's Brain](https://www.netflix.com/title/80184771)" で [Think Week](https://www.cnbc.com/2019/07/26/bill-gates-took-solo-think-weeks-in-a-cabin-in-the-woods.html) に入るビル・ゲイツの映像を見た。これに影響されて、今年のゴールデンウィークは家にこもり、スマホとPCの電源を完全に切って本を読み込んでいた。

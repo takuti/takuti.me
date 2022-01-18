@@ -1,11 +1,11 @@
 ---
 categories: [Machine Learning, Programming]
 date: 2019-03-24
+lang: en
+title: Apache Hivemall in PySpark
 keywords: [hivemall, spark, colabo, training, pyspark, prediction, python, udfs, jointly,
   instructions]
-lang: en
 recommendations: [/note/hivemall-events-2018-autumn/, /note/apachecon-2019/, /note/pyconjp-2015/]
-title: Apache Hivemall in PySpark
 ---
 
 [Apache Hivemall](https://github.com/apache/incubator-hivemall/), a collection of machine-learning-related Hive user-defined functions (UDFs), offers Spark integration as documented [here](https://hivemall.incubator.apache.org/userguide/spark/getting_started/installation.html). Now, we will see how it works in [PySpark](https://spark.apache.org/docs/2.2.0/api/python/index.html).

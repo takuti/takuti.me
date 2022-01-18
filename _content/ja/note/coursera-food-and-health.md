@@ -1,10 +1,10 @@
 ---
 categories: [生活・人生]
 date: 2020-09-26
-keywords: [資産, 脂質, 炭水化物, 食事, 身体, 野菜, ヘルシー, タンパク質, キロカロリー, バランス]
 lang: ja
-recommendations: [/ja/note/self-investment/, /ja/note/will-202102/, /ja/note/mountains-101/]
 title: 食と栄養について学んでいる。
+keywords: [資産, 脂質, 炭水化物, 食事, 身体, 野菜, ヘルシー, タンパク質, キロカロリー, バランス]
+recommendations: [/ja/note/self-investment/, /ja/note/will-202102/, /ja/note/mountains-101/]
 ---
 
 こんにちは、「自粛期間で痩せた」系の話の大半は「外食が減って脂質の摂取量が抑えられたから」が本質ではないかと思っています。私です。

@@ -2,12 +2,12 @@
 audio: [/audio/recommendation-julia-v040.mp3]
 categories: [Recommender Systems, Programming]
 date: 2022-01-08
-keywords: [recommendation, julia, machines, factorization, scientifictypes, types,
-  proper, missing, general, implemented]
 lang: en
-recommendations: [/note/recommendation-julia/, /note/juliacon-2019/, /note/recommendation-julia-documenter/]
 title: 'Recommendation.jl v0.4.0: Working with Missing Values, Data Typing, and Factorization
   Machines'
+keywords: [recommendation, julia, machines, factorization, scientifictypes, types,
+  proper, missing, general, implemented]
+recommendations: [/note/recommendation-julia/, /note/juliacon-2019/, /note/recommendation-julia-documenter/]
 ---
 
 This week I have released [version 0.4.0 of Recommendation.jl](https://github.com/takuti/Recommendation.jl/releases/tag/v0.4.0), a library for recommender systems in Julia. As usual, you can get the package from the Julia centralized package repository and play with it as follows:

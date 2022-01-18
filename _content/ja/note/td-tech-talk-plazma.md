@@ -2,10 +2,10 @@
 aliases: [/note/td-tech-talk-plazma/]
 categories: [機械学習, 自然言語処理, イベント参加記]
 date: 2018-02-25
-keywords: [internal, 機械学習, 聴衆, talk, plazma, day, 自然言語処理, 動く, アルゴリズム, お話]
 lang: ja
-recommendations: [/ja/note/algorithmic-marketing/, /ja/note/2020/, /ja/note/trends-in-real-world-recommender-systems-2017/]
 title: 'Hivemall, Digdag, 自然言語処理, 機械学習などについて話しました #tdtech'
+keywords: [internal, 機械学習, 聴衆, talk, plazma, day, 自然言語処理, 動く, アルゴリズム, お話]
+recommendations: [/ja/note/algorithmic-marketing/, /ja/note/2020/, /ja/note/trends-in-real-world-recommender-systems-2017/]
 ---
 
 2月19日に開催された [PLAZMA: TD Tech Talk 2018 Internal Day](https://techplay.jp/event/650390) で、Treasure Dataがユーザに提供している機械学習・自然言語処理の機能の実体をお話しました。

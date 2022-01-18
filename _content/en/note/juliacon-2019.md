@@ -1,12 +1,12 @@
 ---
 categories: [Programming, Conference, Recommender Systems]
 date: 2019-07-26
+lang: en
+title: 'Lightning Talk about Recommender Systems in Julia at #JuliaCon 2019'
 keywords: [julia, recommendation, package, computing, community, juliacon, ecosystem,
   book, recommendations, onference]
-lang: en
 recommendations: [/note/recommendation-julia-documenter/, /note/julia-travis-ci-to-github-actions/,
   /note/recommendation-julia/]
-title: 'Lightning Talk about Recommender Systems in Julia at #JuliaCon 2019'
 ---
 
 I have attended and presented at [JuliaCon 2019](https://juliacon.org/2019/) held in Baltimore, MD, USA:

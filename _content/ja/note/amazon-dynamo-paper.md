@@ -2,11 +2,11 @@
 aliases: [/note/amazon-dynamo-paper/]
 categories: [コンピュータシステム]
 date: 2017-12-09
-keywords: [dynamo, amazon, sla, consistency, システム, write, ノード, 解決, サービス, 競合]
 lang: ja
+title: AmazonのDynamoDB論文を眺めた
+keywords: [dynamo, amazon, sla, consistency, システム, write, ノード, 解決, サービス, 競合]
 recommendations: [/ja/note/dynamo-style/, /ja/note/designing-data-intensive-applications/,
   /ja/note/the-amazon-way-on-iot/]
-title: AmazonのDynamoDB論文を眺めた
 ---
 
 "[Seven Databases in Seven Weeks](https://pragprog.com/book/rwdata/seven-databases-in-seven-weeks)" や "[Designing Data-Intensive Applications](https://dataintensive.net/)" でも度々参考文献に挙がっていたので、AmazonのDynamoDB論文を眺めて思いを馳せていた：

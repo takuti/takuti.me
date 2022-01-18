@@ -4,7 +4,7 @@ import MeCab
 import requests
 
 from prelims import StaticSitePostsHandler
-from prelims.processor import OpenGraphFilePathExtractor, Recommender
+from prelims.processor import OpenGraphMediaExtractor, Recommender
 
 
 RE_VALID_WORD = re.compile(r'^[ぁ-んーァ-ヶー一-龠a-zA-Zａ-ｚＡ-Ｚ]+$')
@@ -47,7 +47,7 @@ def run(lang):
     recommender = Recommender(permalink_base=permalink_base, max_df=0.95,
                               tokenizer=tokenizer)
     handler.register_processor(recommender)
-    file_path_extractor = OpenGraphFilePathExtractor(image_base='/images')
+    file_path_extractor = OpenGraphMediaExtractor(image_base='/images')
     handler.register_processor(file_path_extractor)
     handler.execute()
 

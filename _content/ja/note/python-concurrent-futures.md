@@ -2,10 +2,10 @@
 aliases: [/note/python-concurrent-futures/]
 categories: [プログラミング, コンピュータシステム]
 date: 2017-10-01
-keywords: [並列化, マルチスレッド, futures, concurrent, 処理, マルチ, gil, プロセス, pool, multiprocessing]
 lang: ja
-recommendations: [/ja/note/euroscipy-2017/, /ja/note/acroquest-javabook/, /ja/note/why-spark/]
 title: Pythonのconcurrent.futuresを試す
+keywords: [並列化, マルチスレッド, futures, concurrent, 処理, マルチ, gil, プロセス, pool, multiprocessing]
+recommendations: [/ja/note/euroscipy-2017/, /ja/note/acroquest-javabook/, /ja/note/why-spark/]
 ---
 
 [EuroScipy 2017](/note/euroscipy-2017) でPythonの [`concurrent.futures`](https://docs.python.org/3/library/concurrent.futures.html) についての話を聞いたので、改めて調べてみた。

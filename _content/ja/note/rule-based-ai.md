@@ -2,10 +2,10 @@
 aliases: [/note/rule-based-ai/]
 categories: [機械学習, エッセイ, データサイエンス]
 date: 2017-10-21
-keywords: [人工知能, 言葉, マジックワード, 使わ, amazon, バズワード, iot, ホームページ, 具体, ルール]
 lang: ja
-recommendations: [/ja/note/from-cloud-to-ai/, /ja/note/2020/, /ja/note/algorithmic-marketing/]
 title: ルールベースは『人工知能』か
+keywords: [人工知能, 言葉, マジックワード, 使わ, amazon, バズワード, iot, ホームページ, 具体, ルール]
+recommendations: [/ja/note/from-cloud-to-ai/, /ja/note/2020/, /ja/note/algorithmic-marketing/]
 ---
 
 いま、世の中は空前の人工知能ブームである。あれもこれも人工知能、こっちだってAI、そっちはディープラーニング。『ファジィ』という言葉が流行り、ファジィ炊飯器などが大量に出回った90年代を想起する先輩方も多いらしい。

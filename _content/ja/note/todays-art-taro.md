@@ -2,11 +2,11 @@
 aliases: [/note/todays-art-taro.html]
 categories: [読書記録]
 date: 2014-02-28
-keywords: [芸術, 太郎, 結婚, 符丁, 自由, ファインマン, 就活, 生き方, 僕ら, 自己]
 lang: ja
+title: 岡本太郎に学ぶ、芸術と人生。
+keywords: [芸術, 太郎, 結婚, 符丁, 自由, ファインマン, 就活, 生き方, 僕ら, 自己]
 recommendations: [/ja/note/humanity-and-economy/, /ja/note/6brains-of-the-world/,
   /ja/note/life-with-covid-19/]
-title: 岡本太郎に学ぶ、芸術と人生。
 ---
 <div class="booklink-box" style="text-align:left;padding-bottom:20px;font-size:small;/zoom: 1;overflow: hidden;">
 <div class="booklink-image" style="float:left;margin:0 15px 10px 0;"><a href="http://www.amazon.co.jp/exec/obidos/asin/4334727891/takuti-22/" name="booklink" rel="nofollow" target="_blank"><img src="http://ecx.images-amazon.com/images/I/518MGPEMSJL._SL160_.jpg" style="border: none;" /></a></div>

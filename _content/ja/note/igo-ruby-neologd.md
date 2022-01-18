@@ -2,10 +2,10 @@
 aliases: [/note/igo-ruby-neologd/]
 categories: [プログラミング, 自然言語処理]
 date: 2017-09-17
-keywords: [igo, 辞書, ruby, neologd, 新語, 久しぶり, 動い, 使っ, ビルド, めでたい]
 lang: ja
-recommendations: [/ja/note/hatena-keyword-to-ipadic/, /ja/note/twitter-bot/, /ja/note/recommender-libraries/]
 title: igo-rubyを新語辞書NEologdでナウい感じにする
+keywords: [igo, 辞書, ruby, neologd, 新語, 久しぶり, 動い, 使っ, ビルド, めでたい]
+recommendations: [/ja/note/hatena-keyword-to-ipadic/, /ja/note/twitter-bot/, /ja/note/recommender-libraries/]
 ---
 
 『[はてなキーワードを使ってigo-ruby(MeCab)用の辞書をナウい感じにする](/note/hatena-keyword-to-ipadic/)』に4年ぶりの続編です。

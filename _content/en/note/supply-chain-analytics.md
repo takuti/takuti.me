@@ -2,12 +2,12 @@
 categories: [Business, Data Science & Analytics]
 date: 2021-05-07
 images: [/images/supply-chain-analytics/push-pull-flow.png, /images/supply-chain-analytics/push-vs-pull.png]
+lang: en
+title: Actionable Insights from Supply Chain Analytics
 keywords: [strategy, pull, push, vasta, cost, inventory, analytics, distribution,
   unit, stores]
-lang: en
 recommendations: [/note/coursera-supply-chain-management/, /note/machine-learning-product/,
   /note/supply-chain-disruption/]
-title: Actionable Insights from Supply Chain Analytics
 ---
 
 After [deepening my knowledge about Supply Chain Management](/note/coursera-supply-chain-management), I became particularly curious about how data helps supply chain management. Here, another course [Supply Chain Analytics](https://www.coursera.org/learn/supply-chain-analytics) illustrated a [realistic example of VASTA](http://scal.business.rutgers.edu/CaseDetail.html), one of the largest mobile network careers in the US (Verizon, AT&T, Sprint, T-Mobile), which made a big change in their distribution strategy as a consequence of supply chain analytics.

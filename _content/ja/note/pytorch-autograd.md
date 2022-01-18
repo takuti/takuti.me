@@ -2,10 +2,10 @@
 aliases: [/note/pytorch-autograd/]
 categories: [プログラミング, 機械学習]
 date: 2017-09-23
-keywords: [loss, pytorch, autograd, euroscipy, 触っ, optimizer, backward, 損失, 変数, パラメータ]
 lang: ja
-recommendations: [/ja/note/pytorch-mf/, /ja/note/euroscipy-2017/, /ja/note/recommender-libraries/]
 title: PyTorchのautogradと仲良くなりたい
+keywords: [loss, pytorch, autograd, euroscipy, 触っ, optimizer, backward, 損失, 変数, パラメータ]
+recommendations: [/ja/note/pytorch-mf/, /ja/note/euroscipy-2017/, /ja/note/recommender-libraries/]
 ---
 
 （希望）

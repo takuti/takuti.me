@@ -1,11 +1,11 @@
 ---
 categories: [Recommender Systems, Programming]
 date: 2017-01-14
+lang: en
+title: 'Recommendation.jl: Building Recommender Systems in Julia'
 keywords: [recommendation, julia, age, factorization, package, tuples, till, sco,
   releases, libraries]
-lang: en
 recommendations: [/note/juliacon-2019/, /note/recommendation-julia-documenter/, /note/recommendation-julia-v040/]
-title: 'Recommendation.jl: Building Recommender Systems in Julia'
 ---
 
 I have recently published [Recommendation.jl](https://github.com/takuti/Recommendation.jl), a Julia package for recommender systems. The package is already registered in [METADATA.jl](https://github.com/JuliaLang/METADATA.jl), so it can be installed by:

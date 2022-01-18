@@ -4,11 +4,11 @@ categories: [イベント参加記, 情報推薦]
 date: 2017-11-23
 images: [/images/201711/ibuki1.jpg, /images/201711/ibuki2.jpg, /images/201711/daimonji.jpg,
   /images/201711/ginkaku.jpg]
-keywords: [推薦, 手法, システム, セミナー, ibuki, 応用, アルゴリズム, recsys, 機械学習, note]
 lang: ja
+title: 筋トレ、登山、昨今の推薦システムのトレンドなどについて話しました
+keywords: [推薦, 手法, システム, セミナー, ibuki, 応用, アルゴリズム, recsys, 機械学習, note]
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/recommender-libraries/,
   /ja/note/coursera-recommender-systems/]
-title: 筋トレ、登山、昨今の推薦システムのトレンドなどについて話しました
 ---
 
 元インターン先である[シルバーエッグ・テクノロジー](http://www.silveregg.co.jp/)とのご縁があり、『[ビッグデータ解析のためのAI技術の最新事情とビジネスへの応用](http://peatix.com/event/307962)』という~~名前だけ聞くと心配になる~~セミナーで講演の機会をいただき、昨今の推薦システムのトレンドについてお話してきました：

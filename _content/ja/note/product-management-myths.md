@@ -1,12 +1,12 @@
 ---
 categories: [エッセイ, 読書記録]
 date: 2021-08-12
+lang: ja
+title: いい加減、プロダクトマネージャーという職業に幻想を抱くのはやめよう。
 keywords: [プロダクト, 職業, 仕事, プロダクトマネジメント, プロダクトマネージャー, デザイン, プロジェクトマネージャー, チーム, product,
   開発]
-lang: ja
 recommendations: [/ja/note/product-management-and-bullshit-job/, /ja/note/design-engineer/,
   /ja/note/empowered/]
-title: いい加減、プロダクトマネージャーという職業に幻想を抱くのはやめよう。
 ---
 
 プロダクトマネージャー (PM) としてのこれまでの私的な経験を踏まえて、『[プロダクトマネジメントのすべて 事業戦略・IT開発・UXデザイン・マーケティングからチーム・組織運営まで](https://amzn.to/3s1E5eo)』を読んで思ったことをつらつらと。

@@ -2,10 +2,10 @@
 categories: [Life & Work]
 date: 2020-04-04
 images: [/images/life-with-broken-iphone/iphone-202003.png]
-keywords: [iphone, broken, screen, apps, bank, internet, check, phone, device, conditions]
 lang: en
-recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/audio-journaling/]
 title: Life with (Partially) Broken iPhone
+keywords: [iphone, broken, screen, apps, bank, internet, check, phone, device, conditions]
+recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/audio-journaling/]
 ---
 
 Recently, I dropped off my iPhone from my hand, and the screen has partially been broken. It was definitely sad news, and I got really panicked at that moment. On the other hand, it's not a first-time experience for me, and having a broken iPhone is always a great opportunity to rethink how I interact with the magical devices. I strongly believe our life relies too much on the devices, and most of your "essential" applications are not actually essential.

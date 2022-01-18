@@ -2,10 +2,10 @@
 aliases: [/note/dmm-eikaiwa/]
 categories: [英語学習]
 date: 2017-06-18
-keywords: [英会話, 英語, レッスン, 講師, 録音, 教材, デイリーニュース, オンライン, toefl, 復習]
 lang: ja
-recommendations: [/ja/note/ielts-20210226/, /ja/note/ielts-20200201/, /ja/note/toefl-20140527/]
 title: 'DMM英会話を1ヶ月間やってみて思う、オンライン英会話は『やらないよりマシ』なのか問題 #DMM英会話'
+keywords: [英会話, 英語, レッスン, 講師, 録音, 教材, デイリーニュース, オンライン, toefl, 復習]
+recommendations: [/ja/note/ielts-20210226/, /ja/note/ielts-20200201/, /ja/note/toefl-20140527/]
 ---
 
 話の種にDMM英会話を1ヶ月間やってみた[^1]。1日25分×30日間で5500円。安い。方針は次のような感じ：

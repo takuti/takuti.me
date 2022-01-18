@@ -1,12 +1,12 @@
 ---
 categories: [Programming]
 date: 2017-05-28
+lang: en
+title: 'Hugo meets kramdown + KaTeX #gohugo'
 keywords: [markdown, katex, latex, kramdown, mathjax, syntax, var, rendering, processor,
   equation]
-lang: en
 recommendations: [/note/hugo-markdown-and-mathjax/, /note/travis-gh-pages-deployment/,
   /note/normal-equation/]
-title: 'Hugo meets kramdown + KaTeX #gohugo'
 ---
 
 Recently, math rendering library in this page, **takuti.me**, has been switched from MathJax to KaTex to improve performance. You can check KaTeX's fast, beautiful rendering in the following articles:

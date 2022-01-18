@@ -2,11 +2,11 @@
 aliases: [/note/design-engineer/]
 categories: [読書記録, デザイン]
 date: 2019-12-10
-keywords: [デザイン, プロダクト, エンジニア, 人材, イノベーション, プロトタイピング, c型, 本書, プロダクトマネージャー, 魔法]
 lang: ja
+title: デザインエンジニアになろう
+keywords: [デザイン, プロダクト, エンジニア, 人材, イノベーション, プロトタイピング, c型, 本書, プロダクトマネージャー, 魔法]
 recommendations: [/ja/note/product-management-myths/, /ja/note/tech-design-story/,
   /ja/note/design-note-88/]
-title: デザインエンジニアになろう
 ---
 
 ["Real-world machine learning" に携わるために就職](/note/master-graduate/)して早3年。これまでの仕事を一言で表現すれば「顧客への機械学習/IoTソリューションの提供とそのプロダクト化」だろうか。

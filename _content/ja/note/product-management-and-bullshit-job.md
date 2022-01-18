@@ -2,10 +2,10 @@
 categories: [エッセイ, 読書記録]
 date: 2021-06-09
 images: [/images/product-management-and-bullshit-job/pm-skill-stack.png]
-keywords: [仕事, ブルシットジョブ, 組織, product, 自分, プロダクト, プロダクトマネージャー, エンジニア, ソフトウェア, 確信]
 lang: ja
-recommendations: [/ja/note/product-management-myths/, /ja/note/td-to-amazon/, /ja/note/first-quarter-as-a-product-manager/]
 title: プロダクトマネジメントは「クソどうでもいい仕事」か
+keywords: [仕事, ブルシットジョブ, 組織, product, 自分, プロダクト, プロダクトマネージャー, エンジニア, ソフトウェア, 確信]
+recommendations: [/ja/note/product-management-myths/, /ja/note/td-to-amazon/, /ja/note/first-quarter-as-a-product-manager/]
 ---
 
 プロダクトマネージャー自身がその製品・事業・技術に対して強い熱意・使命感を持っていないのなら、それはおそらく真である&mdash;という話を "**[Hi Product Managers, Are You Creating Products That \*You\* Love?](/note/product-management-and-bullshit-job)**" で書いた。
