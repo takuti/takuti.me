@@ -5,7 +5,7 @@ images: [/images/language-as-a-design-tool/Accutive.png, /images/language-as-a-d
 lang: en
 title: Language as a Design Tool
 keywords: [visual, design, idea, app, mood, elements, board, prototyping, description,
-  problem]
+  figma]
 recommendations: [/note/revisit-design-thinking/, /note/learn-how-others-work/, /note/technique-producing-ideas/]
 ---
 

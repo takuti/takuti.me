@@ -4,8 +4,8 @@ date: 2021-05-26
 images: [/images/product-management-and-bullshit-job/pm-skill-stack.png]
 lang: en
 title: Hi Product Managers, Are You Creating Products That *You* Love?
-keywords: [product, love, job, customers, strong, communication, manager, execution,
-  passion, confidence]
+keywords: [product, love, job, customers, manager, communication, strong, execution,
+  passion, products]
 recommendations: [/note/ethical-product-developer/, /note/td-to-amazon/, /note/machine-learning-product/]
 ---
 

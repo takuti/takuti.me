@@ -5,8 +5,8 @@ images: [/images/spring-guice/uml.png]
 title: Cross-Framework Dependency Injection with spring-guice
 keywords: [guice, spring, injection, application, dependency, framework, party, class,
   based, testability]
-recommendations: [/note/becoming-a-product-manager/, /note/language-as-a-design-tool/,
-  /note/machine-learning-product/]
+recommendations: [/note/becoming-a-product-manager/, /note/machine-learning-product/,
+  /note/language-as-a-design-tool/]
 ---
  
 [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) (DI) is a well-known design pattern that creates and binds dependent objects outside of a class. The technique nicely decouples dependencies from a main application class and enables developers to achieve high testability, maintainability, and extensibility. As I understand, [Google Guice](https://github.com/google/guice) and [Spring Framework](https://spring.io/projects/spring-framework) are major DI frameworks in Java.

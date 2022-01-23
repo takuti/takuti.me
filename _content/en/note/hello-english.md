@@ -4,7 +4,8 @@ date: 2014-11-09
 lang: en
 title: Hello English Entries
 keywords: [blog, japanese, write, japan, ese, takuti, posts, english, articles, switches]
-recommendations: [/note/new-year-resolution-2017/, /note/move-to-gh-pages/, /note/annual-review-2021/]
+recommendations: [/note/new-year-resolution-2017/, /note/the-producer-consumer-gap/,
+  /note/move-to-gh-pages/]
 ---
 
 Hi, I'm takuti.

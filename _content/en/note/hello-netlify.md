@@ -4,7 +4,7 @@ date: 2019-08-31
 images: [/images/hello-netlify/netlify-republished.png, /images/hello-netlify/netlify-git-lfs-enabled.png]
 lang: en
 title: Hello Netrify for Hosting a Static Site
-keywords: [netlify, lfs, git, github, site, scripts, travis, publishing, hugo, files]
+keywords: [netlify, lfs, git, github, site, scripts, travis, hugo, publishing, files]
 recommendations: [/note/travis-gh-pages-deployment/, /note/move-to-gh-pages/, /note/hugo-markdown-and-mathjax/]
 ---
 

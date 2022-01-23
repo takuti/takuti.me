@@ -4,8 +4,8 @@ date: 2018-11-22
 lang: en
 title: 'Attending MLconf SF 2018 #mlconf18'
 keywords: [mlconf, sagemaker, edo, scalable, satellite, conference, stream, program,
-  amazon, single]
-recommendations: [/note/hivemall-events-2018-autumn/, /note/umap-2019/, /note/apachecon-2019/]
+  amazon, industrial]
+recommendations: [/note/hivemall-events-2018-autumn/, /note/umap-2019/, /note/iotswc-2019/]
 ---
 
 I have attended **[MLconf](https://mlconf.com/)** 2018 in San Francisco. Since awesome [speakers](https://mlconf.com/events/mlconf-sf-2018/) came from highly recognized industrial organizations, I can confidently say that MLconf can be a great place to see industrial trends and real-world "successful" use cases.

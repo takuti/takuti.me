@@ -3,7 +3,7 @@ categories: [Life & Work]
 date: 2019-09-08
 lang: en
 title: I Stopped Drinking Alone for 4 Months
-keywords: [drinking, cafe, bar, good, habit, fine, enjoy, coffee, weird, rule]
+keywords: [drinking, cafe, bar, good, habit, fine, coffee, enjoy, weird, july]
 recommendations: [/note/unusual-drinking-and-eating-habits/, /note/working-from-home-202004/,
   /note/sustainable-diets/]
 ---
