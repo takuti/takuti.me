@@ -1,4 +1,4 @@
-prelims==0.0.5
+prelims==0.0.6
 mecab-python3
 GitPython
 tweepy
