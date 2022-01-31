@@ -5,9 +5,9 @@ date: 2022-01-01
 lang: en
 title: Ethical Product Developer
 keywords: [product, ethical, developer, developers, unethical, clear, capitalism,
-  egative, decisions, development]
-recommendations: [/note/product-management-and-bullshit-job/, /note/machine-learning-product/,
-  /note/becoming-a-product-manager/]
+  egative, decisions, design]
+recommendations: [/note/product-management-and-bullshit-job/, /note/becoming-a-product-manager/,
+  /note/machine-learning-product/]
 ---
 
 I'm consciously calling myself as a "product developer" to emphasize a desire that I am not just a software developer, data scientist, product manager, or machine learning engineer. I'm working on a product, rather than contributing to one of many random software or algorithms. I'm developing, rather than holding my own ideas, skill sets, and knowledge inside of myself.
