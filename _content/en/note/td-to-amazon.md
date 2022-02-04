@@ -4,8 +4,8 @@ date: 2021-08-28
 images: [/images/td-to-amazon/path.jpeg]
 lang: en
 title: 'Next "Dot" in Journey: Curiosity-Driven Job Change in Canada (Aug 2021)'
-keywords: [amazon, company, product, note, job, engineer, positive, impacts, ethical,
-  big]
+keywords: [amazon, company, product, note, job, engineer, positive, impacts, big,
+  ethical]
 recommendations: [/note/product-management-and-bullshit-job/, /note/becoming-a-product-manager/,
   /note/annual-review-2021/]
 ---

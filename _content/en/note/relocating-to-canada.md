@@ -5,7 +5,7 @@ images: [/images/relocating-to-canada/vancouver-harbour.jpeg]
 lang: en
 title: 'Moving to Canada: Adding Randomness to My Life'
 keywords: [vancouver, japan, canada, oslo, treasure, live, country, nagano, harbour,
-  years]
+  international]
 recommendations: [/note/td-to-amazon/, /note/annual-review-2021/, /note/becoming-a-product-manager/]
 ---
 

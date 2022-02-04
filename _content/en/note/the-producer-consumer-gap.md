@@ -6,7 +6,7 @@ title: The Producer-Consumer Gap
 audio: [/audio/the-producer-consumer-gap.mp3]
 keywords: [blog, read, shortcuts, producer, product, gap, consumers, ethical, messages,
   article]
-recommendations: [/note/ethical-product-developer/, /note/annual-review-2021/, /note/hello-english/]
+recommendations: [/note/ethical-product-developer/, /note/annual-review-2021/, /note/definition-of-done/]
 ---
 
 I have been practicing the [rule of three](https://en.wikipedia.org/wiki/Rule_of_three_%28writing%29) on a variety of occasions (e.g., business, research, blog, product narrative) for 10 years since (if I remember correctly) "[The Presentation Secrets of Steve Jobs](https://www.carminegallo.com/books/presentation-secrets-of-steve-jobs/)" first told me that having a clear list of 3-4 key messages has made Steve's presentation attractive.

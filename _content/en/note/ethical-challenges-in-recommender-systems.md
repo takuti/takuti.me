@@ -3,7 +3,7 @@ categories: [Recommender Systems, Data Science & Analytics, Machine Learning]
 date: 2021-07-15
 lang: en
 title: Reviewing Ethical Challenges in Recommender Systems
-keywords: [user, ethical, recommendation, systems, stakeholders, provider, recommendations,
+keywords: [user, recommendation, ethical, systems, stakeholders, provider, recommendations,
   stakeholder, accuracy, metrics]
 recommendations: [/note/recsys-2021/, /note/recsys-2021-echo-chambers-and-filter-bubbles/,
   /note/hello-faust/]
