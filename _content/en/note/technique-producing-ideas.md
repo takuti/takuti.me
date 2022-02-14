@@ -3,8 +3,8 @@ categories: [Life & Work, Business, Design]
 date: 2020-01-05
 lang: en
 title: How to Produce Ideas
-keywords: [ideas, seeds, inputs, experiences, raw, gathering, idea, producing, material,
-  branding]
+keywords: [ideas, seeds, inputs, experiences, raw, gathering, producing, material,
+  idea, branding]
 recommendations: [/note/revisit-design-thinking/, /note/fermenting-thoughts/, /note/language-as-a-design-tool/]
 ---
 

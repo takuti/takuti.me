@@ -5,7 +5,7 @@ images: [/images/coursera-scala-capstone/certificate.png]
 lang: en
 title: Completed Functional Programming in Scala Specialization on Coursera, Finally
 keywords: [scala, project, specialization, functional, programming, certificate, stones,
-  apstone, fun, mile]
+  apstone, mile, fun]
 recommendations: [/note/spark-rdd-cached-vs-uncached/, /note/parallel-vs-concurrent/,
   /note/learn-how-others-work/]
 ---
