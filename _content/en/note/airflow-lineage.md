@@ -5,10 +5,10 @@ lang: en
 title: Data Ethics with Lineage
 audio: [/audio/airflow-lineage.mp3]
 images: [/images/airflow-lineage/lineage.png]
-keywords: [lineage, data, oil, airflow, developer, intermediates, consciousness, pipeline,
-  pipelines, forget]
-recommendations: [/note/data-leaders-summit-europe-2019/, /note/ethical-product-developer/,
-  /note/hivemall-events-2018-autumn/]
+keywords: [data, lineage, oil, airflow, developer, intermediates, consciousness, pipelines,
+  pipeline, forget]
+recommendations: [/note/data-validation/, /note/data-leaders-summit-europe-2019/,
+  /note/ethical-product-developer/]
 ---
 
 Nowadays, there is almost no question that *data is the new oil.* But, do we really have a clear picture of where the oil is coming from, in which route, by whom, how, and when?

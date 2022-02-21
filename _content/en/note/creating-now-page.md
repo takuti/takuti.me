@@ -4,8 +4,8 @@ categories: [Life & Work, Business, Design]
 date: 2022-02-13
 lang: en
 title: '"Out of Scope"'
-keywords: [friend, sivers, derek, serendipity, movement, scope, relevant, share, definition,
-  expect]
+keywords: [friend, sivers, derek, serendipity, movement, scope, relevant, share, expect,
+  definition]
 recommendations: [/note/definition-of-done/, /note/the-producer-consumer-gap/, /note/annual-review-2021/]
 ---
 

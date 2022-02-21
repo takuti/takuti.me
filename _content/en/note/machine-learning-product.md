@@ -3,8 +3,8 @@ categories: [Machine Learning]
 date: 2020-08-29
 lang: en
 title: What I Think About When I Talk About ML Product
-keywords: [product, business, problems, solution, solving, cost, loop, model, technical,
-  questions]
+keywords: [product, business, problems, solution, solving, cost, loop, technical,
+  questions, model]
 recommendations: [/note/product-management-and-bullshit-job/, /note/ethical-product-developer/,
   /note/learn-how-others-work/]
 ---

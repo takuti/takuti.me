@@ -7,7 +7,7 @@ lang: en
 title: Sending Sensor Data from Mbed Simulator to Treasure Data
 keywords: [mbed, simulator, data, pelion, treasure, sensor, device, arm, demo, platform]
 recommendations: [/note/hivemall-events-2018-autumn/, /note/data-leaders-summit-europe-2019/,
-  /note/airflow-lineage/]
+  /note/data-validation/]
 ---
 
 [Arm Pelion IoT Platform](https://www.arm.com/products/iot/pelion-iot-platform) makes the Mbed ecosystem much more sophisticated and enables us to seamlessly manage IoT connectivity, device and data at a unified place:

@@ -4,8 +4,8 @@ date: 2021-09-24
 images: [/images/sustainability-at-big-tech/thumbnail.png]
 lang: en
 title: Understanding Big Tech's Sustainable Commitment with Word Cloud
-keywords: [sustainability, apple, carbon, microsoft, facebook, word, amazon, google,
-  cloud, ech]
+keywords: [sustainability, apple, carbon, microsoft, facebook, word, amazon, cloud,
+  google, ech]
 recommendations: [/note/sustainable-capitalism/, /note/annual-review-2021/, /note/sdg-mooc/]
 ---
  

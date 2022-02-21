@@ -5,7 +5,7 @@ lang: en
 title: 'What Makes a Good Dashboard: The Rise of Augmented Analytics'
 keywords: [analytics, augmented, dashboard, data, nlp, insights, citizen, visual,
   scientists, good]
-recommendations: [/note/data-leaders-summit-europe-2019/, /note/datavis-2020/, /note/hivemall-events-2018-autumn/]
+recommendations: [/note/data-leaders-summit-europe-2019/, /note/datavis-2020/, /note/data-validation/]
 ---
 
 ***A good dashboard is all we need*** &mdash; As a person working in the field of data-driven business, I strongly agree with the statement written in "[One Thing to Maybe Build Now: A Great Dashboard](https://www.linkedin.com/pulse/one-thing-maybe-build-now-great-dashboard-jason-m-lemkin/)". 
