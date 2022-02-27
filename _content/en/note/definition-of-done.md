@@ -4,7 +4,7 @@ categories: [Life & Work, Business, Design]
 date: 2022-02-04
 lang: en
 title: '"Definition of Done"'
-keywords: [product, life, accomplishment, personal, goal, step, ethical, define, matters,
+keywords: [product, life, accomplishment, personal, goal, step, define, matters, ethical,
   definition]
 recommendations: [/note/ethical-product-developer/, /note/product-management-and-bullshit-job/,
   /note/td-to-amazon/]

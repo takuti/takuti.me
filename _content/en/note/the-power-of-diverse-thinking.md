@@ -10,8 +10,8 @@ summary: It clearly goes beyond how it's been normally discussed in business, an
   that we can "easily" optimize.
 keywords: [diversification, diversity, diverse, body, bubbles, filter, user, echo,
   chambers, voices]
-recommendations: [/note/recsys-2021-echo-chambers-and-filter-bubbles/, /note/recsys-2021/,
-  /note/ethical-challenges-in-recommender-systems/]
+recommendations: [/note/recommender-diversity/, /note/recsys-2021-echo-chambers-and-filter-bubbles/,
+  /note/recsys-2021/]
 ---
 
 My recent reading of "[The Power of Diverse Thinking](https://www.amazon.com/Rebel-Ideas-Power-Diverse-Thinking-ebook/dp/B088DRDNN5/)" was eye-opening, and one of the key takeaways was "**we won't realize the benefit of diversity until it's actually diversified**."

@@ -4,7 +4,7 @@ date: 2020-05-01
 images: [/images/issue-driven/issue-driven.png]
 lang: en
 title: Issue-Driven Makes You Professional
-keywords: [issue, driven, quality, time, approach, work, storyline, professionalism,
+keywords: [issue, driven, quality, time, work, approach, storyline, professionalism,
   deliver, deliverables]
 recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/becoming-a-product-manager/]
 ---

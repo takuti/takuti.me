@@ -4,9 +4,9 @@ date: 2021-07-15
 lang: en
 title: Reviewing Ethical Challenges in Recommender Systems
 keywords: [user, recommendation, ethical, systems, stakeholders, provider, recommendations,
-  stakeholder, accuracy, metrics]
+  stakeholder, accuracy, social]
 recommendations: [/note/recsys-2021/, /note/recsys-2021-echo-chambers-and-filter-bubbles/,
-  /note/hello-faust/]
+  /note/recommender-diversity/]
 ---
 
 As I captured in [Understanding Research Trends in Recommender Systems from Word Cloud](/note/recsys-wordcloud/), many real-life applications are nowadays applying recommendation techniques to a wide variety of datasets and scenarios.

@@ -4,8 +4,8 @@ categories: [Programming, Data Science & Analytics]
 date: 2022-02-20
 lang: en
 title: Validate, Validate, and Validate Data. But, in terms of what?
-keywords: [data, validation, accuracy, pipeline, tfx, metrics, paper, privacy, ethics,
-  model]
+keywords: [data, validation, accuracy, pipeline, tfx, metrics, paper, privacy, model,
+  ethics]
 recommendations: [/note/data-leaders-summit-europe-2019/, /note/airflow-lineage/,
   /note/augmented-analytics/]
 ---
