@@ -43,7 +43,7 @@ where $i_j$ denotes $j$-th item in the available item set $I$.
 Moreover, **Gini index**, which is normally used to measure a degree of inequality in a distribution of income, can be applied to assess diversity in the context of recommender systems:
 
 $$
-2 \sum_{j = 1}^{|I|} \left( \frac{|N|+1-j}{|N|+1} \cdot \frac{\left|\{u \mid u \in U \wedge i_j \in L_N(u) \}\right|}{N |U|} \right)
+2 \sum_{j = 1}^{|I|} \left( \frac{|I|+1-j}{|I|+1} \cdot \frac{\left|\{u \mid u \in U \wedge i_j \in L_N(u) \}\right|}{N |U|} \right)
 $$
 
 ### Accuracy comes first, and re-rank later
