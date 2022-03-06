@@ -5,7 +5,7 @@ images: [/images/coursera-blockchain-specialization/blockchain-overview.png]
 lang: en
 title: What Blockchain Brings to Real-World Applications
 keywords: [blockchain, decentralized, smart, specialization, transactions, contract,
-  validation, application, transaction, solidity]
+  application, validation, transaction, solidity]
 recommendations: [/note/bitcoin-and-cryptocurrency/, /note/iotswc-2019/, /note/becoming-a-product-manager/]
 ---
 

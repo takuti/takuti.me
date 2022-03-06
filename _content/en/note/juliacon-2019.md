@@ -4,7 +4,7 @@ date: 2019-07-26
 lang: en
 title: 'Lightning Talk about Recommender Systems in Julia at #JuliaCon 2019'
 keywords: [julia, recommendation, package, computing, community, juliacon, ecosystem,
-  book, onference, recommendations]
+  book, onference, baltimore]
 recommendations: [/note/recommendation-julia-documenter/, /note/julia-travis-ci-to-github-actions/,
   /note/recommendation-julia/]
 ---

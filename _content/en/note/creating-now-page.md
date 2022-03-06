@@ -4,9 +4,10 @@ categories: [Life & Work, Business, Design]
 date: 2022-02-13
 lang: en
 title: '"Out of Scope"'
-keywords: [friend, sivers, derek, serendipity, movement, scope, share, relevant, expect,
+keywords: [friend, sivers, derek, movement, serendipity, scope, share, relevant, expect,
   definition]
-recommendations: [/note/definition-of-done/, /note/the-producer-consumer-gap/, /note/annual-review-2021/]
+recommendations: [/note/novelty-diversity-serendipity/, /note/definition-of-done/,
+  /note/the-producer-consumer-gap/]
 ---
 
 This week, I have created a new page [takuti.me/**now**](/now). This will be a place where I share what I'm doing and focusing on, updated roughly once every 1-3 months. The idea is inspired by [Derek Sivers's /now page movement](https://sive.rs/nowff); the movement has spread rapidly, and [many people are actively sharing their immediate priorities](https://nownownow.com/).

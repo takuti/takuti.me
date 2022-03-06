@@ -4,7 +4,7 @@ date: 2020-08-16
 images: [/images/language-as-a-design-tool/Accutive.png, /images/language-as-a-design-tool/prototyping.png]
 lang: en
 title: Language as a Design Tool
-keywords: [visual, design, idea, app, mood, elements, board, prototyping, description,
+keywords: [visual, design, app, idea, mood, elements, board, prototyping, description,
   figma]
 recommendations: [/note/revisit-design-thinking/, /note/learn-how-others-work/, /note/technique-producing-ideas/]
 ---
