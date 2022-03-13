@@ -3,8 +3,8 @@ categories: [Conference]
 date: 2019-11-17
 lang: en
 title: What I've Seen at IoT Solutions World Congress 2019
-keywords: [iot, blockchain, poc, data, productization, iotswc, conference, technology,
-  systems, sessions]
+keywords: [iot, blockchain, poc, data, productization, iotswc, conference, systems,
+  technology, sessions]
 recommendations: [/note/becoming-a-product-manager/, /note/coursera-blockchain-specialization/,
   /note/apachecon-2019/]
 ---

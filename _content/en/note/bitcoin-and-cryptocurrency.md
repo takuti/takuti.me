@@ -5,7 +5,7 @@ lang: en
 title: Learning Cryptocurrency with Code
 keywords: [blockchain, transaction, bitcoin, transactions, consensus, decentralized,
   utxopool, utxo, property, miners]
-recommendations: [/note/coursera-blockchain-specialization/, /note/iotswc-2019/, /note/becoming-a-product-manager/]
+recommendations: [/note/coursera-blockchain-specialization/, /note/web3/, /note/iotswc-2019/]
 ---
 
 In "**[What Blockchain Brings to Real-World Applications](/note/coursera-blockchain-specialization/)**", I learned blockchain basics ranging from cryptography and hashing to smart contracts and decentralized applications using the Solidity programming language. For me, one of the most important findings was the diversity of blockchain applications; cryptocurrency like Bitcoin is not the only application blockchain makes possible, and the technology resolves a wide variety of real-life problems in a decentralized manner as long as:
