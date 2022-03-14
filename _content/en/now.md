@@ -8,7 +8,7 @@ title: What I'm Doing Now
 
 ### Practicing [ethical product development](/note/ethical-product-developer/)
 
-Being conscious about the externalities of what I’m creating as a product developer is the biggest personal challenge at this moment, and I have kept questioning myself as *"Should I build this?"* for years. In particular, I'm in a journey to become a data ethicist in the hands-on manner while [experimentally working as a software engineer in a big company](/note/td-to-amazon/). Meanwhile, I recently studying ethics & philosophy in a broader sense, including not only science but history, moral, and law, so that I can establish my own definition of "good" product with a holistic view of the problem.
+Being conscious about the externalities of what I’m creating as a product developer is the biggest personal challenge at this moment, and I have kept questioning myself as *"Should I build this?"* for years. In particular, I'm in a journey to become a data ethicist in the hands-on manner while [experimentally working as a software engineer in a big company](/note/td-to-amazon/). Meanwhile, I'm recently studying ethics & philosophy in a broader sense, including not only science but history, moral, and law, so that I can establish my own definition of "good" product with a holistic view of the problem.
 
 ### Polishing personal OSS projects for recommender systems
 
