@@ -4,7 +4,7 @@ date: 2020-04-04
 images: [/images/life-with-broken-iphone/iphone-202003.png]
 lang: en
 title: Life with (Partially) Broken iPhone
-keywords: [iphone, screen, broken, apps, bank, check, internet, phone, device, conditions]
+keywords: [iphone, screen, broken, apps, bank, check, phone, device, conditions, internet]
 recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/audio-journaling/]
 ---
 

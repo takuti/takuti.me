@@ -4,9 +4,8 @@ date: 2019-11-17
 lang: en
 title: What I've Seen at IoT Solutions World Congress 2019
 keywords: [iot, blockchain, poc, data, productization, iotswc, conference, systems,
-  technology, sessions]
-recommendations: [/note/becoming-a-product-manager/, /note/coursera-blockchain-specialization/,
-  /note/apachecon-2019/]
+  sessions, technology]
+recommendations: [/note/becoming-a-product-manager/, /note/apachecon-2019/, /note/coursera-blockchain-specialization/]
 ---
 
 October 2019 was a big month! After the two exciting conference opportunities, [ApacheCon Europe](/note/apachecon-2019) and [Data Leaders Summit](/note/data-leaders-summit-europe-2019), in Berlin, I flew to Barcelona, Spain and joined **[IoT Solutions World Congress 2019](https://www.iotsworldcongress.com)** (IoTSWC).

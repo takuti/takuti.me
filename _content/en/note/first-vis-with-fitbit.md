@@ -7,7 +7,7 @@ lang: en
 title: Practicing D3 Interactive Data Visualization with Fitbit Activity/Sleep Log
 keywords: [sleep, fitbit, active, activity, vis, minutes, sketch, visualization, data,
   correlations]
-recommendations: [/note/datavis-2020/, /note/javascript-save-svg-as-image/, /note/data-leaders-summit-europe-2019/]
+recommendations: [/note/datavis-2020/, /note/javascript-save-svg-as-image/, /note/data-validation/]
 ---
 
 As I introduced in **[Datavis 2020: A Free Online Course About D3.js & React](/note/end/datavis-2020)**, the online course told me the basics of how to effectively and efficiently create interactive data visualization using D3 and React. 

@@ -4,7 +4,7 @@ date: 2015-04-21
 lang: en
 title: How to Derive the Normal Equation
 keywords: [equation, regression, derivation, linear, normal, derive, explain, optimal,
-  details, model]
+  details, rpml]
 recommendations: [/note/hugo-kramdown-and-katex/, /note/machine-learning-product/,
   /note/mlss-kyoto-2015/]
 ---

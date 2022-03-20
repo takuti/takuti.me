@@ -4,7 +4,7 @@ date: 2021-07-15
 lang: en
 title: Reviewing Ethical Challenges in Recommender Systems
 keywords: [user, recommendation, ethical, systems, stakeholders, provider, recommendations,
-  stakeholder, accuracy, social]
+  stakeholder, accuracy, authors]
 recommendations: [/note/recsys-2021/, /note/novelty-diversity-serendipity/, /note/recsys-2021-echo-chambers-and-filter-bubbles/]
 ---
 

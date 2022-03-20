@@ -5,7 +5,7 @@ date: 2022-02-13
 lang: en
 title: '"Out of Scope"'
 keywords: [friend, sivers, derek, movement, serendipity, scope, share, relevant, expect,
-  definition]
+  project]
 recommendations: [/note/novelty-diversity-serendipity/, /note/definition-of-done/,
   /note/the-producer-consumer-gap/]
 ---

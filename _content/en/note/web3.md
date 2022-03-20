@@ -4,11 +4,11 @@ date: 2022-03-13
 audio: [/audio/web3.mp3]
 lang: en
 title: Security, Privacy, and Ethics in the Web 3.0 Era
+images: [/images/web3/web-x.png]
 keywords: [web, blockchain, literacy, technology, level, supported, internet, individuals,
   complexity, security]
 recommendations: [/note/coursera-blockchain-specialization/, /note/bitcoin-and-cryptocurrency/,
   /note/iotswc-2019/]
-images: [/images/web3/web-x.png]
 ---
 
 [Web 3.0](https://en.wikipedia.org/wiki/Web3), which commonly refers to the technological trends around blockchain and NFTs, is not a substitute for today's Web 2.0 technology (yet). But the trend clearly changes what "literacy" means on the internet, and the new wave requires individuals to have a different mindset.

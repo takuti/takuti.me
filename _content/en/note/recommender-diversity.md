@@ -4,8 +4,8 @@ categories: [Recommender Systems, Data Science & Analytics, Machine Learning]
 date: 2022-02-27
 lang: en
 title: Recommender Diversity is NOT Inversion of Similarity
-keywords: [diversity, accuracy, metrics, recommendation, items, studies, similarity,
-  approach, based, bounded]
+keywords: [diversity, accuracy, metrics, recommendation, items, similarity, studies,
+  approach, bounded, ank]
 recommendations: [/note/novelty-diversity-serendipity/, /note/the-power-of-diverse-thinking/,
   /note/recsys-2021/]
 ---
