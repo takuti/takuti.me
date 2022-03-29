@@ -3,8 +3,8 @@ categories: [Programming]
 date: 2021-04-19
 lang: en
 title: Learning Cryptocurrency with Code
-keywords: [blockchain, transaction, bitcoin, transactions, decentralized, consensus,
-  utxopool, utxo, property, miners]
+keywords: [blockchain, transaction, bitcoin, transactions, decentralized, utxopool,
+  utxo, property, consensus, miners]
 recommendations: [/note/coursera-blockchain-specialization/, /note/web3/, /note/iotswc-2019/]
 ---
 

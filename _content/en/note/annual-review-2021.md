@@ -3,8 +3,8 @@ categories: [Life & Work]
 date: 2021-12-26
 lang: en
 title: 'My 2021 Annual Review: A Year of Divergence (And Slowly Started Converging)'
-keywords: [year, note, product, identity, sustainability, traveler, aligned, lot,
-  learning, travel]
+keywords: [year, note, product, identity, sustainability, traveler, aligned, learning,
+  lot, travel]
 recommendations: [/note/atomic-habits/, /note/td-to-amazon/, /note/ethical-product-developer/]
 ---
  

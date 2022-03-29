@@ -5,8 +5,8 @@ date: 2022-03-20
 lang: en
 title: 'It "Was" Ethical: Key Takeaways from UMich''s Data Science Ethics Course'
 keywords: [data, ethics, ethical, validate, society, science, driven, regulation,
-  privacy, social]
-recommendations: [/note/data-validation/, /note/airflow-lineage/, /note/data-leaders-summit-europe-2019/]
+  privacy, cameras]
+recommendations: [/note/ethics-and-relationship/, /note/data-validation/, /note/airflow-lineage/]
 ---
 
 One of the most important takeaways from [UMich's "Data Science Ethics" on Coursera](https://www.coursera.org/learn/data-science-ethics/) is that **ethics is defined by social consensus**.
