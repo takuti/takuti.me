@@ -6,7 +6,7 @@ images: [/images/coursera-supply-chain-management/warehouse.png, /images/courser
   /images/holt-winters/moving_average.png, /images/holt-winters/smoothing.png]
 lang: en
 title: The Essence of Supply Chain Management
-keywords: [cost, suppliers, demand, operations, method, average, logistics, winters,
+keywords: [cost, suppliers, demand, operations, average, method, logistics, winters,
   mode, holt]
 recommendations: [/note/supply-chain-analytics/, /note/supply-chain-disruption/, /note/machine-learning-product/]
 ---

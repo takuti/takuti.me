@@ -5,7 +5,7 @@ lang: en
 title: Parallel Programming vs. Concurrent Programming
 keywords: [parallel, concurrent, programming, progress, concurrency, actions, simultaneously,
   executed, definitions, multiple]
-recommendations: [/note/coursera-scala-capstone/, /note/mlconf-sf-2018/, /note/ethical-challenges-in-recommender-systems/]
+recommendations: [/note/coursera-scala-capstone/, /note/mlconf-sf-2018/, /note/spark-rdd-cached-vs-uncached/]
 ---
 
 What is the difference between **parallel programming** and **concurrent programming**? There is a lot of definitions in the literature.

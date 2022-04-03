@@ -4,10 +4,10 @@ categories: [Recommender Systems, Data Science & Analytics, Machine Learning]
 date: 2022-02-27
 lang: en
 title: Recommender Diversity is NOT Inversion of Similarity
-keywords: [diversity, accuracy, metrics, recommendation, items, similarity, studies,
+keywords: [diversity, accuracy, metrics, recommendation, items, studies, similarity,
   approach, bounded, ank]
 recommendations: [/note/novelty-diversity-serendipity/, /note/the-power-of-diverse-thinking/,
-  /note/recsys-2021/]
+  /note/cross-validation-julia-recommender/]
 ---
 
 In the modern personalization systems, diversifying what's recommended to individual users is crucial not only for maximizing customer satisfaction and business metrics but [incorporating proper ethics and fairness into the applications](/note/ethical-challenges-in-recommender-systems/). Here, to make constructive discussion in terms of what defines the goodness of recommendation, quantifying the concept of diversity in the form of metric is an important area of research and development.

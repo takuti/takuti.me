@@ -5,7 +5,7 @@ date: 2022-02-04
 lang: en
 title: '"Definition of Done"'
 keywords: [product, life, accomplishment, personal, goal, define, step, customers,
-  matters, definition]
+  definition, matters]
 recommendations: [/note/ethical-product-developer/, /note/product-management-and-bullshit-job/,
   /note/td-to-amazon/]
 ---

@@ -7,8 +7,8 @@ lang: en
 title: 'Serendipity: It''s Relevant AND Unexpected'
 keywords: [serendipity, recommendation, novelty, diversity, serendipitous, user, kotkov,
   fig, accuracy, relevant]
-recommendations: [/note/recommender-diversity/, /note/ethical-challenges-in-recommender-systems/,
-  /note/hello-faust/]
+recommendations: [/note/cross-validation-julia-recommender/, /note/recommender-diversity/,
+  /note/ethical-challenges-in-recommender-systems/]
 ---
 
 As I've been discussing over the last months, I personally believe measuring non-accuracy aspects of intelligent systems is one of the most important challenges to [make algorithmic recommendations ethical](/note/ethical-challenges-in-recommender-systems/).
