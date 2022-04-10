@@ -6,7 +6,7 @@ lang: en
 title: '3 Pillars of Ethics'' Scope: Society, Personal Relationship, and Individual'
 keywords: [ethics, consensus, society, bad, relationship, law, personal, onsensus,
   crime, social]
-recommendations: [/note/coursera-data-science-ethics/, /note/web3/, /note/annual-review-2021/]
+recommendations: [/note/coursera-data-science-ethics/, /note/loneliness/, /note/web3/]
 ---
 
 As [Key Takeaways from UMich's Data Science Ethics Course](/note/coursera-data-science-ethics) told us, ethics is defined by social consensus. Here, [another introductory book for ethics](https://www.amazon.co.jp/%E3%81%B5%E3%81%A0%E3%82%93%E3%81%A5%E3%81%8B%E3%81%84%E3%81%AE%E5%80%AB%E7%90%86%E5%AD%A6-%E7%8A%80%E3%81%AE%E6%95%99%E5%AE%A4Liberal-Arts-Lab-%E5%B9%B3%E5%B0%BE/dp/4794970382?language=en_US) pointed out "society" is not the only problem space ethics considers; *"how the right and wrong are defined by whom"* varies depending on the size of relationship: **Society**, **personal relationship**, and **individual**.
