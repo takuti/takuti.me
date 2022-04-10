@@ -4,8 +4,8 @@ date: 2022-04-09
 lang: en
 title: Loneliness Is Worse Than Smoking, Alcoholic, Obesity
 images: [/images/loneliness/me.jpeg]
-keywords: [loneliness, relationships, social, relationship, health, isolation, stress,
-  break, book, friends]
+keywords: [loneliness, relationships, social, relationship, health, wellbeing, isolation,
+  stress, break, book]
 recommendations: [/note/ethics-and-relationship/, /note/annual-review-2021/, /note/the-power-of-diverse-thinking/]
 ---
 
@@ -13,7 +13,9 @@ After reviewing several scientific evidence showing the fact, I'm urgently seeki
 
 Surprisingly, it is proven that the negative impact of social isolation is not only on mental health but physical condition and longevity in general.
 
-*Statistically speaking,* smoking, alcoholic, and/or obesity are bad. No doubt. However, at the same time, not everyone dies due to these trivial reasons; there are many "unknowns" of which factor contributes to our death. Here, scientific research has revealed that a good chunk of health issues can be associated with loneliness or the lack of social relationships:
+> **NOTE**: Loneliness and social isolation are different in a precise sense, but this article uses them almost interchangeably; we assume a person feels loneliness and is socially isolated with limited human relationships, which corresponds to my current situation.
+
+Statistically speaking, smoking, alcoholic, and/or obesity are bad. No doubt. However, at the same time, not everyone dies due to these trivial reasons; there are many "unknowns" of which factor contributes to our death. Here, scientific research has revealed that a good chunk of health issues can be associated with loneliness or the lack of social relationships:
 
 - [Social Relationships and Mortality Risk: A Meta-analytic Review](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1000316) in PLoS Med (2010)
 - [Myeloid differentiation architecture of leukocyte transcriptome dynamics in perceived social isolation](https://www.pnas.org/doi/10.1073/pnas.1514249112) in PNAS (2015)
@@ -25,9 +27,7 @@ For the reasons mentioned above, the [constitution of World Health Organization 
 
 > Health is a state of complete physical, mental and social well-being and not merely the absence of disease or infirmity.
 
-Yes, social well-being does define our health.
-
-*NOTE: Loneliness and social isolation are different in a precise sense, but this article uses them almost interchangeably; we assume a person feels loneliness and is socially isolated with limited human relationships, which corresponds to my current situation.*
+Yes, social wellbeing does define our health.
 
 ### How to break loneliness
 
@@ -57,6 +57,6 @@ Having said that, a strong relationship is not something that automatically emer
 
 In fact, a quarter of the year has already passed. Even though I had several good social interactions during the past winter season and did start regularly meeting with some people online/offline, there are still many areas of improvement. As a single, immigrant, and working-from-home software engineer, I can be easily lonely unless I explicitly make some effort.
 
-![me](/images/loneliness/me.jpeg)_\* This is me 10 years ago. Someone jokingly took the lonely person when we were at quiet lakeside, but I think it clearly depicts how my current life looks like._
+![me](/images/loneliness/me.jpeg)_^ This is me 10 years ago. Someone jokingly took the photo of lonely person when we were at quiet lakeside, but I think it clearly depicts how my current life looks like._
 
 I do enjoy the quiet life, and it is actually very comfortable. But I can clearly say I'm not healthy if I follow the WHO's definition. So, it's time to break the situation.
