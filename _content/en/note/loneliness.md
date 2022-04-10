@@ -3,10 +3,10 @@ categories: [Life & Work]
 date: 2022-04-09
 lang: en
 title: Loneliness Is Worse Than Smoking, Alcoholic, Obesity
-keywords: [social, relationships, loneliness, relationship, health, stress, break,
-  book, friends, yoshiki]
-recommendations: [/note/ethics-and-relationship/, /note/annual-review-2021/, /note/the-power-of-diverse-thinking/]
 images: [/images/loneliness/me.jpeg]
+keywords: [loneliness, relationships, social, relationship, health, isolation, stress,
+  break, book, friends]
+recommendations: [/note/ethics-and-relationship/, /note/annual-review-2021/, /note/the-power-of-diverse-thinking/]
 ---
 
 After reviewing several scientific evidence showing the fact, I'm urgently seeking a way to break my loneliness. To my friends, former/current colleagues, or random strangers, let's (re)connect.
@@ -26,6 +26,8 @@ For the reasons mentioned above, the [constitution of World Health Organization 
 > Health is a state of complete physical, mental and social well-being and not merely the absence of disease or infirmity.
 
 Yes, social well-being does define our health.
+
+*NOTE: Loneliness and social isolation are different in a precise sense, but this article uses them almost interchangeably; we assume a person feels loneliness and is socially isolated with limited human relationships, which corresponds to my current situation.*
 
 ### How to break loneliness
 
