@@ -14,7 +14,7 @@ I, as an [ethical product developer](/note/ethical-product-developer/), consider
 
 - End user is physically absent from the design process.
 - Success is measured purely by business metrics.
-- Product requirements are partially or entirely "given" by external forces (e.g., "leadership decision", "royal customer X").
+- Product requirements are partially or entirely "given" by external forces (e.g., "leadership decision", "loyal customer X").
 
 Over the last couple of years, I keep questioning myself as "Am I doing the right thing?" and reviewing where I am based on the criteria. However, in practice, focusing on those essentials is not easy to survive in the modern tech industry; the companies are still under a strong pressure of infinite economic growth in the world of capitalism, and pausing for a moment with these questions is simply "inefficient" as rapid iteration is a king for them.
 
