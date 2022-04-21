@@ -4,10 +4,10 @@ categories: [Life & Work, Business, Design]
 date: 2022-02-04
 lang: en
 title: '"Definition of Done"'
-keywords: [product, life, accomplishment, personal, goal, define, step, customers,
+keywords: [product, life, accomplishment, personal, goal, define, customers, step,
   definition, matters]
 recommendations: [/note/ethical-product-developer/, /note/product-management-and-bullshit-job/,
-  /note/td-to-amazon/]
+  /note/foundations-of-humane-technology/]
 ---
 
 I strongly believe having solid ***"Definition of Done"*** is critical at a wide variety of occasions, including not only at business but for our personal life, but it's underappreciated in practice.

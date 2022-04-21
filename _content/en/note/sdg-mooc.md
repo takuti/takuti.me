@@ -4,8 +4,8 @@ date: 2021-05-14
 images: [/images/sdg-mooc/sdgs-wedding-cake.jpeg]
 lang: en
 title: 'A Journey of Sustainable Development #SDGMOOC'
-keywords: [sdgs, plastic, hummingbird, sustainability, responsibility, wedding, cake,
-  bag, problems, business]
+keywords: [sdgs, plastic, hummingbird, sustainability, responsibility, problems, wedding,
+  cake, bag, business]
 recommendations: [/note/sustainability-at-big-tech/, /note/environmental-problems-and-business/,
   /note/sustainable-capitalism/]
 ---

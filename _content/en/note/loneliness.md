@@ -5,7 +5,7 @@ lang: en
 title: Loneliness Is Worse Than Smoking, Alcoholic, Obesity
 images: [/images/loneliness/me.jpeg]
 keywords: [loneliness, relationships, social, relationship, health, wellbeing, isolation,
-  stress, break, book]
+  break, stress, book]
 recommendations: [/note/ethics-and-relationship/, /note/annual-review-2021/, /note/the-power-of-diverse-thinking/]
 ---
 

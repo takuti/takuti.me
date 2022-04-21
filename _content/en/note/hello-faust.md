@@ -6,7 +6,7 @@ lang: en
 title: Feeding User-Item Interactions to Python-Based Streaming Recommendation Engine
   via Faust
 keywords: [recommendation, stream, incremental, flurs, engine, faust, streams, python,
-  user, items]
+  items, user]
 recommendations: [/note/cross-validation-julia-recommender/, /note/flurs/, /note/novelty-diversity-serendipity/]
 ---
 
