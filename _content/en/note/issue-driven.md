@@ -6,7 +6,7 @@ lang: en
 title: Issue-Driven Makes You Professional
 keywords: [issue, driven, quality, time, work, approach, storyline, professionalism,
   deliver, talk]
-recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/becoming-a-product-manager/]
+recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/revisit-design-thinking/]
 ---
 
 What does define "professional" mean? 
