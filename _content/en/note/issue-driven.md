@@ -4,9 +4,9 @@ date: 2020-05-01
 images: [/images/issue-driven/issue-driven.png]
 lang: en
 title: Issue-Driven Makes You Professional
-keywords: [issue, driven, quality, time, work, approach, storyline, professionalism,
-  deliver, talk]
-recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/revisit-design-thinking/]
+keywords: [issue, driven, quality, time, work, approach, deliver, storyline, professionalism,
+  deliverables]
+recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/canadian-mental-health-week-2022/]
 ---
 
 What does define "professional" mean? 

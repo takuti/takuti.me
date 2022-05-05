@@ -4,9 +4,10 @@ date: 2022-04-09
 lang: en
 title: Loneliness Is Worse Than Smoking, Alcoholic, Obesity
 images: [/images/loneliness/me.jpeg]
-keywords: [loneliness, relationships, social, relationship, health, wellbeing, isolation,
-  break, stress, book]
-recommendations: [/note/ethics-and-relationship/, /note/annual-review-2021/, /note/the-power-of-diverse-thinking/]
+keywords: [relationships, loneliness, social, relationship, health, wellbeing, isolation,
+  break, book, stress]
+recommendations: [/note/canadian-mental-health-week-2022/, /note/ethics-and-relationship/,
+  /note/annual-review-2021/]
 ---
 
 After reviewing several scientific evidence showing the fact, I'm urgently seeking a way to break my loneliness. To my friends, former/current colleagues, or random strangers, let's (re)connect.
