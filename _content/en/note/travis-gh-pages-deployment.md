@@ -4,7 +4,7 @@ date: 2017-06-26
 images: [/images/hugo-site/travis-deploy-bot.png]
 lang: en
 title: Deploying Static Site to GitHub Pages via Travis CI
-keywords: [travis, repository, deployment, hugo, github, takuti, commit, site, directory,
+keywords: [travis, repository, deployment, hugo, takuti, github, commit, site, directory,
   bot]
 recommendations: [/note/move-to-gh-pages/, /note/hugo-markdown-and-mathjax/, /note/hello-netlify/]
 ---

@@ -4,7 +4,7 @@ date: 2022-05-01
 lang: en
 title: Learning Canada's History
 images: [/images/indigenous-canada-mid-term/nanaimo-bars.jpeg]
-keywords: [indigenous, history, museum, canada, reconciliation, museums, nanaimo,
+keywords: [indigenous, museum, history, canada, reconciliation, museums, nanaimo,
   japanese, europe, canadians]
 recommendations: [/note/relocating-to-canada/, /note/technique-producing-ideas/, /note/annual-review-2021/]
 ---
