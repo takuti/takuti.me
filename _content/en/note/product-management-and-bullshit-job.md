@@ -6,7 +6,7 @@ lang: en
 title: Hi Product Managers, Are You Creating Products That *You* Love?
 keywords: [product, customers, job, love, manager, communication, strong, execution,
   passion, products]
-recommendations: [/note/ethical-product-developer/, /note/td-to-amazon/, /note/machine-learning-product/]
+recommendations: [/note/ethical-product-developer/, /note/td-to-amazon/, /note/foundations-of-humane-technology/]
 ---
 
 Otherwise, I have a feeling that the job of product management is likely to be a [bullshit job](https://en.wikipedia.org/wiki/Bullshit_Jobs).
