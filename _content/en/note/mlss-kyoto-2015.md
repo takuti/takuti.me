@@ -7,7 +7,7 @@ lang: en
 title: 'Machine Learning Summer School 2015 Kyoto #MLSSKYOTO'
 keywords: [lecture, mlss, optimization, submodular, lectures, gradient, convex, theoretical,
   learning, learn]
-recommendations: [/note/learn-how-others-work/, /note/machine-learning-product/, /note/fermenting-thoughts/]
+recommendations: [/note/goes-back-to-school/, /note/learn-how-others-work/, /note/machine-learning-product/]
 ---
 
 Hi, I am takuti, a master's student in Japan. Currently, I am working on matrix factorization and approximation. Also, my research interests are in web engineering, mining and their applications such as recommender systems.

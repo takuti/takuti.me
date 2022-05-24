@@ -3,7 +3,7 @@ categories: [Life & Work]
 date: 2017-01-07
 lang: en
 title: 'My New Year''s Resolution 2017: Write an Article Every Week'
-keywords: [articles, skills, writing, books, professional, write, read, months, goals,
+keywords: [articles, skills, writing, professional, books, write, read, months, goals,
   commits]
 recommendations: [/note/hello-english/, /note/annual-review-2021/, /note/the-producer-consumer-gap/]
 ---
