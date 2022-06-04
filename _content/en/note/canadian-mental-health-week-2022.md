@@ -4,9 +4,10 @@ date: 2022-05-05
 lang: en
 title: 'Starting with Empathy to #GetReal, Beat Loneliness, and Be Ethical. #MentalHealthWeek'
 images: [/images/canadian-mental-health-week-2022/thumbnail.jpeg, /images/canadian-mental-health-week-2022/health-assessment.png]
-keywords: [health, empathy, mental, loneliness, assessment, perience, canadian, people,
+keywords: [health, empathy, mental, loneliness, assessment, perience, people, canadian,
   week, warning]
-recommendations: [/note/loneliness/, /note/annual-review-2021/, /note/td-to-amazon/]
+recommendations: [/note/loneliness/, /note/post-pandemic-first-international-trip/,
+  /note/annual-review-2021/]
 ---
 
 It's [Mental Health Week in Canada](https://www.mentalhealthweek.ca/). The theme **empathy** is a big topic for me as I recently made a dramatic shift in my focus as part of the latest update on [my NOW page](/now/); currently, I have a strong feeling that being empathetic can be foundation of everything, including happiness in personal life, healthy mutual relationship with others, and sense of satisfaction on a job.

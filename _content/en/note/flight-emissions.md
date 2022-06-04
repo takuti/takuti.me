@@ -6,8 +6,7 @@ lang: en
 title: How Much CO2 Emissions Have Your Flights Made?
 keywords: [emissions, flight, visualization, flights, tonnes, airport, countries,
   produces, longitude, latitude]
-recommendations: [/note/javascript-save-svg-as-image/, /note/annual-review-2021/,
-  /note/datavis-2020/]
+recommendations: [/note/javascript-save-svg-as-image/, /note/datavis-2020/, /note/annual-review-2021/]
 ---
 
 *Before reading further, play with an interactive data visualization app that I implemented with D3.js & React: **[Flight Emissions Calculator](https://takuti.github.io/flight-emissions/)***

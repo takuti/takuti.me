@@ -5,8 +5,9 @@ images: [/images/relocating-to-canada/vancouver-harbour.jpeg]
 lang: en
 title: 'Moving to Canada: Adding Randomness to My Life'
 keywords: [vancouver, japan, canada, oslo, treasure, live, country, nagano, harbour,
-  international]
-recommendations: [/note/td-to-amazon/, /note/annual-review-2021/, /note/becoming-a-product-manager/]
+  manager]
+recommendations: [/note/post-pandemic-first-international-trip/, /note/td-to-amazon/,
+  /note/annual-review-2021/]
 ---
 
 On Feb 26, 2021, I have officially moved to Metro Vancouver in British Columbia, Canada from Japan under continuous employment with [Treasure Data](https://www.treasuredata.com/), where I have been working for 4+ years.

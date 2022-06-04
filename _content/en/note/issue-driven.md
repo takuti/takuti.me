@@ -5,7 +5,7 @@ images: [/images/issue-driven/issue-driven.png]
 lang: en
 title: Issue-Driven Makes You Professional
 keywords: [issue, driven, quality, time, work, approach, deliver, storyline, professionalism,
-  talk]
+  deliverables]
 recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/revisit-design-thinking/]
 ---
 

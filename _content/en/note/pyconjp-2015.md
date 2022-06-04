@@ -4,9 +4,9 @@ date: 2015-10-13
 images: [/images/jekyll/2015-10-13-pycon-entrance.jpg, /images/jekyll/2015-10-13-pycon-closing.png]
 lang: en
 title: 'PyCon JP 2015 #pyconjp'
-keywords: [python, talk, pycon, pandas, grpc, possibilities, talks, programming, 範囲,
+keywords: [python, pycon, talk, pandas, grpc, possibilities, talks, programming, 範囲,
   morphological]
-recommendations: [/note/hello-faust/, /note/phpcon-2015/, /note/hivemall-events-2018-autumn/]
+recommendations: [/note/hello-faust/, /note/hivemall-pyspark/, /note/hivemall-events-2018-autumn/]
 ---
 
 Following [phpcon2015](http://phpcon.php.gr.jp/2015/), I have attended [PyCon JP 2015](https://pycon.jp/2015/en/) at the end of last week.
