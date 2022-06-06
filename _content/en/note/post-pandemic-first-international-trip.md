@@ -3,10 +3,10 @@ categories: [Life & Work]
 date: 2022-06-04
 lang: en
 title: My First Post-Pandemic International Trip
-keywords: [international, trip, canada, travel, traveling, meet, pandemic, relocating,
-  week, place]
-recommendations: [/note/relocating-to-canada/, /note/annual-review-2021/, /note/flight-emissions/]
 images: [/images/post-pandemic-first-international-trip/river.jpeg]
+keywords: [international, trip, canada, travel, traveling, meet, pandemic, week, place,
+  relocating]
+recommendations: [/note/relocating-to-canada/, /note/annual-review-2021/, /note/canada-permanent-residency/]
 ---
 
 Last week, I was traveling to the US to meet some of my friends, which was my first post-pandemic international trip[^1]. It was simply awesome, and the experience has strongly amplified [my traveler identity](/note/atomic-habits/). Even though I already restarted enjoying domestic travels, international ones are still a lot different in terms of the experience we can gain and people we can meet with. Speaking of travel restrictions, as of writing, entering the US by air requires a pre-flight COVID test regardless of vaccination status, whereas entering Canada has no restriction as long as you are fully vaccinated.

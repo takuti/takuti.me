@@ -3,8 +3,8 @@ categories: [Programming]
 date: 2021-03-06
 lang: en
 title: 'Moving Julia Project from Travis CI to GitHub Actions #JuliaLang'
-keywords: [julia, travis, project, github, actions, workflows, undergone, tokenize,
-  tagbot, statistics]
+keywords: [julia, travis, project, github, actions, workflows, tokenize, tagbot, statistics,
+  migration]
 recommendations: [/note/juliacon-2019/, /note/recommendation-julia-documenter/, /note/travis-gh-pages-deployment/]
 ---
 

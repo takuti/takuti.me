@@ -6,7 +6,7 @@ title: Learning Canada's History
 images: [/images/indigenous-canada-mid-term/nanaimo-bars.jpeg]
 keywords: [indigenous, museum, history, canada, reconciliation, nanaimo, museums,
   japanese, europe, canadians]
-recommendations: [/note/goes-back-to-school/, /note/relocating-to-canada/, /note/post-pandemic-first-international-trip/]
+recommendations: [/note/goes-back-to-school/, /note/relocating-to-canada/, /note/canada-permanent-residency/]
 ---
 
 - Canadian friend: "Do you know John Macdonald?"
