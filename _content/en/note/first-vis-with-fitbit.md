@@ -5,7 +5,7 @@ images: [/images/first-vis-with-fitbit/sketch.jpeg, /images/first-vis-with-fitbi
   /images/first-vis-with-fitbit/active-vs-sleep-pre.png, /images/first-vis-with-fitbit/active-vs-sleep-post.png]
 lang: en
 title: Practicing D3 Interactive Data Visualization with Fitbit Activity/Sleep Log
-keywords: [sleep, fitbit, active, activity, vis, minutes, sketch, visualization, data,
+keywords: [sleep, fitbit, active, vis, minutes, activity, sketch, visualization, data,
   correlations]
 recommendations: [/note/datavis-2020/, /note/javascript-save-svg-as-image/, /note/data-leaders-summit-europe-2019/]
 ---

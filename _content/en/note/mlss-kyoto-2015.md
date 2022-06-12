@@ -6,7 +6,7 @@ images: [/images/jekyll/2015-10-03-sensu.jpg, /images/jekyll/2015-10-03-bamboo.j
 lang: en
 title: 'Machine Learning Summer School 2015 Kyoto #MLSSKYOTO'
 keywords: [lecture, mlss, optimization, submodular, lectures, gradient, convex, theoretical,
-  learning, learn]
+  mathematica, learning]
 recommendations: [/note/goes-back-to-school/, /note/learn-how-others-work/, /note/machine-learning-product/]
 ---
 
