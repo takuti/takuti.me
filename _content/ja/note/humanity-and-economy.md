@@ -3,7 +3,7 @@ categories: [読書記録, エッセイ]
 date: 2021-10-24
 lang: ja
 title: 経済的合理性だけでは語れない“豊かさ”について
-keywords: [衝動, 展示, 浪費, 消費, 芸術, 人生, 打算, アート, sustainable, ビジネス]
+keywords: [衝動, 展示, 浪費, 消費, 芸術, 打算, アート, sustainable, 人生, ビジネス]
 recommendations: [/ja/note/boredom/, /ja/note/2021/, /ja/note/sustainable-capitalism/]
 ---
 

@@ -4,7 +4,7 @@ categories: [機械学習, 情報推薦]
 date: 2017-02-18
 lang: ja
 title: '"SLIM: Sparse Linear Methods for Top-N Recommender Systems"を読んだ'
-keywords: [slim, アイテム, 推薦, サンプリング, 行列, 精度, 正則化, 実測, linear, 手法]
+keywords: [slim, アイテム, 推薦, サンプリング, 行列, 精度, 正則化, 実測, 手法, linear]
 recommendations: [/ja/note/coursera-recommender-systems/, /ja/note/two-decades-of-amazon-recommender/,
   /ja/note/recsys-2021-ab-ndcg/]
 ---
