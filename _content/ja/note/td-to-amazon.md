@@ -3,7 +3,7 @@ categories: [生活・人生]
 date: 2021-08-19
 lang: ja
 title: カナダで転職して、プロダクトマネージャーからソフトウェアエンジニアに戻った。
-keywords: [大企業, note, エンジニア, amazon, 自分, 経験, 仕事, 退職, 転職, キャリア]
+keywords: [note, 大企業, エンジニア, amazon, 自分, 経験, 仕事, 退職, 転職, キャリア]
 recommendations: [/ja/note/product-management-and-bullshit-job/, /ja/note/relocating-to-canada/,
   /ja/note/first-quarter-as-a-product-manager/]
 ---

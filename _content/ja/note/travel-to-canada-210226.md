@@ -3,8 +3,9 @@ categories: [生活・人生]
 date: 2021-03-01
 lang: ja
 title: コロナ禍でのカナダ渡航（2021年2月26日・入国後PCR検査義務化後）
-keywords: [ホテル, 隔離, 認定, 予約, pcr検査, 政府, 入国, post, フライト, 陰性]
-recommendations: [/ja/note/one-month-in-canada/, /ja/note/relocating-to-canada/, /ja/note/four-months-after-moving-to-canada/]
+keywords: [ホテル, 隔離, pcr検査, 予約, 認定, 政府, 入国, post, フライト, 陰性]
+recommendations: [/ja/note/one-month-in-canada/, /ja/note/canada-permanent-residency/,
+  /ja/note/relocating-to-canada/]
 ---
 
 ***2021年2月26日現在の情報です。最新の情報は必ずカナダ政府の "[COVID-19: Travel, quarantine and borders](https://travel.gc.ca/travel-covid)" を確認してください。***

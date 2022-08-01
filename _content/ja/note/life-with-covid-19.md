@@ -5,7 +5,8 @@ images: [/images/life-with-covid-19/convergence.png]
 lang: ja
 title: 貯金を取り崩しながら生きている感覚
 keywords: [調子, deep, 時間, 散歩, 昨日, 遠く, convergence, 日常, 人生, 自炊]
-recommendations: [/ja/note/deep-work/, /ja/note/think/, /ja/note/four-months-after-moving-to-canada/]
+recommendations: [/ja/note/deep-work/, /ja/note/four-months-after-moving-to-canada/,
+  /ja/note/think/]
 ---
 
 > 振り返るとこの1年は、常にそんな伸びきったゴムのような心をぶら下げて歩いていたような気がしてくる。もちろん瞬間的には嬉しいし楽しいし悔しいし悲しい。しかし自分史上最高にダイナミックな日々の中では、どんな事象も結局のところ時間軸上のある一点にすぎなかった。なんというか、昨日がとても遠くに感じるのだ。 

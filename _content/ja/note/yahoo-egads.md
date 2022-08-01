@@ -6,7 +6,7 @@ images: [/images/egads/architecture.png]
 lang: ja
 title: Yahoo!の異常検知フレームワーク"EGADS"
 keywords: [時系列, 異常, egads, データ, 異常検知, モデル, 検知, 観測, フィルタリング, アルゴリズム]
-recommendations: [/ja/note/holt-winters/, /ja/note/leakage/, /ja/note/td-intern-2016/]
+recommendations: [/ja/note/holt-winters/, /ja/note/leakage/, /ja/note/data-stream-mining/]
 ---
 
 Yahoo!がOSSとして開発している異常検知フレームワーク "**[EGADS](https://github.com/yahoo/egads)**" (**E**xtensible **G**eneric **A**nomaly **D**etection **S**ystem) について書いた次の論文を読んだ：

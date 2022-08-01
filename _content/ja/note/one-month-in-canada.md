@@ -5,9 +5,9 @@ images: [/images/one-month-in-canada/day10-test-waiting.png, /images/one-month-i
   /images/one-month-in-canada/area-after.png]
 lang: ja
 title: 【コロナ禍でのカナダ移住】渡航の前後1ヶ月間を振り返る
-keywords: [隔離, canada, 手続き, カナダ, 部屋, 物件, 電話, 海外, sin, 日本]
-recommendations: [/ja/note/travel-to-canada-210226/, /ja/note/relocating-to-canada/,
-  /ja/note/four-months-after-moving-to-canada/]
+keywords: [隔離, canada, カナダ, 手続き, 部屋, 物件, 電話, 海外, sin, 日本]
+recommendations: [/ja/note/travel-to-canada-210226/, /ja/note/canada-permanent-residency/,
+  /ja/note/relocating-to-canada/]
 ---
 
 『**[トレジャーデータ株式会社を退職して Treasure Data (Canada) に入社しました](/ja/note/relocating-to-canada/)**』から1ヶ月が経った。1月中旬にビザ（労働許可）申請が承認されてからは2ヶ月強。

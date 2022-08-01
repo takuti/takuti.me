@@ -3,7 +3,7 @@ categories: [エッセイ]
 date: 2020-07-11
 lang: ja
 title: 僕は「世界で闘うプロダクトマネージャー」にはなれない。
-keywords: [信用, メンバー, チーム, 自分, 闘う, 仲間, 組織, 世界, エンジニア, プロダクトマネージャー]
+keywords: [信用, メンバー, チーム, 自分, 闘う, 仲間, 組織, エンジニア, 世界, プロダクトマネージャー]
 recommendations: [/ja/note/product-management-myths/, /ja/note/product-management-and-bullshit-job/,
   /ja/note/td-to-amazon/]
 ---
