@@ -4,9 +4,9 @@ date: 2022-04-03
 lang: en
 title: Cross Validation for Recommender Systems in Julia
 images: [/images/cross-validation-julia-recommender/matrix.png]
-keywords: [recommendation, evaluation, events, recommender, cross, diversity, validation,
+keywords: [recommendation, evaluation, events, recommender, diversity, cross, validation,
   julia, item, train]
-recommendations: [/note/novelty-diversity-serendipity/, /note/hello-faust/, /note/recommender-diversity/]
+recommendations: [/note/novelty-diversity-serendipity/, /note/hello-faust/, /note/juliacon-2022/]
 ---
 
 When it comes to building data-driven applications, evaluation matters. It matters A LOT, and an evaluation process is not always the same as how we calculate accuracy in the machine learning context (cf. [Recommender Diversity is NOT Inversion of Similarity](/note/recommender-diversity/)). Moreover, commonly speaking, online evaluation is the king to capture the unique characteristics of real-world events.

@@ -3,8 +3,8 @@ categories: [Recommender Systems, Data Science & Analytics, Business, Life & Wor
 date: 2022-05-15
 lang: en
 title: Am I Zombie? Autonomy vs. Recommendations on the Internet
-keywords: [zombie, systems, stairs, crazed, received, humanity, walk, ethical, autonomy,
-  day]
+keywords: [zombie, stairs, crazed, systems, received, humanity, walk, ethical, day,
+  autonomy]
 recommendations: [/note/ethical-challenges-in-recommender-systems/, /note/foundations-of-humane-technology/,
   /note/ethical-product-developer/]
 ---

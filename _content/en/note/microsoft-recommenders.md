@@ -5,7 +5,7 @@ lang: en
 images: []
 title: What I Like About Microsoft Recommenders Repository
 keywords: [recommenders, microsoft, repository, pypi, package, minimal, metrics, written,
-  diversity, functionality]
+  functionality, diversity]
 recommendations: [/note/flurs/, /note/travis-gh-pages-deployment/, /note/recommender-diversity/]
 ---
 
