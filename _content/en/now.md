@@ -4,17 +4,17 @@ title: What I'm Doing Now
 
 *This is a [now page](https://nownownow.com/about). I will update the page roughly on a monthly basis to share where I am, what I'm focusing on, and [what I don't do](/note/creating-now-page/).*
 
-**Last updated**: Aug 6, 2022 @ North Vancouver, British Columbia, Canada.
+**Last updated**: Sept 2, 2022 @ North Vancouver, British Columbia, Canada.
 
-### Creating with empathy
+### Growing as a freelance software developer
 
-Being conscious about the externalities of what I’m creating as a product developer is the biggest personal challenge at this moment, and I have kept questioning myself as [*"Should I build this?"*](/note/foundations-of-humane-technology/) for years. In particular, I keep seeking an opportunity to work on what I can empathize with based on my intrinsic motivation, as opposed to extrinsic motivation such as social recognition, status, and financial success.
+Being conscious of the externalities of what I’m creating as a developer is the biggest personal challenge at this moment, and I have kept questioning myself as [*"Should I build this?"*](/note/foundations-of-humane-technology/) for years. In particular, I keep seeking an opportunity to work on what I can empathize with based on my intrinsic motivation, as opposed to extrinsic motivation such as social recognition, status, and financial success.
 
-It's all about being more empathetic about the things and people around myself. "Mindfulness" can be a word that best describes the motion, but my recent learning about [ethics](/note/coursera-data-science-ethics/), [loneliness](/note/loneliness/), and [relationship](/note/ethics-and-relationship/) revealed empathy means a lot more than what we think. I believe nothing is more important than everyone's happiness, and hence I'm on a journey to improve my empathy skill by intentionally choosing what I do & how I behave.
+That's why [I started a new career as an independent software developer](/note/becoming-a-freelancer-in-canada/) in September 2022, focusing particularly on data & AI ethics and machine learning productization. As stated above, there are three pillars of my work: *Empathy,* *Ethics,* and *Externality.* While I want to be honest with my personal feeling (empathy), I also want to be mindful of the long-term, eventual consequence of my work (externality). Ultimately, it is important for me to ensure the deliverables are ethically crafted throughout an end-to-end development lifecycle (ethics).
 
-### Enjoying the life in Canada
+### Enjoying life in Canada
 
-It's been a year since [I relocated from Japan to Canada “just as an experience”](/note/relocating-to-canada/). Overall, I'm loving the beautiful walkable city, where I can easily expose myself to nature while maintaining the major benefits of an urban life.
+It's been a year since [I relocated from Japan to Canada “just as an experience”](/note/relocating-to-canada/). Overall, I'm loving the beautiful walkable city, where I can easily expose myself to nature while maintaining the major benefits of urban life.
 
 In June 2022, [I became a permanent resident of Canada](/note/canada-permanent-residency/). I’m simply excited to be part of lovely local communities in Canada and make as many reasons to stay in the country as possible. Following [my traveler identity](/note/atomic-habits/), I'm also planning to visit new domestic locations more regularly than I did last year.
 
@@ -22,7 +22,7 @@ In June 2022, [I became a permanent resident of Canada](/note/canada-permanent-r
 
 On the weekends, I'm busy hiking.
 
-I'm an active follower of "[105 Hikes In and Around Southwestern British Columbia](https://105hikes.com/book/)", and I have done 19 hikes out of 105 as of writing. My current objective is not only exploring as many local trails as possible but deepening my knowledge & skill further. As a first step, I have obtained a [Canadian Red Cross's Remote First Aid & CPR certification](https://www.redcross.ca/training-and-certification/course-descriptions/first-aid-at-home-courses/wilderness-remote-first-aid-program).
+I'm an active follower of "[105 Hikes In and Around Southwestern British Columbia](https://105hikes.com/book/)", and I have done 21 hikes out of 105 as of writing. My current objective is not only to explore as many local trails as possible but to deepen my knowledge & skill further. As a first step, I have obtained a [Canadian Red Cross's Remote First Aid & CPR certification](https://www.redcross.ca/training-and-certification/course-descriptions/first-aid-at-home-courses/wilderness-remote-first-aid-program).
 
 ### Running long distance
 
@@ -38,6 +38,6 @@ There are hundreds of breweries across the province as you can find on [BC Ale T
 
 ### Polishing personal OSS projects for recommender systems
 
-I’m actively developing two of my personal projects, [FluRS](https://github.com/takuti/flurs/) (Python) and [Recommendation.jl](https://github.com/takuti/Recommendation.jl/) (Julia), which I originally created as part of my master’s thesis back in 2017. By the end of 2022, I’m aiming to fully polish the tools and publish their version 1.0 with some external presentations.
+I’m actively developing two of my personal projects, [FluRS](https://github.com/takuti/flurs/) (Python) and [Recommendation.jl](https://github.com/takuti/Recommendation.jl/) (Julia), which I originally created as part of my master’s thesis back in 2017. By the end of 2022, I’m aiming to fully polish the tools and publish version 1.0 with some external presentations.
 
-In practice, the design aspect of recommender systems (e.g., code structure, system architecture, UI/UX decisions, evaluation metrics) are crucial to make a system truly meaningful both for developers and end users, and hence I use these projects as a hands-on training opportunity to be an [ethical product developer](/note/ethical-product-developer/).
+In practice, the design aspect of recommender systems (e.g., code structure, system architecture, UI/UX decisions, evaluation metrics) are crucial to making a system truly meaningful both for developers and end users, and hence I use these projects as a hands-on training opportunity to be an [ethical product developer](/note/ethical-product-developer/).
