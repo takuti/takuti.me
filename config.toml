@@ -29,7 +29,7 @@ DefaultContentLanguage = "en"
     contentDir = "content/en"
     [languages.en.params]
       name = "Takuya Kitazawa"
-      bio = '<b>Takuya Kitazawa</b> is a product developer, minimalistic traveler, ultralight hiker & runner, and craft beer enthusiast. Throughout my career, I have practically worked as a full-stack software engineer, OSS developer, technical evangelist, sales engineer, data scientist, machine learning engineer, and product manager. See <a href="/now">my "<b>now</b>" page</a> for more about what I am doing lately.'
+      bio = '<b>Takuya Kitazawa</b> is a software developer, minimalistic traveler, ultralight hiker & runner, and craft beer enthusiast. While my area of specialty is in data & AI ethics and machine learning productization, I have worked full-stack throughout the career e.g., as a frontend/backend engineer, OSS developer, technical evangelist, solution architect, data scientist, and product manager. You can find what I am doing lately at <a href="/now">my "<b>now</b>" page</a>.'
       featured = ["/note/becoming-a-product-manager/", "/note/hivemall-events-2018-autumn/", "/note/parallel-vs-concurrent/"]
       blogDescription = "Writing about what I think, learned, and experienced."
 
@@ -39,7 +39,7 @@ DefaultContentLanguage = "en"
     contentDir = "content/ja"
     [languages.ja.params]
       name = "たくち"
-      bio = '<b>たくち</b>です。長野県出身、カナダ・バンクーバー在住のソフトウェアエンジニア。これまでB2B/B2Cの各領域で、データサイエンス・機械学習のプロダクト化および顧客への導入支援・コンサルティング、そして関連分野のエバンジェリズムに携わってきました。趣味は旅行、マラソン、登山、ブリュワリー巡り。近況は <a href="/now">takuti.me/<b>now</b></a> より。<a href="/ja/note/">ブログ</a>へのご意見・ご感想など、<a href="https://twitter.com/takuti/">@<b>takuti</a></b> または <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b> までいつでもお気軽にご連絡ください。'
+      bio = '<b>たくち</b>です。長野県出身、カナダ・バンクーバー在住のソフトウェアエンジニア。現在フリーランス。これまでB2B/B2Cの各領域で、データサイエンス・機械学習のプロダクト化および顧客への導入支援・コンサルティング、そして関連分野のエバンジェリズムに携わってきました。趣味は旅行、マラソン、登山、ブリュワリー巡り。近況は <a href="/now">takuti.me/<b>now</b></a> より。<a href="/ja/note/">ブログ</a>へのご意見・ご感想、お仕事のご依頼など、<a href="https://twitter.com/takuti/">@<b>takuti</a></b> または <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b> までいつでもお気軽にご連絡ください。'
       featured = ["/ja/note/two-decades-of-amazon-recommender/", "/ja/note/product-management-myths/", "/ja/note/data-science-project-structure/"]
       blogDescription = "「生きること」「学ぶこと」「作ること」について綴っています。"
 
@@ -47,6 +47,7 @@ DefaultContentLanguage = "en"
   name = "Takuya Kitazawa"
 
 [params]
-  description = "A product developer, minimalistic traveler, ultralight hiker & runner, and craft beer enthusiast."
+  greeting = "&#x1f44b; Hi! I'm Takuya, Freelance Software Developer"
+  description = "A software developer, minimalistic traveler, ultralight hiker & runner, and craft beer enthusiast."
   keywords = "Takuya Kitazawa,takuti,たくち,Machine Learning,機械学習,Recommender Systems,推薦システム,Data Science,データサイエンス"
   images = ["/images/thumbnail.jpg", "/images/takuti.jpg"]
