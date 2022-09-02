@@ -4,8 +4,8 @@ categories: [読書記録, デザイン, データサイエンス]
 date: 2020-02-20
 lang: ja
 title: データ時代の「リアル」の価値
-keywords: [オフライン, オンライン, リアルワールド, デジタル, 体験, 店舗, ジャーニー, 接点, 実店舗, 改善]
-recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/product-management-myths/]
+keywords: [オフライン, オンライン, 店舗, リアルワールド, デジタル, 体験, ジャーニー, 接点, 改善, データ]
+recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/cognitive-science-and-behavioral-economics/]
 ---
 
 コミュニケーション、交通、購買、飲食―生活のあらゆる場面が急速にデジタル化される昨今、リアルワールドの真価が問われている。

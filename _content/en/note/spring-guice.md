@@ -4,8 +4,8 @@ date: 2021-10-30
 images: [/images/spring-guice/uml.png]
 title: Cross-Framework Dependency Injection with spring-guice
 keywords: [guice, spring, injection, application, dependency, framework, party, class,
-  testability, rewriting]
-recommendations: [/note/becoming-a-product-manager/, /note/machine-learning-product/,
+  rewriting, randomforest]
+recommendations: [/note/becoming-a-product-manager/, /note/revisit-design-thinking/,
   /note/language-as-a-design-tool/]
 ---
  

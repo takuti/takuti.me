@@ -7,7 +7,7 @@ images: [/images/euroscipy-2017/venue.jpg, /images/euroscipy-2017/road.jpg, /ima
 lang: ja
 title: EuroSciPy 2017に参加してしゃべってきた
 keywords: [発表, python, pytorch, euroscipy, カンファレンス, keynote, 飲ん, 実験, 参加, wasm]
-recommendations: [/ja/note/master-graduate/, /ja/note/pytorch-autograd/, /ja/note/recommender-libraries/]
+recommendations: [/ja/note/master-graduate/, /ja/note/pytorch-autograd/, /ja/note/pytorch-mf/]
 ---
 
 8月30, 31日にドイツのエルランゲンで開催された **[EuroSciPy 2017](https://www.euroscipy.org/2017/)** に発表者として参加してきた。カンファレンス参加を積極的にサポートしてくれる弊社に感謝感謝。

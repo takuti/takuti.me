@@ -4,7 +4,7 @@ date: 2022-06-11
 lang: en
 title: 'Indigenous Canada: Storytelling, Community, and Sustainability'
 images: [/images/indigenous-canada-final/statues.jpg]
-keywords: [indigenous, canada, history, museums, statues, learning, alberta, ourse,
+keywords: [indigenous, history, canada, museums, statues, learning, alberta, ourse,
   generation, knowing]
 recommendations: [/note/indigenous-canada-mid-term/, /note/goes-back-to-school/, /note/canada-permanent-residency/]
 ---

@@ -4,9 +4,9 @@ date: 2020-08-16
 images: [/images/language-as-a-design-tool/Accutive.png, /images/language-as-a-design-tool/prototyping.png]
 lang: en
 title: Language as a Design Tool
-keywords: [visual, design, idea, app, mood, elements, board, prototyping, description,
+keywords: [visual, design, app, mood, idea, elements, board, prototyping, description,
   figma]
-recommendations: [/note/revisit-design-thinking/, /note/learn-how-others-work/, /note/technique-producing-ideas/]
+recommendations: [/note/revisit-design-thinking/, /note/learn-how-others-work/, /note/creative-selection/]
 ---
 
 As I wrote in [Don't "Guess" How People in Other Roles Work](/note/learn-how-others-work), I have been studying something new in my spare time, and the two online courses I have recently accomplished, [Visual Elements of User Interface Design](https://www.coursera.org/account/accomplishments/records/HTGE68UHM2EV) and [UX Design Fundamentals](https://www.coursera.org/account/accomplishments/records/BWEHMF323U93), told me an important fact that **language is a very powerful tool for design**.

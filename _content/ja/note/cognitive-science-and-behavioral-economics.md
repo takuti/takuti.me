@@ -3,7 +3,7 @@ categories: [デザイン, 読書記録, データサイエンス]
 date: 2020-05-16
 lang: ja
 title: データよりもストーリーを、相関よりも因果を。
-keywords: [認知科学, 行動経済学, ジョブ, コンテクスト, ストーリー, デザイン, 不合理, プロダクト, 説明, 人間]
+keywords: [認知科学, 行動経済学, ジョブ, コンテクスト, ストーリー, デザイン, 不合理, プロダクト, 説明, データ]
 recommendations: [/ja/note/hooked-design/, /ja/note/business-communication/, /ja/note/design-engineer/]
 ---
 

@@ -6,9 +6,9 @@ images: [/images/coursera-supply-chain-management/warehouse.png, /images/courser
   /images/holt-winters/moving_average.png, /images/holt-winters/smoothing.png]
 lang: en
 title: The Essence of Supply Chain Management
-keywords: [cost, suppliers, demand, operations, average, method, logistics, winters,
-  mode, holt]
-recommendations: [/note/supply-chain-analytics/, /note/supply-chain-disruption/, /note/machine-learning-product/]
+keywords: [supply, chain, cost, suppliers, demand, operations, average, method, logistics,
+  winters]
+recommendations: [/note/supply-chain-disruption/, /note/supply-chain-analytics/, /note/sustainability-at-big-tech/]
 ---
 
 On Coursera, I have [completed **Supply Chain Management Specialization**](https://coursera.org/verify/specialization/CR3YNENM4MYG) offered by Rutgers University, which consists of four different topics in an end-to-end supply chain management process:

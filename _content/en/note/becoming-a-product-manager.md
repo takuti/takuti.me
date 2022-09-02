@@ -3,9 +3,9 @@ categories: [Life & Work, Data Science & Analytics]
 date: 2020-02-07
 lang: en
 title: Why a Data Science Engineer Becomes a Product Manager
-keywords: [product, iot, experience, technologies, theory, science, data, user, engineer,
-  real]
-recommendations: [/note/iotswc-2019/, /note/ethical-product-developer/, /note/td-to-amazon/]
+keywords: [product, iot, experience, technologies, theory, science, data, user, real,
+  engineer]
+recommendations: [/note/iotswc-2019/, /note/td-to-amazon/, /note/ethical-product-developer/]
 ---
 
 As an engineer, I've been working on machine learning (ML) and data science at [Arm Treasure Data](https://www.treasuredata.com) over the past three years. You can find more about me in [the portfolio page](/). Basically, my job responsibility, which overlaps with my personal interests a lot, has been somewhere between engineering and customer-facing work for bringing advanced technologies such as ML and IoT to an enterprise-grade big data analytics platform.

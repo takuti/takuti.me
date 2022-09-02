@@ -5,7 +5,8 @@ lang: en
 title: Environmental Problems Through the Lens of Business
 keywords: [green, energy, building, water, environmental, problems, renewable, business,
   buildings, people]
-recommendations: [/note/how-to-avoid-a-climate-disaster/, /note/sdg-mooc/, /note/sustainability-at-big-tech/]
+recommendations: [/note/how-to-avoid-a-climate-disaster/, /note/sustainability-at-big-tech/,
+  /note/sdg-mooc/]
 ---
 
 One of the key insights I gained from [Bill Gates's "**How to Avoid a Climate Disaster**"](/note/how-to-avoid-a-climate-disaster) is that **the next economic leader in the world is an innovator in the global environmental management field**. 

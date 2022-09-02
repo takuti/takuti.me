@@ -3,11 +3,11 @@ categories: [Programming, Conference, Recommender Systems]
 date: 2022-08-06
 lang: en
 title: 'Recommendation.jl Came Back to #JuliaCon 2022'
+images: [/images/juliacon-2022/discord.png]
 keywords: [juliacon, julia, discord, talk, note, validate, validation, recommendation,
-  data, diversity]
+  diversity, data]
 recommendations: [/note/juliacon-2019/, /note/cross-validation-julia-recommender/,
   /note/novelty-diversity-serendipity/]
-images: [/images/juliacon-2022/discord.png]
 ---
 
 At [**JuliaCon 2022** @ Online](https://juliacon.org/2022/) held during the last week of July, I gave a lightning talk about [Recommendation.jl](https://github.com/takuti/Recommendation.jl/), a Julia package for building recommender systems. It's been 3 years since the last time I talked about the package at [JuliaCon 2019](/note/juliacon-2019/), and, since polishing the (outdated) implementation towards v1.0.0 is [one of my recent focus areas](/now/), I decided to showcase the updates of the package and take it as an opportunity to review the remaining steps ahead of me.

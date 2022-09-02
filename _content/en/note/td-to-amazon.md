@@ -6,8 +6,8 @@ lang: en
 title: 'Next "Dot" in Journey: Curiosity-Driven Job Change in Canada (Aug 2021)'
 keywords: [amazon, company, product, note, job, engineer, positive, impacts, big,
   customer]
-recommendations: [/note/product-management-and-bullshit-job/, /note/becoming-a-product-manager/,
-  /note/annual-review-2021/]
+recommendations: [/note/becoming-a-freelancer-in-canada/, /note/product-management-and-bullshit-job/,
+  /note/becoming-a-product-manager/]
 ---
  
 After five years of dramatic days at [Treasure Data](https://www.treasuredata.com/) (TD), I decided to leave the company and join Amazon's Personalization team in Vancouver as a software engineer. When I first entered TD as an intern back in 2016, I didn't expect such a long, complex, and fruitful journey. I was influenced by the great corporate culture & colleagues literally on a daily basis, and I'm sure the 5-year experience will remain as a core of my life for a long time.

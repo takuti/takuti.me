@@ -4,7 +4,7 @@ date: 2022-05-23
 lang: en
 title: Rethinking Why, When, and How I Learn
 keywords: [school, learning, learn, education, curiosity, moment, enter, possibilities,
-  gain, program]
+  gain, personally]
 recommendations: [/note/indigenous-canada-final/, /note/annual-review-2021/, /note/td-to-amazon/]
 ---
 

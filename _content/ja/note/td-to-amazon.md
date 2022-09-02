@@ -3,9 +3,9 @@ categories: [生活・人生]
 date: 2021-08-19
 lang: ja
 title: カナダで転職して、プロダクトマネージャーからソフトウェアエンジニアに戻った。
-keywords: [note, 大企業, エンジニア, amazon, 自分, 経験, 仕事, 退職, 転職, キャリア]
+keywords: [note, 大企業, エンジニア, amazon, 自分, 仕事, 経験, 退職, 転職, キャリア]
 recommendations: [/ja/note/product-management-and-bullshit-job/, /ja/note/relocating-to-canada/,
-  /ja/note/first-quarter-as-a-product-manager/]
+  /ja/note/product-management-myths/]
 ---
 
 修士課程修了から4年半の間働いたトレジャーデータ (Treasure Data; TD) を8月13日（金）に退職した。[インターン](/ja/note/td-intern-2016/)から数えるとちょうど5年のお付き合いになる。

@@ -5,7 +5,7 @@ lang: en
 title: The Hardest Part of 2020's Strategic Ideation
 keywords: [staying, problems, concentration, thoughts, refresh, focus, ideation, ideas,
   producing, things]
-recommendations: [/note/working-from-home-202004/, /note/technique-producing-ideas/,
+recommendations: [/note/technique-producing-ideas/, /note/working-from-home-202004/,
   /note/revisit-design-thinking/]
 ---
 

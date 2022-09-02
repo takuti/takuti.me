@@ -5,7 +5,7 @@ date: 2022-01-01
 lang: en
 title: Ethical Product Developer
 keywords: [product, ethical, developers, developer, unethical, clear, capitalism,
-  egative, decisions, design]
+  design, egative, decisions]
 recommendations: [/note/product-management-and-bullshit-job/, /note/foundations-of-humane-technology/,
   /note/definition-of-done/]
 ---

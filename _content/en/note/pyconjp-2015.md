@@ -6,7 +6,7 @@ lang: en
 title: 'PyCon JP 2015 #pyconjp'
 keywords: [python, pycon, talk, pandas, grpc, possibilities, talks, programming, 範囲,
   morphological]
-recommendations: [/note/hello-faust/, /note/hivemall-pyspark/, /note/hivemall-events-2018-autumn/]
+recommendations: [/note/hello-faust/, /note/hivemall-pyspark/, /note/phpcon-2015/]
 ---
 
 Following [phpcon2015](http://phpcon.php.gr.jp/2015/), I have attended [PyCon JP 2015](https://pycon.jp/2015/en/) at the end of last week.

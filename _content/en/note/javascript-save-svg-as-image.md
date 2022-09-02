@@ -3,7 +3,7 @@ categories: [Programming]
 date: 2021-09-04
 lang: en
 title: Save HTML <svg> as an Image
-keywords: [image, svg, download, canvas, save, html, visualization, todataurl, snippet,
+keywords: [image, svg, download, canvas, html, visualization, save, todataurl, snippet,
   blob]
 recommendations: [/note/flight-emissions/, /note/first-vis-with-fitbit/, /note/datavis-2020/]
 ---
