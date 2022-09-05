@@ -42,3 +42,6 @@ other = "More"
 
 [notFound]
 other = "Oops, page not found…"
+
+[privacyPolicy]
+other = "Privacy Policy"

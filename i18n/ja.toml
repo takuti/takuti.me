@@ -42,3 +42,6 @@ other = "もっと見る"
 
 [notFound]
 other = "ページが見つかりません..."
+
+[privacyPolicy]
+other = "プライバシーポリシー"
