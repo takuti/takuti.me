@@ -3,6 +3,7 @@ categories: [エッセイ]
 date: 2020-07-05
 lang: ja
 title: まっさらな地図を手に入れた
+lastmod: '2022-01-18'
 keywords: [東京, 新幹線, 三島, 地図, 自分, まっさら, 探し, 理由, 通勤, 日本地図]
 recommendations: [/ja/note/oyo-life-202007/, /ja/note/oyo-life-202010/, /ja/note/relocating-to-canada/]
 ---

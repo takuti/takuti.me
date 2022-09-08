@@ -3,6 +3,7 @@ categories: [生活・人生]
 date: 2021-02-28
 lang: ja
 title: トレジャーデータ株式会社を退職して Treasure Data (Canada) に入社しました
+lastmod: '2022-07-31'
 keywords: [日本, カナダ, 転籍, 海外, 移住, 会社, アメリカ, canada, プロダクトマネージャー, 申請手続き]
 recommendations: [/ja/note/canada-permanent-residency/, /ja/note/one-month-in-canada/,
   /ja/note/four-months-after-moving-to-canada/]

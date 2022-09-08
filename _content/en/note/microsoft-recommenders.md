@@ -4,6 +4,7 @@ date: 2022-05-07
 lang: en
 images: []
 title: What I Like About Microsoft Recommenders Repository
+lastmod: '2022-09-02'
 keywords: [recommenders, microsoft, repository, pypi, package, minimal, metrics, functionality,
   written, diversity]
 recommendations: [/note/flurs/, /note/travis-gh-pages-deployment/, /note/recommender-diversity/]

@@ -4,6 +4,7 @@ categories: [情報推薦, 自然言語処理, 機械学習]
 date: 2017-06-04
 lang: ja
 title: Q&Aサイトにおける質問推薦、そして Incremental Probabilistic Latent Semantic Analysis
+lastmod: '2022-01-18'
 keywords: [plsa, 質問, 推薦, incremental, ユーザ, 短期, 文書, negative, トピック, positive]
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/trends-in-real-world-recommender-systems-2017/,
   /ja/note/two-decades-of-amazon-recommender/]

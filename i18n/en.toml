@@ -45,3 +45,6 @@ other = "Oops, page not found…"
 
 [privacyPolicy]
 other = "Privacy Policy"
+
+[lastModified]
+other = "Last updated"

@@ -4,6 +4,7 @@ categories: [プログラミング]
 date: 2017-08-06
 lang: ja
 title: ローカルのRedis上でWikipediaカテゴリをシュッとdigる
+lastmod: '2022-01-18'
 keywords: [カテゴリ, computers, computer, ダンプ, wikipedia, mysql, hardware, 下位, データ, 上位]
 recommendations: [/ja/note/recsys-2021-ab-ndcg/, /ja/note/job-title-normalization/,
   /ja/note/gensim-jawiki/]

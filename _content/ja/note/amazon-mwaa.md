@@ -4,6 +4,7 @@ date: 2021-12-19
 images: []
 lang: ja
 title: AWSのマネージドAirflow "MWAA" 所感
+lastmod: '2022-09-02'
 keywords: [airflow, aws, mwaa, オペレーター, apache, emr, cloudwatch, ワークフロー, モニタリング, ロギング]
 recommendations: [/ja/note/the-amazon-way-on-iot/, /ja/note/why-spark/, /ja/note/amazon-dynamo-paper/]
 ---

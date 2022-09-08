@@ -117,4 +117,8 @@
       color: #fff;
     }
   }
+
+  .light-black {
+    color: lighten($color-black, 32%);
+  }
 }

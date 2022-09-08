@@ -4,6 +4,7 @@ date: 2020-05-26
 images: [/images/coursera-scala-capstone/certificate.png]
 lang: en
 title: Completed Functional Programming in Scala Specialization on Coursera, Finally
+lastmod: '2022-09-02'
 keywords: [scala, project, programming, functional, specialization, apstone, milestones,
   temperature, fun, certificate]
 recommendations: [/note/parallel-vs-concurrent/, /note/learn-how-others-work/, /note/spark-rdd-cached-vs-uncached/]

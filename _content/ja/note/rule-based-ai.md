@@ -4,6 +4,7 @@ categories: [機械学習, エッセイ, データサイエンス]
 date: 2017-10-21
 lang: ja
 title: ルールベースは『人工知能』か
+lastmod: '2022-01-18'
 keywords: [人工知能, 言葉, マジックワード, 使わ, amazon, バズワード, iot, ホームページ, 具体, ルール]
 recommendations: [/ja/note/from-cloud-to-ai/, /ja/note/2020/, /ja/note/algorithmic-marketing/]
 ---

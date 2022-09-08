@@ -5,6 +5,7 @@ date: 2016-10-04
 images: [/images/td/hivemall-icon.png, /images/td/dd-anomaly.png]
 lang: ja
 title: 'Treasure Dataインターンにみる機械学習のリアル #td_intern'
+lastmod: '2022-09-02'
 keywords: [インターン, datadog, メトリクス, hivemall, changefinder, treasure, 異常検知, 機械学習, 実装,
   data]
 recommendations: [/ja/note/master-graduate/, /ja/note/yahoo-egads/, /ja/note/hello-librec/]

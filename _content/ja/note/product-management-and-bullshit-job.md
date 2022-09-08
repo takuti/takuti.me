@@ -4,6 +4,7 @@ date: 2021-06-09
 images: [/images/product-management-and-bullshit-job/pm-skill-stack.png]
 lang: ja
 title: プロダクトマネジメントは「クソどうでもいい仕事」か
+lastmod: '2022-01-18'
 keywords: [仕事, ブルシットジョブ, 組織, product, 自分, プロダクト, プロダクトマネージャー, エンジニア, ソフトウェア, 確信]
 recommendations: [/ja/note/product-management-myths/, /ja/note/td-to-amazon/, /ja/note/first-quarter-as-a-product-manager/]
 ---

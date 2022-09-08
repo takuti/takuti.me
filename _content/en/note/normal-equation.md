@@ -3,6 +3,7 @@ categories: [Machine Learning]
 date: 2015-04-21
 lang: en
 title: How to Derive the Normal Equation
+lastmod: '2022-09-02'
 keywords: [equation, regression, derivation, linear, normal, derive, explain, optimal,
   details, rpml]
 recommendations: [/note/hugo-kramdown-and-katex/, /note/machine-learning-product/,

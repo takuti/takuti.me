@@ -3,6 +3,7 @@ categories: [Life & Work]
 date: 2021-05-21
 lang: en
 title: 'Unusual Drinking & Eating Habits: Non-Alcohol, Decaf, Flexitarian'
+lastmod: '2022-01-18'
 keywords: [coffee, decaf, drinking, drink, eat, protein, meat, beer, food, caffeine]
 recommendations: [/note/stop-drinking-alone/, /note/sustainable-diets/, /note/working-from-home-202004/]
 ---

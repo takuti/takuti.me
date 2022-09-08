@@ -5,6 +5,7 @@ date: 2014-03-31
 images: [/images/jekyll/2014-03-31-sakura.jpg]
 lang: ja
 title: ブログをWordPressからJekyllに変えた
+lastmod: '2022-01-18'
 keywords: [sakura, 気分転換, 模試, リダイレクト, rssフィード, 苦戦, はてブ, jekyll, 疲れ, toefl]
 recommendations: [/ja/note/ielts-20200201/, /ja/note/ielts-20210226/, /ja/note/room-hunting-202006/]
 ---

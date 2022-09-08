@@ -3,6 +3,7 @@ categories: [Programming]
 date: 2017-02-25
 lang: en
 title: Parallel Programming vs. Concurrent Programming
+lastmod: '2022-09-02'
 keywords: [parallel, concurrent, programming, progress, concurrency, actions, executed,
   simultaneously, parallelism, definitions]
 recommendations: [/note/coursera-scala-capstone/, /note/spark-rdd-cached-vs-uncached/,

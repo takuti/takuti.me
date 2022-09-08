@@ -27,6 +27,7 @@
       </p>
       <p>{{ .Site.Params.disclaimerAmazonAffiliate }}</p>
       {{ partial "list-recommendations.html" . }}
+      <p class="light-black">{{ i18n "lastModified" }}: {{ .Lastmod.Format "2006-01-02" }}</p>
     </span>
     <span class="outer-box">
       {{ partial "author.html" . }}

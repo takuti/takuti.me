@@ -4,6 +4,7 @@ categories: [英語学習]
 date: 2017-06-18
 lang: ja
 title: 'DMM英会話を1ヶ月間やってみて思う、オンライン英会話は『やらないよりマシ』なのか問題 #DMM英会話'
+lastmod: '2022-07-31'
 keywords: [英会話, レッスン, 英語, 講師, 録音, 教材, デイリーニュース, オンライン, toefl, 復習]
 recommendations: [/ja/note/ielts-20210226/, /ja/note/ielts-20200201/, /ja/note/toefl-20140527/]
 ---

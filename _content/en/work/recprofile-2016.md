@@ -1,7 +1,8 @@
 ---
-title: "Incremental Factorization Machines for Persistently Cold-starting Online Item Recommendation"
+title: Incremental Factorization Machines for Persistently Cold-starting Online Item
+  Recommendation
 date: 2016-09-01
-lastmod: 2016-09-01
+lastmod: '2021-10-16'
 meta: Academic Conference
 ---
 

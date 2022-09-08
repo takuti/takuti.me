@@ -1,10 +1,11 @@
 ---
 title: What I'm Doing Now
+lastmod: '2022-09-02'
 ---
 
-*This is a [now page](https://nownownow.com/about). I will update the page roughly on a monthly basis to share where I am, what I'm focusing on, and [what I don't do](/note/creating-now-page/).*
+> *This is a [now page](https://nownownow.com/about). I will update the page roughly on a monthly basis to share where I am, what I'm focusing on, and [what I don't do](/note/creating-now-page/).*
 
-**Last updated**: Sept 2, 2022 @ North Vancouver, British Columbia, Canada.
+<i class="fa fa-map-marker"></i> North Vancouver, British Columbia, Canada
 
 ### Growing as a freelance software developer
 

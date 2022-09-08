@@ -4,6 +4,7 @@ date: 2015-10-13
 images: [/images/jekyll/2015-10-13-pycon-entrance.jpg, /images/jekyll/2015-10-13-pycon-closing.png]
 lang: en
 title: 'PyCon JP 2015 #pyconjp'
+lastmod: '2022-09-02'
 keywords: [python, pycon, talk, pandas, grpc, possibilities, talks, programming, 範囲,
   morphological]
 recommendations: [/note/hello-faust/, /note/hivemall-pyspark/, /note/phpcon-2015/]

@@ -3,6 +3,7 @@ categories: [エッセイ]
 date: 2021-07-08
 lang: ja
 title: 僕は「ユーザ理解」を難しく考えすぎていたのかもしれない。
+lastmod: '2022-01-18'
 keywords: [リアリティ, テーマ, プロデューサー, 体験, 製品, 現場, 第一歩, 男子新体操, 取材, 初見]
 recommendations: [/ja/note/customer-centric-marketing/, /ja/note/product-management-myths/,
   /ja/note/hooked-design/]

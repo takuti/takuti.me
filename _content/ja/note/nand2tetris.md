@@ -4,6 +4,7 @@ categories: [読書記録, プログラミング, コンピュータシステム
 date: 2017-05-21
 lang: ja
 title: 『コンピュータシステムの理論と実装』は“娯楽”である
+lastmod: '2022-01-18'
 keywords: [実装, tetris, nan, 機械語, hdl, コンピュータシステム, hack, 忍耐力, アセンブリ, jack]
 recommendations: [/ja/note/recommender-libraries/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/hello-librec/]

@@ -6,6 +6,7 @@ description: 無料で公開されている電子書籍『実践 機械学習』
 images: [/images/jekyll/2014-09-01-amazon.png]
 lang: ja
 title: 【実践 機械学習】レコメンデーションをシンプルに、賢く実現するための3か条
+lastmod: '2022-09-02'
 keywords: [ごちうさ, 傾向, 推薦, きんモザ, 履歴, 行動, システム, ヒロキ, 見つけ出す, mahout]
 recommendations: [/ja/note/two-decades-of-amazon-recommender/, /ja/note/data-skeptic-recommender-systems/,
   /ja/note/recommender-systems-on-blockchain/]

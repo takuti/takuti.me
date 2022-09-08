@@ -3,6 +3,7 @@ categories: [生活・人生]
 date: 2021-06-19
 lang: ja
 title: 「山」を通して考える持続可能性─Courseraの"Mountains 101"を受講して
+lastmod: '2022-06-26'
 keywords: [山岳, mountains, 生活, コース, 生きる, 氷河, environmental, 原子力発電, disaster, development]
 recommendations: [/ja/note/sustainable-capitalism/, /ja/note/capitalism-in-anthropocene/,
   /ja/note/2021/]

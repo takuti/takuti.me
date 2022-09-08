@@ -4,6 +4,7 @@ date: 2020-04-30
 images: [/images/life-with-covid-19/convergence.png]
 lang: ja
 title: 貯金を取り崩しながら生きている感覚
+lastmod: '2022-07-31'
 keywords: [調子, deep, 時間, 散歩, 昨日, 遠く, convergence, 日常, 人生, 自炊]
 recommendations: [/ja/note/deep-work/, /ja/note/four-months-after-moving-to-canada/,
   /ja/note/think/]

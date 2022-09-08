@@ -5,6 +5,7 @@ images: [/images/wordcloud/recsys2014.png, /images/wordcloud/recsys2015.png, /im
   /images/wordcloud/recsys2017.png]
 lang: en
 title: Understanding Research Trends in Recommender Systems from Word Cloud
+lastmod: '2022-08-06'
 keywords: [recsys, matrix, wordcloud, rating, cloud, word, filtering, collaborative,
   trends, abstract]
 recommendations: [/note/recsys-2021/, /note/ethical-challenges-in-recommender-systems/,

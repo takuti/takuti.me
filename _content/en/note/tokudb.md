@@ -3,6 +3,7 @@ categories: [Programming]
 date: 2019-04-07
 lang: en
 title: TokuDB in MariaDB (on Ubuntu)
+lastmod: '2022-09-02'
 keywords: [engine, tokudb, mysql, mariadb, xxx, storage, remote, aws, stack, server]
 recommendations: [/note/hello-faust/, /note/hivemall-events-2018-autumn/, /note/augmented-analytics/]
 ---

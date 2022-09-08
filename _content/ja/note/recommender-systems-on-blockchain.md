@@ -3,6 +3,7 @@ categories: [情報推薦, 機械学習]
 date: 2021-07-03
 lang: ja
 title: 推薦システムとブロックチェーン
+lastmod: '2022-09-02'
 keywords: [ブロックチェーン, 推薦, システム, smart, contract, トランザクション, blockchain, 文献, データ, 行動]
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/trends-in-real-world-recommender-systems-2017/,
   /ja/note/recommender-libraries/]

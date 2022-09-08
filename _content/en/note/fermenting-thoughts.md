@@ -3,6 +3,7 @@ categories: [Life & Work]
 date: 2020-03-29
 lang: en
 title: The Hardest Part of 2020's Strategic Ideation
+lastmod: '2022-09-02'
 keywords: [staying, problems, concentration, thoughts, refresh, focus, ideation, ideas,
   producing, things]
 recommendations: [/note/technique-producing-ideas/, /note/working-from-home-202004/,

@@ -4,6 +4,7 @@ date: 2022-01-23
 lang: en
 title: The Producer-Consumer Gap
 audio: [/audio/the-producer-consumer-gap.mp3]
+lastmod: '2022-09-02'
 keywords: [blog, read, shortcuts, product, producer, gap, messages, consumers, article,
   attractive]
 recommendations: [/note/ethical-product-developer/, /note/annual-review-2021/, /note/definition-of-done/]

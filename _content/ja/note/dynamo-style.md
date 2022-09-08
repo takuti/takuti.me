@@ -5,6 +5,7 @@ date: 2017-12-22
 images: [/images/dynamo-style/consistent-hashing.png]
 lang: ja
 title: '"Dynamo-style" に学ぶ Replication, Partitioning, Consistent Hashing の気持ち'
+lastmod: '2022-01-18'
 keywords: [ノード, レプリカ, パーティション, dynamo, partition, read, consistent, hashing, データ,
   quorum]
 recommendations: [/ja/note/amazon-dynamo-paper/, /ja/note/designing-data-intensive-applications/,

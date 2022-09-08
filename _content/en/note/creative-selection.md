@@ -3,6 +3,7 @@ categories: [Life & Work, Business, Design]
 date: 2022-08-12
 lang: en
 title: Dilemma of Creative Selection
+lastmod: '2022-09-02'
 keywords: [selection, creative, apple, team, design, product, process, pressure, organization,
   essence]
 recommendations: [/note/ethical-product-developer/, /note/td-to-amazon/, /note/learn-how-others-work/]

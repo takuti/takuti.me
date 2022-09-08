@@ -45,3 +45,6 @@ other = "ページが見つかりません..."
 
 [privacyPolicy]
 other = "プライバシーポリシー"
+
+[lastModified]
+other = "最終更新日"

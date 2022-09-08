@@ -1,7 +1,7 @@
 ---
-title: "Sketching Dynamic User-Item Interactions for Online Item Recommendation"
+title: Sketching Dynamic User-Item Interactions for Online Item Recommendation
 date: 2017-03-01
-lastmod: 2017-03-01
+lastmod: '2021-10-16'
 meta: Academic Conference
 ---
 

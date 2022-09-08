@@ -4,6 +4,7 @@ categories: [プログラミング]
 date: 2017-02-04
 lang: ja
 title: サイトをHTTPSにした
+lastmod: '2022-01-18'
 keywords: [https化, 発行, nginx, certbot, 証明書, サイト, 残ら, 権限, 旧名, wget]
 recommendations: [/ja/note/one-month-in-canada/, /ja/note/why-spark/, /ja/note/hello-jekyll/]
 ---

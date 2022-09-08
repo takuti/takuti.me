@@ -4,6 +4,7 @@ date: 2021-09-18
 images: [/images/sustainable-capitalism/sustainable-capitalism.png]
 lang: en
 title: 'Sustainable Capitalism: The Importance of Long-Term Thinking and Adaptivity'
+lastmod: '2022-09-02'
 keywords: [capitalism, sustainable, term, sustainability, long, investment, short,
   profitability, generation, environmental]
 recommendations: [/note/sustainability-at-big-tech/, /note/td-to-amazon/, /note/sdg-mooc/]

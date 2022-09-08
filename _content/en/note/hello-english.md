@@ -3,6 +3,7 @@ categories: [Life & Work]
 date: 2014-11-09
 lang: en
 title: Hello English Entries
+lastmod: '2022-09-02'
 keywords: [blog, japanese, ese, write, japan, takuti, posts, articles, english, switches]
 recommendations: [/note/new-year-resolution-2017/, /note/the-producer-consumer-gap/,
   /note/move-to-gh-pages/]

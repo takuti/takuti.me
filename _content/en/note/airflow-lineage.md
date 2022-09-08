@@ -5,6 +5,7 @@ lang: en
 title: Data Ethics with Lineage
 audio: [/audio/airflow-lineage.mp3]
 images: [/images/airflow-lineage/lineage.png]
+lastmod: '2022-09-02'
 keywords: [lineage, data, oil, airflow, dat, developer, intermediates, pipelines,
   destination, consciousness]
 recommendations: [/note/coursera-data-science-ethics/, /note/data-validation/, /note/data-leaders-summit-europe-2019/]

@@ -3,6 +3,7 @@ categories: [生活・人生]
 date: 2020-10-03
 lang: ja
 title: お手軽賃貸サービス "OYO LIFE" 所感
+lastmod: '2022-01-18'
 keywords: [oyo, 物件, life, 暮らし, 契約, 入居, キャンペーン, 家賃, 賃貸, マンスリーマンション]
 recommendations: [/ja/note/oyo-life-202007/, /ja/note/one-month-in-canada/, /ja/note/oyo-life-202008/]
 ---

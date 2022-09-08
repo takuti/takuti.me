@@ -4,6 +4,7 @@ categories: [読書記録, デザイン, データサイエンス]
 date: 2020-02-20
 lang: ja
 title: データ時代の「リアル」の価値
+lastmod: '2022-09-02'
 keywords: [オフライン, オンライン, 店舗, リアルワールド, デジタル, 体験, ジャーニー, 接点, 改善, データ]
 recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/cognitive-science-and-behavioral-economics/]
 ---

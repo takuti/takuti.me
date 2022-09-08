@@ -5,6 +5,7 @@ images: [/images/coursera-ui-ux-specialization/sitemap.png, /images/coursera-ui-
   /images/coursera-ui-ux-specialization/sketch.png]
 lang: ja
 title: なぜUI/UXデザイナーの仕事は批判の的になるのか？その謎を解明すべく我々は（以下略）
+lastmod: '2022-09-02'
 keywords: [デザイン, design, コース, デザイナー, specialization, 仕事, プロトタイプ, ツール, ビジュアル, sketch]
 recommendations: [/ja/note/design-engineer/, /ja/note/product-management-myths/, /ja/note/design-note-88/]
 ---

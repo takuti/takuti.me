@@ -4,6 +4,7 @@ date: 2022-04-03
 lang: en
 title: Cross Validation for Recommender Systems in Julia
 images: [/images/cross-validation-julia-recommender/matrix.png]
+lastmod: '2022-09-02'
 keywords: [recommendation, evaluation, events, cross, recommender, diversity, validation,
   julia, item, train]
 recommendations: [/note/novelty-diversity-serendipity/, /note/hello-faust/, /note/juliacon-2022/]

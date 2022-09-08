@@ -4,6 +4,7 @@ categories: [生活・人生]
 date: 2020-05-22
 lang: ja
 title: 遺言状を書いた（そしてアップデートした）
+lastmod: '2022-01-18'
 keywords: [遺言状, 遺言, 法定相続分, 希望, 遺産, 執行, 下書き, 人生, 残さ, デジタル]
 recommendations: [/ja/note/will-202102/, /ja/note/four-months-after-moving-to-canada/,
   /ja/note/think/]
