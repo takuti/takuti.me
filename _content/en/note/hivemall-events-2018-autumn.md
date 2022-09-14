@@ -4,8 +4,8 @@ date: 2018-10-26
 lang: en
 title: 'Apache Hivemall at #ODSCEurope, #RecSys2018, and #MbedConnect'
 lastmod: '2022-05-05'
-keywords: [hivemall, data, workshop, mbed, hive, conference, query, capability, session,
-  bigquery]
+keywords: [hivemall, workshop, data, mbed, hive, conference, query, capability, session,
+  platform]
 recommendations: [/note/mbed-simulator-td/, /note/hivemall-pyspark/, /note/apachecon-2019/]
 ---
 
