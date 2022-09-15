@@ -20,7 +20,7 @@ other = "Author"
 other = "Popular articles"
 
 [setupCall]
-other = "Set up a 1:1 call with me"
+other = "Schedule a call with me"
 
 [share]
 other = "Share"

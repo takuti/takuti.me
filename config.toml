@@ -29,7 +29,7 @@ DefaultContentLanguage = "en"
     contentDir = "content/en"
     [languages.en.params]
       name = "Takuya Kitazawa"
-      bio = '<b>Takuya Kitazawa</b> is a software developer, minimalistic traveler, ultralight hiker & runner, and craft beer enthusiast. While my area of specialty is in data & AI ethics and machine learning productization, I have worked full-stack throughout the career e.g., as a frontend/backend engineer, OSS developer, technical evangelist, solution architect, data scientist, and product manager. You can find what I am doing lately at <a href="/now">my "<b>now</b>" page</a>.'
+      bio = '<b>Takuya Kitazawa</b> is a freelance software developer, minimalistic traveler, ultralight hiker & runner, and craft beer enthusiast. While my area of specialty is in data & AI ethics and machine learning productization, I have worked full-stack throughout the career e.g., as a frontend/backend engineer, OSS developer, technical evangelist, solution architect, data scientist, and product manager. You can find what I am doing lately at <a href="/now">my "<b>now</b>" page</a>.'
       featured = ["/note/becoming-a-product-manager/", "/note/hivemall-events-2018-autumn/", "/note/parallel-vs-concurrent/"]
       blogDescription = "Writing about what I think, learned, and experienced."
       disclaimerAmazonAffiliate = "Note that, as an Amazon Associate, I earn from qualifying purchases."
@@ -49,7 +49,7 @@ DefaultContentLanguage = "en"
   name = "Takuya Kitazawa"
 
 [params]
-  greeting = "&#x1f44b; Hi! I'm Takuya, Freelance Software Developer"
+  greeting = "&#x1f44b; Hi, I'm Takuya"
   description = "A software developer, minimalistic traveler, ultralight hiker & runner, and craft beer enthusiast."
   keywords = "Takuya Kitazawa,takuti,たくち,Machine Learning,機械学習,Recommender Systems,推薦システム,Data Science,データサイエンス"
   images = ["/images/thumbnail.jpg", "/images/takuti.jpg"]
