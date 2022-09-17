@@ -52,4 +52,4 @@ DefaultContentLanguage = "en"
   greeting = "&#x1f44b; Hi, I'm Takuya"
   description = "A software developer, minimalistic traveler, ultralight hiker & runner, and craft beer enthusiast."
   keywords = "Takuya Kitazawa,takuti,たくち,Machine Learning,機械学習,Recommender Systems,推薦システム,Data Science,データサイエンス"
-  images = ["/images/thumbnail.jpg", "/images/takuti.jpg"]
+  images = ["/images/thumbnail.png", "/images/takuti.jpg"]
