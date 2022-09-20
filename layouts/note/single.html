@@ -25,7 +25,7 @@
       <p>
         <a href="https://www.buymeacoffee.com/takuti" class="btn-bmc" target="_blank" rel="noopener"><i class="fa fa-coffee"></i>&nbsp;&nbsp;{{ i18n "supportCoffee" }}</a>
       </p>
-      <p>{{ .Site.Params.disclaimerAmazonAffiliate }}</p>
+      <p>{{ .Site.Params.disclaimerAmazonAffiliate | safeHTML }}</p>
       {{ partial "list-recommendations.html" . }}
       <p class="light-black">{{ i18n "lastModified" }}: {{ .Lastmod.Format "2006-01-02" }}</p>
     </span>
