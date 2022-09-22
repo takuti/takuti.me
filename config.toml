@@ -30,10 +30,10 @@ DefaultContentLanguage = "en"
     [languages.en.params]
       name = "Takuya Kitazawa"
       keywords = "Takuya Kitazawa,takuti,Machine Learning,Recommender Systems,Data Science"
-      bio = '<b>Takuya Kitazawa</b> is a freelance software developer, minimalistic traveler, ultralight hiker & runner, and craft beer enthusiast. While my area of specialty is in data & AI ethics and machine learning productization, I have worked full-stack throughout the career e.g., as a frontend/backend engineer, OSS developer, technical evangelist, solution architect, data scientist, and product manager. You can find what I am doing lately at <a href="/now">my "<b>now</b>" page</a>, and your inquiry is always welcome at: <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b>, including business requests and comments on <a href="/note/">my blog posts</a>.'
+      bio = '<b>Takuya Kitazawa</b> is a freelance software developer, minimalistic traveler, ultralight hiker & runner, and craft beer enthusiast. While my area of specialty is in data & AI ethics and machine learning productization, I have worked full-stack throughout the career e.g., as a frontend/backend engineer, OSS developer, technical evangelist, solution architect, data scientist, and product manager. You can find what I am doing lately at <a href="/now">my "<b>now</b>" page</a>, and your inquiry is always welcome at <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b>, including comments on <a href="/note/">my blog posts</a>.'
       featured = ["/note/becoming-a-product-manager/", "/note/hivemall-events-2018-autumn/", "/note/parallel-vs-concurrent/"]
       blogDescription = "Writing about what I think, learned, and experienced."
-      disclaimerAmazonAffiliate = 'Note that, as an <a href="https://amzn.to/3BXPN0p" target="_blank">Amazon Associate</a>, I earn from qualifying purchases.'
+      disclaimerAmazonAffiliate = 'Note that, as an Amazon Associate, I earn from qualifying purchases on <a href="https://amzn.to/3BXPN0p" target="_blank">amazon.ca</a>.'
 
   [languages.ja]
     languageName = "日本語"
@@ -45,7 +45,7 @@ DefaultContentLanguage = "en"
       bio = '<b>たくち</b>です。長野県出身、カナダ・バンクーバー在住のソフトウェアエンジニア。現在フリーランス。これまでB2B/B2Cの各領域で、データサイエンス・機械学習のプロダクト化および顧客への導入支援・コンサルティング、そして関連分野のエバンジェリズムに携わってきました。趣味は旅行、マラソン、登山、ブリュワリー巡り。近況は <a href="/now">takuti.me/<b>now</b></a> より。<a href="/ja/note/">ブログ</a>へのご意見・ご感想、お仕事のご依頼など、<b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b> までいつでもお気軽にご連絡ください。'
       featured = ["/ja/note/two-decades-of-amazon-recommender/", "/ja/note/product-management-myths/", "/ja/note/data-science-project-structure/"]
       blogDescription = "「生きること」「学ぶこと」「作ること」について綴っています。"
-      disclaimerAmazonAffiliate = 'なお、<a href="https://amzn.to/3QZGuBp" target="_blank">Amazonのアソシエイト</a>として、当サイトは適格販売により収入を得ています。'
+      disclaimerAmazonAffiliate = 'なお、Amazonのアソシエイトとして、当サイトは <a href="https://amzn.to/3QZGuBp" target="_blank">amazon.co.jp</a> 上の適格販売により収入を得ています。'
 
 [author]
   name = "Takuya Kitazawa"
