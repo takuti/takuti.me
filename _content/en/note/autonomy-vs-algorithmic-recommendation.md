@@ -5,7 +5,7 @@ lang: en
 title: Am I Zombie? Autonomy vs. Recommendations on the Internet
 lastmod: '2022-09-02'
 keywords: [zombie, stairs, crazed, systems, received, humanity, walk, autonomy, day,
-  intentionally]
+  ethical]
 recommendations: [/note/ethical-challenges-in-recommender-systems/, /note/foundations-of-humane-technology/,
   /note/ethical-product-developer/]
 ---

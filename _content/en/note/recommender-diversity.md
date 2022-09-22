@@ -5,8 +5,8 @@ date: 2022-02-27
 lang: en
 title: Recommender Diversity is NOT Inversion of Similarity
 lastmod: '2022-05-07'
-keywords: [diversity, accuracy, metrics, recommendation, items, studies, approach,
-  similarity, bounded, ank]
+keywords: [diversity, accuracy, metrics, recommendation, items, studies, similarity,
+  approach, bounded, ank]
 recommendations: [/note/novelty-diversity-serendipity/, /note/the-power-of-diverse-thinking/,
   /note/cross-validation-julia-recommender/]
 ---

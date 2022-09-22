@@ -5,10 +5,10 @@ lang: en
 title: '"Why Do We Build This?" Humane Technologist''s View of Bad Product/Project'
 images: [/images/foundations-of-humane-technology/certificate.png]
 lastmod: '2022-09-02'
-keywords: [humane, product, technologists, foundations, project, technologist, ways,
+keywords: [humane, product, foundations, project, technologists, technologist, ways,
   technology, users, definition]
 recommendations: [/note/ethical-product-developer/, /note/product-management-and-bullshit-job/,
-  /note/definition-of-done/]
+  /note/internet-for-the-people/]
 ---
 
 I, as an [ethical product developer](/note/ethical-product-developer/), consider a product or project is "bad" when any of the following conditions are met:

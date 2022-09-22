@@ -7,7 +7,7 @@ lastmod: '2022-09-02'
 keywords: [title, job, titles, classification, engineer, software, stereotype, product,
   immigration, uniqueness]
 recommendations: [/note/product-management-and-bullshit-job/, /note/td-to-amazon/,
-  /note/becoming-a-product-manager/]
+  /note/internet-for-the-people/]
 ---
 
 Recently, I happened to be "categorized" by my past and current job titles a lot, during the immigration and job interview process[^1]. This experience makes me realized that adapting to a certain way of classification defined by someone else was a little discomfort. 
