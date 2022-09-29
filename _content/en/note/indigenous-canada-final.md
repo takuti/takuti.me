@@ -5,9 +5,10 @@ lang: en
 title: 'Indigenous Canada: Storytelling, Community, and Sustainability'
 images: [/images/indigenous-canada-final/statues.jpg]
 lastmod: '2022-09-02'
-keywords: [indigenous, canada, history, museums, statues, learning, alberta, ourse,
+keywords: [indigenous, canada, history, museums, statues, learning, ourse, alberta,
   generation, knowing]
-recommendations: [/note/indigenous-canada-mid-term/, /note/goes-back-to-school/, /note/canada-permanent-residency/]
+recommendations: [/note/indigenous-canada-mid-term/, /note/national-day-for-truth-and-reconciliation-2022/,
+  /note/goes-back-to-school/]
 ---
 
 It's [National Indigenous History Month](https://www.rcaanc-cirnac.gc.ca/eng/1466616436543/1534874922512) in Canada, and I just finished University of Alberta's 12-week course of [Indigenous Canada](https://www.coursera.org/learn/indigenous-canada/).

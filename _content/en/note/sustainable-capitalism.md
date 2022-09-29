@@ -6,7 +6,7 @@ lang: en
 title: 'Sustainable Capitalism: The Importance of Long-Term Thinking and Adaptivity'
 lastmod: '2022-09-02'
 keywords: [capitalism, sustainable, term, sustainability, long, investment, short,
-  profitability, generation, environmental]
+  profitability, environmental, generation]
 recommendations: [/note/sustainability-at-big-tech/, /note/td-to-amazon/, /note/sdg-mooc/]
 ---
  
