@@ -3,11 +3,11 @@ categories: [Life & Work]
 date: 2022-09-29
 lang: en
 title: 'Reviewing Things I Do Not Know About the Indian Act #NDTR'
+images: [/images/national-day-for-truth-and-reconciliation-2022/books.jpeg]
 keywords: [indigenous, indian, history, peoples, canada, reconciliation, book, author,
   truth, national]
 recommendations: [/note/indigenous-canada-final/, /note/indigenous-canada-mid-term/,
   /note/goes-back-to-school/]
-images: [/images/national-day-for-truth-and-reconciliation-2022/books.jpeg]
 ---
 
 September 30 is the [National Day for Truth and Reconciliation](https://www.canada.ca/en/canadian-heritage/campaigns/national-day-truth-reconciliation.html) (hashtag: #NDTR) in Canada, a day that we look back on the dark history of the residential school system European settlers had implemented, raise awareness of its impacts, and take an action to rebuild the relationship with Indigenous Peoples.

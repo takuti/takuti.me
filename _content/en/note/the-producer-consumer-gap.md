@@ -5,7 +5,7 @@ lang: en
 title: The Producer-Consumer Gap
 audio: [/audio/the-producer-consumer-gap.mp3]
 lastmod: '2022-09-02'
-keywords: [blog, read, shortcuts, producer, gap, product, consumers, article, messages,
+keywords: [blog, read, shortcuts, gap, producer, product, consumers, article, messages,
   attractive]
 recommendations: [/note/ethical-product-developer/, /note/annual-review-2021/, /note/internet-for-the-people/]
 ---

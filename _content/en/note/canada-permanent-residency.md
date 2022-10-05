@@ -5,8 +5,8 @@ lang: en
 title: Becoming Permanent Resident of Canada
 images: [/images/canada-permanent-residency/canada.jpg]
 lastmod: '2022-09-02'
-keywords: [permanent, canada, pnp, residence, nomination, application, invitation,
-  resident, apply, received]
+keywords: [permanent, canada, pnp, nomination, residence, application, invitation,
+  apply, resident, received]
 recommendations: [/note/relocating-to-canada/, /note/becoming-a-freelancer-in-canada/,
   /note/post-pandemic-first-international-trip/]
 ---

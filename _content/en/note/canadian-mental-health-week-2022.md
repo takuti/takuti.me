@@ -7,7 +7,7 @@ images: [/images/canadian-mental-health-week-2022/thumbnail.jpeg, /images/canadi
 lastmod: '2022-09-02'
 keywords: [health, empathy, mental, loneliness, assessment, perience, people, warning,
   reaction, invalidate]
-recommendations: [/note/loneliness/, /note/becoming-a-freelancer-in-canada/, /note/post-pandemic-first-international-trip/]
+recommendations: [/note/loneliness/, /note/first-month-as-self-employed/, /note/becoming-a-freelancer-in-canada/]
 ---
 
 It's [Mental Health Week in Canada](https://www.mentalhealthweek.ca/). The theme **empathy** is a big topic for me as I recently made a dramatic shift in my focus as part of the latest update on [my NOW page](/now/); currently, I have a strong feeling that being empathetic can be foundation of everything, including happiness in personal life, healthy mutual relationship with others, and sense of satisfaction on a job.
