@@ -6,7 +6,7 @@ lang: en
 title: Completed Functional Programming in Scala Specialization on Coursera, Finally
 lastmod: '2022-09-02'
 keywords: [scala, project, programming, functional, specialization, apstone, milestones,
-  temperature, fun, parallel]
+  temperature, parallel, fun]
 recommendations: [/note/parallel-vs-concurrent/, /note/coursera-machine-learning-on-gcp/,
   /note/learn-how-others-work/]
 ---

@@ -4,7 +4,7 @@ date: 2022-09-22
 lang: en
 title: Why Your Job Title Matters (Cont.)─Technology for the People
 keywords: [product, developer, technology, internet, deprivatization, people, title,
-  software, ethical, book]
+  software, book, ethical]
 recommendations: [/note/ethical-product-developer/, /note/product-management-and-bullshit-job/,
   /note/foundations-of-humane-technology/]
 ---

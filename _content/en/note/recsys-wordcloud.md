@@ -8,8 +8,7 @@ title: Understanding Research Trends in Recommender Systems from Word Cloud
 lastmod: '2022-08-06'
 keywords: [recsys, matrix, wordcloud, rating, cloud, filtering, collaborative, word,
   trends, abstract]
-recommendations: [/note/recsys-2021/, /note/ethical-challenges-in-recommender-systems/,
-  /note/hivemall-events-2018-autumn/]
+recommendations: [/note/recsys-2021/, /note/recsys-2022/, /note/ethical-challenges-in-recommender-systems/]
 ---
 
 The field of recommender systems grows rapidly according to the recent development of practical intelligent systems. However, even though the field is exceptionally practical compared to the other computer-science-related topics, many researchers are actively studying recommendation techniques in their lab. Here is a question: ***what are the research trends in recommender systems?***

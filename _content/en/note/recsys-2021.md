@@ -5,10 +5,10 @@ images: [/images/recsys-2021/2021.png]
 lang: en
 title: 'User-Centricity Matters: My Reading List from RecSys 2021'
 lastmod: '2022-09-02'
-keywords: [recsys, bias, papers, wordcloud, user, recommender, echo, recommendations,
+keywords: [recsys, bias, papers, wordcloud, user, echo, recommender, recommendations,
   chamber, trends]
-recommendations: [/note/recsys-2021-echo-chambers-and-filter-bubbles/, /note/recsys-wordcloud/,
-  /note/ethical-challenges-in-recommender-systems/]
+recommendations: [/note/recsys-2021-echo-chambers-and-filter-bubbles/, /note/recsys-2022/,
+  /note/recsys-wordcloud/]
 ---
  
 Conference season is here, and [RecSys](https://recsys.acm.org/) is back. I've been watching the evolution of recommender systems in the last few years, along with my physical attendances at RecSys [2016](/work/recprofile-2016/) and [2018](/work/recsys-2018/). It's great to see that the research community comes back to a physical conference unlike 2020.

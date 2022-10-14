@@ -4,8 +4,8 @@ date: 2020-08-29
 lang: en
 title: What I Think About When I Talk About ML Product
 lastmod: '2022-05-07'
-keywords: [product, business, solution, problems, solving, cost, loop, model, technical,
-  questions]
+keywords: [product, business, solution, problems, solving, cost, loop, technical,
+  questions, model]
 recommendations: [/note/product-management-and-bullshit-job/, /note/ethical-product-developer/,
   /note/coursera-machine-learning-on-gcp/]
 ---
