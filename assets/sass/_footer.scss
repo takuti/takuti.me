@@ -6,6 +6,18 @@ footer {
   padding: 0;
 
   a {
+    display: inline-block;
+    margin: 0 8px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    text-align: right;
     color: $color-black;
 
     &:visited {
@@ -13,8 +25,12 @@ footer {
     }
 
     &:hover {
+      color: $color-black;
       text-decoration: none;
-      color: $color-dark-blue;
+    }
+
+    i.fas {
+      vertical-align: middle;
     }
   }
 
