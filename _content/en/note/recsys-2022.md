@@ -3,10 +3,10 @@ categories: [Recommender Systems]
 date: 2022-10-14
 lang: en
 title: Ethics in Recommendation Pipeline—A First Look at RecSys 2022 Papers
-keywords: [recommendation, recommender, evaluation, recsys, metrics, papers, industry,
-  privacy, recpack, design]
-recommendations: [/note/recsys-2021/, /note/cross-validation-julia-recommender/, /note/ethical-challenges-in-recommender-systems/]
 images: [/images/recsys-2022/wordcloud.png]
+keywords: [recommendation, recommender, evaluation, recsys, metrics, papers, privacy,
+  industry, recpack, design]
+recommendations: [/note/recsys-2021/, /note/cross-validation-julia-recommender/, /note/ethical-challenges-in-recommender-systems/]
 ---
 
 [RecSys 2022](https://recsys.acm.org/recsys22/), the 2022 edition of a top academic conference in the field of recommender systems, happened last month in Seattle. Even though I didn't attend the event like the [last couple of years](/note/recsys-2021/), it's still fun to check out the papers and see how the research trends, as well as the industry's focuses, are shifting.

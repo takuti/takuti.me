@@ -5,7 +5,7 @@ lang: en
 title: 'Attending MLconf SF 2018 #mlconf18'
 lastmod: '2022-09-02'
 keywords: [mlconf, sagemaker, edo, scalable, satellite, conference, stream, industrial,
-  session, program]
+  session, ing]
 recommendations: [/note/hivemall-events-2018-autumn/, /note/umap-2019/, /note/becoming-a-freelancer-in-canada/]
 ---
 

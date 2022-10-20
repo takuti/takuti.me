@@ -3,7 +3,7 @@ categories: [Data Science & Analytics, Business, Machine Learning]
 date: 2022-09-09
 lang: en
 title: How I Define "Artificial Intelligence"
-keywords: [klara, machine, story, program, humans, robot, rick, josie, ethical, behavior]
+keywords: [klara, machine, story, program, humans, robot, rick, josie, behavior, ethical]
 recommendations: [/note/foundations-of-humane-technology/, /note/internet-for-the-people/,
   /note/ethical-product-developer/]
 ---

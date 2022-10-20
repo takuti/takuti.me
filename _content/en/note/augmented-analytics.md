@@ -5,7 +5,7 @@ lang: en
 title: 'What Makes a Good Dashboard: The Rise of Augmented Analytics'
 lastmod: '2022-09-02'
 keywords: [analytics, augmented, dashboard, data, nlp, insights, citizen, visual,
-  scientists, business]
+  scientists, generated]
 recommendations: [/note/data-leaders-summit-europe-2019/, /note/datavis-2020/, /note/data-validation/]
 ---
 

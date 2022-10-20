@@ -7,7 +7,7 @@ lastmod: '2022-05-07'
 keywords: [product, business, solution, problems, solving, cost, loop, technical,
   questions, model]
 recommendations: [/note/product-management-and-bullshit-job/, /note/ethical-product-developer/,
-  /note/coursera-machine-learning-on-gcp/]
+  /note/the-productize-book/]
 ---
 
 Everyone wants to leverage machine learning (ML) in their daily work, and I'm sure they will be excited about your awesome ML product whatever the detail is. But, what do *we, as a product developer,* really have to think about when we create ML products?
