@@ -33,6 +33,7 @@ DefaultContentLanguage = "en"
       bio = '<b>Takuya Kitazawa</b> is a freelance software developer, minimalistic traveler, ultralight hiker & runner, and craft beer enthusiast. While my area of specialty is in data & AI ethics and machine learning productization, I have worked full-stack throughout the career e.g., as a frontend/backend engineer, OSS developer, technical evangelist, solution architect, data scientist, and product manager. You can find what I am doing lately at <a href="/now">my "<b>now</b>" page</a>, and your inquiry is always welcome at <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b>, including comments on <a href="/note/">my blog posts</a>.'
       featured = ["/note/becoming-a-product-manager/", "/note/hivemall-events-2018-autumn/", "/note/parallel-vs-concurrent/"]
       blogDescription = "Writing about what I think, learned, and experienced."
+      disclaimer = '<ul><li>Opinions are my own and do not represent the views of organizations I am/was belonging to.</li><li>I am doing my best to ensure the accuracy and fair use of the information. However, there might be some errors or biased subjective statements because the main purpose of this blog is to jot down my personal thoughts as soon as possible before conducting an extensive investigation. Visitors understand the limitations and rely on any information at their own risk.</li><li>That said, if there is any issue with the content, please contact me so I can take the necessary action.</li></ul>'
       disclaimerAmazonAffiliate = 'Note that, as an Amazon Associate, I earn from qualifying purchases on <a href="https://amzn.to/3BXPN0p" target="_blank">amazon.ca</a>.'
 
   [languages.ja]
@@ -45,6 +46,7 @@ DefaultContentLanguage = "en"
       bio = '<b>たくち</b>です。長野県出身、カナダ・バンクーバー在住のソフトウェアエンジニア。現在フリーランス。これまでB2B/B2Cの各領域で、データサイエンス・機械学習のプロダクト化および顧客への導入支援・コンサルティング、そして関連分野のエバンジェリズムに携わってきました。趣味は旅行、マラソン、登山、ブリュワリー巡り。近況は <a href="/now">takuti.me/<b>now</b></a> より。<a href="/ja/note/">ブログ</a>へのご意見・ご感想、お仕事のご依頼など、<b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b> までいつでもお気軽にご連絡ください。'
       featured = ["/ja/note/two-decades-of-amazon-recommender/", "/ja/note/product-management-myths/", "/ja/note/data-science-project-structure/"]
       blogDescription = "「生きること」「学ぶこと」「作ること」について綴っています。"
+      disclaimer = '<ul><li>当サイトおよび関連するメディア上での発言はすべて私個人の見解であり、所属する（あるいは過去に所属した）組織のいかなる見解を代表するものでもありません。</li><li>当サイトのコンテンツ・情報につきまして、可能な限り正確な情報を掲載するよう努めておりますが、個人ブログという性質上、誤情報や客観性を欠いた意見が入り込んでいることもございます。いかなる場合でも、当サイトおよびリンク先に掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。</li><li>その他、記事の内容や掲載画像などに問題がございましたら、直接メールでご連絡ください。確認の後、対応させていただきます。</li></ul>'
       disclaimerAmazonAffiliate = 'なお、Amazonのアソシエイトとして、当サイトは <a href="https://amzn.to/3QZGuBp" target="_blank">amazon.co.jp</a> 上の適格販売により収入を得ています。'
 
 [author]
