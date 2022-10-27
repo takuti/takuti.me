@@ -6,7 +6,7 @@ lang: en
 title: 'Recommendation.jl v0.4.0: Working with Missing Values, Data Typing, and Factorization
   Machines'
 lastmod: '2022-02-27'
-keywords: [recommendation, julia, machines, factorization, scientifictypes, types,
+keywords: [recommendation, julia, factorization, machines, scientifictypes, types,
   missing, general, proper, implemented]
 recommendations: [/note/recommendation-julia/, /note/juliacon-2019/, /note/recommendation-julia-documenter/]
 ---

@@ -4,10 +4,10 @@ date: 2021-04-25
 lang: en
 title: My First Impression After Reading Bill Gates's "How to Avoid a Climate Disaster"
 lastmod: '2022-09-02'
-keywords: [nuclear, government, environmental, book, demand, numbers, energy, gigawatts,
-  car, emissions]
-recommendations: [/note/environmental-problems-and-business/, /note/flight-emissions/,
-  /note/coursera-supply-chain-management/]
+keywords: [nuclear, government, book, environmental, demand, numbers, gigawatts, energy,
+  emissions, safer]
+recommendations: [/note/a-bright-future/, /note/environmental-problems-and-business/,
+  /note/flight-emissions/]
 ---
 
 I have been following Bill Gates's activities against environmental problems since I watched [Inside Bill's Brain](https://www.netflix.com/title/80184771) on Netflix last year, and I just finished reading his latest book, **[How to Avoid a Climate Disaster](https://www.penguinrandomhouse.com/books/633968/how-to-avoid-a-climate-disaster-by-bill-gates/)**. 

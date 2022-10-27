@@ -5,7 +5,7 @@ images: [/images/2021-bcat-best-brewery-experience-award/herald_street_brew.jpeg
 lang: en
 title: 'Voting for 2021 #BCAleTrail Best Brewery Experience Award'
 lastmod: '2022-09-02'
-keywords: [brewery, brewing, breweries, award, experience, brew, beer, street, kettle,
+keywords: [brewery, brewing, breweries, award, brew, experience, beer, street, kettle,
   herald]
 recommendations: [/note/unusual-drinking-and-eating-habits/, /note/relocating-to-canada/,
   /note/annual-review-2021/]

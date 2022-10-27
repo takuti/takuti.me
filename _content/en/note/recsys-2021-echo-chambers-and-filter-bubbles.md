@@ -5,7 +5,7 @@ lang: en
 title: How Can Recommender Systems Contribute to Mitigate Echo Chambers and Filter
   Bubbles?
 lastmod: '2022-04-09'
-keywords: [echo, misinformation, chamber, bubbles, user, chambers, filter, graph,
+keywords: [echo, chamber, misinformation, bubbles, user, chambers, filter, graph,
   embedding, recommending]
 recommendations: [/note/recsys-2021/, /note/the-power-of-diverse-thinking/, /note/recommender-diversity/]
 ---
