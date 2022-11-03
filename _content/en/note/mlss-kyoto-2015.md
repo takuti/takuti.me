@@ -7,7 +7,7 @@ lang: en
 title: 'Machine Learning Summer School 2015 Kyoto #MLSSKYOTO'
 lastmod: '2022-06-11'
 keywords: [lecture, mlss, optimization, submodular, lectures, gradient, theoretical,
-  mathematica, convex, learn]
+  mathematica, learn, convex]
 recommendations: [/note/goes-back-to-school/, /note/learn-how-others-work/, /note/coursera-machine-learning-on-gcp/]
 ---
 

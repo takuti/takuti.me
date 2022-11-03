@@ -7,7 +7,7 @@ title: 'Datavis 2020: A Free Online Course About D3.js & React'
 lastmod: '2022-05-05'
 keywords: [datavis, visualization, fitbit, dashboard, chart, curran, data, official,
   augmented, react]
-recommendations: [/note/first-vis-with-fitbit/, /note/augmented-analytics/, /note/flight-emissions/]
+recommendations: [/note/augmented-analytics/, /note/first-vis-with-fitbit/, /note/flight-emissions/]
 ---
 
 I have recently studied data visualization with D3.js and React from [Datavis 2020](https://datavis.tech/datavis-2020/) by [Curran Kelleher](https://github.com/curran). 

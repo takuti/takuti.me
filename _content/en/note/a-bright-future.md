@@ -6,7 +6,7 @@ title: Updating My View of Nuclear Power
 keywords: [nuclear, climate, power, disaster, book, waste, psychological, authors,
   caused, radioactive]
 recommendations: [/note/how-to-avoid-a-climate-disaster/, /note/environmental-problems-and-business/,
-  /note/sdg-mooc/]
+  /note/td-to-amazon/]
 ---
 
 I am concerned about climate change, and what's clear to me after studying several resources is that we cannot discuss the planet's future without thinking about how quickly and safely human society can adapt to using nuclear power at scale. That is, the speed of climate change is just too urgent to rely fully on the other actions we can think of, such as [improving consciousness of CO2 emissions](/note/flight-emissions/), [understanding technological advances and adapting our consumption patterns](/note/how-to-avoid-a-climate-disaster/) (e.g., buying an EV car, eating less beef), [accelerating government-led, collaborative effort on making a city greener](/note/environmental-problems-and-business/), and [rethinking a driving force of the capitalistic world](/note/sustainability-at-big-tech/). All of them are effective and important, but a key takeaway is that we'd need to prioritize them wisely and establish the most aggressive portfolio given the urgency.
