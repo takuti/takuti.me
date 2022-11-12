@@ -5,8 +5,8 @@ images: [/images/datavis-2020/fitbit-official-dashboard.png, /images/datavis-202
 lang: en
 title: 'Datavis 2020: A Free Online Course About D3.js & React'
 lastmod: '2022-05-05'
-keywords: [datavis, visualization, fitbit, dashboard, chart, curran, data, official,
-  augmented, react]
+keywords: [datavis, visualization, fitbit, dashboard, chart, curran, data, augmented,
+  react, official]
 recommendations: [/note/augmented-analytics/, /note/first-vis-with-fitbit/, /note/flight-emissions/]
 ---
 

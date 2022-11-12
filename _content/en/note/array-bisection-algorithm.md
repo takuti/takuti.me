@@ -4,7 +4,7 @@ date: 2021-06-05
 lang: en
 title: Understanding Array Bisection Algorithm
 lastmod: '2022-09-02'
-keywords: [arr, sorted, array, val, insertion, method, bisection, sequentially, queue,
+keywords: [arr, sorted, array, method, val, insertion, bisection, sequentially, queue,
   heap]
 recommendations: [/note/recommendation-julia/, /note/flurs/, /note/coursera-supply-chain-management/]
 ---

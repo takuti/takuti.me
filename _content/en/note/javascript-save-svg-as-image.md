@@ -4,8 +4,8 @@ date: 2021-09-04
 lang: en
 title: Save HTML <svg> as an Image
 lastmod: '2022-09-02'
-keywords: [image, svg, download, canvas, html, save, visualization, todataurl, snippet,
-  blob]
+keywords: [image, svg, download, canvas, html, save, visualization, todataurl, blob,
+  snippet]
 recommendations: [/note/flight-emissions/, /note/first-vis-with-fitbit/, /note/datavis-2020/]
 ---
 
