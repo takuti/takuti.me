@@ -6,7 +6,7 @@ lang: en
 title: What Container and JIT Mean for Today's Supply Chain Disruption
 lastmod: '2022-09-02'
 keywords: [supply, chain, cargo, jit, disruption, ports, demand, port, operations,
-  china]
+  local]
 recommendations: [/note/coursera-supply-chain-management/, /note/supply-chain-analytics/,
   /note/sustainability-at-big-tech/]
 ---

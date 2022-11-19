@@ -5,7 +5,7 @@ lang: en
 title: 'Lightning Talk about Recommender Systems in Julia at #JuliaCon 2019'
 lastmod: '2022-08-06'
 keywords: [julia, recommendation, package, computing, ecosystem, juliacon, community,
-  onference, baltimore, book]
+  onference, baltimore, recommendations]
 recommendations: [/note/recommendation-julia-documenter/, /note/juliacon-2022/, /note/julia-travis-ci-to-github-actions/]
 ---
 

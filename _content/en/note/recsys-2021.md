@@ -5,7 +5,7 @@ images: [/images/recsys-2021/2021.png]
 lang: en
 title: 'User-Centricity Matters: My Reading List from RecSys 2021'
 lastmod: '2022-09-02'
-keywords: [recsys, bias, papers, wordcloud, user, echo, recommender, recommendations,
+keywords: [recsys, bias, papers, wordcloud, echo, recommender, user, recommendations,
   chamber, trends]
 recommendations: [/note/recsys-2021-echo-chambers-and-filter-bubbles/, /note/recsys-2022/,
   /note/recsys-wordcloud/]

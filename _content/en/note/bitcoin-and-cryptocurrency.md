@@ -4,7 +4,7 @@ date: 2021-04-19
 lang: en
 title: Learning Cryptocurrency with Code
 lastmod: '2022-03-28'
-keywords: [blockchain, transaction, bitcoin, transactions, decentralized, utxopool,
+keywords: [blockchain, bitcoin, transaction, transactions, decentralized, utxopool,
   utxo, property, consensus, miners]
 recommendations: [/note/coursera-blockchain-specialization/, /note/web3/, /note/iotswc-2019/]
 ---
