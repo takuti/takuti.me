@@ -4,10 +4,9 @@ date: 2022-11-19
 lang: en
 title: The Locality of Information and Technology
 images: [/images/why-information-grows/macro-to-micro.png]
-keywords: [localized, products, networks, macro, trust, cooperation, omplex, knowledge,
+keywords: [localized, products, networks, macro, trust, omplex, cooperation, knowledge,
   micro, society]
-recommendations: [/note/finding-the-mother-tree/, /note/internet-for-the-people/,
-  /note/annual-review-2021/]
+recommendations: [/note/finding-the-mother-tree/, /note/dividual-in-recsys/, /note/internet-for-the-people/]
 ---
 
 Information, technology, and inherently everyone's life are highly contextualized and localized. Understanding the simple fact would bring a dramatic shift in how we see the world. In particular, reality tells us the importance of characterizing our world without suppressing the identity of its elements.

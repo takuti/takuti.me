@@ -7,8 +7,8 @@ images: [/images/coursera-supply-chain-management/warehouse.png, /images/courser
 lang: en
 title: The Essence of Supply Chain Management
 lastmod: '2022-09-02'
-keywords: [supply, chain, cost, suppliers, demand, operations, average, method, logistics,
-  winters]
+keywords: [supply, chain, cost, suppliers, demand, operations, method, logistics,
+  average, winters]
 recommendations: [/note/supply-chain-disruption/, /note/supply-chain-analytics/, /note/sustainability-at-big-tech/]
 ---
 

@@ -5,7 +5,7 @@ lang: en
 title: Rethinking the Role of Data Leaders @ Data Leaders Summit Europe 2019
 lastmod: '2022-09-02'
 keywords: [data, leaders, head, summit, scientists, business, scientist, panel, analytics,
-  organization]
+  leader]
 recommendations: [/note/data-validation/, /note/augmented-analytics/, /note/coursera-data-science-ethics/]
 ---
 
