@@ -8,7 +8,7 @@ lastmod: '2022-09-02'
 keywords: [data, validation, accuracy, tfx, pipeline, paper, metrics, privacy, schema,
   observability]
 recommendations: [/note/data-leaders-summit-europe-2019/, /note/coursera-data-science-ethics/,
-  /note/airflow-lineage/]
+  /note/data-feminism/]
 ---
 
 When it comes to modern machine learning and data analytics applications, I cannot stress the importance of data validation enough. However, it's rarely discussed what defines the validity of our data.

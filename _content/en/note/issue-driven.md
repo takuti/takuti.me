@@ -7,8 +7,8 @@ title: Issue-Driven Makes You Professional
 lastmod: '2022-09-02'
 keywords: [issue, quality, driven, time, work, approach, deliver, professionalism,
   storyline, talk]
-recommendations: [/note/first-month-as-self-employed/, /note/working-from-home-202004/,
-  /note/fermenting-thoughts/]
+recommendations: [/note/first-month-as-self-employed/, /note/fermenting-thoughts/,
+  /note/working-from-home-202004/]
 ---
 
 What does define "professional" mean? 

@@ -4,7 +4,7 @@ date: 2022-10-14
 lang: en
 title: Ethics in Recommendation Pipeline—A First Look at RecSys 2022 Papers
 images: [/images/recsys-2022/wordcloud.png]
-keywords: [recommendation, recommender, evaluation, recsys, metrics, papers, privacy,
+keywords: [recommendation, recommender, evaluation, recsys, metrics, privacy, papers,
   recpack, industry, design]
 recommendations: [/note/recsys-2021/, /note/cross-validation-julia-recommender/, /note/ethical-challenges-in-recommender-systems/]
 ---

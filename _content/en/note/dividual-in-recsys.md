@@ -3,10 +3,10 @@ categories: [Data Science & Analytics, Business, Recommender Systems]
 date: 2022-11-27
 lang: en
 title: 'Fluid People and Blended Society: How Systems Model "Dividuals"'
-keywords: [user, dividual, systems, data, users, multiple, group, ing, identities,
+keywords: [user, dividual, systems, users, data, multiple, group, ing, identities,
   model]
-recommendations: [/note/ethical-challenges-in-recommender-systems/, /note/coursera-data-science-ethics/,
-  /note/recsys-2021/]
+recommendations: [/note/ethical-challenges-in-recommender-systems/, /note/data-feminism/,
+  /note/coursera-data-science-ethics/]
 ---
 
 *"Let $\mathcal{U}$ be a set of users ..."*

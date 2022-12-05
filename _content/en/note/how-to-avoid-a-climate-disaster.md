@@ -4,7 +4,7 @@ date: 2021-04-25
 lang: en
 title: My First Impression After Reading Bill Gates's "How to Avoid a Climate Disaster"
 lastmod: '2022-09-02'
-keywords: [nuclear, government, book, environmental, demand, numbers, gigawatts, energy,
+keywords: [government, nuclear, book, environmental, demand, gigawatts, numbers, energy,
   emissions, safer]
 recommendations: [/note/a-bright-future/, /note/environmental-problems-and-business/,
   /note/flight-emissions/]

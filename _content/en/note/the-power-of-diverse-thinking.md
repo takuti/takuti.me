@@ -10,7 +10,7 @@ summary: It clearly goes beyond how it's been normally discussed in business, an
   that we can "easily" optimize.
 lastmod: '2022-05-07'
 keywords: [diversification, body, diversity, diverse, bubbles, filter, user, chambers,
-  echo, voices]
+  echo, nutrition]
 recommendations: [/note/recommender-diversity/, /note/recsys-2021-echo-chambers-and-filter-bubbles/,
   /note/recsys-2021/]
 ---
