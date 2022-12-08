@@ -3,7 +3,7 @@ categories: [Business, Data Science & Analytics]
 date: 2022-12-04
 lang: en
 title: Data Are Created, Collected, and Processed by People
-keywords: [data, gender, feminism, sex, knowledge, human, localized, decisions, society,
+keywords: [data, gender, feminism, sex, human, knowledge, localized, decisions, society,
   practices]
 recommendations: [/note/data-leaders-summit-europe-2019/, /note/coursera-data-science-ethics/,
   /note/data-validation/]
