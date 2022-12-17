@@ -21,6 +21,7 @@ nav {
   a {
     display: inline-block;
     margin: 0 16px;
+    text-decoration: underline;
 
     &:first-child {
       margin-left: 0;
@@ -50,6 +51,10 @@ nav {
 
   .left {
     vertical-align: middle;
+
+    a {
+      text-decoration: none;
+    }
 
     img {
       width: 24px;
@@ -88,6 +93,7 @@ nav {
             text-align: center;
             padding: 1em 0;
             width: 100%;
+            text-decoration: none;
 
             &:hover {
               background: lighten($color-black, 70%);
