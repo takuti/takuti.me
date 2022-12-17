@@ -16,10 +16,10 @@
     <a href="{{ "/index.xml" | absLangURL }}" class="hide-responsive"><i class="fas fa-rss"></i></a>
     {{ if .IsTranslated }}
       {{ range .Translations }}
-        <a href="{{ .RelPermalink }}"><i class="fas fa-language fa-2x"></i></a>
+        <a href="{{ .RelPermalink }}"><i class="fas fa-language fa-lg"></i></a>
       {{ end }}
     {{ else }}
-        <a href={{ if eq .Site.Language.Lang "ja" }}"/"{{ else }}"/ja"{{ end }}><i class="fas fa-language fa-2x"></i></a>
+        <a href={{ if eq .Site.Language.Lang "ja" }}"/"{{ else }}"/ja"{{ end }}><i class="fas fa-language fa-lg"></i></a>
     {{ end }}
   </span>
   </nav>
