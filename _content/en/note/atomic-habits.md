@@ -5,9 +5,9 @@ images: [/images/atomic-habits/identity-as-a-traveler.png]
 lang: en
 title: 'Quality Habit-Formation: It''s Like Casting a Vote on My Desired Identity'
 lastmod: '2022-08-06'
-keywords: [habits, identity, traveler, runner, week, habit, month, taker, expressive,
-  atomic]
-recommendations: [/note/annual-review-2021/, /note/definition-of-done/, /note/audio-journaling/]
+keywords: [habits, identity, traveler, runner, week, habit, taker, expressive, month,
+  weight]
+recommendations: [/note/annual-review-2021/, /note/annual-review-2022/, /note/definition-of-done/]
 ---
  
 I rarely read the same book multiple times, and in 2021, [Atomic Habits](https://jamesclear.com/atomic-habits) was one of them. (Actually, it was an Audible version narrated directly by the author (!))

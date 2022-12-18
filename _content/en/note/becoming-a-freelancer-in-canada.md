@@ -8,7 +8,7 @@ lastmod: '2022-09-02'
 keywords: [amazon, product, managers, beach, ompany, canada, document, freelancer,
   working, trip]
 recommendations: [/note/td-to-amazon/, /note/product-management-and-bullshit-job/,
-  /note/foundations-of-humane-technology/]
+  /note/annual-review-2022/]
 ---
 
 I quit my software engineering job at Amazon on August 31, 2022. One week before my resignation, I was in the ocean for a week-long kayaking trip with my friends on the west coast of Vancouver Island, which turned out to be my longest adventure ever in such a remote environment without any utilities. 

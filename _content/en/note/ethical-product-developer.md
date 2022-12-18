@@ -5,8 +5,8 @@ date: 2022-01-01
 lang: en
 title: Ethical Product Developer
 lastmod: '2022-09-02'
-keywords: [product, ethical, developers, developer, unethical, clear, capitalism,
-  design, egative, decisions]
+keywords: [product, ethical, developers, developer, unethical, clear, design, egative,
+  capitalism, decisions]
 recommendations: [/note/product-management-and-bullshit-job/, /note/internet-for-the-people/,
   /note/foundations-of-humane-technology/]
 ---

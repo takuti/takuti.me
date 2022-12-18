@@ -4,8 +4,8 @@ date: 2022-11-19
 lang: en
 title: The Locality of Information and Technology
 images: [/images/why-information-grows/macro-to-micro.png]
-keywords: [localized, products, networks, macro, trust, omplex, cooperation, knowledge,
-  micro, society]
+keywords: [localized, products, networks, macro, trust, omplex, cooperation, micro,
+  knowledge, society]
 recommendations: [/note/finding-the-mother-tree/, /note/data-feminism/, /note/dividual-in-recsys/]
 ---
 

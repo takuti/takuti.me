@@ -4,8 +4,8 @@ date: 2020-02-07
 lang: en
 title: Why a Data Science Engineer Becomes a Product Manager
 lastmod: '2022-09-02'
-keywords: [product, iot, experience, technologies, theory, science, data, user, engineer,
-  real]
+keywords: [product, iot, experience, technologies, theory, science, data, user, real,
+  engineer]
 recommendations: [/note/iotswc-2019/, /note/ethical-product-developer/, /note/td-to-amazon/]
 ---
 

@@ -3,7 +3,7 @@ categories: [Business, Design]
 date: 2022-10-20
 lang: en
 title: Why We "Productize"
-keywords: [product, ize, ladder, services, productized, book, productization, offering,
+keywords: [product, ladder, ize, services, productized, book, productization, offering,
   innovation, stage]
 recommendations: [/note/ethical-product-developer/, /note/product-management-and-bullshit-job/,
   /note/machine-learning-product/]
