@@ -50,7 +50,7 @@ Tacos in Mexico, Udon noodles in Kagawa, ChatGPT in AI—All of them are undoubt
 
 Sushi can be a great example of such a "just right" degree of complexity. One night in Tokyo, I went to one of the high-quality *Omakase*-style Sushi restaurants. In a word, their Sushi was ***informative***; as you may know, the presentation of Sushi is so simple, but once I tasted them, I immediately felt *"something complicated is happening in it."*
 
-![sushi](/images/complexity-of-simplicity/sushi.JPG)
+![sushi](/images/complexity-of-simplicity/sushi.jpeg)
 
 In my vocabulary, I don't have a phrase that best describes the information-rich state, which was neither simple nor complex. This balance allows consumers to pause for a second and understand further implications the product may pose. That is, a well-designed product naturally stimulates consumers' attention to hidden variables, which can be a crucial step to overcoming inequities our society holds *by design.*
 
