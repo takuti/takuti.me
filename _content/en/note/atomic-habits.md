@@ -5,7 +5,7 @@ images: [/images/atomic-habits/identity-as-a-traveler.png]
 lang: en
 title: 'Quality Habit-Formation: It''s Like Casting a Vote on My Desired Identity'
 lastmod: '2022-08-06'
-keywords: [habits, identity, traveler, runner, week, habit, taker, expressive, month,
+keywords: [habits, identity, traveler, week, runner, habit, taker, expressive, month,
   weight]
 recommendations: [/note/annual-review-2021/, /note/annual-review-2022/, /note/definition-of-done/]
 ---

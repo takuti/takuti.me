@@ -7,7 +7,7 @@ title: 'A Journey of Sustainable Development #SDGMOOC'
 lastmod: '2022-09-02'
 keywords: [sdgs, plastic, hummingbird, sustainability, responsibility, wedding, cake,
   bag, problems, business]
-recommendations: [/note/environmental-problems-and-business/, /note/sustainability-at-big-tech/,
+recommendations: [/note/sustainability-at-big-tech/, /note/environmental-problems-and-business/,
   /note/sustainable-capitalism/]
 ---
 

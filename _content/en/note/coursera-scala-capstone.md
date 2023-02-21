@@ -5,10 +5,10 @@ images: [/images/coursera-scala-capstone/certificate.png]
 lang: en
 title: Completed Functional Programming in Scala Specialization on Coursera, Finally
 lastmod: '2022-09-02'
-keywords: [scala, project, programming, apstone, functional, specialization, milestones,
-  temperature, parallel, fun]
-recommendations: [/note/parallel-vs-concurrent/, /note/coursera-machine-learning-on-gcp/,
-  /note/learn-how-others-work/]
+keywords: [scala, project, programming, functional, specialization, certificate, stones,
+  apstone, mile, temperature]
+recommendations: [/note/spark-rdd-cached-vs-uncached/, /note/parallel-vs-concurrent/,
+  /note/coursera-machine-learning-on-gcp/]
 ---
 
 I have earned [my certificate](https://www.coursera.org/account/accomplishments/specialization/5QEQVEUCDFSJ) of [Functional Programming in Scala Specialization](https://www.coursera.org/specializations/scala) completion.

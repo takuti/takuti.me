@@ -4,7 +4,7 @@ date: 2021-03-01
 lang: ja
 title: コロナ禍でのカナダ渡航（2021年2月26日・入国後PCR検査義務化後）
 lastmod: '2022-09-02'
-keywords: [ホテル, 隔離, 検査, pcr, 予約, 認定, 政府, 入国, post, フライト]
+keywords: [ホテル, 隔離, pcr検査, 予約, 認定, 政府, 入国, post, フライト, 陰性]
 recommendations: [/ja/note/one-month-in-canada/, /ja/note/canada-permanent-residency/,
   /ja/note/relocating-to-canada/]
 ---

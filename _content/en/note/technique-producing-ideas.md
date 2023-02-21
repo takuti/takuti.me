@@ -5,7 +5,7 @@ lang: en
 title: How to Produce Ideas
 lastmod: '2022-09-02'
 keywords: [ideas, seeds, inputs, gathering, experiences, raw, producing, material,
-  idea, branding]
+  branding, idea]
 recommendations: [/note/revisit-design-thinking/, /note/fermenting-thoughts/, /note/language-as-a-design-tool/]
 ---
 

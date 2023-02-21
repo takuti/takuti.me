@@ -6,7 +6,7 @@ title: Learning Canada's History
 images: [/images/indigenous-canada-mid-term/nanaimo-bars.jpeg]
 lastmod: '2022-06-11'
 keywords: [indigenous, museum, history, canada, reconciliation, nanaimo, museums,
-  japanese, europe, canadians]
+  japanese, canadians, europe]
 recommendations: [/note/indigenous-canada-final/, /note/national-day-for-truth-and-reconciliation-2022/,
   /note/goes-back-to-school/]
 ---

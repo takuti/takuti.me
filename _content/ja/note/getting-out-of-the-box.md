@@ -5,9 +5,9 @@ date: 2019-02-03
 lang: ja
 title: 「ていねいなコミュニケーション」
 lastmod: '2022-09-02'
-keywords: [相手, 自分, 自己欺瞞, ていねい, 脱出, 裏切ら, 悪い, 信じ, 期待, コミュニケーション]
+keywords: [相手, 自分, 自己欺瞞, ていねい, 裏切ら, 脱出, 悪い, 信じ, 期待, コミュニケーション]
 recommendations: [/ja/note/be-mindful/, /ja/note/product-management-and-bullshit-job/,
-  /ja/note/four-months-after-moving-to-canada/]
+  /ja/note/td-to-amazon/]
 ---
 
 『**[自分の小さな「箱」から脱出する方法](https://amzn.to/2CMhJ7p)**』という本を読んで、なんというか、いろいろと恥ずかしくなった。

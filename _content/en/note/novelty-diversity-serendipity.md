@@ -9,7 +9,7 @@ lastmod: '2022-05-07'
 keywords: [serendipity, recommendation, novelty, diversity, serendipitous, user, kotkov,
   fig, accuracy, item]
 recommendations: [/note/cross-validation-julia-recommender/, /note/recommender-diversity/,
-  /note/ethical-challenges-in-recommender-systems/]
+  /note/juliacon-2022/]
 ---
 
 As I've been discussing over the last months, I personally believe measuring non-accuracy aspects of intelligent systems is one of the most important challenges to [make algorithmic recommendations ethical](/note/ethical-challenges-in-recommender-systems/).

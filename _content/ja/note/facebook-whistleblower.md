@@ -4,7 +4,7 @@ date: 2021-10-09
 lang: ja
 title: Facebook内部告発の件、他人事ではない。
 lastmod: '2022-09-02'
-keywords: [プロダクト, facebook, 証言, 公聴会, ソフトウェア, sns, 開発, 従業員, システム障害, アルゴリズム]
+keywords: [プロダクト, facebook, 証言, 公聴会, ソフトウェア, sns, 開発, システム障害, アルゴリズム, テック]
 recommendations: [/ja/note/empowered/, /ja/note/hooked-design/, /ja/note/product-management-myths/]
 ---
 

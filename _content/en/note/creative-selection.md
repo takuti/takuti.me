@@ -4,9 +4,9 @@ date: 2022-08-12
 lang: en
 title: Dilemma of Creative Selection
 lastmod: '2022-09-02'
-keywords: [selection, creative, apple, team, design, product, process, pressure, organization,
-  essence]
-recommendations: [/note/ethical-product-developer/, /note/td-to-amazon/, /note/learn-how-others-work/]
+keywords: [selection, creative, apple, team, product, design, organization, process,
+  pressure, essence]
+recommendations: [/note/ethical-product-developer/, /note/td-to-amazon/, /note/becoming-a-freelancer-in-canada/]
 ---
 
 "[Creative Selection: Inside Apple's Design Process During the Golden Age of Steve Jobs](https://read.amazon.ca/kp/embed?asin=B079DVT6VP&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_AHXKE06B5J8KGWBSEZH7)," a book written by an ex-Apple software engineer discussing how to make a successful product like iPhone, was fun to read. 

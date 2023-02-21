@@ -5,7 +5,7 @@ lang: en
 title: 'Reviewing Things I Do Not Know About the Indian Act #NDTR'
 images: [/images/national-day-for-truth-and-reconciliation-2022/books.jpeg]
 keywords: [indian, indigenous, history, peoples, canada, reconciliation, book, author,
-  truth, national]
+  truth, impacts]
 recommendations: [/note/indigenous-canada-final/, /note/indigenous-canada-mid-term/,
   /note/annual-review-2022/]
 ---

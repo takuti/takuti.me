@@ -6,7 +6,7 @@ lang: en
 title: Are You Still Writing a Resume in Word/LaTeX?
 lastmod: '2022-09-02'
 keywords: [resume, html, latex, writing, web, pdf, website, customizability, tex,
-  font]
+  icons]
 recommendations: [/note/why-job-title-matters/, /note/hugo-kramdown-and-katex/, /note/javascript-save-svg-as-image/]
 ---
 

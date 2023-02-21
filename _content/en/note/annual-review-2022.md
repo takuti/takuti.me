@@ -3,11 +3,11 @@ categories: [Life & Work]
 date: 2022-12-18
 lang: en
 title: 'My 2022 Annual Review: Towards the Deepness'
+images: [/images/annual-review-2022/wordcloud-2022.png]
 keywords: [note, resistance, dividual, year, rest, freelancer, annual, canada, settle,
-  deepness]
+  product]
 recommendations: [/note/annual-review-2021/, /note/becoming-a-freelancer-in-canada/,
   /note/first-month-as-self-employed/]
-images: [/images/annual-review-2022/wordcloud-2022.png]
 ---
 
 A single word describing my 2022 is **connection**.

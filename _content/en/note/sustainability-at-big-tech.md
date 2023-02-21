@@ -5,9 +5,9 @@ images: [/images/sustainability-at-big-tech/thumbnail.png]
 lang: en
 title: Understanding Big Tech's Sustainable Commitment with Word Cloud
 lastmod: '2022-09-02'
-keywords: [sustainability, apple, carbon, microsoft, facebook, word, supply, google,
-  amazon, cloud]
-recommendations: [/note/sustainable-capitalism/, /note/annual-review-2021/, /note/environmental-problems-and-business/]
+keywords: [sustainability, apple, carbon, microsoft, facebook, word, google, amazon,
+  cloud, ech]
+recommendations: [/note/sustainable-capitalism/, /note/annual-review-2021/, /note/sdg-mooc/]
 ---
  
 When it comes to [sustainable capitalism](/note/sustainable-capitalism/), the role of big companies is particularly important because they have the exceptional power of advancing sustainability in the long-run. A story that the companies like Microsoft, Amazon, Alibaba, and Google are part of the portfolio of Generation Investment Management, a sustainability-conscious investment firm, is a good example of how promising these companies are in this context[^1].

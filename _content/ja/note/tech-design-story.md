@@ -7,8 +7,8 @@ images: [/images/tech-design-story/tech-design-story-1.png, /images/tech-design-
 lang: ja
 title: ストーリーを伝えられないプロダクトの虚しさ
 lastmod: '2022-09-02'
-keywords: [テクノロジー, story, デザイン, design, プロダクト, ストーリー, tech, 体験, 小売, 店舗]
-recommendations: [/ja/note/design-engineer/, /ja/note/after-digital/, /ja/note/2020/]
+keywords: [テクノロジー, デザイン, story, プロダクト, ストーリー, design, tech, 体験, 小売, 再生]
+recommendations: [/ja/note/design-engineer/, /ja/note/2020/, /ja/note/after-digital/]
 ---
 
 プロダクト開発者として、自分たちのつくっているものが本当に世の中にとってプラスになっているのか、という疑問が常にある。世の中を微妙な方向へ押しやることに加担しているのではないか、と思うことさえある。

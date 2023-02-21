@@ -4,10 +4,10 @@ date: 2020-05-31
 lang: en
 title: Don't "Guess" How People in Other Roles Work
 lastmod: '2022-09-02'
-keywords: [guess, finance, product, introduction, design, managers, engineers, designers,
+keywords: [guess, finance, product, introduction, managers, design, engineers, designers,
   roles, understand]
-recommendations: [/note/product-management-and-bullshit-job/, /note/ethical-product-developer/,
-  /note/becoming-a-product-manager/]
+recommendations: [/note/product-management-and-bullshit-job/, /note/becoming-a-product-manager/,
+  /note/foundations-of-humane-technology/]
 ---
 
 Spend a bit of your time to "learn" what they do, and talk to them, instead.

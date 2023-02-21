@@ -5,7 +5,7 @@ lang: ja
 title: 「考えないこと」
 lastmod: '2022-09-02'
 keywords: [考える, 進学, 後悔, 就職, における, 考えれ, 物事, 無く, 快適, 考え]
-recommendations: [/ja/note/td-to-amazon/, /ja/note/think/, /ja/note/life-with-covid-19/]
+recommendations: [/ja/note/td-to-amazon/, /ja/note/think/, /ja/note/cognitive-science-and-behavioral-economics/]
 ---
 
 ひと月前に[「**考えること**」](/ja/note/think)について書いた。仕事や勉強などの日常的な場面で困難に直面したとき、僕らは背筋をピンと伸ばして問題を問い直し、正しく考えなければならない。
