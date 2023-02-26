@@ -5,7 +5,7 @@ lang: ja
 title: ソフトウェアプロダクトマネジメントのバイブル "Inspired" の続編 "Empowered"、わかりみが深い。
 lastmod: '2022-09-02'
 keywords: [プロダクト, リーダー, チーム, 顧客, risk, 組織, コーチング, 前作, okr, 開発]
-recommendations: [/ja/note/product-management-myths/, /ja/note/hooked-design/, /ja/note/facebook-whistleblower/]
+recommendations: [/ja/note/product-management-myths/, /ja/note/hooked-design/, /ja/note/product-management-and-bullshit-job/]
 ---
 
 これまでに読んだソフトウェアプロダクトマネジメントに関する本の中で個人的にいちばん信頼している "[Inspired](https://amzn.to/3ENMSXv)" の続編、"[Empowered](https://amzn.to/3i8xT0G)" を読んだ。

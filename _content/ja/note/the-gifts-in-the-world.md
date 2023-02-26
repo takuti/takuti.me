@@ -4,7 +4,7 @@ date: 2021-01-18
 lang: ja
 title: 僕らは名もなき“誰か”からの贈与に気付いているか？
 lastmod: '2022-01-18'
-keywords: [贈与, 受け取っ, 資本主義, 誰か, 交換, 贈り物, 不合理, 使命, 等価, 僕ら]
+keywords: [贈与, 受け取っ, 資本主義, 交換, 誰か, 贈り物, 不合理, 使命, 等価, 僕ら]
 recommendations: [/ja/note/2021/, /ja/note/boredom/, /ja/note/will-202102/]
 ---
 
