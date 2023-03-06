@@ -1,26 +1,47 @@
 <header>
   <nav>
   <span class="left">
-    <a href="{{ "/" | absLangURL }}"><img src="/images/logo.png" alt="icon" />&nbsp;&nbsp;{{ .Site.Title }}</a>
+    <a href="{{ "/" | absLangURL }}"><img src="/images/logo.png" alt="icon" /><span class="hide-responsive">&nbsp;&nbsp;{{ .Site.Title }}</span></a>
+  </span>
+  <span class="nav-opener">
+    <label for="nav-input"><i class="fas fa-bars"></i></label>
   </span>
   <span class="right">
-    <a href="/now" class="hide-responsive">{{ i18n "now" }}</a>
-    <span class="menu-single">
-      <a href="{{ "/note" | absLangURL }}" class="init-bottom">{{ i18n "blog" }}<span class="hide-responsive">&nbsp;&nbsp;<i class="fas fa-angle-down"></i></span></a>
-      <ul class="menu-second-level hide-responsive">
-        {{range ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
-         <li><a href="{{.Permalink}}">{{.Title}}</a>
-        {{end}}
-      </ul>
-    </span>
-    {{ if .IsTranslated }}
-      {{ range .Translations }}
-        <a href="{{ .RelPermalink }}"><i class="fas fa-language fa-lg"></i></a>
+    <input id="nav-input" type="checkbox">
+    <span id="nav-content">
+      <a href="/{{ .Site.Language.Lang }}">{{ i18n "home" }}</a>
+      <a href="{{ "/note" | absLangURL }}">{{ i18n "blog" }}</a>
+      <a href="/now">{{ i18n "now" }}</a>
+      <select class="lang-list" id="select-language" onchange="location = this.value;">
+      {{ if .IsTranslated }}
+        {{ $siteLanguages := .Site.Languages}}
+        {{ $pageLang := .Page.Lang}}
+        {{ range .Page.AllTranslations }}
+        {{ $translation := .}}
+        {{ range $siteLanguages }}
+        {{ if eq $translation.Lang .Lang }}
+        {{ $selected := false }}
+        {{ if eq $pageLang .Lang}}
+        <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" selected>{{ .LanguageName }}
+        </option>
+        {{ else }}
+        <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}">{{ .LanguageName }}</option>
+        {{ end }}
+        {{ end }}
+        {{ end }}
+        {{ end }}
+      {{ else }}
+        {{ $currentLang := .Site.Language.Lang }}
+        {{ range .Site.Languages }}
+        {{ if eq $currentLang .Lang }}
+        <option id="{{ .Lang }}" value="/{{ .Lang }}" selected>{{ .LanguageName }}</option>
+        {{ else }}
+        <option id="{{ .Lang }}" value="/{{ .Lang }}">{{ .LanguageName }}</option>
+        {{ end }}
+        {{ end }}
       {{ end }}
-    {{ else }}
-        <a href={{ if eq .Site.Language.Lang "ja" }}"/"{{ else }}"/ja"{{ end }}><i class="fas fa-language fa-lg"></i></a>
-    {{ end }}
-    <a href="{{ "/index.xml" | absLangURL }}" class="hide-responsive"><i class="fas fa-square-rss fa-lg"></i></a>
+      </select>
+    </span>
   </span>
   </nav>
 </header>

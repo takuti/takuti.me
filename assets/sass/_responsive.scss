@@ -17,5 +17,47 @@
     .hide-responsive {
       display: none;
     }
+
+    .nav-opener {
+      display: flex;
+      align-items: center;
+      float: right;
+      position: relative;
+      font-size: 1.2em;
+      vertical-align: middle;
+    }
+
+    .right {
+      height: 100%;
+      width: 100%;
+
+      #nav-content {
+        display: none;
+        width: 100%;
+        background: #fff;
+        text-align: center;
+        float: none;
+
+        a,
+        .lang-list {
+          display: block;
+          width: 100%;
+          text-align: center;
+          margin: 0;
+          padding: 0.5em 0;
+          border-top: 0.5px solid lighten($color-black, 64%);
+        }
+
+        .lang-list {
+          margin-left: 0.5em;
+        }
+
+        padding: 2em 0;
+      }
+
+      #nav-input:checked ~ #nav-content {
+        display: block;
+      }
+    }
   }
 }
