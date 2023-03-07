@@ -1,6 +1,6 @@
     <footer>
       <span class="left">
-        &copy; 2012-2022 {{ .Site.Author.name }}.
+        &copy; 2012-{{ now.Format "2006" }} {{ .Site.Author.name }}.
       </span>
       <span class="right">
         {{ if not (in .Permalink "privacy-policy") }}<a href="{{ "/privacy-policy" | absLangURL }}">{{ i18n "privacyPolicy" }}</a>{{ end }}
