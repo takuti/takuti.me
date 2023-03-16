@@ -9,10 +9,14 @@ let pos = 0;
 let lastPos = 0;
 
 const onScroll = () => {
-  if(pos > hH && pos > lastPos) {
+  if (pos > hH && pos > lastPos) {
     header.classList.add('header-unpinned');
+    const navToggler = document.getElementById('nav-input') as HTMLInputElement;
+    if (navToggler.checked) {
+      navToggler.checked = false;
+    }
   }
-  if(pos < hH || pos < lastPos || windBtm <= pos) {
+  if (pos < hH || pos < lastPos || windBtm <= pos) {
     header.classList.remove('header-unpinned');
   }
 
