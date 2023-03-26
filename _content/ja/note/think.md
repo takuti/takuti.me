@@ -5,7 +5,8 @@ lang: ja
 title: 「考えること」
 lastmod: '2022-01-18'
 keywords: [新玉ねぎ, 問題, 考える, はじめて, 考え, イシュー, スーパー, ものごと, まなざし, いっしょ]
-recommendations: [/ja/note/life-with-covid-19/, /ja/note/feel/, /ja/note/cognitive-science-and-behavioral-economics/]
+recommendations: [/ja/note/life-with-covid-19/, /ja/note/cognitive-science-and-behavioral-economics/,
+  /ja/note/feel/]
 ---
 
 暇だけど、暇じゃない。そんな状態が長く続いている。

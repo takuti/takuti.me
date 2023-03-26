@@ -5,7 +5,7 @@ date: 2017-02-11
 lang: ja
 title: MacのローカルにHivemallを導入してアイテム推薦をするまで
 lastmod: '2022-01-18'
-keywords: [hive, hadoop, mac, hivemall, 動かす, 映画, インストール, 推薦, ローカル, ライブラリ]
+keywords: [hive, hadoop, mac, hivemall, 動かす, インストール, 映画, 推薦, ローカル, ライブラリ]
 recommendations: [/ja/note/hivemall-on-docker/, /ja/note/recommender-libraries/, /ja/note/hive-fuzzy-search/]
 ---
 
