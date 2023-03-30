@@ -4,8 +4,8 @@ date: 2022-11-03
 lang: en
 title: Connecting the Dots in Complexity
 images: [/images/finding-the-mother-tree/forest.jpeg]
-keywords: [simard, nature, forest, trees, tree, mother, complex, inter, wisdom, hubs]
-recommendations: [/note/why-information-grows/, /note/td-to-amazon/, /note/dividual-in-recsys/]
+keywords: [simard, nature, forest, trees, tree, mother, complex, hubs, inter, finding]
+recommendations: [/note/how-information-flows/, /note/why-information-grows/, /note/td-to-amazon/]
 ---
 
 At a certain point in my university days in Japan, I was so into reading [***Complexity: A Guided Tour***](https://amzn.to/3Wd4fK5) written by [Dr. Melanie Mitchell](https://melaniemitchell.me/), Davis Professor at the Santa Fe Institute. I even took [their online course](https://www.complexityexplorer.org/) (putting the other textbooks needed for the university's exam prep aside).
