@@ -22,15 +22,6 @@ other = "Popular articles"
 [setupCall]
 other = "Schedule a call with me"
 
-[share]
-other = "Share"
-
-[support]
-other = "Support (Thank you!)"
-
-[supportCoffee]
-other = "Gift a cup of coffee"
-
 [disclaimer]
 other = "Disclaimer"
 

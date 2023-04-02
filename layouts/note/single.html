@@ -15,17 +15,9 @@
   <h2>{{ .Title }}</h2>
 
   <div class="post">
-    {{ partial "social.html" . }}
     {{- with .Params.audio }}<audio controls src="{{ index . 0 | absURL }}"></audio>{{ end }}
     {{ .Content }}
     <span class="outer-box">
-      <h4><i class="fas fa-share-alt"></i>&nbsp;&nbsp;{{ i18n "share" }}</h4>
-      {{ partial "social.html" . }}
-      <h4><i class="fas fa-gift"></i>&nbsp;&nbsp;{{ i18n "support" }}</h4>
-      <p>
-        <a href="https://www.buymeacoffee.com/takuti" class="btn-bmc" target="_blank" rel="noopener"><i class="fa fa-coffee"></i>&nbsp;&nbsp;{{ i18n "supportCoffee" }}</a>
-      </p>
-      <p>{{ .Site.Params.disclaimerAmazonAffiliate | safeHTML }}</p>
       {{ partial "list-recommendations.html" . }}
       <p class="light-black">{{ i18n "lastModified" }}: {{ .Lastmod.Format "2006-01-02" }}</p>
     </span>
