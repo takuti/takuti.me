@@ -3,7 +3,7 @@ title: What I'm Doing Now
 lastmod: '2023-04-02'
 ---
 
-> *This is a [now page](https://nownownow.com/about). I will update the page roughly every month to share where I am, what I'm focusing on, and [what I don't do](/note/creating-now-page/).*
+> This is a [now page](https://nownownow.com/about). I will update the page roughly every month to share where I am, what I'm focusing on, and [what I don't do](/note/creating-now-page/).
 
 <!-- <audio controls src="/audio/now.mp3"></audio> -->
 
