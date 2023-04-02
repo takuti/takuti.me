@@ -46,20 +46,21 @@ const compileContent = () =>
         return '';
       });
 
-      if (!watching) {
-        const tweetUrls = content.match(/(https?:\/\/twitter\.com\/[a-zA-Z0-9_]+\/status(es)?\/([0-9]+)\/?)/g);
+      // NOTE: since twitter @takuti is currently a private account, tweet embedding is disabled
+      // if (!watching) {
+      //   const tweetUrls = content.match(/(https?:\/\/twitter\.com\/[a-zA-Z0-9_]+\/status(es)?\/([0-9]+)\/?)/g);
 
-        // convert all tweet urls into tweet cards
-        if (tweetUrls !== null) {
-          for (let url of tweetUrls) {
-            const id = /\/([0-9]+)\/?/g.exec(url)[1];
-            const res = request('GET', 'https://api.twitter.com/1/statuses/oembed.json?id=' + id);
+      //   // convert all tweet urls into tweet cards
+      //   if (tweetUrls !== null) {
+      //     for (let url of tweetUrls) {
+      //       const id = /\/([0-9]+)\/?/g.exec(url)[1];
+      //       const res = request('GET', 'https://api.twitter.com/1/statuses/oembed.json?id=' + id);
 
-            const tweetCard = JSON.parse(res.getBody('utf8')).html;
-            content = content.replace(url, tweetCard);
-          }
-        }
-      }
+      //       const tweetCard = JSON.parse(res.getBody('utf8')).html;
+      //       content = content.replace(url, tweetCard);
+      //     }
+      //   }
+      // }
 
       file.contents = new Buffer.from(content);
     }))
