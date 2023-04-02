@@ -1,17 +1,17 @@
 ---
 title: What I'm Doing Now
-lastmod: '2022-12-18'
+lastmod: '2023-04-02'
 ---
 
 > *This is a [now page](https://nownownow.com/about). I will update the page roughly every month to share where I am, what I'm focusing on, and [what I don't do](/note/creating-now-page/).*
 
-<audio controls src="/audio/now.mp3"></audio>
+<!-- <audio controls src="/audio/now.mp3"></audio> -->
 
 <i class="fa fa-map-marker"></i> North Vancouver, British Columbia, Canada
 
-### Deepening my professional activities and personal relationships
+### Crystallizing my experiences in information technology
 
-In September 2022, I [started a new career as an independent software developer](/note/becoming-a-freelancer-in-canada), focusing particularly on data & machine learning productization. After three months of enjoying the flexible lifestyle, I noticed that what I'm working on and how I interact with others are becoming "shallow". I reviewed the sensation in [my 2022 annual review](/note/annual-review-2022/), and right now, I'm trying to seek an opportunity that requires me to make a deeper, longer-term commitment so that I can prioritize quality over quantity, both professionally and personally. Although the challenge might be just a common thing among contracting jobs and should be considered as a cost for a better quality of life, it is important for me to keep questioning my situation in order to optimize it further.
+I am actively upgrading my mission, values, and action plan in a way I can use my experiential knowledge to push the boundaries of surrounding people's perceptions of their world. Why? It's been more than a decade since I started working in tech while envisioning a bright future that everyone enriched by information technology lives to the fullest in reciprocal relationships. However, I'm clear that the reality has gone in the opposite direction and deteriorated over time as I repeatedly saw friends, relatives, mentees, or even myself who suffered from psychological or financial issues due to an unbalanced information diet (and recently encountered the worst case ever). I'm searching for an exit from the negative loop by questioning [how information flows](/note/how-information-flows/). In particular, I am spending more time mentoring, writing, and learning from philosophical, religious, and social scientific studies to cultivate my awareness of micro-level communication and its role in larger systems.
 
 ### Tightening my connection to Canada
 
