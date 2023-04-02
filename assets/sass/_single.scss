@@ -35,21 +35,4 @@ article {
     margin: 2em 0;
     color: lighten($color-black, 10%);
   }
-
-  a.btn-bmc {
-    display: inline-block;
-    padding: 0.2em 0.75em;
-    color: $color-black;
-    background-color: #fd0;
-    border-radius: 4px;
-    text-decoration: none;
-
-    &:visited {
-      color: $color-black;
-    }
-
-    &:hover {
-      background-color: darken(#fd0, 2%);
-    }
-  }
 }
