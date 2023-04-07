@@ -5,7 +5,7 @@ date: 2017-03-25
 lang: ja
 title: '"Deep Work"を読んだけど微妙だったから皆は"How to Write a Lot"と"エッセンシャル思考"を読めばいい'
 lastmod: '2022-01-18'
-keywords: [deep, work, 時間, 集中, 作業, ディープワーク, shallow, シャローワーク, 思考, 一定]
+keywords: [deep, work, 時間, 集中, 作業, ディープワーク, shallow, シャローワーク, 思考, 大事]
 recommendations: [/ja/note/life-with-covid-19/, /ja/note/self-investment/, /ja/note/be-mindful/]
 ---
 

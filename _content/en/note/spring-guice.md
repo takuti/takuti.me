@@ -7,7 +7,7 @@ lastmod: '2022-09-02'
 keywords: [guice, spring, injection, application, dependency, party, framework, class,
   testability, rewriting]
 recommendations: [/note/becoming-a-product-manager/, /note/machine-learning-product/,
-  /note/language-as-a-design-tool/]
+  /note/canada-permanent-residency/]
 ---
  
 [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection) (DI) is a well-known design pattern that creates and binds dependent objects outside of a class. The technique nicely decouples dependencies from a main application class and enables developers to achieve high testability, maintainability, and extensibility. As I understand, [Google Guice](https://github.com/google/guice) and [Spring Framework](https://spring.io/projects/spring-framework) are major DI frameworks in Java.

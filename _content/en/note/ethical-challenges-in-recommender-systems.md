@@ -5,7 +5,7 @@ lang: en
 title: Reviewing Ethical Challenges in Recommender Systems
 lastmod: '2022-03-20'
 keywords: [user, recommendation, ethical, systems, provider, stakeholders, recommendations,
-  stakeholder, accuracy, paper]
+  accuracy, stakeholder, paper]
 recommendations: [/note/dividual-in-recsys/, /note/recsys-2021/, /note/recsys-2022/]
 ---
 

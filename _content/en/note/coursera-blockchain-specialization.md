@@ -6,7 +6,7 @@ lang: en
 title: What Blockchain Brings to Real-World Applications
 lastmod: '2022-03-20'
 keywords: [blockchain, decentralized, smart, transactions, specialization, contract,
-  solidity, application, transaction, validation]
+  application, solidity, transaction, validation]
 recommendations: [/note/bitcoin-and-cryptocurrency/, /note/iotswc-2019/, /note/web3/]
 ---
 

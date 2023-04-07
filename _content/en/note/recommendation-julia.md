@@ -5,7 +5,7 @@ lang: en
 title: 'Recommendation.jl: Building Recommender Systems in Julia'
 lastmod: '2022-05-07'
 keywords: [julia, recommendation, age, factorization, package, tuples, till, sco,
-  releases, libraries]
+  releases, ids]
 recommendations: [/note/juliacon-2019/, /note/recommendation-julia-v040/, /note/recommendation-julia-documenter/]
 ---
 

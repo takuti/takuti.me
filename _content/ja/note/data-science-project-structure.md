@@ -7,7 +7,7 @@ title: データサイエンスプロジェクトのディレクトリ構成ど�
 lastmod: '2022-01-18'
 keywords: [practices, ディレクトリ, scientific, バージョン, computing, データサイエンス, プロジェクト, ソースコード,
   ソフトウェア開発, スクリプト]
-recommendations: [/ja/note/euroscipy-2017/, /ja/note/acroquest-javabook/, /ja/note/why-spark/]
+recommendations: [/ja/note/euroscipy-2017/, /ja/note/acroquest-javabook/, /ja/note/designing-data-intensive-applications/]
 ---
 
 あるいは、論文 "**[Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745)**" および "**[Good Enough Practices in Scientific Computing](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)**" について。

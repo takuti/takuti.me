@@ -5,7 +5,7 @@ date: 2022-02-20
 lang: en
 title: Validate, Validate, and Validate Data. But, in terms of what?
 lastmod: '2022-09-02'
-keywords: [data, validation, accuracy, tfx, pipeline, paper, metrics, privacy, schema,
+keywords: [data, accuracy, validation, tfx, pipeline, paper, metrics, privacy, schema,
   observability]
 recommendations: [/note/data-leaders-summit-europe-2019/, /note/coursera-data-science-ethics/,
   /note/airflow-lineage/]

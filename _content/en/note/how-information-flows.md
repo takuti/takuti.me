@@ -3,10 +3,11 @@ categories: [Business, Data Science & Analytics, Recommender Systems]
 date: 2023-03-30
 lang: en
 title: 'How Information Flows: From Field Studies to Risk Mitigation'
-keywords: [substance, nbsp, laborers, mdash, capitalists, risk, mitigation, labor,
-  nature, forest]
-recommendations: [/note/finding-the-mother-tree/, /note/data-feminism/, /note/dividual-in-recsys/]
 images: [/images/how-information-flows/dam.jpg, /images/how-information-flows/gaikaku.jpeg]
+keywords: [substance, nbsp, mdash, laborers, risk, capitalists, mitigation, labor,
+  forest, nature]
+recommendations: [/note/finding-the-mother-tree/, /note/three-perspectives-on-llms/,
+  /note/data-feminism/]
 ---
 
 **\*\*\*\*\***:&nbsp;&nbsp;If you leave me free, I naturally flow Point A to Point B, but it is not always unidirectional; under a certain condition, I could go in the reverse direction or circulate in a surrounding environment. Ultimately, the movement depends very much on the other's behavior. We are mutually connected as part of larger systems, and our mission is to carry out something important for everyone to survive. Be careful&mdash;When you make me upset, I take your action seriously and do not hesitate to threaten your life. Who am I? Well, people call me __information__.
