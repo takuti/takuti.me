@@ -12,6 +12,8 @@
       <a href="/{{ .Site.Language.Lang }}">{{ i18n "home" }}</a>
       <a href="{{ "/note" | absLangURL }}">{{ i18n "blog" }}</a>
       <a href="/now">{{ i18n "now" }}</a>
+      <a href="mailto:hello@takuti.me"><i class="fas fa-envelope fa-lg"></i></a>
+      <a href="{{ "/index.xml" | absLangURL }}" target="_blank"><i class="fas fa-square-rss fa-lg"></i></a>
       <select class="lang-list" id="select-language" onchange="location = this.value;">
       {{ if .IsTranslated }}
         {{ $siteLanguages := .Site.Languages}}
