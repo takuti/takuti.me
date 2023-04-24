@@ -22,12 +22,12 @@
     "husky": "^7.0.4",
     "imagemin-cli": "^7.0.0",
     "ini": "^2.0.0",
-    "lint-staged": "^12.1.2",
+    "lint-staged": "^13.2.1",
     "lodash.template": ">=4.5.0",
     "minimist": "^1.2.6",
     "phantomjs-prebuilt": "^2.1.16",
-    "stylelint": "^14.1.0",
-    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint": "^15.6.0",
+    "stylelint-config-standard-scss": "^9.0.0",
     "sync-request": "^6.1.0"
   },
   "stylelint": {
