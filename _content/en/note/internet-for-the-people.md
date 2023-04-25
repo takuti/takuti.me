@@ -3,8 +3,8 @@ categories: [Life & Work, Business]
 date: 2022-09-22
 lang: en
 title: Why Your Job Title Matters (Cont.)─Technology for the People
-keywords: [product, developer, internet, deprivatization, technology, title, people,
-  software, ethical, philosophy]
+keywords: [product, developer, deprivatization, internet, technology, title, people,
+  software, ethical, bio]
 recommendations: [/note/ethical-product-developer/, /note/product-management-and-bullshit-job/,
   /note/foundations-of-humane-technology/]
 ---

@@ -7,8 +7,8 @@ title: How Much CO2 Emissions Have Your Flights Made?
 lastmod: '2022-09-02'
 keywords: [emissions, flight, visualization, flights, tonnes, airport, countries,
   longitude, latitude, airports]
-recommendations: [/note/javascript-save-svg-as-image/, /note/post-pandemic-first-international-trip/,
-  /note/annual-review-2021/]
+recommendations: [/note/javascript-save-svg-as-image/, /note/annual-review-2021/,
+  /note/post-pandemic-first-international-trip/]
 ---
 
 *Before reading further, play with an interactive data visualization app that I implemented with D3.js & React: **[Flight Emissions Calculator](https://takuti.github.io/flight-emissions/)***

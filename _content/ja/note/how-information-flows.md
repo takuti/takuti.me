@@ -4,9 +4,9 @@ date: 2023-03-25
 lang: ja
 title: 流体としての情報：いかにして最悪のシナリオを回避するか
 images: [/images/how-information-flows/dam.jpg, /images/how-information-flows/gaikaku.jpeg]
-keywords: [情報, labor, 自然, 研究, 世界, 流れ, 情報技術, 現実世界, 流体, フィールドワーク]
+keywords: [情報, labor, 自然, 研究, 世界, 流れ, 現実世界, 流体, 情報技術, フィールドワーク]
 recommendations: [/ja/note/three-perspectives-on-llms/, /ja/note/cognitive-science-and-behavioral-economics/,
-  /ja/note/2021/]
+  /ja/note/autonomy-and-life/]
 ---
 
 “情報”とは、水のようである。それはある地点Aから地点Bへ「流れる」ものであり、しかしその流れは必ずしも一方向ではない。グラフとして表現すればハブ（本流）やコミュニティ（流域）の存在が観察され、複雑ネットワークの中で相互に影響を及ぼしあっている[^1]。そして時に、その激流は我々の命を脅かす。僕らは日々、雑多な情報に溺れ、ある特定の情報に対しては喉の渇きを癒す効能を見出しながら、生きている。

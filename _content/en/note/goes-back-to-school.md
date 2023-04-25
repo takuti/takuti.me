@@ -5,7 +5,7 @@ lang: en
 title: Rethinking Why, When, and How I Learn
 lastmod: '2022-09-02'
 keywords: [school, learning, learn, education, curiosity, moment, enter, possibilities,
-  gain, personally]
+  personally, gain]
 recommendations: [/note/indigenous-canada-final/, /note/mentoring/, /note/td-to-amazon/]
 ---
 

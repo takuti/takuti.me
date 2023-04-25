@@ -4,8 +4,8 @@ date: 2021-10-24
 lang: ja
 title: 経済的合理性だけでは語れない“豊かさ”について
 lastmod: '2022-09-02'
-keywords: [衝動, 展示, 浪費, 芸術, 消費, 打算, アート, sustainable, 人生, ビジネス]
-recommendations: [/ja/note/boredom/, /ja/note/2021/, /ja/note/sustainable-capitalism/]
+keywords: [衝動, 展示, 浪費, 消費, 芸術, 打算, アート, sustainable, 人生, ビジネス]
+recommendations: [/ja/note/boredom/, /ja/note/2021/, /ja/note/autonomy-and-life/]
 ---
 
 先日、友人に誘われてバンクーバーの [Museum of Anthropology](https://moa.ubc.ca/)（人類学博物館）に行った。いや、人類学“美術館”と訳すべきかもしれない&mdash;そう思うほど、展示物に表れる多彩なクリエイティビティに圧倒された濃密な時間であった[^1]。それはカナダ先住民によって形成された複雑な文化的基盤と、アメリカ開拓史によってもたらされた多様性に依るところが大きいのだと想像する。
