@@ -1,0 +1,12 @@
+{
+  "filters": {},
+  "rules": {
+    "preset-jtf-style": true,
+    "ja-no-redundant-expression": true,
+    "ja-no-weak-phrase": true,
+    "footnote-order": true,
+    "no-start-duplicated-conjunction": {
+      "interval" : 2
+    }
+  }
+}

@@ -1,4 +1,4 @@
-[takuti.me](http://takuti.me) 
+[takuti.me](http://takuti.me)
 ===
 
 [![Build Status](https://travis-ci.org/takuti/takuti.me.svg?branch=master)](https://travis-ci.org/takuti/takuti.me)
@@ -21,7 +21,7 @@ $ nodenv rehash
 We will use gulp tasks to compile sass files, so required npm modules are:
 
 ```
-$ npm install -g gulp-cli
+$ npm install -g gulp-cli textlint
 $ npm install
 ```
 
