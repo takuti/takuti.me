@@ -46,6 +46,7 @@
     </script>
     {{ end }}
 
+    {{ if not (in .Site.BaseURL "localhost") }}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!-- Avoid using an official template "_internal/google_analytics.html" until https://github.com/gohugoio/hugo/issues/4327 is resolved. -->
     {{ with .Site.GoogleAnalytics }}
@@ -57,6 +58,7 @@
 
       gtag('config', '{{ . }}');
     </script>
+    {{ end }}
     {{ end }}
 
     {{ with resources.Get "js/menu.ts" }}
