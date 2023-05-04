@@ -24,3 +24,7 @@
   pretty_urls = true
 [build.processing.images]
   compress = true
+
+[[redirects]]
+  from = "/cal"
+  to = "https://calendly.com/takuti"
