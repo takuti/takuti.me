@@ -107,7 +107,6 @@ const watchFiles = () => {
 
   watch('_content/**/*.{md,html}', { ignoreInitial: false }, series(compileContent, buildHugo));
   watch('layouts/**/*.html', { ignoreInitial: false }, buildHugo);
-  watch('static/cv/index.html', { ignoreInitial: false }, buildHugo);
   watch('assets/**/*', { ignoreInitial: false }, buildHugo);
 };
 

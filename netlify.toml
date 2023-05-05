@@ -28,3 +28,7 @@
 [[redirects]]
   from = "/cal"
   to = "https://calendly.com/takuti"
+
+[[redirects]]
+  from = "/cv"
+  to = "https://takuti.github.io/cv/"

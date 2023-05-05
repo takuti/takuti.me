@@ -25,7 +25,6 @@
     "lint-staged": "^13.2.1",
     "lodash.template": ">=4.5.0",
     "minimist": "^1.2.6",
-    "phantomjs-prebuilt": "^2.1.16",
     "stylelint": "^15.6.0",
     "stylelint-config-standard-scss": "^9.0.0",
     "sync-request": "^6.1.0",
@@ -53,10 +52,6 @@
     "_content/{en,ja}/note/*.{md,html}": [
       "python ./scripts/py/recommend.py",
       "git add -u _content/en/note _content/ja/note"
-    ],
-    "static/cv/index.html": [
-      "phantomjs ./scripts/js/toPDF.js 'static/cv/index.html' static/cv/Takuya_Kitazawa.pdf A4",
-      "git add static/cv/Takuya_Kitazawa.pdf"
     ]
   }
 }
