@@ -106,7 +106,7 @@
   .category {
     display: inline-block;
     padding: 0 0.75em;
-    margin: 0.8em 0 0 0.4em;
+    vertical-align: text-bottom;
     border-radius: 4px;
     text-decoration: none;
     background-color: lighten($color-black, 64%);
