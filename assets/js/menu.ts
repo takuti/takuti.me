@@ -27,3 +27,10 @@ window.addEventListener("scroll", () => {
   pos = window.scrollY;
   onScroll();
 });
+
+window.addEventListener("hashchange", function () {
+  // hide the header when jumping from one pos to the other by a hash link e.g., footnote
+  header.classList.add('header-unpinned');
+  // remove a hash in URL (window.location) so the hashchange event is fired even if the same hash is clicked twice
+  history.pushState("", document.title, window.location.pathname + window.location.search);
+});
