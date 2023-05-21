@@ -4,7 +4,7 @@ date: 2020-11-29
 lang: ja
 title: 「マインドフル」であることの効用を実感しつつある
 lastmod: '2022-09-02'
-keywords: [集中, ゆっくり, マインド, 配る, ハンド, 仕事, マインドフルネス, 相手, 去年, 季節]
+keywords: [集中, ゆっくり, マインド, 仕事, 配る, ハンド, マインドフルネス, 相手, 去年, 季節]
 recommendations: [/ja/note/getting-out-of-the-box/, /ja/note/life-with-covid-19/,
   /ja/note/coursera-ui-ux-specialization/]
 ---

@@ -5,8 +5,8 @@ images: [/images/attribution/freq.png, /images/attribution/attribution.png]
 lang: ja
 title: マーケティング最適化のためのアトリビューション：単一タッチポイント全振りパターンからShapley Valueモデルまで
 lastmod: '2022-06-26'
-keywords: [attribution, コンバージョン, winters, holt, アトリビューション, instagram, facebook, 手法,
-  チャネル, twitter]
+keywords: [attribution, コンバージョン, winters, holt, アトリビューション, facebook, 手法, チャネル, instagram,
+  twitter]
 recommendations: [/ja/note/holt-winters/, /ja/note/customer-centric-marketing/, /ja/note/algorithmic-marketing/]
 ---
 

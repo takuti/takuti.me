@@ -6,7 +6,7 @@ lang: en
 title: 'Quality Habit-Formation: It''s Like Casting a Vote on My Desired Identity'
 lastmod: '2022-08-06'
 keywords: [habits, identity, traveler, week, runner, habit, taker, expressive, month,
-  weight]
+  journaling]
 recommendations: [/note/annual-review-2021/, /note/annual-review-2022/, /note/definition-of-done/]
 ---
  

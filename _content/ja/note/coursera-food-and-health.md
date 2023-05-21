@@ -5,7 +5,7 @@ lang: ja
 title: 食と栄養について学んでいる。
 lastmod: '2022-09-02'
 keywords: [資産, 脂質, 炭水化物, 身体, 食事, 野菜, ヘルシー, タンパク質, キロカロリー, バランス]
-recommendations: [/ja/note/self-investment/, /ja/note/will-202102/, /ja/note/mountains-101/]
+recommendations: [/ja/note/self-investment/, /ja/note/information-diet/, /ja/note/will-202102/]
 ---
 
 こんにちは、「自粛期間で痩せた」系の話の大半は「外食が減って脂質の摂取量が抑えられたから」が本質ではないかと思っています。私です。
