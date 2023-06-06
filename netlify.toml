@@ -32,3 +32,7 @@
 [[redirects]]
   from = "/cv"
   to = "https://takuti.github.io/cv/"
+
+[[redirects]]
+  from = "/cv/Takuya_Kitazawa.pdf"
+  to = "https://takuti.github.io/cv/Takuya_Kitazawa.pdf"
