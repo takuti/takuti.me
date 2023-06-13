@@ -1,6 +1,6 @@
 ---
 title: What I'm Doing Now
-lastmod: '2023-05-02'
+lastmod: '2023-06-13'
 ---
 
 > This is a [now page](https://nownownow.com/about). I will update the page roughly once a month to share where I am, what I'm focusing on, and [what I don't do](/note/creating-now-page/).
@@ -15,11 +15,11 @@ With empathy as a core value, my current mission is to strengthen our lives in t
 
 ### Deepening my relationships with surrounding people and environment
 
-As a British Columbia resident in Canada, I would like to contribute to the local communities however I can. The reason is not only that I'm simply loving the beautiful place but am concerned about many ongoing issues in society, the economy, and the environment. For example, I eat local products, mostly plants from farmers' markets, while learning about the past, present, and future of the land by visiting museums and taking online courses. Ultimately, I intentionally spend my time and skills on opportunities associated with a person/location that is geographically closer to me, e.g., for volunteering, in terms of travel destinations, by prioritizing lived experiences through face-to-face communications.
+As a Canadian Permanent Resident, I would like to contribute to the local communities however I can. The reason is not only that I'm simply loving the beautiful place but am concerned about many ongoing issues in society, the economy, and the environment. For example, I eat local products, mostly plants from farmers' markets, while learning about the past, present, and future of the land by visiting museums and taking online courses. Ultimately, I intentionally spend my time and skills on opportunities associated with a person/location/experience that is closer to me, e.g., for volunteering, in terms of travel destinations, by prioritizing lived experiences through face-to-face communications.
 
 ### Living well: Practicing how to eat, workout, and rest more effectively
 
-I am a runner, and my most recent accomplishment was a full marathon finished with a [personal best of 3'57 at the Royal Victoria Marathon](https://startlinetiming.com/en/races/2022/victoriamarathon/view/1007) in October 2022. The next milestone is to run a sub-3.5 marathon. An upcoming race [Vancouver Half Marathon](https://bmovanmarathon.ca/halfmarathon) and [Ottawa Half Marathon](https://www.runottawa.ca/races-and-events/half-marathon) in May 2023 would be a part of preparation towards the goal, aiming to finish in 1'40. For me, running is a way to maintain and strengthen my mental health because the habit naturally requires me to eat well, rest enough, and push my limitation. Not to mention that physical endurance is equally or more important, and I'm trying to gain proper knowledge and practice for muscle growth, recovery, and injury prevention.
+I am a runner, and my most recent accomplishments were [Vancouver Half Marathon](https://www.sportstats.one/display-results.xhtml?raceid=118168&status=results&bib=20432) (1'35) and [Ottawa Half Marathon](https://www.sportstats.ca/display-results.xhtml?raceid=118517&status=results&bib=8832) (1'31) in May 2023. The next big milestone is to run a sub-3.5 marathon, following [sub-4 finish at the Royal Victoria Marathon in Oct 2022](https://startlinetiming.com/en/races/2022/victoriamarathon/view/1007). For me, running is a way to maintain and strengthen my mental health because the habit naturally requires me to eat well, rest enough, and push my limitation. Not to mention that physical endurance is equally or more important, and I'm trying to gain proper knowledge and practice for muscle growth, recovery, and injury prevention.
 
 ### Accumulating more experience and knowledge in nature
 
