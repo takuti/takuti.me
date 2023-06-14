@@ -14,8 +14,9 @@
   <div class="post">
     {{- with .Params.audio }}<audio controls src="{{ index . 0 | absURL }}"></audio>{{ end }}
     {{ .Content }}
-    {{ partial "comment" . }}
     <span class="outer-box">
+      <h4><i class="fas fa-share-alt"></i>&nbsp;&nbsp;{{ i18n "share" }}</h4>
+      {{ partial "social.html" . }}
       <h4><i class="fas fa-folder-open"></i>&nbsp;&nbsp;{{ i18n "categories" }}</h4>
       <p>
         {{ range $i, $v := (.GetTerms "categories") }}
