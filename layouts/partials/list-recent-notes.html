@@ -1,5 +1,5 @@
 <dl class="entry-list">
-  {{ range first 5 (where .Site.RegularPages "Section" "note")}}
+  {{ range first 10 (where .Site.RegularPages "Section" "note")}}
   <dt>
   <span class="date">
     {{ .Date.Format "2006-01-02" }}
