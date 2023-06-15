@@ -25,9 +25,9 @@
 </p>
 <h4><i class="fas fa-folder-open"></i>&nbsp;&nbsp;{{ i18n "categories" }}</h4>
 <p>
-{{range ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
-  <a href="{{.Permalink}}" class="category">{{.Title}}</a>
-{{end}}
+{{ range .Site.Taxonomies.categories }}
+  <a href="{{.Page.Permalink}}" class="category">{{.Page.Title}} ({{.Count}})</a>
+{{ end }}
 </p>
 </span>
 
