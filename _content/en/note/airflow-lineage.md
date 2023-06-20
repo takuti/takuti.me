@@ -7,7 +7,7 @@ audio: [/audio/airflow-lineage.mp3]
 images: [/images/airflow-lineage/lineage.png]
 lastmod: '2022-09-02'
 keywords: [data, lineage, oil, airflow, intermediates, developer, destination, pipelines,
-  consciousness, automate]
+  automate, forget]
 recommendations: [/note/coursera-data-science-ethics/, /note/data-validation/, /note/data-feminism/]
 ---
 

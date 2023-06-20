@@ -5,8 +5,8 @@ images: [/images/relocating-to-canada/vancouver-harbour.jpeg]
 lang: en
 title: 'Moving to Canada: Adding Randomness to My Life'
 lastmod: '2022-06-05'
-keywords: [vancouver, japan, canada, oslo, treasure, live, nagano, harbour, country,
-  manager]
+keywords: [vancouver, japan, canada, oslo, treasure, live, nagano, harbour, manager,
+  country]
 recommendations: [/note/post-pandemic-first-international-trip/, /note/td-to-amazon/,
   /note/canada-permanent-residency/]
 ---

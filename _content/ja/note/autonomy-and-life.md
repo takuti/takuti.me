@@ -3,8 +3,8 @@ categories: [生活・人生, エッセイ]
 date: 2023-04-25
 lang: ja
 title: 情報化社会における人生の主体性を問う
-keywords: [ニーチェ, 人生, 自律, 哲学, 至福, 神話, 大切なもの, autonomy, 幸福, 自分]
-recommendations: [/ja/note/todays-art-taro/, /ja/note/humanity-and-economy/, /ja/note/how-information-flows/]
+keywords: [ニーチェ, 人生, 自律, 哲学, 至福, 神話, 大切なもの, 幸福, autonomy, 自分]
+recommendations: [/ja/note/todays-art-taro/, /ja/note/humanity-and-economy/, /ja/note/search-for-identity/]
 ---
 
 自律性 (Autonomy) は大切だ。それは誰からも強制されることのない、自由な意思決定・行動プロセスを指す。たとえばAI倫理の文脈においては、ユーザの自律性を担保する（に足る透明性や公平性を備えた）アルゴリズムやインタフェースを提供することが、ひとつの重要な課題である。誰しも、何者かに操られたゾンビのような暮らしを望んではいない[^1]。

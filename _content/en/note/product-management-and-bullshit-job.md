@@ -6,7 +6,7 @@ lang: en
 title: Hi Product Managers, Are You Creating Products That *You* Love?
 lastmod: '2022-08-06'
 keywords: [product, job, love, customers, manager, communication, strong, passion,
-  execution, confidence]
+  execution, products]
 recommendations: [/note/ethical-product-developer/, /note/internet-for-the-people/,
   /note/foundations-of-humane-technology/]
 ---

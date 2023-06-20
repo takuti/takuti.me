@@ -6,8 +6,7 @@ lang: ja
 title: 『コンピュータシステムの理論と実装』は“娯楽”である
 lastmod: '2022-01-18'
 keywords: [実装, tetris, nan, 機械語, hdl, コンピュータシステム, hack, 忍耐力, アセンブリ, jack]
-recommendations: [/ja/note/recommender-libraries/, /ja/note/cognitive-science-and-behavioral-economics/,
-  /ja/note/hello-librec/]
+recommendations: [/ja/note/recommender-libraries/, /ja/note/hello-librec/, /ja/note/cognitive-science-and-behavioral-economics/]
 ---
 
 途中長いこと放置していたせいで [takuti/nand2tetris](https://github.com/takuti/nand2tetris) の initial commit から1年くらい経ってしまったけど、『**[コンピュータシステムの理論と実装](https://www.oreilly.co.jp/books/9784873117126/)**』を読み終えた。
