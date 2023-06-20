@@ -10,7 +10,7 @@
   </p>
   {{ .Date.Format "2006-01-02" }}
   <h2>{{ .Title }}</h2>
-
+  {{ partial "social.html" . }}
   <div class="post">
     {{- with .Params.audio }}<audio controls src="{{ index . 0 | absURL }}"></audio>{{ end }}
     {{ .Content }}
