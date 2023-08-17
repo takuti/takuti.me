@@ -1,21 +1,21 @@
 ---
 title: What I'm Doing Now
-lastmod: '2023-06-13'
+lastmod: '2023-08-18'
 ---
 
 > This is a [now page](https://nownownow.com/about). I will update the page roughly once a month to share where I am, what I'm focusing on, and [what I don't do](/note/creating-now-page/).
 
 <!-- <audio controls src="/audio/now.mp3"></audio> -->
 
-<i class="fa fa-map-marker"></i> North Vancouver, British Columbia, Canada
+<i class="fa fa-map-marker"></i> Mzuzu, Malawi
+
+### Promoting equitable access to ICT in Africa
+
+I moved to Malawi, a beautiful landlocked country in Southern Africa, via a Canadian international volunteering program from [World University Service of Canada](https://wusc.ca/). As Information Communication and Technology (ICT) Advisor at a local entrepreneurship hub, [Mzuzu E-Hub](https://mzuzuehub.org/), my role is to promote equitable access to ICT, especially for young people, through the lens of gender equality and social inclusion. According to the [Digital 2023: Malawi](https://datareportal.com/reports/digital-2023-malawi) report, half of the population in Malawi is under 18, which has enormous potential for empowering the country's economy, yet the country's internet penetration stays low. The urgency let the Government of Malawi implement the [Digital Malawi Program](https://digmap.pppc.mw/about/) to accelerate Malawi's digital transformation. My responsibility fits in this very context, and I challenge myself to face the gaps between developed countries and Malawi's urban and rural areas.
 
 ### Crystallizing my experiences in information technology
 
-With empathy as a core value, my current mission is to strengthen our lives in the information-rich world so that everyone lives life to the fullest without being manipulated, exploited, or marginalized by the power dynamics in today's capitalist world. Since I repeatedly saw friends, relatives, mentees, colleagues, or even myself who suffered from psychological or financial issues due to an unbalanced information diet and distorted view of the world, I'm searching for an exit from the negative loop by questioning [how information flows in our society](/note/how-information-flows/). In particular, I am spending more time learning from philosophical, religious, and social scientific studies to cultivate my awareness of micro-level communication and its role in larger systems.
-
-### Deepening my relationships with surrounding people and environment
-
-As a Canadian Permanent Resident, I would like to contribute to the local communities however I can. The reason is not only that I'm simply loving the beautiful place but am concerned about many ongoing issues in society, the economy, and the environment. For example, I eat local products, mostly plants from farmers' markets, while learning about the past, present, and future of the land by visiting museums and taking online courses. Ultimately, I intentionally spend my time and skills on opportunities associated with a person/location/experience that is closer to me, e.g., for volunteering, in terms of travel destinations, by prioritizing lived experiences through face-to-face communications.
+Why do certain populations, like Malawians, have limited access to information technology? Even if they do have access, why can't my friends, relatives, mentees, colleagues, or even myself, stop an unbalanced information diet that manipulates and exploits us? After all, why do the power dynamics making the rich richer and leaving the marginalized population behind exist? In the information-rich world, I'm searching for an exit from the negative loop by questioning [how information flows in our society](/note/how-information-flows/). In particular, I am spending more time learning from philosophical, religious, and social scientific studies to cultivate my awareness of micro-level communication and its role in larger systems.
 
 ### Living well: Practicing how to eat, workout, and rest more effectively
 
@@ -23,4 +23,4 @@ I am a runner, and my most recent accomplishments were [Vancouver Half Marathon]
 
 ### Accumulating more experience and knowledge in nature
 
-As a hiker and resident of the earth, I intentionally spend my spare time in nature as much as possible. For hiking, I'm an active follower of *[105 Hikes In and Around Southwestern British Columbia](https://105hikes.com/book/),* and I have done 26 hikes out of 105 as of writing. Meanwhile, my current objective is not only to explore as many local trails as possible but to deepen my knowledge & skill further. To be more precise, while continuously gaining practical tools like [Canadian Red Cross's Remote First Aid & CPR certificate](https://www.redcross.ca/training-and-certification/course-descriptions/first-aid-at-home-courses/wilderness-remote-first-aid-program), I'm recently learning more about environmental science to seek a way of making positive contributions to this beautiful planet.
+As a resident of the earth, I intentionally spend my spare time in nature as much as possible. When it comes to hiking, I'm an active follower of *[105 Hikes In and Around Southwestern British Columbia](https://105hikes.com/book/),* and I have done 28 hikes out of 105 so far. While I currently live outside of Canada, my passion for outdoor activities remains the same, and my goal is not only to explore as many local sites as possible but to enrich my knowledge & skills further. For example, I have recently upgraded my Canadian Red Cross's Remote First Aid certificate to the advanced Wilderness First Aid certificate. Meanwhile, I aim to learn [scuba diving in Lake Malawi](https://www.padi.com/diving-in/malawi/) sometime soon.
