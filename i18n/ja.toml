@@ -43,5 +43,8 @@ other = "近況"
 [supportCoffee]
 other = "一杯のコーヒーを贈る"
 
+[supportDonate]
+other = "寄付で活動を支援する"
+
 [share]
 other = "シェアする"

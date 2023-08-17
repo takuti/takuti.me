@@ -52,4 +52,21 @@ article {
       background-color: lighten(#f7d447, 4%);
     }
   }
+
+  a.btn-wusc {
+    display: inline-block;
+    padding: 0.2em 0.75em;
+    color: #fff;
+    background-color: #004987;
+    border-radius: 4px;
+    text-decoration: none;
+
+    &:visited {
+      color: #fff;
+    }
+
+    &:hover {
+      background-color: lighten(#004987, 4%);
+    }
+  }
 }
