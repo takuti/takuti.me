@@ -5,7 +5,7 @@ date: 2017-11-17
 lang: ja
 title: Podcast "Data Skeptic" の推薦システム回が良すぎて3回聞いた
 lastmod: '2022-09-02'
-keywords: [推薦, システム, 先生, konstan, serpentining, cycling, ユーザ, ワイン, ページ, メニュー]
+keywords: [推薦, システム, 先生, konstan, serpentining, cycling, ユーザ, ワイン, メニュー, グループ]
 recommendations: [/ja/note/trends-in-real-world-recommender-systems-2017/, /ja/note/recsys-2021-ab-ndcg/,
   /ja/note/recommender-systems-on-blockchain/]
 ---

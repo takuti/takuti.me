@@ -4,7 +4,7 @@ date: 2023-03-25
 lang: ja
 title: 流体としての情報：いかにして最悪のシナリオを回避するか
 images: [/images/how-information-flows/dam.jpg, /images/how-information-flows/gaikaku.jpeg]
-keywords: [情報, labor, 自然, 研究, 世界, 流れ, 現実世界, 情報技術, 流体, フィールドワーク]
+keywords: [情報, labor, 自然, 研究, 世界, 流れ, 現実世界, 情報技術, 流体, における]
 recommendations: [/ja/note/information-diet/, /ja/note/three-perspectives-on-llms/,
   /ja/note/cognitive-science-and-behavioral-economics/]
 ---

@@ -5,9 +5,8 @@ date: 2019-12-10
 lang: ja
 title: デザインエンジニアになろう
 lastmod: '2022-09-02'
-keywords: [デザイン, プロダクト, エンジニア, 人材, イノベーション, プロトタイピング, c型, 本書, プロダクトマネージャー, 魔法]
-recommendations: [/ja/note/product-management-myths/, /ja/note/tech-design-story/,
-  /ja/note/design-note-88/]
+keywords: [デザイン, プロダクト, エンジニア, 人材, イノベーション, プロトタイピング, c型, 本書, 魔法, プロダクトマネージャー]
+recommendations: [/ja/note/product-management-myths/, /ja/note/design-note-88/, /ja/note/tech-design-story/]
 ---
 
 ["Real-world machine learning" に携わるために就職](/note/master-graduate/)して早3年。これまでの仕事を一言で表現すれば「顧客への機械学習/IoTソリューションの提供とそのプロダクト化」だろうか。

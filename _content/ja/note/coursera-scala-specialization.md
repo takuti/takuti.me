@@ -7,7 +7,7 @@ title: Courseraの"Functional Programming in Scala Specialization"を修了し�
 lastmod: '2022-01-18'
 keywords: [scala, programming, spark, rdd, parallel, functional, 課題, 並列, dataframe,
   コレクション]
-recommendations: [/ja/note/why-spark/, /ja/note/python-concurrent-futures/, /ja/note/coursera-ui-ux-specialization/]
+recommendations: [/ja/note/why-spark/, /ja/note/python-concurrent-futures/, /ja/note/recommender-libraries/]
 ---
 
 ここ1年くらい暇を見つけてちまちまと遊んでいたCourseraの "**[Functional Programming in Scala Specialization](https://www.coursera.org/specializations/scala)**" という一連のプログラムを修了した。

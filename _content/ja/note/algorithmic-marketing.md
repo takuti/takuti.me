@@ -4,7 +4,7 @@ date: 2021-07-20
 lang: ja
 title: 『AIアルゴリズムマーケティング』は期待ハズレだったけど手元に置いておきたい一冊
 lastmod: '2022-01-18'
-keywords: [マーケティング, 機械学習, アナリティクス, モデル, ルール, ベース, title, job, アルゴリズム, 需要予測]
+keywords: [マーケティング, 機械学習, アナリティクス, モデル, ベース, title, ルール, job, アルゴリズム, 需要予測]
 recommendations: [/ja/note/job-title-normalization/, /ja/note/2020/, /ja/note/td-tech-talk-plazma/]
 ---
 

@@ -5,7 +5,7 @@ images: []
 lang: ja
 title: 後処理による人気アイテムの“格下げ”で確保する推薦多様性
 lastmod: '2022-01-18'
-keywords: [tail, 推薦, アイテム, long, head, short, 多様性, 論文, 指標, 後処理]
+keywords: [tail, 推薦, アイテム, long, head, short, 論文, 多様性, 指標, 後処理]
 recommendations: [/ja/note/recsys-2021-ab-ndcg/, /ja/note/two-decades-of-amazon-recommender/,
   /ja/note/data-skeptic-recommender-systems/]
 ---
