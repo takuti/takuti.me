@@ -7,7 +7,7 @@ lastmod: '2022-09-02'
 keywords: [guess, finance, product, introduction, managers, design, engineers, designers,
   roles, requirements]
 recommendations: [/note/product-management-and-bullshit-job/, /note/becoming-a-product-manager/,
-  /note/ethical-product-developer/]
+  /note/foundations-of-humane-technology/]
 ---
 
 Spend a bit of your time to "learn" what they do, and talk to them, instead.

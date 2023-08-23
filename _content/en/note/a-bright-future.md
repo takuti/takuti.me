@@ -3,8 +3,8 @@ categories: [Business]
 date: 2022-10-27
 lang: en
 title: Updating My View of Nuclear Power
-keywords: [nuclear, climate, disaster, power, waste, book, authors, radioactive, incidents,
-  fukushima]
+keywords: [nuclear, climate, disaster, power, waste, book, authors, psychological,
+  caused, radioactive]
 recommendations: [/note/how-to-avoid-a-climate-disaster/, /note/environmental-problems-and-business/,
   /note/td-to-amazon/]
 ---

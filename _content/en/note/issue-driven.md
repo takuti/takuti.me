@@ -5,7 +5,7 @@ images: [/images/issue-driven/issue-driven.png]
 lang: en
 title: Issue-Driven Makes You Professional
 lastmod: '2022-09-02'
-keywords: [issue, quality, driven, time, work, professionalism, deliver, approach,
+keywords: [issue, quality, driven, time, work, deliver, professionalism, approach,
   storyline, defining]
 recommendations: [/note/first-month-as-self-employed/, /note/fermenting-thoughts/,
   /note/working-from-home-202004/]
