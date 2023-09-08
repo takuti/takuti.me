@@ -4,8 +4,8 @@ date: 2023-03-30
 lang: en
 title: 'How Information Flows: From Field Studies to Risk Mitigation'
 images: [/images/how-information-flows/dam.jpg, /images/how-information-flows/gaikaku.jpeg]
-keywords: [substance, nbsp, mdash, laborers, capitalists, risk, labor, forest, trees,
-  mitigation]
+keywords: [substance, nbsp, mdash, laborers, capitalists, risk, forest, trees, mitigation,
+  labor]
 recommendations: [/note/finding-the-mother-tree/, /note/three-perspectives-on-llms/,
   /note/data-feminism/]
 ---

@@ -5,7 +5,7 @@ lang: en
 title: Parallel Programming vs. Concurrent Programming
 lastmod: '2022-09-02'
 keywords: [parallel, concurrent, programming, progress, concurrency, actions, executed,
-  simultaneously, definitions, ism]
+  definitions, simultaneously, ism]
 recommendations: [/note/coursera-scala-capstone/, /note/gcp-dataflow/, /note/spark-rdd-cached-vs-uncached/]
 ---
 

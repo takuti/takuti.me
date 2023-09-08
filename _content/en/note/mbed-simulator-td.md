@@ -6,7 +6,7 @@ images: [/images/arm/pelion-overview.jpg, /images/arm/mbed-simulator-td/mbed-to-
 lang: en
 title: Sending Sensor Data from Mbed Simulator to Treasure Data
 lastmod: '2022-05-23'
-keywords: [mbed, simulator, data, pelion, treasure, sensor, device, arm, platform,
+keywords: [mbed, simulator, data, pelion, treasure, sensor, arm, device, platform,
   demo]
 recommendations: [/note/hivemall-events-2018-autumn/, /note/data-leaders-summit-europe-2019/,
   /note/data-validation/]

@@ -4,8 +4,8 @@ date: 2022-10-05
 lang: en
 title: My First Month as Self-Employed
 images: []
-keywords: [income, employed, clients, currency, day, month, empathy, monthly, time,
-  working]
+keywords: [income, employed, clients, currency, day, empathy, month, time, working,
+  monthly]
 recommendations: [/note/annual-review-2022/, /note/becoming-a-freelancer-in-canada/,
   /note/canadian-mental-health-week-2022/]
 ---
