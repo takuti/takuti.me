@@ -6,7 +6,7 @@ images: [/images/holt-winters/series.png, /images/holt-winters/triple_smoothing.
 lang: ja
 title: 異常検知のための未来予測：オウム返し的手法からHolt-Winters Methodまで
 lastmod: '2022-06-26'
-keywords: [winters, holt, 予測, smooth, method, triple, 手法, 返し, 周期, データ]
+keywords: [winters, holt, 予測, smooth, method, triple, 手法, 返し, 周期, 時系列]
 recommendations: [/ja/note/attribution/, /ja/note/yahoo-egads/, /ja/note/data-stream-mining/]
 ---
 

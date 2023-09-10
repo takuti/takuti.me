@@ -5,7 +5,7 @@ date: 2017-07-09
 lang: ja
 title: Job Titleの前処理＆クラスタリングをどうやって実現するか問題
 lastmod: '2022-01-18'
-keywords: [title, job, クラスタ, marketing, クラスタリング, engineering, 処理, linkedin, function,
+keywords: [title, job, クラスタ, クラスタリング, marketing, engineering, 処理, linkedin, function,
   executive]
 recommendations: [/ja/note/algorithmic-marketing/, /ja/note/levenshtein-distance/,
   /ja/note/fastcat/]

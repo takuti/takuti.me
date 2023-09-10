@@ -4,7 +4,7 @@ date: 2020-05-16
 lang: ja
 title: データよりもストーリーを、相関よりも因果を。
 lastmod: '2022-09-02'
-keywords: [認知科学, 行動経済学, ジョブ, ストーリー, コンテクスト, デザイン, 不合理, プロダクト, 説明, データ分析]
+keywords: [認知科学, 行動経済学, ジョブ, ストーリー, デザイン, コンテクスト, 不合理, プロダクト, 説明, mdash]
 recommendations: [/ja/note/hooked-design/, /ja/note/business-communication/, /ja/note/design-engineer/]
 ---
 

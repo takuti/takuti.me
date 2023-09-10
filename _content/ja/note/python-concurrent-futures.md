@@ -6,7 +6,7 @@ lang: ja
 title: Pythonのconcurrent.futuresを試す
 lastmod: '2022-01-18'
 keywords: [並列化, マルチスレッド, futures, concurrent, 処理, gil, プロセス, マルチ, pool, multiprocessing]
-recommendations: [/ja/note/euroscipy-2017/, /ja/note/acroquest-javabook/, /ja/note/why-spark/]
+recommendations: [/ja/note/euroscipy-2017/, /ja/note/acroquest-javabook/, /ja/note/coursera-scala-specialization/]
 ---
 
 [EuroScipy 2017](/note/euroscipy-2017) でPythonの [`concurrent.futures`](https://docs.python.org/3/library/concurrent.futures.html) についての話を聞いたので、改めて調べてみた。

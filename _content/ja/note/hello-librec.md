@@ -7,7 +7,7 @@ title: Java製の推薦システム用ライブラリ LibRec を動かしてみ�
 lastmod: '2022-01-18'
 keywords: [librec, 推薦, ライブラリ, アルゴリズム, julia, flurs, 実装, recommendation, プロジェクト, 思い返す]
 recommendations: [/ja/note/recommender-libraries/, /ja/note/trends-in-real-world-recommender-systems-2017/,
-  /ja/note/data-skeptic-recommender-systems/]
+  /ja/note/coursera-recommender-systems/]
 ---
 
 **[LibRec](http://www.librec.net/)** というJava製の推薦システム用ライブラリがある。
