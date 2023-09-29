@@ -5,7 +5,7 @@ date: 2019-02-03
 lang: ja
 title: 「ていねいなコミュニケーション」
 lastmod: '2022-09-02'
-keywords: [相手, 自分, 自己欺瞞, ていねい, 裏切ら, 脱出, 悪い, 期待, 本心, 怒る]
+keywords: [相手, 自分, 自己欺瞞, ていねい, 裏切ら, 脱出, 悪い, 本心, 怒る, 反し]
 recommendations: [/ja/note/be-mindful/, /ja/note/product-management-and-bullshit-job/,
   /ja/note/td-to-amazon/]
 ---

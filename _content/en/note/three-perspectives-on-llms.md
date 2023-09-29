@@ -3,7 +3,8 @@ categories: [Business, Data Science & Analytics, Machine Learning]
 date: 2023-04-07
 lang: en
 title: Three Perspectives on Large Language Models and Their Emerging Applications
-keywords: [llms, chatgpt, models, gpt, details, limitations, tools, openai, web, malicious]
+keywords: [llms, chatgpt, models, gpt, details, limitations, tools, openai, malicious,
+  lgorithms]
 recommendations: [/note/how-information-flows/, /note/becoming-a-product-manager/,
   /note/web3/]
 ---

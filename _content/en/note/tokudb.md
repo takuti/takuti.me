@@ -5,7 +5,7 @@ lang: en
 title: TokuDB in MariaDB (on Ubuntu)
 lastmod: '2022-09-02'
 keywords: [engine, tokudb, mysql, mariadb, xxx, storage, aws, stack, server, remote]
-recommendations: [/note/hello-faust/, /note/hivemall-events-2018-autumn/, /note/mentoring/]
+recommendations: [/note/hello-faust/, /note/mentoring/, /note/hivemall-events-2018-autumn/]
 ---
 
 [TokuDB](https://github.com/percona/tokudb-engine) is a high-performance, scalable storage engine for MySQL/MariaDB. Since the engine is optimized for a large volume of data, nowadays it would become a reasonable option to build an in-house big data analytics solution.

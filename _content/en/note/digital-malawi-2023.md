@@ -5,8 +5,9 @@ lang: en
 title: 'Definition, Role, and Current Status of Digital Literacy in Malawi #LiteracyDay'
 images: [/images/digital-malawi-2023/airtel-money.jpeg]
 keywords: [malawi, digital, population, literacy, ountry, rural, digitally, internet,
-  pyramid, airtel]
-recommendations: [/note/volunteering-in-malawi/, /note/web3/, /note/internet-for-the-people/]
+  pyramid, wifi]
+recommendations: [/note/volunteering-in-malawi/, /note/data-protection-law-in-malawi-2023/,
+  /note/web3/]
 ---
 
 It's [International Literacy Day](https://www.unesco.org/en/days/literacy). As an ICT Advisor at a Malawian local organization, I'd like to review the state of **digital literacy** in Malawi. An important context here is that, as the [Digital 2023: Malawi](https://datareportal.com/reports/digital-2023-malawi) reported, the country's internet penetration, and digital literacy inherently, stays very low, and the urgency let the Government of Malawi implement the [Digital Malawi Program](https://digmap.pppc.mw/about/) to accelerate the country's digital transformation.

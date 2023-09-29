@@ -5,9 +5,10 @@ lang: en
 title: Starting Field Study on How Information Flows in Malawi
 images: [/images/volunteering-in-malawi/lake-malawi.jpg, /images/volunteering-in-malawi/bizcubation-pitch-night.jpeg,
   /images/volunteering-in-malawi/mzuzu-coffee.jpg]
-keywords: [malawi, africa, volunteer, mzuzu, volunteering, canada, international,
-  lake, countries, program]
-recommendations: [/note/digital-malawi-2023/, /note/relocating-to-canada/, /note/post-pandemic-first-international-trip/]
+keywords: [malawi, mzuzu, africa, volunteer, volunteering, canada, lake, international,
+  countries, program]
+recommendations: [/note/digital-malawi-2023/, /note/data-protection-law-in-malawi-2023/,
+  /note/relocating-to-canada/]
 ---
 
 On July 28, 2023, I moved to Malawi, a beautiful landlocked country in southeastern Africa, for a Canadian international volunteering program at [World University Service of Canada](https://wusc.ca/) (WUSC). The program is funded by the Canadian government, and the organization sends Canadians, including permanent residents, to developing countries to advance [Canada’s Feminist International Assistance Policy](https://www.international.gc.ca/world-monde/issues_development-enjeux_developpement/priorities-priorites/policy-politique.aspx?lang=eng).
