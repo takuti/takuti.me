@@ -1,13 +1,5 @@
-<dl class="entry-list">
-  {{ range first 5 (where .Site.RegularPages.ByLastmod.Reverse "Section" "work")}}
-  <dt>
-  <span class="date">
-    {{ .Date.Format "2006" }}{{ if ne (.Date.Format "2006") (.Lastmod.Format "2006") }} - {{ .Lastmod.Format "2006" }}{{ end }} | {{ .Params.meta }}
-  </span>
-  </dt>
-  <dd>
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-  </dd>
-{{ end }}
-</dl>
+<h3>{{ i18n "work" }}</h3>
+<span class="iframe-container">
+  <iframe src="https://www.youtube.com/embed/videoseries?list=PLlPB-75bA51dGSvPdvkciCrQEi266Xjha" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</span>
 <a href="{{ .Site.LanguagePrefix }}/work/" class="btn"><i class="fas fa-angle-right"></i>&nbsp;&nbsp;{{ i18n "more" }}</a>

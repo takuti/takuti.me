@@ -5,7 +5,7 @@ other = "Home"
 other = "Blog"
 
 [work]
-other = "Work"
+other = "Activities"
 
 [aboutMe]
 other = "About"
@@ -18,6 +18,9 @@ other = "Author"
 
 [popularArticles]
 other = "Popular articles"
+
+[recentArticles]
+other = "Recent writing"
 
 [disclaimer]
 other = "Disclaimer"

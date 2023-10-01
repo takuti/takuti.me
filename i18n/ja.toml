@@ -5,7 +5,7 @@ other = "ホーム"
 other = "ブログ"
 
 [work]
-other = "プロジェクト"
+other = "これまでの活動"
 
 [aboutMe]
 other = "プロフィール"
@@ -18,6 +18,9 @@ other = "書いた人"
 
 [popularArticles]
 other = "過去の人気記事"
+
+[recentArticles]
+other = "最近書いたこと"
 
 [disclaimer]
 other = "免責事項"
