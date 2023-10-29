@@ -1,6 +1,6 @@
 ---
 title: What I'm Doing Now
-lastmod: '2023-08-18'
+lastmod: '2023-10-29'
 ---
 
 > This is a [now page](https://nownownow.com/about). I will update the page roughly once a month to share where I am, what I'm focusing on, and [what I don't do](/note/creating-now-page/).
@@ -23,4 +23,4 @@ I am a runner, and my most recent accomplishments were [Vancouver Half Marathon]
 
 ### Accumulating more experience and knowledge in nature
 
-As a resident of the earth, I intentionally spend my spare time in nature as much as possible. When it comes to hiking, I'm an active follower of *[105 Hikes In and Around Southwestern British Columbia](https://105hikes.com/book/),* and I have done 28 hikes out of 105 so far. While I currently live outside of Canada, my passion for outdoor activities remains the same, and my goal is not only to explore as many local sites as possible but to enrich my knowledge & skills further. For example, I have recently upgraded my Canadian Red Cross's Remote First Aid certificate to the advanced Wilderness First Aid certificate. Meanwhile, I aim to learn [scuba diving in Lake Malawi](https://www.padi.com/diving-in/malawi/) sometime soon.
+As a resident of the earth, I intentionally spend my spare time in nature as much as possible. When it comes to hiking, I'm an active follower of *[105 Hikes In and Around Southwestern British Columbia](https://105hikes.com/book/),* and I have done 28 hikes out of 105 so far. While I currently live outside of Canada, my passion for outdoor activities remains the same, and my goal is not only to explore as many local sites as possible but to enrich my knowledge and skills further. For example, I have recently upgraded my Canadian Red Cross's Remote First Aid certificate to the advanced Wilderness First Aid certificate. Meanwhile, I recently learned [scuba diving in Lake Malawi](https://www.padi.com/diving-in/malawi/) and got my PADI Open Water license from [Aqua Africa](https://aquaafrica.co.uk/).
