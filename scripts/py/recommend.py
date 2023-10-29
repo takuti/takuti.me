@@ -2,6 +2,8 @@ import os
 import re
 import MeCab
 import requests
+import subprocess
+from pathlib import Path
 
 from prelims import StaticSitePostsHandler
 from prelims.processor import OpenGraphMediaExtractor, Recommender
@@ -11,7 +13,11 @@ RE_VALID_WORD = re.compile(r'^[ぁ-んーァ-ヶー一-龠a-zA-Zａ-ｚＡ-Ｚ]+
 RE_INVALID_WORD = re.compile(r'^([^一-龠]{1,2}|[ぁ-んー]{1,3})$')
 
 
-tagger = MeCab.Tagger('-d /usr/local/lib/mecab/dic/mecab-ipadic-neologd')
+mecab_bin_path = subprocess.run(
+    ['which', 'mecab'], stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
+mecab_dict_path = Path(mecab_bin_path).parent.parent \
+    / 'lib' / 'mecab' / 'dic' / 'mecab-ipadic-neologd'
+tagger = MeCab.Tagger(f'-d {mecab_dict_path}')
 tagger.parse('')
 
 
