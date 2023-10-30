@@ -8,7 +8,7 @@ title: 'Treasure Dataインターンにみる機械学習のリアル #td_intern
 lastmod: '2022-09-02'
 keywords: [インターン, datadog, メトリクス, hivemall, changefinder, treasure, 異常検知, 機械学習, 実装,
   同席]
-recommendations: [/ja/note/master-graduate/, /ja/note/yahoo-egads/, /ja/note/hello-librec/]
+recommendations: [/ja/note/master-graduate/, /ja/note/yahoo-egads/, /ja/note/hivemall-on-docker/]
 ---
 
 8月1日から9月30日まで、大学院の同期で小学生時代は落ち着きがなかった [@ganmacs](https://twitter.com/ganmacs) と、小学校の給食ではソフト麺が出なかった [@amaya382](https://twitter.com/amaya382) と一緒に **Treasure Data** (TD) **Summer Internship** に参加した。

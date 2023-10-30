@@ -7,7 +7,7 @@ images: [/images/digital-malawi-2023/airtel-money.jpeg]
 keywords: [malawi, マラウイ, population, digital, airtel, コンピュータ, エージェント, pyramid, money,
   農村部]
 recommendations: [/ja/note/data-protection-law-in-malawi-2023/, /ja/note/volunteering-in-malawi/,
-  /ja/note/how-information-flows/]
+  /ja/note/playing-in-malawi/]
 ---
 
 世界最貧国のひとつに数えられる、アフリカ南東の内陸国・マラウイ[^1]。そこで[国際ボランティア](/ja/note/volunteering-in-malawi/)として1か月半を過ごし、国内2地域にわたる計5地区（[全3地域、28地区](https://en.wikipedia.org/wiki/Districts_of_Malawi)のうち）でビジネスや教育の現場に触れる中で、この国における「デジタル化」の実態というものが少しずつ見えてきた。まだまだ何かを結論付けるには程遠いが、第三者機関によるレポート ***[Digital 2023: Malawi](https://datareportal.com/reports/digital-2023-malawi)*** で議論されている視点（人口、インターネット、ソーシャルメディア、モバイル通信）を参考に、現時点での観測結果をまとめておきたい。
