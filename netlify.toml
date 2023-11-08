@@ -27,3 +27,12 @@
 [[redirects]]
   from = "/cv/Takuya_Kitazawa.pdf"
   to = "https://takuti.github.io/cv/Takuya_Kitazawa.pdf"
+
+# https://docs.netlify.com/routing/redirects/redirect-options/#redirect-by-country-or-language
+# https://www.netlify.com/blog/2021/11/05/how-to-internationalize-sites-with-country-based-redirects/
+# [[redirects]]
+#   from = "/"
+#   to = "/ja"
+#   status = 302
+#   force = true
+#   conditions = {Language = ["ja"]}
