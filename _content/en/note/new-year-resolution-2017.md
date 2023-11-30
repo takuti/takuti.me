@@ -4,7 +4,7 @@ date: 2017-01-07
 lang: en
 title: 'My New Year''s Resolution 2017: Write an Article Every Week'
 lastmod: '2022-09-02'
-keywords: [articles, skills, writing, professional, write, books, goals, commits,
+keywords: [articles, skills, writing, write, professional, books, goals, commits,
   read, april]
 recommendations: [/note/hello-english/, /note/annual-review-2021/, /note/the-producer-consumer-gap/]
 ---

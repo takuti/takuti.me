@@ -8,7 +8,7 @@ title: How I'm Working From Home
 lastmod: '2022-09-02'
 keywords: [coffee, accessories, pomodoro, day, steamer, humidifier, stay, wfh, healthy,
   cook]
-recommendations: [/note/fermenting-thoughts/, /note/unusual-drinking-and-eating-habits/,
+recommendations: [/note/unusual-drinking-and-eating-habits/, /note/fermenting-thoughts/,
   /note/stop-drinking-alone/]
 ---
 
