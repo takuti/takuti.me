@@ -6,8 +6,8 @@ lang: en
 title: 'Sustainable Capitalism: The Importance of Long-Term Thinking and Adaptivity'
 lastmod: '2022-09-02'
 keywords: [capitalism, sustainable, term, sustainability, long, investment, short,
-  profitability, externalities, generation]
-recommendations: [/note/sustainability-at-big-tech/, /note/td-to-amazon/, /note/sdg-mooc/]
+  profitability, externalities, environmental]
+recommendations: [/note/sustainability-at-big-tech/, /note/td-to-amazon/, /note/environmental-problems-and-business/]
 ---
  
 There is a common myth that "sustainability" and "capitalism" are contradictory. That is, radical people tend to think either (1) global capitalism (i.e., business trends that focus heavily on innovation and efficiency) always sacrifices something important, or (2) living sustainably is unrealistic and meaningless given the modern lifestyle we've already adapted. Hence, it's easy for us to conclude that the both concepts won't be mutually achievable.

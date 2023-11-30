@@ -4,7 +4,7 @@ date: 2020-06-21
 lang: ja
 title: 「考えること」
 lastmod: '2022-01-18'
-keywords: [新玉ねぎ, 問題, 考える, はじめて, イシュー, 考え, スーパー, ものごと, まなざし, いっしょ]
+keywords: [新玉ねぎ, 問題, 考える, イシュー, はじめて, 考え, スーパー, ものごと, まなざし, いっしょ]
 recommendations: [/ja/note/life-with-covid-19/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/feel/]
 ---

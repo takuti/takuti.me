@@ -4,7 +4,7 @@ date: 2022-12-04
 lang: en
 title: Data Are Created, Collected, and Processed by People
 keywords: [data, gender, feminism, sex, localized, decisions, human, knowledge, dataset,
-  practices]
+  binary]
 recommendations: [/note/data-leaders-summit-europe-2019/, /note/coursera-data-science-ethics/,
   /note/airflow-lineage/]
 ---

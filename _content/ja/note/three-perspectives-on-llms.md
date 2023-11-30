@@ -3,7 +3,7 @@ categories: [機械学習, データサイエンス]
 date: 2023-04-07
 lang: ja
 title: 大規模言語モデルとそのアプリケーションに対する所感
-keywords: [llm, chatgpt, ツール, 開発, ステークホルダー, gpt, あるいは, openai, 技術, 仕事]
+keywords: [llm, chatgpt, ツール, ステークホルダー, 開発, gpt, あるいは, openai, 技術, 仕事]
 recommendations: [/ja/note/how-information-flows/, /ja/note/td-to-amazon/, /ja/note/product-management-myths/]
 ---
 

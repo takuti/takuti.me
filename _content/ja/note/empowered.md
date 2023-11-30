@@ -4,7 +4,7 @@ date: 2021-09-29
 lang: ja
 title: ソフトウェアプロダクトマネジメントのバイブル "Inspired" の続編 "Empowered"、わかりみが深い。
 lastmod: '2022-09-02'
-keywords: [リーダー, プロダクト, チーム, 顧客, risk, 組織, コーチング, 前作, okr, 開発]
+keywords: [プロダクト, リーダー, チーム, 顧客, risk, 組織, コーチング, 前作, okr, 開発]
 recommendations: [/ja/note/product-management-myths/, /ja/note/hooked-design/, /ja/note/product-management-and-bullshit-job/]
 ---
 
