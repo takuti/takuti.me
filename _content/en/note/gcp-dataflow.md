@@ -3,7 +3,7 @@ categories: [Machine Learning, Programming, Data Science & Analytics]
 date: 2022-11-11
 lang: en
 title: Google Cloud Dataflow and Its Positive Impact on Developer Productivity
-keywords: [cloud, data, dataflow, apache, pipelines, pipeline, resource, beam, google,
+keywords: [cloud, dataflow, data, apache, pipelines, pipeline, resource, beam, google,
   airflow]
 recommendations: [/note/airflow-lineage/, /note/coursera-machine-learning-on-gcp/,
   /note/data-validation/]

@@ -4,8 +4,8 @@ date: 2023-06-20
 lang: en
 title: Runner's Search for Identity
 images: [/images/search-for-identity/rvm.jpeg, /images/search-for-identity/canada.jpeg]
-keywords: [marathon, running, identity, runner, solitude, emotional, canada, canadian,
-  loneliness, pace]
+keywords: [marathon, running, identity, runner, solitude, emotional, canada, loneliness,
+  canadian, pace]
 recommendations: [/note/annual-review-2022/, /note/atomic-habits/, /note/canadian-mental-health-week-2022/]
 ---
 

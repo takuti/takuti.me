@@ -9,7 +9,7 @@ title: なぜSparkか
 lastmod: '2022-01-18'
 keywords: [spark, 処理, scala, インメモリ, hadoop, データ, データサイエンス, ディスク, ノード, mapreduce]
 recommendations: [/ja/note/coursera-scala-specialization/, /ja/note/dynamo-style/,
-  /ja/note/data-stream-mining/]
+  /ja/note/recommender-libraries/]
 ---
 
 今週から Coursera の [Big Data Analysis with Scala and Spark](https://www.coursera.org/learn/scala-spark-big-data) を受講している。その初回で出てきた "*Why Scala? Why Spark?*" に関する議論をざっくりとまとめる。（導入なので『RDDとは』みたいな話はしない）

@@ -4,7 +4,7 @@ date: 2023-11-30
 lang: ja
 title: アフリカ・マラウイにおけるコンピュータ・プログラミング教育。その先に「未来」はあるか？
 images: [/images/computer-education-in-malawi/keynote.jpg]
-keywords: [現地, 教育, マラウイ, トレーニング, プログラム, malawi, 技術, カリキュラム, スキル, 子ども]
+keywords: [現地, 教育, トレーニング, マラウイ, プログラム, 技術, カリキュラム, malawi, スキル, 子ども]
 recommendations: [/ja/note/volunteering-in-malawi/, /ja/note/data-protection-law-in-malawi-2023/,
   /ja/note/digital-malawi-2023/]
 ---

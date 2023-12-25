@@ -3,9 +3,8 @@ categories: [生活・人生, エッセイ, ビジネス]
 date: 2023-05-21
 lang: ja
 title: 情報倫理─それは哲学か、栄養学か？
-keywords: [情報, food, 食品, floridi, diet, eating, hooked, 消費者, 消費, mindful]
-recommendations: [/ja/note/how-information-flows/, /ja/note/three-perspectives-on-llms/,
-  /ja/note/coursera-food-and-health/]
+keywords: [情報, food, 食品, floridi, eating, diet, hooked, 消費, 消費者, mindful]
+recommendations: [/ja/note/how-information-flows/, /ja/note/annual-review-2023/, /ja/note/three-perspectives-on-llms/]
 ---
 
 混沌と秩序が同居したこの魅力的な世界で、僕らは情報空間 ([infosphere](https://en.wikipedia.org/wiki/Infosphere)) における一生命体 ([inforg](https://en.wikipedia.org/wiki/Inforg)) としてゆるゆると活動を続け、日々何らかの「情報」を消費し、それを血肉として暮らしている。Philosophy of Information（情報の哲学）の大家・Luciano Floridiは、このような虚構と現実の境目さえ曖昧な世界観を元に、(1) コペルニクスの地動説、(2) ダーウィンの進化論、(3) フロイトの無意識の発見に次ぐ、我々人類の自己認識を根底から覆す「[第4の革命](https://amzn.to/41UGeZN)」として情報技術を位置付けた。シャノン、チューリング、ノイマン、ウィーナーらによる20世紀の理論的研究[^1]を土台とした彼の哲学を象徴するのは「情報の自然化（物質性・流動性）」のメタファーであり、これはアイデンティティ・プライバシー・知識・政治・環境といった題材を統一的な基準[^2]で議論することを可能にする。

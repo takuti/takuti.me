@@ -3,7 +3,7 @@ categories: [生活・人生, エッセイ]
 date: 2023-04-25
 lang: ja
 title: 情報化社会における人生の主体性を問う
-keywords: [ニーチェ, 人生, 自律, 哲学, 至福, 神話, 大切なもの, autonomy, 幸福, 自分]
+keywords: [ニーチェ, 人生, 自律, 哲学, 至福, 神話, 大切なもの, 幸福, autonomy, 自分]
 recommendations: [/ja/note/todays-art-taro/, /ja/note/humanity-and-economy/, /ja/note/search-for-identity/]
 ---
 
