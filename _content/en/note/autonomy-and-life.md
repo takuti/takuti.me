@@ -3,7 +3,7 @@ categories: [Life & Work]
 date: 2023-04-25
 lang: en
 title: When We Lose Autonomy—Whose Life Are You Living?
-keywords: [autonomy, life, nietzsche, intellectual, philosophical, happiness, fiction,
+keywords: [autonomy, life, nietzsche, intellectual, philosophical, fiction, happiness,
   autonomous, live, society]
 recommendations: [/note/search-for-identity/, /note/loneliness/, /note/autonomy-vs-algorithmic-recommendation/]
 ---

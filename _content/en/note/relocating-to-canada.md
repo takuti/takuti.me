@@ -8,7 +8,7 @@ lastmod: '2022-06-05'
 keywords: [vancouver, japan, canada, oslo, treasure, live, nagano, harbour, manager,
   country]
 recommendations: [/note/post-pandemic-first-international-trip/, /note/td-to-amazon/,
-  /note/canada-permanent-residency/]
+  /note/volunteering-in-malawi/]
 ---
 
 On Feb 26, 2021, I have officially moved to Metro Vancouver in British Columbia, Canada from Japan under continuous employment with [Treasure Data](https://www.treasuredata.com/), where I have been working for 4+ years.

@@ -7,7 +7,7 @@ images: [/images/recsys-2016/welcome.jpg, /images/recsys-2016/beer.jpg, /images/
 lang: ja
 title: '推薦システムのトップ会議RecSys2016に参加した #recsys2016'
 lastmod: '2022-01-18'
-keywords: [会議, ボランティア, 学生, recsys, ワークショップ, 推薦, 発表, トップ, 本会議, セッション]
+keywords: [会議, 学生, ボランティア, recsys, ワークショップ, 推薦, 発表, トップ, 本会議, セッション]
 recommendations: [/ja/note/master-graduate/, /ja/note/trends-in-real-world-recommender-systems-2017/,
   /ja/note/data-skeptic-recommender-systems/]
 ---

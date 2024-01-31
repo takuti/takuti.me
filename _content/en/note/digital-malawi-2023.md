@@ -4,8 +4,8 @@ date: 2023-09-08
 lang: en
 title: 'Definition, Role, and Current Status of Digital Literacy in Malawi #LiteracyDay'
 images: [/images/digital-malawi-2023/airtel-money.jpeg]
-keywords: [malawi, digital, population, literacy, ountry, rural, digitally, internet,
-  pyramid, wifi]
+keywords: [malawi, digital, population, literacy, ountry, rural, digitally, pyramid,
+  internet, airtel]
 recommendations: [/note/volunteering-in-malawi/, /note/data-protection-law-in-malawi-2023/,
   /note/computer-education-in-malawi/]
 ---
