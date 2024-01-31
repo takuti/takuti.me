@@ -6,7 +6,7 @@ images: [/images/working-from-home-202004/coffee-accessories-1.jpg, /images/work
 lang: en
 title: How I'm Working From Home
 lastmod: '2022-09-02'
-keywords: [coffee, accessories, pomodoro, day, steamer, humidifier, stay, wfh, healthy,
+keywords: [coffee, accessories, pomodoro, steamer, humidifier, day, stay, wfh, healthy,
   cook]
 recommendations: [/note/unusual-drinking-and-eating-habits/, /note/fermenting-thoughts/,
   /note/stop-drinking-alone/]

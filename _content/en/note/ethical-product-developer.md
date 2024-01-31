@@ -6,7 +6,7 @@ lang: en
 title: Ethical Product Developer
 lastmod: '2022-09-02'
 keywords: [product, ethical, developers, developer, unethical, clear, egative, decisions,
-  capitalism, design]
+  capitalism, picture]
 recommendations: [/note/product-management-and-bullshit-job/, /note/internet-for-the-people/,
   /note/foundations-of-humane-technology/]
 ---

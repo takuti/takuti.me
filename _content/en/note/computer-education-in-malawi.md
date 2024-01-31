@@ -4,9 +4,10 @@ date: 2023-11-30
 lang: en
 title: Is Computer Education Always Good?
 images: [/images/computer-education-in-malawi/keynote.jpg]
-keywords: [malawi, skills, computer, education, train, contexts, people, professionals,
-  local, ing]
-recommendations: [/note/volunteering-in-malawi/, /note/digital-malawi-2023/, /note/annual-review-2023/]
+keywords: [malawi, skills, computer, train, education, contexts, people, professionals,
+  local, young]
+recommendations: [/note/volunteering-in-malawi/, /note/relativize-and-contextualize/,
+  /note/digital-malawi-2023/]
 ---
 
 Children are the hope, and they represent the future. That's what I immediately understood after becoming an international volunteer in Malawi, a small African country with more than 50% of the less-than-18 population. Thus, although it won't be the same, I was able to deeply relate my experience to *[**Little Princes: One Man's Promise to Bring Home the Lost Children of Nepal**](https://www.goodreads.com/book/show/8564644-little-princes),* which illustrates Conor Grennan's volunteering journey started at an orphanage in Nepal.

@@ -5,7 +5,7 @@ lang: en
 title: The Locality of Information and Technology
 images: [/images/why-information-grows/macro-to-micro.png]
 keywords: [localized, products, networks, macro, trust, complex, cooperation, micro,
-  knowledge, society]
+  knowledge, diverse]
 recommendations: [/note/finding-the-mother-tree/, /note/data-feminism/, /note/internet-for-the-people/]
 ---
 
