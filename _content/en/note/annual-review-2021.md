@@ -4,7 +4,7 @@ date: 2021-12-26
 lang: en
 title: 'My 2021 Annual Review: A Year of Divergence (And Slowly Started Converging)'
 lastmod: '2022-09-02'
-keywords: [year, note, product, identity, sustainability, traveler, aligned, learning,
+keywords: [year, note, product, identity, traveler, aligned, sustainability, learning,
   travel, lot]
 recommendations: [/note/atomic-habits/, /note/annual-review-2022/, /note/td-to-amazon/]
 ---

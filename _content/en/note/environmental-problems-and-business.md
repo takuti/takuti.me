@@ -4,7 +4,7 @@ date: 2021-04-30
 lang: en
 title: Environmental Problems Through the Lens of Business
 lastmod: '2022-09-02'
-keywords: [green, energy, building, water, environmental, renewable, problems, business,
+keywords: [green, energy, building, water, environmental, problems, renewable, business,
   ourse, buildings]
 recommendations: [/note/how-to-avoid-a-climate-disaster/, /note/sustainability-at-big-tech/,
   /note/sdg-mooc/]
