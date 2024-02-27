@@ -4,7 +4,7 @@ date: 2020-09-26
 lang: ja
 title: 食と栄養について学んでいる。
 lastmod: '2022-09-02'
-keywords: [資産, 脂質, 炭水化物, 身体, 食事, 野菜, ヘルシー, タンパク質, キロカロリー, バランス]
+keywords: [資産, 脂質, 炭水化物, 身体, 食事, ヘルシー, タンパク質, キロカロリー, 野菜, バランス]
 recommendations: [/ja/note/self-investment/, /ja/note/information-diet/, /ja/note/will-202102/]
 ---
 

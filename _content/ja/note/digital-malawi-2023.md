@@ -5,7 +5,7 @@ lang: ja
 title: 世界最貧国のひとつ・マラウイにおける「デジタル化」の実態は如何に
 images: [/images/digital-malawi-2023/airtel-money.jpeg]
 keywords: [malawi, population, マラウイ, digital, airtel, エージェント, pyramid, money, コンピュータ,
-  農村部]
+  リテラシー]
 recommendations: [/ja/note/data-protection-law-in-malawi-2023/, /ja/note/relativize-and-contextualize/,
   /ja/note/volunteering-in-malawi/]
 ---
