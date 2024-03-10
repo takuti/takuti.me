@@ -1,5 +1,6 @@
 ---
 categories: [機械学習, データサイエンス, エッセイ]
+series: [product]
 date: 2023-03-25
 lang: ja
 title: 流体としての情報：いかにして最悪のシナリオを回避するか

@@ -5,7 +5,7 @@ lang: en
 title: My First Post-Pandemic International Trip
 images: [/images/post-pandemic-first-international-trip/river.jpeg]
 lastmod: '2022-09-02'
-keywords: [international, trip, canada, meet, travel, traveling, pandemic, relocating,
+keywords: [international, trip, canada, meet, travel, pandemic, traveling, relocating,
   river, place]
 recommendations: [/note/relocating-to-canada/, /note/annual-review-2022/, /note/annual-review-2021/]
 ---

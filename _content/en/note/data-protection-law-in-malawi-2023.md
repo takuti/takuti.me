@@ -1,5 +1,6 @@
 ---
 categories: [Data Science & Analytics, Business]
+series: [malawi]
 date: 2023-09-29
 lang: en
 title: 'Dilemma over "Best Practice": How We Could Develop Data Protection Practices

@@ -1,0 +1,13 @@
+<h3>&#x1F4DD; {{ i18n "series" }}</h3>
+<p>
+  <ul class="image-gallery">
+    {{ range .Site.Taxonomies.series }}
+    <li>
+      <img src="{{ index (.Page.Params.images) 0 }}" alt="{{.Page.Title}}" />
+      <a href="{{.Page.Permalink}}"><div class="overlay"><span>{{.Page.Title}}</span></div></a>
+    </li>
+    {{ end }}
+  </ul>
+</p>
+<a href="{{ .Site.LanguagePrefix }}/note/" class="btn"><i class="fas fa-angle-right"></i>&nbsp;&nbsp;{{ i18n "more"
+  }}</a>

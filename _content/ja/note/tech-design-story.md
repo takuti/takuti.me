@@ -1,6 +1,7 @@
 ---
 aliases: [/note/tech-design-story/]
 categories: [デザイン, 読書記録, データサイエンス]
+series: [product]
 date: 2019-10-14
 images: [/images/tech-design-story/tech-design-story-1.png, /images/tech-design-story/tech-design-story-2.png,
   /images/tech-design-story/tech-design-story-3.png]

@@ -1,5 +1,6 @@
 ---
 categories: [エッセイ]
+series: [product]
 date: 2021-07-08
 lang: ja
 title: 僕は「ユーザ理解」を難しく考えすぎていたのかもしれない。

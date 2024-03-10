@@ -1,6 +1,7 @@
 ---
 audio: [/audio/definition-of-done.mp3]
 categories: [Life & Work, Business, Design]
+series: [product]
 date: 2022-02-04
 lang: en
 title: '"Definition of Done"'

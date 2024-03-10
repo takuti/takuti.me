@@ -1,13 +1,14 @@
 ---
 audio: [/audio/data-validation.mp3]
 categories: [Programming, Data Science & Analytics]
+series: [data]
 date: 2022-02-20
 lang: en
 title: Validate, Validate, and Validate Data. But, in terms of what?
 lastmod: '2022-09-02'
 keywords: [data, accuracy, validation, tfx, pipeline, paper, metrics, schema, observability,
   privacy]
-recommendations: [/note/data-leaders-summit-europe-2019/, /note/coursera-data-science-ethics/,
+recommendations: [/note/coursera-data-science-ethics/, /note/data-leaders-summit-europe-2019/,
   /note/airflow-lineage/]
 ---
 

@@ -1,5 +1,6 @@
 ---
 categories: [Design, Business]
+series: [product]
 date: 2020-01-26
 lang: en
 title: Design Thinking = Capturing the World Like a Designer
@@ -23,7 +24,7 @@ Here is a question &mdash; Can we really capture and resolve essential problems 
 
 To give an example, a talk "[Design Thinking Is Bullsh*t](https://99u.adobe.com/videos/55967/natasha-jen-design-thinking-is-bullshit)" argued that our world is not *that* simple as it can be summarized by the pieces of Post-it paper. According to the speaker, a designer's way of problem-solving is more like a back-and-forth process of improvements based on iterations of creating, validating, and criticizing. Thus, the widely known high-level definition of design thinking approach is somewhat different from the reality, and, in the context of product development, it is important for the developers to carefully understand what design thinking actually means and how we can build successful products on top of that.
 
-On that point, I strongly believe that one of the most important lessons the framework tells us is **how capturing the complex, beautiful world *as is* is difficult but crucial work**. 
+On that point, I strongly believe that one of the most important lessons the framework tells us is **how capturing the complex, beautiful world *as is* is difficult but crucial work**.
 
 ### Having a designer's eye, not brain
 

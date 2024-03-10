@@ -1,5 +1,6 @@
 ---
 categories: [エッセイ]
+series: [product]
 date: 2020-07-11
 lang: ja
 title: 僕は「世界で闘うプロダクトマネージャー」にはなれない。

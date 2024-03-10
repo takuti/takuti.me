@@ -1,5 +1,6 @@
 ---
 categories: [Programming, Conference, Recommender Systems]
+series: [julia]
 date: 2022-08-06
 lang: en
 title: 'Recommendation.jl Came Back to #JuliaCon 2022'

@@ -1,5 +1,6 @@
 ---
 categories: [デザイン, 読書記録, データサイエンス]
+series: [product]
 date: 2020-05-16
 lang: ja
 title: データよりもストーリーを、相関よりも因果を。

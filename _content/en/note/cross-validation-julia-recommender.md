@@ -1,5 +1,6 @@
 ---
 categories: [Recommender Systems, Programming]
+series: [julia]
 date: 2022-04-03
 lang: en
 title: Cross Validation for Recommender Systems in Julia

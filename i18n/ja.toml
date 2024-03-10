@@ -5,7 +5,7 @@ other = "ホーム"
 other = "ブログ"
 
 [work]
-other = "これまでの活動"
+other = "イベント登壇・論文執筆などの記録"
 
 [aboutMe]
 other = "プロフィール"
@@ -13,14 +13,20 @@ other = "プロフィール"
 [categories]
 other = "カテゴリ"
 
+[series]
+other = "これまでに書いた主要なテーマ"
+
+[inSeries]
+other = "このテーマについて書いた記事"
+
+[seriesThisArticle]
+other = "この記事に関連する話題"
+
 [author]
 other = "書いた人"
 
 [popularArticles]
 other = "過去の人気記事"
-
-[recentArticles]
-other = "最近書いたこと"
 
 [disclaimer]
 other = "免責事項"

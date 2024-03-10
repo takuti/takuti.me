@@ -1,5 +1,6 @@
 ---
 categories: [Life & Work]
+series: [ai]
 date: 2023-04-25
 lang: en
 title: When We Lose Autonomy—Whose Life Are You Living?
@@ -42,7 +43,7 @@ What happens when we lose autonomy? See the adults who appeared in Antoine de Sa
 
 The message is a fantastic reminder of how adults tend to bind themselves with a narrow view of the world.
 
-Optimizing a function against an observable objective is easy. Just take a global average, and follow what the greatest majority agrees. On the other hand, no one, except yourself, can define a metric that measures your happiness. In fact, it is easier to make ourselves "busy," avoid a conversation with oneself, and list many reasons not to act, because everyone does so. This is when humans lost their autonomy. But busy for what? We already have (and can do) more than we think, and the key may have been right in front of us since a long time ago. 
+Optimizing a function against an observable objective is easy. Just take a global average, and follow what the greatest majority agrees. On the other hand, no one, except yourself, can define a metric that measures your happiness. In fact, it is easier to make ourselves "busy," avoid a conversation with oneself, and list many reasons not to act, because everyone does so. This is when humans lost their autonomy. But busy for what? We already have (and can do) more than we think, and the key may have been right in front of us since a long time ago.
 
 Speaking of adult life, understanding the nature of aging might help us to be autonomous agents. In *[From Strength to Strength](https://www.goodreads.com/review/show/5404518876),* social scientist Arthur C. Brooks highlighted that our intellectual performance peaks out much earlier than we think, and life transitions to its second phase as early as in our 30s. In the later phase, people need to cultivate spiritual life and deep relationship with surrounding people, and the effectiveness is proven by social scientific studies[^7]. Otherwise, we end up with workaholics and success addicts as many "successful" but unsatisfied people are. Be careful: our eyes don't see the most important things in life regardless of how hard we work.
 

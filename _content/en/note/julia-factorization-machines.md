@@ -1,5 +1,6 @@
 ---
 categories: [Programming, Recommender Systems]
+series: [julia]
 date: 2019-07-26
 draft: true
 keywords: [zero, youtube, yml, yesterday, 'yes', years, yearly, year, yay, xxx]

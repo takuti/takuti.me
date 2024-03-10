@@ -1,5 +1,6 @@
 ---
 categories: [Life & Work, Business, Design]
+series: [data, product]
 date: 2022-04-21
 lang: en
 title: '"Why Do We Build This?" Humane Technologist''s View of Bad Product/Project'

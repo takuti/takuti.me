@@ -1,5 +1,6 @@
 ---
 categories: [Recommender Systems, Programming]
+series: [julia]
 date: 2019-03-31
 lang: en
 title: Publishing My Master's Thesis with Documenter.jl

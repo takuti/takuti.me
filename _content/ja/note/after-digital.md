@@ -1,6 +1,7 @@
 ---
 aliases: [/note/after-digital/]
 categories: [読書記録, デザイン, データサイエンス]
+series: [product]
 date: 2020-02-20
 lang: ja
 title: データ時代の「リアル」の価値

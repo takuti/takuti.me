@@ -1,10 +1,11 @@
 ---
 categories: [Business, Data Science & Analytics]
+series: [data]
 date: 2022-12-04
 lang: en
 title: Data Are Created, Collected, and Processed by People
 keywords: [data, gender, feminism, sex, localized, decisions, human, knowledge, dataset,
-  society]
+  involved]
 recommendations: [/note/data-leaders-summit-europe-2019/, /note/coursera-data-science-ethics/,
   /note/airflow-lineage/]
 ---
@@ -39,6 +40,6 @@ The data feminist practices do take time, and they won't be aligned with convent
 
 To give an example of unconscious decisions I made, my biggest regret in [past publications](https://scholar.google.co.jp/citations?user=4GzRikkAAAAJ) is that I used gender data from a public dataset, [MovieLens](https://grouplens.org/datasets/movielens/), as a feature without spending enough effort to think of its seriousness. In fact, the papers were undergone a review process in terms of English writing by an English native professional, and I received a critical review comment: "Is gender really about gender? If it's about own identity, it's okay. But if it's about biological one, it should be labeled as sex." At that moment, I at least knew personal identity is not a binary thing, but since the dataset only had M/F binary values, I decided to use the data as a feature named sex. It took only about 10 seconds to craft a response to the reviewer. However, in reality, the [biological classification also isn't binary](https://www.malecontraceptive.org/blog/biological-sex-is-not-binary). Furthermore, even though it was somewhat of a conscious choice, it was not a good idea to casually change a label from its original dataset (gender) to something different (sex) without understanding the context. I should have thought deeper and probably not used the feature to train a model.
 
-The list of bad examples grows further. For instance, I learned the importance of having contextual knowledge in painful ways when I worked on some projects that involved non-English conversations in foreign countries where I have zero knowledge about the local economies. Or, in the context of nuclear power development, the [gap between data-driven decisions and localized emotions](/note/a-bright-future/) visualizes the criticality of human factors, and these problems cannot be addressed purely by rationality. Technology is not magic, and data scientist is not god. 
+The list of bad examples grows further. For instance, I learned the importance of having contextual knowledge in painful ways when I worked on some projects that involved non-English conversations in foreign countries where I have zero knowledge about the local economies. Or, in the context of nuclear power development, the [gap between data-driven decisions and localized emotions](/note/a-bright-future/) visualizes the criticality of human factors, and these problems cannot be addressed purely by rationality. Technology is not magic, and data scientist is not god.
 
 Considering the complexity of this world, such insights lacking acknowledgment to all sorts of stakeholders can be simply "wrong" even if it theoretically sounds to the majority. Therefore, we need a radical shift in how to work on data without making an easy shortcut.

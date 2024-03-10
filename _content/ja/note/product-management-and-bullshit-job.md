@@ -1,5 +1,6 @@
 ---
 categories: [エッセイ, 読書記録]
+series: [product]
 date: 2021-06-09
 images: [/images/product-management-and-bullshit-job/pm-skill-stack.png]
 lang: ja

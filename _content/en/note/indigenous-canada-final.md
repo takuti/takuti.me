@@ -1,5 +1,6 @@
 ---
 categories: [Life & Work]
+series: [canada]
 date: 2022-06-11
 lang: en
 title: 'Indigenous Canada: Storytelling, Community, and Sustainability'

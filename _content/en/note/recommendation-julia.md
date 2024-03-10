@@ -1,5 +1,6 @@
 ---
 categories: [Recommender Systems, Programming]
+series: [julia]
 date: 2017-01-14
 lang: en
 title: 'Recommendation.jl: Building Recommender Systems in Julia'

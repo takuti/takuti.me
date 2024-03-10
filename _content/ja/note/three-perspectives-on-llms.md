@@ -1,5 +1,6 @@
 ---
 categories: [機械学習, データサイエンス]
+series: [ai]
 date: 2023-04-07
 lang: ja
 title: 大規模言語モデルとそのアプリケーションに対する所感

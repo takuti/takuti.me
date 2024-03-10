@@ -1,5 +1,6 @@
 ---
 categories: [Life & Work, Business, Design]
+series: [product]
 date: 2020-01-05
 lang: en
 title: How to Produce Ideas
@@ -13,7 +14,7 @@ Producing ideas is an important process of creating something new (e.g., busines
 
 ### Seeds of Ideas
 
-<iframe type="text/html" width="212" height="362" frameborder="0" allowfullscreen style="max-width:100%" src="https://read.amazon.com/kp/card?asin=B07J2QSKRB&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_.1seEbG7SQGHC&tag=takuti-22&hideBuy=true&hideShare=true" ></iframe> 
+<iframe type="text/html" width="212" height="362" frameborder="0" allowfullscreen style="max-width:100%" src="https://read.amazon.com/kp/card?asin=B07J2QSKRB&preview=newtab&linkCode=kpe&ref_=cm_sw_r_kb_dp_.1seEbG7SQGHC&tag=takuti-22&hideBuy=true&hideShare=true" ></iframe>
 
 First of all, I have just read James Young's book "**[A Technique for Producing Ideas](https://www.amazon.com/Technique-Producing-Ideas-James-Young/dp/198781746X)**" which introduces five essential steps to strategically produce ideas, and he stated that gathering raw material comes first:
 
@@ -23,13 +24,13 @@ First of all, I have just read James Young's book "**[A Technique for Producing 
 4. An idea (unexpectedly) comes up in your mind
 5. Implementing the idea, and evaluating its effectiveness
 
-Here, raw material includes a wide variety of experiences in our life, tons of news articles and knowledge about art and history we can access both online and offline, and specific knowledge corresponding to your problem and customers. All of these inputs could eventually be the seeds of new ideas. 
+Here, raw material includes a wide variety of experiences in our life, tons of news articles and knowledge about art and history we can access both online and offline, and specific knowledge corresponding to your problem and customers. All of these inputs could eventually be the seeds of new ideas.
 
 Since a new idea is normally a combination of existing pieces of experiences, knowledge, products, and someone else's ideas, proactively gathering the seeds is highly valuable to make great ideas.
 
-### Capture the Complex World "As Is" 
+### Capture the Complex World "As Is"
 
-Second, while an idea itself and resulting output must be simple and easy to understand, collecting raw, complex information from diverse data sources and experiences is an essential first step of any creative activities. 
+Second, while an idea itself and resulting output must be simple and easy to understand, collecting raw, complex information from diverse data sources and experiences is an essential first step of any creative activities.
 
 According to a magazine that shows an interview series of Japanese famous branding designers, the professionals equally emphasized that the quantity and quality of inputs collected from newspapers, magazines, and the internet are highly important before taking action on their problems.
 

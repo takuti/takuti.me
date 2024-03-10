@@ -1,5 +1,6 @@
 ---
 categories: [生活・人生, エッセイ]
+series: [malawi]
 date: 2024-01-31
 lang: ja
 title: 人道的で倫理的な、持続的超えて永遠な『世界』─最貧国のひとつから望む“異世界”

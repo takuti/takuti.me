@@ -26,7 +26,13 @@
 <h4><i class="fas fa-folder-open"></i>&nbsp;&nbsp;{{ i18n "categories" }}</h4>
 <p>
 {{ range .Site.Taxonomies.categories }}
-  <a href="{{.Page.Permalink}}" class="category">{{.Page.Title}} ({{.Count}})</a>
+  <a href="{{.Page.Permalink}}" class="taxonomy-button">{{.Page.Title}} ({{.Count}})</a>
+{{ end }}
+</p>
+<h4><i class="fas fa-book"></i>&nbsp;&nbsp;{{ i18n "series" }}</h4>
+<p>
+{{ range .Site.Taxonomies.series }}
+  <a href="{{.Page.Permalink}}" class="taxonomy-button">{{.Page.Title}} ({{.Count}})</a>
 {{ end }}
 </p>
 </span>

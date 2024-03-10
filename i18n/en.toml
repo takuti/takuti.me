@@ -13,14 +13,20 @@ other = "About"
 [categories]
 other = "Categories"
 
+[series]
+other = "Series I have written"
+
+[inSeries]
+other = "Articles in this series"
+
+[seriesThisArticle]
+other = "This article is part of the series"
+
 [author]
 other = "Author"
 
 [popularArticles]
 other = "Popular articles"
-
-[recentArticles]
-other = "Recent writing"
 
 [disclaimer]
 other = "Disclaimer"

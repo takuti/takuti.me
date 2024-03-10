@@ -1,5 +1,6 @@
 ---
 categories: [Life & Work, Business]
+series: [product]
 date: 2023-05-21
 lang: en
 title: Information Sustainability, Mindful Consumption, and Healthy Engineering

@@ -1,5 +1,6 @@
 ---
 categories: [エッセイ, デザイン]
+series: [product]
 date: 2020-09-12
 images: [/images/coursera-ui-ux-specialization/sitemap.png, /images/coursera-ui-ux-specialization/figma.png,
   /images/coursera-ui-ux-specialization/sketch.png]

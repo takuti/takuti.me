@@ -1,11 +1,12 @@
 ---
 categories: [Life & Work, Business]
+series: [malawi, canada]
 date: 2023-08-23
 lang: en
 title: Starting Field Study on How Information Flows in Malawi
 images: [/images/volunteering-in-malawi/lake-malawi.jpg, /images/volunteering-in-malawi/bizcubation-pitch-night.jpeg,
   /images/volunteering-in-malawi/mzuzu-coffee.jpg]
-keywords: [malawi, mzuzu, volunteer, africa, canada, volunteering, international,
+keywords: [malawi, mzuzu, volunteer, africa, volunteering, canada, international,
   countries, lake, program]
 recommendations: [/note/digital-malawi-2023/, /note/relativize-and-contextualize/,
   /note/annual-review-2023/]

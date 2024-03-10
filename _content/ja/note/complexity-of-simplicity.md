@@ -1,5 +1,6 @@
 ---
 categories: [生活・人生, 機械学習, デザイン]
+series: [ai]
 date: 2023-02-25
 lang: ja
 title: タコスを食べ、うどんをすすり、ChatGPTについて語る。

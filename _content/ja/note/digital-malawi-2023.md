@@ -1,5 +1,6 @@
 ---
 categories: [生活・人生, ビジネス]
+series: [malawi]
 date: 2023-09-10
 lang: ja
 title: 世界最貧国のひとつ・マラウイにおける「デジタル化」の実態は如何に

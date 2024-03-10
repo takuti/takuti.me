@@ -1,5 +1,6 @@
 ---
 categories: [Life & Work]
+series: [canada]
 date: 2022-05-01
 lang: en
 title: Learning Canada's History

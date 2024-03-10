@@ -1,5 +1,6 @@
 ---
 categories: [Design, Data Science & Analytics]
+series: [data]
 date: 2020-04-11
 lang: en
 title: 'What Makes a Good Dashboard: The Rise of Augmented Analytics'
@@ -9,7 +10,7 @@ keywords: [analytics, augmented, dashboard, data, nlp, visual, citizen, scientis
 recommendations: [/note/data-leaders-summit-europe-2019/, /note/datavis-2020/, /note/data-validation/]
 ---
 
-***A good dashboard is all we need*** &mdash; As a person working in the field of data-driven business, I strongly agree with the statement written in "[One Thing to Maybe Build Now: A Great Dashboard](https://www.linkedin.com/pulse/one-thing-maybe-build-now-great-dashboard-jason-m-lemkin/)". 
+***A good dashboard is all we need*** &mdash; As a person working in the field of data-driven business, I strongly agree with the statement written in "[One Thing to Maybe Build Now: A Great Dashboard](https://www.linkedin.com/pulse/one-thing-maybe-build-now-great-dashboard-jason-m-lemkin/)".
 
 ### How to build a good dashboard
 
@@ -19,7 +20,7 @@ Thanks to the recent advance of data analytics, building an intelligent "shiny" 
 
 That would be awesome if we could build a meaningful dashboard consumed by the beginners with zero configuration. But, how?
 
-Here, recent trends in **Augmented Analytics** can be a solution. On the Augmented Analytics applications, data is explained for / searched by [citizen data scientists](https://blogs.gartner.com/carlie-idoine/2018/05/13/citizen-data-scientists-and-why-they-matter/), who might be capable to perform basic analytics but do not have advanced skills, unlike professional data scientists. 
+Here, recent trends in **Augmented Analytics** can be a solution. On the Augmented Analytics applications, data is explained for / searched by [citizen data scientists](https://blogs.gartner.com/carlie-idoine/2018/05/13/citizen-data-scientists-and-why-they-matter/), who might be capable to perform basic analytics but do not have advanced skills, unlike professional data scientists.
 
 To be more precise, Augmented Analytics is an automated BI for business people, powered by ML and Natural Language Processing (NLP). By deeply embedding these intelligent functionalities, the advanced BI guides citizens to extract accurate insights at ease. I personally believe this is a key focus area to build a "good" dashboard we need.
 
@@ -35,6 +36,6 @@ Third, the citizens can proactively seek insights by **exploring the auto-genera
 
 ### Dashboard + Augmented Analytics = <3
 
-Augmented Analytics is an area where BI meets ML/NLP. We indeed need a good dashboard, but the practical discussion is clearly lacking today; letting a data science team create a report, and watching a bunch of colorful charts in your screen &mdash; This is not a smart way to run data-driven business. 
+Augmented Analytics is an area where BI meets ML/NLP. We indeed need a good dashboard, but the practical discussion is clearly lacking today; letting a data science team create a report, and watching a bunch of colorful charts in your screen &mdash; This is not a smart way to run data-driven business.
 
 As we've seen above, a majority of the dashboard consumers are categorized as citizen data scientists, and hence the assistance from ML and NLP techniques is strongly required to make the dashboards meaningful and effectively leverage data in their day-to-day activities. On that point, Augmented Analytics is the one that makes the conventional dashboard a "good" one.

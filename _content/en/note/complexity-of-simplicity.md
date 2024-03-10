@@ -1,5 +1,6 @@
 ---
 categories: [Life & Work, Business, Design]
+series: [ai]
 date: 2023-02-21
 lang: en
 title: 'The Complexity of Simplicity: Tacos, Sushi, and ChatGPT'
@@ -31,7 +32,7 @@ We then moved to Mexico City, the capital and largest city of Mexico situated at
 
 ![tacos-cdmx-2](/images/complexity-of-simplicity/tacos-cdmx-2.jpeg)
 
-These tacos contain the minimum amount of ingredients, not too fancy, maybe 3.0-3.5 stars out of 5 if I'd give a rating. They were ***obviously simple*** to me, and my reaction was more or less: *"It's good, period."* However, unlike my naive reaction, several friends previously told me tacos in Mexico are fundamentally different from any tacos you can find outside of the country, and they emphasized how good the real tacos are. Really...? Maybe I just overlooked some of the best in the city, but I couldn't get such contexts due to the extreme simplicity of the food. 
+These tacos contain the minimum amount of ingredients, not too fancy, maybe 3.0-3.5 stars out of 5 if I'd give a rating. They were ***obviously simple*** to me, and my reaction was more or less: *"It's good, period."* However, unlike my naive reaction, several friends previously told me tacos in Mexico are fundamentally different from any tacos you can find outside of the country, and they emphasized how good the real tacos are. Really...? Maybe I just overlooked some of the best in the city, but I couldn't get such contexts due to the extreme simplicity of the food.
 
 Not to mention CDMX itself is an extremely complex city I couldn't easily digest. One street in a downtown historic area gives me an impression of European countries, whereas, a couple of blocks away from there, the view resembles a lot of Asia, in my opinion. Meanwhile, along with the complicated history of the Aztecs, many modern cafes and bars co-exist with what locals call "unsafe" off-street sections.[^3] Nevertheless, people commonly say the superiority of authentic Mexican tacos, but for some reason, I didn't get that.
 

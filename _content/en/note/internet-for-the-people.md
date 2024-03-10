@@ -1,9 +1,10 @@
 ---
 categories: [Life & Work, Business]
+series: [product]
 date: 2022-09-22
 lang: en
 title: Why Your Job Title Matters (Cont.)─Technology for the People
-keywords: [product, developer, deprivatization, title, internet, technology, people,
+keywords: [product, developer, deprivatization, title, technology, internet, people,
   software, ethical, bio]
 recommendations: [/note/ethical-product-developer/, /note/product-management-and-bullshit-job/,
   /note/foundations-of-humane-technology/]
@@ -27,7 +28,7 @@ That's why I'm concerned about the lack of humanity in the use of technology, an
 
 However, there has been a dilemma at the same time&mdash;As long as the deliverable is meant to be sold to customers, it is unavoidable to sacrifice what's good for people (and for greater society) to some degree in order for a company to maximize the profit. That is, even though I want to be an ethical product developer, being ethical vs. building a product, which is fundamentally one of the revenue generators for a company, is somewhat contradicting.
 
-Yet, I strongly believe technology must be used for the people, not for the money. Therefore, I, as a freelancer, currently hesitate to use the word "product", and I temporarily replaced my bio with Software Developer so I can be explicit that I create software that doesn't necessarily have to be a widely-sellable product, meaning I'd rather reduce my income if I could work with the people who I can empathize with, and it might even be a volunteering opportunity e.g., for education. 
+Yet, I strongly believe technology must be used for the people, not for the money. Therefore, I, as a freelancer, currently hesitate to use the word "product", and I temporarily replaced my bio with Software Developer so I can be explicit that I create software that doesn't necessarily have to be a widely-sellable product, meaning I'd rather reduce my income if I could work with the people who I can empathize with, and it might even be a volunteering opportunity e.g., for education.
 
 Here, my recent reading of "**[Internet for the People: The Fight for Our Digital Future](https://amzn.to/3UqUB5G)**" was a good reminder of the philosophy.
 

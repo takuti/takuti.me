@@ -1,0 +1,11 @@
+{{ if .Params.series }}
+<blockquote>
+    <p>
+        {{ i18n "seriesThisArticle" }}:
+            {{ range $i, $v := (.GetTerms "series") -}}
+            {{- if $i -}}, {{ end -}}
+            <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+            {{- end -}}
+    </p>
+</blockquote>
+{{ end }}

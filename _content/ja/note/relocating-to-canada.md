@@ -1,5 +1,6 @@
 ---
 categories: [生活・人生]
+series: [canada]
 date: 2021-02-28
 lang: ja
 title: トレジャーデータ株式会社を退職して Treasure Data (Canada) に入社しました

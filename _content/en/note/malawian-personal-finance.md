@@ -1,5 +1,6 @@
 ---
 categories: [Business, Life & Work]
+series: [malawi]
 date: 2024-02-26
 lang: en
 title: One of the Poorest Life Is Not *That* Bad

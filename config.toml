@@ -16,9 +16,11 @@ title = "Takuya Kitazawa"
   work = "/work/:filename/"
   note = "/note/:filename/"
   categories = "/note/category/:slug/"
+  series = "/:slug/"
 
 [taxonomies]
   category = "categories"
+  series = "series"
 
 DefaultContentLanguage = "en"
 

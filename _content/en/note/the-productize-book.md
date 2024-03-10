@@ -1,5 +1,6 @@
 ---
 categories: [Business, Design]
+series: [product]
 date: 2022-10-20
 lang: en
 title: Why We "Productize"
@@ -11,8 +12,8 @@ recommendations: [/note/ethical-product-developer/, /note/product-management-and
 
 Assume you are a business owner already providing some solutions to the users.
 
-- Should I consider making significant growth from now on?  
-- If I should, what is the best path forward for growth? 
+- Should I consider making significant growth from now on?
+- If I should, what is the best path forward for growth?
 
 In that situation, **productization** can be an essential idea to dive deep into. Importantly, "product" is not a one-size-fits-all concept, and there are multiple, gradual paths to productize an existing solution in practice; it is not a binary state of a business offering. Furthermore, I believe not-to-productize (i.e., [eliminating a sense of business and focusing on humanity](/note/internet-for-the-people/)) can also be an option depending on your answer to the first question.
 
@@ -46,7 +47,7 @@ Hence, I hope to see an intermediate solution between in-person services and ful
 
 ### Product development *is* hard
 
-To be fair, *Productize* is a great handbook about how a good product development lifecycle should be, and the book will potentially be my new go-to book when I teach someone about the essence of product management. There are too many "best practices" on the topic, and the existing resources can be too informative to digest thanks to the set of authors' greatest experiences and quotes from successful people. 
+To be fair, *Productize* is a great handbook about how a good product development lifecycle should be, and the book will potentially be my new go-to book when I teach someone about the essence of product management. There are too many "best practices" on the topic, and the existing resources can be too informative to digest thanks to the set of authors' greatest experiences and quotes from successful people.
 
 For example, [Silicon Valley Product Group's *Inspired* and *Empowered*](https://www.svpg.com/inspired-and-empowered/) have been my favorites for the last few years, but they are about 400-page long each with dense information and case studies. Or, you can name whichever classics business leaders might like, such as *The Lean Startup, Crossing the Chasm,* or *The Innovator's Dilemma.* By contrast, *Productize* is a handy swiss army knife that has not-too-many functions.
 

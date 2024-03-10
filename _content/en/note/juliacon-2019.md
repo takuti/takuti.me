@@ -1,5 +1,6 @@
 ---
 categories: [Programming, Conference, Recommender Systems]
+series: [julia]
 date: 2019-07-26
 lang: en
 title: 'Lightning Talk about Recommender Systems in Julia at #JuliaCon 2019'
@@ -47,7 +48,7 @@ Excited to contribute more to the Recommender Systems in Julia field from now on
 
 To be ready for the presentation, I have revisited my code and released [v0.3.0](https://github.com/takuti/Recommendation.jl/releases/tag/v0.3.0) of the recommendation package. For this purpose, walking through the "[Think Julia](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html)" book was so helpful to make sure my understanding of the basics.
 
-Interestingly, as an inactive holiday Julia programmer, I always find something new every time I review my Julia code thanks to the actively developed ecosystem. For example, this time I noticed that the community has developed [Registrator.jl](https://github.com/JuliaRegistries/Registrator.jl) and changed a way to release Julia packages; the official registry has been moved from [METADATA.jl](https://github.com/JuliaLang/METADATA.jl) to [JuliaRegistries/General](https://github.com/JuliaRegistries/General). 
+Interestingly, as an inactive holiday Julia programmer, I always find something new every time I review my Julia code thanks to the actively developed ecosystem. For example, this time I noticed that the community has developed [Registrator.jl](https://github.com/JuliaRegistries/Registrator.jl) and changed a way to release Julia packages; the official registry has been moved from [METADATA.jl](https://github.com/JuliaLang/METADATA.jl) to [JuliaRegistries/General](https://github.com/JuliaRegistries/General).
 
 Therefore, I was able to catch up recent progress on the Julia community before going to Baltimore. Currently, in combination with my JuliaCon 2019 experience, I believe the following topics particularly play an important role in the entire language ecosystem:
 
@@ -66,6 +67,6 @@ The reason why I'm working as a data science engineer in the industry is that he
 
 Importantly, [Julia Survey Results](https://www.youtube.com/watch?v=yx6lBSHqGfc) demonstrated that the most common non-Julia language expertise of Julia programmers includes not only "fashionable" modern languages (e.g., Python, R, JavaScript, Scala) but also more like specialist-focused ones such as C, C++, MATLAB, Fortran. Thus, the community has an incredible diversity of technical background, and it certainly has a positive impact on creating innovative ideas and implementing them in the real world.
 
-At JuliaCon 2019, I met a wide variety of professionals and students coming from different fields and geographical locations. Can you imagine a situation that everyone including university professors, industrial researchers, data scientists, financial analysts, software engineers, students studying in different departments, and weekend coders gathers together at the single location? JuliaCon does make it real. 
+At JuliaCon 2019, I met a wide variety of professionals and students coming from different fields and geographical locations. Can you imagine a situation that everyone including university professors, industrial researchers, data scientists, financial analysts, software engineers, students studying in different departments, and weekend coders gathers together at the single location? JuliaCon does make it real.
 
 To be honest, I didn't expect such an exciting and productive conference experience. Thank you all of the community members for making it possible!

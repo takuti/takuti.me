@@ -1,5 +1,6 @@
 ---
 categories: [生活・人生]
+series: [canada]
 date: 2021-08-19
 lang: ja
 title: カナダで転職して、プロダクトマネージャーからソフトウェアエンジニアに戻った。

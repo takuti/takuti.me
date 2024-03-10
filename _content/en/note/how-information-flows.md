@@ -1,5 +1,6 @@
 ---
 categories: [Business, Data Science & Analytics, Recommender Systems]
+series: [product]
 date: 2023-03-30
 lang: en
 title: 'How Information Flows: From Field Studies to Risk Mitigation'
@@ -43,7 +44,7 @@ Yet I don't want to give up seizing the original vision that everyone lives to t
 
 How can we intervene, then?
 
-To give a motivating example, imagine humans' greatest effort in clear-cutting and deforestation for land development in nature. Here, forestry researcher Suzanne Simard discovered the flow of information in the forest, which has been propagated among trees and fungi from generation to generation[^3]. Trees in the forest do communicate with each other through their roots and make reciprocal relationships to cooperate and survive in the local environment. What's communicated among trees is in fact physical substances, and the researchers conducted extensive field studies to reveal the secret. Ultimately, the fieldwork enabled them to create a model that explains nature-nature communications, and the outcomes demonstrated the harm of clear-cutting, yielding more sustainable forestry practices for risk mitigation. 
+To give a motivating example, imagine humans' greatest effort in clear-cutting and deforestation for land development in nature. Here, forestry researcher Suzanne Simard discovered the flow of information in the forest, which has been propagated among trees and fungi from generation to generation[^3]. Trees in the forest do communicate with each other through their roots and make reciprocal relationships to cooperate and survive in the local environment. What's communicated among trees is in fact physical substances, and the researchers conducted extensive field studies to reveal the secret. Ultimately, the fieldwork enabled them to create a model that explains nature-nature communications, and the outcomes demonstrated the harm of clear-cutting, yielding more sustainable forestry practices for risk mitigation.
 
 Fieldwork, modeling, and risk mitigation&mdash;are the steps we need to undergo when working on physical substances. We should first study a local environment in a hands-on manner, and then we turn the insights into risk-mitigating applications.
 

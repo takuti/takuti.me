@@ -1,5 +1,6 @@
 ---
 categories: [Life & Work, Business]
+series: [canada]
 date: 2022-10-05
 lang: en
 title: My First Month as Self-Employed
@@ -10,17 +11,17 @@ recommendations: [/note/annual-review-2022/, /note/becoming-a-freelancer-in-cana
   /note/canadian-mental-health-week-2022/]
 ---
 
-It's been a month since [I officially became self-employed in Canada](/note/becoming-a-freelancer-in-canada/). So far, things are going quite well, especially in terms of quality of life. Time flows slower, and a day is surprisingly longer than I used to feel. Even though my monthly income in Sep 2022 was roughly 50% of the amount I earned until the previous month, I feel the "cost" for a better life is pretty cheap. And thankfully, the 50% amount is still not a threatening number for a single person living in the city. 
+It's been a month since [I officially became self-employed in Canada](/note/becoming-a-freelancer-in-canada/). So far, things are going quite well, especially in terms of quality of life. Time flows slower, and a day is surprisingly longer than I used to feel. Even though my monthly income in Sep 2022 was roughly 50% of the amount I earned until the previous month, I feel the "cost" for a better life is pretty cheap. And thankfully, the 50% amount is still not a threatening number for a single person living in the city.
 
 That said, I know it's too early to conclude; being in a situation where every minute literally counts needs a radical shift in how to use my own time, and I'm tuning myself daily to be a better version of myself in various ways. Here, let me jot down some of the key changes, observations, and tips I have had for the first 30 days.
 
 ### *What are you doing now?*
 
-You can find the answer in [takuti.me/**now**](/now/): 
+You can find the answer in [takuti.me/**now**](/now/):
 
 > I started a new career as an independent software developer in September 2022, focusing particularly on data & AI ethics and machine learning productization. … [T]here are three pillars of my work: *Empathy,* *Ethics,* and *Externality.* While I want to be honest with my personal feeling (empathy), I also want to be mindful of the long-term, eventual consequence of my work (externality). Ultimately, it is important for me to ensure the deliverables are ethically crafted throughout an end-to-end development lifecycle (ethics).
 
-Following the principles, I'm currently working for two startup companies, both based in Japan. 
+Following the principles, I'm currently working for two startup companies, both based in Japan.
 
 I'm fortunate enough to have these immediate opportunities right after being independent, and both of them came from the connections in my home country; the first pillar—empathy—has strongly been stimulated thanks to the direct referrals, while the work is challenging enough in terms of externality and ethics.
 

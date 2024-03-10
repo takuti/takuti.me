@@ -1,5 +1,6 @@
 ---
 categories: [エッセイ]
+series: [product]
 date: 2021-10-09
 lang: ja
 title: Facebook内部告発の件、他人事ではない。

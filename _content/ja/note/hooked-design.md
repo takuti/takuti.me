@@ -1,5 +1,6 @@
 ---
 categories: [読書記録, デザイン, データサイエンス]
+series: [product]
 date: 2021-08-02
 lang: ja
 title: 僕らはなぜ、誰のためにプロダクトを作るのか─行動変容デザインとその倫理的側面
@@ -35,8 +36,8 @@ recommendations: [/ja/note/empowered/, /ja/note/design-engineer/, /ja/note/produ
 具体的には、プロダクト開発者が考慮すべきは次のプロセスによって形成される“習慣”のチカラだ：
 
 1. **Internal Trigger**：ユーザはどんな課題に直面したときに、何をしたいと望むのか？
-2. **External Trigger**：プロダクトはどのようにユーザを動機づけるのか？ 
-3. **Action**：ユーザが取るべき、かつ実行可能な最小限の行動 (MVA) はなにか？ 
+2. **External Trigger**：プロダクトはどのようにユーザを動機づけるのか？
+3. **Action**：ユーザが取るべき、かつ実行可能な最小限の行動 (MVA) はなにか？
 4. **Viable Reward**：ユーザが「もっと欲しい」と思い、彼ら彼女らをさらなる行動に駆り立てるような報酬はなにか？
 5. **Investment**：ユーザを縛り付け、離脱しづらくさせる要因はなにか？
 

@@ -1,5 +1,6 @@
 ---
 categories: [Life & Work]
+series: [malawi]
 date: 2023-10-30
 lang: en
 title: Starting with Humanity—Growth and Technology Otherwise Hurt You

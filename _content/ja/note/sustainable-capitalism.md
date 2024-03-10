@@ -1,5 +1,6 @@
 ---
 categories: [エッセイ]
+series: [product]
 date: 2021-09-08
 lang: ja
 title: 「サステナブル・キャピタリズム」とは何か

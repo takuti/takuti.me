@@ -1,5 +1,6 @@
 ---
 categories: [Design]
+series: [product]
 date: 2020-08-16
 images: [/images/language-as-a-design-tool/Accutive.png, /images/language-as-a-design-tool/prototyping.png]
 lang: en
@@ -16,7 +17,7 @@ As I wrote in [Don't "Guess" How People in Other Roles Work](/note/learn-how-oth
 
 In [Visual Elements of User Interface Design](https://www.coursera.org/learn/visual-elements-user-interface-design), we studied how to define a mood of an app, choose a visual direction of its interface, and make some design decisions. Importantly, even though the ultimate goal is to design visual elements as the course name suggests, **our first week purely focused on non-visual descriptions of an idea**.
 
-We designed a smartphone app throughout the 4-week assignments, and the very first task was to provide a short description of an idea that answers to the following three questions: *What is it*, *Who is it for*, and *Where does it live?* 
+We designed a smartphone app throughout the 4-week assignments, and the very first task was to provide a short description of an idea that answers to the following three questions: *What is it*, *Who is it for*, and *Where does it live?*
 
 Based on the description, we then determine high-level concepts of the app; I designed a heartbeat monitor app for software engineers, and the basic concepts were:
 
@@ -39,7 +40,7 @@ We also expanded them to more precise keywords tied to features and characterist
 - Efficient
     - Fast
     - Quick
-    - Look-at-glance 
+    - Look-at-glance
 - Scientific
     - Metabolic Equivalent (MET)
     - Research paper
@@ -72,7 +73,7 @@ Similarly to the last course, we first build non-visual things by words as the f
 
 Since UX design is more audience-focused, the Week#1 assignment requires us to have a deeper consideration about an important question we answered in the UI course: *Who is it for?* To be more precise, we need to think of a problem to solve at the very beginning, and then come up with a solution (i.e., an idea of a smartphone app). We finally elaborate on the idea along with the target persona.
 
-It is important to understand that **good problem leads a good idea**, and **good problem always has clear persona**. Without having the backbone, designing visual elements and working prototypes makes no sense, and your "solution" easily loses its objective. 
+It is important to understand that **good problem leads a good idea**, and **good problem always has clear persona**. Without having the backbone, designing visual elements and working prototypes makes no sense, and your "solution" easily loses its objective.
 
 *What is the problem?* Ask yourself the question.
 
@@ -92,7 +93,7 @@ I do think there is a wide space for improvement, but [here](https://coursera-as
 
 I particularly like how CalArts offers these courses in a hands-on form; every assignment was intended to be accomplished with our own idea and was peer-reviewed by the other students. It was also interesting to see how much others are seriously taking the courses given the quality of submitted assignments and feedback comments.
 
-Meanwhile, it was a good opportunity to try third-party tools for design activities. For instance, [Icons8](https://icons8.com/illustrations) was a good place to find appropriate pieces of illustrations that match the visual direction of my app. 
+Meanwhile, it was a good opportunity to try third-party tools for design activities. For instance, [Icons8](https://icons8.com/illustrations) was a good place to find appropriate pieces of illustrations that match the visual direction of my app.
 
 For prototyping in practice, I used [Namelix](https://namelix.com/) for deciding an app name, and [Figma](https://www.figma.com/) for site mapping, wireframing, and creating a clickable example. A collection of Figma plugins (e.g., [mobile UI kit](https://www.figma.com/community/file/836596421863073964)) and [templates](https://www.figma.com/templates/) were very useful for design newbies like me. You can see [my clickable prototype created in Figma](https://www.figma.com/proto/W09E52ZHWrSJexMnC4ozIr/mywalk?node-id=12%3A730&scaling=min-zoom).
 

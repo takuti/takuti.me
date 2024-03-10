@@ -1,5 +1,6 @@
 ---
 categories: [Machine Learning]
+series: [ai]
 date: 2020-08-29
 lang: en
 title: What I Think About When I Talk About ML Product
@@ -97,7 +98,7 @@ Examples of competitive advantages include:
 
 ### Bottom line
 
-While offering no ML features definitely has a negative impact on the modern tech businesses, making the functionalities worthwhile to customers is rather difficult. 
+While offering no ML features definitely has a negative impact on the modern tech businesses, making the functionalities worthwhile to customers is rather difficult.
 
 Therefore, I want to carefully ask the questions to myself when I think about the ML product:
 

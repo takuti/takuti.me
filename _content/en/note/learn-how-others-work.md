@@ -1,5 +1,6 @@
 ---
 categories: [Life & Work]
+series: [product]
 date: 2020-05-31
 lang: en
 title: Don't "Guess" How People in Other Roles Work
@@ -34,7 +35,7 @@ For instance, the following scenarios show our work is clearly based on mutual c
 
 Sales, marketing, legal, customer success &mdash; There are numerous variations of inter-role dependency in practice.
 
-We all want to make sure if we're doing the right thing, and being confident about what their organization does would be highly important to be successful. 
+We all want to make sure if we're doing the right thing, and being confident about what their organization does would be highly important to be successful.
 
 To work better together under the uncertainty, we see many people are trying to "guess" how people in other roles work:
 
@@ -52,7 +53,7 @@ I would say reverse engineering a person sitting next to you is much harder than
 
 If guessing is a bad idea, is there anything we can do to effectively capture collaborators' expectations and capability?
 
-Well, why don't you just meet in person and talk to each other? 
+Well, why don't you just meet in person and talk to each other?
 
 But it might be challenging as a first step; when we have no idea what others think and how they work as I illustrated above, your conversation is unlikely to go well since you're clearly not on the same page. That is, I don't know a "language" (i.e., protocol) your colleague follows in their roles, and I couldn't give enough respect to them due to the lack of understanding.
 

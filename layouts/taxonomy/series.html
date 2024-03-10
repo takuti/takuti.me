@@ -1,0 +1,18 @@
+{{ partial "header.html" . }}
+
+<div id="container">
+  <article>
+    <h2><i class="fas fa-book"></i>&nbsp;&nbsp;{{ .Title }}</h2>
+
+    {{ .Content }}
+
+    <h3>{{ i18n "inSeries" }}</h3>
+    <ol class="entry-list">
+      {{ range .Pages.Reverse }}
+      <li><a href="{{ .Permalink }}">{{ .Title }}</a>
+      {{ end }}
+    </ol>
+  </article>
+</div>
+
+{{ partial "footer.html" . }}

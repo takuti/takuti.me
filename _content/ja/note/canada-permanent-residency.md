@@ -1,5 +1,6 @@
 ---
 categories: [生活・人生]
+series: [canada]
 date: 2022-07-31
 lang: ja
 title: 1年4ヶ月ぶりに日本に来たら、カナダに帰れなくなって、おまけにコロナ陽性になった。

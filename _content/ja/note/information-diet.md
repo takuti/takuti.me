@@ -1,5 +1,6 @@
 ---
 categories: [生活・人生, エッセイ, ビジネス]
+series: [product]
 date: 2023-05-21
 lang: ja
 title: 情報倫理─それは哲学か、栄養学か？

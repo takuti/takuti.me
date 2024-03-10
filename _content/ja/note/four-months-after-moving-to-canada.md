@@ -1,5 +1,6 @@
 ---
 categories: [生活・人生, エッセイ]
+series: [canada]
 date: 2021-06-27
 lang: ja
 title: 過去の自分に救われる。

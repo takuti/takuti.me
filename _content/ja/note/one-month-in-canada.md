@@ -1,5 +1,6 @@
 ---
 categories: [生活・人生]
+series: [canada]
 date: 2021-03-26
 images: [/images/one-month-in-canada/day10-test-waiting.png, /images/one-month-in-canada/area-before.png,
   /images/one-month-in-canada/area-after.png]

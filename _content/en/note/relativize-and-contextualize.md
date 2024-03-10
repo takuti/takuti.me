@@ -1,5 +1,6 @@
 ---
 categories: [Life & Work]
+series: [malawi]
 date: 2024-01-31
 lang: en
 title: Relativize Malawi, and Rethink Their Contexts

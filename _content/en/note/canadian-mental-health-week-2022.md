@@ -1,5 +1,6 @@
 ---
 categories: [Life & Work]
+series: [canada]
 date: 2022-05-05
 lang: en
 title: 'Starting with Empathy to #GetReal, Beat Loneliness, and Be Ethical. #MentalHealthWeek'

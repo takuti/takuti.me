@@ -1,12 +1,13 @@
 ---
 categories: [Life & Work]
+series: [canada]
 date: 2021-03-21
 images: [/images/relocating-to-canada/vancouver-harbour.jpeg]
 lang: en
 title: 'Moving to Canada: Adding Randomness to My Life'
 lastmod: '2022-06-05'
 keywords: [vancouver, japan, oslo, canada, treasure, live, nagano, harbour, manager,
-  country]
+  years]
 recommendations: [/note/post-pandemic-first-international-trip/, /note/td-to-amazon/,
   /note/volunteering-in-malawi/]
 ---
@@ -17,7 +18,7 @@ On Feb 26, 2021, I have officially moved to Metro Vancouver in British Columbia,
 
 ### Why?
 
-Just as an experience, seriously. 
+Just as an experience, seriously.
 
 Of course, there are some tactical reasons as follows:
 
@@ -47,7 +48,7 @@ https://twitter.com/takuti/status/1366252013831352321
 
 However, I'm more curious about seeing how people live in the situation, what I can do as an individual, and what the pandemic newly brings to the world in the next 2-3 years; the challenge doesn't become a reason of stopping moving forward, and it rather makes my curiosity even stronger.
 
-Life is unpredictable, and it's the beauty for us. At the same time, we don't know when it suddenly finishes. That's why I keep adding extra randomness to my life by traveling the world, doing something uncomfortable, changing a career path, and heading in a counterintuitive direction. 
+Life is unpredictable, and it's the beauty for us. At the same time, we don't know when it suddenly finishes. That's why I keep adding extra randomness to my life by traveling the world, doing something uncomfortable, changing a career path, and heading in a counterintuitive direction.
 
 ### Why Vancouver?
 
@@ -61,8 +62,8 @@ For the reasons above, Vancouver was the best, most desirable choice for me comp
 
 ### Next steps
 
-Although my work permit technically has its expiry date, I honestly don't know how long I'll live in Canada and how my career changes over time from now on. 
+Although my work permit technically has its expiry date, I honestly don't know how long I'll live in Canada and how my career changes over time from now on.
 
-I wouldn't be surprised if I flew back to Japan within a year. Who knows what's next? But one thing I can clearly say right now is that I'm excited about the current situation as of March 2021. 
+I wouldn't be surprised if I flew back to Japan within a year. Who knows what's next? But one thing I can clearly say right now is that I'm excited about the current situation as of March 2021.
 
 Uncertainty always makes me excited, and, when the degree of certainty becomes greater than the uncertainty, that's the time I carefully review where I am.

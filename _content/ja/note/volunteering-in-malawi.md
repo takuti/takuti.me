@@ -1,5 +1,6 @@
 ---
 categories: [生活・人生]
+series: [malawi, canada]
 date: 2023-08-20
 lang: ja
 title: 日本人ソフトウェアエンジニア、カナダ代表としてアフリカ・マラウイへ往く

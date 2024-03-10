@@ -1,9 +1,10 @@
 ---
 categories: [Data Science & Analytics, Business, Recommender Systems]
+series: [data]
 date: 2022-11-27
 lang: en
 title: 'Fluid People and Blended Society: How Systems Model "Dividuals"'
-keywords: [user, systems, data, users, dividual, multiple, group, model, identities,
+keywords: [user, data, systems, users, dividual, multiple, group, model, identities,
   ing]
 recommendations: [/note/ethical-challenges-in-recommender-systems/, /note/data-feminism/,
   /note/coursera-data-science-ethics/]
@@ -25,7 +26,7 @@ The concept of dividual represents the contextualized nature of our behaviors. F
 - Occupation: I serve an engineering role vs. a business role.
 - Shared identity: I talk with a friend A vs. B vs. family member.
 
-Consequently, two friends may have completely distinct impressions about my character, or I might easily make a contradicting statement to the one I made on a different occasion. 
+Consequently, two friends may have completely distinct impressions about my character, or I might easily make a contradicting statement to the one I made on a different occasion.
 
 So, which one of them is the true version of myself? If I see myself as a dividual, the answer is that all of them are in fact true parts of myself. That is, since each person has their limitation to the amount of knowledge and knowhow to hold, *personbytes*, we are naturally distributing the capacity to multiple states for efficiency and effectiveness.
 

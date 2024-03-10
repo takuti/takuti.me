@@ -1,5 +1,6 @@
 ---
 audio: [/audio/recommendation-julia-v040.mp3]
+series: [julia]
 categories: [Recommender Systems, Programming]
 date: 2022-01-08
 lang: en

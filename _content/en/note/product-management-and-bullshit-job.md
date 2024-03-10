@@ -1,5 +1,6 @@
 ---
 categories: [Life & Work]
+series: [product]
 date: 2021-05-26
 images: [/images/product-management-and-bullshit-job/pm-skill-stack.png]
 lang: en
@@ -47,13 +48,13 @@ Having said that, it should be noticed that these are all about practical execut
 
 ### Execution relies on communication
 
-In practice, efficient and effective product development requires PMs to extensively communicate with many internal and external people. 
+In practice, efficient and effective product development requires PMs to extensively communicate with many internal and external people.
 
 As a metaphor, someone said the job of product management is like a quarterback of american football, who acts as a leader of the offense while actively calling the play in the huddle and frequently touching the ball on offensive play.
 
 That is, PM needs to balance different opinions from multiple stakeholders and find out an optimal place to "pass the ball". In this regard, we should realize **communication won't succeed without trust & confidence**. What if quarterbacks get lost during the play, or they're not trusted by the others?
 
-Actively driving a decision-making process is one of the most important responsibilities PM has to take. Here, you, as a PM, must be the person to establish everyone's trust and confidence so they can follow your decision. 
+Actively driving a decision-making process is one of the most important responsibilities PM has to take. Here, you, as a PM, must be the person to establish everyone's trust and confidence so they can follow your decision.
 
 ### Personal motivation allows you to accomplish the difficult job
 
@@ -63,16 +64,16 @@ Consequently, **without having strong ownership and passion, it is very difficul
 
 So, are you building products "you" would love? What brings you to the role?
 
-- Are you believing a product you're creating & the vision the company has? 
-- Would you have a strong motivation on underlying {problem, technology, people, ...} of your product? 
+- Are you believing a product you're creating & the vision the company has?
+- Would you have a strong motivation on underlying {problem, technology, people, ...} of your product?
 - Why should "you" be the PM for this specific product?
 
 ### Bottom line
 
 A key takeaway from my experience is that **knowing how to build products that "customers" love won't be enough**. More importantly, building a product that "you" love should be the minimum qualification to be a PM, and the fact ultimately enables the product to be loved by customers.
 
-1. As long as you're a strong believer in the product, it motivates you to have strong confidence in what you're doing. 
-2. Accordingly, the attitude naturally stimulates others to establish a trust relationship with each other. 
+1. As long as you're a strong believer in the product, it motivates you to have strong confidence in what you're doing.
+2. Accordingly, the attitude naturally stimulates others to establish a trust relationship with each other.
 3. Finally, the relationship makes communication a lot easier, and your practical skillset as a PM will eventually be valued here.
 
 If you're not willing to proactively and comprehensively take the responsibility, other people can do a specific job better than you e.g., project manager, business analyst, user researcher. That's a potential reason why PM can be a bullshit job, in my personal opinion, and an organization won't necessarily have to have a PM toward success.

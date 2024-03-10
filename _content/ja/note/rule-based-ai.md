@@ -1,6 +1,7 @@
 ---
 aliases: [/note/rule-based-ai/]
 categories: [機械学習, エッセイ, データサイエンス]
+series: [ai]
 date: 2017-10-21
 lang: ja
 title: ルールベースは『人工知能』か

@@ -1,5 +1,6 @@
 ---
 categories: [生活・人生, エッセイ]
+series: [malawi]
 date: 2024-02-27
 lang: ja
 title: 世界で10番目に貧しい暮らしは、僕らが想像するほど悪くない

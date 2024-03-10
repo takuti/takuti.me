@@ -1,11 +1,12 @@
 ---
 categories: [Life & Work, Business]
+series: [data, product]
 date: 2022-11-19
 lang: en
 title: The Locality of Information and Technology
 images: [/images/why-information-grows/macro-to-micro.png]
 keywords: [localized, products, networks, macro, trust, complex, cooperation, micro,
-  knowledge, diverse]
+  knowledge, commercially]
 recommendations: [/note/finding-the-mother-tree/, /note/data-feminism/, /note/internet-for-the-people/]
 ---
 
@@ -27,7 +28,7 @@ However, at the same time, the world is tightly interconnected at a macro level 
 
 ### Products bridge a gap between localized knowledge and macroeconomy
 
-If neither micro-level overthinking nor macro-level oversimplification helps given the complexity, what degree of abstraction should we care about the most? Rethinking the shape of commercially-available products through the lens of information exchange possibly answers. To be more precise, products can be seen as an intermediate object that embodies localized, contextualized information and turns the location/person-dependent knowledge and knowhow into practical functions, as Cesar Hidalgo beautifully highlighted in ***[Why Information Grows: The Evolution of Order, from Atoms to Economies](https://amzn.to/3OsbRVy)***. 
+If neither micro-level overthinking nor macro-level oversimplification helps given the complexity, what degree of abstraction should we care about the most? Rethinking the shape of commercially-available products through the lens of information exchange possibly answers. To be more precise, products can be seen as an intermediate object that embodies localized, contextualized information and turns the location/person-dependent knowledge and knowhow into practical functions, as Cesar Hidalgo beautifully highlighted in ***[Why Information Grows: The Evolution of Order, from Atoms to Economies](https://amzn.to/3OsbRVy)***.
 
 In his book, Hidalgo brings the readers on a journey from a micro-level entropy discussion to a macro view of the economy. By reviewing economics and social science literature with visualizations, the book reveals that the products not only embody information but do enable the matter to *compute*, meaning knowledge/knowhow augments and amplifies the information. That's why information grows like a natural phenomenon through experiential and social power from the complex economic and social networks we structure. And the growth rate becomes larger in more tight-knit networks as trust in a network is a glue to maintain the links, resulting in a lower cost of inter-node transactions; links without trust require a more expensive transaction cost for communication and negotiation.
 

@@ -1,6 +1,7 @@
 ---
 audio: [/audio/ethical-product-developer.mp3]
 categories: [Life & Work, Business, Design]
+series: [product]
 date: 2022-01-01
 lang: en
 title: Ethical Product Developer

@@ -1,5 +1,6 @@
 ---
 categories: [Recommender Systems, Data Science & Analytics, Machine Learning]
+series: [data]
 date: 2021-07-15
 lang: en
 title: Reviewing Ethical Challenges in Recommender Systems
@@ -35,7 +36,7 @@ Therefore, balancing multiple stakeholders' interests is a crucial challenge in 
 
 The authors investigated several academic papers discussing recommender systems from an ethical perspective, and they classified the problems into six key topics.
 
-| Challenge | Problem statement | 
+| Challenge | Problem statement |
 |:--:|:--|
 |Inappropriate content|Users encounter unintended use of their data that leads to exposure to A/B testing and inaccurate recommendation results.|
 |Privacy|Since recommender systems fully rely on user's behavioral data, the potential risk of leakage eventually enables external parties to obtain sensitive information.|
@@ -44,9 +45,9 @@ The authors investigated several academic papers discussing recommender systems 
 |Fairness|Every consumer must be able to receive the most relevant recommendation (C-fairness), whereas every provider should be capable to recommend their products to those who potentially show interest with a high likelihood (P-fairness). Developers need to identify the interests of different parties and design a system/algorithm to balance them without discrimination. |
 |Social effects|Like fake news in Twitter/YouTube recommendations, consumers can easily be biased by the recommendation results, and public opinions are polarized as a consequence. Meanwhile, in the social networks, it is easy for small active groups to manipulate system outputs, and an opportunity of having public debates can be taken away.|
 
-When we think about potential solutions to the challenges, the paper cautions that user-centered system design may not work in practice. 
+When we think about potential solutions to the challenges, the paper cautions that user-centered system design may not work in practice.
 
-For example, to eliminate a chance of encountering inappropriate content, systems could parametrize some factors and leave room for users to configure recommendation algorithms. Meanwhile, privacy concerns can be mitigated if the systems let users explicitly consent to the use of their data and control their privacy. 
+For example, to eliminate a chance of encountering inappropriate content, systems could parametrize some factors and leave room for users to configure recommendation algorithms. Meanwhile, privacy concerns can be mitigated if the systems let users explicitly consent to the use of their data and control their privacy.
 
 However, both cases simply shift the responsibility for protecting rights to the end-users. Individuals can't understand the system and manage everything on their accountability. That's why considering multiple stakeholders is important; it's not a simple problem on one side (user vs. system/provider), and taking into account both objectives and balancing them is the only way to come up with a satisfactory solution.
 

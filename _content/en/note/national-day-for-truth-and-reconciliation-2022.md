@@ -1,5 +1,6 @@
 ---
 categories: [Life & Work]
+series: [canada]
 date: 2022-09-29
 lang: en
 title: 'Reviewing Things I Do Not Know About the Indian Act #NDTR'
@@ -24,7 +25,7 @@ Following 10 discussion topics the author listed in Appendix, I'd like to review
 
 **1. Why do you think so little is known about the Indian Act?**
 
-I believe the reason is in education, especially for adults. 
+I believe the reason is in education, especially for adults.
 
 I honestly don't know much about how Canadian children are educated in regards to the Indigenous history and the Indian Act, but if I think of a similar history in my home country (e.g., [Ainu](https://en.wikipedia.org/wiki/Ainu_people), the indigenous population in the Northern part of Japan; or, any other types of [regional discrimination, violence, assimilation movements](https://en.wikipedia.org/wiki/Burakumin)), a generation-to-generation educational system plays a crucial role to accurately convey the facts about the dark history. I'm sure the schools have some curriculum about history, but it's not easy for the kids to deeply realize how serious the topic is, and hence broader and stronger messages from parents and governments are necessary.
 
@@ -32,7 +33,7 @@ In that sense, I still don't see sufficient resources and opportunities for adul
 
 **2. How does knowing more about the Indian Act affect your life?**
 
-It has changed how I see someone who has a different way of thinking/speaking based on different cultural and historical backgrounds, which is essentially everyone other than myself. 
+It has changed how I see someone who has a different way of thinking/speaking based on different cultural and historical backgrounds, which is essentially everyone other than myself.
 
 Of course, the degree of seriousness differs, but the book brought me a realization that a discriminatory legislature like the Indian Act did (does) exist anywhere in the world, such as the one I mentioned above in the context of Japanese history. In my opinion, the fundamental reason is that, whenever we encounter people who are different from ourselves in some ways, the easiest approach is to "get rid of" the difference by making an effort on assimilation. Even in our day-to-day life, consider someone who has an opposite opinion to yours—You'd naturally feel uncomfortable with facing these people, and you might simply give up having a conversation and take an easy path such as ignoring, laughing, or criticizing.
 
@@ -64,7 +65,7 @@ The book amplified my view of Indigenous Peoples as a victim of the legislature.
 
 **8. What are the social and political impacts of removing the Indian Act as a piece of legislature?**
 
-I'm sure it's going to be a big step if it actually happened. However, a natural outcome I can think of is everyone eventually forgets about the Indian Act, and the relevant messages from society & politicians will get weaker and weaker. History won't be voided forever, and hence, when the Indian Act is removed, it is equally or more important to implement a long-lasting mechanism in society so everyone has opportunities to continuously learn about history. And yes, this is where the [Truth and Reconciliation Commission's 94 Calls to Action](https://www.rcaanc-cirnac.gc.ca/eng/1524494530110/1557511412801) come in. 
+I'm sure it's going to be a big step if it actually happened. However, a natural outcome I can think of is everyone eventually forgets about the Indian Act, and the relevant messages from society & politicians will get weaker and weaker. History won't be voided forever, and hence, when the Indian Act is removed, it is equally or more important to implement a long-lasting mechanism in society so everyone has opportunities to continuously learn about history. And yes, this is where the [Truth and Reconciliation Commission's 94 Calls to Action](https://www.rcaanc-cirnac.gc.ca/eng/1524494530110/1557511412801) come in.
 
 **9. Which of the Truth and Reconciliation Commission's 94 Calls to Action were relevant to you personally? Professionally?**
 

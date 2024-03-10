@@ -1,5 +1,6 @@
 ---
 categories: [読書記録, デザイン]
+series: [product]
 date: 2021-09-29
 lang: ja
 title: ソフトウェアプロダクトマネジメントのバイブル "Inspired" の続編 "Empowered"、わかりみが深い。

@@ -1,5 +1,6 @@
 ---
 categories: [Programming, Data Science & Analytics]
+series: [data]
 date: 2022-01-30
 lang: en
 title: Data Ethics with Lineage
