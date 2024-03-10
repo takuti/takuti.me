@@ -192,11 +192,6 @@
       cursor: pointer;
       position: relative;
     }
-
-    .image-gallery::after {
-      content: "";
-      flex-grow: 999;
-    }
   }
 
   .image-gallery li img {
