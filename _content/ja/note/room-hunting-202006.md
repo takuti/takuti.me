@@ -5,7 +5,7 @@ lang: ja
 title: まっさらな地図を手に入れた
 lastmod: '2022-01-18'
 keywords: [東京, 三島, 新幹線, 地図, 自分, まっさら, 探し, 理由, 通勤, 日本地図]
-recommendations: [/ja/note/oyo-life-202007/, /ja/note/oyo-life-202010/, /ja/note/relocating-to-canada/]
+recommendations: [/ja/note/oyo-life-202007/, /ja/note/relocating-to-canada/, /ja/note/oyo-life-202010/]
 ---
 
 旅を繰り返し、自分だけの地図を塗りつぶしていく感覚。実績解除の瞬間はいつも気持ちがいい。

@@ -7,7 +7,7 @@ title: 'Quality Habit-Formation: It''s Like Casting a Vote on My Desired Identit
 lastmod: '2022-08-06'
 keywords: [habits, identity, traveler, week, runner, taker, expressive, habit, month,
   journaling]
-recommendations: [/note/annual-review-2021/, /note/annual-review-2022/, /note/search-for-identity/]
+recommendations: [/note/annual-review-2021/, /note/search-for-identity/, /note/annual-review-2022/]
 ---
  
 I rarely read the same book multiple times, and in 2021, [Atomic Habits](https://jamesclear.com/atomic-habits) was one of them. (Actually, it was an Audible version narrated directly by the author (!))

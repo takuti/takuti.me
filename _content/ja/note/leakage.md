@@ -5,7 +5,7 @@ date: 2017-07-16
 lang: ja
 title: Leakage in Data Mining
 lastmod: '2022-01-18'
-keywords: [leakage, データ, コンペ, kdd, 正当性, cup, 変数, 特徴, 学習, 正当]
+keywords: [leakage, データ, コンペ, kdd, 正当性, cup, 変数, 特徴, 正当, 学習]
 recommendations: [/ja/note/yahoo-egads/, /ja/note/data-stream-mining/, /ja/note/designing-data-intensive-applications/]
 ---
 

@@ -7,7 +7,7 @@ images: [/images/recommender/user-item-matrix.png, /images/recommender/cf.png, /
 lang: ja
 title: Courseraの推薦システムのコースを修了した
 lastmod: '2022-06-26'
-keywords: [行列, 推薦, アイテム, 類似, factorization, 手法, matrix, 協調フィルタリング, ユーザ, 観測]
+keywords: [行列, 推薦, アイテム, 類似, factorization, 手法, matrix, 協調フィルタリング, ユーザ, based]
 recommendations: [/ja/note/two-decades-of-amazon-recommender/, /ja/note/slim/, /ja/note/trends-in-real-world-recommender-systems-2017/]
 ---
 

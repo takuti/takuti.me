@@ -4,7 +4,7 @@ date: 2017-01-21
 lang: en
 title: 'FluRS: A Python Library for Online Item Recommendation'
 lastmod: '2022-04-03'
-keywords: [library, flurs, recommendation, feature, techniques, recommenders, julia,
+keywords: [flurs, library, recommendation, feature, techniques, recommenders, julia,
   implementing, ready, event]
 recommendations: [/note/hello-faust/, /note/recommendation-julia/, /note/cross-validation-julia-recommender/]
 ---

@@ -4,7 +4,7 @@ date: 2023-06-20
 lang: ja
 title: 走る理由、あるいはアイデンティティの変容について
 images: [/images/search-for-identity/rvm.jpeg, /images/search-for-identity/canada.jpeg]
-keywords: [走れ, 走る, 走り, アイデンティティ, 思春期, 自分, カナダ, あるいは, マラソン, 社会]
+keywords: [走れ, 走る, 走り, 思春期, アイデンティティ, 自分, カナダ, あるいは, マラソン, 社会]
 recommendations: [/ja/note/volunteering-in-malawi/, /ja/note/four-months-after-moving-to-canada/,
   /ja/note/autonomy-and-life/]
 ---

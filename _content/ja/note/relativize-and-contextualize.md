@@ -7,7 +7,7 @@ title: 人道的で倫理的な、持続的超えて永遠な『世界』─最�
 images: [/images/relativize-and-contextualize/lake_malawi.jpg]
 keywords: [マラウイ, malawi, カルチャーショック, add, マラウイ人, アディスアベバ, relativize, contextualize,
   note, この国]
-recommendations: [/ja/note/digital-malawi-2023/, /ja/note/computer-education-in-malawi/,
+recommendations: [/ja/note/computer-education-in-malawi/, /ja/note/digital-malawi-2023/,
   /ja/note/annual-review-2023/]
 ---
 

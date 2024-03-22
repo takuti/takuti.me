@@ -7,7 +7,7 @@ title: トレジャーデータ株式会社を退職して Treasure Data (Canada
 lastmod: '2022-07-31'
 keywords: [日本, カナダ, 転籍, 移住, 海外, 会社, アメリカ, プロダクトマネージャー, 手続き, 申請手続き]
 recommendations: [/ja/note/canada-permanent-residency/, /ja/note/one-month-in-canada/,
-  /ja/note/four-months-after-moving-to-canada/]
+  /ja/note/td-to-amazon/]
 ---
 
 [大学院を修了してから](/ja/note/master-graduate)4年強の間勤めたトレジャーデータ株式会社を28歳の誕生日（2月25日）付で退職して、翌日から所属がカナダ支社の Treasure Data (Canada)[^1]（以下、TD Canada）になった。

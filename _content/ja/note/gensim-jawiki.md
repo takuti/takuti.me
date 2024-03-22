@@ -5,7 +5,7 @@ date: 2017-07-22
 lang: ja
 title: gensimでWikipedia日本語版からコーパスを作ってトピックモデリング
 lastmod: '2022-01-18'
-keywords: [gensim, コーパス, jawiki, トピック, wikicorpus, tokenize, corpora, latest, ドキュメント,
+keywords: [gensim, jawiki, トピック, コーパス, wikicorpus, tokenize, corpora, latest, ドキュメント,
   wikipedia]
 recommendations: [/ja/note/fastcat/, /ja/note/recommender-libraries/, /ja/note/incremental-plsa/]
 ---
