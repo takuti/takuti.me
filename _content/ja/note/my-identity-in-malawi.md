@@ -5,7 +5,7 @@ date: 2024-04-30
 lang: ja
 title: 北ヨーロッパから望む、システムの一部としての「こっち」と「あっち」
 images: [/images/my-identity-in-malawi/copenhagen.jpeg]
-keywords: [マラウイ, コペンハーゲン, 白人, mzungu, malawi, 帰っ, identity, 外国, ヘルシンキ, フランクフルト]
+keywords: [マラウイ, malawi, コペンハーゲン, 白人, mzungu, 帰っ, identity, 外国, ヘルシンキ, フランクフルト]
 recommendations: [/ja/note/relativize-and-contextualize/, /ja/note/volunteering-in-malawi/,
   /ja/note/digital-malawi-2023/]
 ---
@@ -38,7 +38,7 @@ recommendations: [/ja/note/relativize-and-contextualize/, /ja/note/volunteering-
 
 たとえば「イノベーション」という話題ひとつとっても、それに紐づく“変数”は数多あり、テクノロジー、スキル開発、インフラ、法整備、研究開発、資金援助などが相互に影響を及ぼし合っている。ゆえに、そこに効果的なアクションを定義づけるには、議論の「コンテクスト化」によってアプローチ・優先度をマラウイに最適化することと、中長期的目線にたって、協調に基づくシステム全体の「持続可能性」に焦点を絞ることが重要ではないか。
 
-https://twitter.com/AfriLabs/status/1776317708541276584
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">🤝Thriving discussion on Tech &amp; Innovation in Malawi! 🇲🇼<br><br>Just wrapped up a fantastic meetup at mHub Lilongwe, exploring the current landscape and future potential of Malawi&#39;s tech scene.<br><br>Key highlights:<br><br>- Inspiring welcome remarks by Wangiwe Joanna Kambuzi, MD Mzuzu E-Hub.<br><br>-… <a href="https://t.co/IMPazlulsY">pic.twitter.com/IMPazlulsY</a></p>&mdash; AfriLabs (@AfriLabs) <a href="https://twitter.com/AfriLabs/status/1776317708541276584?ref_src=twsrc%5Etfw">April 5, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 この世界は複雑で、時に醜く、それでもどうしようもなく魅力的だ。その中で自分がどこに帰属するかを問うこと、そしてある場所を中心に「こっち」と「あっち」を区別することには、たぶんあまり意味がない。それよりも、そんな自分のあやふやさ、流動性を祝福し、こころを拓いて目の前の課題に取り組もう。結局、[そういう結論](/ja/note/search-for-identity/)になってしまうのだ。
 

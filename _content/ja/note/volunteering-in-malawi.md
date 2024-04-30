@@ -5,9 +5,9 @@ date: 2023-08-20
 lang: ja
 title: 日本人ソフトウェアエンジニア、カナダ代表としてアフリカ・マラウイへ往く
 images: [/images/volunteering-in-malawi/lake-malawi.jpg, /images/volunteering-in-malawi/mzuzu-coffee.jpg]
-keywords: [カナダ, ボランティア, マラウイ, 青年海外協力隊, mzuzu, 現地, 国内, malawi, 日本, プログラム]
+keywords: [カナダ, ボランティア, マラウイ, 青年海外協力隊, 現地, 国内, mzuzu, malawi, 日本, プログラム]
 recommendations: [/ja/note/computer-education-in-malawi/, /ja/note/canada-permanent-residency/,
-  /ja/note/digital-malawi-2023/]
+  /ja/note/my-identity-in-malawi/]
 ---
 
 2023年7月28日から1年間、カナダ国民または永住者のみが応募できる国際ボランティアプログラムを通じて、"Information Communication and Technology Advisor" としてアフリカ南東の内陸国・マラウイにいくことになった。[JICA青年海外協力隊](https://www.jica.go.jp/volunteer/)のカナダ版とイメージしてもらえば早いだろうか。5月にプログラム運営団体のひとつ [World University Service of Canada](https://wusc.ca/) (WUSC) のウェブサイトから申し込み、一般的な採用面接のようなフローを経てオファーをもらい、6月は健康診断や大量のワクチン摂取、ビザ申請などを慌ただしくこなした。

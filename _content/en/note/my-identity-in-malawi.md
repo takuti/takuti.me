@@ -5,8 +5,8 @@ date: 2024-04-30
 lang: en
 title: I'm Not "China"
 images: [/images/my-identity-in-malawi/copenhagen.jpeg]
-keywords: [malawi, identity, copenhagen, heart, development, china, infrastructure,
-  lakes, international, workshop]
+keywords: [malawi, identity, copenhagen, heart, development, china, innovation, infrastructure,
+  lakes, afrilabs]
 recommendations: [/note/relativize-and-contextualize/, /note/volunteering-in-malawi/,
   /note/digital-malawi-2023/]
 ---
@@ -43,7 +43,7 @@ Practically speaking, at an institutional level in particular, we cannot innovat
 
 This inter-dependency represents the complexity of the systems we are dealing with; if we focus only on a single issue in a selfish manner without acknowledging the big picture, we cannot sustain our development efforts, and nothing fundamentally changes in the long run. I designed the workshop to exercise the way of thinking and cultivate the mindset of the key players, including me myself.
 
-https://twitter.com/AfriLabs/status/1776317708541276584
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">🤝Thriving discussion on Tech &amp; Innovation in Malawi! 🇲🇼<br><br>Just wrapped up a fantastic meetup at mHub Lilongwe, exploring the current landscape and future potential of Malawi&#39;s tech scene.<br><br>Key highlights:<br><br>- Inspiring welcome remarks by Wangiwe Joanna Kambuzi, MD Mzuzu E-Hub.<br><br>-… <a href="https://t.co/IMPazlulsY">pic.twitter.com/IMPazlulsY</a></p>&mdash; AfriLabs (@AfriLabs) <a href="https://twitter.com/AfriLabs/status/1776317708541276584?ref_src=twsrc%5Etfw">April 5, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 To carry out such conversations, I intentionally put my mentality in the middle of my home country, Japan, my economic and intellectual foundation, Canada, and my current place of residence, Malawi. I mix whatever I have taken from these countries without focusing too much on the recency. Consequently, although it's ironic, I spend the largest amount of time ever thinking of my "home," Canada and Japan, while physically being more than a quarter of Earth's circumference away from there.
 
