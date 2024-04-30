@@ -5,7 +5,7 @@ date: 2023-10-30
 lang: ja
 title: 貧困、粗削りなインフラ、身近にある死─アフリカ・マラウイから考える、娯楽や幸福のかたち。
 images: [/images/playing-in-malawi/scuba.jpeg]
-keywords: [tomorrow, マラウイ, デジタルゲーム, ゲーム, 幸福, bawo, デジタル技術, 暮らし, 先進国, 人間らし]
+keywords: [tomorrow, マラウイ, デジタルゲーム, ゲーム, bawo, 幸福, デジタル技術, 暮らし, 先進国, 人間らし]
 recommendations: [/ja/note/digital-malawi-2023/, /ja/note/relativize-and-contextualize/,
   /ja/note/data-protection-law-in-malawi-2023/]
 ---

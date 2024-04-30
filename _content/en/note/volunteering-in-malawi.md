@@ -9,7 +9,7 @@ images: [/images/volunteering-in-malawi/lake-malawi.jpg, /images/volunteering-in
 keywords: [malawi, mzuzu, volunteer, africa, volunteering, canada, international,
   countries, lake, program]
 recommendations: [/note/digital-malawi-2023/, /note/relativize-and-contextualize/,
-  /note/annual-review-2023/]
+  /note/my-identity-in-malawi/]
 ---
 
 On July 28, 2023, I moved to Malawi, a beautiful landlocked country in southeastern Africa, for a Canadian international volunteering program at [World University Service of Canada](https://wusc.ca/) (WUSC). The program is funded by the Canadian government, and the organization sends Canadians, including permanent residents, to developing countries to advance [Canada’s Feminist International Assistance Policy](https://www.international.gc.ca/world-monde/issues_development-enjeux_developpement/priorities-priorites/policy-politique.aspx?lang=eng).

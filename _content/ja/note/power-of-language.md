@@ -5,8 +5,8 @@ date: 2024-03-22
 lang: ja
 title: データ時代における「言語」のちから
 images: [/images/power-of-language/learn-chichewa.png]
-keywords: [英語, 言語, チェワ語, 話者, マラウイ, マイノリティ, フランス語, 現地, malawi, パワーバランス]
-recommendations: [/ja/note/data-protection-law-in-malawi-2023/, /ja/note/annual-review-2023/,
+keywords: [英語, 言語, チェワ語, 話者, マラウイ, マイノリティ, フランス語, 現地, データ, パワーバランス]
+recommendations: [/ja/note/annual-review-2023/, /ja/note/data-protection-law-in-malawi-2023/,
   /ja/note/dmm-eikaiwa/]
 ---
 

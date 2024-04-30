@@ -4,7 +4,7 @@ date: 2021-01-04
 lang: ja
 title: 顧客起点マーケティングによって「データ」が「ストーリー」に昇華される
 lastmod: '2022-09-02'
-keywords: [顧客, アイデア, マーケティング, 起点, ストーリー, 分析, データ, 施策, コモディティ化, プロダクト]
+keywords: [顧客, マーケティング, アイデア, 起点, ストーリー, 分析, データ, 施策, コモディティ化, プロダクト]
 recommendations: [/ja/note/business-communication/, /ja/note/empowered/, /ja/note/first-step-for-understanding-users/]
 ---
 

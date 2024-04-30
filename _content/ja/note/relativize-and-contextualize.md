@@ -7,8 +7,8 @@ title: 人道的で倫理的な、持続的超えて永遠な『世界』─最�
 images: [/images/relativize-and-contextualize/lake_malawi.jpg]
 keywords: [マラウイ, malawi, カルチャーショック, add, マラウイ人, アディスアベバ, relativize, contextualize,
   note, この国]
-recommendations: [/ja/note/computer-education-in-malawi/, /ja/note/digital-malawi-2023/,
-  /ja/note/annual-review-2023/]
+recommendations: [/ja/note/my-identity-in-malawi/, /ja/note/computer-education-in-malawi/,
+  /ja/note/digital-malawi-2023/]
 ---
 
 年末休暇、[これまで約5か月間を過ごしているアフリカ・マラウイ](/ja/note/volunteering-in-malawi/)でのささやかな国内旅行の後、エチオピアの首都・アディスアベバへと飛んだ。世界経済の本流から隔絶されてしまったかのような貧困国での暮らし[^1]を経てのフライトには、初めて海外に行った時のような独特の高揚感さえ覚えた。マラウイという国を物理的に離れ、『外』から見たときに何を思うのか&mdash;その点に、ずっと興味があったのだ。ようやく訪れたその機会に昂らずにはいられない。

@@ -6,7 +6,7 @@ lang: en
 title: Is Computer Education Always Good?
 images: [/images/computer-education-in-malawi/keynote.jpg]
 keywords: [malawi, skills, computer, train, education, contexts, people, professionals,
-  young, local]
+  young, ing]
 recommendations: [/note/volunteering-in-malawi/, /note/relativize-and-contextualize/,
   /note/digital-malawi-2023/]
 ---

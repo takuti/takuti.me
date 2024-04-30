@@ -8,7 +8,7 @@ lang: ja
 title: '情報検索・インタラクション系の国際会議 CHIIR2017 に参加した #chiir2017'
 lastmod: '2022-01-18'
 keywords: [chiir, 検索, 情報検索, 会議, 画像, ユーザ, ノルウェー, 動画, retrieval, interactive]
-recommendations: [/ja/note/master-graduate/, /ja/note/recsys-2016/, /ja/note/euroscipy-2017/]
+recommendations: [/ja/note/master-graduate/, /ja/note/recsys-2016/, /ja/note/data-stream-mining/]
 ---
 
 2017年3月7日から10日までノルウェー・オスロで開催された情報検索・インタラクション系の国際会議 [The ACM SIGIR Conference on Human Information Interaction & Retrieval 2017](http://sigir.org/chiir2017/) （CHIIR2017;

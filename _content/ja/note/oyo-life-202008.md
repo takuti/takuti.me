@@ -5,7 +5,7 @@ images: [/images/oyo-life-202008/skytree.jpg, /images/oyo-life-202008/mot.jpg, /
 lang: ja
 title: '程よく疎な隅田川の東側で、ものたりない夏を静かに過ごす #オヨライフ'
 lastmod: '2022-01-18'
-keywords: [ものたりない, oyo, kebab, life, 中央線, 沿い, ちょうど, 周辺, 東京都現代美術館, 暑い]
+keywords: [ものたりない, oyo, life, kebab, 中央線, 沿い, ちょうど, 周辺, 東京都現代美術館, 暑い]
 recommendations: [/ja/note/oyo-life-202010/, /ja/note/oyo-life-202007/, /ja/note/room-hunting-202006/]
 ---
 

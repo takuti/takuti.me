@@ -7,7 +7,7 @@ lastmod: '2022-09-02'
 keywords: [zombie, stairs, crazed, systems, walk, received, ethical, flights, day,
   humanity]
 recommendations: [/note/ethical-challenges-in-recommender-systems/, /note/ethical-product-developer/,
-  /note/internet-for-the-people/]
+  /note/autonomy-and-life/]
 ---
 
 Nowadays, our day-to-day decisions rely too much on how *others* think. The others are not from a close relationship like family, friends, and colleagues. In fact, the people who are making an influence on our behavior are complete strangers on the internet.
