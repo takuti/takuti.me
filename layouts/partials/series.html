@@ -1,11 +1,9 @@
 {{ if .Params.series }}
-<blockquote>
-    <p>
-        {{ i18n "seriesThisArticle" }}:
-            {{ range $i, $v := (.GetTerms "series") -}}
-            {{- if $i -}}, {{ end -}}
-            <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
-            {{- end -}}
-    </p>
-</blockquote>
+<span class="outer-box">
+    <i class="fas fa-book"></i>&nbsp;&nbsp;{{ i18n "seriesThisArticle" }}:
+    {{ range $i, $v := (.GetTerms "series") }}
+    <a href="{{ .Permalink }}" class="taxonomy-button" style="vertical-align:baseline; margin:0.15em 0;">{{ .LinkTitle
+        }}</a>
+    {{ end }}
+</span>
 {{ end }}

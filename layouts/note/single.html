@@ -13,7 +13,6 @@
     <div style="font-size: 0.8em;">
       {{ partial "support.html" . }}
     </div>
-    {{ partial "social.html" . }}
     <div class="post">
       {{ partial "series.html" . }}
       {{- with .Params.audio }}<audio controls src="{{ index . 0 | absURL }}"></audio>{{ end }}
