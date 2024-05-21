@@ -57,3 +57,6 @@ other = "Share"
 
 [contact]
 other = "Contact"
+
+[rss]
+other = "RSS Feed"
