@@ -45,6 +45,10 @@ nav {
     i.fas {
       vertical-align: middle;
     }
+
+    &.sub {
+      font-weight: normal;
+    }
   }
 
   .left {
@@ -75,15 +79,5 @@ nav {
     float: right;
     position: relative;
     font-size: 0.9em;
-
-    .lang-list {
-      border: 0;
-      margin-left: 16px;
-      cursor: pointer;
-
-      &:focus {
-        outline: 0;
-      }
-    }
   }
 }

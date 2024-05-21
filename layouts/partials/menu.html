@@ -12,9 +12,7 @@
       <a href="/{{ .Site.Language.Lang }}">{{ i18n "home" }}</a>
       <a href="{{ "/note" | absLangURL }}">{{ i18n "blog" }}</a>
       <a href="/now">{{ i18n "now" }}</a>
-      <a href="mailto:hello@takuti.me"><i class="fas fa-envelope fa-lg"></i></a>
-      <a href="{{ "/index.xml" | absLangURL }}" target="_blank"><i class="fas fa-square-rss fa-lg"></i></a>
-      <select class="lang-list" id="select-language" onchange="location = this.value;">
+      <a href="mailto:hello@takuti.me" class="sub">{{ i18n "contact" }}</a>
       {{ if .IsTranslated }}
         {{ $siteLanguages := .Site.Languages}}
         {{ $pageLang := .Page.Lang}}
@@ -23,11 +21,8 @@
         {{ range $siteLanguages }}
         {{ if eq $translation.Lang .Lang }}
         {{ $selected := false }}
-        {{ if eq $pageLang .Lang}}
-        <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" selected>{{ .LanguageName }}
-        </option>
-        {{ else }}
-        <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}">{{ .LanguageName }}</option>
+        {{ if ne $pageLang .Lang}}
+        <a id="{{ $translation.Language }}" href="{{ $translation.Permalink }}" class="sub">{{ .LanguageName }}</a>
         {{ end }}
         {{ end }}
         {{ end }}
@@ -35,14 +30,11 @@
       {{ else }}
         {{ $currentLang := .Site.Language.Lang }}
         {{ range .Site.Languages }}
-        {{ if eq $currentLang .Lang }}
-        <option id="{{ .Lang }}" value="/{{ .Lang }}" selected>{{ .LanguageName }}</option>
-        {{ else }}
-        <option id="{{ .Lang }}" value="/{{ .Lang }}">{{ .LanguageName }}</option>
+        {{ if ne $currentLang .Lang }}
+        <a id="{{ .Lang }}" href="/{{ .Lang }}">{{ .LanguageName }}</a>
         {{ end }}
         {{ end }}
       {{ end }}
-      </select>
     </span>
   </span>
   </nav>
