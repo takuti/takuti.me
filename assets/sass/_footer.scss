@@ -34,14 +34,10 @@ footer {
     }
   }
 
-  .left {
-    vertical-align: middle;
-  }
-
-  .right {
-    display: flex;
-    align-items: center;
-    float: right;
-    position: relative;
+  span {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 1.5em;
   }
 }
