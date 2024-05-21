@@ -31,7 +31,7 @@
         {{ $currentLang := .Site.Language.Lang }}
         {{ range .Site.Languages }}
         {{ if ne $currentLang .Lang }}
-        <a id="{{ .Lang }}" href="/{{ .Lang }}">{{ .LanguageName }}</a>
+        <a id="{{ .Lang }}" href="/{{ .Lang }}" class="sub">{{ .LanguageName }}</a>
         {{ end }}
         {{ end }}
       {{ end }}
