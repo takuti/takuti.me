@@ -8,7 +8,7 @@ title: Validate, Validate, and Validate Data. But, in terms of what?
 lastmod: '2022-09-02'
 keywords: [data, accuracy, validation, tfx, pipeline, paper, metrics, schema, observability,
   privacy]
-recommendations: [/note/data-leaders-summit-europe-2019/, /note/coursera-data-science-ethics/,
+recommendations: [/note/coursera-data-science-ethics/, /note/data-leaders-summit-europe-2019/,
   /note/airflow-lineage/]
 ---
 

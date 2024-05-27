@@ -8,7 +8,7 @@ images: [/images/tech-design-story/tech-design-story-1.png, /images/tech-design-
 lang: ja
 title: ストーリーを伝えられないプロダクトの虚しさ
 lastmod: '2022-09-02'
-keywords: [デザイン, story, テクノロジー, ストーリー, design, プロダクト, tech, 体験, 小売, 再生]
+keywords: [story, デザイン, テクノロジー, ストーリー, design, プロダクト, tech, 体験, 小売, 再生]
 recommendations: [/ja/note/design-engineer/, /ja/note/after-digital/, /ja/note/2020/]
 ---
 

@@ -5,7 +5,8 @@ date: 2017-10-01
 lang: ja
 title: Pythonのconcurrent.futuresを試す
 lastmod: '2022-01-18'
-keywords: [並列化, マルチスレッド, futures, concurrent, 処理, gil, プロセス, マルチ, pool, multiprocessing]
+keywords: [並列化, マルチスレッド, futures, concurrent, 処理, gil, マルチ, pool, multiprocessing,
+  プロセス]
 recommendations: [/ja/note/euroscipy-2017/, /ja/note/acroquest-javabook/, /ja/note/coursera-scala-specialization/]
 ---
 

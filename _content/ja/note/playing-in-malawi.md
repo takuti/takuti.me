@@ -7,7 +7,7 @@ title: 貧困、粗削りなインフラ、身近にある死─アフリカ・�
 images: [/images/playing-in-malawi/scuba.jpeg]
 keywords: [tomorrow, マラウイ, デジタルゲーム, ゲーム, bawo, 幸福, デジタル技術, 暮らし, 先進国, 人間らし]
 recommendations: [/ja/note/digital-malawi-2023/, /ja/note/relativize-and-contextualize/,
-  /ja/note/data-protection-law-in-malawi-2023/]
+  /ja/note/materializing-dx/]
 ---
 
 幸せについて、考えてみよう。

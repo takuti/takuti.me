@@ -5,7 +5,7 @@ date: 2020-02-29
 lang: ja
 title: “好き”を可視化しながら、デザインノート No.88『ブランディングデザインの成功法』を読む
 lastmod: '2022-01-18'
-keywords: [デザイン, ジャッジ, ブランド, ノート, 嫌い, トレーニング, 雑誌, 三色ボールペン, 分析, 粒度]
+keywords: [デザイン, ジャッジ, ブランド, ノート, 嫌い, トレーニング, 雑誌, 三色ボールペン, 粒度, センス]
 recommendations: [/ja/note/design-engineer/, /ja/note/coursera-ui-ux-specialization/,
   /ja/note/tech-design-story/]
 ---

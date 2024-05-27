@@ -7,7 +7,7 @@ title: '"Why Do We Build This?" Humane Technologist''s View of Bad Product/Proje
 images: [/images/foundations-of-humane-technology/certificate.png]
 lastmod: '2022-09-02'
 keywords: [humane, product, technologist, foundations, project, technologists, ways,
-  users, missionaries, definition]
+  users, missionaries, technology]
 recommendations: [/note/ethical-product-developer/, /note/product-management-and-bullshit-job/,
   /note/internet-for-the-people/]
 ---

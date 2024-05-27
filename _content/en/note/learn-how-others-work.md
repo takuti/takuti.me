@@ -6,7 +6,7 @@ lang: en
 title: Don't "Guess" How People in Other Roles Work
 lastmod: '2022-09-02'
 keywords: [guess, product, finance, introduction, managers, design, engineers, designers,
-  roles, requirements]
+  roles, work]
 recommendations: [/note/product-management-and-bullshit-job/, /note/becoming-a-product-manager/,
   /note/foundations-of-humane-technology/]
 ---

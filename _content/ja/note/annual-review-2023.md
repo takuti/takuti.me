@@ -5,8 +5,8 @@ lang: ja
 title: 個とシステムのあいだで、情報とインターネットをめぐる哲学・地理探究
 images: [/images/annual-review-2023/me.jpeg]
 keywords: [note, malawi, 情報, マラウイ, パワーバランス, eumc, 倫理, wusc, 深さ, 持たざる者]
-recommendations: [/ja/note/relativize-and-contextualize/, /ja/note/data-protection-law-in-malawi-2023/,
-  /ja/note/volunteering-in-malawi/]
+recommendations: [/ja/note/relativize-and-contextualize/, /ja/note/volunteering-in-malawi/,
+  /ja/note/data-protection-law-in-malawi-2023/]
 ---
 
 2023年は物事の「深さ」に意識を向けて、10年ほど前から抱き続けている情報技術に対する“[怖さ](/ja/note/20140713/)”に、腰を据えて向き合った。論文を読み、走り、旅をし、「現場」での実践と様々な人々とのインタラクションを通して、粘土をこねくり回すようにして、抽象的な問題意識を少しずつ具体化していった1年間だった。根底にあるのは、“持つ者”と“持たざる者”のあいだの歪なパワーバランスと、各種アプリケーションに内在されたコントロール・搾取の構造こそがその“怖さ”の正体である、という理解だ。
