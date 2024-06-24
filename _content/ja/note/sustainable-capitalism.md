@@ -5,8 +5,8 @@ date: 2021-09-08
 lang: ja
 title: 「サステナブル・キャピタリズム」とは何か
 lastmod: '2022-01-18'
-keywords: [持続可能性, 大企業, 組織, carbon, 資本主義, キャピタリズム, エコバック, 社会問題, sustainability, net]
-recommendations: [/ja/note/2021/, /ja/note/td-to-amazon/, /ja/note/mountains-101/]
+keywords: [持続可能性, 組織, 大企業, carbon, 資本主義, キャピタリズム, エコバック, 社会問題, sustainability, net]
+recommendations: [/ja/note/2021/, /ja/note/mountains-101/, /ja/note/td-to-amazon/]
 ---
 
 持続可能性と資本主義&mdash;それらは必ずしも相反する考え方であるとは限らない。少し前に[長坂真護氏](https://www.magogallery.online/about)の掲げる「サステナブル・キャピタリズム」という考え方に触れて以来、その可能性についてあれこれ考えている。後述するようにこのブログでも折に触れて言及してきた話題ではあるが、最近また改めて、自身の日々の選択を批判的に振り返ることが増えた。

@@ -8,7 +8,7 @@ images: [/images/my-identity-in-malawi/copenhagen.jpeg]
 keywords: [malawi, identity, copenhagen, heart, development, china, lakes, afrilabs,
   innovation, infrastructure]
 recommendations: [/note/relativize-and-contextualize/, /note/volunteering-in-malawi/,
-  /note/digital-malawi-2023/]
+  /note/one-year-in-malawi/]
 ---
 
 *"China!"* A random stranger yells at me. Welcome to Malawi*&mdash;the Warm Heart of Africa&mdash;*though I don't consider it "friendly" and it is simply racial discrimination[^1]. Over the last nine months living in the country, I've also received countless judgemental comments on my character, socio-economic status, and thought and behavioral patterns based on the stereotypes they might have against Japanese, Asians, and foreigners at large. Unfortunately, this kind of discomfort is the only yet non-negotiable reason why I cannot imagine my future living in this beautiful country; from my recent experiences in [Ethiopia, Egypt](/note/relativize-and-contextualize/), and Malawi, I learned being an Asian in Africa naturally puts me into an endless psychological tension with locals and brings a greater sense of insecurity and vulnerability. The alienated feeling strongly demotivates me to invest my short life in the environment.

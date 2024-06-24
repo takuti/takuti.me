@@ -4,7 +4,7 @@ series: [product]
 date: 2023-05-21
 lang: ja
 title: 情報倫理─それは哲学か、栄養学か？
-keywords: [情報, food, 食品, floridi, eating, diet, hooked, 消費, 消費者, mindful]
+keywords: [情報, food, 食品, floridi, eating, diet, hooked, 消費者, 消費, mindful]
 recommendations: [/ja/note/how-information-flows/, /ja/note/annual-review-2023/, /ja/note/three-perspectives-on-llms/]
 ---
 

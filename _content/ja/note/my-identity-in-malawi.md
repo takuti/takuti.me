@@ -6,8 +6,8 @@ lang: ja
 title: 北ヨーロッパから望む、システムの一部としての「こっち」と「あっち」
 images: [/images/my-identity-in-malawi/copenhagen.jpeg]
 keywords: [マラウイ, コペンハーゲン, malawi, 白人, mzungu, 帰っ, identity, 外国, ヘルシンキ, フランクフルト]
-recommendations: [/ja/note/relativize-and-contextualize/, /ja/note/volunteering-in-malawi/,
-  /ja/note/digital-malawi-2023/]
+recommendations: [/ja/note/relativize-and-contextualize/, /ja/note/one-year-in-malawi/,
+  /ja/note/volunteering-in-malawi/]
 ---
 
 「たぶん今なら何でも感動できるので、“普通のヨーロッパ旅行”でもしますか」

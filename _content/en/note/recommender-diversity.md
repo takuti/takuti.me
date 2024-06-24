@@ -5,7 +5,7 @@ date: 2022-02-27
 lang: en
 title: Recommender Diversity is NOT Inversion of Similarity
 lastmod: '2022-05-07'
-keywords: [diversity, accuracy, metrics, recommendation, items, studies, similarity,
+keywords: [diversity, accuracy, metrics, recommendation, items, similarity, studies,
   ank, approach, trade]
 recommendations: [/note/novelty-diversity-serendipity/, /note/the-power-of-diverse-thinking/,
   /note/recsys-2021/]

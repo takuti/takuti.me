@@ -5,9 +5,8 @@ date: 2024-02-27
 lang: ja
 title: 世界で10番目に貧しい暮らしは、僕らが想像するほど悪くない
 images: [/images/malawian-personal-finance/meal.jpg, /images/malawian-personal-finance/book.jpg]
-keywords: [mwk, マラウイ, usd, malawi, 通貨, 最低賃金, 所得, 未満, マラウイ人, 貧しい]
-recommendations: [/ja/note/digital-malawi-2023/, /ja/note/relativize-and-contextualize/,
-  /ja/note/data-protection-law-in-malawi-2023/]
+keywords: [mwk, マラウイ, usd, malawi, 通貨, 最低賃金, 所得, 未満, 当たり, 切り下げ]
+recommendations: [/ja/note/digital-malawi-2023/, /ja/note/one-year-in-malawi/, /ja/note/relativize-and-contextualize/]
 ---
 
 World Population Review [*"Poorest Countries in the World"*](https://worldpopulationreview.com/country-rankings/poorest-countries-in-the-world) によると、僕が現在滞在しているアフリカ南東の小国・マラウイはPurchasing Power Parity (PPP)において世界貧困ランキング第10位である。これを根拠にこのブログでは度々「世界最貧国のひとつ」としてマラウイを語ってきたわけだが、果たして世界で10番目に貧しい生活とは、一体どのようなものなのだろうか？それは、確かにいろいろな点で「悪い」のだが、僕らのステレオタイプやニュース記事が語るショッキングな光景ほど悪くもない。

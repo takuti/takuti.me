@@ -6,8 +6,8 @@ lang: ja
 title: アフリカ・マラウイにおけるコンピュータ・プログラミング教育。その先に「未来」はあるか？
 images: [/images/computer-education-in-malawi/keynote.jpg]
 keywords: [現地, トレーニング, 教育, マラウイ, プログラム, カリキュラム, 技術, スキル, malawi, 子ども]
-recommendations: [/ja/note/relativize-and-contextualize/, /ja/note/volunteering-in-malawi/,
-  /ja/note/data-protection-law-in-malawi-2023/]
+recommendations: [/ja/note/one-year-in-malawi/, /ja/note/relativize-and-contextualize/,
+  /ja/note/volunteering-in-malawi/]
 ---
 
 子どもたちの存在は、希望だ。[貧困、粗削りなインフラ、身近にある死](/ja/note/playing-in-malawi/)・・・現在がどれだけ厳しくても、彼ら彼女らの存在によって僕らは「未来」を語ることができる。それが、[人口の約半数が18歳未満の国・マラウイ](/ja/note/digital-malawi-2023/)に着いてすぐに僕が本能的に理解したことのひとつである。

@@ -6,7 +6,7 @@ images: [/images/td-to-amazon/path.jpeg]
 lang: en
 title: 'Next "Dot" in Journey: Curiosity-Driven Job Change in Canada (Aug 2021)'
 lastmod: '2022-09-02'
-keywords: [amazon, company, product, job, note, engineer, positive, customer, impacts,
+keywords: [amazon, company, product, note, job, engineer, positive, customer, impacts,
   ompany]
 recommendations: [/note/becoming-a-freelancer-in-canada/, /note/product-management-and-bullshit-job/,
   /note/becoming-a-product-manager/]

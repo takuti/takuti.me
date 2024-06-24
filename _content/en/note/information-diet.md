@@ -4,7 +4,8 @@ series: [product]
 date: 2023-05-21
 lang: en
 title: Information Sustainability, Mindful Consumption, and Healthy Engineering
-keywords: [food, eating, diet, mindful, processed, ict, revolution, fat, eat, autonomy]
+keywords: [food, eating, diet, mindful, processed, revolution, ict, eat, autonomy,
+  fat]
 recommendations: [/note/sustainable-diets/, /note/unusual-drinking-and-eating-habits/,
   /note/autonomy-and-life/]
 ---

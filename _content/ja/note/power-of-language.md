@@ -5,8 +5,8 @@ date: 2024-03-22
 lang: ja
 title: データ時代における「言語」のちから
 images: [/images/power-of-language/learn-chichewa.png]
-keywords: [英語, 言語, チェワ語, 話者, マラウイ, マイノリティ, フランス語, 現地, データ, パワーバランス]
-recommendations: [/ja/note/annual-review-2023/, /ja/note/dmm-eikaiwa/, /ja/note/data-protection-law-in-malawi-2023/]
+keywords: [英語, 言語, チェワ語, 話者, マラウイ, マイノリティ, フランス語, 現地, パワーバランス, データ]
+recommendations: [/ja/note/one-year-in-malawi/, /ja/note/dmm-eikaiwa/, /ja/note/annual-review-2023/]
 ---
 
 旧英国領であるマラウイの公用語は（一応）英語ということになっていて、ビジネスや政治の場では広く英語が用いられている。しかし国内を移動していると、検問や空港で顔を合わせる警察官、移民管理官、軍人の挨拶は必ずと言っていいほど *Muli bwanji?*（「ムリヴァンジ？」マラウイで最も話者の多い現地語・チェワ語[^1]で、丁寧な "How are you?"）である。彼・彼女の英語がどれだけ流暢であっても、まずはムリヴァンジ。

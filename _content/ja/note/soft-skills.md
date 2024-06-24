@@ -5,7 +5,7 @@ date: 2017-07-02
 lang: ja
 title: いまさら Soft Skills を読んだ
 lastmod: '2022-09-02'
-keywords: [運動, 頷き, 戦略的, 書か, マインドセット, エンジニア, 生き方, 勉強, ソフトウェア, マーケティング]
+keywords: [運動, 頷き, 戦略的, 書か, マインドセット, エンジニア, 生き方, 勉強, マーケティング, ブログ]
 recommendations: [/ja/note/td-to-amazon/, /ja/note/first-quarter-as-a-product-manager/,
   /ja/note/product-management-and-bullshit-job/]
 ---

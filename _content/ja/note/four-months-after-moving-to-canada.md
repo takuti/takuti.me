@@ -5,8 +5,8 @@ date: 2021-06-27
 lang: ja
 title: 過去の自分に救われる。
 lastmod: '2022-07-31'
-keywords: [canada, 自分, サイコー, カナダ, note, 移住, ヶ月, アイデンティティ, 日本, 一生懸命]
-recommendations: [/ja/note/relocating-to-canada/, /ja/note/one-month-in-canada/, /ja/note/canada-permanent-residency/]
+keywords: [自分, canada, サイコー, カナダ, note, 移住, ヶ月, アイデンティティ, 日本, 一生懸命]
+recommendations: [/ja/note/relocating-to-canada/, /ja/note/one-month-in-canada/, /ja/note/td-to-amazon/]
 ---
 
 早いもので、カナダ移住から4ヶ月が経過した。

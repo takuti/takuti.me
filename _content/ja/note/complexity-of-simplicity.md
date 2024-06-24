@@ -5,7 +5,7 @@ date: 2023-02-25
 lang: ja
 title: タコスを食べ、うどんをすすり、ChatGPTについて語る。
 images: [/images/complexity-of-simplicity/tacos-cdmx-1.jpeg]
-keywords: [タコス, プロダクト, tacos, simplicity, complexity, メキシコ, 複雑, メキシコシティ, cdmx, 受け手]
+keywords: [タコス, tacos, プロダクト, simplicity, complexity, メキシコ, 複雑, メキシコシティ, cdmx, 受け手]
 recommendations: [/ja/note/empowered/, /ja/note/hooked-design/, /ja/note/product-management-myths/]
 ---
 

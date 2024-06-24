@@ -5,7 +5,7 @@ lang: en
 title: Runner's Search for Identity
 images: [/images/search-for-identity/rvm.jpeg, /images/search-for-identity/canada.jpeg]
 keywords: [marathon, running, identity, runner, solitude, emotional, canada, loneliness,
-  canadian, pace]
+  canadian, health]
 recommendations: [/note/annual-review-2022/, /note/atomic-habits/, /note/canadian-mental-health-week-2022/]
 ---
 

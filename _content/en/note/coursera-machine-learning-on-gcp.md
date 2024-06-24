@@ -5,7 +5,7 @@ lang: en
 title: Seeing Past and Present in Coursera "Machine Learning on Google Cloud" Specialization
 images: [/images/coursera-machine-learning-on-gcp/certificate.png]
 keywords: [specialization, google, cloud, vertex, bigquery, feature, solving, systems,
-  engineering, keras]
+  keras, framing]
 recommendations: [/note/gcp-dataflow/, /note/machine-learning-product/, /note/coursera-scala-capstone/]
 ---
 

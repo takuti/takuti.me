@@ -4,8 +4,8 @@ date: 2022-12-08
 lang: en
 title: 'Mentoring on @ADPList. Here''s What I Think. #ADPListWrapped'
 images: [/images/mentoring/adplist-wrapped.png]
-keywords: [mentoring, stack, mentor, learn, people, mentors, interviews, job, adplist,
-  specialty]
+keywords: [mentoring, stack, mentor, learn, people, interviews, mentors, adplist,
+  job, specialty]
 recommendations: [/note/td-to-amazon/, /note/annual-review-2022/, /note/goes-back-to-school/]
 ---
 

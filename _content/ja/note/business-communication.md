@@ -5,7 +5,7 @@ date: 2020-12-08
 lang: ja
 title: プロダクトマネジメントとコンサル、その交差点。
 lastmod: '2022-09-02'
-keywords: [コンサル, 期待値, クライアント, 顧客, 一年, コミットメント, 仕事, 不合理, プロダクト, ローコンテクスト]
+keywords: [コンサル, 期待値, クライアント, 顧客, 一年, コミットメント, 仕事, 不合理, ローコンテクスト, プロダクト]
 recommendations: [/ja/note/customer-centric-marketing/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/product-management-myths/]
 ---

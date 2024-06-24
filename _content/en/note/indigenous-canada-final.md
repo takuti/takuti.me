@@ -7,7 +7,7 @@ title: 'Indigenous Canada: Storytelling, Community, and Sustainability'
 images: [/images/indigenous-canada-final/statues.jpg]
 lastmod: '2022-09-02'
 keywords: [indigenous, history, canada, museums, statues, ourse, learning, alberta,
-  generation, longer]
+  generation, knowing]
 recommendations: [/note/indigenous-canada-mid-term/, /note/national-day-for-truth-and-reconciliation-2022/,
   /note/goes-back-to-school/]
 ---

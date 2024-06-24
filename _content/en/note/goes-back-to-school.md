@@ -4,7 +4,7 @@ date: 2022-05-23
 lang: en
 title: Rethinking Why, When, and How I Learn
 lastmod: '2022-09-02'
-keywords: [school, learning, learn, education, curiosity, moment, enter, personally,
+keywords: [school, learning, learn, curiosity, education, moment, enter, personally,
   possibilities, gain]
 recommendations: [/note/indigenous-canada-final/, /note/mentoring/, /note/td-to-amazon/]
 ---

@@ -6,9 +6,8 @@ lang: ja
 title: インターネット普及率30%未満、世界最貧国のひとつで"DX"を語る。
 images: [/images/materializing-dx/ictam-expo-presentation.jpg, /images/materializing-dx/zanzibar.jpg,
   /images/materializing-dx/bi-workshop.jpg]
-keywords: [ict, マラウイ, ictam, 技術, malawi, ビジネス, materializing, digital, インターネット, ワークショップ]
-recommendations: [/ja/note/digital-malawi-2023/, /ja/note/relativize-and-contextualize/,
-  /ja/note/data-protection-law-in-malawi-2023/]
+keywords: [ict, マラウイ, ictam, 技術, malawi, ビジネス, digital, materializing, ワークショップ, インターネット]
+recommendations: [/ja/note/one-year-in-malawi/, /ja/note/digital-malawi-2023/, /ja/note/relativize-and-contextualize/]
 ---
 
 ![ictam-expo-presentation](/images/materializing-dx/ictam-expo-presentation.jpg)

@@ -7,7 +7,7 @@ lang: en
 title: Understanding Research Trends in Recommender Systems from Word Cloud
 lastmod: '2022-08-06'
 keywords: [recsys, matrix, wordcloud, rating, cloud, filtering, collaborative, word,
-  abstract, trends]
+  abstract, factorization]
 recommendations: [/note/recsys-2021/, /note/recsys-2022/, /note/ethical-challenges-in-recommender-systems/]
 ---
 
