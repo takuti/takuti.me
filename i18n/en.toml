@@ -57,3 +57,6 @@ other = "Contact"
 
 [rss]
 other = "RSS Feed"
+
+[services]
+other = "Services"
