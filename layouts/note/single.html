@@ -10,9 +10,6 @@
     </p>
     {{ .Date.Format "2006-01-02" }}
     <h2>{{ .Title }}</h2>
-    <div style="font-size: 0.8em;">
-      {{ partial "support.html" . }}
-    </div>
     <div class="post">
       {{ partial "series.html" . }}
       {{- with .Params.audio }}<audio controls src="{{ index . 0 | absURL }}"></audio>{{ end }}
@@ -32,6 +29,7 @@
       </span>
       <span class="outer-box">
         {{ partial "author.html" . }}
+        {{ partial "now-button.html" . }}
         {{ partial "support.html" . }}
         {{ partial "disclaimer.html" . }}
       </span>

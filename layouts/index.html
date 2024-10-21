@@ -5,9 +5,7 @@
 <section>
   <h2>{{ .Site.Params.greeting | safeHTML }}</h2>
   <p>{{ .Site.Params.bio | safeHTML }}</p>
-  <p style="font-size: 0.8em;">
-    {{ partial "support.html" . }}
-  </p>
+  <p>{{ partial "now-button.html" . }}</p>
 </section>
 
 <section>
