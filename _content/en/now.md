@@ -7,7 +7,7 @@ lastmod: '2024-10-21'
 
 <!-- <audio controls src="/audio/now.mp3"></audio> -->
 
-*<i class="fa fa-map-marker"></i> Toronto, ON, Canada, preparing for my "return" flight to Malawi*
+<i class="fa fa-map-marker"></i> Toronto, ON, Canada, preparing for my "return" flight to Malawi.
 
 ### Work at the intersection of tech and society
 
