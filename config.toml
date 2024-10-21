@@ -31,8 +31,8 @@ DefaultContentLanguage = "en"
     contentDir = "content/en"
     [languages.en.params]
       name = "Takuya Kitazawa"
-      keywords = "Takuya Kitazawa,takuti,Machine Learning,Recommender Systems,Data Science"
-      bio = '<b>Takuya Kitazawa</b> is a freelance software developer, previously working at a Big Tech and Silicon Valley-based start-up company where he wore multiple hats as a full-stack software developer, machine learning engineer, data scientist, and product manager. At the intersection of technological and social aspects of data-driven applications, he is passionate about promoting the ethical use of information technologies through his mentoring, business consultation, and public engagement activities. See <a href="https://takuti.github.io/cv/" target="_blank" rel="noopener">CV <sup><i class="fas fa-external-link-alt"></i></sup></a> for more information, or contact at <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b>.'
+      keywords = "Takuya Kitazawa,takuti,AI,data,philanthropy,Africa,Malawi,Canada,Japan,mentorship,career,tech,consultation"
+      bio = '<b>Takuya Kitazawa</b> is a freelance software developer based in British Columbia, Canada. As a technologist specializing in AI and data-driven solutions, he has worked globally at Big Tech and start-up companies for a decade. At the intersection of tech and society, he is passionate about promoting the ethical use of information technologies through his mentoring, business consultation, and public engagement activities. See <a href="https://takuti.github.io/cv/" target="_blank" rel="noopener">CV <sup><i class="fas fa-external-link-alt"></i></sup></a> for more information, or contact at <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b>.'
       featured = ["/note/becoming-a-product-manager/", "/note/hivemall-events-2018-autumn/", "/note/parallel-vs-concurrent/"]
       blogDescription = "Writing about what I think, learned, and experienced. These are the dots yet to be connected."
       disclaimer = "<ul><li>Opinions are my own and do not represent the views of organizations I am/was belonging to.</li><li>I am doing my best to ensure the accuracy and fair use of the information. However, there might be some errors, outdated information, or biased subjective statements because the main purpose of this blog is to jot down my personal thoughts as soon as possible before conducting an extensive investigation. Visitors understand the limitations and rely on any information at their own risk.</li><li>That said, if there is any issue with the content, please contact me so I can take the necessary action.</li></ul>"
@@ -44,7 +44,7 @@ DefaultContentLanguage = "en"
     [languages.ja.params]
       name = "たくち"
       keywords = "Takuya Kitazawa,takuti,たくち,機械学習,推薦システム,データサイエンス"
-      bio = '<b>たくち</b>です。長野県出身、カナダ・バンクーバー在住のソフトウェアエンジニア。これまでB2B/B2Cの各領域で、Web技術・データサイエンス・機械学習のプロダクト化および顧客への導入支援・コンサルティング、そして関連分野の啓蒙活動に携わってきました。現在は、主に北米（カナダ）、アジア（日本）、アフリカ（マラウイ）の個人および企業を対象にフリーランスとして活動中。詳しい経歴は<a href="https://takuti.github.io/cv/" target="_blank" rel="noopener">レジュメ <sup><i class="fas fa-external-link-alt"></i></sup></a> を参照ください。いろいろなまちを走って、時に自然と戯れながら、その時間その場所の「日常」を生きています。ご意見・ご感想およびお仕事のご相談は <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b> まで。'
+      bio = '<b>Takuya Kitazawa</b>（<b>たくち</b>）です。長野県出身、カナダ・バンクーバー在住のソフトウェアエンジニア。これまでB2B/B2Cの各領域で、Web技術・データサイエンス・機械学習のプロダクト化および顧客への導入支援・コンサルティング、そして関連分野の啓蒙活動に携わってきました。現在は主に北米（カナダ）、アジア（日本）、アフリカ（マラウイ）の個人および企業を対象にフリーランスとして活動中。詳しい経歴は<a href="https://takuti.github.io/cv/" target="_blank" rel="noopener">レジュメ <sup><i class="fas fa-external-link-alt"></i></sup></a> を参照ください。いろいろなまちを走って、時に自然と戯れながら、その時間その場所の「日常」を生きています。ご意見・ご感想およびお仕事のご相談は <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b> まで。'
       featured = ["/ja/note/two-decades-of-amazon-recommender/", "/ja/note/product-management-myths/", "/ja/note/data-science-project-structure/"]
       blogDescription = "「生きること」「学ぶこと」「作ること」について綴っています。"
       disclaimer = '<ul><li>Amazonのアソシエイトとして、当サイトは <a href="https://amzn.to/3QZGuBp" target="_blank">amazon.co.jp</a> 上の適格販売により収入を得ています。</li><li>当サイトおよび関連するメディア上での発言はすべて私個人の見解であり、所属する（あるいは過去に所属した）組織のいかなる見解を代表するものでもありません。</li><li>当サイトのコンテンツ・情報につきまして、可能な限り正確な情報を掲載するよう努めておりますが、個人ブログという性質上、誤情報や客観性を欠いた意見が入り込んでいることもございます。いかなる場合でも、当サイトおよびリンク先に掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。</li><li>その他、記事の内容や掲載画像などに問題がございましたら、直接メールでご連絡ください。確認の後、対応させていただきます。</li></ul>'
@@ -54,5 +54,5 @@ DefaultContentLanguage = "en"
 
 [params]
   greeting = "&#x1f44b; Hi, I'm Takuya"
-  description = "A software developer, minimalistic traveler, ultralight hiker & runner, and craft beer enthusiast."
+  description = "A freelance developer based in Canada, specializing in AI and data-driven solutions."
   images = ["/images/thumbnail.png", "/images/takuti.jpg"]
