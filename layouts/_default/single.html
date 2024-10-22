@@ -2,11 +2,15 @@
 
 <div id="container">
 
-<h2>{{ .Title }}</h2>
+<article>
 
-<p class="light-black">{{ i18n "lastModified" }}: {{ .Lastmod.Format "January 2, 2006" }}</p>
+    <h2>{{ .Title }}</h2>
 
-{{ .Content }}
+    <p class="light-black">{{ i18n "lastModified" }}: {{ .Lastmod.Format "January 2, 2006" }}</p>
+
+    <div class="post">
+      {{ .Content }}
+    </div>
 
 </div>
 
