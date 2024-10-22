@@ -49,10 +49,8 @@ DefaultContentLanguage = "en"
       blogDescription = "「生きること」「学ぶこと」「作ること」について綴っています。"
       disclaimer = '<ul><li>Amazonのアソシエイトとして、当サイトは <a href="https://amzn.to/3QZGuBp" target="_blank">amazon.co.jp</a> 上の適格販売により収入を得ています。</li><li>当サイトおよび関連するメディア上での発言はすべて私個人の見解であり、所属する（あるいは過去に所属した）組織のいかなる見解を代表するものでもありません。</li><li>当サイトのコンテンツ・情報につきまして、可能な限り正確な情報を掲載するよう努めておりますが、個人ブログという性質上、誤情報や客観性を欠いた意見が入り込んでいることもございます。いかなる場合でも、当サイトおよびリンク先に掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。</li><li>その他、記事の内容や掲載画像などに問題がございましたら、直接メールでご連絡ください。確認の後、対応させていただきます。</li></ul>'
 
-[author]
-  name = "Takuya Kitazawa"
-
 [params]
+  author = "Takuya Kitazawa"
   greeting = "&#x1f44b; Hi, I'm Takuya"
   description = "A freelance developer based in Canada, specializing in AI and data-driven solutions."
   images = ["/images/thumbnail.png", "/images/takuti.jpg"]
