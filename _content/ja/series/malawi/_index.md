@@ -8,3 +8,7 @@ images: [/images/computer-education-in-malawi/computer-programming-trainees.jpg]
 
 ![computer-programming-trainees](/images/computer-education-in-malawi/computer-programming-trainees.jpg)
 ▲ 僕が3か月間Pythonプログラミングを教えた現地の若者たち。
+
+> マラウイでの活動がカナダの非営利団体・[World University Service of Canada](https://wusc.ca/)のブログで取り上げられました：[Spotlight on Takuya: An Uplifting Volunteer Experience](https://wusc.ca/spotlight-on-takuya-an-uplifting-volunteer-experience/)
+
+> 僕のコメントがカナダ・ブリティッシュコロンビア州の国際協力団体ネットワークの[ニュースレター](https://mailchi.mp/bccic/bccic-newsletter-september-2024?e=98985c3259)で紹介されました。

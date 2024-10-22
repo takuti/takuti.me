@@ -9,4 +9,6 @@ After working in tech for 10 years, it has been clear to me that the industry is
 ![computer-programming-trainees](/images/computer-education-in-malawi/computer-programming-trainees.jpg)
 _\* With Malawian young people I taught computer programming in Python._
 
-> Currently, I am running a **[fundraising](https://wusc.akaraisin.com/ui/wuscignitevol/p/tak)** to support the work done by [World University Service of Canada](https://wusc.ca/), a Canadian non-profit organization I'm serving for. Your support would be greatly appreciated. Note that donations above 20 CAD will be tax deductible in Canada.
+> My work was featured by [World University Service of Canada](https://wusc.ca/), a Canadian non-profit organization I was serving for, at [Spotlight on Takuya: An Uplifting Volunteer Experience](https://wusc.ca/spotlight-on-takuya-an-uplifting-volunteer-experience/). Check out and [let me know](/contact) what you think :\)
+
+> My comment was highlighted in BC Council for International Cooperation's [newsletter](https://mailchi.mp/bccic/bccic-newsletter-september-2024?e=98985c3259).
