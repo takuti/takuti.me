@@ -5,7 +5,7 @@ date: 2023-08-20
 lang: ja
 title: 日本人ソフトウェアエンジニア、カナダ代表としてアフリカ・マラウイへ往く
 images: [/images/volunteering-in-malawi/lake-malawi.jpg, /images/volunteering-in-malawi/mzuzu-coffee.jpg]
-keywords: [カナダ, ボランティア, マラウイ, 青年海外協力隊, 現地, 国内, mzuzu, malawi, 日本, プログラム]
+keywords: [カナダ, ボランティア, マラウイ, 青年海外協力隊, 国内, 現地, mzuzu, malawi, 日本, プログラム]
 recommendations: [/ja/note/one-year-in-malawi/, /ja/note/computer-education-in-malawi/,
   /ja/note/canada-permanent-residency/]
 ---

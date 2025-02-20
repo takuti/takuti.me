@@ -5,7 +5,7 @@ date: 2024-04-30
 lang: ja
 title: 北ヨーロッパから望む、システムの一部としての「こっち」と「あっち」
 images: [/images/my-identity-in-malawi/copenhagen.jpeg]
-keywords: [マラウイ, コペンハーゲン, malawi, 白人, mzungu, 帰っ, identity, 外国, ヘルシンキ, フランクフルト]
+keywords: [マラウイ, コペンハーゲン, malawi, 白人, mzungu, 帰っ, identity, ヘルシンキ, フランクフルト, フェリー]
 recommendations: [/ja/note/relativize-and-contextualize/, /ja/note/one-year-in-malawi/,
   /ja/note/volunteering-in-malawi/]
 ---

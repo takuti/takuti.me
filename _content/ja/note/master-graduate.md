@@ -5,7 +5,7 @@ date: 2017-03-31
 lang: ja
 title: 修士課程で機械学習が専門ではない指導教員の下で機械学習を学ぶために
 lastmod: '2022-01-18'
-keywords: [インターン, 会議, テーマ, mlss, 機械学習, 研究, 投稿, 学会, サマースクール, factorization]
+keywords: [インターン, 会議, テーマ, mlss, 機械学習, 研究, 投稿, factorization, 学会, サマースクール]
 recommendations: [/ja/note/recsys-2016/, /ja/note/td-intern-2016/, /ja/note/trends-in-real-world-recommender-systems-2017/]
 ---
 
