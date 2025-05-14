@@ -86,7 +86,7 @@ const compileContent = () =>
 
 const buildHugo = (done) => {
   const res = execSync(
-    watching ? 'hugo --buildDrafts --buildFuture --ignoreCache -b="http://localhost:3000"' : 'hugo -v',
+    watching ? 'hugo --buildDrafts --buildFuture --ignoreCache -b="http://localhost:3000"' : 'hugo --logLevel info',
     { encoding: 'utf-8' }
   );
   console.log(res);
