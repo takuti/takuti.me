@@ -1,20 +1,27 @@
 article {
-  margin: 0 auto 50px;
+  margin: 0 auto 80px;
 
   h2 {
     margin-top: 0;
   }
 
   p.meta {
+    margin-bottom: 2.5em;
+    color: $color-text-light;
+    font-size: 0.9em;
+
     a {
-      color: $color-black;
+      color: $color-text-light;
+      font-weight: 500;
+
+      &:visited {
+        color: $color-text-light;
+      }
 
       &:hover {
         text-decoration: none;
-      }
-
-      &:visited {
-        color: $color-black;
+        color: $color-dark-blue;
+        border-bottom-color: transparent;
       }
     }
   }
@@ -25,14 +32,15 @@ article {
 
   img {
     display: block;
-    margin: 0.5em 0;
+    margin: 2em 0;
     max-width: 100%;
+    border-radius: 6px;
   }
 
   [id^="fn_"],
   [id*=" fn_"] {
-    font-size: 0.8em;
+    font-size: 0.875em;
     margin: 2em 0;
-    color: lighten($color-black, 10%);
+    color: $color-text-light;
   }
 }
