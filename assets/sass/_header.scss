@@ -1,8 +1,9 @@
 header {
   width: 100%;
   position: fixed;
-  background: #fff;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid $color-border;
   top: 0;
   left: 0;
   z-index: 100;
@@ -16,11 +17,15 @@ header {
 nav {
   width: $content-width;
   margin: 0 auto;
-  padding: 16px 0;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 
   a {
     display: inline-block;
-    margin: 0 16px;
+    margin: 0 20px;
 
     &:first-child {
       margin-left: 0;
@@ -31,15 +36,17 @@ nav {
     }
 
     text-align: right;
-    font-weight: bold;
-    color: $color-black;
+    font-weight: 500;
+    color: $color-text;
+    transition: all 0.2s ease;
 
     &:visited {
-      color: $color-black;
+      color: $color-text;
     }
 
     &:hover {
-      color: $color-black;
+      color: $color-dark-blue;
+      border-bottom-color: transparent;
     }
 
     i.fas {
@@ -47,25 +54,32 @@ nav {
     }
 
     &.sub {
-      font-weight: normal;
+      font-weight: 400;
     }
   }
 
   .left {
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
 
     a {
       text-decoration: none;
+      display: flex;
+      align-items: center;
     }
 
     img {
       width: 24px;
-      vertical-align: middle;
+      margin-right: 8px;
     }
   }
 
   .nav-opener {
     display: none;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   #nav-input {
@@ -75,8 +89,6 @@ nav {
   .right {
     display: flex;
     align-items: center;
-    height: 28px;
-    float: right;
     position: relative;
     font-size: 0.9em;
   }

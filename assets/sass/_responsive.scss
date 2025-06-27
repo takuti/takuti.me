@@ -1,5 +1,5 @@
 /* responsive */
-@media screen and (max-width: 960px) {
+@media screen and (width <= 960px) {
   body {
     width: 100%;
   }
@@ -12,7 +12,9 @@
   }
 
   nav {
-    padding: 16px 0;
+    padding: 20px 0;
+    flex-direction: row;
+    justify-content: space-between;
 
     .hide-responsive {
       display: none;
@@ -21,23 +23,27 @@
     .nav-opener {
       display: flex;
       align-items: center;
-      float: right;
-      position: relative;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
       font-size: 1.2em;
-      vertical-align: middle;
     }
 
     .right {
-      height: 100%;
+      position: absolute;
+      top: 100%;
+      left: 0;
       width: 100%;
+      z-index: 10;
 
       #nav-content {
         display: none;
         width: 100%;
         background: #fff;
         text-align: center;
-        float: none;
-        user-select: none;
+        border-top: 1px solid $color-border;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 
         a,
         .lang-list {
@@ -45,15 +51,17 @@
           width: 100%;
           text-align: center;
           margin: 0;
-          padding: 0.5em 0;
-          border-top: 0.5px solid lighten($color-black, 64%);
+          padding: 1em 0;
+          border-bottom: 1px solid $color-border;
+        }
+
+        a:last-child {
+          border-bottom: none;
         }
 
         .lang-list {
-          margin-left: 0.5em;
+          margin-left: 0;
         }
-
-        padding: 2em 0;
       }
 
       #nav-input:checked ~ #nav-content {
