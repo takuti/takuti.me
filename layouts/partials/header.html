@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ .Site.Language.Lang }}">
   <head>
     <meta name="google-site-verification" content="LuC5G9RgHqMbCs-j6JqTMh9NjBFDlnmtliW1JOyotbQ" />
     <meta charset="utf-8">
-    <meta name=keywords content="{{ if .Keywords }}{{ range .Keywords }}{{ . }},{{ end }}{{ else }}{{ .Site.Params.keywords }}{{ end }}" />
+    <meta name="keywords" content="{{ if .Keywords }}{{ range .Keywords }}{{ . }},{{ end }}{{ else }}{{ .Site.Params.keywords }}{{ end }}" />
     {{ if or (.IsPage) (.IsNode) }}
-    <meta name=description content="{{ .Summary }}" />
+    <meta name="description" content="{{ .Summary }}" />
     {{ else }}
-    <meta name=description content="{{ .Site.Params.description }}" />
+    <meta name="description" content="{{ .Site.Params.description }}" />
     {{ end }}
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
     <title>
       {{ if eq .Title .Site.Title }}
         {{ .Site.Title }}
