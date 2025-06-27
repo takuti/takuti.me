@@ -140,16 +140,12 @@
     color: $color-text-light;
   }
 
-  /* Minimalistic series list for landing page */  
+  /* Minimalistic series list for landing page */
   .article-series-list {
     margin: 1em 0 2em;
   }
 
   .article-series-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75em 0;
     border-bottom: 1px solid $color-border;
 
     &:last-child {
@@ -157,6 +153,10 @@
     }
 
     a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75em 0;
       color: $color-text;
       text-decoration: none;
       font-weight: 500;
@@ -169,6 +169,10 @@
         color: $color-dark-blue;
         border-bottom-color: transparent;
       }
+    }
+
+    .article-series-title {
+      flex: 1;
     }
 
     .article-series-count {

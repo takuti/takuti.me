@@ -2,8 +2,10 @@
 <div class="article-series-list">
   {{ range .Site.Taxonomies.series }}
   <div class="article-series-item">
-    <a href="{{.Page.Permalink}}">{{.Page.Title}}</a>
-    <span class="article-series-count">{{ .Count }}</span>
+    <a href="{{.Page.Permalink}}">
+      <span class="article-series-title">{{.Page.Title}}</span>
+      <span class="article-series-count">{{ .Count }}</span>
+    </a>
   </div>
   {{ end }}
 </div>
