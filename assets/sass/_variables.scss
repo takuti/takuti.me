@@ -8,5 +8,63 @@ $color-code-bg: #f8f9fa;      // Clean code background
 
 // Layout and typography
 $content-width: 720px;
-$default-font-size: 18px;     // Slightly larger for better reading
-$line-height: 1.68;           // Slightly refined from 1.7 for optimal reading flow
+$default-font-size: 18px;
+$line-height: 1.68;
+
+// Animation and transition settings
+$transition-fast: 0.2s ease;
+$transition-smooth: 0.4s ease;
+
+// Spacing system
+$spacing-xs: 0.25em;
+$spacing-sm: 0.5em;
+$spacing-md: 1em;
+$spacing-lg: 1.5em;
+$spacing-xl: 2em;
+$spacing-xxl: 3em;
+
+// Border radius system
+$radius-sm: 3px;
+$radius-md: 6px;
+$radius-lg: 12px;
+
+// Mixins for common patterns
+@mixin button-base {
+  display: inline-block;
+  padding: 0.75em 1.5em;
+  border-radius: $radius-md;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all $transition-fast;
+  border: none;
+
+  &:hover {
+    transform: translateY(-1px);
+    border-bottom-color: transparent;
+  }
+}
+
+@mixin link-styles($color: $color-dark-blue, $visited-color: $color-dark-blue) {
+  color: $color;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all $transition-fast;
+
+  &:visited {
+    color: $visited-color;
+  }
+
+  &:hover {
+    color: darken($color, 15%);
+    border-bottom-color: $color;
+  }
+}
+
+@mixin nav-link-styles {
+  @include link-styles($color-text, $color-text);
+
+  &:hover {
+    color: $color-dark-blue;
+    border-bottom-color: transparent;
+  }
+}

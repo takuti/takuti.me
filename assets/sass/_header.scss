@@ -7,7 +7,7 @@ header {
   top: 0;
   left: 0;
   z-index: 100;
-  transition: transform 0.4s ease;
+  transition: transform $transition-smooth;
 }
 
 .header-unpinned {
@@ -24,8 +24,12 @@ nav {
   position: relative;
 
   a {
+    @include nav-link-styles;
+
     display: inline-block;
     margin: 0 20px;
+    text-align: right;
+    font-weight: 500;
 
     &:first-child {
       margin-left: 0;
@@ -33,20 +37,6 @@ nav {
 
     &:last-child {
       margin-right: 0;
-    }
-
-    text-align: right;
-    font-weight: 500;
-    color: $color-text;
-    transition: all 0.2s ease;
-
-    &:visited {
-      color: $color-text;
-    }
-
-    &:hover {
-      color: $color-dark-blue;
-      border-bottom-color: transparent;
     }
 
     i.fas {

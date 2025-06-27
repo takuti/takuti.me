@@ -11,17 +11,13 @@ article {
     font-size: 0.9em;
 
     a {
+      @include nav-link-styles;
+
       color: $color-text-light;
       font-weight: 500;
 
       &:visited {
         color: $color-text-light;
-      }
-
-      &:hover {
-        text-decoration: none;
-        color: $color-dark-blue;
-        border-bottom-color: transparent;
       }
     }
   }
@@ -32,15 +28,15 @@ article {
 
   img {
     display: block;
-    margin: 2em 0;
+    margin: $spacing-xl 0;
     max-width: 100%;
-    border-radius: 6px;
+    border-radius: $radius-md;
   }
 
   [id^="fn_"],
   [id*=" fn_"] {
     font-size: 0.875em;
-    margin: 2em 0;
+    margin: $spacing-xl 0;
     color: $color-text-light;
   }
 }

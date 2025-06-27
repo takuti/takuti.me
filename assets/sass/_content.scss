@@ -17,7 +17,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border-radius: 6px;
+      border-radius: $radius-md;
     }
   }
 
@@ -26,16 +26,12 @@
     outline: none;
   }
 
+  // Button styles using mixin
   a.btn {
-    display: inline-block;
-    padding: 0.75em 1.5em;
+    @include button-base;
+
     color: #fff;
     background-color: $color-black;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border: none;
 
     &:visited {
       color: #fff;
@@ -43,21 +39,15 @@
 
     &:hover {
       background-color: darken($color-black, 10%);
-      transform: translateY(-1px);
-      border-bottom-color: transparent;
     }
   }
 
   a.btn-bmc {
-    display: inline-block;
-    padding: 0.75em 1.5em;
-    margin: 0.5em 0;
+    @include button-base;
+
+    margin: $spacing-sm 0;
     color: $color-black;
     background-color: #f7d447;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.2s ease;
 
     &:visited {
       color: $color-black;
@@ -65,8 +55,6 @@
 
     &:hover {
       background-color: darken(#f7d447, 8%);
-      transform: translateY(-1px);
-      border-bottom-color: transparent;
     }
   }
 
@@ -83,11 +71,11 @@
 
   blockquote {
     padding-left: 15px;
-    margin-bottom: 1em;
+    margin-bottom: $spacing-md;
 
     & > p {
       margin-left: -15px;
-      padding: 1em;
+      padding: $spacing-md;
       background: $color-code-bg;
       border-left: 3px solid $color-border;
     }
@@ -96,17 +84,17 @@
   .outer-box {
     display: block;
     font-size: 0.9em;
-    padding: 1.5em;
-    margin: 1.5em 0 1em;
+    padding: $spacing-lg;
+    margin: $spacing-lg 0 $spacing-md;
     border: 1px solid $color-border;
-    border-radius: 6px;
+    border-radius: $radius-md;
 
     h4 {
       margin-top: 0;
-      margin-bottom: 1em;
+      margin-bottom: $spacing-md;
 
       &:not(:first-child) {
-        margin-top: 1.5em;
+        margin-top: $spacing-lg;
       }
     }
 
@@ -142,7 +130,7 @@
 
   /* Minimalistic series list for landing page */
   .article-series-list {
-    margin: 1em 0 2em;
+    margin: $spacing-md 0 $spacing-xl;
   }
 
   .article-series-item {
@@ -153,22 +141,13 @@
     }
 
     a {
+      @include nav-link-styles;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0.75em 0;
-      color: $color-text;
-      text-decoration: none;
       font-weight: 500;
-
-      &:visited {
-        color: $color-text;
-      }
-
-      &:hover {
-        color: $color-dark-blue;
-        border-bottom-color: transparent;
-      }
     }
 
     .article-series-title {
@@ -180,8 +159,8 @@
       font-size: 0.875em;
       font-weight: 500;
       background: $color-code-bg;
-      padding: 0.25em 0.5em;
-      border-radius: 12px;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $radius-lg;
       min-width: 1.5em;
       text-align: center;
     }
@@ -189,17 +168,7 @@
 
   dl.entry-list {
     a {
-      color: $color-text;
-
-      &:visited {
-        color: $color-text;
-      }
-
-      &:hover {
-        text-decoration: none;
-        color: $color-dark-blue;
-        border-bottom-color: transparent;
-      }
+      @include nav-link-styles;
     }
 
     .date {
@@ -207,7 +176,7 @@
     }
 
     dt {
-      padding-top: 1em;
+      padding-top: $spacing-md;
       font-size: 0.875em;
       color: $color-text-light;
       font-weight: 500;
@@ -215,7 +184,7 @@
 
     dd {
       margin: 0;
-      padding: 0.25em 0 1em;
+      padding: $spacing-xs 0 $spacing-md;
       font-weight: 600;
       font-size: 1.1em;
     }

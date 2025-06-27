@@ -68,33 +68,21 @@ pre {
 }
 
 a {
-  color: $color-dark-blue;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: all 0.2s ease;
-
-  &:visited {
-    color: $color-dark-blue;
-  }
-
-  &:hover {
-    color: darken($color-dark-blue, 15%);
-    border-bottom-color: $color-dark-blue;
-  }
+  @include link-styles;
 }
 
 hr {
   border: 0;
   border-top: 1px solid $color-border;
-  margin: 3em 0;
+  margin: $spacing-xxl 0;
 }
 
 code {
   background: $color-code-bg;
   font-size: 0.85em;
-  padding: 0.2em 0.4em;
+  padding: $spacing-xs 0.4em;
   border: 1px solid $color-border;
-  border-radius: 3px;
+  border-radius: $radius-sm;
   font-family: "SF Mono", Monaco, Inconsolata, "Fira Code", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
   color: #e74c3c;
   font-weight: 500;
@@ -109,10 +97,10 @@ pre code {
     word-wrap: break-word;
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: auto;
-    padding: 1.5em;
+    padding: $spacing-lg;
     display: block;
     border: 1px solid $color-border;
-    border-radius: 6px;
+    border-radius: $radius-md;
     overflow: auto;
     background: $color-code-bg;
     color: $color-text;
@@ -128,7 +116,7 @@ pre code {
 
 div.table-container {
   overflow-x: auto;
-  margin: 2em 0;
+  margin: $spacing-xl 0;
 }
 
 table {
@@ -136,13 +124,13 @@ table {
   width: 100%;
   border-collapse: collapse;
   border: 1px solid $color-border;
-  border-radius: 6px;
+  border-radius: $radius-md;
   overflow: hidden;
 
   th {
-    padding: 1em;
+    padding: $spacing-md;
     vertical-align: top;
-    background-color: #f8f9fa;
+    background-color: $color-code-bg;
     border-bottom: 1px solid $color-border;
     font-weight: 600;
     color: $color-black;
@@ -150,7 +138,7 @@ table {
   }
 
   td {
-    padding: 1em;
+    padding: $spacing-md;
     background-color: #fff;
     border-bottom: 1px solid $color-border;
     color: $color-text;
