@@ -27,7 +27,7 @@
 
   a.btn {
     display: inline-block;
-    padding: 0.2em 0.75em;
+    padding: 0.4em 0.75em;
     color: #fff;
     background-color: $color-black;
     border-radius: 4px;
@@ -44,7 +44,7 @@
 
   a.btn-bmc {
     display: inline-block;
-    padding: 0.2em 0.75em;
+    padding: 0.4em 0.75em;
     margin: 0.5em 0;
     color: $color-black;
     background-color: #f7d447;
@@ -57,24 +57,6 @@
 
     &:hover {
       background-color: lighten(#f7d447, 4%);
-    }
-  }
-
-  a.btn-wusc {
-    display: inline-block;
-    padding: 0.2em 0.75em;
-    margin: 0.5em 0;
-    color: #fff;
-    background-color: #004987;
-    border-radius: 4px;
-    text-decoration: none;
-
-    &:visited {
-      color: #fff;
-    }
-
-    &:hover {
-      background-color: lighten(#004987, 4%);
     }
   }
 
