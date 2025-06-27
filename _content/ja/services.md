@@ -27,7 +27,6 @@ title: サービス内容のご紹介
 - 目下取り組んでいるプロジェクトの遂行に際した技術的なアドバイス
 - レジュメのレビューや模擬面接
 
-<br/>
 <a href="https://mentorcruise.com/mentor/takuyakitazawa/">
 <img src="https://cdn.mentorcruise.com/img/banner/navy-sm.svg" width="240" alt="MentorCruise">
 </a>

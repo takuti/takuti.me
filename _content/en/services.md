@@ -28,7 +28,6 @@ Both short- and long-term engagements with mentees having a clear objective in t
 - (Co-)Development of a portfolio project
 - Resume feedback and mock interviews
 
-<br/>
 <a href="https://mentorcruise.com/mentor/takuyakitazawa/">
 <img src="https://cdn.mentorcruise.com/img/banner/navy-sm.svg" width="240" alt="MentorCruise">
 </a>

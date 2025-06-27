@@ -1,7 +1,7 @@
 #container {
   width: $content-width;
   max-width: 90%;
-  margin: 100px auto 50px;
+  margin: 120px auto 80px;
 
   span.iframe-container {
     display: block;
@@ -9,7 +9,7 @@
     width: 100%;
     height: 0;
     padding-bottom: 56.25%;
-    margin-bottom: 2em;
+    margin-bottom: 2.5em;
 
     iframe {
       position: absolute;
@@ -17,6 +17,7 @@
       left: 0;
       width: 100%;
       height: 100%;
+      border-radius: 6px;
     }
   }
 
@@ -27,77 +28,56 @@
 
   a.btn {
     display: inline-block;
-    padding: 0.4em 0.75em;
+    padding: 0.75em 1.5em;
     color: #fff;
     background-color: $color-black;
-    border-radius: 4px;
+    border-radius: 6px;
     text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
 
     &:visited {
       color: #fff;
     }
 
     &:hover {
-      background-color: $color-dark-blue;
+      background-color: darken($color-black, 10%);
+      transform: translateY(-1px);
+      border-bottom-color: transparent;
     }
   }
 
   a.btn-bmc {
     display: inline-block;
-    padding: 0.4em 0.75em;
+    padding: 0.75em 1.5em;
     margin: 0.5em 0;
     color: $color-black;
     background-color: #f7d447;
-    border-radius: 4px;
+    border-radius: 6px;
     text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
 
     &:visited {
       color: $color-black;
     }
 
     &:hover {
-      background-color: lighten(#f7d447, 4%);
+      background-color: darken(#f7d447, 8%);
+      transform: translateY(-1px);
+      border-bottom-color: transparent;
     }
   }
 
   ul,
   ol {
     margin-left: 0;
-    padding-left: 1.5em;
+    padding-left: 2em;
 
     li {
-      margin-bottom: 0.2em;
-    }
-  }
-
-  dl.entry-list {
-    a {
-      color: $color-black;
-
-      &:visited {
-        color: $color-black;
-      }
-
-      &:hover {
-        text-decoration: none;
-        color: $color-dark-blue;
-      }
-    }
-
-    .date {
-      display: inline-block;
-    }
-
-    dt {
-      padding-top: 0.5em;
-      font-size: 0.8em;
-      color: lighten($color-black, 40%);
-    }
-
-    dd {
-      margin: 0;
-      padding: 0 0 0.5em;
-      font-weight: bold;
+      margin-bottom: 0.5em;
+      line-height: $line-height;
     }
   }
 
@@ -108,17 +88,31 @@
     & > p {
       margin-left: -15px;
       padding: 1em;
-      background: lighten($color-black, 75%);
-      border-left: 3px solid #eee;
+      background: $color-code-bg;
+      border-left: 3px solid $color-border;
     }
   }
 
   .outer-box {
     display: block;
     font-size: 0.9em;
-    padding: 1em;
-    margin: 1.5em 0;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    padding: 1.5em;
+    margin: 1.5em 0 1em;
+    border: 1px solid $color-border;
+    border-radius: 6px;
+
+    h4 {
+      margin-top: 0;
+      margin-bottom: 1em;
+
+      &:not(:first-child) {
+        margin-top: 1.5em;
+      }
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
   }
 
   .taxonomy-button {
@@ -127,85 +121,99 @@
     vertical-align: text-bottom;
     border-radius: 4px;
     text-decoration: none;
-    background-color: lighten($color-black, 64%);
-    color: $color-black;
+    background-color: $color-border;
+    color: $color-text;
+
+    &:visited {
+      color: $color-text;
+      background-color: $color-border;
+    }
 
     &:hover {
-      background-color: $color-black;
+      background-color: $color-dark-blue;
       color: #fff;
+      border-bottom-color: transparent;
     }
   }
 
   .light-black {
-    color: lighten($color-black, 32%);
+    color: $color-text-light;
   }
 
-  /* Responsive image gallery rules begin
-   * https://blog.logrocket.com/responsive-image-gallery-css-flexbox/
-   */
-  ul.image-gallery {
-    list-style: none;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+  /* Minimalistic series list for landing page */  
+  .article-series-list {
+    margin: 1em 0 2em;
   }
 
-  .image-gallery > li {
-    /* fallback */
-    display: inline-block;
-    width: 300px;
-    height: 200px;
-    margin: 0 5px 5px;
-
-    /* end fallback */
-    position: relative;
-    cursor: pointer;
-  }
-
-  @supports (display: flex) {
-    .image-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-    }
-
-    .image-gallery > li {
-      flex: auto;
-      margin: 0;
-      cursor: pointer;
-      position: relative;
-    }
-  }
-
-  .image-gallery li img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    vertical-align: middle;
-    border-radius: 4px;
-  }
-
-  .overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba($color-black, 0.5);
-    top: 0;
-    left: 0;
-    color: #fff;
-    text-shadow: 1px 1px 1px $color-black;
-    border-radius: 4px;
-    font-size: 1.1em;
-    font-weight: bold;
-
-    /* center overlay text */
+  .article-series-item {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    padding: 0.75em 0;
+    border-bottom: 1px solid $color-border;
 
-    & > span {
-      display: inline-box;
-      padding: 5px;
+    &:last-child {
+      border-bottom: none;
+    }
+
+    a {
+      color: $color-text;
+      text-decoration: none;
+      font-weight: 500;
+
+      &:visited {
+        color: $color-text;
+      }
+
+      &:hover {
+        color: $color-dark-blue;
+        border-bottom-color: transparent;
+      }
+    }
+
+    .article-series-count {
+      color: $color-text-light;
+      font-size: 0.875em;
+      font-weight: 500;
+      background: $color-code-bg;
+      padding: 0.25em 0.5em;
+      border-radius: 12px;
+      min-width: 1.5em;
+      text-align: center;
+    }
+  }
+
+  dl.entry-list {
+    a {
+      color: $color-text;
+
+      &:visited {
+        color: $color-text;
+      }
+
+      &:hover {
+        text-decoration: none;
+        color: $color-dark-blue;
+        border-bottom-color: transparent;
+      }
+    }
+
+    .date {
+      display: inline-block;
+    }
+
+    dt {
+      padding-top: 1em;
+      font-size: 0.875em;
+      color: $color-text-light;
+      font-weight: 500;
+    }
+
+    dd {
+      margin: 0;
+      padding: 0.25em 0 1em;
+      font-weight: 600;
+      font-size: 1.1em;
     }
   }
 
