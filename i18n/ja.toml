@@ -60,3 +60,6 @@ other = "RSSフィード"
 
 [services]
 other = "サービス"
+
+[greeting]
+other = "こんにちは"

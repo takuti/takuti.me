@@ -2,20 +2,24 @@
 
 <div id="container">
 
-<section>
-  <h2>{{ .Site.Params.greeting | safeHTML }}</h2>
-  <p>{{ .Site.Params.bio | safeHTML }}</p>
-  <p>{{ partial "now-button.html" . }}</p>
-</section>
+<main>
 
-<section>
-  {{ partial "list-series.html" . }}
-  <a class="btn" href="http://takuti.hatenablog.com/" target="_blank" rel="noopener"><i class="fas fa-rss"></i>&nbsp;&nbsp;はてなブログ</a>
-</section>
+  <section>
+    <h2>&#x1f44b; {{ i18n "greeting" }}</h2>
+    <p>{{ .Site.Params.bio | safeHTML }}</p>
+    <p>{{ partial "now-button.html" . }}</p>
+  </section>
 
-<section>
-  {{ partial "list-work.html" . }}
-</section>
+  <section aria-label="Article Series">
+    {{ partial "list-series.html" . }}
+    <a class="btn" href="http://takuti.hatenablog.com/" target="_blank" rel="noopener"><i class="fas fa-rss"></i>&nbsp;&nbsp;はてなブログ</a>
+  </section>
+
+  <section aria-label="Work Portfolio">
+    {{ partial "list-work.html" . }}
+  </section>
+
+</main>
 
 </div>
 

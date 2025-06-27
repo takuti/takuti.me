@@ -9,7 +9,13 @@
       <a href="{{ .Permalink }}">{{ .Title }}</a>
     </p>
     {{ partial "subscribe.html" . }}
-    {{ .Date.Format "2006-01-02" }}
+    <p class="light-black">
+      {{ .Date.Format "2006-01-02" }}
+      {{ if eq .Site.Language.Lang "en" }}
+      | {{ math.Round (div (countwords .Content) 200.0) }} min read
+      | {{ .WordCount }} words
+      {{ end }}
+    </p>
     <h2>{{ .Title }}</h2>
     <div class="post">
       {{ partial "series.html" . }}
