@@ -15,9 +15,9 @@ body {
     "Hiragino Sans",
     Meiryo,
     sans-serif;
-  line-height: 1.75;
+  line-height: $line-height;
   color: $color-black;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   font-feature-settings: "liga", "tnum", "case", "calt", "zero", "ss01", "locl";
   text-size-adjust: 100%;
