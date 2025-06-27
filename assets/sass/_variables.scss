@@ -1,5 +1,12 @@
-$color-black: #393939;
-$color-dark-blue: #00496e;
-$content-width: 800px;
-$default-font-size: 16px;
-$line-height: 1.6;
+// Color palette for clean, professional look
+$color-black: #2c3e50;        // Darker, more sophisticated dark color
+$color-text: #34495e;         // Softer text color for better readability
+$color-text-light: #7f8c8d;   // Lighter text for meta information
+$color-dark-blue: #2563eb;    // Balanced blue - clearly distinguishable yet comfortable
+$color-border: #ecf0f1;       // Very light border color
+$color-code-bg: #f8f9fa;      // Clean code background
+
+// Layout and typography
+$content-width: 720px;
+$default-font-size: 18px;     // Slightly larger for better reading
+$line-height: 1.68;           // Slightly refined from 1.7 for optimal reading flow
