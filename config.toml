@@ -36,7 +36,7 @@ DefaultContentLanguage = "en"
     [languages.en.params]
       name = "Takuya Kitazawa"
       keywords = "Takuya Kitazawa,takuti,AI,data,philanthropy,Africa,Malawi,Canada,Japan,mentorship,career,tech,consultation"
-      bio = '<b>Takuya Kitazawa</b> is a freelance software developer based in British Columbia, Canada. As a technologist specializing in AI and data-driven solutions, he has worked globally at Big Tech, start-up, and non-profit for over a decade. At the intersection of tech and society, he promotes the ethical use of information technologies through his mentoring, business consultation, and public engagement activities. See <a href="https://takuti.github.io/cv/" target="_blank" rel="noopener">CV <sup><i class="fas fa-external-link-alt"></i></sup></a> for more information, or contact at <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b>.'
+      bio = 'I am an independent consultant who specializes in bridging the gap between cutting-edge technology and real-world impact. Based in British Columbia, Canada, I serve clients across North America, Asia, and Africa, ranging from big companies and startups to nonprofits and individuals. With over a decade of experience building data-driven solutions, I partner with organizations on tech strategy, ethical AI implementation, and sustainable digital transformation. See <a href="https://takuti.github.io/cv/" target="_blank" rel="noopener">CV <sup><i class="fas fa-external-link-alt"></i></sup></a> for more information, or contact at <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b>.'
       featured = ["/note/becoming-a-product-manager/", "/note/hivemall-events-2018-autumn/", "/note/parallel-vs-concurrent/"]
       homeDescription = "Takuya Kitazawa - Freelance software developer specializing in AI, data science, and ethical technology solutions. Based in British Columbia, Canada. Mentoring, consulting, and building data-driven products."
       blogDescription = "Writing about what I think, learned, and experienced. These are the dots yet to be connected."
@@ -47,9 +47,9 @@ DefaultContentLanguage = "en"
     weight = 2
     contentDir = "content/ja"
     [languages.ja.params]
-      name = "たくち"
-      keywords = "Takuya Kitazawa,takuti,たくち,機械学習,推薦システム,データサイエンス"
-      bio = '<b>Takuya Kitazawa</b>（<b>たくち</b>）です。長野県出身、カナダ・バンクーバー在住のソフトウェアエンジニア。これまでB2B/B2Cの各領域で、Web技術・データサイエンス・機械学習のプロダクト化および顧客への導入支援・コンサルティング、そして関連分野の啓蒙活動に携わってきました。現在は主に北米（カナダ）、アジア（日本）、アフリカ（マラウイ）の個人および企業を対象にフリーランスとして活動中。詳しい経歴は<a href="https://takuti.github.io/cv/" target="_blank" rel="noopener">レジュメ <sup><i class="fas fa-external-link-alt"></i></sup></a> を参照ください。いろいろなまちを走って、時に自然と戯れながら、その時間その場所の「日常」を生きています。ご意見・ご感想およびお仕事のご相談は <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b> まで。'
+      name = "Takuya Kitazawa（たくち）"
+      keywords = "Takuya Kitazawa,takuti,たくち,アフリカ,マラウイ,カナダ,AI,機械学習,推薦システム,データサイエンス"
+      bio = '長野県出身、カナダ・バンクーバー在住のソフトウェアエンジニアです。これまでB2B/B2Cの各領域で、Web技術・データサイエンス・機械学習のプロダクト化および顧客への導入支援・コンサルティング、そして関連分野の啓蒙活動に携わってきました。現在は主に北米（カナダ）、アジア（日本）、アフリカ（マラウイ）の個人および企業を対象にフリーランスとして活動中。詳しい経歴は<a href="https://takuti.github.io/cv/" target="_blank" rel="noopener">レジュメ <sup><i class="fas fa-external-link-alt"></i></sup></a> を参照ください。いろいろなまちを走って、時に自然と戯れながら、その時間その場所の「日常」を生きています。ご意見・ご感想およびお仕事のご相談は <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b> まで。'
       featured = ["/ja/note/two-decades-of-amazon-recommender/", "/ja/note/product-management-myths/", "/ja/note/data-science-project-structure/"]
       homeDescription = "Takuya Kitazawa - 長野県出身、カナダ・バンクーバー在住のソフトウェアエンジニア。これまでB2B/B2Cの各領域で、Web技術・データサイエンス・機械学習のプロダクト化および顧客への導入支援・コンサルティング、そして関連分野の啓蒙活動に携わる。現在は主に北米（カナダ）、アジア（日本）、アフリカ（マラウイ）の個人および企業を対象にフリーランスとして活動中。"
       blogDescription = "「生きること」「学ぶこと」「作ること」について綴っています。"
