@@ -48,10 +48,10 @@ DefaultContentLanguage = "en"
     contentDir = "content/ja"
     [languages.ja.params]
       name = "Takuya Kitazawa（たくち）"
-      keywords = "Takuya Kitazawa,takuti,たくち,アフリカ,マラウイ,カナダ,AI,機械学習,推薦システム,データサイエンス"
-      bio = '長野県出身、カナダ・バンクーバー在住のソフトウェアエンジニアです。これまでB2B/B2Cの各領域で、Web技術・データサイエンス・機械学習のプロダクト化および顧客への導入支援・コンサルティング、そして関連分野の啓蒙活動に携わってきました。現在は主に北米（カナダ）、アジア（日本）、アフリカ（マラウイ）の個人および企業を対象にフリーランスとして活動中。詳しい経歴は<a href="https://takuti.github.io/cv/" target="_blank" rel="noopener">レジュメ <sup><i class="fas fa-external-link-alt"></i></sup></a> を参照ください。いろいろなまちを走って、時に自然と戯れながら、その時間その場所の「日常」を生きています。ご意見・ご感想およびお仕事のご相談は <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b> まで。'
+      keywords = "Takuya Kitazawa,takuti,たくち,アフリカ,マラウイ,カナダ,AI,機械学習,推薦システム,データサイエンス,コンサルティング,倫理"
+      bio = '長野県出身、カナダ・バンクーバーを拠点に活動するソフトウェアエンジニアです。10年以上にわたりB2B/B2Cの各領域でWeb技術・データサイエンス・機械学習のプロダクト化および顧客への導入支援・コンサルティングに携わってきました。現在は独立し、アフリカ・アジア・北米の企業や個人を対象に、テクノロジー戦略の策定・実装をお手伝いしています。<a href="/ja/malawi">アフリカのマラウイ</a>では現地企業のICTディレクターとして、デジタル・トランスフォーメーションを推進中。詳しい経歴は<a href="https://takuti.github.io/cv/" target="_blank" rel="noopener">CV <sup><i class="fas fa-external-link-alt"></i></sup></a> を参照ください。いろいろなまちを走って、時に自然と戯れながら、その時間その場所の「日常」を生きています。ご意見・ご感想およびお仕事のご相談は <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b> まで。'
       featured = ["/ja/note/two-decades-of-amazon-recommender/", "/ja/note/product-management-myths/", "/ja/note/data-science-project-structure/"]
-      homeDescription = "Takuya Kitazawa - 長野県出身、カナダ・バンクーバー在住のソフトウェアエンジニア。これまでB2B/B2Cの各領域で、Web技術・データサイエンス・機械学習のプロダクト化および顧客への導入支援・コンサルティング、そして関連分野の啓蒙活動に携わる。現在は主に北米（カナダ）、アジア（日本）、アフリカ（マラウイ）の個人および企業を対象にフリーランスとして活動中。"
+      homeDescription = "Takuya Kitazawa - 長野県出身、カナダ・バンクーバーを拠点に活動するソフトウェアエンジニア。AI・データサイエンス・機械学習を専門とし、フリーランスとしてアフリカ・アジア・北米の企業や個人にテクノロジー戦略や技術的支援を提供。アフリカのマラウイではICTディレクターとしてデジタル・トランスフォーメーションを推進。"
       blogDescription = "「生きること」「学ぶこと」「作ること」について綴っています。"
       disclaimer = '<ul><li>Amazonのアソシエイトとして、当サイトは <a href="https://amzn.to/3QZGuBp" target="_blank">amazon.co.jp</a> 上の適格販売により収入を得ています。</li><li>当サイトおよび関連するメディア上での発言はすべて私個人の見解であり、所属する（あるいは過去に所属した）組織のいかなる見解を代表するものでもありません。</li><li>当サイトのコンテンツ・情報につきまして、可能な限り正確な情報を掲載するよう努めておりますが、個人ブログという性質上、誤情報や客観性を欠いた意見が入り込んでいることもございます。いかなる場合でも、当サイトおよびリンク先に掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。</li><li>その他、記事の内容や掲載画像などに問題がございましたら、直接メールでご連絡ください。確認の後、対応させていただきます。</li></ul>'
 
