@@ -1,34 +1,24 @@
 ---
 title: What I'm Doing Now
-lastmod: '2025-06-14'
+lastmod: '2025-11-04'
 ---
 
 > This is a [now page](https://nownownow.com/about). I will update the page roughly once a month to share where I am, what I'm focusing on, and [what I don't do](/note/creating-now-page/).
 
 <!-- <audio controls src="/audio/now.mp3"></audio> -->
 
-<i class="fa fa-map-marker"></i> Cape Town, South Africa
+<i class="fa fa-map-marker"></i> From my new apartment room in Ottawa, ON, Canada, where I can see the beautiful autumn leaves falling and sense the beginning of winter.
 
-### Weekly newsletter about "tech for good"
+### Back from Malawi
 
-My current focus is to equip changemakers with actionable insights for making sustainable, long-lasting impact in the digital age. While [promoting equitable access to ICT from one of the poorest countries in the world](/malawi), I learned that the development work in the field significantly lacks context awareness, informed decision, and overall productivity. This gap often leads to inefficiencies and missed opportunities to create meaningful change. How can we tackle this systemic challenge and ensure that technology development truly serves those in need?
+After almost two years of beautiful time in [Malawi](/malawi), I returned to Canada with a great passion to keep building my life and career in the impact sector. To continuously expose myself to the complex issues our world embodies, I also moved to Ottawa, ON, the capital city of Canada, where many government agencies and non-profits are based. By immersing myself in the world's most urgent problems, I'd like to challenge today's societal, economic, and educational systems. I won't relocate again until I renew my Canadian permanent residency by at least 2027.
 
-To begin with, I'm collecting various case studies and data in technology development across the globe in a weekly newsletter "**[Altruistic Byte](https://ab.takuti.me/subscribe)**," to broaden and deepen our understanding of digital transformation.
+### More reading and writing
 
-<p>
-<iframe src="https://embeds.beehiiv.com/7b4fe90a-ec12-48bf-a95b-705f0c5a0b1f" data-test-id="beehiiv-embed" width="100%" height="320" frameborder="0" scrolling="no" style="border-radius: 4px; border: 2px solid #e5e7eb; margin: 0; background-color: transparent;"></iframe>
-</p>
+It's been a lazy summer this year: spending three months in Japan catching up with families and friends, travelling across the country (though it was too hot), and enjoying a pile of my brother's old manga in our parents' house. Being fully recharged, it's time to activate my brain. To begin with, I will restart [writing](/note) regularly, while rethinking the use of my [tech-for-good newsletter](https://ab.takuti.me/subscribe).
 
-Meanwhile, I continuously work with Malawian individuals and businesses to learn from firsthand experience. For instance, I currently serve as the Acting ICT Director at a [Malawian non-profit](https://emergelivelihoods.org/) as part of broader technology consultation work.
+Meanwhile, I'm recently reading about social design/entrepreneurship methodologies for my next project. I'm also thinking of investing my time in professional certificates in ICT (e.g., [ITIL](https://www.atlassian.com/itsm/itil), [CSPO](https://www.scrumalliance.org/get-certified/product-owner-track/certified-scrum-product-owner)); even though I tend to avoid them for the theory-practice gap, the structured knowledge seems to be an essential asset to work with(in) governments and international organizations worldwide.
 
-### Beyond Malawi
+### Learning French
 
-As a Canadian self-employed business owner, I have clients not only in North America but also in Asia and Africa. I'm genuinely proud of the diverse portfolio and exposure to different culture. However, in reality, my time and energy for the last two years has been skewed significantly towards a single country: Malawi. Despite a little-to-no change in my business portfolio and the country's political and economic landscape, I even reached a point where life in Malawi feels strangely easy. Not to mention it's largely because I, as a privileged expat, already have sufficient funds, a decent job, and quality local connections. Hence, I can vividly visualize how my life would look like a year later if I were to keep investing myself in the country.
-
-To me, this "getting stuck" feeling is a clear red flag. By contrast, uncertainty and unforeseen stimulus have driven my career for more than a decade. I believe such challenge-seeking behavior is crucial for changemakers so that we can constantly break the status quo while facing the multifaceted nature of our world.
-
-So, it is time to move on. As of writing, I'm in the middle of month-long stay in Cape Town, South Africa for further opportunity exploration in sub-Saharan Africa.
-
-### Scale my business
-
-Working independently on social issues may not be sustainable in the long term due to resource constraints and scalability challenges. Thus, I am exploring alternative ways to scale my efforts. For example, I provide [1:1 online mentorship](https://mentorcruise.com/mentor/takuyakitazawa) to mentees across the globe, but what if I package the offering as structured educational content? Or, although I've been writing a personal blog for years to share tangible observations and insights [here](/note), I could elevate them as more structured publications for targeted audiences - like the newsletter above. I'm actively seeking such opportunities and eager to collaborate with other businesses and global citizens. [Contact me](/contact) if you are interested.
+More than 35% of the population in Ottawa is [bilingual](https://www12.statcan.gc.ca/census-recensement/2021/as-sa/fogs-spg/page.cfm?lang=E&topic=6&dguid=2021A00053506008), for its proximity to the French-speaking province of Quebec, as well as the [Government of Canada](https://www.canada.ca/en/canadian-heritage/services/official-languages-bilingualism.html) itself. So, I would feel it's unjust if I didn't spend effort on acknowledging bilingualism and practicing French. Little by little, I'm learning the basics and vocabulary through apps and books.
