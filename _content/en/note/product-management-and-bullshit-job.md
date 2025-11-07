@@ -9,7 +9,7 @@ lastmod: '2022-08-06'
 keywords: [product, job, customers, love, manager, passion, strong, communication,
   execution, products]
 recommendations: [/note/ethical-product-developer/, /note/internet-for-the-people/,
-  /note/foundations-of-humane-technology/]
+  /note/td-to-amazon/]
 ---
 
 Otherwise, I have a feeling that the job of product management is likely to be a [bullshit job](https://en.wikipedia.org/wiki/Bullshit_Jobs).

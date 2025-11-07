@@ -6,8 +6,8 @@ lang: en
 title: Cross Validation for Recommender Systems in Julia
 images: [/images/cross-validation-julia-recommender/matrix.png]
 lastmod: '2022-09-02'
-keywords: [recommendation, evaluation, events, recommender, validation, diversity,
-  julia, cross, item, user]
+keywords: [recommendation, evaluation, events, recommender, validation, julia, diversity,
+  cross, item, user]
 recommendations: [/note/novelty-diversity-serendipity/, /note/hello-faust/, /note/recsys-2022/]
 ---
 
