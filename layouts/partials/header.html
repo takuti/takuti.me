@@ -29,9 +29,11 @@
     {{ end }}
     {{ end }}
 
-    <!-- Additional meta tag for /note page -->
+    <!-- Additional meta tag for follow.it verification -->
     {{ if eq .RelPermalink "/note/" }}
     <meta name="follow.it-verification-code" content="XsfQdyB7Nr1Epv87jHBk"/>
+    {{ else if eq .RelPermalink "/ab/" }}
+    <meta name="follow.it-verification-code" content="pvKz8MlSa4z2rNDmmh7j"/>
     {{ end }}
 
     <!-- Preconnect to external domains for performance -->
