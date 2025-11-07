@@ -29,6 +29,11 @@
     {{ end }}
     {{ end }}
 
+    <!-- Additional meta tag for /note page -->
+    {{ if eq .RelPermalink "/note/" }}
+    <meta name="follow.it-verification-code" content="XsfQdyB7Nr1Epv87jHBk"/>
+    {{ end }}
+
     <!-- Preconnect to external domains for performance -->
     <link rel="preconnect" href="//cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
