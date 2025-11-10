@@ -63,3 +63,6 @@ other = "Services"
 
 [greeting]
 other = "Hi, I'm Takuya"
+
+[subscribe]
+other = "Subscribe to my newsletter"

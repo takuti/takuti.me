@@ -63,3 +63,6 @@ other = "サービス"
 
 [greeting]
 other = "こんにちは"
+
+[subscribe]
+other = "ニュースレターを購読する"
