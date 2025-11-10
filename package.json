@@ -40,7 +40,9 @@
     "rules": {
       "alpha-value-notation": null,
       "scss/no-global-function-names": null,
-      "color-function-notation": "legacy"
+      "color-function-notation": "legacy",
+      "media-feature-range-notation": "prefix",
+      "selector-not-notation": "simple"
     }
   },
   "lint-staged": {
