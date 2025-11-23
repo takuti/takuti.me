@@ -12,3 +12,5 @@ images: [/images/language-as-a-design-tool/Accutive.png]
 
 ![mood-board](/images/language-as-a-design-tool/Accutive.png)
 ▲ プロダクトチーム内の他のメンバーの役割について理解を深めることは、開発者倫理を語る上で重要なステップであると考える。たとえば僕は以前、UI/UXデザインのオンラインコースを通して、同僚のデザイナーたちの仕事に歩み寄ってみた。
+
+> 同タイトルで、Webマガジン・Offers Magazineに[寄稿しました](https://offers.jp/media/sidejob/workstyle/a_2103)。併せてご覧ください。
