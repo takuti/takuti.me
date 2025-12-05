@@ -5,9 +5,9 @@ date: 2020-01-05
 lang: en
 title: How to Produce Ideas
 lastmod: '2022-09-02'
-keywords: [ideas, seeds, inputs, gathering, raw, experiences, producing, material,
-  branding, idea]
-recommendations: [/note/revisit-design-thinking/, /note/fermenting-thoughts/, /note/language-as-a-design-tool/]
+keywords: [ideas, seeds, inputs, gathering, raw, experiences, that, producing, material,
+  branding]
+recommendations: [/note/fermenting-thoughts/, /note/revisit-design-thinking/, /note/annual-review-2021/]
 ---
 
 Producing ideas is an important process of creating something new (e.g., business, product, software, article), but its methodology is not trivial. On that point, I strongly believe that ***collecting more information and experiences*** is a key as follows.

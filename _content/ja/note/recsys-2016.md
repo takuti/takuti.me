@@ -8,8 +8,8 @@ lang: ja
 title: '推薦システムのトップ会議RecSys2016に参加した #recsys2016'
 lastmod: '2022-01-18'
 keywords: [会議, 学生, recsys, ボランティア, 推薦, ワークショップ, 発表, トップ, 本会議, セッション]
-recommendations: [/ja/note/master-graduate/, /ja/note/trends-in-real-world-recommender-systems-2017/,
-  /ja/note/data-skeptic-recommender-systems/]
+recommendations: [/ja/note/master-graduate/, /ja/note/data-skeptic-recommender-systems/,
+  /ja/note/trends-in-real-world-recommender-systems-2017/]
 ---
 
 推薦システムのトップ会議 [RecSys2016](https://recsys.acm.org/recsys16/) が9月15日から19日までアメリカのボストンで開催され、ワークショップ発表者＆学生ボランティアとして参加してきた。これまで学会発表はひとりで行くことが多く、今回も例外ではなかったが、ボランティアのおかげで他の学生との交流や伝説的な研究者との接触が多くてとても楽しめた。みんなもやると良いと思う。

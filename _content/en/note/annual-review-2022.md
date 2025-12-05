@@ -4,8 +4,7 @@ date: 2022-12-18
 lang: en
 title: 'My 2022 Annual Review: Towards the Deepness'
 images: [/images/annual-review-2022/wordcloud-2022.png]
-keywords: [note, resistance, year, dividual, rest, annual, freelancer, settle, canada,
-  product]
+keywords: [note, resistance, myself, year, dividual, more, rest, annual, full, freelancer]
 recommendations: [/note/annual-review-2021/, /note/becoming-a-freelancer-in-canada/,
   /note/first-month-as-self-employed/]
 ---

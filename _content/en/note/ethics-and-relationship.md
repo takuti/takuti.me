@@ -6,7 +6,7 @@ lang: en
 title: '3 Pillars of Ethics'' Scope: Society, Personal Relationship, and Individual'
 lastmod: '2022-09-02'
 keywords: [ethics, consensus, bad, relationship, personal, society, law, onsensus,
-  crime, defined]
+  crime, ourselves]
 recommendations: [/note/coursera-data-science-ethics/, /note/loneliness/, /note/data-feminism/]
 ---
 

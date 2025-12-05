@@ -5,10 +5,9 @@ date: 2022-02-13
 lang: en
 title: '"Out of Scope"'
 lastmod: '2022-08-06'
-keywords: [sivers, derek, friend, scope, serendipity, movement, expect, share, relevant,
-  rejection]
-recommendations: [/note/novelty-diversity-serendipity/, /note/definition-of-done/,
-  /note/the-producer-consumer-gap/]
+keywords: [page, what, now, you, sivers, derek, friend, scope, saying, serendipity]
+recommendations: [/note/definition-of-done/, /note/foundations-of-humane-technology/,
+  /note/annual-review-2021/]
 ---
 
 This week, I have created a new page [takuti.me/**now**](/now). This will be a place where I share what I'm doing and focusing on, updated roughly once every 1-3 months. The idea is inspired by [Derek Sivers's /now page movement](https://sive.rs/nowff); the movement has spread rapidly, and [many people are actively sharing their immediate priorities](https://nownownow.com/).

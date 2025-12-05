@@ -9,7 +9,7 @@ images: [/images/airflow-lineage/lineage.png]
 lastmod: '2022-09-02'
 keywords: [data, lineage, oil, airflow, intermediates, developer, pipelines, destination,
   automate, forget]
-recommendations: [/note/coursera-data-science-ethics/, /note/data-validation/, /note/data-feminism/]
+recommendations: [/note/coursera-data-science-ethics/, /note/data-feminism/, /note/data-validation/]
 ---
 
 Nowadays, there is almost no question that *data is the new oil.* But, do we really have a clear picture of where the oil is coming from, in which route, by whom, how, and when?

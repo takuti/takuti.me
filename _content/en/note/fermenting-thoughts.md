@@ -4,10 +4,10 @@ date: 2020-03-29
 lang: en
 title: The Hardest Part of 2020's Strategic Ideation
 lastmod: '2022-09-02'
-keywords: [staying, concentration, problems, refresh, thoughts, ideation, producing,
-  ideas, focus, things]
-recommendations: [/note/technique-producing-ideas/, /note/working-from-home-202004/,
-  /note/revisit-design-thinking/]
+keywords: [staying, concentration, problems, refresh, thoughts, away, ideation, from,
+  producing, ideas]
+recommendations: [/note/working-from-home-202004/, /note/technique-producing-ideas/,
+  /note/annual-review-2021/]
 ---
 
 In **[How to Produce Ideas](/note/technique-producing-ideas)**, I emphasized the importance of gathering as much information as possible from a wide variety of sources. On that point, the current chaotic situation in the world suddenly makes it easier, since we have less social interactions and more time to concentrate on private activities such as reading books, learning something new, and deep-diving into essential things in your life. For me personally, this is definitely a positive side of the crisis, and I'm taking full advantage of the quiet period by proactively spending my time on ideation both for private and work.

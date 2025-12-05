@@ -6,7 +6,7 @@ lang: ja
 title: 人道的で倫理的な、持続的超えて永遠な『世界』─最貧国のひとつから望む“異世界”
 images: [/images/relativize-and-contextualize/lake_malawi.jpg]
 keywords: [マラウイ, malawi, カルチャーショック, add, マラウイ人, アディスアベバ, relativize, contextualize,
-  note, この国]
+  note, and]
 recommendations: [/ja/note/my-identity-in-malawi/, /ja/note/one-year-in-malawi/, /ja/note/computer-education-in-malawi/]
 ---
 

@@ -5,10 +5,9 @@ date: 2022-10-05
 lang: en
 title: My First Month as Self-Employed
 images: []
-keywords: [income, employed, clients, day, empathy, currency, month, time, working,
-  externality]
+keywords: [income, employed, clients, self, day, empathy, currency, month, time, working]
 recommendations: [/note/annual-review-2022/, /note/becoming-a-freelancer-in-canada/,
-  /note/canadian-mental-health-week-2022/]
+  /note/working-from-home-202004/]
 ---
 
 It's been a month since [I officially became self-employed in Canada](/note/becoming-a-freelancer-in-canada/). So far, things are going quite well, especially in terms of quality of life. Time flows slower, and a day is surprisingly longer than I used to feel. Even though my monthly income in Sep 2022 was roughly 50% of the amount I earned until the previous month, I feel the "cost" for a better life is pretty cheap. And thankfully, the 50% amount is still not a threatening number for a single person living in the city.

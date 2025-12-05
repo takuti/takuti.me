@@ -6,7 +6,7 @@ title: 'Apache Hivemall at #ODSCEurope, #RecSys2018, and #MbedConnect'
 lastmod: '2022-05-05'
 keywords: [hivemall, data, workshop, mbed, hive, conference, query, session, capability,
   platform]
-recommendations: [/note/mbed-simulator-td/, /note/hivemall-pyspark/, /note/apachecon-2019/]
+recommendations: [/note/mbed-simulator-td/, /note/apachecon-2019/, /note/hivemall-pyspark/]
 ---
 
 [Apache **Hivemall**](https://github.com/apache/incubator-hivemall) is a scalable machine learning library running on top of the Hadoop ecosystem, and you can freely enjoy its functionalities in your [Apache Hive](https://hive.apache.org/) or [Spark](https://spark.apache.org/) environment.

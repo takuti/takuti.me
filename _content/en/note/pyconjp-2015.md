@@ -7,7 +7,7 @@ title: 'PyCon JP 2015 #pyconjp'
 lastmod: '2022-09-02'
 keywords: [python, pycon, pandas, talk, grpc, possibilities, talks, programming, 範囲,
   morphological]
-recommendations: [/note/hello-faust/, /note/hivemall-pyspark/, /note/phpcon-2015/]
+recommendations: [/note/hello-faust/, /note/hivemall-events-2018-autumn/, /note/phpcon-2015/]
 ---
 
 Following [phpcon2015](http://phpcon.php.gr.jp/2015/), I have attended [PyCon JP 2015](https://pycon.jp/2015/en/) at the end of last week.

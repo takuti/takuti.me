@@ -4,10 +4,8 @@ series: [ai]
 date: 2023-04-07
 lang: en
 title: Three Perspectives on Large Language Models and Their Emerging Applications
-keywords: [llms, chatgpt, details, limitations, models, openai, gpt, tools, malicious,
-  lgorithms]
-recommendations: [/note/how-information-flows/, /note/becoming-a-product-manager/,
-  /note/web3/]
+keywords: [llms, use, chatgpt, details, limitations, models, openai, gpt, tools, malicious]
+recommendations: [/note/how-information-flows/, /note/td-to-amazon/, /note/one-year-in-malawi/]
 ---
 
 As an engineer working on machine learning and data science for several years, now is indeed an interesting moment to see the impact of large language models (LLMs) such as OpenAI's GPT. Overall, I'm personally optimistic about the current situation and the near future, where a lot of simple work can be supported by the machines[^1] (say ChatGPT, for example), and we can alternatively invest in the further possibilities unlocked by the applications. Yet it is not a complete substitute for human labor as the models' behavior is bounded by their training data and algorithms; that is, as long as our goal is to create something for humans to consume, rather than sitting back and watching machine-to-machine conversations, it is *us* who must understand the limitations, tweak the inputs, and assess the outputs.

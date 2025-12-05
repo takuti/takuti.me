@@ -4,9 +4,8 @@ date: 2021-12-26
 lang: en
 title: 'My 2021 Annual Review: A Year of Divergence (And Slowly Started Converging)'
 lastmod: '2022-09-02'
-keywords: [year, note, product, traveler, aligned, identity, sustainability, travel,
-  learning, theme]
-recommendations: [/note/atomic-habits/, /note/annual-review-2022/, /note/td-to-amazon/]
+keywords: [year, new, note, that, product, was, traveler, aligned, identity, sustainability]
+recommendations: [/note/annual-review-2022/, /note/td-to-amazon/, /note/atomic-habits/]
 ---
  
 First of all, I'd like to thank everyone who has read my blog posts this year and commented on LinkedIn, Twitter, or even during a virtual/in-person chat. Your perspective mattered a lot, and I was able to effectively clarify, solidify, and sometimes refine my personal ideas as a result of these interactions. Thank you.

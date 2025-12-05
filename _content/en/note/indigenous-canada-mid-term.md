@@ -9,7 +9,7 @@ lastmod: '2022-06-11'
 keywords: [museum, indigenous, history, canada, reconciliation, nanaimo, museums,
   japanese, europe, canadians]
 recommendations: [/note/indigenous-canada-final/, /note/national-day-for-truth-and-reconciliation-2022/,
-  /note/goes-back-to-school/]
+  /note/search-for-identity/]
 ---
 
 - Canadian friend: "Do you know John Macdonald?"

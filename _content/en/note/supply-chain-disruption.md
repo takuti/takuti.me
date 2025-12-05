@@ -5,10 +5,9 @@ images: [/images/supply-chain-disruption/cargo-map.png]
 lang: en
 title: What Container and JIT Mean for Today's Supply Chain Disruption
 lastmod: '2022-09-02'
-keywords: [cargo, jit, disruption, supply, ports, demand, operations, port, warehouses,
-  truck]
-recommendations: [/note/coursera-supply-chain-management/, /note/supply-chain-analytics/,
-  /note/td-to-amazon/]
+keywords: [cargo, jit, supply, disruption, ports, system, demand, that, operations,
+  port]
+recommendations: [/note/coursera-supply-chain-management/, /note/td-to-amazon/, /note/annual-review-2021/]
 ---
  
 If you have ever worked on supply chain in some way, it won't take too long to realize how complex and fragile the system is; numerous variables including environmental condition, labour force, local/global supply-demand seasonality are contributing to make the global supply chain possible, and none of them should be overlooked in order for the distribution network to flow seamlessly, just like human circulatory system without any blood clots.

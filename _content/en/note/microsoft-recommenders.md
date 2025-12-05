@@ -7,7 +7,7 @@ title: What I Like About Microsoft Recommenders Repository
 lastmod: '2022-09-02'
 keywords: [recommenders, microsoft, repository, pypi, package, minimal, metrics, functionality,
   accuracy, diversity]
-recommendations: [/note/flurs/, /note/travis-gh-pages-deployment/, /note/recommender-diversity/]
+recommendations: [/note/flurs/, /note/recommender-diversity/, /note/ethical-challenges-in-recommender-systems/]
 ---
 
 I recently found [Microsoft's Recommenders repository](https://github.com/microsoft/recommenders) is particularly useful to understand common discussion points when it comes to recommender systems. The motivation and brief history of the repository can be found in their paper "[Microsoft Recommenders: Tools to Accelerate Developing Recommender Systems](https://arxiv.org/abs/2008.13528)," which were demonstrated at [RecSys 2019](https://dl.acm.org/doi/10.1145/3298689.3346967) and [WWW 2020](https://dl.acm.org/doi/abs/10.1145/3366424.3382692).

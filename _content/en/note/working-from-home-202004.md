@@ -6,10 +6,10 @@ images: [/images/working-from-home-202004/coffee-accessories-1.jpg, /images/work
 lang: en
 title: How I'm Working From Home
 lastmod: '2022-09-02'
-keywords: [coffee, accessories, pomodoro, steamer, humidifier, day, stay, wfh, healthy,
-  cook]
-recommendations: [/note/unusual-drinking-and-eating-habits/, /note/fermenting-thoughts/,
-  /note/stop-drinking-alone/]
+keywords: [coffee, home, accessories, pomodoro, steamer, humidifier, day, stay, wfh,
+  healthy]
+recommendations: [/note/fermenting-thoughts/, /note/unusual-drinking-and-eating-habits/,
+  /note/life-with-broken-iphone/]
 ---
 
 We have spent more than a month since working-from-home (WFH) accidentally becomes a global trend. Although I'm still actively adapting my life to the situation day by day, I already got a few solid takeaways from the experience as follows:

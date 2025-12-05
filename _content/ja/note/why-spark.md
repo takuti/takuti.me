@@ -7,7 +7,7 @@ images: [/images/why-spark/top-paying-tech.png, /images/why-spark/lr-iterations.
 lang: ja
 title: なぜSparkか
 lastmod: '2022-01-18'
-keywords: [spark, 処理, scala, インメモリ, hadoop, データ, データサイエンス, ディスク, ノード, mapreduce]
+keywords: [spark, 処理, scala, インメモリ, hadoop, why, データ, データサイエンス, ディスク, ノード]
 recommendations: [/ja/note/coursera-scala-specialization/, /ja/note/dynamo-style/,
   /ja/note/recommender-libraries/]
 ---

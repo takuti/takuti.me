@@ -4,10 +4,9 @@ series: [product]
 date: 2023-05-21
 lang: en
 title: Information Sustainability, Mindful Consumption, and Healthy Engineering
-keywords: [food, eating, diet, mindful, processed, revolution, ict, eat, autonomy,
-  fat]
-recommendations: [/note/sustainable-diets/, /note/unusual-drinking-and-eating-habits/,
-  /note/autonomy-and-life/]
+keywords: [food, information, eating, diet, mindful, our, processed, that, revolution,
+  ict]
+recommendations: [/note/sustainable-diets/, /note/how-information-flows/, /note/autonomy-and-life/]
 ---
 
 It's easy to build an analogy between information and food: both of them are substances we consume daily, and unbalanced, too much consumption will result in serious physical, mental, and societal problems. Make sense, right?

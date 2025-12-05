@@ -5,9 +5,9 @@ images: [/images/audio-journaling/voice-memos.png]
 lang: en
 title: I Tried Audio Journaling for 30 Days
 lastmod: '2022-04-09'
-keywords: [journaling, voice, memos, habit, reflection, everyday, journals, audio,
-  speak, recording]
-recommendations: [/note/atomic-habits/, /note/annual-review-2021/, /note/working-from-home-202004/]
+keywords: [journaling, voice, memos, habit, reflection, everyday, journals, self,
+  audio, didn]
+recommendations: [/note/annual-review-2021/, /note/atomic-habits/, /note/td-to-amazon/]
 ---
  
 One of the biggest drawbacks of [returning to software engineer from product manager](/note/td-to-amazon/) is a significant decrease in the frequency of human interactions. I was fortunate as [I became a product manager right before the pandemic](/note/becoming-a-product-manager/) and had numerous back-to-back (virtual) meetings with colleagues & customers; I believe I was able to sustain my mental health during the stay-at-home period simply because of daily communications the job forced me, even though a meeting itself did not necessarily have to be enjoyable and productive.

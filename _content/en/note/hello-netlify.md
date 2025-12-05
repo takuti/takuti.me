@@ -5,7 +5,7 @@ images: [/images/hello-netlify/netlify-republished.png, /images/hello-netlify/ne
 lang: en
 title: Hello Netrify for Hosting a Static Site
 lastmod: '2022-01-23'
-keywords: [netlify, lfs, git, github, site, scripts, travis, hugo, publishing, files]
+keywords: [netlify, lfs, pages, git, github, site, scripts, travis, hugo, publishing]
 recommendations: [/note/travis-gh-pages-deployment/, /note/move-to-gh-pages/, /note/hugo-markdown-and-mathjax/]
 ---
 

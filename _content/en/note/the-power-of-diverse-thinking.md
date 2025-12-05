@@ -11,7 +11,7 @@ summary: It clearly goes beyond how it's been normally discussed in business, an
 lastmod: '2022-05-07'
 keywords: [diversification, diversity, body, diverse, bubbles, filter, user, chambers,
   echo, nutrition]
-recommendations: [/note/recommender-diversity/, /note/recsys-2021-echo-chambers-and-filter-bubbles/,
+recommendations: [/note/recsys-2021-echo-chambers-and-filter-bubbles/, /note/recommender-diversity/,
   /note/recsys-2021/]
 ---
 

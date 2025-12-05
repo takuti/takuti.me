@@ -6,7 +6,7 @@ lang: en
 title: Actionable Insights from Supply Chain Analytics
 lastmod: '2022-09-02'
 keywords: [strategy, pull, push, vasta, inventory, cost, analytics, distribution,
-  unit, shipping]
+  per, unit]
 recommendations: [/note/coursera-supply-chain-management/, /note/machine-learning-product/,
   /note/supply-chain-disruption/]
 ---

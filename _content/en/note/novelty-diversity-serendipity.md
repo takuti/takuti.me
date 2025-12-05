@@ -8,7 +8,7 @@ title: 'Serendipity: It''s Relevant AND Unexpected'
 lastmod: '2022-05-07'
 keywords: [serendipity, recommendation, novelty, diversity, serendipitous, user, kotkov,
   fig, accuracy, item]
-recommendations: [/note/cross-validation-julia-recommender/, /note/recommender-diversity/,
+recommendations: [/note/recommender-diversity/, /note/cross-validation-julia-recommender/,
   /note/ethical-challenges-in-recommender-systems/]
 ---
 

@@ -6,8 +6,7 @@ lang: ja
 title: 僕は「ユーザ理解」を難しく考えすぎていたのかもしれない。
 lastmod: '2022-01-18'
 keywords: [リアリティ, プロデューサー, テーマ, 体験, 製品, 男子新体操, 取材, 初見, オリジナリティ, 第一歩]
-recommendations: [/ja/note/customer-centric-marketing/, /ja/note/product-management-myths/,
-  /ja/note/hooked-design/]
+recommendations: [/ja/note/customer-centric-marketing/, /ja/note/hooked-design/, /ja/note/product-management-myths/]
 ---
 
 たとえば、仕事で新製品の開発を任されたら、あなたはどうするだろうか。市場調査、競合分析、顧客セグメント分析、ユーザーストーリーマッピングなど、思い浮かぶアクションはどれもきっと正しい。

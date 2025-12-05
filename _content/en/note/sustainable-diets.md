@@ -7,7 +7,7 @@ title: My 30-Day Food Tracking Challenge from Sustainable Diet Perspective
 lastmod: '2022-09-02'
 keywords: [food, eating, eat, diets, protein, meat, tracking, meals, diet, meats]
 recommendations: [/note/information-diet/, /note/unusual-drinking-and-eating-habits/,
-  /note/stop-drinking-alone/]
+  /note/working-from-home-202004/]
 ---
  
 In September, I experimentally tracked what I ate (foods, calories, and their macros) through the Fitbit app[^1]. The main objective was to review my eating habits and hopefully gain some weight.

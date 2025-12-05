@@ -6,7 +6,7 @@ lang: ja
 title: データサイエンスプロジェクトのディレクトリ構成どうするか問題
 lastmod: '2022-01-18'
 keywords: [practices, ディレクトリ, scientific, バージョン, computing, データサイエンス, プロジェクト, ソースコード,
-  ソフトウェア開発, スクリプト]
+  best, ソフトウェア開発]
 recommendations: [/ja/note/euroscipy-2017/, /ja/note/acroquest-javabook/, /ja/note/why-spark/]
 ---
 

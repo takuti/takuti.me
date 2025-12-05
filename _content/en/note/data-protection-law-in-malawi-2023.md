@@ -8,8 +8,7 @@ title: 'Dilemma over "Best Practice": How We Could Develop Data Protection Pract
 images: [/images/data-protection-law-in-malawi-2023/me-speaking.jpg]
 keywords: [protection, malawi, privacy, data, law, audiences, policy, standards, digital,
   increases]
-recommendations: [/note/digital-malawi-2023/, /note/relativize-and-contextualize/,
-  /note/volunteering-in-malawi/]
+recommendations: [/note/digital-malawi-2023/, /note/volunteering-in-malawi/, /note/relativize-and-contextualize/]
 ---
 
 Here in southeastern Africa, I see [Malawi's digital transformation](/note/digital-malawi-2023/) is still immature and yet to be caught up in many aspects. As a software developer volunteering in the country, one of the immediate questions I came up with was about data privacy. Unfortunately, while the use of digital technologies is slowly but certainly progressing in various sectors, data governance is rarely spoken as far as I can see. Let me think about what I might do if I were a Malawian service provider who lets users install an application to their phones, collects and stores data digitally for analytics purposes, or launches a web portal for businesses.

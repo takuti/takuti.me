@@ -6,8 +6,8 @@ lang: ja
 title: “祭り”の終わりで─アフリカ・マラウイより、世界を倫理的にハックすることに関する一考察
 images: [/images/one-year-in-malawi/mzuzu.png]
 keywords: [国際, マラウイ, ボランティア, アフリカ, 資本, malawi, 現地, ビジネス, 開発, capital]
-recommendations: [/ja/note/computer-education-in-malawi/, /ja/note/volunteering-in-malawi/,
-  /ja/note/relativize-and-contextualize/]
+recommendations: [/ja/note/computer-education-in-malawi/, /ja/note/relativize-and-contextualize/,
+  /ja/note/volunteering-in-malawi/]
 ---
 
 「アフリカ、どうですか？」

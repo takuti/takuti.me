@@ -5,7 +5,7 @@ date: 2023-09-29
 lang: ja
 title: アフリカの小国にて、データ保護の実態に見る途上国開発・国際協力をめぐるジレンマ。
 images: [/images/data-protection-law-in-malawi-2023/me-speaking.jpg]
-keywords: [保護, protection, マラウイ, データ, malawi, law, 現地, gdpr, data, 短期]
+keywords: [保護, protection, マラウイ, データ, malawi, law, 現地, gdpr, act, data]
 recommendations: [/ja/note/digital-malawi-2023/, /ja/note/one-year-in-malawi/, /ja/note/relativize-and-contextualize/]
 ---
 

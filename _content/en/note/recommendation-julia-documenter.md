@@ -5,8 +5,8 @@ date: 2019-03-31
 lang: en
 title: Publishing My Master's Thesis with Documenter.jl
 lastmod: '2022-08-06'
-keywords: [documentation, julia, documenter, recommendation, thesis, docs, filtering,
-  mas, website, techniques]
+keywords: [documentation, julia, documenter, recommendation, thesis, docs, pages,
+  filtering, mas, website]
 recommendations: [/note/juliacon-2019/, /note/recommendation-julia/, /note/julia-travis-ci-to-github-actions/]
 ---
 

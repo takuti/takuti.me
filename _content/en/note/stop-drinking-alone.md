@@ -4,7 +4,7 @@ date: 2019-09-08
 lang: en
 title: I Stopped Drinking Alone for 4 Months
 lastmod: '2022-09-02'
-keywords: [drinking, cafe, bar, habit, fine, good, coffee, hopping, enjoy, july]
+keywords: [drinking, alone, cafe, bar, habit, fine, good, coffee, was, hopping]
 recommendations: [/note/unusual-drinking-and-eating-habits/, /note/working-from-home-202004/,
   /note/sustainable-diets/]
 ---

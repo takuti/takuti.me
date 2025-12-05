@@ -5,9 +5,9 @@ images: []
 lang: ja
 title: もしも推薦システムの精度と多様性が単一の指標で測れたら
 lastmod: '2022-01-18'
-keywords: [推薦, アイテム, 評価, aspect, ランキング, カテゴリ, 指標, ユーザ, 好む, 結果]
-recommendations: [/ja/note/reranking-for-popularity-bias/, /ja/note/data-skeptic-recommender-systems/,
-  /ja/note/two-decades-of-amazon-recommender/]
+keywords: [推薦, アイテム, 評価, aspect, ランキング, カテゴリ, top, 指標, ユーザ, 好む]
+recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/reranking-for-popularity-bias/,
+  /ja/note/slim/]
 ---
 
 RecSys 2021採択論文の中で気になっていた "[Towards Unified Metrics for Accuracy and Diversity for Recommender Systems](https://dl.acm.org/doi/10.1145/3460231.3474234)" を読んだ。

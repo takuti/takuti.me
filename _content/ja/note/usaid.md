@@ -6,7 +6,7 @@ lang: ja
 title: アフリカの片隅より、米国際開発局（USAID）廃止の報道を考える
 keywords: [usaid, 援助, 機関, 支援, 廃止, 支出, アフリカ, 救い, 国際, プロジェクト]
 recommendations: [/ja/note/one-year-in-malawi/, /ja/note/computer-education-in-malawi/,
-  /ja/note/my-identity-in-malawi/]
+  /ja/note/relativize-and-contextualize/]
 ---
 
 第二次トランプ政権の発足からしばらくして、[アメリカ政府の外国援助機関・国際開発局（USAID）の廃止](https://www.bbc.com/japanese/articles/c4gwqnk37kko)というニュースが飛び込んできた。合衆国政府の独立機関として、USAIDは世界各地の紛争、災害、健康、経済、教育など多岐にわたる課題に対して資金、物資、人的な援助をしてきた。その影響範囲は、文字通り地球規模だ。

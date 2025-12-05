@@ -6,8 +6,8 @@ lang: en
 title: I'm Not "China"—Connecting HERE and THERE in Systems
 images: [/images/my-identity-in-malawi/copenhagen.jpeg]
 keywords: [malawi, identity, copenhagen, heart, development, china, lakes, afrilabs,
-  innovation, infrastructure]
-recommendations: [/note/relativize-and-contextualize/, /note/volunteering-in-malawi/,
+  part, innovation]
+recommendations: [/note/volunteering-in-malawi/, /note/relativize-and-contextualize/,
   /note/one-year-in-malawi/]
 ---
 
