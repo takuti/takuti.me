@@ -43,5 +43,8 @@ Both short- and long-term engagements with mentees having a clear objective in t
     - [Leveraging Collaborative Opportunities for Cross-Border Trade](https://www.wto.org/english/forums_e/young_trade_leader_e/activities_e/Trade_Tech_Workshop_e.htm)
 - Writing for third-party publications
 - Interviews
+    - [Takuya Kitazawa – Meet the Mentor](https://mentorcruise.com/blog/takuya-kitazawa-a639e/)
+
+*Find more of the past publications and professional activities at [takuti.me/work](/work).*
 
 ![ictam-expo-presentation](/images/materializing-dx/ictam-expo-presentation.jpg)
