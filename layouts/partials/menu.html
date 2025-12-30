@@ -11,7 +11,7 @@
     <span id="nav-content">
       <a href="/{{ .Site.Language.Lang }}">{{ i18n "home" }}</a>
       <a href="{{ "/services" | absLangURL }}">{{ i18n "services" }}</a>
-      <a href="{{ "/contact" | absLangURL }}">{{ i18n "contact" }}</a>
+      <a href="{{ "/note" | absLangURL }}">{{ i18n "blog" }}</a>
       {{ if .IsTranslated }}
         {{ $siteLanguages := .Site.Languages}}
         {{ $pageLang := .Page.Lang}}
