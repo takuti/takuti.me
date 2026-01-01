@@ -5,8 +5,8 @@ images: [/images/supply-chain-disruption/cargo-map.png]
 lang: en
 title: What Container and JIT Mean for Today's Supply Chain Disruption
 lastmod: '2022-09-02'
-keywords: [cargo, jit, supply, disruption, ports, system, demand, that, operations,
-  port]
+keywords: [cargo, jit, supply, disruption, ports, system, demand, operations, port,
+  warehouses]
 recommendations: [/note/coursera-supply-chain-management/, /note/td-to-amazon/, /note/annual-review-2021/]
 ---
  

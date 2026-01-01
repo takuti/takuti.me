@@ -8,7 +8,8 @@ images: [/images/canada-permanent-residency/canada.jpg]
 lastmod: '2022-09-02'
 keywords: [pnp, canada, permanent, nomination, residence, application, invitation,
   apply, resident, certificate]
-recommendations: [/note/becoming-a-freelancer-in-canada/, /note/td-to-amazon/, /note/post-pandemic-first-international-trip/]
+recommendations: [/note/becoming-a-freelancer-in-canada/, /note/relocating-to-canada/,
+  /note/post-pandemic-first-international-trip/]
 ---
 
 It's been more than a year since [I relocated to Canada in Feb 2021](/note/relocating-to-canada/), and I have officially become a permanent resident of Canada this week. My major motivation of being a permanent resident is to maximize the flexibility of choosing a job and [possibly getting education](/note/goes-back-to-school/) in this country.

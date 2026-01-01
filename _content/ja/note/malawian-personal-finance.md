@@ -5,7 +5,7 @@ date: 2024-02-27
 lang: ja
 title: 世界で10番目に貧しい暮らしは、僕らが想像するほど悪くない
 images: [/images/malawian-personal-finance/meal.jpg, /images/malawian-personal-finance/book.jpg]
-keywords: [mwk, マラウイ, usd, malawi, 通貨, 最低賃金, 所得, 未満, 当たり, 切り下げ]
+keywords: [mwk, マラウイ, usd, malawi, 通貨, 所得, 最低賃金, 未満, 当たり, 切り下げ]
 recommendations: [/ja/note/digital-malawi-2023/, /ja/note/one-year-in-malawi/, /ja/note/relativize-and-contextualize/]
 ---
 

@@ -4,7 +4,7 @@ date: 2023-12-25
 lang: ja
 title: 個とシステムのあいだで、情報とインターネットをめぐる哲学・地理探究
 images: [/images/annual-review-2023/me.jpeg]
-keywords: [note, malawi, 情報, マラウイ, パワーバランス, eumc, wusc, 倫理, 深さ, 持たざる者]
+keywords: [note, malawi, 情報, パワーバランス, マラウイ, eumc, wusc, 倫理, 深さ, 持たざる者]
 recommendations: [/ja/note/relativize-and-contextualize/, /ja/note/one-year-in-malawi/,
   /ja/note/how-information-flows/]
 ---

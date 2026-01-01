@@ -6,7 +6,7 @@ lang: en
 title: 'Dilemma over "Best Practice": How We Could Develop Data Protection Practices
   in Malawi'
 images: [/images/data-protection-law-in-malawi-2023/me-speaking.jpg]
-keywords: [protection, malawi, privacy, data, law, audiences, policy, standards, digital,
+keywords: [protection, privacy, malawi, data, law, audiences, policy, standards, digital,
   increases]
 recommendations: [/note/digital-malawi-2023/, /note/volunteering-in-malawi/, /note/relativize-and-contextualize/]
 ---

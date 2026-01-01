@@ -5,7 +5,7 @@ date: 2017-05-07
 lang: ja
 title: Hivemall on Dockerを試すぜ
 lastmod: '2022-01-18'
-keywords: [mac, hivemall, docker, ローカル, コンテナ, 導入, 整備, 進む, 試し, アイテム]
+keywords: [mac, hivemall, docker, ローカル, 導入, コンテナ, 整備, 進む, 試し, アイテム]
 recommendations: [/ja/note/hivemall-on-mac/, /ja/note/recommender-libraries/, /ja/note/td-intern-2016/]
 ---
 

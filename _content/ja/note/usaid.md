@@ -4,7 +4,7 @@ series: [malawi]
 date: 2025-02-20
 lang: ja
 title: アフリカの片隅より、米国際開発局（USAID）廃止の報道を考える
-keywords: [usaid, 援助, 機関, 支援, 廃止, 支出, アフリカ, 救い, 国際, プロジェクト]
+keywords: [usaid, 援助, 機関, 支援, 廃止, 支出, 救い, アフリカ, 国際, プロジェクト]
 recommendations: [/ja/note/one-year-in-malawi/, /ja/note/computer-education-in-malawi/,
   /ja/note/relativize-and-contextualize/]
 ---

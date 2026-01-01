@@ -6,7 +6,7 @@ title: Cross-Framework Dependency Injection with spring-guice
 lastmod: '2022-09-02'
 keywords: [guice, spring, injection, application, dependency, party, framework, third,
   class, your]
-recommendations: [/note/becoming-a-product-manager/, /note/machine-learning-product/,
+recommendations: [/note/machine-learning-product/, /note/becoming-a-product-manager/,
   /note/learn-how-others-work/]
 ---
  

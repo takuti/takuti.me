@@ -4,7 +4,7 @@ date: 2020-07-28
 lang: ja
 title: 「考えないこと」
 lastmod: '2022-09-02'
-keywords: [考える, 進学, 就職, 後悔, 考えれ, 無く, 快適, 選択, における, 物事]
+keywords: [考える, 進学, 就職, 後悔, 考えれ, 無く, 快適, における, 選択, 物事]
 recommendations: [/ja/note/td-to-amazon/, /ja/note/think/, /ja/note/cognitive-science-and-behavioral-economics/]
 ---
 

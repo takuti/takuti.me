@@ -8,8 +8,8 @@ title: 'Voting for 2021 #BCAleTrail Best Brewery Experience Award'
 lastmod: '2022-09-02'
 keywords: [brewery, brewing, breweries, award, kettle, brew, experience, herald, delta,
   ale]
-recommendations: [/note/unusual-drinking-and-eating-habits/, /note/annual-review-2021/,
-  /note/relocating-to-canada/]
+recommendations: [/note/unusual-drinking-and-eating-habits/, /note/relocating-to-canada/,
+  /note/annual-review-2021/]
 ---
 
 As a foreign worker who has been in the country only for half a year, there is nothing much to say about the ongoing Canadian federal election campaign. But don't worry, we have yet another voting opportunity: **[2021 BC Ale Trail Best Brewery Experience Award](https://bcaletrail.ca/2021-bcat-best-brewery-experience-award/)**.

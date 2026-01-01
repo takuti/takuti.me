@@ -6,7 +6,7 @@ lang: ja
 title: サイトをHTTPSにした
 lastmod: '2022-01-18'
 keywords: [https化, 発行, nginx, certbot, 証明書, サイト, 権限, 旧名, wget, ssl証明書]
-recommendations: [/ja/note/one-month-in-canada/, /ja/note/hello-jekyll/, /ja/note/why-spark/]
+recommendations: [/ja/note/one-month-in-canada/, /ja/note/life-update-2025/, /ja/note/hello-jekyll/]
 ---
 
 今はとてもいい時代なので **[Let's Encrypt](https://letsencrypt.org/)** が無料でSSL証明書を発行してくれる。というわけで、サイトのHTTPS化を行った。

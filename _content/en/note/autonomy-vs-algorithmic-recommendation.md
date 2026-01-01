@@ -4,9 +4,9 @@ date: 2022-05-15
 lang: en
 title: Am I Zombie? Autonomy vs. Recommendations on the Internet
 lastmod: '2022-09-02'
-keywords: [she, zombie, her, our, stairs, crazed, you, systems, walk, ethical]
+keywords: [she, zombie, her, our, stairs, crazed, you, systems, walk, received]
 recommendations: [/note/autonomy-and-life/, /note/ethical-challenges-in-recommender-systems/,
-  /note/foundations-of-humane-technology/]
+  /note/ethical-product-developer/]
 ---
 
 Nowadays, our day-to-day decisions rely too much on how *others* think. The others are not from a close relationship like family, friends, and colleagues. In fact, the people who are making an influence on our behavior are complete strangers on the internet.

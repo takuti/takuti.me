@@ -8,7 +8,7 @@ lang: ja
 title: EuroSciPy 2017に参加してしゃべってきた
 lastmod: '2022-09-02'
 keywords: [発表, python, pytorch, euroscipy, カンファレンス, keynote, 飲ん, 実験, wasm, pyconjp]
-recommendations: [/ja/note/pytorch-autograd/, /ja/note/master-graduate/, /ja/note/recommender-libraries/]
+recommendations: [/ja/note/master-graduate/, /ja/note/pytorch-autograd/, /ja/note/recommender-libraries/]
 ---
 
 8月30, 31日にドイツのエルランゲンで開催された **[EuroSciPy 2017](https://www.euroscipy.org/2017/)** に発表者として参加してきた。カンファレンス参加を積極的にサポートしてくれる弊社に感謝感謝。

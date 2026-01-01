@@ -6,8 +6,8 @@ lang: en
 title: How Much CO2 Emissions Have Your Flights Made?
 lastmod: '2022-09-02'
 keywords: [emissions, flight, visualization, flights, tonnes, airport, per, countries,
-  that, longitude]
-recommendations: [/note/annual-review-2021/, /note/post-pandemic-first-international-trip/,
+  longitude, latitude]
+recommendations: [/note/post-pandemic-first-international-trip/, /note/annual-review-2021/,
   /note/how-to-avoid-a-climate-disaster/]
 ---
 
