@@ -4,9 +4,11 @@ series: [ab, malawi]
 date: 2025-12-05
 lang: en
 title: Missing Link to Bridge the Digital Divide
-keywords: [digital, skills, people, programs, gap, development, africa, passively,
-  infrastructure, intervention]
-recommendations: [/note/digital-malawi-2023/, /note/offline-learning/, /note/computer-education-in-malawi/]
+images: [/images/altruistic-byte/computer-education.jpg]
+keywords: [digital, skills, people, programs, gap, development, education, africa,
+  passively, infrastructure]
+recommendations: [/note/digital-malawi-2023/, /note/computer-education-in-malawi/,
+  /note/offline-learning/]
 ---
 
 Digital literacy and skills are essential anywhere across the globe, but especially in developing countries where socioeconomic opportunities are limited. In the constrained environment, ICT can be a game-changing tool that eliminates physical boundaries and unlocks numerous possibilities in and beyond communities of the oppressed.
@@ -56,5 +58,7 @@ In practice, it implies investing more in scalable personal traits. A [large-sca
 Why don't we apply the insight to our field activities in tech? When people holding the power speak about digital skills today, it primarily focuses on traditional practices. What if learners, or beneficiaries at large, receive more opportunities to think and discover by themselves?
 
 That is, the field probably needs more [problem-posing education](/note/we-not-i).
+
+![digital-malawi](/images/altruistic-byte/computer-education.jpg)
 
 [^1]: Ireland, J., & Lestari, S. (2025) Digital divide: A literature review. A Cambridge University Press & Assessment publication.
