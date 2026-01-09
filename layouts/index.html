@@ -6,7 +6,10 @@
   <section>
     <h2>&#x1f44b; {{ i18n "greeting" }}</h2>
     <p>{{ .Site.Params.bio | safeHTML }}</p>
-    <p>{{ partial "now-button.html" . }}</p>
+    <p>
+      {{ partial "now-button.html" . }}
+      {{ partial "support.html" . }}
+    </p>
   </section>
 
   <section aria-label="Article Series">

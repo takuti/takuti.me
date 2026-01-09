@@ -46,6 +46,9 @@ other = "Last updated"
 [now]
 other = "Now"
 
+[support]
+other = "Support"
+
 [supportCoffee]
 other = "Gift a cup of coffee"
 
@@ -63,6 +66,3 @@ other = "Services"
 
 [greeting]
 other = "Hi, I'm Takuya"
-
-[subscribe]
-other = "Subscribe to my newsletter"

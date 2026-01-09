@@ -46,6 +46,9 @@ other = "最終更新日"
 [now]
 other = "近況"
 
+[support]
+other = "サポートする"
+
 [supportCoffee]
 other = "一杯のコーヒーを贈る"
 
@@ -63,6 +66,3 @@ other = "サービス"
 
 [greeting]
 other = "こんにちは"
-
-[subscribe]
-other = "ニュースレターを購読する"
