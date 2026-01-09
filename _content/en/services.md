@@ -32,7 +32,13 @@ Both short- and long-term engagements with mentees having a clear objective in t
 <img src="https://cdn.mentorcruise.com/img/banner/navy-sm.svg" width="240" alt="MentorCruise">
 </a>
 
+Check out [my mini book](https://buymeacoffee.com/takuti/e/497136) about career development:
+
+<a href="https://buymeacoffee.com/takuti/e/497136"><img src="/images/misc/experienced-thumbnail.png" width="400" alt="experienced-thumbnail"></a>
+
 ### Public engagements
+
+*Find the examples of my previous work from the links below.*
 
 - Presentation at webinars and conferences
     - [Why Do We Digitalize? Contextualizing and Sustaining the Transformation in Systems](https://ictam.org.mw/storage/media/publications/44/Takuya-Kitazawa---Why-Do-We-Digitalize---Mzuzu-E-Hub.pdf)
@@ -44,7 +50,5 @@ Both short- and long-term engagements with mentees having a clear objective in t
 - Writing for third-party publications
 - Interviews
     - [Takuya Kitazawa – Meet the Mentor](https://mentorcruise.com/blog/takuya-kitazawa-a639e/)
-
-*Find more of the past publications and professional activities at [takuti.me/work](/work).*
 
 ![ictam-expo-presentation](/images/materializing-dx/ictam-expo-presentation.jpg)

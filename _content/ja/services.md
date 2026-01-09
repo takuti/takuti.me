@@ -31,6 +31,10 @@ title: サービス内容のご紹介
 <img src="https://cdn.mentorcruise.com/img/banner/navy-sm.svg" width="240" alt="MentorCruise">
 </a>
 
+エンジニアのキャリア形成について、これまで何百回と繰り返し伝えてきたアドバイスを[PDF](https://buymeacoffee.com/takuti/e/497136)にまとめました：
+
+<a href="https://buymeacoffee.com/takuti/e/497136"><img src="/images/misc/experienced-thumbnail.png" width="400" alt="experienced-thumbnail"></a>
+
 ### 講演・執筆活動
 
 （これまでの実績としては英語によるものが多数ではありますが）日英いずれかの言語で、ウェビナーやカンファレンスでの登壇、外部メディアへの寄稿、インタビュー対応などが可能です。
