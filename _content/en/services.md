@@ -11,21 +11,21 @@ As a Canadian independent consultant, I have provided the following services to 
 
 ### Product Development Consultation
 
-- Actionable guidance for architectural and strategic decisions on software development projects
+- Guide architectural and strategic decisions on software development projects
 - Domain-specific advisory and audits in recommender systems, AI, data science and analytics, and machine learning productization
-- Knowledge transfer and training in data-driven business and product management practices
+- Knowledge transfer and training in data-driven operations and product management practices
 
 ### Digital Transformation Advisory
 
-- Lead organization's digital transformation, including strategic planning, IT infrastructure, websites, digital marketing, and business software
-- Introduction to or evaluation of data-informed digital systems and internal operations
-- Internal capacity strengthening through presentation, hands-on training, and documentation
+- Lead organization's digital transformation, including strategic planning, IT infrastructure design, digital marketing practices, and people development
+- Onboarding and evaluation of data-informed digital systems and operational procedures
+- Targeted capacity-building activities through presentation, hands-on training, and documentation
 
 ### Digital Participation & Inclusion Diagnostics
 
 - Assessment of technology development (ICT4D) initiatives run by non-profits or public-sector teams
-- Targeted capacity building around new/existing digital systems, especially in low-resource or low-connectivity contexts
 - Technical advisory for digital inclusion programs and their M&E activities
+- Strategic partnership to cultivate digital infrastructure, literacy, skills, and problem-solving and critical-thinking practices in marginalized communities, especially in low-resource or low-connectivity contexts
 
 ### Mentorship
 
@@ -33,7 +33,7 @@ Both short- and long-term engagements with mentees having a clear objective in t
 
 - Accountability partnership through regular check-ins
 - Design a career strategy for transition
-- (Co-)Development of a portfolio project
+- Co-development of a portfolio project
 - Resume feedback and mock interviews
 
 <a href="https://mentorcruise.com/mentor/takuyakitazawa/">
