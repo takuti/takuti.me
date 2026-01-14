@@ -1,23 +1,31 @@
 ---
-date: 2026-01-09
+date: 2026-01-14
 title: Professional Services
 ---
 
-As a Canadian self-employed business owner, I have provided the following services to individuals and organizations across the globe since 2022. Terms differ depending on a client's need, location, and currency. [Contact me](/contact) first for an inquiry.
+As a Canadian independent consultant, I have provided the following services to individuals and organizations worldwide since 2022. Terms differ depending on a client's need, location, and currency. [Contact me](/contact) first for an inquiry.
 
 ![takuya-presenting](/images/annual-review-2023/me.jpeg)
 
-### Product development
+> **What to expect**: My work is informed by the principles of the [ITIL framework](https://www.peoplecert.org/Frameworks-Professionals/ITIL-framework), which emphasizes solutions grounded in each client's specific context, priorities, and desired outcomes. Hence, I take a collaborative, outcome-focused approach, working closely with you to iteratively shape deliverables through ongoing feedback and shared decision-making. This ensures solutions are practical, sustainable, and aligned with how organizations actually operate over time.
 
-- Hands-on guidance for software product development projects
-- Domain-specific consultancy in AI, data science and analytics, and machine learning productization
-- Part-time knowledge transfer and training in data-driven business and product management practices
+### Product Development Consultation
 
-### Corporate ICT advisory
+- Actionable guidance for architectural and strategic decisions on software development projects
+- Domain-specific advisory and audits in recommender systems, AI, data science and analytics, and machine learning productization
+- Knowledge transfer and training in data-driven business and product management practices
 
-- Lead organization's digital transformation, including IT infrastructure, websites, digital marketing, and business software
-- Strategic consultation for tech- and data-driven operations
-- Internal capacity strengthening through presentation, hands-on training, or documentation
+### Digital Transformation Advisory
+
+- Lead organization's digital transformation, including strategic planning, IT infrastructure, websites, digital marketing, and business software
+- Introduction to or evaluation of data-informed digital systems and internal operations
+- Internal capacity strengthening through presentation, hands-on training, and documentation
+
+### Digital Participation & Inclusion Diagnostics
+
+- Assessment of technology development (ICT4D) initiatives run by non-profits or public-sector teams
+- Targeted capacity building around new/existing digital systems, especially in low-resource or low-connectivity contexts
+- Technical advisory for digital inclusion programs and their M&E activities
 
 ### Mentorship
 
