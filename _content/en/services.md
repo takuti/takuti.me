@@ -1,5 +1,5 @@
 ---
-date: 2026-01-14
+date: 2026-01-15
 title: Professional Services
 ---
 
@@ -7,7 +7,7 @@ As a Canadian independent consultant, I have provided the following services to 
 
 ![takuya-presenting](/images/annual-review-2023/me.jpeg)
 
-> **What to expect**: My work is informed by the principles of the [ITIL framework](https://www.peoplecert.org/Frameworks-Professionals/ITIL-framework), which emphasizes solutions grounded in each client's specific context, priorities, and desired outcomes. Hence, I take a collaborative, outcome-focused approach, working closely with you to iteratively shape deliverables through ongoing feedback and shared decision-making. This ensures solutions are practical, sustainable, and aligned with how organizations actually operate over time.
+> **What to expect**: My work is informed by the principles of the [ITIL framework](https://www.peoplecert.org/Frameworks-Professionals/ITIL-framework), which emphasizes solutions grounded in each client's specific context, priorities, and desired outcomes. Hence, I take a collaborative, outcome-focused approach, working closely with you to iteratively shape deliverables through ongoing feedback and shared decision-making. This ensures solutions are practical, sustainable, and aligned with how you actually operate over time.
 
 ### Product Development Consultation
 
@@ -40,7 +40,7 @@ Both short- and long-term engagements with mentees having a clear objective in t
 <img src="https://cdn.mentorcruise.com/img/banner/navy-sm.svg" width="240" alt="MentorCruise">
 </a>
 
-Check out [my mini book](https://buymeacoffee.com/takuti/e/497136) about career development:
+Check out [my mini-book](https://buymeacoffee.com/takuti/e/497136) about career development:
 
 <a href="https://buymeacoffee.com/takuti/e/497136"><img src="/images/misc/experienced-thumbnail.png" width="400" alt="experienced-thumbnail"></a>
 
