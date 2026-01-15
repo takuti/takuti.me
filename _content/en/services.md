@@ -7,7 +7,7 @@ As a Canadian independent consultant, I have provided the following services to 
 
 ![takuya-presenting](/images/annual-review-2023/me.jpeg)
 
-> **What to expect**: My work is informed by the principles of the [ITIL framework](https://www.peoplecert.org/Frameworks-Professionals/ITIL-framework), which emphasizes solutions grounded in each client's specific context, priorities, and desired outcomes. Hence, I take a collaborative, outcome-focused approach, working closely with you to iteratively shape deliverables through ongoing feedback and shared decision-making. This ensures solutions are practical, sustainable, and aligned with how you actually operate over time.
+> **What to expect**: My work is informed by the principles of the [ITIL framework](https://www.peoplecert.org/Frameworks-Professionals/ITIL-framework) and [human-centered technology practice](https://www.humanetech.com/course?aad=BAhJIkp7InR5cGUiOiJjb3Vyc2UiLCJ1cmwiOiJodHRwczovL2h1bWFuZXRlY2guY29tL2NvdXJzZSIsImlkIjo0OTc5MDEwNH0GOgZFVA%3D%3D--6c2c9e009a36f292706c342d9cc9a8b3c1a41c65), which emphasize solutions grounded in each client's context, priorities, and operational realities. Hence, I take a collaborative, outcome-focused approach, working closely with you to iteratively shape deliverables through ongoing feedback and shared decision-making. This ensures solutions are practical, responsible, and sustainable, and that they align with how you actually operate over time.
 
 ### Product Development Consultation
 
