@@ -4,6 +4,7 @@ series: [ab, ai]
 date: 2026-01-30
 lang: en
 title: The AI Divide
+images: [/images/thumbnails/divide.jpg]
 draft: true
 ---
 

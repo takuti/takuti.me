@@ -1,6 +1,7 @@
 ---
 date: 2026-01-15
 title: Professional Services
+images: [/images/annual-review-2023/me.jpeg]
 ---
 
 As a Canadian independent consultant, I have provided the following services to individuals and organizations worldwide since 2022. Terms differ depending on a client's need, location, and currency. [Contact me](/contact) first for an inquiry.
