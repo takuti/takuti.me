@@ -5,7 +5,7 @@ date: 2025-12-05
 lang: en
 title: Missing Link to Bridge the Digital Divide
 images: [/images/altruistic-byte/computer-education.jpg]
-keywords: [digital, skills, people, programs, gap, development, education, africa,
+keywords: [digital, skills, people, programs, gap, education, development, africa,
   passively, infrastructure]
 recommendations: [/note/digital-malawi-2023/, /note/computer-education-in-malawi/,
   /note/offline-learning/]

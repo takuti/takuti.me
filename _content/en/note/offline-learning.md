@@ -6,7 +6,7 @@ lang: en
 title: Why Offline Learning Still Matters in 2026
 images: [/images/annual-review-2023/me.jpeg]
 keywords: [connected, low, digital, hyper, learning, dis, offline, world, people,
-  traits]
+  participation]
 recommendations: [/note/digital-divide/, /note/computer-education-in-malawi/, /note/digital-malawi-2023/]
 ---
 

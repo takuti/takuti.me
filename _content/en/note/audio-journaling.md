@@ -5,8 +5,8 @@ images: [/images/audio-journaling/voice-memos.png]
 lang: en
 title: I Tried Audio Journaling for 30 Days
 lastmod: '2022-04-09'
-keywords: [journaling, voice, memos, habit, reflection, everyday, journals, self,
-  audio, didn]
+keywords: [journaling, voice, memos, habit, reflection, everyday, journals, audio,
+  self, didn]
 recommendations: [/note/atomic-habits/, /note/annual-review-2021/, /note/td-to-amazon/]
 ---
  
