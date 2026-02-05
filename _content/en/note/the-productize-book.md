@@ -1,5 +1,5 @@
 ---
-categories: [Business, Design]
+categories: [Design, Society & Business]
 series: [product]
 date: 2022-10-20
 lang: en

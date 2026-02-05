@@ -1,6 +1,6 @@
 ---
 aliases: [/note/rule-based-ai/]
-categories: [機械学習, エッセイ, データサイエンス]
+categories: [データ・アルゴリズム, 人生・思索]
 series: [ai]
 date: 2017-10-21
 lang: ja

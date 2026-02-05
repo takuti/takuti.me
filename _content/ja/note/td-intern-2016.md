@@ -1,6 +1,6 @@
 ---
 aliases: [/note/td-intern-2016/]
-categories: [機械学習]
+categories: [データ・アルゴリズム]
 date: 2016-10-04
 images: [/images/td/hivemall-icon.png, /images/td/dd-anomaly.png]
 lang: ja

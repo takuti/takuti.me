@@ -1,5 +1,5 @@
 ---
-categories: [読書記録]
+categories: [読書]
 date: 2021-01-18
 lang: ja
 title: 僕らは名もなき“誰か”からの贈与に気付いているか？

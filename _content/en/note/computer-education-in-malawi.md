@@ -1,5 +1,5 @@
 ---
-categories: [Programming, Business, Life & Work]
+categories: [Engineering, Life & Reflection, Society & Business]
 series: [malawi]
 date: 2023-11-30
 lang: en

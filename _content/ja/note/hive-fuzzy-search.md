@@ -1,6 +1,6 @@
 ---
 aliases: [/note/hive-fuzzy-search/]
-categories: [プログラミング, 自然言語処理]
+categories: [エンジニアリング, データ・アルゴリズム]
 date: 2017-08-20
 lang: ja
 title: HiveでテキストのFuzzy Search

@@ -1,6 +1,6 @@
 ---
 aliases: [/note/coursera-recommender-systems/]
-categories: [情報推薦]
+categories: [推薦システム]
 date: 2017-01-27
 images: [/images/recommender/user-item-matrix.png, /images/recommender/cf.png, /images/recommender/svd.png,
   /images/recommender/mf.png]

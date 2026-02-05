@@ -1,5 +1,5 @@
 ---
-categories: [Programming]
+categories: [Engineering]
 date: 2017-05-28
 lang: en
 title: 'Hugo meets kramdown + KaTeX #gohugo'

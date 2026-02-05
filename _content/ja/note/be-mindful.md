@@ -1,5 +1,5 @@
 ---
-categories: [エッセイ]
+categories: [人生・思索]
 date: 2020-11-29
 lang: ja
 title: 「マインドフル」であることの効用を実感しつつある

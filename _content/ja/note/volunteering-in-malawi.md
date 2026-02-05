@@ -1,5 +1,5 @@
 ---
-categories: [生活・人生]
+categories: [人生・思索]
 series: [malawi, canada]
 date: 2023-08-20
 lang: ja

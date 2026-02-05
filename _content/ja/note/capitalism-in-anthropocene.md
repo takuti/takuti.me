@@ -1,5 +1,5 @@
 ---
-categories: [エッセイ, 読書記録]
+categories: [人生・思索, 読書]
 date: 2020-12-30
 lang: ja
 title: 「今年手放してよかったもの」

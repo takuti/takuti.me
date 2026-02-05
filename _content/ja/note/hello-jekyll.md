@@ -1,6 +1,6 @@
 ---
 aliases: [/note/hello-jekyll/]
-categories: [プログラミング]
+categories: [エンジニアリング]
 date: 2014-03-31
 images: [/images/jekyll/2014-03-31-sakura.jpg]
 lang: ja

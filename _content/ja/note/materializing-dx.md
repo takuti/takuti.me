@@ -1,5 +1,5 @@
 ---
-categories: [ビジネス, エッセイ]
+categories: [人生・思索, 社会・ビジネス]
 series: [malawi, product]
 date: 2024-05-27
 lang: ja

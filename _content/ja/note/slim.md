@@ -1,6 +1,6 @@
 ---
 aliases: [/note/slim/]
-categories: [機械学習, 情報推薦]
+categories: [データ・アルゴリズム, 推薦システム]
 date: 2017-02-18
 lang: ja
 title: '"SLIM: Sparse Linear Methods for Top-N Recommender Systems"を読んだ'

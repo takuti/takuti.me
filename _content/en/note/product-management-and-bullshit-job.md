@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 series: [product]
 date: 2021-05-26
 images: [/images/product-management-and-bullshit-job/pm-skill-stack.png]

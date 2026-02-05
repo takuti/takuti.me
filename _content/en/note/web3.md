@@ -1,5 +1,5 @@
 ---
-categories: [Business, Design]
+categories: [Design, Society & Business]
 date: 2022-03-13
 audio: [/audio/web3.mp3]
 lang: en

@@ -1,6 +1,6 @@
 ---
 aliases: [/note/data-skeptic-recommender-systems/]
-categories: [情報推薦]
+categories: [推薦システム]
 date: 2017-11-17
 lang: ja
 title: Podcast "Data Skeptic" の推薦システム回が良すぎて3回聞いた

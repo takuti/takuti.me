@@ -1,6 +1,6 @@
 ---
 aliases: [/note/igo-ruby-neologd/]
-categories: [プログラミング, 自然言語処理]
+categories: [エンジニアリング, データ・アルゴリズム]
 date: 2017-09-17
 lang: ja
 title: igo-rubyを新語辞書NEologdでナウい感じにする

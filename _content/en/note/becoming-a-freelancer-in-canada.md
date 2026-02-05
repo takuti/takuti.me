@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 series: [canada]
 date: 2022-09-02
 lang: en

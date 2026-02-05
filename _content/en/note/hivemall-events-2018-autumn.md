@@ -1,5 +1,5 @@
 ---
-categories: [Conference, Machine Learning, Data Science & Analytics]
+categories: [Data & Algorithms, Events]
 date: 2018-10-26
 lang: en
 title: 'Apache Hivemall at #ODSCEurope, #RecSys2018, and #MbedConnect'

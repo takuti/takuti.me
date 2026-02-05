@@ -1,6 +1,6 @@
 ---
 aliases: [/note/getting-out-of-the-box/]
-categories: [読書記録, エッセイ]
+categories: [人生・思索, 読書]
 date: 2019-02-03
 lang: ja
 title: 「ていねいなコミュニケーション」

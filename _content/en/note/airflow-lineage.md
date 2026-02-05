@@ -1,5 +1,5 @@
 ---
-categories: [Programming, Data Science & Analytics]
+categories: [Data & Algorithms, Engineering]
 series: [data]
 date: 2022-01-30
 lang: en

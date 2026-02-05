@@ -1,6 +1,6 @@
 ---
 aliases: [/note/fastcat/]
-categories: [プログラミング]
+categories: [エンジニアリング]
 date: 2017-08-06
 lang: ja
 title: ローカルのRedis上でWikipediaカテゴリをシュッとdigる

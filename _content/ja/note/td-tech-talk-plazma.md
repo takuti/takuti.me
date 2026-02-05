@@ -1,6 +1,6 @@
 ---
 aliases: [/note/td-tech-talk-plazma/]
-categories: [機械学習, 自然言語処理, イベント参加記]
+categories: [イベント, データ・アルゴリズム]
 date: 2018-02-25
 lang: ja
 title: 'Hivemall, Digdag, 自然言語処理, 機械学習などについて話しました #tdtech'

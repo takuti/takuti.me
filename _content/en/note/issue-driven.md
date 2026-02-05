@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work, Business]
+categories: [Life & Reflection, Society & Business]
 date: 2020-05-01
 images: [/images/issue-driven/issue-driven.png]
 lang: en

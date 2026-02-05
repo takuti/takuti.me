@@ -1,5 +1,5 @@
 ---
-categories: [Business, Data Science & Analytics]
+categories: [Data & Algorithms, Society & Business]
 series: [data]
 date: 2022-12-04
 lang: en

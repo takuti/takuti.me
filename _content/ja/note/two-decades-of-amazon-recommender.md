@@ -1,6 +1,6 @@
 ---
 aliases: [/note/two-decades-of-amazon-recommender/]
-categories: [情報推薦]
+categories: [推薦システム]
 date: 2017-06-10
 images: [/images/jekyll/2014-09-01-amazon.png, /images/recommender/cf.png]
 lang: ja

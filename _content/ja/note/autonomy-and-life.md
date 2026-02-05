@@ -1,5 +1,5 @@
 ---
-categories: [生活・人生, エッセイ]
+categories: [人生・思索]
 date: 2023-04-25
 lang: ja
 title: 情報化社会における人生の主体性を問う

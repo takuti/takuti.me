@@ -1,5 +1,5 @@
 ---
-categories: [Business]
+categories: [Society & Business]
 date: 2021-11-12
 images: [/images/supply-chain-disruption/cargo-map.png]
 lang: en

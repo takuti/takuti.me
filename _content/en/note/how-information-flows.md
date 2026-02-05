@@ -1,5 +1,5 @@
 ---
-categories: [Business, Data Science & Analytics, Recommender Systems]
+categories: [Data & Algorithms, Recommender Systems, Society & Business]
 series: [product]
 date: 2023-03-30
 lang: en

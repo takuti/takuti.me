@@ -1,5 +1,5 @@
 ---
-categories: [Business]
+categories: [Society & Business]
 date: 2021-05-14
 images: [/images/sdg-mooc/sdgs-wedding-cake.jpeg]
 lang: en

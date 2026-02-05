@@ -1,5 +1,5 @@
 ---
-categories: [ビジネス]
+categories: [社会・ビジネス]
 series: [malawi]
 date: 2025-02-20
 lang: ja

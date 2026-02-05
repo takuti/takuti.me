@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 date: 2022-12-18
 lang: en
 title: 'My 2022 Annual Review: Towards the Deepness'

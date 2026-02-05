@@ -1,5 +1,5 @@
 ---
-categories: [Business, Data Science & Analytics]
+categories: [Data & Algorithms, Society & Business]
 date: 2021-05-07
 images: [/images/supply-chain-analytics/push-pull-flow.png, /images/supply-chain-analytics/push-vs-pull.png]
 lang: en

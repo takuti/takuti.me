@@ -1,6 +1,6 @@
 ---
 aliases: [/note/hello-librec/]
-categories: [情報推薦, プログラミング]
+categories: [エンジニアリング, 推薦システム]
 date: 2017-04-23
 lang: ja
 title: Java製の推薦システム用ライブラリ LibRec を動かしてみる

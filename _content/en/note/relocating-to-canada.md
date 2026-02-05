@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 series: [canada]
 date: 2021-03-21
 images: [/images/relocating-to-canada/vancouver-harbour.jpeg]

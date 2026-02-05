@@ -1,5 +1,5 @@
 ---
-categories: [データサイエンス, プログラミング]
+categories: [エンジニアリング, データ・アルゴリズム]
 date: 2020-10-18
 images: [/images/attribution/freq.png, /images/attribution/attribution.png]
 lang: ja

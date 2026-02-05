@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 date: 2017-01-07
 lang: en
 title: 'My New Year''s Resolution 2017: Write an Article Every Week'

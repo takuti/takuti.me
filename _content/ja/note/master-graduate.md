@@ -1,6 +1,6 @@
 ---
 aliases: [/note/master-graduate/]
-categories: [生活・人生, 機械学習]
+categories: [データ・アルゴリズム, 人生・思索]
 date: 2017-03-31
 lang: ja
 title: 修士課程で機械学習が専門ではない指導教員の下で機械学習を学ぶために

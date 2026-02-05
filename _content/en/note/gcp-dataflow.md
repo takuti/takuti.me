@@ -1,5 +1,5 @@
 ---
-categories: [Machine Learning, Programming, Data Science & Analytics]
+categories: [Data & Algorithms, Engineering]
 date: 2022-11-11
 lang: en
 title: Google Cloud Dataflow and Its Positive Impact on Developer Productivity

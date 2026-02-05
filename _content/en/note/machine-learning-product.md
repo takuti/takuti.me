@@ -1,5 +1,5 @@
 ---
-categories: [Machine Learning]
+categories: [Data & Algorithms]
 series: [ai]
 date: 2020-08-29
 lang: en

@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 series: [malawi]
 date: 2023-10-30
 lang: en

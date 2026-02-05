@@ -1,5 +1,5 @@
 ---
-categories: [エッセイ, 読書記録]
+categories: [人生・思索, 読書]
 date: 2020-09-19
 lang: ja
 title: 自己投資の大原則

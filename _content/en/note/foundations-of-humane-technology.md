@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work, Business, Design]
+categories: [Design, Life & Reflection, Society & Business]
 series: [data, product]
 date: 2022-04-21
 lang: en

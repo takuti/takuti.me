@@ -1,5 +1,5 @@
 ---
-categories: [読書記録]
+categories: [読書]
 date: 2021-01-04
 lang: ja
 title: 顧客起点マーケティングによって「データ」が「ストーリー」に昇華される

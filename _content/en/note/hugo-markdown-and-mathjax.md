@@ -1,5 +1,5 @@
 ---
-categories: [Programming]
+categories: [Engineering]
 date: 2015-10-19
 lang: en
 title: 'Migrate to Hugo from Jekyll: Another Solution for the MathJax+Markdown Issue'

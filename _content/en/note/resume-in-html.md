@@ -1,5 +1,5 @@
 ---
-categories: [Programming]
+categories: [Engineering]
 date: 2020-11-28
 images: [/images/resume-in-html/resume-latex.png, /images/resume-in-html/resume-html.png]
 lang: en

@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work, Business, Design]
+categories: [Design, Life & Reflection, Society & Business]
 series: [product]
 date: 2020-01-05
 lang: en

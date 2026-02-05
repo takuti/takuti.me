@@ -1,5 +1,5 @@
 ---
-categories: [Programming, Recommender Systems]
+categories: [Engineering, Recommender Systems]
 series: [julia]
 date: 2019-07-26
 draft: true
@@ -8,5 +8,6 @@ lang: en
 recommendations: [/note/coursera-blockchain-specialization/, /note/julia-factorization-machines/,
   /note/hello-netlify/]
 title: Factorization Machines in Julia
+
 ---
 

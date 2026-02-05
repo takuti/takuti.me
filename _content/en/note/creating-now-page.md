@@ -1,6 +1,6 @@
 ---
 audio: [/audio/creating-now-page.mp3]
-categories: [Life & Work, Business, Design]
+categories: [Design, Life & Reflection, Society & Business]
 date: 2022-02-13
 lang: en
 title: '"Out of Scope"'

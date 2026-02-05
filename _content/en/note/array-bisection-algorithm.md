@@ -1,5 +1,5 @@
 ---
-categories: [Programming]
+categories: [Engineering]
 date: 2021-06-05
 lang: en
 title: Understanding Array Bisection Algorithm

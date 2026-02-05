@@ -1,5 +1,5 @@
 ---
-categories: [Programming]
+categories: [Engineering]
 date: 2017-04-16
 lang: en
 title: Comparison of Running Time of Cached/Uncached Spark RDD

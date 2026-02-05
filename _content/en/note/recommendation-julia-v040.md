@@ -1,7 +1,7 @@
 ---
 audio: [/audio/recommendation-julia-v040.mp3]
 series: [julia]
-categories: [Recommender Systems, Programming]
+categories: [Engineering, Recommender Systems]
 date: 2022-01-08
 lang: en
 title: 'Recommendation.jl v0.4.0: Working with Missing Values, Data Typing, and Factorization

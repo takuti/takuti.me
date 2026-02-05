@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work, Business]
+categories: [Life & Reflection, Society & Business]
 series: [product]
 date: 2023-05-21
 lang: en

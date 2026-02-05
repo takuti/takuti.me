@@ -1,6 +1,6 @@
 ---
 aliases: [/note/adjusting-for-oversampling-and-undersampling/]
-categories: [機械学習]
+categories: [データ・アルゴリズム]
 date: 2017-11-04
 images: [/images/misc/oversampling_and_undersampling.jpg]
 lang: ja

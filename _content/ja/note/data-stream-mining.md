@@ -1,6 +1,6 @@
 ---
 aliases: [/note/data-stream-mining/]
-categories: [機械学習, コンピュータシステム]
+categories: [エンジニアリング, データ・アルゴリズム]
 date: 2015-12-08
 lang: ja
 title: ストリームデータ解析の世界

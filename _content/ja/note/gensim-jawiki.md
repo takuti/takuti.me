@@ -1,6 +1,6 @@
 ---
 aliases: [/note/gensim-jawiki/]
-categories: [プログラミング, 機械学習, 自然言語処理]
+categories: [エンジニアリング, データ・アルゴリズム]
 date: 2017-07-22
 lang: ja
 title: gensimでWikipedia日本語版からコーパスを作ってトピックモデリング

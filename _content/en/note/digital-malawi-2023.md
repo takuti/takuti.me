@@ -1,5 +1,5 @@
 ---
-categories: [Data Science & Analytics, Business, Life & Work]
+categories: [Data & Algorithms, Life & Reflection, Society & Business]
 series: [malawi]
 date: 2023-09-08
 lang: en

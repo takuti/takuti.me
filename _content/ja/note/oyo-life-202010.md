@@ -1,5 +1,5 @@
 ---
-categories: [生活・人生]
+categories: [人生・思索]
 date: 2020-10-03
 lang: ja
 title: お手軽賃貸サービス "OYO LIFE" 所感

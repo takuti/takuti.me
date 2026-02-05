@@ -1,5 +1,5 @@
 ---
-categories: [生活・人生, エッセイ]
+categories: [人生・思索]
 date: 2023-06-20
 lang: ja
 title: 走る理由、あるいはアイデンティティの変容について

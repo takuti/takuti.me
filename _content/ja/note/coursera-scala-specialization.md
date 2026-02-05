@@ -1,6 +1,6 @@
 ---
 aliases: [/note/coursera-scala-specialization/]
-categories: [プログラミング]
+categories: [エンジニアリング]
 date: 2017-10-28
 lang: ja
 title: Courseraの"Functional Programming in Scala Specialization"を修了した

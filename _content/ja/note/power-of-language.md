@@ -1,5 +1,5 @@
 ---
-categories: [生活・人生]
+categories: [人生・思索]
 series: [malawi, ai]
 date: 2024-03-22
 lang: ja

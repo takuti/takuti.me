@@ -1,6 +1,6 @@
 ---
 aliases: [/note/making-a-will/]
-categories: [生活・人生]
+categories: [人生・思索]
 date: 2020-05-22
 lang: ja
 title: 遺言状を書いた（そしてアップデートした）

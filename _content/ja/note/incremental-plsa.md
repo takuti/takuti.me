@@ -1,6 +1,6 @@
 ---
 aliases: [/note/incremental-plsa/]
-categories: [情報推薦, 自然言語処理, 機械学習]
+categories: [データ・アルゴリズム, 推薦システム]
 date: 2017-06-04
 lang: ja
 title: Q&Aサイトにおける質問推薦、そして Incremental Probabilistic Latent Semantic Analysis

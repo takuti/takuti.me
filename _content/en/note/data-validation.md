@@ -1,6 +1,6 @@
 ---
 audio: [/audio/data-validation.mp3]
-categories: [Programming, Data Science & Analytics]
+categories: [Data & Algorithms, Engineering]
 series: [data]
 date: 2022-02-20
 lang: en

@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 date: 2014-11-09
 lang: en
 title: Hello English Entries

@@ -1,5 +1,5 @@
 ---
-categories: [Programming, Data Science & Analytics]
+categories: [Data & Algorithms, Engineering]
 date: 2021-03-13
 images: [/images/flight-emissions/2019.png, /images/flight-emissions/2020.png]
 lang: en

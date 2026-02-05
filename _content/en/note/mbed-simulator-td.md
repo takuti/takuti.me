@@ -1,5 +1,5 @@
 ---
-categories: [Programming]
+categories: [Engineering]
 date: 2018-11-02
 images: [/images/arm/pelion-overview.jpg, /images/arm/mbed-simulator-td/mbed-to-td.png,
   /images/arm/mbed-simulator-td/simulator.png, /images/arm/mbed-simulator-td/records.png]

@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work, Business, Design]
+categories: [Design, Life & Reflection, Society & Business]
 date: 2022-08-12
 lang: en
 title: Dilemma of Creative Selection

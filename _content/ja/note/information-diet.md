@@ -1,5 +1,5 @@
 ---
-categories: [生活・人生, エッセイ, ビジネス]
+categories: [人生・思索, 社会・ビジネス]
 series: [product]
 date: 2023-05-21
 lang: ja

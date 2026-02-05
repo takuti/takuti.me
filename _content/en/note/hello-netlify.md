@@ -1,5 +1,5 @@
 ---
-categories: [Programming]
+categories: [Engineering]
 date: 2019-08-31
 images: [/images/hello-netlify/netlify-republished.png, /images/hello-netlify/netlify-git-lfs-enabled.png]
 lang: en

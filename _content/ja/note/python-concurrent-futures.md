@@ -1,6 +1,6 @@
 ---
 aliases: [/note/python-concurrent-futures/]
-categories: [プログラミング, コンピュータシステム]
+categories: [エンジニアリング]
 date: 2017-10-01
 lang: ja
 title: Pythonのconcurrent.futuresを試す

@@ -1,6 +1,6 @@
 ---
 aliases: [/note/nand2tetris/]
-categories: [読書記録, プログラミング, コンピュータシステム]
+categories: [エンジニアリング, 読書]
 date: 2017-05-21
 lang: ja
 title: 『コンピュータシステムの理論と実装』は“娯楽”である

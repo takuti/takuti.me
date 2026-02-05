@@ -1,5 +1,5 @@
 ---
-categories: [Machine Learning]
+categories: [Data & Algorithms]
 date: 2015-04-21
 lang: en
 title: How to Derive the Normal Equation

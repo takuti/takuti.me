@@ -1,6 +1,6 @@
 ---
 aliases: [/note/recsys-2016/]
-categories: [情報推薦, イベント参加記]
+categories: [イベント, 推薦システム]
 date: 2016-09-28
 images: [/images/recsys-2016/welcome.jpg, /images/recsys-2016/beer.jpg, /images/recsys-2016/museum.jpg,
   /images/recsys-2016/view.jpg]

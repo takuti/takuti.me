@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 series: [canada]
 date: 2021-09-06
 images: [/images/2021-bcat-best-brewery-experience-award/herald_street_brew.jpeg]

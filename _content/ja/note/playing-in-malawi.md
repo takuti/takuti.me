@@ -1,5 +1,5 @@
 ---
-categories: [生活・人生, エッセイ, 読書記録]
+categories: [人生・思索, 読書]
 series: [malawi]
 date: 2023-10-30
 lang: ja

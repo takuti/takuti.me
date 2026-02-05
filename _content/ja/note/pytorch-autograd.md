@@ -1,6 +1,6 @@
 ---
 aliases: [/note/pytorch-autograd/]
-categories: [プログラミング, 機械学習]
+categories: [エンジニアリング, データ・アルゴリズム]
 date: 2017-09-23
 lang: ja
 title: PyTorchのautogradと仲良くなりたい

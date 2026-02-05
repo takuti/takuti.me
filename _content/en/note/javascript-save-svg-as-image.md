@@ -1,5 +1,5 @@
 ---
-categories: [Programming]
+categories: [Engineering]
 date: 2021-09-04
 lang: en
 title: Save HTML <svg> as an Image

@@ -1,6 +1,6 @@
 ---
 aliases: [/note/yahoo-egads/]
-categories: [機械学習]
+categories: [データ・アルゴリズム]
 date: 2017-09-10
 images: [/images/egads/architecture.png]
 lang: ja

@@ -1,5 +1,5 @@
 ---
-categories: [Conference, Machine Learning]
+categories: [Data & Algorithms, Events]
 date: 2018-11-22
 lang: en
 title: 'Attending MLconf SF 2018 #mlconf18'

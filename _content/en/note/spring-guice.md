@@ -1,5 +1,5 @@
 ---
-categories: [Programming]
+categories: [Engineering]
 date: 2021-10-30
 images: [/images/spring-guice/uml.png]
 title: Cross-Framework Dependency Injection with spring-guice

@@ -1,5 +1,5 @@
 ---
-categories: [Business]
+categories: [Society & Business]
 series: [ab, malawi]
 date: 2025-12-05
 lang: en

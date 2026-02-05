@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work, Business]
+categories: [Life & Reflection, Society & Business]
 date: 2022-05-23
 lang: en
 title: Rethinking Why, When, and How I Learn

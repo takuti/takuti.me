@@ -1,6 +1,6 @@
 ---
 aliases: [/note/design-engineer/]
-categories: [読書記録, デザイン]
+categories: [デザイン, 読書]
 date: 2019-12-10
 lang: ja
 title: デザインエンジニアになろう

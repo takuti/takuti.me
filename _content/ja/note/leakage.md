@@ -1,6 +1,6 @@
 ---
 aliases: [/note/leakage/]
-categories: [機械学習, データサイエンス]
+categories: [データ・アルゴリズム]
 date: 2017-07-16
 lang: ja
 title: Leakage in Data Mining

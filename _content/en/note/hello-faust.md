@@ -1,5 +1,5 @@
 ---
-categories: [Recommender Systems, Programming]
+categories: [Engineering, Recommender Systems]
 date: 2019-01-14
 images: [/images/recommender/incremental-recommendation.png]
 lang: en

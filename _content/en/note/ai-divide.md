@@ -1,5 +1,5 @@
 ---
-categories: [Business]
+categories: [Society & Business]
 series: [ab, ai]
 date: 2026-02-01
 lang: en

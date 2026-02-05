@@ -1,5 +1,5 @@
 ---
-categories: [Business]
+categories: [Society & Business]
 series: [product]
 date: 2021-09-18
 images: [/images/sustainable-capitalism/sustainable-capitalism.png]

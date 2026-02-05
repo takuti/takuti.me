@@ -1,6 +1,6 @@
 ---
 aliases: [/note/euroscipy-2017/]
-categories: [プログラミング, イベント参加記]
+categories: [イベント, エンジニアリング]
 date: 2017-09-02
 images: [/images/euroscipy-2017/venue.jpg, /images/euroscipy-2017/road.jpg, /images/euroscipy-2017/social.jpg,
   /images/euroscipy-2017/name.jpg]

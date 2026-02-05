@@ -1,6 +1,6 @@
 ---
 audio: [/audio/recommender-diversity.mp3]
-categories: [Recommender Systems, Data Science & Analytics, Machine Learning]
+categories: [Data & Algorithms, Recommender Systems]
 date: 2022-02-27
 lang: en
 title: Recommender Diversity is NOT Inversion of Similarity

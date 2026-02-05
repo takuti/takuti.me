@@ -1,5 +1,5 @@
 ---
-categories: [情報推薦, 機械学習]
+categories: [データ・アルゴリズム, 推薦システム]
 date: 2021-07-03
 lang: ja
 title: 推薦システムとブロックチェーン

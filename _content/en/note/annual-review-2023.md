@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 date: 2023-12-25
 lang: en
 title: 'My 2023 Annual Review: Between Individual and Systems'

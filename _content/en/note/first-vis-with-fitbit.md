@@ -1,5 +1,5 @@
 ---
-categories: [Programming, Data Science & Analytics]
+categories: [Data & Algorithms, Engineering]
 date: 2021-02-03
 images: [/images/first-vis-with-fitbit/sketch.jpeg, /images/first-vis-with-fitbit/active-vs-sleep.png,
   /images/first-vis-with-fitbit/active-vs-sleep-pre.png, /images/first-vis-with-fitbit/active-vs-sleep-post.png]

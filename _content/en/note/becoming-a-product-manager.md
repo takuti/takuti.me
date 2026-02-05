@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work, Data Science & Analytics]
+categories: [Data & Algorithms, Life & Reflection]
 series: [data, product]
 date: 2020-02-07
 lang: en

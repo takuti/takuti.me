@@ -1,5 +1,5 @@
 ---
-categories: [Conference]
+categories: [Events]
 date: 2015-10-04
 images: [/images/jekyll/2015-10-04-phpcon.jpg]
 lang: en

@@ -1,5 +1,5 @@
 ---
-categories: [読書記録, デザイン, データサイエンス]
+categories: [デザイン, データ・アルゴリズム, 読書]
 series: [product]
 date: 2021-08-02
 lang: ja

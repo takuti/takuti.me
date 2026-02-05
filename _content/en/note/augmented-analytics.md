@@ -1,5 +1,5 @@
 ---
-categories: [Design, Data Science & Analytics]
+categories: [Data & Algorithms, Design]
 series: [data]
 date: 2020-04-11
 lang: en

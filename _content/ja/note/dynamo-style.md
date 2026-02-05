@@ -1,6 +1,6 @@
 ---
 aliases: [/note/dynamo-style/]
-categories: [コンピュータシステム]
+categories: [エンジニアリング]
 date: 2017-12-22
 images: [/images/dynamo-style/consistent-hashing.png]
 lang: ja

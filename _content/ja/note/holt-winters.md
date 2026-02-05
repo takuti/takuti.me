@@ -1,6 +1,6 @@
 ---
 aliases: [/note/holt-winters/]
-categories: [機械学習, プログラミング]
+categories: [エンジニアリング, データ・アルゴリズム]
 date: 2017-08-26
 images: [/images/holt-winters/series.png, /images/holt-winters/triple_smoothing.png]
 lang: ja

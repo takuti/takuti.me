@@ -1,6 +1,6 @@
 ---
 aliases: [/note/auc-parallel/]
-categories: [機械学習]
+categories: [データ・アルゴリズム]
 date: 2017-03-10
 lang: ja
 title: Area Under the ROC Curve (AUC) を並列で計算するときに気をつけること

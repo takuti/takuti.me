@@ -1,6 +1,6 @@
 ---
 aliases: [/note/chiir-2017/]
-categories: [機械学習, 情報推薦, イベント参加記]
+categories: [イベント, データ・アルゴリズム, 推薦システム]
 date: 2017-03-18
 images: [/images/chiir-2017/program.jpg, /images/chiir-2017/city-hall.jpg, /images/chiir-2017/tutorial1.jpg,
   /images/chiir-2017/instagram.png, /images/chiir-2017/human.jpg]

@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 date: 2021-12-26
 lang: en
 title: 'My 2021 Annual Review: A Year of Divergence (And Slowly Started Converging)'

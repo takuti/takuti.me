@@ -1,6 +1,6 @@
 ---
 aliases: [/note/postgresql-fuzzy-search/]
-categories: [プログラミング, 自然言語処理]
+categories: [エンジニアリング, データ・アルゴリズム]
 date: 2017-08-09
 lang: ja
 title: あのときのビールをもう一度（PostgreSQLでFuzzy Searchを試す）

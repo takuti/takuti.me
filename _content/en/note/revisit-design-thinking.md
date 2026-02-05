@@ -1,5 +1,5 @@
 ---
-categories: [Design, Business]
+categories: [Design, Society & Business]
 series: [product]
 date: 2020-01-26
 lang: en

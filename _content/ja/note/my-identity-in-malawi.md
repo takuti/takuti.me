@@ -1,5 +1,5 @@
 ---
-categories: [生活・人生, エッセイ]
+categories: [人生・思索]
 series: [malawi, canada]
 date: 2024-04-30
 lang: ja

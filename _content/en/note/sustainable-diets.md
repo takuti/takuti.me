@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 date: 2021-10-16
 images: [/images/sustainable-diets/fitbit-food-tracking.png]
 lang: en

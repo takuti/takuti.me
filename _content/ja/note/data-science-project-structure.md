@@ -1,6 +1,6 @@
 ---
 aliases: [/note/data-science-project-structure/]
-categories: [機械学習, データサイエンス]
+categories: [データ・アルゴリズム]
 date: 2017-12-16
 lang: ja
 title: データサイエンスプロジェクトのディレクトリ構成どうするか問題

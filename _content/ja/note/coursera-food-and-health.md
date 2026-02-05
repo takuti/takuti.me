@@ -1,5 +1,5 @@
 ---
-categories: [生活・人生]
+categories: [人生・思索]
 date: 2020-09-26
 lang: ja
 title: 食と栄養について学んでいる。

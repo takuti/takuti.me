@@ -1,6 +1,6 @@
 ---
 aliases: [/note/hivemall-on-docker/]
-categories: [機械学習, プログラミング]
+categories: [エンジニアリング, データ・アルゴリズム]
 date: 2017-05-07
 lang: ja
 title: Hivemall on Dockerを試すぜ

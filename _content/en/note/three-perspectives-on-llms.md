@@ -1,5 +1,5 @@
 ---
-categories: [Business, Data Science & Analytics, Machine Learning]
+categories: [Data & Algorithms, Society & Business]
 series: [ai]
 date: 2023-04-07
 lang: en

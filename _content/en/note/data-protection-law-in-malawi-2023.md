@@ -1,5 +1,5 @@
 ---
-categories: [Data Science & Analytics, Business]
+categories: [Data & Algorithms, Society & Business]
 series: [malawi]
 date: 2023-09-29
 lang: en

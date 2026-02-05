@@ -1,5 +1,5 @@
 ---
-categories: [Data Science & Analytics, Business, Machine Learning]
+categories: [Data & Algorithms, Society & Business]
 series: [ai, data]
 date: 2022-09-09
 lang: en

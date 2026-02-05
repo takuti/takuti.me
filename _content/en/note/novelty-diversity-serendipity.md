@@ -1,7 +1,7 @@
 ---
 audio: [/audio/novelty-diversity-serendipity.mp3]
 images: [/images/novelty-diversity-serendipity/novelty-diversity-serendipity.png]
-categories: [Recommender Systems, Data Science & Analytics, Machine Learning]
+categories: [Data & Algorithms, Recommender Systems]
 date: 2022-03-06
 lang: en
 title: 'Serendipity: It''s Relevant AND Unexpected'

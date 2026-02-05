@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 series: [canada]
 date: 2021-08-28
 images: [/images/td-to-amazon/path.jpeg]

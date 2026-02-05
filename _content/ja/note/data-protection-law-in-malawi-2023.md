@@ -1,5 +1,5 @@
 ---
-categories: [データサイエンス, ビジネス]
+categories: [データ・アルゴリズム, 社会・ビジネス]
 series: [malawi]
 date: 2023-09-29
 lang: ja

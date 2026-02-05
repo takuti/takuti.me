@@ -1,5 +1,5 @@
 ---
-categories: [Business, Design, Life & Work]
+categories: [Design, Life & Reflection, Society & Business]
 date: 2022-01-23
 lang: en
 title: The Producer-Consumer Gap

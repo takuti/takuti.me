@@ -1,5 +1,5 @@
 ---
-categories: [機械学習, データサイエンス]
+categories: [データ・アルゴリズム]
 series: [ai]
 date: 2023-04-07
 lang: ja

@@ -1,5 +1,5 @@
 ---
-categories: [Programming, Data Science & Analytics]
+categories: [Data & Algorithms, Engineering]
 date: 2021-01-23
 images: [/images/datavis-2020/fitbit-official-dashboard.png, /images/datavis-2020/fitbit-steps-chart.png]
 lang: en

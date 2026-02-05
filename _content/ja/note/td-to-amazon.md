@@ -1,5 +1,5 @@
 ---
-categories: [生活・人生]
+categories: [人生・思索]
 series: [canada]
 date: 2021-08-19
 lang: ja

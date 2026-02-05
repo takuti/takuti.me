@@ -1,5 +1,5 @@
 ---
-categories: [Business]
+categories: [Society & Business]
 date: 2022-10-27
 lang: en
 title: Updating My View of Nuclear Power

@@ -1,6 +1,6 @@
 ---
 aliases: [/note/amazon-dynamo-paper/]
-categories: [コンピュータシステム]
+categories: [エンジニアリング]
 date: 2017-12-09
 lang: ja
 title: AmazonのDynamoDB論文を眺めた

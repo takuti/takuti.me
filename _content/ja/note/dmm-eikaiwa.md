@@ -1,6 +1,6 @@
 ---
 aliases: [/note/dmm-eikaiwa/]
-categories: [英語学習]
+categories: [言語]
 date: 2017-06-18
 lang: ja
 title: 'DMM英会話を1ヶ月間やってみて思う、オンライン英会話は『やらないよりマシ』なのか問題 #DMM英会話'

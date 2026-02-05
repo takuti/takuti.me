@@ -1,5 +1,5 @@
 ---
-categories: [Business, Life & Work]
+categories: [Life & Reflection, Society & Business]
 date: 2022-12-08
 lang: en
 title: 'Mentoring on @ADPList. Here''s What I Think. #ADPListWrapped'

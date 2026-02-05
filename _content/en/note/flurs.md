@@ -1,5 +1,5 @@
 ---
-categories: [Recommender Systems, Machine Learning, Programming]
+categories: [Data & Algorithms, Engineering, Recommender Systems]
 date: 2017-01-21
 lang: en
 title: 'FluRS: A Python Library for Online Item Recommendation'

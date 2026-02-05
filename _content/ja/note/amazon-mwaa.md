@@ -1,5 +1,5 @@
 ---
-categories: [コンピュータシステム, データサイエンス, 機械学習]
+categories: [エンジニアリング, データ・アルゴリズム]
 date: 2021-12-19
 images: []
 lang: ja

@@ -1,5 +1,6 @@
 ---
-categories: [Recommender Systems, Data Science & Analytics, Business, Life & Work]
+categories: [Data & Algorithms, Life & Reflection, Recommender Systems, Society &
+    Business]
 date: 2022-05-15
 lang: en
 title: Am I Zombie? Autonomy vs. Recommendations on the Internet

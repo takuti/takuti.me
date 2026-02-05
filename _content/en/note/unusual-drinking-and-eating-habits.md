@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 date: 2021-05-21
 lang: en
 title: 'Unusual Drinking & Eating Habits: Non-Alcohol, Decaf, Flexitarian'

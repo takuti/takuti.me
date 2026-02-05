@@ -1,6 +1,6 @@
 ---
 aliases: [/note/hivemall-on-mac/]
-categories: [機械学習, 情報推薦]
+categories: [データ・アルゴリズム, 推薦システム]
 date: 2017-02-11
 lang: ja
 title: MacのローカルにHivemallを導入してアイテム推薦をするまで

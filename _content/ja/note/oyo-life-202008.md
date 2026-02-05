@@ -1,5 +1,5 @@
 ---
-categories: [生活・人生]
+categories: [人生・思索]
 date: 2020-08-21
 images: [/images/oyo-life-202008/skytree.jpg, /images/oyo-life-202008/mot.jpg, /images/oyo-life-202008/kebab.jpg]
 lang: ja

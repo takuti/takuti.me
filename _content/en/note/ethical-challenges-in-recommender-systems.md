@@ -1,5 +1,5 @@
 ---
-categories: [Recommender Systems, Data Science & Analytics, Machine Learning]
+categories: [Data & Algorithms, Recommender Systems]
 series: [data]
 date: 2021-07-15
 lang: en

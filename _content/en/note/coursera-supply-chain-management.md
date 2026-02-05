@@ -1,5 +1,5 @@
 ---
-categories: [Data Science & Analytics]
+categories: [Data & Algorithms]
 date: 2021-04-04
 images: [/images/coursera-supply-chain-management/warehouse.png, /images/coursera-supply-chain-management/facilities.png,
   /images/holt-winters/series.png, /images/holt-winters/base.png, /images/holt-winters/simple_average.png,

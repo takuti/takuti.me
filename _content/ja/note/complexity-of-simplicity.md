@@ -1,5 +1,5 @@
 ---
-categories: [生活・人生, 機械学習, デザイン]
+categories: [デザイン, データ・アルゴリズム, 人生・思索]
 series: [ai]
 date: 2023-02-25
 lang: ja

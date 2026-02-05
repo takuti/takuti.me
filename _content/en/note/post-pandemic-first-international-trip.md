@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 date: 2022-06-04
 lang: en
 title: My First Post-Pandemic International Trip

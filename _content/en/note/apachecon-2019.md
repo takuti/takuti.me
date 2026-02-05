@@ -1,5 +1,5 @@
 ---
-categories: [Conference, Machine Learning]
+categories: [Data & Algorithms, Events]
 date: 2019-10-26
 images: [/images/apachecon-2019/takuti.jpg]
 lang: en

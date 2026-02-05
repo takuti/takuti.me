@@ -1,5 +1,5 @@
 ---
-categories: [Recommender Systems, Data Science & Analytics, Machine Learning]
+categories: [Data & Algorithms, Recommender Systems]
 date: 2022-05-07
 lang: en
 images: []

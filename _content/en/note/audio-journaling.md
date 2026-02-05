@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 date: 2021-11-06
 images: [/images/audio-journaling/voice-memos.png]
 lang: en

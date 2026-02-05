@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 series: [malawi, canada]
 date: 2024-04-30
 lang: en

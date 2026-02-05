@@ -1,5 +1,5 @@
 ---
-categories: [エッセイ]
+categories: [人生・思索]
 series: [product]
 date: 2020-07-11
 lang: ja

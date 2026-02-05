@@ -1,5 +1,5 @@
 ---
-categories: [Programming]
+categories: [Engineering]
 date: 2017-02-25
 lang: en
 title: Parallel Programming vs. Concurrent Programming

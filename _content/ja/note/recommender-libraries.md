@@ -1,6 +1,6 @@
 ---
 aliases: [/note/recommender-libraries/]
-categories: [情報推薦, 機械学習, プログラミング]
+categories: [エンジニアリング, データ・アルゴリズム, 推薦システム]
 date: 2017-05-14
 lang: ja
 title: 推薦システムのためのOSSたち

@@ -1,5 +1,5 @@
 ---
-categories: [エッセイ]
+categories: [人生・思索]
 date: 2020-07-28
 lang: ja
 title: 「考えないこと」

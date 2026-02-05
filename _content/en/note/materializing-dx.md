@@ -1,5 +1,5 @@
 ---
-categories: [Business]
+categories: [Society & Business]
 series: [malawi, product]
 date: 2024-05-27
 lang: en

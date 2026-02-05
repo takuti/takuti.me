@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 date: 2020-03-29
 lang: en
 title: The Hardest Part of 2020's Strategic Ideation

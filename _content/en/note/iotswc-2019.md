@@ -1,5 +1,5 @@
 ---
-categories: [Conference]
+categories: [Events]
 date: 2019-11-17
 lang: en
 title: What I've Seen at IoT Solutions World Congress 2019

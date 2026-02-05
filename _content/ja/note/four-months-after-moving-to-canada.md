@@ -1,5 +1,5 @@
 ---
-categories: [生活・人生, エッセイ]
+categories: [人生・思索]
 series: [canada]
 date: 2021-06-27
 lang: ja

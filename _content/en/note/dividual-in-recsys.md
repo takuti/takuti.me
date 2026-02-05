@@ -1,5 +1,5 @@
 ---
-categories: [Data Science & Analytics, Business, Recommender Systems]
+categories: [Data & Algorithms, Recommender Systems, Society & Business]
 series: [data]
 date: 2022-11-27
 lang: en

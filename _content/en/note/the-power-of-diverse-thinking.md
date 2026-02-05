@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work, Business, Recommender Systems]
+categories: [Life & Reflection, Recommender Systems, Society & Business]
 date: 2022-01-16
 lang: en
 title: '"Diversity" Means More Than What We Typically Think'

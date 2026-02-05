@@ -1,5 +1,5 @@
 ---
-categories: [生活・人生]
+categories: [人生・思索]
 date: 2023-12-25
 lang: ja
 title: 個とシステムのあいだで、情報とインターネットをめぐる哲学・地理探究

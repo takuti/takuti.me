@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work, Business]
+categories: [Life & Reflection, Society & Business]
 series: [data, product]
 date: 2022-11-19
 lang: en

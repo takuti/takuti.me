@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work, Business, Design]
+categories: [Design, Life & Reflection, Society & Business]
 series: [ai]
 date: 2023-02-21
 lang: en

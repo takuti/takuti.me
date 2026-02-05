@@ -1,6 +1,6 @@
 ---
 aliases: [/note/pytorch-mf/]
-categories: [プログラミング, 情報推薦, 機械学習]
+categories: [エンジニアリング, データ・アルゴリズム, 推薦システム]
 date: 2017-10-14
 images: [/images/recommender/mf.png]
 lang: ja

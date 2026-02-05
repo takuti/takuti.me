@@ -1,5 +1,5 @@
 ---
-categories: [Programming, Conference, Recommender Systems]
+categories: [Engineering, Events, Recommender Systems]
 series: [julia]
 date: 2019-07-26
 lang: en

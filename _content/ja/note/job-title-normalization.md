@@ -1,6 +1,6 @@
 ---
 aliases: [/note/job-title-normalization/]
-categories: [プログラミング, 自然言語処理]
+categories: [エンジニアリング, データ・アルゴリズム]
 date: 2017-07-09
 lang: ja
 title: Job Titleの前処理＆クラスタリングをどうやって実現するか問題

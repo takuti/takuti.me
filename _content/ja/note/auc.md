@@ -1,6 +1,6 @@
 ---
 aliases: [/note/auc/]
-categories: [機械学習]
+categories: [データ・アルゴリズム]
 date: 2017-03-04
 lang: ja
 title: Area Under the ROC Curve (AUC) を実装する

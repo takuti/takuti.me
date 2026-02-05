@@ -1,6 +1,6 @@
 ---
 aliases: [/note/deep-work/]
-categories: [読書記録]
+categories: [読書]
 date: 2017-03-25
 lang: ja
 title: '"Deep Work"を読んだけど微妙だったから皆は"How to Write a Lot"と"エッセンシャル思考"を読めばいい'

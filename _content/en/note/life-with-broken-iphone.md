@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 date: 2020-04-04
 images: [/images/life-with-broken-iphone/iphone-202003.png]
 lang: en

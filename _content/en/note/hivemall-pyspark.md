@@ -1,5 +1,5 @@
 ---
-categories: [Machine Learning, Programming]
+categories: [Data & Algorithms, Engineering]
 date: 2019-03-24
 lang: en
 title: Apache Hivemall in PySpark

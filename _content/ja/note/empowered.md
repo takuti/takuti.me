@@ -1,5 +1,5 @@
 ---
-categories: [読書記録, デザイン]
+categories: [デザイン, 読書]
 series: [product]
 date: 2021-09-29
 lang: ja

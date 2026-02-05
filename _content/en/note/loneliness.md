@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 date: 2022-04-09
 lang: en
 title: Loneliness Is Worse Than Smoking, Alcoholic, Obesity

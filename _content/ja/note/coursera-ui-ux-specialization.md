@@ -1,5 +1,5 @@
 ---
-categories: [エッセイ, デザイン]
+categories: [デザイン, 人生・思索]
 series: [product]
 date: 2020-09-12
 images: [/images/coursera-ui-ux-specialization/sitemap.png, /images/coursera-ui-ux-specialization/figma.png,

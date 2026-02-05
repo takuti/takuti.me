@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work, Business]
+categories: [Life & Reflection, Society & Business]
 date: 2021-12-11
 images: [/images/atomic-habits/identity-as-a-traveler.png]
 lang: en

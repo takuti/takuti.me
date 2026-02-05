@@ -1,5 +1,5 @@
 ---
-categories: [Life & Work]
+categories: [Life & Reflection]
 date: 2023-06-20
 lang: en
 title: Runner's Search for Identity

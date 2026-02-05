@@ -1,5 +1,5 @@
 ---
-categories: [Business]
+categories: [Society & Business]
 date: 2021-04-30
 lang: en
 title: Environmental Problems Through the Lens of Business

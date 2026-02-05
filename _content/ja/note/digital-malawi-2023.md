@@ -1,5 +1,5 @@
 ---
-categories: [生活・人生, ビジネス]
+categories: [人生・思索, 社会・ビジネス]
 series: [malawi]
 date: 2023-09-10
 lang: ja

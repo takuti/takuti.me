@@ -1,5 +1,5 @@
 ---
-categories: [Conference, Data Science & Analytics]
+categories: [Data & Algorithms, Events]
 date: 2019-11-10
 lang: en
 title: Rethinking the Role of Data Leaders @ Data Leaders Summit Europe 2019

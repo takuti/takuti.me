@@ -1,5 +1,5 @@
 ---
-categories: [エッセイ, 読書記録]
+categories: [人生・思索, 読書]
 series: [product]
 date: 2021-08-12
 lang: ja

@@ -1,5 +1,5 @@
 ---
-categories: [エッセイ]
+categories: [人生・思索]
 date: 2020-04-30
 images: [/images/life-with-covid-19/convergence.png]
 lang: ja

@@ -1,6 +1,6 @@
 ---
 aliases: [/note/https/]
-categories: [プログラミング]
+categories: [エンジニアリング]
 date: 2017-02-04
 lang: ja
 title: サイトをHTTPSにした

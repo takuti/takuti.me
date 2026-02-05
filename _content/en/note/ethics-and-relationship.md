@@ -1,6 +1,6 @@
 ---
 audio: [/audio/ethics-and-relationship.mp3]
-categories: [Life & Work, Business]
+categories: [Life & Reflection, Society & Business]
 date: 2022-03-28
 lang: en
 title: '3 Pillars of Ethics'' Scope: Society, Personal Relationship, and Individual'

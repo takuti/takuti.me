@@ -1,5 +1,5 @@
 ---
-categories: [Machine Learning]
+categories: [Data & Algorithms]
 date: 2015-10-03
 images: [/images/jekyll/2015-10-03-sensu.jpg, /images/jekyll/2015-10-03-bamboo.jpg,
   /images/jekyll/2015-10-03-masu.jpg]

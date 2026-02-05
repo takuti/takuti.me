@@ -1,6 +1,6 @@
 ---
 aliases: [/note/designing-data-intensive-applications/]
-categories: [読書記録, コンピュータシステム]
+categories: [エンジニアリング, 読書]
 date: 2017-12-30
 images: [/images/ddia/poster.png]
 lang: ja

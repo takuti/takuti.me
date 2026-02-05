@@ -1,5 +1,5 @@
 ---
-categories: [エッセイ, プログラミング, ビジネス, 生活・人生]
+categories: [エンジニアリング, 人生・思索, 社会・ビジネス]
 series: [malawi]
 date: 2023-11-30
 lang: ja

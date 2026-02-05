@@ -1,6 +1,6 @@
 ---
 aliases: [/note/the-amazon-way-on-iot/]
-categories: [読書記録]
+categories: [読書]
 date: 2017-10-06
 lang: ja
 title: The Amazon Way on IoT - Amazonのビジネスから学ぶ、10の原則

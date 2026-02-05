@@ -1,5 +1,5 @@
 ---
-categories: [Machine Learning, Business, Data Science & Analytics]
+categories: [Data & Algorithms, Society & Business]
 date: 2022-09-14
 lang: en
 title: Seeing Past and Present in Coursera "Machine Learning on Google Cloud" Specialization

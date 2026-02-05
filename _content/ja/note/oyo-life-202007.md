@@ -1,5 +1,5 @@
 ---
-categories: [生活・人生]
+categories: [人生・思索]
 date: 2020-07-31
 lang: ja
 title: 軽やかに生きたくて。

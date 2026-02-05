@@ -1,6 +1,6 @@
 ---
 aliases: [/note/trends-in-real-world-recommender-systems-2017/]
-categories: [イベント参加記, 情報推薦]
+categories: [イベント, 推薦システム]
 date: 2017-11-23
 images: [/images/201711/ibuki1.jpg, /images/201711/ibuki2.jpg, /images/201711/daimonji.jpg,
   /images/201711/ginkaku.jpg]

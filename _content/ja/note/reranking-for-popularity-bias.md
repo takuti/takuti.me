@@ -1,5 +1,5 @@
 ---
-categories: [情報推薦]
+categories: [推薦システム]
 date: 2021-12-05
 images: []
 lang: ja

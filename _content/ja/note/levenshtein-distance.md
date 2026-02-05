@@ -1,6 +1,6 @@
 ---
 aliases: [/note/levenshtein-distance/]
-categories: [プログラミング, 自然言語処理]
+categories: [エンジニアリング, データ・アルゴリズム]
 date: 2017-07-28
 lang: ja
 title: いまさら編集距離 (Levenshtein Distance) を実装するぜ

@@ -1,5 +1,5 @@
 ---
-categories: [エッセイ]
+categories: [人生・思索]
 date: 2020-07-05
 lang: ja
 title: まっさらな地図を手に入れた

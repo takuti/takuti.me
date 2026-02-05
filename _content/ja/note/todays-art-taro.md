@@ -1,6 +1,6 @@
 ---
 aliases: [/note/todays-art-taro.html]
-categories: [読書記録]
+categories: [読書]
 date: 2014-02-28
 lang: ja
 title: 岡本太郎に学ぶ、芸術と人生。

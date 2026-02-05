@@ -1,7 +1,7 @@
 ---
 audio: [/audio/coursera-data-science-ethics.mp3]
 series: [data]
-categories: [Machine Learning, Business, Data Science & Analytics]
+categories: [Data & Algorithms, Society & Business]
 date: 2022-03-20
 lang: en
 title: 'It "Was" Ethical: Key Takeaways from UMich''s Data Science Ethics Course'

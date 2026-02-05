@@ -1,5 +1,5 @@
 ---
-categories: [Conference]
+categories: [Events]
 date: 2015-10-13
 images: [/images/jekyll/2015-10-13-pycon-entrance.jpg, /images/jekyll/2015-10-13-pycon-closing.png]
 lang: en

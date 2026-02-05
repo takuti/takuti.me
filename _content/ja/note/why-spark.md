@@ -1,6 +1,6 @@
 ---
 aliases: [/note/why-spark/]
-categories: [コンピュータシステム, プログラミング]
+categories: [エンジニアリング]
 date: 2017-04-09
 images: [/images/why-spark/top-paying-tech.png, /images/why-spark/lr-iterations.png,
   /images/why-spark/coffee.png, /images/why-spark/trend.png]

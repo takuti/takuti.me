@@ -1,5 +1,5 @@
 ---
-categories: [エッセイ, デザイン]
+categories: [デザイン, 人生・思索]
 date: 2020-04-25
 lang: ja
 title: “いいもの”ってなんだろう

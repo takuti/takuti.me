@@ -1,5 +1,5 @@
 ---
-categories: [Business]
+categories: [Society & Business]
 date: 2021-09-24
 images: [/images/sustainability-at-big-tech/thumbnail.png]
 lang: en

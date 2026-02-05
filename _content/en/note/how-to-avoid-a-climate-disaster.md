@@ -1,5 +1,5 @@
 ---
-categories: [Business]
+categories: [Society & Business]
 date: 2021-04-25
 lang: en
 title: My First Impression After Reading Bill Gates's "How to Avoid a Climate Disaster"

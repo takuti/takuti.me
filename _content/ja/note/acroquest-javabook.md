@@ -1,6 +1,6 @@
 ---
 aliases: [/note/acroquest-javabook/]
-categories: [読書記録, プログラミング]
+categories: [エンジニアリング, 読書]
 date: 2017-12-01
 lang: ja
 title: 『Java本格入門』メモ

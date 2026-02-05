@@ -1,5 +1,5 @@
 ---
-categories: [機械学習, データサイエンス, エッセイ]
+categories: [データ・アルゴリズム, 人生・思索]
 series: [product]
 date: 2023-03-25
 lang: ja

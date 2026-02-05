@@ -1,6 +1,6 @@
 ---
 aliases: [/note/design-note-88/]
-categories: [読書記録, デザイン]
+categories: [デザイン, 読書]
 date: 2020-02-29
 lang: ja
 title: “好き”を可視化しながら、デザインノート No.88『ブランディングデザインの成功法』を読む

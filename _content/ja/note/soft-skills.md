@@ -1,6 +1,6 @@
 ---
 aliases: [/note/soft-skills/]
-categories: [読書記録]
+categories: [読書]
 date: 2017-07-02
 lang: ja
 title: いまさら Soft Skills を読んだ
