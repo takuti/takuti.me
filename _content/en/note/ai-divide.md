@@ -7,7 +7,7 @@ title: The AI Divide
 images: [/images/thumbnails/divide.jpg]
 keywords: [humans, isting, divide, technology, smarter, contexts, tools, problems,
   need, inequality]
-recommendations: [/note/offline-learning/, /note/digital-divide/, /note/one-year-in-malawi/]
+recommendations: [/note/offline-learning/, /note/digital-divide/, /note/three-perspectives-on-llms/]
 ---
 
 People worldwide exhibit varying levels of excitement or concern about AI, from the rich to the poor, ordinary citizens to global leaders to politicians, regardless of their occupation and industry. One cannot avoid the wave, even if "I'm not an expert" or "I don't use computers."
@@ -40,7 +40,7 @@ That is the second point about the representation of the existing inequality.
 
 By nature, AI development requires a significant amount of resources in terms of computation, human labour, and money. Thus, countries, companies, or individuals who already have those resources continue to enjoy the advantage, while others first need to tackle the deep economic and political challenges to enter the field.
 
-Meanwhile, [data biases](/note/data-feminism/) are real. And they are rooted in the history of English-centered, male-dominated, white supremacy. Unless we optimize our approach for marginalized contexts, AI policies and applications tend to converge on a skewed state where AI development incentivizes wealthy people's self-centered acts.
+Meanwhile, [data biases](/note/data-feminism/) are real. And they are rooted in the history of English-speaking, male-dominated, white supremacy. Unless we optimize our approach for marginalized contexts, AI policies and applications tend to converge on a skewed state where AI development incentivizes wealthy people's self-centered acts.
 
 That is, **joining the AI race is practically a form of approval for today's world as it is**, pushing the [AI divide](https://www.ilo.org/publications/major-publications/mind-ai-divide-shaping-global-perspective-future-work) backed by the [uneven growth](https://blogs.worldbank.org/en/voices/global-economic-resilience-masks-an-uneven-growth-outlook).
 
