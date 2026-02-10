@@ -1,14 +1,13 @@
     <footer>
       <span>
         <a href="{{ "/now" | absLangURL }}">{{ i18n "now" }}</a> |
-        <a href="{{ "/contact" | absLangURL }}">{{ i18n "contact" }}</a> |
-        <a href="{{ "/index.xml" | absLangURL }}" target="_blank">{{ i18n "rss" }}</a>
+        <a href="{{ "/contact" | absLangURL }}">{{ i18n "contact" }}</a>
         {{ if not (in .Permalink "privacy-policy") }} | <a href="{{ "/privacy-policy" | absLangURL }}">{{ i18n "privacyPolicy" }}</a>{{ end }}
       </span>
       <span>
         <a href="http://linkedin.com/in/takuti" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg"></i></a>
         <a href="https://github.com/takuti" target="_blank" rel="noopener"><i class="fab fa-github fa-lg"></i></a>
-        <a href="https://twitter.com/takuti" target="_blank" rel="noopener"><i class="fab fa-x-twitter fa-lg"></i></a>
+        <a href="{{ "/index.xml" | absLangURL }}" target="_blank"><i class="fas fa-rss fa-lg"></i></a>
       </span>
       <span>
         &copy; 2012-{{ now.Format "2006" }} {{ .Site.Params.author }}.
