@@ -1,10 +1,16 @@
 ---
-date: 2026-01-15
+date: 2026-02-19
 title: サービス内容のご紹介
 images: [/images/annual-review-2023/me.jpeg]
 ---
 
-2022年にカナダで個人事業主として独立して以来、日本企業を含むさまざまな個人・団体とお取り引きをさせていただいております。クライアント様の規模感やプロジェクト固有のニーズ、ご予算に応じた個別での対応となっておりますので、まずはお気軽に[お問い合わせください](/ja/contact)。
+2022年にカナダで個人事業主として独立して以来、日本企業を含むさまざまな個人・団体とお取り引きをさせていただいております。
+
+- 大規模推薦システムの開発経験と、エンタープライズデータ基盤設計の経験を通じ、モデル精度の向上のみならず、ステークホルダー折衝、スケーラビリティやデータ品質の担保、運用設計まで一貫して担当してきました。
+- 貧困国や小規模な顧客の現場といった低リソース環境下でのICT実装経験から、技術の倫理的側面（公平性、アクセス格差、持続性）を含めた設計の重要性を実践的に理解しています。
+- プロダクトマネージャーとしての経験も踏まえ、エンジニアリング・ビジネス・デザインの各要件に配慮したシステムの設計レビュー、MLプロダクト開発支援、責任あるAI実装への提言などが可能です。
+
+クライアント様の規模感やプロジェクト固有のニーズ、ご予算に応じた個別での対応となっておりますので、まずはお気軽に[お問い合わせください](/ja/contact)。
 
 ![takuya-presenting](/images/annual-review-2023/me.jpeg)
 
@@ -31,10 +37,6 @@ images: [/images/annual-review-2023/me.jpeg]
 <a href="https://mentorcruise.com/mentor/takuyakitazawa/">
 <img src="https://cdn.mentorcruise.com/img/banner/navy-sm.svg" width="240" alt="MentorCruise">
 </a>
-
-エンジニアのキャリア形成にまつわるアドバイスを[PDF](https://buymeacoffee.com/takuti/e/497136)にまとめて頒布しております：
-
-<a href="https://buymeacoffee.com/takuti/e/497136"><img src="/images/misc/experienced-thumbnail.png" width="400" alt="experienced-thumbnail"></a>
 
 ### 講演・執筆活動
 

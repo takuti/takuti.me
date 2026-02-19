@@ -1,10 +1,10 @@
 ---
-date: 2026-01-15
+date: 2026-02-19
 title: Professional Services
 images: [/images/annual-review-2023/me.jpeg]
 ---
 
-As a Canadian independent consultant, I have provided the following services to individuals and organizations worldwide since 2022. Terms differ depending on a client's need, location, and currency. [Contact me](/contact) first for an inquiry.
+As a Canadian independent consultant, I have provided the following services to individuals and organizations worldwide since 2022. See <a href="https://takuti.github.io/cv/" target="_blank" rel="noopener">CV <sup><i class="fas fa-external-link-alt"></i></sup></a> to learn more about my expertise, and feel free to [contact](/contact) for a casual inquiry. Terms differ depending on a client's need, location, and currency.
 
 ![takuya-presenting](/images/annual-review-2023/me.jpeg)
 
