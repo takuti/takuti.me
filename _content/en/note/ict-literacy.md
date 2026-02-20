@@ -3,7 +3,7 @@ categories: [Society & Business]
 series: [ab]
 date: 2026-03-01
 lang: en
-title: Are You Digitally Prepared?
+title: Who is Digitally Prepared?
 draft: true
 ---
 
