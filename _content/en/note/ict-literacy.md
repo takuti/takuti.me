@@ -4,14 +4,16 @@ series: [ab]
 date: 2026-03-01
 lang: en
 title: Who is Digitally Prepared?
-draft: true
+keywords: [assessment, situational, driving, task, tasks, ict, technology, you, tri,
+  driver]
+recommendations: [/note/one-year-in-malawi/, /note/volunteering-in-malawi/, /note/offline-learning/]
 ---
 
 Technology is contextual, and hence neither oversimplification nor overcomplication is helpful; it'd be advisable to understand realistic constraints in a very environment and take a tailored approach point by point.
 
 But how can we "see" real challenges and opportunities a person, organization, community, country, or region faces in the information age? Where are *you* currently at, in terms of digital divide?
 
-One way to accomplish this is to travel to a field, spend time with locals, and co-explore problems and solutions. Such fieldwork, however, can be resource-intensive, uncertain, and irrelevant to other contexts. Hence, the work is likely to be unsustainable with minimal scaling-up potential.
+One way to evaluate this is to travel to a field, spend time with locals, and co-explore problems and solutions. Such fieldwork, however, can be resource-intensive, uncertain, and irrelevant to other contexts. Consequently, the work is likely to be unsustainable with minimal scaling-up potential.
 
 That's where assessment frameworks come in.
 
@@ -21,7 +23,7 @@ By applying a standard set of tasks and measurements globally, institutions can 
 
 For example, [International Computer and Information Literacy Study](https://www.iea.nl/studies/iea/icils/) (ICILS) is a worldwide assessment of ICT literacy in educational settings conducted every five years. They employ their standardized questionnaires and virtual hands-on tasks to measure participants' ability to utilize ICT.
 
-The ICILS reports describe which countries scored higher in information search, use of presentation tools (e.g., PowerPoint), and algorithmic games, as well as how students perceive ICT in their learning journey. It would be a good baseline framework to monitor access and use of digital technologies.
+The ICILS reports describe which countries scored higher in information search, use of presentation tools (e.g., PowerPoint), and algorithmic games, as well as how students perceive ICT in their learning journey. It would be a good baseline framework for monitoring real-life access and use of digital technologies.
 
 On the other hand, the facilitated approach can decontextualize insights by posing the same problem set for various but not all nations and aggregating the results for the sake of generalization. It won't be fair because each country uses different languages, and students follow different curricula that are likely regulated by the corresponding governments.
 
@@ -35,7 +37,7 @@ Since such task-based lab experiments derive a limited understanding of reality,
 
 Readiness, in reality, is more psychological and situational.
 
-Even if he/she uses a smartphone daily for social media, they won't be prepared to enjoy what ICT offers to the fullest as long as there is psychological friction, such as "Am I doing the right thing?"
+Even if he/she uses a smartphone daily for social media, they won't be prepared to enjoy what ICT offers to the fullest as long as there is psychological friction.
 
 One can gain confidence in using technology only when they are in a specific situation, where they can objectively confirm their maturity by seeing others' behaviour.
 
@@ -54,7 +56,7 @@ TRI asks a series of situational questions, which are classified into four categ
 
 By asking whether subjects agree or disagree with each statement, we get access to a more nuanced and authentic understanding of the state of individuals' literacy. It has been reported that the framework worked well across diverse contexts.
 
-The invisible factor will differentiate *doing* from *knowing,* which is the key to demonstrate a greater degree of users' agency.
+The invisible factor will differentiate *knowing something* from *actually doing it,* which is the key to demonstrate a greater degree of users' agency.
 
 ### Toward effective monitoring and evaluation
 
@@ -66,8 +68,8 @@ In order for you to take full advantage of what an automobile offers, you actual
 
 Therefore, while task-based assessment is definitely a good starting point, it would be pointless without situational validation.
 
-Whether it's qualitative or quantitative, and task-based or situational, modern society relies heavily on standardized assessments to visualize reality in an objectively sound way. The measurement tools eventually enable individual agents to monitor the performance of their actions and make informed decisions on what to do next. It also helps stakeholders better control quality and prioritize areas of investment.
+Whether it's qualitative or quantitative, and task-based or situational, modern society relies heavily on standardized assessments to visualize reality in an objectively sound way. The measurement tools enable individual agents to monitor the performance of their actions and make informed decisions on what to do next. It also helps stakeholders better control quality and prioritize areas of investment.
 
-In international development, this is often the job of Monitoring & Evaluation (M&E) personnel. However, [my experience in Malawi](/malawi) tells me that assessment methodologies are not structured well, especially in emerging domains like ICT, and tools and languages differ depending on a person in charge; officers are busy with going back and forth between fields and meeting rooms, while they make and distribute questionnaires on an *"as-you-go"* basis with little to no consistency and alignment with larger strategic goals.
+In international development, this is often the job of Monitoring & Evaluation (M&E) personnel. However, [my experience in Malawi](/malawi) tells me that assessment methodologies are not structured well, especially in emerging domains like ICT, and tools and languages differ depending on a person in charge; M&E officers are busy with going back and forth between fields and meeting rooms, while they make and distribute questionnaires on an *"as-you-go"* basis with little to no consistency and alignment with larger strategic goals.
 
 In a reciprocal environment like human society, we cannot optimize things we don't measure. And defining the right objective function&mdash;capturing both behavioural and psychological aspects&mdash;is essential for the steady development of any person or organization.

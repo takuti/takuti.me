@@ -4,8 +4,9 @@ date: 2022-12-08
 lang: en
 title: 'Mentoring on @ADPList. Here''s What I Think. #ADPListWrapped'
 images: [/images/mentoring/adplist-wrapped.png]
-keywords: [mentoring, stack, mentor, full, you, learn, people, job, mentors, interviews]
-recommendations: [/note/annual-review-2022/, /note/td-to-amazon/, /note/becoming-a-freelancer-in-canada/]
+keywords: [mentoring, stack, mentor, full, you, learn, people, mentors, interviews,
+  adplist]
+recommendations: [/note/annual-review-2022/, /note/td-to-amazon/, /note/annual-review-2021/]
 ---
 
 After [being independent](/note/first-month-as-self-employed/), several people encouraged me to share my experiences with others as a mentor, since some of the backgrounds are unique yet relevant enough to those who are working inside/outside of the industry:

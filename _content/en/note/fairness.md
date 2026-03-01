@@ -68,3 +68,5 @@ In the fair-AI/ML domain, in particular, researchers [suggested](https://dl.acm.
 5. is heterogeneously framed so as to include the data and social actors relevant to the localized question of fairness (good problem framing).
 
 It’s about how to define a problem and goal in a way that makes sense to the context, before you start cutting the ingredients.
+
+You speak about AI, but its usage [varies](https://blogs.worldbank.org/en/investinpeople/from-predictions-to-practice--what-ai-usage-data-reveals-about-t) depending on the country's income level. Difference contexts need different information and data.

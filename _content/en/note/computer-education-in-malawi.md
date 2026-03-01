@@ -5,8 +5,8 @@ date: 2023-11-30
 lang: en
 title: Is Computer Education Always Good?
 images: [/images/computer-education-in-malawi/keynote.jpg]
-keywords: [malawi, skills, train, computer, education, professionals, people, contexts,
-  young, ing]
+keywords: [malawi, skills, train, computer, education, professionals, people, young,
+  contexts, ing]
 recommendations: [/note/one-year-in-malawi/, /note/volunteering-in-malawi/, /note/relativize-and-contextualize/]
 ---
 

@@ -6,8 +6,8 @@ lang: en
 title: Materializing Digital Transformation
 images: [/images/materializing-dx/ictam-expo-presentation.jpg, /images/materializing-dx/zanzibar.jpg,
   /images/materializing-dx/bi-workshop.jpg]
-keywords: [malawi, digital, workshop, ict, ictam, mdash, technology, zanzibar, transformation,
-  literacy]
+keywords: [malawi, digital, workshop, ictam, ict, mdash, zanzibar, technology, transformation,
+  materializing]
 recommendations: [/note/digital-malawi-2023/, /note/one-year-in-malawi/, /note/volunteering-in-malawi/]
 ---
 

@@ -5,7 +5,7 @@ images: [/images/life-with-broken-iphone/iphone-202003.png]
 lang: en
 title: Life with (Partially) Broken iPhone
 lastmod: '2022-05-15'
-keywords: [iphone, broken, screen, apps, phone, check, device, bank, dropped, devices]
+keywords: [iphone, broken, apps, screen, phone, check, device, bank, dropped, devices]
 recommendations: [/note/working-from-home-202004/, /note/fermenting-thoughts/, /note/first-month-as-self-employed/]
 ---
 

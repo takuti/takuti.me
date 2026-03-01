@@ -6,7 +6,7 @@ lang: en
 title: 'Language: Behind the Power Dynamics in Information Society'
 images: [/images/power-of-language/learn-chichewa.png]
 keywords: [languages, chichewa, language, english, malawi, spoken, french, speak,
-  digital, minori]
+  minori, digital]
 recommendations: [/note/volunteering-in-malawi/, /note/digital-malawi-2023/, /note/one-year-in-malawi/]
 ---
 
