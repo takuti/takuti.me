@@ -13,17 +13,17 @@ This website, [takuti.me](/), for example, is made of a bunch of numbers, texts,
 
 On the other hand, information is the result of processing and organizing data in a meaningful way. It is a menu, dish, and course that you will eventually feel and taste. I need to intentionally put the ingredients into context (i.e., recipe) so that deliverables are useful and relevant to a specific purpose or goal. Hopefully, [takuti.me](/) effectively visualizes my identity and conveys certain messages to its audiences as such.
 
-Yes, there are a lot more things that happen in the kitchen, such as version control, hosting, networking, research, optimization, personalization, and interface design. But all the tools, methods, and processes are to be chosen in a way that makes sense to the given data and purpose. (If you disagree with this point, you may want to examine the idea of [ethical product development](/note/ethical-product-developer/).)
+Yes, there are a lot more things that happen in the kitchen, such as version control, hosting, networking, research, optimization, personalization, and interface design. But the **tools, methods, and processes are to be chosen in a way that makes sense to the given data and purpose**. (If you disagree with this point, you may want to examine the idea of [ethical product development](/note/ethical-product-developer/).)
 
-So, anything digital is essentially fuelled by data, *input,* and produces information, *output,* hoping to bring desired outcomes down the line. This is the foundational understanding that derives a set of practices required for ethical technology development, especially in the AI era, where [its usage varies depending on a context](https://blogs.worldbank.org/en/investinpeople/from-predictions-to-practice--what-ai-usage-data-reveals-about-t).
+So, anything digital is essentially fuelled by data, *input,* and produces information, *output,* hoping to bring desired outcomes down the line. This is the foundational understanding for ethical technology development, especially in the AI era. Notice that AI is a kind of tools built on top of data that generates information to its consumers, and its [skewed usage in wealthy nations](https://blogs.worldbank.org/en/investinpeople/from-predictions-to-practice--what-ai-usage-data-reveals-about-t) suggests varying needs for inputs and outputs.
 
-An ultimate question is: How can we maximize the certainty of achieving desired outcomes? Researchers suggest we can do the following in each part.
+Here, an ultimate question is: Given data, how can we maximize the certainty of achieving desired outcomes in a uncertain environment? The following basic practices have been proposed at the data and information layers.
 
 ### Data: Document contexts
 
-In *[Datasheets for Datasets](https://arxiv.org/abs/1803.09010),* researchers suggested the practices of making a datasheet (spec document) for a dataset so that the data is accurately understood and effectively utilized.
+First of all, **creators and consumers need to share an accurate understanding of data**. For this purpose, *[Datasheets for Datasets](https://arxiv.org/abs/1803.09010)* recommends to develop a datasheet for a dataset, which can look like a spec document or user guide of data.
 
-Based on years of the authors’ field experience and external feedback, the study proposes a series of template questions that help two distinct types of stakeholders, *dataset creators* and *dataset consumers,* work on data more mindfully.
+Based on years of the authors’ field experience and external feedback, the study proposes a series of template questions that help stakeholders work on data more mindfully.
 
 There are seven categories of questions, with samples below (I changed some wording for clarity):
 
@@ -35,9 +35,9 @@ There are seven categories of questions, with samples below (I changed some word
 - **Distribution**: How/when will the dataset be distributed? Will the dataset be distributed under a copyright or other intellectual property (IP) license, and/or under applicable terms of use?
 - **Maintenance**: Who will be responsible for supporting, hosting, and maintaining the dataset? Will the dataset be updated? If so, how often, by whom, and how will updates be communicated to its consumers?
 
-By asking intentional questions and examining given data, subsequent solutions will better reflect the reality and become more impactful. It is a communication tool to build trust between consumers and producers, as [they often conflict](/note/the-producer-consumer-gap/) due to the difference in perspectives.
+By examining a dataset and documenting its intentions, subsequent solutions can better reflect the reality in terms of strengths, weaknesses, opportunities, and threats of the data, making its applications more impactful and sustainable in a very context. It is also a communication tool to build trust between consumers and producers, as [they often conflict](/note/the-producer-consumer-gap/) due to the difference in perspectives.
 
-Coming back to the example of food ingredients, it is essential as much as we care about their traceability by going to farmers' markets and looking for "Made in XXX" and "Organic" labels at supermarkets. Documenting where the sources are coming from, what kind of intermediate processing was done, and who made the products available from farms to factories to last-mile deliveries enables both chefs and eaters to be more confident in the dishes they eventually cook/eat.
+Coming back to the example of food ingredients, datasheets are essential as much as we care about their traceability by going to farmers' markets and looking for "Made in XXX" and "Organic" labels at supermarkets. Documenting where the sources are coming from, what kind of intermediate processing was done, and who made the products available from farms to factories to last-mile deliveries enables both chefs and eaters to be more confident in the dishes they eventually cook/eat.
 
 It's about transparency and accountability.
 
@@ -45,26 +45,28 @@ It's about transparency and accountability.
 
 Now, we have ingredients and know about them very well. Time to cook!
 
-Here, there are two things developers, or chefs, must avoid: oversimplification and overcomplication. The former encourages one-size-fits-all solutions, even though consumers' preferences and needs clearly vary. The latter, on the other hand, lets you overlook simpler solutions, making your work unsustainable and wasteful.
+Here, there are two things developers, or chefs, must avoid: oversimplification and overcomplication. The former is the attempt to make a one-size-fits-all solution, even though consumers' preferences and needs clearly vary. The latter, on the other hand, lets you overlook simpler solutions, making your work selfish, unsustainable, and wasteful.
 
-Technologists have this tendency to over-quantify things and ignore social contexts, as if we are dealing with rock-solid static materials. But our world and humans are more complex, and sooner than later, the solutions enter social contexts that involve real-life decision-making and behavioural change.
+Technologists have this tendency to over-quantify things, use tech for the tech's sake (because "It's cool"), and ignore social contexts, as if we are dealing with rock-solid static materials. But our world and humans are more complex, and **informational applications soon enter social contexts that involve real-life constraints and human behavioural factors**.
 
-For example, people nowadays talk about responsibility and fairness in AI applications, which rely heavily on computer science abstraction and modular design following the engineering best practices.
+That is, when it's naively deployed in the real world, tech interventions cannot cope with social complexities, and it makes generated information ineffective, inaccurate, and even misleading.
 
-Metric, metric, metric.
-
-Consequently, when it's naively deployed in the real world, tech interventions cannot cope with social complexities, making the generated information ineffective, inaccurate, and misleading.
-
-That's why we need to put information into sociotechnical, not only technical, contexts.
-
-In the fair-AI/ML domain, in particular, researchers [suggested](https://dl.acm.org/doi/10.1145/3287560.3287598) checking the following situated criteria to measure fairness.
+That's why we need to put information into sociotechnical, not only technical, contexts. In the fair-AI/ML domain, researchers [suggested](https://dl.acm.org/doi/10.1145/3287560.3287598) reviewing the following situated criteria to open developers' mind.
 
 *The solution…*
 
-1. is appropriate to the situation (contextual understanding);
-2. affects the social context in a predictable way (minimize externality by making sure a solution doesn’t introduce a new problem);
-3. can appropriately handle a robust understanding of requirements (contextual adaptation);
-4. has appropriately modelled the social and technical requirements of the actual context (applicability);
-5. is heterogeneously framed so as to include the data and social actors relevant to the localized question of fairness (good problem framing).
+1. is appropriate to the situation;
+2. affects the social context in a predictable way;
+3. can appropriately handle a robust understanding of requirements;
+4. has appropriately modelled the social and technical requirements of the actual context;
+5. is heterogeneously framed so as to include the data and social actors relevant to the localized question of fairness.
 
-It’s about how to define a problem and goal in a way that makes sense in the context, before you start cutting the ingredients.
+In other words, developers need to ensure:
+
+1. Contextual understanding
+2. Minimum externality, i.e., a solution doesn’t introduce a new problem
+3. Contextual adaptation
+4. Applicability
+5. Good problem framing
+
+It’s about how to define a problem and goal so they are aligned with the context, before you start chopping the ingredients.
