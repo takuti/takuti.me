@@ -22,7 +22,7 @@ Here is how my typical day of eating looks like, and I have consistently kept th
  
 #### :+1: 1. I spent less on eating
  
-Most importantly, recording food consumption enabled me to cook and eat at home more frequently because it’s simply impossible to get accurate nutritional facts otherwise, except chain brands who publish the information online. As long as you have a decent understanding of how to cook/eat well, it’s certainly healthier both for your body and wallet. According to a budgeting app, I spent 35% less on the Food & Dining category in September compared to August.
+Most importantly, recording food consumption enabled me to cook and eat at home more frequently because it's simply impossible to get accurate nutritional facts otherwise, except chain brands who publish the information online. As long as you have a decent understanding of how to cook/eat well, it's certainly healthier both for your body and wallet. According to a budgeting app, I spent 35% less on the Food & Dining category in September compared to August.
  
 #### :+1: 2. I built a good intuition about nutritional facts
  
@@ -30,15 +30,15 @@ Tracking macros is a great practice to establish an accurate intuition about foo
  
 #### :+1: 3. I achieved almost meatless diet
  
-As I wrote in "[Unusual Drinking & Eating Habits: Non-Alcohol, Decaf, Flexitarian](/note/unusual-drinking-and-eating-habits/)", I’ve been exercising flexitarian diet to reduce meat consumption for the sustainability sake. However, at the same time, I hesitated to completely switch to meatless meals because I thought a certain volume of meats, especially chicken breast, are the necessarily source of protein. But in reality, the eating records revealed my daily protein intake is already enough without relying on meats (i.e., 2-3x grams of your body weight number&mdash;if you’re 60kg, it's 120g&mdash;are a desired amount of protein per day). As an alternative to meat products, other sources of protein such as tofu, dairy, eggs, and occasional wild-caught seafood sufficiently did the job. Thus, I bought no red/white meats at grocery during the period, and I’m sure I will maintain the habit moving forward.
+As I wrote in "[Unusual Drinking & Eating Habits: Non-Alcohol, Decaf, Flexitarian](/note/unusual-drinking-and-eating-habits/)", I've been exercising flexitarian diet to reduce meat consumption for the sustainability sake. However, at the same time, I hesitated to completely switch to meatless meals because I thought a certain volume of meats, especially chicken breast, are the necessarily source of protein. But in reality, the eating records revealed my daily protein intake is already enough without relying on meats (i.e., 2-3x grams of your body weight number&mdash;if you're 60kg, it's 120g&mdash;are a desired amount of protein per day). As an alternative to meat products, other sources of protein such as tofu, dairy, eggs, and occasional wild-caught seafood sufficiently did the job. Thus, I bought no red/white meats at grocery during the period, and I'm sure I will maintain the habit moving forward.
  
 #### :thinking_face: 4. My diet becomes ultra simple and consistent
  
-The tracking habit forced me to eat cleanly, which is generally good, but it also made the meals too simple and consistent for efficiency. I’d say 80% of meals in the last 30 days are repetitive combinations of my go-to ingredients, and I can precisely write them down if needed. Grains, meats, vegetables, eggs, superfoods...no matter how nutritionally rich, nothing should be consumed too much. Balancing multiple factors and diversifying what we eat are important for the long run, and my 30-day experiment was not good in that sense.
+The tracking habit forced me to eat cleanly, which is generally good, but it also made the meals too simple and consistent for efficiency. I'd say 80% of meals in the last 30 days are repetitive combinations of my go-to ingredients, and I can precisely write them down if needed. Grains, meats, vegetables, eggs, superfoods...no matter how nutritionally rich, nothing should be consumed too much. Balancing multiple factors and diversifying what we eat are important for the long run, and my 30-day experiment was not good in that sense.
  
 #### :disappointed: 5. I lost the joy of eating
  
-Similarly to the previous point, tracking what I ate blocked me from eating something new/strange. Even if consistent PFC balance is positive for my body overall, the outcome overlooks another key aspect of eating*&mdash;Psychological effect*. Eating something new, with someone else, somewhere different brings a unique positive feeling, and it would be an important component to make our life more fruitful. I wasn’t able to have such feelings over the last 30 days. Even when I was at a bar or restaurant, I consciously avoided ordering something to eat.
+Similarly to the previous point, tracking what I ate blocked me from eating something new/strange. Even if consistent PFC balance is positive for my body overall, the outcome overlooks another key aspect of eating*&mdash;Psychological effect*. Eating something new, with someone else, somewhere different brings a unique positive feeling, and it would be an important component to make our life more fruitful. I wasn't able to have such feelings over the last 30 days. Even when I was at a bar or restaurant, I consciously avoided ordering something to eat.
  
 ### So what?
  

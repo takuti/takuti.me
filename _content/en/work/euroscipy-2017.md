@@ -13,7 +13,7 @@ meta: Tech Conference
 
 ### Abstract
 
-This talk demonstrates FluRS, a library for efficient and flexible recommendation algorithms, based on the speaker’s past experience in academia and industry. Eventually, the speaker guides you to the world of an emerging trend, “streaming” recommender systems, in terms of both theory and practice.
+This talk demonstrates FluRS, a library for efficient and flexible recommendation algorithms, based on the speaker's past experience in academia and industry. Eventually, the speaker guides you to the world of an emerging trend, "streaming" recommender systems, in terms of both theory and practice.
 
 ### Description
 

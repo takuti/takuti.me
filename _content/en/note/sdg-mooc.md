@@ -35,7 +35,7 @@ For instance, if you start using a shopping bag to reduce the consumption of pla
 
 Consequently, short-term mitigation focusing only on a single aspect of the problems won't be sufficient, and the actions must be taken more responsibly; it is important to be serious about the issues as a personal matter.
 
-To begin with, having a solid plan is important to deeply engage in the problems, and looking into [Your Plan, Your Planet by Google](https://yourplanyourplanet.sustainability.google/) and [The Lazy Person’s Guide to Saving the World](https://www.un.org/sustainabledevelopment/takeaction/) can be the first step.
+To begin with, having a solid plan is important to deeply engage in the problems, and looking into [Your Plan, Your Planet by Google](https://yourplanyourplanet.sustainability.google/) and [The Lazy Person's Guide to Saving the World](https://www.un.org/sustainabledevelopment/takeaction/) can be the first step.
 
 Speaking of SDGs in business, sustainability is a big business opportunity for companies as I described in **[Environmental Problems Through the Lens of Business](/note/environmental-problems-and-business/)**. That said...
 

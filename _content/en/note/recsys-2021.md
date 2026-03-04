@@ -20,7 +20,7 @@ After taking a quick look at the list of accepted papers, for me, one of the big
 - [The Dual Echo Chamber: Modeling Social Media Polarization for Interventional Recommending](https://dl.acm.org/doi/10.1145/3460231.3474261)
 - [I Want to Break Free! Recommending Friends from Outside the Echo Chamber](https://dl.acm.org/doi/10.1145/3460231.3474270)
 - [Towards Unified Metrics for Accuracy and Diversity for Recommender Systems](https://dl.acm.org/doi/10.1145/3460231.3474234)
-- [“Serving Each User”: Supporting Different Eating Goals Through a Multi-List Recommender Interface](https://dl.acm.org/doi/10.1145/3460231.3474232)
+- ["Serving Each User": Supporting Different Eating Goals Through a Multi-List Recommender Interface](https://dl.acm.org/doi/10.1145/3460231.3474232)
 - [User Bias in Beyond-Accuracy Measurement of Recommendation Algorithms](https://dl.acm.org/doi/10.1145/3460231.3474244)
 
 Of course, this observation is "biased" by my current personal interest*&mdash;[Ethical challenges in recommender systems](/note/ethical-challenges-in-recommender-systems/)&mdash;*but it's certainly an emerging area for the community as the conference has a dedicated session for "Echo Chambers and Filter Bubbles", "Users in Focus", and "Privacy, Fairness, Bias".

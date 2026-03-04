@@ -25,7 +25,7 @@ My talk was about Hivemall as an example of open-source software for scalable ma
 
 <script async class="speakerdeck-embed" data-id="a5d4885dca69494dab8064b7d8f0fd00" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
 
-When I asked "Is there anybody who currently uses Hive in your work?," 80% of the audiences raised a hand. Honestly I didn’t expect that, and I eventually realized that not a few companies are still maintaining their own Hadoop cluster and using Hive to analyze data. Hivemall can definitely be a deeply satisfying tool for such companies to leverage machine learning capabilities in their day-to-day data analytics.
+When I asked "Is there anybody who currently uses Hive in your work?," 80% of the audiences raised a hand. Honestly I didn't expect that, and I eventually realized that not a few companies are still maintaining their own Hadoop cluster and using Hive to analyze data. Hivemall can definitely be a deeply satisfying tool for such companies to leverage machine learning capabilities in their day-to-day data analytics.
 
 I've attended and enjoyed many other sessions as well. Of course, almost all talks mentioned about deep learning. In my impression, theory and practice of deep learning is gradually getting matured (and peaked) in these days.
 
@@ -35,7 +35,7 @@ It should be noted that large number of conference attendees (2000+) had very di
 
 RecSys is an academic conference focusing on theory and practice of recommender systems, and I've [previously attended RecSys 2016](https://takuti.me/note/recsys-2016/) held in Boston.
 
-Due to the exceptionally high demand of intelligent recommendation systems in real-life applications, the RecSys conference normally has many industrial attendees including researchers, data scientists and software engineers. Of course, this year’s RecSys was not an exception; more than 80% of participants I’ve chatted in person during the conference were coming from industry. I believe this year’s conference had more industrial demographics and presentations than 2 years ago.
+Due to the exceptionally high demand of intelligent recommendation systems in real-life applications, the RecSys conference normally has many industrial attendees including researchers, data scientists and software engineers. Of course, this year's RecSys was not an exception; more than 80% of participants I've chatted in person during the conference were coming from industry. I believe this year's conference had more industrial demographics and presentations than 2 years ago.
 
 Our paper about recommendation with Hivemall has been accepted to a demo session, and we presented in the form of poster during a conference buffet lunch break:
 
@@ -48,24 +48,24 @@ If you are interested in this topic, there is a [YouTube video](https://www.yout
 Since many people were coming from industry, the session was a great opportunity to introduce Hivemall for practitioners and learn how each company implements their own recommendation engines in a scalable manner. Basically, what I understood during the session was:
 
 - Many companies are actively using Spark and [Spark MLlib](https://spark.apache.org/mllib/) in production.
-- Many people recognize Hive, but obviously it’s less famous than Spark.
+- Many people recognize Hive, but obviously it's less famous than Spark.
   - Even if companies have their own Hive environment, developers of recommendation engine itself generally are not in charge of maintaining its underlying infrastructure.
-  - That is, it’s hard for the developers to install Hivemall to their in-house big data analytics platform under their responsibility.
+  - That is, it's hard for the developers to install Hivemall to their in-house big data analytics platform under their responsibility.
 - While people commonly understand the importance of scalability, I felt Hivemall's query-based machine learning capability is less stimulating for them than Python- or Scala-based programming-driven recommender implementation.
 
 Therefore, as a developer of Hivemall, thinking about how to effectively tell the strength of Hivemall to such technology-oriented practitioners should be important.
 
 When we see other accepted papers, it is obvious that many paper focus more on a unique, specific scenario that has originally been motivated by the development of real-life recommender system, than traditional "research"-oriented topics. As far as I can observe, the situation has not been changed from 2 years ago, and this is exactly how recommender research rapidly grows and becomes popular in recent years. However, at the same time, such trend is slightly disappointing for me because there is a lack of stimulation in deeper theoretical, mathematical consideration.
 
-From an algorithmic perspective, many studies and attendees' interests focused more on deep learning and something relevant e.g., item embedding. In fact, I already saw how deep learning plays a dominant role in the field of recommender systems at 2016’s RecSys, but the tool becomes much more important and common in these days.
+From an algorithmic perspective, many studies and attendees' interests focused more on deep learning and something relevant e.g., item embedding. In fact, I already saw how deep learning plays a dominant role in the field of recommender systems at 2016's RecSys, but the tool becomes much more important and common in these days.
 
-Surprisingly (and unsurprisingly), organizers of a workshop session [Deep Learning for Recommender Systems](http://dlrs-workshop.org/) (DLRS), which was initiated in 2016 to encourage practitioners to apply deep learning techniques to recommender systems, stated that this year’s DLRS workshop is the final one, because deep learning is now widely used in many studies and getting matured in the context of recommender systems. This announcement is really impressive and clearly demonstrates the strong relationship between deep learning and recommender systems.
+Surprisingly (and unsurprisingly), organizers of a workshop session [Deep Learning for Recommender Systems](http://dlrs-workshop.org/) (DLRS), which was initiated in 2016 to encourage practitioners to apply deep learning techniques to recommender systems, stated that this year's DLRS workshop is the final one, because deep learning is now widely used in many studies and getting matured in the context of recommender systems. This announcement is really impressive and clearly demonstrates the strong relationship between deep learning and recommender systems.
 
 ### [Mbed Connect USA](https://mbed.com/en/about-mbed/events/mbed-connect-usa-2018/) Workshop @ San Jose, CA
 
 Our company [Arm Treasure Data](https://www.treasuredata.com/) develops an enterprise-grade advanced big data analytics platform, which is currently placed in a data management layer of the [Arm Pelion IoT platform](https://www.arm.com/products/iot/pelion-iot-platform), and the platform internally bundles Hivemall so that users can easily leverage machine learning capability on their massive data at scale without any expertise in Python programming and mathematics.
 
-On behalf of Treasure Data, I have attended Mbed Connect USA 2018, a meet-up event focusing on the [Arm Mbed ecosystem](https://www.mbed.com/en/), held in conjunction with [Arm TechCon 2018](https://www.armtechcon.com/), and had 1-hour workshop session to introduce Treasure Data’s big data analytics capability in the context of data science and machine learning:
+On behalf of Treasure Data, I have attended Mbed Connect USA 2018, a meet-up event focusing on the [Arm Mbed ecosystem](https://www.mbed.com/en/), held in conjunction with [Arm TechCon 2018](https://www.armtechcon.com/), and had 1-hour workshop session to introduce Treasure Data's big data analytics capability in the context of data science and machine learning:
 
 - **[Introduction to Data Science](https://www.mbed.com/en/about-mbed/events/mbed-connect-usa-2018/)**
 

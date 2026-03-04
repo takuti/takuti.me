@@ -23,15 +23,15 @@ Based on my experiences and what I learned from the following insightful article
 
 Regardless of whether it's ML-based or not, our product should translate high-level business requirements into specific technical problems.
 
-Since “AI/ML” sounds exceptionally attractive but cannot solve all the problems in the world, making sure the connection is particularly important.
+Since "AI/ML" sounds exceptionally attractive but cannot solve all the problems in the world, making sure the connection is particularly important.
 
 For example, if our business requirement is to improve product margin, a technical problem our product handles is solving an optimization problem to find an optional product price.
 
 On the other hand, the following scenarios easily lead us in the wrong direction.
 
-*“We want to use AI to grow our business”* &mdash; A business requirement isn’t clear enough. What metrics are you tracking? What is your measurable goal?
+*"We want to use AI to grow our business"* &mdash; A business requirement isn't clear enough. What metrics are you tracking? What is your measurable goal?
 
-*“We want to produce 2x more units in a single factory by using ML”* &mdash; Inappropriate choice of technology. In fact, ML might bring an innovative solution (e.g., the brand-new architecture of factory machines designed by ML algorithms), but it’s still unclear if that’s the case for this type of hardware/machine-oriented business requirements.
+*"We want to produce 2x more units in a single factory by using ML"* &mdash; Inappropriate choice of technology. In fact, ML might bring an innovative solution (e.g., the brand-new architecture of factory machines designed by ML algorithms), but it's still unclear if that's the case for this type of hardware/machine-oriented business requirements.
 
 ## 2. Is using ML for solving the problems cost-effective?
 
@@ -43,11 +43,11 @@ Finally, we must justify cost vs. performance gain when we apply ML to these pro
 
 It is important to note that ML is generally expensive when we undergo an end-to-end development lifecycle from data collection and preprocessing to training and evaluation; more human resources, as well as computing power, are surely needed over a long period of time. If you come up with a much simpler solution, try it first of all.
 
-### 3. How quick can we have “MVPs”?
+### 3. How quick can we have "MVPs"?
 
 Compared to the other engineering problems, the development of ML-based products tends to be longer (and even be a never-ending story) since continuous evaluation & optimization is the core of a successful ML solution.
 
-Consequently, it’s easy to spend an infinite amount of time on building “MVP”, which won’t be “minimum” anymore.
+Consequently, it's easy to spend an infinite amount of time on building "MVP", which won't be "minimum" anymore.
 
 We must pay special attention to building an end-to-end solution as quickly as possible in the shortest path. (Of course, we can say the same thing for all the product features, but ML, in particular.)
 
@@ -67,11 +67,11 @@ It depends on a target persona of your product, but, since running a feedback lo
 
 As we covered in Question #1, the ML solution must be strongly tied to business objectives, and hence customer needs to be able to measure the quality of ML-based outcomes and be confident on it. Otherwise, ML models guide their business in the wrong direction and cause a serious problem in some cases.
 
-That is, in order to make your product reliable and usable for end-users, a fully automated solution won’t work, and leaving a space for human interactions in an appropriate way is highly important. It doesn't matter if the model uses state-of-the-art techniques and shows the best accuracy in a lab setup.
+That is, in order to make your product reliable and usable for end-users, a fully automated solution won't work, and leaving a space for human interactions in an appropriate way is highly important. It doesn't matter if the model uses state-of-the-art techniques and shows the best accuracy in a lab setup.
 
 ### 5. Why should customers use your ML solution?
 
-Nowadays, there are so many options to leverage ML in the customer’s business process:
+Nowadays, there are so many options to leverage ML in the customer's business process:
 
 - Human
     - The in-house data science team
@@ -88,7 +88,7 @@ Nowadays, there are so many options to leverage ML in the customer’s business 
     - Azure
 - ...
 
-Hence, unless there is a strong competitive advantage in our solution, our customer doesn’t necessarily have to choose it.
+Hence, unless there is a strong competitive advantage in our solution, our customer doesn't necessarily have to choose it.
 
 Examples of competitive advantages include:
 
@@ -104,6 +104,6 @@ Therefore, I want to carefully ask the questions to myself when I think about th
 
 1. Do we have a clear mapping between business and technical problems?
 2. Is using ML for solving the problems cost-effective?
-3. How quick can we have “MVPs”?
+3. How quick can we have "MVPs"?
 4. How do we ensure humans in the loop?
 5. Why should customers use your ML solution?

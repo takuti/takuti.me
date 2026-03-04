@@ -12,7 +12,7 @@ recommendations: [/note/definition-of-done/, /note/foundations-of-humane-technol
 
 This week, I have created a new page [takuti.me/**now**](/now). This will be a place where I share what I'm doing and focusing on, updated roughly once every 1-3 months. The idea is inspired by [Derek Sivers's /now page movement](https://sive.rs/nowff); the movement has spread rapidly, and [many people are actively sharing their immediate priorities](https://nownownow.com/).
 
-> Think of **what you’d tell a friend you hadn’t seen in a year**. [...] That’s what a now page is for.
+> Think of **what you'd tell a friend you hadn't seen in a year**. [...] That's what a now page is for.
 
 I see this page is particularly useful not only for providing general updates about myself but more as a tool for maximizing my focus level and saying *NO* on a variety of occasions, as Derek Sivers also pointed out in the article.
 

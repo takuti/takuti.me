@@ -12,7 +12,7 @@ recommendations: [/note/digital-malawi-2023/, /note/relativize-and-contextualize
   /note/one-year-in-malawi/]
 ---
 
-On July 28, 2023, I moved to Malawi, a beautiful landlocked country in southeastern Africa, for a Canadian international volunteering program at [World University Service of Canada](https://wusc.ca/) (WUSC). The program is funded by the Canadian government, and the organization sends Canadians, including permanent residents, to developing countries to advance [Canada’s Feminist International Assistance Policy](https://www.international.gc.ca/world-monde/issues_development-enjeux_developpement/priorities-priorites/policy-politique.aspx?lang=eng).
+On July 28, 2023, I moved to Malawi, a beautiful landlocked country in southeastern Africa, for a Canadian international volunteering program at [World University Service of Canada](https://wusc.ca/) (WUSC). The program is funded by the Canadian government, and the organization sends Canadians, including permanent residents, to developing countries to advance [Canada's Feminist International Assistance Policy](https://www.international.gc.ca/world-monde/issues_development-enjeux_developpement/priorities-priorites/policy-politique.aspx?lang=eng).
 
 As of writing, I've already spent three weeks in the country. Interestingly, there hasn't been much of a culture shock so far, probably because I visited mostly urban areas where we see a lot of influences from Western countries; at a surface level, if you subtract the economic growth from Southeast Asia, it's here.
 
@@ -75,7 +75,7 @@ I don't disagree, but I am a strong believer in experiential learning. I heard a
 
 #### Does the chapter of your life in Canada end?
 
-No. As this is a Canadian international volunteer program, *Chapter Canada* is still continuing. The highest priority is to promote [Canada’s Feminist International Assistance Policy](https://www.international.gc.ca/world-monde/issues_development-enjeux_developpement/priorities-priorites/policy-politique.aspx?lang=eng), and my public engagement activities target Canadians in the first place. Meanwhile, my return flight ticket departing a year later brings me back to Vancouver anyway, and hence my connection to Canada will seamlessly continue afterward.
+No. As this is a Canadian international volunteer program, *Chapter Canada* is still continuing. The highest priority is to promote [Canada's Feminist International Assistance Policy](https://www.international.gc.ca/world-monde/issues_development-enjeux_developpement/priorities-priorites/policy-politique.aspx?lang=eng), and my public engagement activities target Canadians in the first place. Meanwhile, my return flight ticket departing a year later brings me back to Vancouver anyway, and hence my connection to Canada will seamlessly continue afterward.
 
 #### How do you earn money?
 

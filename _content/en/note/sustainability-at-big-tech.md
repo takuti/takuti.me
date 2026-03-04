@@ -16,7 +16,7 @@ Let me zoom in to [Big Tech](https://en.wikipedia.org/wiki/Big_Tech) for digging
  
 - [Sustainability at **Facebook**: We commit to becoming water positive by 2030.](https://sustainability.fb.com/)
 - [**Amazon** Sustainability: Further and Faster, Together. Net-Zero Carbon by 2040.](https://sustainability.aboutamazon.com/)
-- [**Apple**: We’re carbon neutral. And by 2030, every product you love will be too.](https://www.apple.com/environment/)
+- [**Apple**: We're carbon neutral. And by 2030, every product you love will be too.](https://www.apple.com/environment/)
 - [**Netflix**: Net Zero + Nature. Net zero greenhouse gas emissions by the end of 2022, and every year thereafter.](https://about.netflix.com/en/sustainability)
 - [**Google** Sustainability: Carbon neutral since 2007. Carbon free by 2030.](https://sustainability.google/)
 - [**Microsoft** Sustainability: Good for business, good for the planet.](https://www.microsoft.com/en-us/sustainability)
@@ -79,7 +79,7 @@ It's clear the company is seriously conscious about `material` that forms our iP
  
 Moreover, we don't want to overlook the word `recycled`. Every time we purchase a new Apple device, [Apple Trade In](https://www.apple.com/shop/trade-in) asks us to "return" an old one with decent monetary incentive. Such initiatives should result in positive environmental and social impacts. For instance, less hardware gets wasted, and more people become able to get convenient devices at an affordable price.
  
-> [**Apple**: We’re carbon neutral. And by 2030, every product you love will be too.](https://www.apple.com/environment/)
+> [**Apple**: We're carbon neutral. And by 2030, every product you love will be too.](https://www.apple.com/environment/)
  
 Even after taking a deeper look at their website, a key message stays: *Make Apple devices environmentally friendly.* That said, Apple also publishes many inspiring articles under [Newsroom](https://www.apple.com/newsroom/), which was out of scope for creating the word cloud, and they do care a wide variety of topics e.g., "[Apple selects 15 Black- and Brown-owned businesses for first-of-its-kind Impact Accelerator](https://www.apple.com/newsroom/2021/08/apple-selects-15-black-and-brown-owned-businesses-for-impact-accelerator/)".
  

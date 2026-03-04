@@ -7,7 +7,7 @@ lastmod: '2022-09-02'
 keywords: [green, energy, building, water, environmental, renewable, problems, business,
   ourse, buildings]
 recommendations: [/note/how-to-avoid-a-climate-disaster/, /note/sustainability-at-big-tech/,
-  /note/sustainable-capitalism/]
+  /note/sdg-mooc/]
 ---
 
 One of the key insights I gained from [Bill Gates's "**How to Avoid a Climate Disaster**"](/note/how-to-avoid-a-climate-disaster) is that **the next economic leader in the world is an innovator in the global environmental management field**. 

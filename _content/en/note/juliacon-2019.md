@@ -28,7 +28,7 @@ As I spoke, since recommendation is not only about machine learning, I'm trying 
 
 In fact, due to the limited number of practical use cases, I'm still unsure if I created the package in the right way. However, a fact that Recommendation.jl is used in a book "[Julia Programming Projects](https://www.packtpub.com/big-data-and-business-intelligence/julia-programming-projects)" hopefully shows a certain degree of usability:
 
-> In this article, we will look at machine learning based recommendations using Julia. We will make recommendations using a Julia package called ‘Recommendation’.<br /><br />
+> In this article, we will look at machine learning based recommendations using Julia. We will make recommendations using a Julia package called 'Recommendation'.<br /><br />
 > This article is an excerpt from a book written by Adrian Salceanu titled [Julia Programming Projects](https://www.packtpub.com/big-data-and-business-intelligence/julia-programming-projects).<br/><br />
 > *&mdash; [How to make machine learning based recommendations using Julia [Tutorial]](https://hub.packtpub.com/how-to-make-machine-learning-based-recommendations-using-julia-tutorial/)*
 

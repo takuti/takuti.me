@@ -8,7 +8,7 @@ title: Language as a Design Tool
 lastmod: '2022-09-02'
 keywords: [visual, design, app, idea, mood, elements, board, prototyping, description,
   figma]
-recommendations: [/note/learn-how-others-work/, /note/revisit-design-thinking/, /note/creative-selection/]
+recommendations: [/note/learn-how-others-work/, /note/revisit-design-thinking/, /note/fermenting-thoughts/]
 ---
 
 As I wrote in [Don't "Guess" How People in Other Roles Work](/note/learn-how-others-work), I have been studying something new in my spare time, and the two online courses I have recently accomplished, [Visual Elements of User Interface Design](https://www.coursera.org/account/accomplishments/records/HTGE68UHM2EV) and [UX Design Fundamentals](https://www.coursera.org/account/accomplishments/records/BWEHMF323U93), told me an important fact that **language is a very powerful tool for design**.
@@ -80,7 +80,7 @@ It is important to understand that **good problem leads a good idea**, and **goo
 Notice that the following articles I wrote in the past hit a similar point:
 
 - [How to Produce Ideas](/note/technique-producing-ideas/)
-- [The Hardest Part of 2020’s Strategic Ideation](/note/fermenting-thoughts/)
+- [The Hardest Part of 2020's Strategic Ideation](/note/fermenting-thoughts/)
 - [Issue-Driven Makes You Professional](/note/issue-driven/)
 
 The importance of ideation & problem finding is not only for business but for design. I haven't realized the point enough when I published the articles above.

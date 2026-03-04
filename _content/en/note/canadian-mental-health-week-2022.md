@@ -51,7 +51,7 @@ Based on the experience, I learned how vulnerable but fortunate I am; even thoug
 
 - For society: Donate, volunteer, join local community and interest group
 - For personal relationship: Consistently have an opportunity to meet, talk, date, play with friends, colleagues, and loved ones
-- For "myself": Mediate, sleep well, be positive e.g., by listing positive things before sleeping, smiling, wishing others’ happiness
+- For "myself": Mediate, sleep well, be positive e.g., by listing positive things before sleeping, smiling, wishing others' happiness
 
 According to a [Canadian Mental Health Association's article](https://www.mentalhealthweek.ca/empathy-a-skill-you-can-learn/), "empathy is a skill that can be learned and developed over time." Ultimately, the skill can also be applied to [ethical product development](/note/ethical-product-developer/) as the principle is all about intrinsic motivation. All the extrinsic valuation such as monetary incentive and social acceptance are "virtual," and I strongly believe being present with empathy is the best and only way to find meaning in a job.
 
