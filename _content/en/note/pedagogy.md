@@ -27,21 +27,21 @@ So, education will bring a net-positive impact, as long as we digitize tools (e.
 
 Most futuristic narratives stop here. But, really?
 
-I recently had the opportunity to participate in such a "pedagogically correct" classroom for my French learning, and honestly, it didn't work for me.
+I recently had the opportunity to participate in such a *pedagogically correct* classroom for my French learning, and honestly, it didn't work for me.
 
 ### Best practices are not for everyone
 
-Well, my classmates and our teacher are great. They are very nice and kind people, and the level of the class seems well-aligned with my beginner French. Yet, there are three foundational challenges that make my learning experience suboptimal.
+Well, my classmates and our teacher are great. They are very nice and kind people, and the level of the class seems well-aligned with my beginner French. Yet, three foundational challenges make my learning experience suboptimal.
 
 First, **digital tools make courses highly predictable**.
 
 Our teacher actively uses technology. For example, we have a Moodle-based online portal for content management, with numerous graphics and quizzes to help learning. Classes can also be done online via Microsoft Teams whenever necessary. Moreover, the teacher works effectively with ChatGPT to generate exercises and key vocabulary lists from lengthy transcripts.
 
-However, if technology helps that much, someone who can independently work on the tools, like me, thinks, "What's the point of travelling more than an hour daily to physically join this 'digitized classroom'?" Every day, before leaving my apartment, I already have a pretty clear idea of how today's class will go.
+This is not only oppressive for the technologically challenged but also insulting for tech-savvy individuals. Students are travelling more than an hour daily to physically attend this *digitized classroom* ("costs"), but, if the class relies mostly on the tools they can independently work on anyway, expected returns are frustratingly low. Every day, before leaving my apartment, I already have a pretty clear idea of how today's class will go, and I couldn't stop thinking, "What else could I have done if I didn't go to the class today?"
 
 Second, **there is a chance of contextual mismatch**.
 
-The content of our French class is primarily designed for newcomers to Canada, and we learn a lot of vocabulary and expressions in realistic scenarios (e.g., Canadian community service and healthcare). It is a good example of cultural adaptation of learning experiences. This also serves well for the purpose of the [government-funded program](https://www.canada.ca/en/immigration-refugees-citizenship/services/settle-canada/language-skills/classes.html).
+The content of our French class is primarily designed for newcomers to Canada, and we learn a lot of vocabulary and expressions in realistic scenarios (e.g., Canadian community service and healthcare). It is a good example of cultural adaptation of learning experiences. This also serves well for the [government-funded program](https://www.canada.ca/en/immigration-refugees-citizenship/services/settle-canada/language-skills/classes.html).
 
 That said, learners are not equally "new" to the country, and each of us has our own needs and seeds, as well as varying understanding of the context we're currently in. I personally found the situational aspect of the course boring and demotivating. Instead, learning [how to order a coffee at a cafe](https://coffeebreaklanguages.com/tag/cbf-season-1/?order=asc) and listening to [current affairs](https://innerfrench.com/podcast) in French stimulate me more than following one-size-fits-all curricula.
 
@@ -49,7 +49,7 @@ Third, **not all personalities enjoy participation-driven exercises**.
 
 Our class often provides us opportunities to learn from games and interactive feedback. I sometimes feel uncomfortable with them because it seems that participation is "forced" in the environment, as if being told, "If you don't speak up, you are bad." Some will like it, while others won't.
 
-Not to mention, when there is a greater degree of agency among participants, the room can easily become competitive; those who are willing to cooperate will receive better recognition from teachers and parents ("stakeholders"), and we unconsciously play this attention-seeking game while losing the original joy and excitement. (That's why I have avoided interpersonal activities with uncertainty, such as team sports, social media, and networking events, for most of my adulthood.)
+Also, when there is a greater degree of agency among participants, the room can easily become competitive; those who are willing to cooperate will receive better recognition from teachers and parents ("stakeholders"), and we unconsciously play this attention-seeking game while losing the original joy and excitement. (That's why I have avoided interpersonal activities with uncertainty, such as team sports, social media, and networking events, for most of my adulthood.)
 
 Ultimately, **learning shouldn't be for short-term efficiency, usefulness, pleasure, or achievements**.
 
