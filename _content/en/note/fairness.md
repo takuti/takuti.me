@@ -1,5 +1,5 @@
 ---
-categories: [Data & Algorithms]
+categories: [Data & Algorithms, Society & Business]
 series: [ab, ai, data]
 date: 2026-05-01
 lang: en
