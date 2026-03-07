@@ -4,7 +4,7 @@ series: [product]
 date: 2021-08-12
 lang: ja
 title: いい加減、プロダクトマネージャーという職業に幻想を抱くのはやめよう。
-lastmod: '2022-01-18'
+lastmod: '2026-02-05'
 keywords: [プロダクト, 職業, 仕事, プロダクトマネジメント, プロダクトマネージャー, デザイン, part, プロジェクトマネージャー, チーム,
   product]
 recommendations: [/ja/note/product-management-and-bullshit-job/, /ja/note/design-engineer/,

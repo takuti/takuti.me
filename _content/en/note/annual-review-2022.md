@@ -7,6 +7,7 @@ images: [/images/annual-review-2022/wordcloud-2022.png]
 keywords: [note, resistance, myself, year, dividual, more, annual, full, rest, freelancer]
 recommendations: [/note/annual-review-2021/, /note/first-month-as-self-employed/,
   /note/becoming-a-freelancer-in-canada/]
+lastmod: '2026-02-05'
 ---
 
 A single word describing my 2022 is **connection**.

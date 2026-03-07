@@ -1,6 +1,6 @@
 ---
 title: プライバシーポリシー
-lastmod: '2022-09-05'
+lastmod: '2022-09-08'
 ---
 
 当サイト (takuti.me) では、Googleによるアクセス解析ツール「Googleアナリティクス」を使用しています。Googleなどの第三者広告配信事業者は、訪問者の興味に応じた広告を表示するために、Cookie（当サイトの訪問者が当サイトや他のサイトにアクセスした際の情報など）を使用することがあります。この規約に関しての詳細は[Googleアナリティクス利用規約](https://marketingplatform.google.com/about/analytics/terms/jp/)や[Googleポリシーと規約](https://policies.google.com/technologies/ads?hl=ja)をご覧ください。

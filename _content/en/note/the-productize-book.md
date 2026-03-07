@@ -8,6 +8,7 @@ keywords: [product, ladder, ize, productized, services, productization, book, of
   innovation, stage]
 recommendations: [/note/ethical-product-developer/, /note/product-management-and-bullshit-job/,
   /note/internet-for-the-people/]
+lastmod: '2026-02-05'
 ---
 
 Assume you are a business owner already providing some solutions to the users.

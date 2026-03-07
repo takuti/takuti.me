@@ -4,7 +4,7 @@ categories: [Design, Life & Reflection, Society & Business]
 date: 2022-02-13
 lang: en
 title: '"Out of Scope"'
-lastmod: '2022-08-06'
+lastmod: '2026-03-04'
 keywords: [page, what, now, you, sivers, derek, friend, scope, saying, serendipity]
 recommendations: [/note/definition-of-done/, /note/foundations-of-humane-technology/,
   /note/the-producer-consumer-gap/]

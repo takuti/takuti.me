@@ -5,7 +5,7 @@ series: [ai]
 date: 2017-10-21
 lang: ja
 title: ルールベースは『人工知能』か
-lastmod: '2022-01-18'
+lastmod: '2026-02-05'
 keywords: [人工知能, 言葉, マジックワード, 使わ, amazon, iot, ホームページ, バズワード, ベース, お客さん]
 recommendations: [/ja/note/from-cloud-to-ai/, /ja/note/2020/, /ja/note/algorithmic-marketing/]
 ---

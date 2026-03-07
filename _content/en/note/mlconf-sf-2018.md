@@ -3,7 +3,7 @@ categories: [Data & Algorithms, Events]
 date: 2018-11-22
 lang: en
 title: 'Attending MLconf SF 2018 #mlconf18'
-lastmod: '2022-09-02'
+lastmod: '2026-02-05'
 keywords: [mlconf, sagemaker, edo, scalable, satellite, conference, industrial, stream,
   session, amazon]
 recommendations: [/note/hivemall-events-2018-autumn/, /note/becoming-a-freelancer-in-canada/,

@@ -9,6 +9,7 @@ keywords: [indian, indigenous, history, act, peoples, reconciliation, canada, bo
   author, truth]
 recommendations: [/note/indigenous-canada-final/, /note/indigenous-canada-mid-term/,
   /note/annual-review-2022/]
+lastmod: '2026-02-05'
 ---
 
 September 30 is the [National Day for Truth and Reconciliation](https://www.canada.ca/en/canadian-heritage/campaigns/national-day-truth-reconciliation.html) (hashtag: #NDTR) in Canada, a day that we look back on the dark history of the residential school system European settlers had implemented, raise awareness of its impacts, and take an action to rebuild the relationship with Indigenous Peoples.

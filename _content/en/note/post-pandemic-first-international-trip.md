@@ -4,7 +4,7 @@ date: 2022-06-04
 lang: en
 title: My First Post-Pandemic International Trip
 images: [/images/post-pandemic-first-international-trip/river.jpeg]
-lastmod: '2022-09-02'
+lastmod: '2026-03-01'
 keywords: [international, trip, meet, canada, travel, pandemic, was, traveling, relocating,
   river]
 recommendations: [/note/relocating-to-canada/, /note/annual-review-2021/, /note/annual-review-2022/]

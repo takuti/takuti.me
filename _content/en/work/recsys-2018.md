@@ -1,7 +1,7 @@
 ---
 title: Query-Based Simple and Scalable Recommender Systems with Apache Hivemall
 date: 2018-10-01
-lastmod: '2021-10-16'
+lastmod: '2022-09-08'
 meta: Academic Conference
 ---
 

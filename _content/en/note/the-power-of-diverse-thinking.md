@@ -8,7 +8,7 @@ images: [/images/the-power-of-diverse-thinking/similar-vs-diverse.png]
 summary: It clearly goes beyond how it's been normally discussed in business, and
   that's why my recent interest is outside of traditional accuracy/business metrics
   that we can "easily" optimize.
-lastmod: '2022-05-07'
+lastmod: '2026-02-05'
 keywords: [diversification, diversity, body, diverse, bubbles, filter, user, chambers,
   echo, nutrition]
 recommendations: [/note/recommender-diversity/, /note/recsys-2021-echo-chambers-and-filter-bubbles/,

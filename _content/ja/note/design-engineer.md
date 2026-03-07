@@ -4,7 +4,7 @@ categories: [デザイン, 読書]
 date: 2019-12-10
 lang: ja
 title: デザインエンジニアになろう
-lastmod: '2022-09-02'
+lastmod: '2026-02-05'
 keywords: [デザイン, プロダクト, エンジニア, 人材, イノベーション, プロトタイピング, c型, 本書, 魔法, プロダクトマネージャー]
 recommendations: [/ja/note/product-management-myths/, /ja/note/design-note-88/, /ja/note/tech-design-story/]
 ---

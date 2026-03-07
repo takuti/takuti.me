@@ -2,6 +2,7 @@
 date: 2026-02-19
 title: Professional Services
 images: [/images/annual-review-2023/me.jpeg]
+lastmod: '2026-02-19'
 ---
 
 As a Canadian independent consultant, I have provided the following services to individuals and organizations worldwide since 2022. See <a href="https://takuti.github.io/cv/" target="_blank" rel="noopener">CV <sup><i class="fas fa-external-link-alt"></i></sup></a> to learn more about my expertise, and feel free to [contact](/contact) for a casual inquiry. Terms differ depending on a client's need, location, and currency.

@@ -4,7 +4,7 @@ categories: [人生・思索, 読書]
 date: 2019-02-03
 lang: ja
 title: 「ていねいなコミュニケーション」
-lastmod: '2022-09-02'
+lastmod: '2026-02-05'
 keywords: [相手, 自分, 自己欺瞞, ていねい, 裏切ら, 脱出, 悪い, 本心, 怒る, ことごとく]
 recommendations: [/ja/note/be-mindful/, /ja/note/td-to-amazon/, /ja/note/product-management-and-bullshit-job/]
 ---

@@ -5,7 +5,7 @@ date: 2017-12-30
 images: [/images/ddia/poster.png]
 lang: ja
 title: '"Designing Data-Intensive Applications"は濃密すぎる一冊だったので2018年の自分にも読んでもらいたい'
-lastmod: '2022-09-02'
+lastmod: '2026-02-05'
 keywords: [データ, ddia, data, dynamo, システム, 読ん, many, poster, データベース, part]
 recommendations: [/ja/note/dynamo-style/, /ja/note/amazon-dynamo-paper/, /ja/note/data-stream-mining/]
 ---

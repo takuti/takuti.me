@@ -6,7 +6,7 @@ images: [/images/euroscipy-2017/venue.jpg, /images/euroscipy-2017/road.jpg, /ima
   /images/euroscipy-2017/name.jpg]
 lang: ja
 title: EuroSciPy 2017に参加してしゃべってきた
-lastmod: '2022-09-02'
+lastmod: '2026-02-05'
 keywords: [発表, python, pytorch, euroscipy, カンファレンス, keynote, 飲ん, 実験, wasm, pyconjp]
 recommendations: [/ja/note/master-graduate/, /ja/note/pytorch-autograd/, /ja/note/recommender-libraries/]
 ---

@@ -4,7 +4,7 @@ categories: [エンジニアリング, 推薦システム]
 date: 2017-04-23
 lang: ja
 title: Java製の推薦システム用ライブラリ LibRec を動かしてみる
-lastmod: '2022-01-18'
+lastmod: '2026-02-05'
 keywords: [librec, 推薦, ライブラリ, アルゴリズム, julia, flurs, 実装, recommendation, プロジェクト, 思い返す]
 recommendations: [/ja/note/recommender-libraries/, /ja/note/trends-in-real-world-recommender-systems-2017/,
   /ja/note/coursera-recommender-systems/]

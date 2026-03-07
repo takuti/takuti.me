@@ -5,7 +5,7 @@ date: 2022-06-05
 lang: en
 title: Becoming Permanent Resident of Canada
 images: [/images/canada-permanent-residency/canada.jpg]
-lastmod: '2022-09-02'
+lastmod: '2026-03-01'
 keywords: [pnp, permanent, canada, nomination, residence, application, invitation,
   apply, resident, certificate]
 recommendations: [/note/becoming-a-freelancer-in-canada/, /note/post-pandemic-first-international-trip/,

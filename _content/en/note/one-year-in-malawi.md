@@ -8,6 +8,7 @@ images: [/images/one-year-in-malawi/mzuzu.png]
 keywords: [malawi, capital, ict, international, people, african, development, businesses,
   digital, africa]
 recommendations: [/note/volunteering-in-malawi/, /note/digital-malawi-2023/, /note/computer-education-in-malawi/]
+lastmod: '2026-02-05'
 ---
 
 *"How's Africa?"*—my friends outside of the continent frequently ask.

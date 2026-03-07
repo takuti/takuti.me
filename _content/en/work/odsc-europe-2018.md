@@ -1,7 +1,7 @@
 ---
 title: 'Apache Hivemall: Query-Based Handy, Scalable Machine Learning on Hive'
 date: 2018-09-01
-lastmod: '2021-10-16'
+lastmod: '2022-09-08'
 meta: Tech Conference
 ---
 

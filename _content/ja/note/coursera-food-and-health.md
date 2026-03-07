@@ -3,7 +3,7 @@ categories: [人生・思索]
 date: 2020-09-26
 lang: ja
 title: 食と栄養について学んでいる。
-lastmod: '2022-09-02'
+lastmod: '2026-02-05'
 keywords: [資産, 脂質, 炭水化物, 身体, 食事, ヘルシー, タンパク質, キロカロリー, 野菜, バランス]
 recommendations: [/ja/note/self-investment/, /ja/note/information-diet/, /ja/note/will-202102/]
 ---

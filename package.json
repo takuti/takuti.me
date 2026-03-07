@@ -52,8 +52,13 @@
     "*.{png,jpeg,jpg,gif}": [
       "node ./scripts/js/imagemin.js"
     ],
+    "_content/{en,ja}/**/*.{md,html}": [
+      "python ./scripts/py/lastmod.py",
+      "git add -u _content/en _content/ja"
+    ],
     "_content/en/**/*.md": [
-      "node ./scripts/js/replace-curly-quotes.js"
+      "node ./scripts/js/replace-curly-quotes.js",
+      "git add -u _content/en"
     ],
     "_content/{en,ja}/note/*.{md,html}": [
       "python ./scripts/py/recommend.py",

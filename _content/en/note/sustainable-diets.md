@@ -4,7 +4,7 @@ date: 2021-10-16
 images: [/images/sustainable-diets/fitbit-food-tracking.png]
 lang: en
 title: My 30-Day Food Tracking Challenge from Sustainable Diet Perspective
-lastmod: '2022-09-02'
+lastmod: '2026-03-04'
 keywords: [food, eating, eat, diets, protein, meat, tracking, meals, diet, meats]
 recommendations: [/note/information-diet/, /note/unusual-drinking-and-eating-habits/,
   /note/working-from-home-202004/]

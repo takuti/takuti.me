@@ -8,6 +8,7 @@ keywords: [user, data, users, systems, dividual, multiple, group, model, identit
   ing]
 recommendations: [/note/ethical-challenges-in-recommender-systems/, /note/data-feminism/,
   /note/coursera-data-science-ethics/]
+lastmod: '2026-02-05'
 ---
 
 *"Let $\mathcal{U}$ be a set of users ..."*

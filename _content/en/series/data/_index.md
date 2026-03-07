@@ -1,7 +1,8 @@
 ---
-title: "Productizing Data with People"
+title: Productizing Data with People
 slug: data
 images: [/images/airflow-lineage/lineage.png]
+lastmod: '2024-03-10'
 ---
 
 #### *How to turn data into applications in a humane way*

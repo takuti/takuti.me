@@ -7,6 +7,7 @@ title: When We Lose Autonomy—Whose Life Are You Living?
 keywords: [autonomy, nietzsche, life, intellectual, our, philosophical, fiction, happiness,
   are, what]
 recommendations: [/note/search-for-identity/, /note/how-information-flows/, /note/loneliness/]
+lastmod: '2026-02-05'
 ---
 
 Autonomy is important. Nobody wants to be enslaved or manipulated by other people[^1]. In the context of AI ethics, ensuring one's autonomy by proper algorithm/interface design (e.g., transparency, fairness) is one of the biggest challenges researchers and practitioners are tackling these days.

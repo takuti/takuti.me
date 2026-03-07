@@ -1,7 +1,8 @@
 ---
-title: "Building Recommender Systems in Julia"
+title: Building Recommender Systems in Julia
 slug: julia
 images: [/images/julia/accessor.png]
+lastmod: '2024-03-10'
 ---
 
 While I was studying recommendation algorithms in my master's program, I happened to know the Julia programming language. It focuses on high-performance scientific computing by utilizing the just-in-time compiler, and I see the programming language can be a great choice for developers to efficiently and effectively pre-process user-item data, build a recommendation model, evaluate a ranked list of recommended contents, and post-process the recommendation if needed. Thereafter, I have been implementing various recommendation techniques in Julia and packaging them as [Recommendation.jl](https://github.com/takuti/Recommendation.jl/).

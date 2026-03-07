@@ -5,7 +5,7 @@ images: [/images/recommender/incremental-recommendation.png]
 lang: en
 title: Feeding User-Item Interactions to Python-Based Streaming Recommendation Engine
   via Faust
-lastmod: '2022-09-02'
+lastmod: '2026-02-05'
 keywords: [recommendation, incremental, flurs, engine, stream, faust, python, streams,
   items, user]
 recommendations: [/note/flurs/, /note/cross-validation-julia-recommender/, /note/novelty-diversity-serendipity/]

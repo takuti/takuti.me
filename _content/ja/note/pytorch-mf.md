@@ -5,7 +5,7 @@ date: 2017-10-14
 images: [/images/recommender/mf.png]
 lang: ja
 title: PyTorchでもMatrix Factorizationがしたい！
-lastmod: '2022-09-02'
+lastmod: '2026-02-05'
 keywords: [pytorch, torch, autograd, factorization, matrix, factors, optim, item,
   損失, recommender]
 recommendations: [/ja/note/pytorch-autograd/, /ja/note/coursera-recommender-systems/,

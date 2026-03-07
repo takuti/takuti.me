@@ -6,7 +6,13 @@
 
     <h2>{{ .Title }}</h2>
 
-    <p class="light-black">{{ i18n "lastModified" }}: {{ .Lastmod.Format "January 2, 2006" }}</p>
+    <p class="light-black" style="font-size: 0.9em; opacity: 0.7;">
+      {{ i18n "lastModified" }}: {{ .Lastmod | time.Format ":date_long" }}
+      <a href="https://github.com/takuti/takuti.me/commits/master/_content/{{ .Lang }}?since={{ .Lastmod.Format "2006-01-02" }}&until={{ .Lastmod.Format "2006-01-02" }}"
+       style="color: inherit; text-decoration: none; opacity: 0.6; margin-left: 4px;">
+      <i class="fa fa-history" style="font-size: 0.9em; vertical-align: baseline; line-height: 1; position: relative; top: -1px;"></i>
+      </a>
+    </p>
 
     <div class="post">
       {{ .Content }}

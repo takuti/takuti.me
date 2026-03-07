@@ -1,7 +1,7 @@
 ---
 title: 'FluRS: A Library for Streaming Recommendation Algorithms'
 date: 2017-08-01
-lastmod: '2021-10-16'
+lastmod: '2026-03-04'
 meta: Tech Conference
 ---
 

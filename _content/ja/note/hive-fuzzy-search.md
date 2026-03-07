@@ -4,7 +4,7 @@ categories: [エンジニアリング, データ・アルゴリズム]
 date: 2017-08-20
 lang: ja
 title: HiveでテキストのFuzzy Search
-lastmod: '2022-01-18'
+lastmod: '2026-02-05'
 keywords: [fuzzy, postgresql, search, hive, mapreduce, 試し, 発音, 先週, soundex, sample]
 recommendations: [/ja/note/hivemall-on-mac/, /ja/note/postgresql-fuzzy-search/, /ja/note/why-spark/]
 ---

@@ -8,6 +8,7 @@ images: [/images/thumbnails/divide.jpg]
 keywords: [humans, isting, divide, technology, smarter, contexts, tools, need, problems,
   inequality]
 recommendations: [/note/offline-learning/, /note/digital-divide/, /note/one-year-in-malawi/]
+lastmod: '2026-03-04'
 ---
 
 People worldwide exhibit varying levels of excitement or concern about AI, from the rich to the poor, ordinary citizens to global leaders to politicians, regardless of their occupation and industry. One cannot avoid the wave, even if "I'm not an expert" or "I don't use computers."
