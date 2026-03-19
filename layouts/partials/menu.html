@@ -12,26 +12,16 @@
       <a href="/{{ .Site.Language.Lang }}">{{ i18n "home" }}</a>
       <a href="{{ "/services" | absLangURL }}">{{ i18n "services" }}</a>
       <a href="{{ "/note" | absLangURL }}">{{ i18n "blog" }}</a>
-      {{ if .IsTranslated }}
-        {{ $siteLanguages := .Site.Languages}}
-        {{ $pageLang := .Page.Lang}}
-        {{ range .Page.AllTranslations }}
-        {{ $translation := .}}
-        {{ range $siteLanguages }}
-        {{ if eq $translation.Lang .Lang }}
-        {{ $selected := false }}
-        {{ if ne $pageLang .Lang}}
-        <a id="{{ $translation.Language }}" href="{{ $translation.Permalink }}" class="sub">{{ .LanguageName }}</a>
-        {{ end }}
-        {{ end }}
-        {{ end }}
-        {{ end }}
-      {{ else }}
-        {{ $currentLang := .Site.Language.Lang }}
-        {{ range .Site.Languages }}
+      {{ $currentLang := .Site.Language.Lang }}
+      {{ range .Site.Languages }}
         {{ if ne $currentLang .Lang }}
-        <a id="{{ .Lang }}" href="/{{ .Lang }}" class="sub">{{ .LanguageName }}</a>
-        {{ end }}
+          {{ $translations := where $.Translations "Lang" .Lang }}
+          {{ if ne (len $translations) 0 }}
+            {{ $translation := index $translations 0 }}
+            <a id="{{ .Lang }}" href="{{ $translation.Permalink }}" class="sub">{{ .LanguageName }}</a>
+          {{ else }}
+            <a id="{{ .Lang }}" href="/{{ .Lang }}" class="sub">{{ .LanguageName }}</a>
+          {{ end }}
         {{ end }}
       {{ end }}
     </span>
