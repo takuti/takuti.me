@@ -82,4 +82,110 @@ nav {
     position: relative;
     font-size: 0.9em;
   }
+
+  .lang-dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 0 20px;
+
+    .lang-toggle {
+      display: none;
+    }
+
+    .lang-trigger {
+      @include nav-link-styles;
+
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: background 0.2s ease;
+      font-weight: 500;
+
+      .current-lang {
+        font-size: 0.9em;
+        letter-spacing: 0.5px;
+      }
+
+      .fa-chevron-down {
+        font-size: 0.75em;
+        transition: transform 0.2s ease;
+      }
+
+      &:hover {
+        background: rgba($color-black, 0.08);
+      }
+    }
+
+    .lang-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 160px;
+      background: #fff;
+      border: 1px solid $color-border;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.2s ease;
+      overflow: hidden;
+      z-index: 1000;
+
+      .lang-item {
+        display: block;
+        padding: 10px 16px;
+        margin: 0;
+        text-align: left;
+        font-size: 0.9em;
+        font-weight: 400;
+        border-bottom: 1px solid $color-border;
+        transition: background 0.15s ease;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background: rgba($color-black, 0.05);
+        }
+
+        &.current {
+          background: rgba($color-black, 0.1);
+          font-weight: 600;
+          color: $color-black;
+          cursor: default;
+        }
+      }
+    }
+
+    // Desktop: hover to show dropdown
+    @media (hover: hover) {
+      &:hover .lang-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      &:hover .lang-trigger .fa-chevron-down {
+        transform: rotate(180deg);
+      }
+    }
+
+    // Mobile/touch: click to toggle
+    @media (hover: none) {
+      .lang-toggle:checked ~ .lang-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .lang-toggle:checked ~ .lang-trigger .fa-chevron-down {
+        transform: rotate(180deg);
+      }
+    }
+  }
 }

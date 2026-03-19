@@ -45,8 +45,7 @@
         border-top: 1px solid $color-border;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 
-        a,
-        .lang-list {
+        a {
           display: block;
           width: 100%;
           text-align: center;
@@ -59,8 +58,48 @@
           border-bottom: none;
         }
 
-        .lang-list {
-          margin-left: 0;
+        .lang-dropdown {
+          display: block;
+          width: 100%;
+          margin: 0;
+          border-bottom: 1px solid $color-border;
+          position: relative;
+
+          .lang-trigger {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 1em 0;
+            margin: 0;
+            border-radius: 0;
+          }
+
+          .lang-menu {
+            position: relative;
+            top: 0;
+            right: auto;
+            width: 100%;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            background: rgba($color-black, 0.02);
+
+            .lang-item {
+              padding: 0.8em 0;
+              text-align: center;
+              font-size: 0.95em;
+            }
+          }
+
+          .lang-toggle:checked ~ .lang-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+          }
+
+          .lang-toggle:checked ~ .lang-trigger .fa-chevron-down {
+            transform: rotate(180deg);
+          }
         }
       }
 

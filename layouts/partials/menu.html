@@ -13,17 +13,29 @@
       <a href="{{ "/services" | absLangURL }}">{{ i18n "services" }}</a>
       <a href="{{ "/note" | absLangURL }}">{{ i18n "blog" }}</a>
       {{ $currentLang := .Site.Language.Lang }}
-      {{ range .Site.Languages }}
-        {{ if ne $currentLang .Lang }}
-          {{ $translations := where $.Translations "Lang" .Lang }}
-          {{ if ne (len $translations) 0 }}
-            {{ $translation := index $translations 0 }}
-            <a id="{{ .Lang }}" href="{{ $translation.Permalink }}" class="sub">{{ .LanguageName }}</a>
-          {{ else }}
-            <a id="{{ .Lang }}" href="/{{ .Lang }}" class="sub">{{ .LanguageName }}</a>
+      <span class="lang-dropdown">
+        <input type="checkbox" id="lang-toggle" class="lang-toggle">
+        <label for="lang-toggle" class="lang-trigger">
+          <i class="fas fa-globe"></i>
+          <span class="current-lang">{{ upper $currentLang }}</span>
+          <i class="fas fa-chevron-down"></i>
+        </label>
+        <span class="lang-menu">
+          {{ range .Site.Languages }}
+            {{ if eq $currentLang .Lang }}
+              <span class="lang-item current">{{ .LanguageName }}</span>
+            {{ else }}
+              {{ $translations := where $.Translations "Lang" .Lang }}
+              {{ if ne (len $translations) 0 }}
+                {{ $translation := index $translations 0 }}
+                <a href="{{ $translation.Permalink }}" class="lang-item">{{ .LanguageName }}</a>
+              {{ else }}
+                <a href="/{{ .Lang }}" class="lang-item">{{ .LanguageName }}</a>
+              {{ end }}
+            {{ end }}
           {{ end }}
-        {{ end }}
-      {{ end }}
+        </span>
+      </span>
     </span>
   </span>
   </nav>
