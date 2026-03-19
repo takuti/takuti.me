@@ -53,6 +53,18 @@ DefaultContentLanguage = "en"
       blogDescription = "「生きること」「学ぶこと」「作ること」について綴っています。"
       disclaimer = '<ul><li>Amazonのアソシエイトとして、当サイトは <a href="https://amzn.to/3QZGuBp" target="_blank">amazon.co.jp</a> 上の適格販売により収入を得ています。</li><li>当サイトおよび関連するメディア上での発言はすべて私個人の見解であり、所属する（あるいは過去に所属した）組織のいかなる見解を代表するものでもありません。</li><li>当サイトのコンテンツ・情報につきまして、可能な限り正確な情報を掲載するよう努めておりますが、個人ブログという性質上、誤情報や客観性を欠いた意見が入り込んでいることもございます。いかなる場合でも、当サイトおよびリンク先に掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。</li><li>その他、記事の内容や掲載画像などに問題がございましたら、直接メールでご連絡ください。確認の後、対応させていただきます。</li></ul>'
 
+  [languages.fr]
+    languageName = "Français"
+    weight = 3
+    contentDir = "content/fr"
+    [languages.fr.params]
+      name = "Takuya Kitazawa"
+      keywords = "Takuya Kitazawa,takuti,Afrique,Malawi,Canada,Japon,IA"
+      bio = '''Je m'appelle Takuya. Je viens du Japon, mais maintenant j'habite à Ottawa au Canada. Comme ingénieur et consultant en informatique, en particulier en intelligence artificielle, j'ai passé plusieurs ans dans le pays. De 2023 à 2025, j'ai aussi travaillé au Malawi, qui est dans le sud d'Afrique, pour le développement international. Voyez <a href="https://takuti.github.io/cv/" target="_blank" rel="noopener">mon CV <sup><i class="fas fa-external-link-alt"></i></sup></a> et m'envoyez un message à <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b>. Merci de venir !'''
+      homeDescription = "Takuya Kitazawa - Ingénieur et consultant en IA à Ottawa au Canada."
+      blogDescription = "Mon blog personnel où j'écris sur mes expériences et opinions (pour pratiquer le français)."
+      disclaimer = "Le contenu de ce blog est mon avis personnel. Ils ne représentent pas l'opinion d'autres personnes ou organisations."
+
 [services]
   [services.googleAnalytics]
     id = "G-0JG95XY8EM"

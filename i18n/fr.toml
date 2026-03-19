@@ -1,0 +1,62 @@
+[home]
+other = "Accueil"
+
+[blog]
+other = "Blog"
+
+[work]
+other = "Publications et activités professionnelles"
+
+[categories]
+other = "Catégories"
+
+[series]
+other = "Séries de mes articles"
+
+[inSeries]
+other = "Articles dans cette série"
+
+[seriesThisArticle]
+other = "Cet article fait partie de la série"
+
+[author]
+other = "Auteur"
+
+[disclaimer]
+other = "Avertissement"
+
+[seeAlso]
+other = "Lisez aussi"
+
+[more]
+other = "Plus"
+
+[notFound]
+other = "Oups, page non trouvée…"
+
+[privacyPolicy]
+other = "Politique de confidentialité"
+
+[lastModified]
+other = "Dernière mise à jour"
+
+[now]
+other = "Ce que je fais maintenant"
+
+[support]
+other = "Soutenez"
+
+[supportCoffee]
+other = "Donnez-moi une tasse de café"
+
+[contact]
+other = "Contactez-moi"
+
+[services]
+other = "Mes services"
+
+[greeting]
+other = "Bonjour à tous"
+
+[noArticle]
+other = "Aucun article trouvé"
