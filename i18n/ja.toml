@@ -7,9 +7,6 @@ other = "ブログ"
 [work]
 other = "イベント登壇・論文執筆などの記録"
 
-[aboutMe]
-other = "プロフィール"
-
 [categories]
 other = "カテゴリ"
 
@@ -60,3 +57,6 @@ other = "サービス"
 
 [greeting]
 other = "こんにちは"
+
+[noArticle]
+other = "記事が見つかりませんでした"

@@ -7,9 +7,6 @@ other = "Blog"
 [work]
 other = "Publications and professional activities"
 
-[aboutMe]
-other = "About"
-
 [categories]
 other = "Categories"
 
@@ -60,3 +57,6 @@ other = "Services"
 
 [greeting]
 other = "Hi, I'm Takuya"
+
+[noArticle]
+other = "No articles found"

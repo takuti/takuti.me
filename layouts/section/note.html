@@ -10,14 +10,22 @@
 <span class="outer-box">
 <h4><i class="fas fa-folder-open"></i>&nbsp;&nbsp;{{ i18n "categories" }}</h4>
 <p>
-{{ range .Site.Taxonomies.categories }}
-  <a href="{{.Page.Permalink}}" class="taxonomy-button">{{.Page.Title}} ({{.Count}})</a>
+{{ if .Site.Taxonomies.categories }}
+  {{ range .Site.Taxonomies.categories }}
+    <a href="{{.Page.Permalink}}" class="taxonomy-button">{{.Page.Title}} ({{.Count}})</a>
+  {{ end }}
+{{ else }}
+  <i>{{ i18n "noArticle" }}</i>
 {{ end }}
 </p>
 <h4><i class="fas fa-book"></i>&nbsp;&nbsp;{{ i18n "series" }}</h4>
 <p>
-{{ range .Site.Taxonomies.series }}
-  <a href="{{.Page.Permalink}}" class="taxonomy-button">{{.Page.Title}} ({{.Count}})</a>
+{{ if .Site.Taxonomies.series }}
+  {{ range .Site.Taxonomies.series }}
+    <a href="{{.Page.Permalink}}" class="taxonomy-button">{{.Page.Title}} ({{.Count}})</a>
+  {{ end }}
+{{ else }}
+  <i>{{ i18n "noArticle" }}</i>
 {{ end }}
 </p>
 </span>
