@@ -4,7 +4,7 @@ date: 2021-11-12
 images: [/images/supply-chain-disruption/cargo-map.png]
 lang: en
 title: What Container and JIT Mean for Today's Supply Chain Disruption
-lastmod: '2026-03-04'
+lastmod: '2026-03-07'
 keywords: [cargo, jit, supply, disruption, ports, system, demand, operations, port,
   warehouses]
 recommendations: [/note/coursera-supply-chain-management/, /note/td-to-amazon/, /note/annual-review-2021/]

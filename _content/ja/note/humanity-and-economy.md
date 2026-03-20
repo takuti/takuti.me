@@ -4,7 +4,7 @@ series: [product]
 date: 2021-10-24
 lang: ja
 title: 経済的合理性だけでは語れない“豊かさ”について
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 keywords: [展示, 衝動, 浪費, アート, 芸術, 打算, 消費, sustainable, 人生, ヒューマニティ]
 recommendations: [/ja/note/boredom/, /ja/note/2021/, /ja/note/autonomy-and-life/]
 ---

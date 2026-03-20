@@ -2,7 +2,7 @@
 title: 'Altruistic Byte: Real-World Insights for Tech-Driven Change'
 slug: ab
 images: [/images/altruistic-byte/ab-logo.png]
-lastmod: '2026-01-09'
+lastmod: '2026-03-07'
 ---
 
 This series started as a [newsletter](https://ab.takuti.me/) to navigate the intersection of technology and society for sustainable impact. Curated from diverse tech-for-good initiatives, the newsletter delivered actionable insights for changemakers seeking to harness digital innovations for meaningful, lasting change.

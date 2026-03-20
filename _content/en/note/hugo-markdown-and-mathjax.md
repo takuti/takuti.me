@@ -3,7 +3,7 @@ categories: [Engineering]
 date: 2015-10-19
 lang: en
 title: 'Migrate to Hugo from Jekyll: Another Solution for the MathJax+Markdown Issue'
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 keywords: [hugo, markdown, mathjax, site, jekyll, kramdown, spf, convertor, converter,
   files]
 recommendations: [/note/hugo-kramdown-and-katex/, /note/travis-gh-pages-deployment/,

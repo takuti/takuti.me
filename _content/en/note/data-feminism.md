@@ -8,7 +8,7 @@ keywords: [data, gender, feminism, sex, localized, human, decisions, not, datase
   knowledge]
 recommendations: [/note/data-leaders-summit-europe-2019/, /note/coursera-data-science-ethics/,
   /note/airflow-lineage/]
-lastmod: '2026-03-01'
+lastmod: '2026-03-07'
 ---
 
 That is, information in human society is localized, and there is always the existence of real humans throughout the data lifecycle from their generation to collection to aggregation. Even though a specific dataset you are analyzing looks simple, you cannot (and must not) reach a conclusion without understanding its context—how the data are generated, collected, and used by whom, and to whom your work is presented.

@@ -4,7 +4,7 @@ date: 2021-11-17
 images: []
 lang: ja
 title: もしも推薦システムの精度と多様性が単一の指標で測れたら
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 keywords: [推薦, アイテム, 評価, aspect, ランキング, カテゴリ, top, 指標, ユーザ, 好む]
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/reranking-for-popularity-bias/,
   /ja/note/slim/]

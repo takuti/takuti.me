@@ -3,7 +3,7 @@ categories: [Life & Reflection]
 date: 2021-12-26
 lang: en
 title: 'My 2021 Annual Review: A Year of Divergence (And Slowly Started Converging)'
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 keywords: [year, new, note, product, was, traveler, aligned, identity, sustainability,
   thank]
 recommendations: [/note/annual-review-2022/, /note/td-to-amazon/, /note/atomic-habits/]

@@ -4,7 +4,7 @@ categories: [エンジニアリング, データ・アルゴリズム]
 date: 2015-12-08
 lang: ja
 title: ストリームデータ解析の世界
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 keywords: [スケッチ, データ, 解析, ストリーム, 近似, 性質, 手法, 推定, 計算, 理論]
 recommendations: [/ja/note/designing-data-intensive-applications/, /ja/note/leakage/,
   /ja/note/trends-in-real-world-recommender-systems-2017/]

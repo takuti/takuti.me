@@ -4,7 +4,7 @@ categories: [Data & Algorithms, Life & Reflection, Recommender Systems, Society 
 date: 2022-05-15
 lang: en
 title: Am I Zombie? Autonomy vs. Recommendations on the Internet
-lastmod: '2026-03-04'
+lastmod: '2026-03-07'
 keywords: [she, zombie, her, our, stairs, crazed, you, systems, walk, received]
 recommendations: [/note/autonomy-and-life/, /note/ethical-challenges-in-recommender-systems/,
   /note/ethical-product-developer/]

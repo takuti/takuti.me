@@ -1,7 +1,7 @@
 ---
 title: 'Recommendation.jl: Building Recommender Systems in Julia'
 date: 2019-07-01
-lastmod: '2022-09-08'
+lastmod: '2026-03-07'
 meta: Tech Conference
 ---
 

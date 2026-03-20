@@ -4,7 +4,7 @@ series: [product]
 date: 2021-08-02
 lang: ja
 title: 僕らはなぜ、誰のためにプロダクトを作るのか─行動変容デザインとその倫理的側面
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 keywords: [プロダクト, 行動, 変容, ユーザ, 報酬, デザイン, ビタミン剤, 習慣, 痛み, hooked]
 recommendations: [/ja/note/empowered/, /ja/note/design-engineer/, /ja/note/product-management-myths/]
 ---

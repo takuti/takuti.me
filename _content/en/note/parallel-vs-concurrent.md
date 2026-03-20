@@ -3,7 +3,7 @@ categories: [Engineering]
 date: 2017-02-25
 lang: en
 title: Parallel Programming vs. Concurrent Programming
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 keywords: [parallel, concurrent, programming, concurrency, progress, actions, executed,
   definitions, simultaneously, ism]
 recommendations: [/note/coursera-scala-capstone/, /note/dividual-in-recsys/, /note/ethical-challenges-in-recommender-systems/]

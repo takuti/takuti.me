@@ -5,7 +5,7 @@ date: 2022-08-06
 lang: en
 title: 'Recommendation.jl Came Back to #JuliaCon 2022'
 images: [/images/juliacon-2022/discord.png]
-lastmod: '2026-03-01'
+lastmod: '2026-03-07'
 keywords: [juliacon, julia, discord, talk, validate, validation, note, recommendation,
   data, diversity]
 recommendations: [/note/juliacon-2019/, /note/cross-validation-julia-recommender/,

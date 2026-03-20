@@ -4,7 +4,7 @@ categories: [データ・アルゴリズム]
 date: 2017-12-16
 lang: ja
 title: データサイエンスプロジェクトのディレクトリ構成どうするか問題
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 keywords: [practices, ディレクトリ, scientific, バージョン, computing, データサイエンス, プロジェクト, ソースコード,
   best, ソフトウェア開発]
 recommendations: [/ja/note/euroscipy-2017/, /ja/note/acroquest-javabook/, /ja/note/why-spark/]

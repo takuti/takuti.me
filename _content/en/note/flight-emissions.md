@@ -4,7 +4,7 @@ date: 2021-03-13
 images: [/images/flight-emissions/2019.png, /images/flight-emissions/2020.png]
 lang: en
 title: How Much CO2 Emissions Have Your Flights Made?
-lastmod: '2026-03-01'
+lastmod: '2026-03-07'
 keywords: [emissions, flight, visualization, flights, tonnes, airport, per, longitude,
   latitude, airports]
 recommendations: [/note/post-pandemic-first-international-trip/, /note/annual-review-2021/,

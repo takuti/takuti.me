@@ -3,7 +3,7 @@ categories: [Engineering]
 date: 2017-05-28
 lang: en
 title: 'Hugo meets kramdown + KaTeX #gohugo'
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 keywords: [markdown, katex, latex, kramdown, mathjax, var, syntax, rendering, processor,
   equation]
 recommendations: [/note/hugo-markdown-and-mathjax/, /note/travis-gh-pages-deployment/,

@@ -3,7 +3,7 @@ categories: [Engineering]
 date: 2021-04-19
 lang: en
 title: Learning Cryptocurrency with Code
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 keywords: [blockchain, bitcoin, transaction, transactions, decentralized, utxopool,
   utxo, property, consensus, miners]
 recommendations: [/note/coursera-blockchain-specialization/, /note/web3/, /note/iotswc-2019/]

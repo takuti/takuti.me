@@ -4,7 +4,7 @@ series: [canada]
 date: 2026-01-03
 lang: ja
 title: アフリカ最貧国マラウイでの国際結婚から、配偶者スポンサー制度によるカナダ永住権の取得まで
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 keywords: [パートナー, マラウイ, 結婚, 婚姻, カナダ, 方式, 書類, 親族, 申請, 日本]
 recommendations: [/ja/note/canada-permanent-residency/, /ja/note/volunteering-in-malawi/,
   /ja/note/my-identity-in-malawi/]

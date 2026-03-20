@@ -3,7 +3,7 @@ categories: [人生・思索]
 date: 2020-07-31
 lang: ja
 title: 軽やかに生きたくて。
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 keywords: [life, oyo, 引っ越し, 生活, address, 住居, 物件, 処分, ダンボール, 自分]
 recommendations: [/ja/note/oyo-life-202010/, /ja/note/one-month-in-canada/, /ja/note/capitalism-in-anthropocene/]
 ---

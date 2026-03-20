@@ -3,7 +3,7 @@ categories: [Society & Business]
 date: 2021-04-30
 lang: en
 title: Environmental Problems Through the Lens of Business
-lastmod: '2026-03-04'
+lastmod: '2026-03-07'
 keywords: [green, energy, building, water, environmental, renewable, problems, business,
   ourse, buildings]
 recommendations: [/note/how-to-avoid-a-climate-disaster/, /note/sustainability-at-big-tech/,

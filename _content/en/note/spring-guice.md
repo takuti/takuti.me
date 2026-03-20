@@ -3,7 +3,7 @@ categories: [Engineering]
 date: 2021-10-30
 images: [/images/spring-guice/uml.png]
 title: Cross-Framework Dependency Injection with spring-guice
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 keywords: [guice, spring, injection, application, dependency, party, framework, third,
   class, your]
 recommendations: [/note/machine-learning-product/, /note/becoming-a-product-manager/,

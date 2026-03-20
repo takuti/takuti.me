@@ -5,7 +5,7 @@ date: 2017-11-04
 images: [/images/misc/oversampling_and_undersampling.jpg]
 lang: ja
 title: Over-/Under-samplingをして学習した2クラス分類器の予測確率を調整する式
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 keywords: [oversampling, undersampling, サンプル, クラス, 分類, 確率, 予測, imbalanced, downsampling,
   rate]
 recommendations: [/ja/note/auc/, /ja/note/acroquest-javabook/, /ja/note/holt-winters/]

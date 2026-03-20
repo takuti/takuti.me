@@ -8,7 +8,7 @@ keywords: [malawi, year, note, volunteer, practices, reshaped, eumc, information
   with, wusc]
 recommendations: [/note/volunteering-in-malawi/, /note/relativize-and-contextualize/,
   /note/one-year-in-malawi/]
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 ---
 
 In short, the year 2023 has brought **deepness** to my life. It is exactly what I stated in the [2022 reflection](/note/annual-review-2022) as something I wanted to try next year, and I have committed to exploring the problems I have been concerned about for the last decade&mdash;*skewed power dynamics and loss of humanity in the use of information technology.* From January to December, by surveying academic papers, traveling to various destinations, interacting with mixed people, making my hands dirty in the field, and writing less frequent but more focused 12 monthly blog posts (vs. weekly 52 posts in 2022), I have continuously crystallized and reshaped my understanding of systemic issues. Now, I'm better equipped with the new tools to challenge the complex problems our society holds, both intellectually and practically.

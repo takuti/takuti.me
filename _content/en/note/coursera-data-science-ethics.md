@@ -5,7 +5,7 @@ categories: [Data & Algorithms, Society & Business]
 date: 2022-03-20
 lang: en
 title: 'It "Was" Ethical: Key Takeaways from UMich''s Data Science Ethics Course'
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 keywords: [data, ethics, ethical, validate, regulation, science, cameras, privacy,
   driven, society]
 recommendations: [/note/ethics-and-relationship/, /note/data-validation/, /note/airflow-lineage/]

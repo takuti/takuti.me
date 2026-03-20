@@ -4,7 +4,7 @@ series: [canada]
 date: 2021-06-19
 lang: ja
 title: 「山」を通して考える持続可能性─Courseraの"Mountains 101"を受講して
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 keywords: [山岳, mountains, 生活, コース, 氷河, 生きる, 原子力発電, environmental, disaster, avoid]
 recommendations: [/ja/note/sustainable-capitalism/, /ja/note/capitalism-in-anthropocene/,
   /ja/note/2021/]

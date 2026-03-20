@@ -7,7 +7,7 @@ keywords: [cloud, dataflow, data, apache, pipelines, pipeline, beam, google, res
   airflow]
 recommendations: [/note/airflow-lineage/, /note/coursera-machine-learning-on-gcp/,
   /note/data-validation/]
-lastmod: '2026-02-05'
+lastmod: '2026-03-07'
 ---
 
 With the [specialization on Coursera](/note/coursera-machine-learning-on-gcp), I've been on a not-too-fancy yet meaningful learning curve over the last few months in the context of machine learning on Google Cloud.
