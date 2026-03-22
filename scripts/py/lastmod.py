@@ -16,6 +16,7 @@ def run(lang):
 def main():
     run('en')
     run('ja')
+    run('fr')
 
 
 if __name__ == '__main__':
