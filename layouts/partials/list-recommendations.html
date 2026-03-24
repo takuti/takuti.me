@@ -4,7 +4,7 @@
   {{ range where (where .Site.RegularPages "Section" "note") "RelPermalink" "in" .Params.recommendations }}
   <dt>
   <span class="date">
-    {{ .Date.Format "2006-01-02" }}
+    {{ .Date | time.Format ":date_long" }}
   </span>
   </dt>
   <dd>
@@ -15,7 +15,7 @@
   {{ range first 3 (where (where .Site.RegularPages "Section" "note") "Permalink" "!=" .Page.Permalink) }}
   <dt>
   <span class="date">
-    {{ .Date.Format "2006-01-02" }}
+    {{ .Date | time.Format ":date_long" }}
   </span>
   </dt>
   <dd>

@@ -34,7 +34,7 @@
   {{ range (where .Data.Pages "Section" "note")}}
   <dt>
   <span class="date">
-    {{ .Date.Format "2006-01-02" }}
+    {{ .Date | time.Format ":date_long" }}
   </span>
   </dt>
   <dd>
