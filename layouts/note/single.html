@@ -26,8 +26,12 @@
         {{ partial "support.html" . }}
         <h4><i class="fas fa-folder-open"></i>&nbsp;&nbsp;{{ i18n "categories" }}</h4>
         <p>
+          {{ if .GetTerms "categories" }}
           {{ range $i, $v := (.GetTerms "categories") }}
           <a href="{{ .Permalink }}" class="taxonomy-button">{{ .LinkTitle }}</a>
+          {{ end }}
+          {{ else }}
+          <i>{{ i18n "noArticle" }}</i>
           {{ end }}
         </p>
         {{ partial "list-recommendations.html" . }}
