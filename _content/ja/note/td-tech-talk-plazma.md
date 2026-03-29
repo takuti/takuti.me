@@ -4,7 +4,7 @@ categories: [イベント, データ・アルゴリズム]
 date: 2018-02-25
 lang: ja
 title: 'Hivemall, Digdag, 自然言語処理, 機械学習などについて話しました #tdtech'
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 keywords: [internal, 機械学習, plazma, 聴衆, talk, day, 自然言語処理, 動く, アルゴリズム, お話]
 recommendations: [/ja/note/algorithmic-marketing/, /ja/note/2020/, /ja/note/trends-in-real-world-recommender-systems-2017/]
 ---

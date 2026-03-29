@@ -1,6 +1,10 @@
 ---
 date: 2026-03-22
 title: L'apprentissage du français
+lastmod: '2026-03-22'
+keywords: [mon, langue, dans, apprentissage, vous, plusieurs, nouvelle, nous, domaine,
+  continuer]
+recommendations: [/ja/note/vibe-coding/]
 ---
 
 C'est mon premier article en français sur mon blog. Depuis quatre mois, j'apprends le français. En fait, je suis allé à l'école de janvier à février 2026, mais je ne vais plus à la classe.

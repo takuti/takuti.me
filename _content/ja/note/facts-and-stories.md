@@ -3,7 +3,7 @@ categories: [デザイン, 人生・思索]
 date: 2020-04-25
 lang: ja
 title: “いいもの”ってなんだろう
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 keywords: [ストーリー, 良さ, 豆皿, いいもの, 日本酒, 客観, 主観, 砥部焼, コーヒーミル, キッチン]
 recommendations: [/ja/note/tech-design-story/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/2020/]

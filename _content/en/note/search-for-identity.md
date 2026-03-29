@@ -7,7 +7,7 @@ images: [/images/search-for-identity/rvm.jpeg, /images/search-for-identity/canad
 keywords: [marathon, running, identity, runner, myself, was, solitude, emotional,
   sub, loneliness]
 recommendations: [/note/annual-review-2022/, /note/annual-review-2021/, /note/canadian-mental-health-week-2022/]
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 ---
 
 Let's talk about running.

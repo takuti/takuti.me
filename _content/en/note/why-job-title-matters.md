@@ -4,7 +4,7 @@ series: [product]
 date: 2021-08-07
 lang: en
 title: Why Your Job Title Matters
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 keywords: [title, job, titles, classification, you, engineer, software, stereotype,
   product, immigration]
 recommendations: [/note/product-management-and-bullshit-job/, /note/td-to-amazon/,

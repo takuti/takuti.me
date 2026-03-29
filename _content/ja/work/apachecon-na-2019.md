@@ -2,7 +2,7 @@
 title: 'What''s New and Coming to Apache Hivemall: Building More Flexible Machine
   Learning Solution for Apache Hive and Spark'
 date: 2019-09-01
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 meta: Tech Conference
 ---
 

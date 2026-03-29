@@ -6,7 +6,7 @@ images: [/images/201711/ibuki1.jpg, /images/201711/ibuki2.jpg, /images/201711/da
   /images/201711/ginkaku.jpg]
 lang: ja
 title: 筋トレ、登山、昨今の推薦システムのトレンドなどについて話しました
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 keywords: [推薦, 手法, システム, セミナー, ibuki, 応用, アルゴリズム, recsys, 機械学習, 大阪]
 recommendations: [/ja/note/data-skeptic-recommender-systems/, /ja/note/recommender-libraries/,
   /ja/note/coursera-recommender-systems/]

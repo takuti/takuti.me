@@ -2,7 +2,7 @@
 title: 'Digital Malawi: Developing Hope in the Information Age'
 slug: malawi
 images: [/images/computer-education-in-malawi/computer-programming-trainees.jpg]
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 ---
 
 After working in tech for 10 years, it has been clear to me that the industry is structured for making the rich get richer, and marginalized populations remain marginalized. With the ever-growing concern and disappointment against how capitalists utilize ICT in wealthy nations, I decided to become a Canadian international volunteer to explore a more ethical, sustainable, and humane use of digital technologies. In this series, I write about what I observed, experienced, and learned through the year-long volunteering experience at an entrepreneurship and innovation hub in Malawi, a small landlocked country in sub-Saharan Africa recorded as one of the poorest countries in the world.

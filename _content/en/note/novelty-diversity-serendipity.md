@@ -5,7 +5,7 @@ categories: [Data & Algorithms, Recommender Systems]
 date: 2022-03-06
 lang: en
 title: 'Serendipity: It''s Relevant AND Unexpected'
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 keywords: [serendipity, recommendation, novelty, diversity, serendipitous, user, kotkov,
   fig, accuracy, item]
 recommendations: [/note/recommender-diversity/, /note/cross-validation-julia-recommender/,

@@ -5,7 +5,7 @@ audio: [/audio/web3.mp3]
 lang: en
 title: Security, Privacy, and Ethics in the Web 3.0 Era
 images: [/images/web3/web-x.png]
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 keywords: [web, blockchain, literacy, technology, level, supported, yet, security,
   haven, internet]
 recommendations: [/note/coursera-blockchain-specialization/, /note/three-perspectives-on-llms/,

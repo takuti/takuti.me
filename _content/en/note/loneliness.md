@@ -4,7 +4,7 @@ date: 2022-04-09
 lang: en
 title: Loneliness Is Worse Than Smoking, Alcoholic, Obesity
 images: [/images/loneliness/me.jpeg]
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 keywords: [relationships, loneliness, social, relationship, health, wellbeing, isolation,
   break, stress, book]
 recommendations: [/note/canadian-mental-health-week-2022/, /note/search-for-identity/,

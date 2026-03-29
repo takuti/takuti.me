@@ -4,7 +4,7 @@ categories: [エンジニアリング, データ・アルゴリズム]
 date: 2017-08-09
 lang: ja
 title: あのときのビールをもう一度（PostgreSQLでFuzzy Searchを試す）
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 keywords: [levenshtein, distance, seven, 検索, ホット, order, trgm, postgresql, fuzzystrmatch,
   weeks]
 recommendations: [/ja/note/levenshtein-distance/, /ja/note/hive-fuzzy-search/, /ja/note/designing-data-intensive-applications/]

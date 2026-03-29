@@ -4,7 +4,7 @@ categories: [エンジニアリング, データ・アルゴリズム]
 date: 2017-07-28
 lang: ja
 title: いまさら編集距離 (Levenshtein Distance) を実装するぜ
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 keywords: [編集, 距離, 文字列, 文字, 置換, levenshtein, distance, クラスタリング, title, job]
 recommendations: [/ja/note/postgresql-fuzzy-search/, /ja/note/job-title-normalization/,
   /ja/note/algorithmic-marketing/]

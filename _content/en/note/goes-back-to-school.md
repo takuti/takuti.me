@@ -3,7 +3,7 @@ categories: [Life & Reflection, Society & Business]
 date: 2022-05-23
 lang: en
 title: Rethinking Why, When, and How I Learn
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 keywords: [school, learning, learn, curiosity, education, moment, enter, personally,
   interest, possibilities]
 recommendations: [/note/mentoring/, /note/td-to-amazon/, /note/indigenous-canada-final/]

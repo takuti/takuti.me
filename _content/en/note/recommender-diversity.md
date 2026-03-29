@@ -4,7 +4,7 @@ categories: [Data & Algorithms, Recommender Systems]
 date: 2022-02-27
 lang: en
 title: Recommender Diversity is NOT Inversion of Similarity
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 keywords: [diversity, accuracy, metrics, recommendation, items, similarity, studies,
   ank, trade, research]
 recommendations: [/note/novelty-diversity-serendipity/, /note/the-power-of-diverse-thinking/,

@@ -3,7 +3,7 @@ categories: [Engineering]
 date: 2021-09-04
 lang: en
 title: Save HTML <svg> as an Image
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 keywords: [image, svg, canvas, download, html, save, visualization, todataurl, blob,
   snippet]
 recommendations: [/note/flight-emissions/, /note/first-vis-with-fitbit/, /note/datavis-2020/]

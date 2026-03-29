@@ -6,7 +6,7 @@ images: [/images/why-spark/top-paying-tech.png, /images/why-spark/lr-iterations.
   /images/why-spark/coffee.png, /images/why-spark/trend.png]
 lang: ja
 title: なぜSparkか
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 keywords: [spark, 処理, scala, インメモリ, hadoop, why, データ, データサイエンス, ディスク, ノード]
 recommendations: [/ja/note/coursera-scala-specialization/, /ja/note/dynamo-style/,
   /ja/note/recommender-libraries/]

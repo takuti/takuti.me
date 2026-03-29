@@ -2,7 +2,7 @@
 title: Ethical Product Developer
 slug: product
 images: [/images/language-as-a-design-tool/Accutive.png]
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 ---
 
 In this series, I reflect on my experiences of building software products for capitalist corporations, make a philosophical attempt to explore developers' ethics and provide practical guidance and tools to turn the dilemma into actions. Read *[Productizing Data with People](/data)* for applying ethical product development practices to data and AI products.

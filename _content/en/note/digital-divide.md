@@ -9,7 +9,7 @@ keywords: [digital, skills, people, programs, gap, africa, development, educatio
   passively, infrastructure]
 recommendations: [/note/digital-malawi-2023/, /note/computer-education-in-malawi/,
   /note/one-year-in-malawi/]
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 ---
 
 Digital literacy and skills are essential anywhere across the globe, but especially in developing countries where socioeconomic opportunities are limited. In the constrained environment, ICT can be a game-changing tool that eliminates physical boundaries and unlocks numerous possibilities in and beyond communities of the oppressed.

@@ -4,7 +4,7 @@ series: [canada]
 date: 2021-06-27
 lang: ja
 title: 過去の自分に救われる。
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 keywords: [自分, canada, サイコー, カナダ, note, 移住, ヶ月, アイデンティティ, 日本, 一生懸命]
 recommendations: [/ja/note/relocating-to-canada/, /ja/note/one-month-in-canada/, /ja/note/canada-permanent-residency/]
 ---

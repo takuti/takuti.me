@@ -8,7 +8,7 @@ images: [/images/malawian-personal-finance/meal.jpg, /images/malawian-personal-f
 keywords: [mwk, malawi, usd, earn, per, wage, poorest, book, minimum, malawian]
 recommendations: [/note/digital-malawi-2023/, /note/relativize-and-contextualize/,
   /note/volunteering-in-malawi/]
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 ---
 
 Over the last few articles, I kept introducing Malawi as one of the poorest countries in the world. The statement is based on the [World Population Review's *"Poorest Countries in the World"* report](https://worldpopulationreview.com/country-rankings/poorest-countries-in-the-world), and Malawi is ranked the 10th poorest country in terms of purchasing power parity (PPP), according to the World Bank-sourced data. But, what does the 10th poorest life look like?

@@ -3,7 +3,7 @@ categories: [Events]
 date: 2019-11-17
 lang: en
 title: What I've Seen at IoT Solutions World Congress 2019
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 keywords: [iot, blockchain, poc, data, iotswc, productization, conference, world,
   sessions, barcelona]
 recommendations: [/note/becoming-a-product-manager/, /note/apachecon-2019/, /note/coursera-blockchain-specialization/]

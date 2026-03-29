@@ -3,7 +3,7 @@ categories: [Data & Algorithms, Engineering, Recommender Systems]
 date: 2017-01-21
 lang: en
 title: 'FluRS: A Python Library for Online Item Recommendation'
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 keywords: [flurs, library, recommendation, feature, techniques, recommenders, julia,
   implementing, ready, event]
 recommendations: [/note/hello-faust/, /note/recommendation-julia/, /note/cross-validation-julia-recommender/]

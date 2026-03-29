@@ -5,7 +5,7 @@ date: 2022-09-02
 lang: en
 title: Paddling in the Life, and Currently I'm a Freelance Software Developer
 images: [/images/become-a-freelancer-in-canada/me.jpeg]
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 keywords: [amazon, product, managers, was, beach, ompany, are, canada, document, how]
 recommendations: [/note/td-to-amazon/, /note/annual-review-2022/, /note/annual-review-2021/]
 ---

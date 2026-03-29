@@ -1,7 +1,7 @@
 ---
 date: 2024-10-21
 title: Contact Me
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 ---
 
 For an inquiry, I can be reached at <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b>.

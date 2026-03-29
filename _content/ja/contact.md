@@ -1,7 +1,7 @@
 ---
 date: 2024-10-21
 title: お問い合わせ
-lastmod: '2026-03-07'
+lastmod: '2026-03-20'
 ---
 
 ご意見・ご感想およびお仕事のご相談は、メールにて <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b> までご連絡ください。
