@@ -1,7 +1,7 @@
 ---
 date: 2026-03-13
 title: Contactez-moi
-lastmod: '2026-03-18'
+lastmod: '2026-03-29'
 ---
 
 Vous pouvez m'envoyer un message à <b><a href="mailto:hello@takuti.me">hello@takuti.me</a></b>.

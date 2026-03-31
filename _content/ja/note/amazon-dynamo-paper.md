@@ -4,7 +4,7 @@ categories: [エンジニアリング]
 date: 2017-12-09
 lang: ja
 title: AmazonのDynamoDB論文を眺めた
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [dynamo, amazon, sla, consistency, システム, write, ノード, 解決, サービス, コンフリクト]
 recommendations: [/ja/note/dynamo-style/, /ja/note/designing-data-intensive-applications/,
   /ja/note/the-amazon-way-on-iot/]

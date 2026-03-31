@@ -3,7 +3,7 @@ categories: [人生・思索]
 date: 2023-04-25
 lang: ja
 title: 情報化社会における人生の主体性を問う
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [ニーチェ, 人生, 自律, 哲学, 至福, 神話, 大切なもの, autonomy, 自分, 幸福]
 recommendations: [/ja/note/todays-art-taro/, /ja/note/humanity-and-economy/, /ja/note/search-for-identity/]
 ---

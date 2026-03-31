@@ -4,7 +4,7 @@ series: [product]
 date: 2020-01-26
 lang: en
 title: Design Thinking = Capturing the World Like a Designer
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [gne, thinking, solving, design, ideas, capturing, designers, designer,
   problem, ideate]
 recommendations: [/note/technique-producing-ideas/, /note/fermenting-thoughts/, /note/machine-learning-product/]

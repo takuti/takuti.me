@@ -4,7 +4,7 @@ categories: [エンジニアリング, データ・アルゴリズム]
 date: 2017-07-22
 lang: ja
 title: gensimでWikipedia日本語版からコーパスを作ってトピックモデリング
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [gensim, jawiki, トピック, コーパス, wikicorpus, tokenize, corpora, latest, ドキュメント,
   wikipedia]
 recommendations: [/ja/note/fastcat/, /ja/note/recommender-libraries/, /ja/note/incremental-plsa/]

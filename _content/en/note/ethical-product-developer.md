@@ -5,7 +5,7 @@ series: [product]
 date: 2022-01-01
 lang: en
 title: Ethical Product Developer
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [product, ethical, developers, developer, unethical, clear, are, someone,
   egative, somewhere]
 recommendations: [/note/product-management-and-bullshit-job/, /note/internet-for-the-people/,

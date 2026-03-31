@@ -8,7 +8,7 @@ images: [/images/complexity-of-simplicity/tacos-cdmx-1.jpeg]
 keywords: [tacos, udon, complexity, sushi, mexico, simplicity, noodles, cdmx, restaurants,
   crystallized]
 recommendations: [/note/three-perspectives-on-llms/, /note/annual-review-2023/, /note/the-producer-consumer-gap/]
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 ---
 
 When a particular product is presented in an extremely simplistic form, it has become harder for ordinary people to recognize the complexity behind it, making us unconscious about what's going on outside of our sight and triggering an over-simplified reaction.

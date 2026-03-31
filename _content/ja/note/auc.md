@@ -4,7 +4,7 @@ categories: [データ・アルゴリズム]
 date: 2017-03-04
 lang: ja
 title: Area Under the ROC Curve (AUC) を実装する
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [auc, 'true', positive, サンプル, 面積, label, ラベル, roc, スコア, 長方形]
 recommendations: [/ja/note/auc-parallel/, /ja/note/adjusting-for-oversampling-and-undersampling/,
   /ja/note/recsys-2021-ab-ndcg/]

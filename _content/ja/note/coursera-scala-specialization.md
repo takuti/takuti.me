@@ -4,7 +4,7 @@ categories: [エンジニアリング]
 date: 2017-10-28
 lang: ja
 title: Courseraの"Functional Programming in Scala Specialization"を修了した
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [scala, programming, spark, rdd, parallel, functional, 並列, 課題, dataframe,
   concurrent]
 recommendations: [/ja/note/why-spark/, /ja/note/python-concurrent-futures/, /ja/note/recommender-libraries/]

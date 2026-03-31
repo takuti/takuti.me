@@ -8,7 +8,7 @@ images: [/images/annual-review-2023/me.jpeg]
 keywords: [connected, low, digital, hyper, learning, dis, offline, world, people,
   participation]
 recommendations: [/note/digital-divide/, /note/computer-education-in-malawi/, /note/digital-malawi-2023/]
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 ---
 
 Short answer: There are two extremes in our world&mdash;hyper-connected world of rich countries, and a disconnected world of underserved communities like rural Africa.

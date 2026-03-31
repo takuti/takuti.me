@@ -5,7 +5,7 @@ date: 2021-03-21
 images: [/images/relocating-to-canada/vancouver-harbour.jpeg]
 lang: en
 title: 'Moving to Canada: Adding Randomness to My Life'
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [vancouver, japan, oslo, treasure, canada, live, nagano, harbour, manager,
   years]
 recommendations: [/note/post-pandemic-first-international-trip/, /note/td-to-amazon/,

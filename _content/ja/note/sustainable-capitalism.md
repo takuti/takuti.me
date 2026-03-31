@@ -4,7 +4,7 @@ series: [product]
 date: 2021-09-08
 lang: ja
 title: 「サステナブル・キャピタリズム」とは何か
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [持続可能性, 組織, 大企業, carbon, 資本主義, zero, キャピタリズム, エコバック, sustainability, net]
 recommendations: [/ja/note/2021/, /ja/note/mountains-101/, /ja/note/td-to-amazon/]
 ---

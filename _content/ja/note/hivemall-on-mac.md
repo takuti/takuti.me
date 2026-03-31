@@ -4,7 +4,7 @@ categories: [データ・アルゴリズム, 推薦システム]
 date: 2017-02-11
 lang: ja
 title: MacのローカルにHivemallを導入してアイテム推薦をするまで
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [hive, hadoop, mac, hivemall, 映画, インストール, 動かす, 推薦, ローカル, ライブラリ]
 recommendations: [/ja/note/hivemall-on-docker/, /ja/note/recommender-libraries/, /ja/note/hive-fuzzy-search/]
 ---

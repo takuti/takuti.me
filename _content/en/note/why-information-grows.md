@@ -8,7 +8,7 @@ images: [/images/why-information-grows/macro-to-micro.png]
 keywords: [localized, products, networks, macro, information, trust, complex, micro,
   cooperation, knowledge]
 recommendations: [/note/finding-the-mother-tree/, /note/how-information-flows/, /note/data-feminism/]
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 ---
 
 Information, technology, and inherently everyone's life are highly contextualized and localized. Understanding the simple fact would bring a dramatic shift in how we see the world. In particular, reality tells us the importance of characterizing our world without suppressing the identity of its elements.

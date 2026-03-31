@@ -4,7 +4,7 @@ categories: [エンジニアリング, データ・アルゴリズム, 推薦シ
 date: 2017-05-14
 lang: ja
 title: 推薦システムのためのOSSたち
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [推薦, ライブラリ, 実装, java, github, factorization, machines, mahout, librec, アルゴリズム]
 recommendations: [/ja/note/hello-librec/, /ja/note/trends-in-real-world-recommender-systems-2017/,
   /ja/note/data-skeptic-recommender-systems/]

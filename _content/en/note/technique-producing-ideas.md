@@ -4,7 +4,7 @@ series: [product]
 date: 2020-01-05
 lang: en
 title: How to Produce Ideas
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [ideas, seeds, inputs, gathering, raw, experiences, producing, material,
   branding, idea]
 recommendations: [/note/revisit-design-thinking/, /note/fermenting-thoughts/, /note/machine-learning-product/]

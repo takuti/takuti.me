@@ -1,7 +1,7 @@
 ---
 date: 2026-03-22
 title: L'apprentissage du français
-lastmod: '2026-03-22'
+lastmod: '2026-03-29'
 keywords: [mon, langue, dans, apprentissage, vous, plusieurs, nouvelle, nous, domaine,
   continuer]
 recommendations: [/ja/note/vibe-coding/]

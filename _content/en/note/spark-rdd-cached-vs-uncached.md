@@ -3,7 +3,7 @@ categories: [Engineering]
 date: 2017-04-16
 lang: en
 title: Comparison of Running Time of Cached/Uncached Spark RDD
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [scala, transformation, rdd, distributed, rdds, collections, operations,
   spark, map, filter]
 recommendations: [/note/coursera-scala-capstone/, /note/hivemall-pyspark/, /note/machine-learning-product/]

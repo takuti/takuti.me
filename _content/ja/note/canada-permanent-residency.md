@@ -5,7 +5,7 @@ date: 2022-07-31
 lang: ja
 title: 1年4ヶ月ぶりに日本に来たら、カナダに帰れなくなって、おまけにコロナ陽性になった。
 images: [/images/canada-permanent-residency/canada.jpg]
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [永住権, カナダ, 日本, 申請, 取得, prtd, 渡航, 療養, バンクーバー, コロナ]
 recommendations: [/ja/note/marriage/, /ja/note/relocating-to-canada/, /ja/note/one-month-in-canada/]
 ---

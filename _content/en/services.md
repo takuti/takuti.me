@@ -2,28 +2,28 @@
 date: 2026-02-19
 title: Professional Services
 images: [/images/annual-review-2023/me.jpeg]
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 ---
 
-As a Canadian independent consultant, I have provided the following services to individuals and organizations worldwide since 2022. See <a href="https://takuti.github.io/cv/" target="_blank" rel="noopener">CV <sup><i class="fas fa-external-link-alt"></i></sup></a> to learn more about my expertise, and feel free to [contact](/contact) for a casual inquiry. Terms differ depending on a client's need, location, and currency.
+As a technical product builder based in Ottawa, Canada, I have provided the following services to individuals and organizations worldwide since 2022. See <a href="https://takuti.github.io/cv/" target="_blank" rel="noopener">CV <sup><i class="fas fa-external-link-alt"></i></sup></a> to learn more about my expertise, and feel free to [contact](/contact) for a casual inquiry. Terms differ depending on a client's need, location, and currency.
 
 ![takuya-presenting](/images/annual-review-2023/me.jpeg)
 
 > **What to expect**: My work is informed by the principles of the [ITIL framework](https://www.peoplecert.org/Frameworks-Professionals/ITIL-framework) and [human-centered technology practice](https://www.humanetech.com/course?aad=BAhJIkp7InR5cGUiOiJjb3Vyc2UiLCJ1cmwiOiJodHRwczovL2h1bWFuZXRlY2guY29tL2NvdXJzZSIsImlkIjo0OTc5MDEwNH0GOgZFVA%3D%3D--6c2c9e009a36f292706c342d9cc9a8b3c1a41c65), which emphasize solutions grounded in each client's context, priorities, and operational realities. Hence, I take a collaborative, outcome-focused approach, working closely with you to iteratively shape deliverables through ongoing feedback and shared decision-making. This ensures solutions are practical, responsible, and sustainable, and that they align with how you actually operate over time.
 
-### Product Development Consultation
+### Product Development
 
 - Guide architectural and strategic decisions on software development projects
 - Domain-specific advisory and audits in recommender systems, AI, data science and analytics, and machine learning productization
 - Knowledge transfer and training in data-driven operations and product management practices
 
-### Digital Transformation Advisory
+### Digital Transformation
 
 - Lead organization's digital transformation, including strategic planning, IT infrastructure design, digital marketing practices, and people development
 - Onboarding and evaluation of data-informed digital systems and operational procedures
 - Targeted capacity-building activities through presentation, hands-on training, and documentation
 
-### Digital Participation & Inclusion Diagnostics
+### Digital Inclusion and Participation
 
 - Assessment of technology development (ICT4D) initiatives run by non-profits or public-sector teams
 - Technical advisory for digital inclusion programs and their M&E activities

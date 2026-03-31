@@ -3,7 +3,7 @@ categories: [人生・思索, 読書]
 date: 2020-09-19
 lang: ja
 title: 自己投資の大原則
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [安全資産, リスク資産, 投資, 資産, 時間, 分散投資, 原則, リバランス, 継続, 長期]
 recommendations: [/ja/note/coursera-food-and-health/, /ja/note/deep-work/, /ja/note/life-with-covid-19/]
 ---

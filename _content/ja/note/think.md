@@ -3,7 +3,7 @@ categories: [人生・思索, 読書]
 date: 2020-06-21
 lang: ja
 title: 「考えること」
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [新玉ねぎ, 問題, 考える, イシュー, はじめて, スーパー, 考え, ものごと, まなざし, いっしょ]
 recommendations: [/ja/note/life-with-covid-19/, /ja/note/cognitive-science-and-behavioral-economics/,
   /ja/note/feel/]

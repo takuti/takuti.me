@@ -7,7 +7,7 @@ title: Who is Digitally Prepared?
 keywords: [assessment, situational, driving, task, tasks, ict, technology, you, tri,
   driver]
 recommendations: [/note/one-year-in-malawi/, /note/volunteering-in-malawi/, /note/offline-learning/]
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 ---
 
 Technology is contextual, and hence neither oversimplification nor overcomplication is helpful; it'd be advisable to understand realistic constraints in a very environment and take a tailored approach point by point.

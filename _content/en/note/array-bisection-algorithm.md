@@ -3,7 +3,7 @@ categories: [Engineering]
 date: 2021-06-05
 lang: en
 title: Understanding Array Bisection Algorithm
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [arr, sorted, array, val, insertion, method, bisection, sequentially, heap,
   queue]
 recommendations: [/note/recommendation-julia/, /note/coursera-supply-chain-management/,

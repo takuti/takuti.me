@@ -3,7 +3,7 @@ categories: [読書]
 date: 2021-02-08
 lang: ja
 title: 退屈な毎日の彩り方─『暇と退屈の倫理学』の理論と実践
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [退屈, 気晴らし, 消費, 浪費, 興奮, mdash, 状態, 冒険, 倫理学, 獲得]
 recommendations: [/ja/note/humanity-and-economy/, /ja/note/the-gifts-in-the-world/,
   /ja/note/2021/]

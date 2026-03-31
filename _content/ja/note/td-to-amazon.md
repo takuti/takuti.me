@@ -4,7 +4,7 @@ series: [canada]
 date: 2021-08-19
 lang: ja
 title: カナダで転職して、プロダクトマネージャーからソフトウェアエンジニアに戻った。
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [大企業, note, エンジニア, amazon, 自分, 退職, 転職, 仕事, 経験, 機械学習]
 recommendations: [/ja/note/product-management-and-bullshit-job/, /ja/note/relocating-to-canada/,
   /ja/note/first-quarter-as-a-product-manager/]

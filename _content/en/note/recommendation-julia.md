@@ -4,7 +4,7 @@ series: [julia]
 date: 2017-01-14
 lang: en
 title: 'Recommendation.jl: Building Recommender Systems in Julia'
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [julia, recommendation, age, factorization, package, tuples, till, sco,
   ids, waiting]
 recommendations: [/note/juliacon-2019/, /note/recommendation-julia-v040/, /note/recommendation-julia-documenter/]

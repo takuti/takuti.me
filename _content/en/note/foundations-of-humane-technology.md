@@ -5,7 +5,7 @@ date: 2022-04-21
 lang: en
 title: '"Why Do We Build This?" Humane Technologist''s View of Bad Product/Project'
 images: [/images/foundations-of-humane-technology/certificate.png]
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [humane, product, what, end, technologist, foundations, are, project, technologists,
   you]
 recommendations: [/note/ethical-product-developer/, /note/product-management-and-bullshit-job/,

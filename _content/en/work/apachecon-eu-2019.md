@@ -2,7 +2,7 @@
 title: 'Apache Hivemall Meets PySpark: Scalable Machine Learning with Hive, Spark,
   and Python'
 date: 2019-10-01
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 meta: Tech Conference
 ---
 

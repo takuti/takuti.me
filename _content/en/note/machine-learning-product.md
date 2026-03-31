@@ -4,7 +4,7 @@ series: [ai]
 date: 2020-08-29
 lang: en
 title: What I Think About When I Talk About ML Product
-lastmod: '2026-03-20'
+lastmod: '2026-03-29'
 keywords: [product, solution, business, problems, solving, loop, cost, technical,
   model, your]
 recommendations: [/note/product-management-and-bullshit-job/, /note/ethical-product-developer/,
