@@ -4,7 +4,7 @@ categories: [エンジニアリング, データ・アルゴリズム]
 date: 2017-05-07
 lang: ja
 title: Hivemall on Dockerを試すぜ
-lastmod: '2026-03-29'
+lastmod: '2020-04-12'
 keywords: [mac, hivemall, docker, ローカル, 導入, コンテナ, 整備, 進む, 試し, アイテム]
 recommendations: [/ja/note/hivemall-on-mac/, /ja/note/recommender-libraries/, /ja/note/td-intern-2016/]
 ---

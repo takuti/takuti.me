@@ -4,7 +4,7 @@ series: [data]
 date: 2020-04-11
 lang: en
 title: 'What Makes a Good Dashboard: The Rise of Augmented Analytics'
-lastmod: '2026-03-29'
+lastmod: '2024-03-10'
 keywords: [analytics, augmented, dashboard, data, nlp, visual, citizen, scientists,
   insights, automating]
 recommendations: [/note/data-leaders-summit-europe-2019/, /note/datavis-2020/, /note/data-validation/]

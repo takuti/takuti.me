@@ -4,7 +4,7 @@ categories: [データ・アルゴリズム]
 date: 2017-03-10
 lang: ja
 title: Area Under the ROC Curve (AUC) を並列で計算するときに気をつけること
-lastmod: '2026-03-29'
+lastmod: '2020-04-12'
 keywords: [マージ, auc, 面積, 'true', 並列, プロセス, サンプル, 結果, ソート, positive]
 recommendations: [/ja/note/auc/, /ja/note/adjusting-for-oversampling-and-undersampling/,
   /ja/note/td-intern-2016/]

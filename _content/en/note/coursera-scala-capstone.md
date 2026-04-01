@@ -4,7 +4,7 @@ date: 2020-05-26
 images: [/images/coursera-scala-capstone/certificate.png]
 lang: en
 title: Completed Functional Programming in Scala Specialization on Coursera, Finally
-lastmod: '2026-03-29'
+lastmod: '2020-05-26'
 keywords: [scala, project, programming, specialization, functional, certificate, apstone,
   stones, temperature, mile]
 recommendations: [/note/spark-rdd-cached-vs-uncached/, /note/parallel-vs-concurrent/,

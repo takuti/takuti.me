@@ -5,7 +5,7 @@ series: [product]
 date: 2022-02-04
 lang: en
 title: '"Definition of Done"'
-lastmod: '2026-03-29'
+lastmod: '2022-02-04'
 keywords: [product, accomplishment, our, what, life, goal, personal, define, step,
   done]
 recommendations: [/note/ethical-product-developer/, /note/foundations-of-humane-technology/,

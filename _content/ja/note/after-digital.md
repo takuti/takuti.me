@@ -5,7 +5,7 @@ series: [product]
 date: 2020-02-20
 lang: ja
 title: データ時代の「リアル」の価値
-lastmod: '2026-03-29'
+lastmod: '2020-04-18'
 keywords: [オフライン, オンライン, リアルワールド, 体験, デジタル, 店舗, ジャーニー, 接点, 実店舗, 小売]
 recommendations: [/ja/note/tech-design-story/, /ja/note/design-engineer/, /ja/note/product-management-myths/]
 ---

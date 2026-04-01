@@ -4,7 +4,7 @@ date: 2017-06-26
 images: [/images/hugo-site/travis-deploy-bot.png]
 lang: en
 title: Deploying Static Site to GitHub Pages via Travis CI
-lastmod: '2026-03-29'
+lastmod: '2020-04-12'
 keywords: [travis, repository, pages, hugo, deployment, takuti, github, commit, site,
   directory]
 recommendations: [/note/move-to-gh-pages/, /note/hugo-markdown-and-mathjax/, /note/hello-netlify/]

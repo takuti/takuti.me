@@ -1,6 +1,6 @@
 ---
 title: What I'm Doing Now
-lastmod: '2026-03-29'
+lastmod: '2026-03-04'
 ---
 
 > This is a [now page](https://nownownow.com/about). I will update the page roughly once a month to share where I am, what I'm focusing on, and [what I don't do](/note/creating-now-page/).

@@ -4,7 +4,7 @@ categories: [エンジニアリング, データ・アルゴリズム]
 date: 2017-09-23
 lang: ja
 title: PyTorchのautogradと仲良くなりたい
-lastmod: '2026-03-29'
+lastmod: '2021-12-27'
 keywords: [loss, pytorch, autograd, euroscipy, optimizer, backward, 触っ, 損失, パラメータ,
   変数]
 recommendations: [/ja/note/pytorch-mf/, /ja/note/euroscipy-2017/, /ja/note/recommender-libraries/]

@@ -3,7 +3,7 @@ categories: [Data & Algorithms, Events]
 date: 2019-11-10
 lang: en
 title: Rethinking the Role of Data Leaders @ Data Leaders Summit Europe 2019
-lastmod: '2026-03-29'
+lastmod: '2020-04-12'
 keywords: [data, leaders, head, summit, scientists, panel, scientist, business, analytics,
   leader]
 recommendations: [/note/data-validation/, /note/data-feminism/, /note/augmented-analytics/]

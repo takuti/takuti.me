@@ -6,7 +6,7 @@ images: [/images/one-month-in-canada/day10-test-waiting.png, /images/one-month-i
   /images/one-month-in-canada/area-after.png]
 lang: ja
 title: 【コロナ禍でのカナダ移住】渡航の前後1ヶ月間を振り返る
-lastmod: '2026-03-29'
+lastmod: '2021-03-28'
 keywords: [隔離, 手続き, canada, 部屋, 物件, カナダ, 電話, 海外, sin, 探し]
 recommendations: [/ja/note/travel-to-canada-210226/, /ja/note/canada-permanent-residency/,
   /ja/note/relocating-to-canada/]

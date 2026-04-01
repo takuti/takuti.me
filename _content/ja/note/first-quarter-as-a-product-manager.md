@@ -4,7 +4,7 @@ series: [product]
 date: 2020-07-11
 lang: ja
 title: 僕は「世界で闘うプロダクトマネージャー」にはなれない。
-lastmod: '2026-03-29'
+lastmod: '2020-07-12'
 keywords: [信用, チーム, メンバー, 自分, 闘う, 仲間, 組織, エンジニア, プロダクトマネージャー, 製品]
 recommendations: [/ja/note/product-management-myths/, /ja/note/product-management-and-bullshit-job/,
   /ja/note/td-to-amazon/]

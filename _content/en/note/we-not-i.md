@@ -8,7 +8,7 @@ keywords: [oppressed, they, group, voices, pluralism, are, diverse, education, s
   freire]
 recommendations: [/note/computer-education-in-malawi/, /note/one-year-in-malawi/,
   /note/offline-learning/]
-lastmod: '2026-03-29'
+lastmod: '2025-11-07'
 ---
 
 The more senior I am, the bigger my work is. And the larger the problem is, the more I feel powerless.

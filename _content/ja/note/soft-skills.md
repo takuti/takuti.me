@@ -4,7 +4,7 @@ categories: [読書]
 date: 2017-07-02
 lang: ja
 title: いまさら Soft Skills を読んだ
-lastmod: '2026-03-29'
+lastmod: '2020-04-12'
 keywords: [運動, 頷き, 戦略的, 書か, マインドセット, エンジニア, 生き方, 勉強, マーケティング, ブログ]
 recommendations: [/ja/note/td-to-amazon/, /ja/note/first-quarter-as-a-product-manager/,
   /ja/note/product-management-and-bullshit-job/]

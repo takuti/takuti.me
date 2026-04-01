@@ -8,7 +8,7 @@ images: [/images/relativize-and-contextualize/lake_malawi.jpg]
 keywords: [malawi, nepal, relativize, beer, tech, malawians, contextualize, sustainable,
   context, are]
 recommendations: [/note/volunteering-in-malawi/, /note/digital-malawi-2023/, /note/my-identity-in-malawi/]
-lastmod: '2026-03-29'
+lastmod: '2024-01-31'
 ---
 
 During the holiday season, I traveled to Addis Ababa in Ethiopia, Dubai in UAE, and Cairo, Luxor, and Aswan in Egypt. It was an awakening experience visiting these big cities after staying almost half a year in Malawi, one of the poorest countries in the world[^1]. At first, I was excited to relativize the situations I observed in Malawi compared to more developed environments in North Africa and the Middle East. However, when our plane was about to land at the Addis Ababa Bole International Airport, I soon realized the effort in making a comparison between Malawi and the rest was essentially meaningless; the numerous lights shining under the sky in the city were completely at the different level from the Malawian standard, and my intuition told me it is impossible to directly project the brightness onto Malawi's future.

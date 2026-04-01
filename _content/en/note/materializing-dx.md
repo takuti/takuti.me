@@ -9,7 +9,7 @@ images: [/images/materializing-dx/ictam-expo-presentation.jpg, /images/materiali
 keywords: [malawi, digital, workshop, ictam, ict, mdash, zanzibar, technology, transformation,
   materializing]
 recommendations: [/note/digital-malawi-2023/, /note/one-year-in-malawi/, /note/volunteering-in-malawi/]
-lastmod: '2026-03-29'
+lastmod: '2026-03-04'
 ---
 
 ![ictam-expo-presentation](/images/materializing-dx/ictam-expo-presentation.jpg)

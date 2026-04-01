@@ -4,7 +4,7 @@ date: 2019-10-26
 images: [/images/apachecon-2019/takuti.jpg]
 lang: en
 title: 'ApacheCon 2019 North America #ACNA19 & Europe #ACEU19'
-lastmod: '2026-03-29'
+lastmod: '2020-04-12'
 keywords: [apachecon, apache, iot, hivemall, community, projects, cdp, beam, talk,
   session]
 recommendations: [/note/iotswc-2019/, /note/hivemall-events-2018-autumn/, /note/hivemall-pyspark/]

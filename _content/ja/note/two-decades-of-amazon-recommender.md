@@ -5,7 +5,7 @@ date: 2017-06-10
 images: [/images/jekyll/2014-09-01-amazon.png, /images/recommender/cf.png]
 lang: ja
 title: Amazonの推薦システムの20年
-lastmod: '2026-03-29'
+lastmod: '2020-04-12'
 keywords: [アイテム, 推薦, 購入, 協調フィルタリング, 閲覧, amazon, ユーザ, 商品, テレビ, 本稿]
 recommendations: [/ja/note/coursera-recommender-systems/, /ja/note/slim/, /ja/note/recsys-2021-ab-ndcg/]
 ---

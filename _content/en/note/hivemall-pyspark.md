@@ -3,7 +3,7 @@ categories: [Data & Algorithms, Engineering]
 date: 2019-03-24
 lang: en
 title: Apache Hivemall in PySpark
-lastmod: '2026-03-29'
+lastmod: '2020-04-12'
 keywords: [hivemall, spark, colabo, pyspark, training, python, uses, prediction, udfs,
   jointly]
 recommendations: [/note/hivemall-events-2018-autumn/, /note/apachecon-2019/, /note/pyconjp-2015/]

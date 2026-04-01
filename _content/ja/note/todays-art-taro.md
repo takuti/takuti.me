@@ -4,7 +4,7 @@ categories: [読書]
 date: 2014-02-28
 lang: ja
 title: 岡本太郎に学ぶ、芸術と人生。
-lastmod: '2026-03-29'
+lastmod: '2020-04-29'
 keywords: [芸術, 太郎, 結婚, 符丁, ファインマン, 自由, 就活, 生き方, 僕ら, 自己]
 recommendations: [/ja/note/autonomy-and-life/, /ja/note/humanity-and-economy/, /ja/note/6brains-of-the-world/]
 ---

@@ -4,7 +4,7 @@ categories: [エンジニアリング, データ・アルゴリズム]
 date: 2017-09-17
 lang: ja
 title: igo-rubyを新語辞書NEologdでナウい感じにする
-lastmod: '2026-03-29'
+lastmod: '2020-04-12'
 keywords: [igo, 辞書, ruby, neologd, 新語, 久しぶり, 動い, 使っ, ビルド, めでたい]
 recommendations: [/ja/note/hatena-keyword-to-ipadic/, /ja/note/twitter-bot/, /ja/note/recommender-libraries/]
 ---

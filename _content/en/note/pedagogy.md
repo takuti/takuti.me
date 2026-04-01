@@ -4,7 +4,7 @@ series: [ab]
 date: 2026-04-01
 lang: en
 title: Toward Inclusive Education
-lastmod: '2026-03-25'
+lastmod: '2026-04-01'
 ---
 
 There are many educational practices out there.

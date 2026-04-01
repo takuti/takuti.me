@@ -1,6 +1,6 @@
 ---
 title: Privacy Policy
-lastmod: '2026-03-29'
+lastmod: '2022-09-08'
 ---
 
 This website, takuti.me, uses Google Analytics to allow tracking technologies through the use of cookies, to, among the other things, analyze and track users' use of the website, determine the popularity of certain content, better understand online activity. By accessing the website, you consent to the collection and use of your information by the third-party tool. You are encouraged to review their privacy policy such as [Google Analytics Terms of Service](https://marketingplatform.google.com/about/analytics/terms/us/) and [Google Privacy & Terms](https://policies.google.com/technologies/ads?hl=en), and contact them directly for responses to your questions. 

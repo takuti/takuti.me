@@ -5,7 +5,7 @@ date: 2022-06-11
 lang: en
 title: 'Indigenous Canada: Storytelling, Community, and Sustainability'
 images: [/images/indigenous-canada-final/statues.jpg]
-lastmod: '2026-03-29'
+lastmod: '2022-06-26'
 keywords: [indigenous, history, canada, museums, statues, ourse, learning, alberta,
   generation, act]
 recommendations: [/note/indigenous-canada-mid-term/, /note/national-day-for-truth-and-reconciliation-2022/,

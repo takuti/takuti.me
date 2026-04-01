@@ -4,7 +4,7 @@ series: [ai]
 date: 2023-04-07
 lang: ja
 title: 大規模言語モデルとそのアプリケーションに対する所感
-lastmod: '2026-03-29'
+lastmod: '2023-04-07'
 keywords: [llm, chatgpt, ツール, ステークホルダー, 開発, gpt, openai, あるいは, 技術, 仕事]
 recommendations: [/ja/note/how-information-flows/, /ja/note/td-to-amazon/, /ja/note/product-management-myths/]
 ---
