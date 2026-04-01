@@ -4,12 +4,12 @@ series: [ab]
 date: 2026-04-01
 lang: en
 title: Toward Inclusive Education
-draft: true
+lastmod: '2026-03-25'
 ---
 
 There are many educational practices out there.
 
-Recognizing the complexity, communities proposed a methodology called [Design-Based Research](https://edtechbooks.org/education_research/design_based_research) (DBR). In contrast to traditional studies conducted in controlled laboratory settings, DBR contextualizes academic research by placing researchers alongside subjects as collaborators. Through an iterative design and feedback process in the field, DBR aims to yield authentic and useful knowledge in classroom practices.
+Recognizing the complexity, communities proposed a methodology called [Design-Based Research](https://edtechbooks.org/education_research/design_based_research) (DBR). In contrast to traditional studies conducted in controlled laboratory settings, DBR contextualizes academic research by placing researchers alongside students and teachers as collaborators. Through an iterative design and feedback process in the field, DBR aims to yield authentic and useful knowledge in classroom practices.
 
 As such, education scholars are working hard to streamline best practices, make tactics actionable, and keep things up-to-date. And, especially in the Global North, teachers are very much aware of what is desired in theory.
 
@@ -23,11 +23,11 @@ The [incompleteness of computer education in low-income countries](/note/compute
 
 In the meantime, during the COVID-19 pandemic, digitally unprepared populations were unable to continue their learning journey as the rest of the world shifted to online, even though this constraint unlocked another avenue for [low-tech innovations](https://ab.takuti.me/p/low-tech-approach-for-mass-remote-education).
 
-Therefore, education will bring a net-positive impact, as long as we digitize tools (e.g., tablets, videos, learning management systems), make topics relevant to students' daily lives, and incorporate participatory and interactive exercises into classrooms (e.g., games, group discussion).
+Therefore, education will have a net-positive impact, as long as we digitize tools (e.g., tablets, videos, learning management systems), make topics relevant to students' daily lives, and incorporate participatory and interactive exercises into the classroom (e.g., games, group discussions).
 
 Most futuristic narratives stop here. But, really?
 
-I recently had the opportunity to participate in such a *pedagogically correct* classroom for my French learning, and honestly, it didn't work for me.
+I recently had the opportunity to participate in such a *pedagogically correct* classroom for my [French learning](/fr/note/la-nouvelle-langue), and honestly, it didn't work for me.
 
 ### Best practices are not for everyone
 
