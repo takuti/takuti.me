@@ -4,11 +4,11 @@ series: [data]
 date: 2022-12-04
 lang: en
 title: Data Are Created, Collected, and Processed by People
+lastmod: '2024-03-10'
 keywords: [data, gender, feminism, sex, localized, human, decisions, not, dataset,
   knowledge]
 recommendations: [/note/data-leaders-summit-europe-2019/, /note/coursera-data-science-ethics/,
   /note/airflow-lineage/]
-lastmod: '2024-03-10'
 ---
 
 That is, information in human society is localized, and there is always the existence of real humans throughout the data lifecycle from their generation to collection to aggregation. Even though a specific dataset you are analyzing looks simple, you cannot (and must not) reach a conclusion without understanding its context—how the data are generated, collected, and used by whom, and to whom your work is presented.

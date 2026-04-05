@@ -6,10 +6,10 @@ lang: en
 title: Materializing Digital Transformation
 images: [/images/materializing-dx/ictam-expo-presentation.jpg, /images/materializing-dx/zanzibar.jpg,
   /images/materializing-dx/bi-workshop.jpg]
+lastmod: '2026-03-04'
 keywords: [malawi, digital, workshop, ictam, ict, mdash, zanzibar, technology, transformation,
   materializing]
 recommendations: [/note/digital-malawi-2023/, /note/one-year-in-malawi/, /note/volunteering-in-malawi/]
-lastmod: '2026-03-04'
 ---
 
 ![ictam-expo-presentation](/images/materializing-dx/ictam-expo-presentation.jpg)

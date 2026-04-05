@@ -47,7 +47,7 @@ def tokenizer(doc):
 def run(lang):
     path_dir = os.path.join(
         os.path.dirname(__file__), '..', '..', '_content', lang, 'note')
-    permalink_base = '' if lang == 'en' else '/ja'
+    permalink_base = '' if lang == 'en' else f"/{lang}"
     permalink_base += '/note'
     handler = StaticSitePostsHandler(path_dir)
     recommender = Recommender(permalink_base=permalink_base, max_df=0.95,

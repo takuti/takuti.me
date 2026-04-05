@@ -4,11 +4,11 @@ series: [data]
 date: 2022-11-27
 lang: en
 title: 'Fluid People and Blended Society: How Systems Model "Dividuals"'
+lastmod: '2024-03-10'
 keywords: [user, data, users, systems, dividual, multiple, group, model, identities,
   ing]
 recommendations: [/note/ethical-challenges-in-recommender-systems/, /note/data-feminism/,
   /note/coursera-data-science-ethics/]
-lastmod: '2024-03-10'
 ---
 
 *"Let $\mathcal{U}$ be a set of users ..."*

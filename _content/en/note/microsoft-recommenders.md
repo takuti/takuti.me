@@ -5,7 +5,7 @@ lang: en
 images: []
 title: What I Like About Microsoft Recommenders Repository
 lastmod: '2022-05-07'
-keywords: [recommenders, microsoft, repository, pypi, package, minimal, metrics, functionality,
+keywords: [recommenders, microsoft, repository, pypi, package, metrics, minimal, functionality,
   accuracy, diversity]
 recommendations: [/note/flurs/, /note/recommender-diversity/, /note/ethical-challenges-in-recommender-systems/]
 ---

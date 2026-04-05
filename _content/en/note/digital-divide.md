@@ -5,11 +5,11 @@ date: 2025-12-05
 lang: en
 title: Missing Link to Bridge the Digital Divide
 images: [/images/altruistic-byte/computer-education.jpg]
-keywords: [digital, skills, people, programs, gap, africa, development, education,
-  passively, infrastructure]
+lastmod: '2026-01-03'
+keywords: [digital, skills, people, programs, gap, africa, development, passively,
+  education, infrastructure]
 recommendations: [/note/digital-malawi-2023/, /note/computer-education-in-malawi/,
   /note/one-year-in-malawi/]
-lastmod: '2026-01-03'
 ---
 
 Digital literacy and skills are essential anywhere across the globe, but especially in developing countries where socioeconomic opportunities are limited. In the constrained environment, ICT can be a game-changing tool that eliminates physical boundaries and unlocks numerous possibilities in and beyond communities of the oppressed.

@@ -3,11 +3,11 @@ categories: [Data & Algorithms, Engineering]
 date: 2022-11-11
 lang: en
 title: Google Cloud Dataflow and Its Positive Impact on Developer Productivity
+lastmod: '2022-11-11'
 keywords: [cloud, dataflow, data, apache, pipelines, pipeline, beam, google, resource,
   airflow]
 recommendations: [/note/airflow-lineage/, /note/coursera-machine-learning-on-gcp/,
   /note/data-validation/]
-lastmod: '2022-11-11'
 ---
 
 With the [specialization on Coursera](/note/coursera-machine-learning-on-gcp), I've been on a not-too-fancy yet meaningful learning curve over the last few months in the context of machine learning on Google Cloud.

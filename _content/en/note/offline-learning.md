@@ -5,10 +5,10 @@ date: 2026-01-01
 lang: en
 title: Why Offline Learning Still Matters in 2026
 images: [/images/annual-review-2023/me.jpeg]
-keywords: [connected, low, digital, hyper, learning, dis, offline, world, people,
-  participation]
-recommendations: [/note/digital-divide/, /note/computer-education-in-malawi/, /note/digital-malawi-2023/]
 lastmod: '2026-01-01'
+keywords: [connected, low, digital, hyper, learning, dis, world, offline, people,
+  are]
+recommendations: [/note/digital-divide/, /note/computer-education-in-malawi/, /note/digital-malawi-2023/]
 ---
 
 Short answer: There are two extremes in our world&mdash;hyper-connected world of rich countries, and a disconnected world of underserved communities like rural Africa.

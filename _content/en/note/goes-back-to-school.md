@@ -6,7 +6,7 @@ title: Rethinking Why, When, and How I Learn
 lastmod: '2022-05-23'
 keywords: [school, learning, learn, curiosity, education, moment, enter, personally,
   interest, possibilities]
-recommendations: [/note/mentoring/, /note/td-to-amazon/, /note/indigenous-canada-final/]
+recommendations: [/note/td-to-amazon/, /note/mentoring/, /note/indigenous-canada-final/]
 ---
 
 Freakonomics Radio's recent [Goes Back To School](https://freakonomics.com/podcast-tag/freakonomics-radio-goes-back-to-school/) series was eye-opening as the episodes nicely highlighted how top-tier U.S. universities are operated like "business" by trying to differentiate their products to win the market while preserving their rarity/status in the society based on the strict selection process. As the education systems are commoditized in the developed countries, the real value of higher education and the definition of "good" education have become ambiguous. Thus, I personally believe we, as a learner, need to pause for a moment and rethink why, when, and how we learn as an individual. Otherwise, we likely end up with losing control of own life and being one of numerous consumers who is unknowingly manipulated by the external forces*&mdash;[Zombies](/note/autonomy-vs-algorithmic-recommendation/).*

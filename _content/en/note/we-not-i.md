@@ -4,11 +4,10 @@ series: [product, ab]
 date: 2025-11-07
 lang: en
 title: '"We," Not "I"'
-keywords: [oppressed, they, group, voices, pluralism, are, diverse, education, systematically,
-  freire]
-recommendations: [/note/computer-education-in-malawi/, /note/one-year-in-malawi/,
-  /note/offline-learning/]
 lastmod: '2025-11-07'
+keywords: [oppressed, they, group, voices, pluralism, are, diverse, systematically,
+  education, freire]
+recommendations: [/note/computer-education-in-malawi/, /note/pedagogy/, /note/one-year-in-malawi/]
 ---
 
 The more senior I am, the bigger my work is. And the larger the problem is, the more I feel powerless.

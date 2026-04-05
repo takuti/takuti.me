@@ -6,7 +6,7 @@ images: [/images/jekyll/2015-10-03-sensu.jpg, /images/jekyll/2015-10-03-bamboo.j
 lang: en
 title: 'Machine Learning Summer School 2015 Kyoto #MLSSKYOTO'
 lastmod: '2020-04-12'
-keywords: [lecture, mlss, this, was, optimization, next, submodular, lectures, really,
+keywords: [lecture, mlss, this, was, optimization, next, submodular, really, lectures,
   gradient]
 recommendations: [/note/annual-review-2021/, /note/learn-how-others-work/, /note/fermenting-thoughts/]
 ---

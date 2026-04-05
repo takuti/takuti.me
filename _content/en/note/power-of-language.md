@@ -5,10 +5,10 @@ date: 2024-03-22
 lang: en
 title: 'Language: Behind the Power Dynamics in Information Society'
 images: [/images/power-of-language/learn-chichewa.png]
+lastmod: '2024-03-22'
 keywords: [languages, chichewa, language, english, malawi, spoken, french, speak,
   minori, digital]
 recommendations: [/note/volunteering-in-malawi/, /note/digital-malawi-2023/, /note/one-year-in-malawi/]
-lastmod: '2024-03-22'
 ---
 
 *Muli bwanji?* ("How are you?" in a polite way, in Malawi's local language called Chichewa)

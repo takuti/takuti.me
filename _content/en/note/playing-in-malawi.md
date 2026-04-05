@@ -5,11 +5,11 @@ date: 2023-10-30
 lang: en
 title: Starting with Humanity—Growth and Technology Otherwise Hurt You
 images: [/images/playing-in-malawi/scuba.jpeg]
+lastmod: '2023-10-30'
 keywords: [tomorrow, games, malawi, digital, playing, bawo, scuba, happiness, stones,
   happier]
 recommendations: [/note/digital-malawi-2023/, /note/relativize-and-contextualize/,
   /note/volunteering-in-malawi/]
-lastmod: '2023-10-30'
 ---
 
 In September 2023, I was reading [Gabrielle Zevin's ***Tomorrow, and Tomorrow, and Tomorrow***](https://www.goodreads.com/review/show/5725530237) for the month's book club I have been organizing with my friends back in Canada for the last 12 months.

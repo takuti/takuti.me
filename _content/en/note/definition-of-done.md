@@ -7,7 +7,7 @@ lang: en
 title: '"Definition of Done"'
 lastmod: '2022-02-04'
 keywords: [product, accomplishment, our, what, life, goal, personal, define, step,
-  done]
+  customers]
 recommendations: [/note/ethical-product-developer/, /note/foundations-of-humane-technology/,
   /note/product-management-and-bullshit-job/]
 ---

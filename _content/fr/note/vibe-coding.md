@@ -4,7 +4,7 @@ title: Le « vibe coding », c'est toujours efficace ?
 lastmod: '2026-04-02'
 keywords: [vibe, coding, logiciel, savoir, personnes, faire, doit, comprendre, client,
   ces]
-recommendations: [/ja/note/la-nouvelle-langue/]
+recommendations: [/fr/note/la-nouvelle-langue/]
 ---
 
 Le développement logiciel est plus facile à cause de l'intelligence artificielle (IA), et de plus en plus de personnes développent des logiciels grâce à l'IA. L'activité s'appelle le « [vibe coding](https://www.lesaffaires.com/dossiers/mois-du-genie-lheure-est-a-la-releve/ne-vous-laissez-pas-seduire-trop-vite-par-le-vibe-coding/) ».

@@ -4,10 +4,10 @@ series: [ai, data]
 date: 2022-09-09
 lang: en
 title: How I Define "Artificial Intelligence"
+lastmod: '2026-03-04'
 keywords: [klara, machine, story, program, humans, robot, rick, josie, ethical, behavior]
 recommendations: [/note/foundations-of-humane-technology/, /note/internet-for-the-people/,
   /note/ethical-product-developer/]
-lastmod: '2026-03-04'
 ---
 
 My recent reading of the novel "[**Klara and the Sun**](https://amzn.to/3BuZIKu)" written by the Novel Prize-winning writer was lovely. Beyond the simple joy of reading the story, the book enabled me to rethink the concept of artificial intelligence "AI" from an ethical standpoint.

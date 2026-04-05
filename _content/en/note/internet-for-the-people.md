@@ -4,11 +4,11 @@ series: [product]
 date: 2022-09-22
 lang: en
 title: Why Your Job Title Matters (Cont.)─Technology for the People
+lastmod: '2024-03-10'
 keywords: [product, developer, deprivatization, title, internet, technology, software,
   people, ethical, bio]
 recommendations: [/note/ethical-product-developer/, /note/product-management-and-bullshit-job/,
   /note/foundations-of-humane-technology/]
-lastmod: '2024-03-10'
 ---
 
 As I previously wrote in **[Why Your Job Title Matters](/note/why-job-title-matters/)**, **[Quality Habit-Formation](/note/atomic-habits/)**, and **[Ethical Product Developer](/note/ethical-product-developer/)**, I've been intentionally calling myself as Product Developer rather than obvious titles such as Software Engineer, Data Scientist, or Machine Learning Engineer. Now, since [I've become a freelancer](/note/coursera-machine-learning-on-gcp/), I have greater flexibility in choosing how I advertise myself on the internet, and I want to question whether Product Developer is truly the right way to describe what I (would like to) do. In particular, this article double-clicks the use of the term "product".

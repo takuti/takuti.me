@@ -6,7 +6,7 @@ lang: en
 title: Completed Functional Programming in Scala Specialization on Coursera, Finally
 lastmod: '2020-05-26'
 keywords: [scala, project, programming, specialization, functional, certificate, apstone,
-  stones, temperature, mile]
+  stones, temperature, parallel]
 recommendations: [/note/spark-rdd-cached-vs-uncached/, /note/parallel-vs-concurrent/,
   /note/coursera-machine-learning-on-gcp/]
 ---

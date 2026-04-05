@@ -5,7 +5,7 @@ date: 2021-07-15
 lang: en
 title: Reviewing Ethical Challenges in Recommender Systems
 lastmod: '2024-03-10'
-keywords: [user, recommendation, ethical, systems, stakeholders, provider, recommendations,
+keywords: [user, recommendation, ethical, systems, provider, stakeholders, recommendations,
   accuracy, are, system]
 recommendations: [/note/dividual-in-recsys/, /note/recsys-2021/, /note/recsys-2022/]
 ---
