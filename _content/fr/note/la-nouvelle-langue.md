@@ -2,9 +2,9 @@
 date: 2026-03-22
 title: L'apprentissage du français
 lastmod: '2026-03-22'
-keywords: [langue, mon, dans, apprentissage, vous, nouvelle, domaine, continuer, cette,
-  apprends]
-recommendations: [/fr/note/jeux-video/, /fr/note/vibe-coding/]
+keywords: [langue, mon, apprendre, apprentissage, nouvelle, domaine, continuer, cette,
+  apprends, dans]
+recommendations: [/fr/note/jeux-video/, /fr/note/vibe-coding/, /fr/note/environnement-naturel/]
 ---
 
 C'est mon premier article en français sur mon blog. Depuis quatre mois, j'apprends le français. En fait, je suis allé à l'école de janvier à février 2026, mais je ne vais plus à la classe.
