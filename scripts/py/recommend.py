@@ -17,7 +17,7 @@ mecab_bin_path = subprocess.run(
     ['which', 'mecab'], stdout=subprocess.PIPE).stdout.decode('utf-8').strip()
 mecab_dict_path = Path(mecab_bin_path).parent.parent \
     / 'lib' / 'mecab' / 'dic' / 'mecab-ipadic-neologd'
-tagger = MeCab.Tagger(f'-d {mecab_dict_path}')
+tagger = MeCab.Tagger(f'-r /dev/null -d {mecab_dict_path}')
 tagger.parse('')
 
 
