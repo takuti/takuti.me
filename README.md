@@ -1,4 +1,4 @@
-[takuti.me](http://takuti.me)
+[takuti.me](https://takuti.me)
 ===
 
 [![Build Status](https://travis-ci.org/takuti/takuti.me.svg?branch=master)](https://travis-ci.org/takuti/takuti.me)
