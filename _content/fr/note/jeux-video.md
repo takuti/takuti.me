@@ -2,8 +2,8 @@
 date: 2026-04-05
 title: Les jeux vidéo sont-ils mauvais pour nous ?
 lastmod: '2026-04-05'
-keywords: [jeux, dans, apprentissage, simulation, peuvent, jouer, apprendre, vie,
-  son, monde]
+keywords: [jeux, dans, apprentissage, apprendre, simulation, jouer, temps, vie, peuvent,
+  son]
 recommendations: [/fr/note/la-nouvelle-langue/, /fr/note/environnement-naturel/, /fr/note/vibe-coding/]
 ---
 
