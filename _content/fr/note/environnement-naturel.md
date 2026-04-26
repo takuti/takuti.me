@@ -3,7 +3,7 @@ date: 2026-04-12
 title: Les effets positifs de l'environnement naturel
 lastmod: '2026-04-13'
 keywords: [ville, centre, notre, ottawa, habiter, vie, temps, dans, voitures, vivre]
-recommendations: [/fr/note/jeux-video/, /fr/note/tarification-dynamique/, /fr/note/vibe-coding/]
+recommendations: [/fr/note/tarification-dynamique/, /fr/note/jeux-video/, /fr/note/northsocial/]
 ---
 
 Préférez-vous habiter au centre de la ville ou vivre votre vie dans la nature ?
