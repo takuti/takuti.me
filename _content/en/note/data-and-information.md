@@ -3,11 +3,11 @@ categories: [Data & Algorithms, Society & Business]
 series: [ab, ai, data]
 date: 2026-05-01
 lang: en
-title: How to Contextualize Digital Systems
+title: Contextualize Data, Information, and Anything Digital
 draft: true
 ---
 
-By large, digital systems consist of two different parts: **data** and **information**.
+By and large, digital systems consist of two different parts: **data** and **information**.
 
 This website, [takuti.me](/), for example, is composed of a combination of numbers, text, images, and links. They exist in the digital world as data, which can be represented by the binary digits 0 and 1. Think of them as raw ingredients of a meal; each of them can be something yet unsophisticated to us as-is.
 
@@ -15,15 +15,15 @@ On the other hand, information is the result of processing and organizing data i
 
 Yes, there are a lot more things that happen in the kitchen, such as version control, hosting, networking, research, optimization, personalization, and interface design. But the **tools, methods, and processes are to be chosen in a way that makes sense to the given data and purpose**. (If you disagree with this point, you may want to examine the idea of [ethical product development](/note/ethical-product-developer/).)
 
-So, anything digital is essentially fuelled by data, *input,* and produces information, *output,* hoping to bring desired outcomes down the line. This is the foundational understanding for ethical technology development, particularly in the era of AI. Notice that AI is a kind of tool built on top of data that generates information to its consumers, and its [skewed usage in wealthy nations](https://blogs.worldbank.org/en/investinpeople/from-predictions-to-practice--what-ai-usage-data-reveals-about-t) suggests varying needs for the inputs and outputs.
+So, anything digital is essentially fueled by data, *input,* and produces information, *output,* to achieve desired outcomes down the line. This is the foundational understanding for sustainable technology development, particularly in the era of AI. Notice that AI is a kind of tool built on top of data that generates information to its consumers, and its [skewed usage in wealthy nations](https://blogs.worldbank.org/en/investinpeople/from-predictions-to-practice--what-ai-usage-data-reveals-about-t) suggests varying needs for the inputs and outputs.
 
 Here, the ultimate question is: *Given data, how can we maximize the certainty of achieving desired outcomes in an uncertain environment?* The following basic practices have been proposed at the data and information layers.
 
 ### Data: Document its WHY, WHERE, WHEN, WHO, WHAT, and HOW
 
-First of all, **creators and consumers need to share an accurate understanding of data**. For this purpose, *[Datasheets for Datasets](https://arxiv.org/abs/1803.09010)* recommends documentation of a dataset, which can look like a spec document or user guide of data.
+First of all, **creators and consumers need to share an accurate understanding of data**. For this purpose, *[Datasheets for Datasets](https://arxiv.org/abs/1803.09010)* recommends documentation of a dataset, which can look like a spec document or a user guide of data.
 
-Based on the authors' field experience and external feedback, the study proposes a series of template questions that help stakeholders work on data more mindfully.
+Based on the authors' field experience and external feedback, the study proposed a series of template questions that help stakeholders work on data more mindfully.
 
 There are seven categories of questions, with samples below (I changed some wording for clarity):
 
@@ -81,6 +81,6 @@ As digital tools are tightly embedded into the real world, the [flow of informat
 
 First, use the sources that you &mdash; and everyone else &mdash; know well; you can't tell how this stranger's stew tastes without knowing its ingredients, or risking yourself by actually tasting it. (It may be poisoned!) To avoid such uncertainty, documenting what's in place, when it was created, where it is located, who is responsible for what, and why, is the least that developers can do. It's similar to the back of product packages, where you find nutritional facts, an expiration date, the manufacturer's name and contact, and all the disclaimers about product safety. It is still up to consumers what to do with the product, but the datasheet enables us to make an informed decision.
 
-Then, optimize the process and deliverables for where and who you are at this point. As long as human activities are nuanced, your work cannot satisfy everyone, and even Michelin-starred restaurants can receive bad reviews on Google Maps. So, spend your time understanding your situation and strategizing what to do with the ingredients that you have. Long-term consequences remain uncertain anyway, but the investment at least increases the likelihood of success and makes failures more meaningful.
+Then, optimize the process and deliverables for *where* and *who* you are at this point. As long as human activities are nuanced, your work cannot satisfy everyone, and even Michelin-starred restaurants can receive bad reviews on Google Maps. So, spend your time understanding your situation and strategizing what to do with the ingredients that you have. Long-term consequences remain uncertain anyway, but the investment at least increases the likelihood of success and makes failures more meaningful.
 
 It should be noted that, in our capitalist world, incentives can easily override intentions; regardless of how mindful one is about the data and information generated from it, profit-maximizing applications will win and sustain in the short term. Thus, yes, you need to mitigate the risks, but also align the strategy with the rulebook of the economic game happening at the macro level.
