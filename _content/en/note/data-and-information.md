@@ -3,8 +3,8 @@ categories: [Data & Algorithms, Society & Business]
 series: [ab, ai, data]
 date: 2026-05-01
 lang: en
-title: Contextualize Data, Information, and Anything Digital
-draft: true
+title: A Recipe for Sustainable Data Products
+lastmod: '2026-05-01'
 ---
 
 By and large, digital systems consist of two different parts: **data** and **information**.
@@ -81,6 +81,6 @@ As digital tools are tightly embedded into the real world, the [flow of informat
 
 First, use the sources that you &mdash; and everyone else &mdash; know well; you can't tell how this stranger's stew tastes without knowing its ingredients, or risking yourself by actually tasting it. (It may be poisoned!) To avoid such uncertainty, documenting what's in place, when it was created, where it is located, who is responsible for what, and why, is the least that developers can do. It's similar to the back of product packages, where you find nutritional facts, an expiration date, the manufacturer's name and contact, and all the disclaimers about product safety. It is still up to consumers what to do with the product, but the datasheet enables us to make an informed decision.
 
-Then, optimize the process and deliverables for *where* and *who* you are at this point. As long as human activities are nuanced, your work cannot satisfy everyone, and even Michelin-starred restaurants can receive bad reviews on Google Maps. So, spend your time understanding your situation and strategizing what to do with the ingredients that you have. Long-term consequences remain uncertain anyway, but the investment at least increases the likelihood of success and makes failures more meaningful.
+Then, optimize the process and deliverables for *where* and *who* you are at this point. As long as human activities are nuanced, your work cannot satisfy everyone, and even Michelin-starred restaurants can receive bad reviews on Google Maps. So, spend your time understanding your situation and strategizing what (not) to do with the ingredients that you have. Long-term consequences remain uncertain anyway, but the investment at least increases the likelihood of success and makes failures more meaningful.
 
 It should be noted that, in our capitalist world, incentives can easily override intentions; regardless of how mindful one is about the data and information generated from it, profit-maximizing applications will win and sustain in the short term. Thus, yes, you need to mitigate the risks, but also align the strategy with the rulebook of the economic game happening at the macro level.
