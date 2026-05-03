@@ -2,8 +2,8 @@
 date: 2026-03-22
 title: L'apprentissage du français
 lastmod: '2026-03-22'
-keywords: [langue, mon, apprendre, apprentissage, continuer, cette, apprends, nouvelle,
-  mois, domaine]
+keywords: [langue, mon, apprendre, apprentissage, continuer, cette, apprends, sur,
+  nouvelle, domaine]
 recommendations: [/fr/note/jeux-video/, /fr/note/vibe-coding/, /fr/note/northsocial/]
 ---
 
