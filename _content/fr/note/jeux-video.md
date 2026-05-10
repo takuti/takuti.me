@@ -2,9 +2,9 @@
 date: 2026-04-05
 title: Les jeux vidéo sont-ils mauvais pour nous ?
 lastmod: '2026-04-05'
-keywords: [jeux, apprentissage, dans, apprendre, simulation, jouer, temps, vie, son,
-  peuvent]
-recommendations: [/fr/note/la-nouvelle-langue/, /fr/note/environnement-naturel/, /fr/note/northsocial/]
+keywords: [jeux, apprentissage, pas, dans, simulation, jouer, apprendre, temps, vie,
+  son]
+recommendations: [/fr/note/la-nouvelle-langue/, /fr/note/vibe-coding/, /fr/note/environnement-naturel/]
 ---
 
 Quand j'étais à l'école, je jouais aux jeux vidéo tous les jours, en particulier en ligne. Pourtant, j'ai arrêté ça quand j'ai commencé à aller à l'université, parce que je n'avais pas assez de temps pour les loisirs. Aussi j'ai pensé qu'il ne faut pas passer son temps à jouer si on veut apprendre quelque chose d'efficace pour sa vie. C'est-à-dire que les jeux vidéo ne sont pas bien pour l'apprentissage, le travail et la santé.
