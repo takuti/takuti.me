@@ -1,7 +1,7 @@
 ---
 date: 2026-04-12
 title: Les effets positifs de l'environnement naturel
-lastmod: '2026-04-13'
+lastmod: '2026-05-12'
 keywords: [ville, centre, notre, ottawa, habiter, voitures, nature, minutes, encore,
   cerveau]
 recommendations: [/fr/note/ottawa/, /fr/note/tarification-dynamique/, /fr/note/jeux-video/]
@@ -15,4 +15,4 @@ D'abord, il y a beaucoup de personnes et de voitures au centre-ville, et parfois
 
 Ensuite, passer du temps dans un environnement naturel est bénéfique pour notre santé. En fait, il y a certaines études qui parlent de plusieurs impacts positifs sur la santé mentale. C'est-à-dire que la nature nous aide à [calmer notre cerveau](https://theconversation.com/les-neurosciences-permettent-de-comprendre-ce-que-la-nature-provoque-dans-notre-cerveau-278707) et à [réduire notre stress](https://theconversation.com/nature-et-mouvement-un-duo-essentiel-pour-la-sante-mentale-des-jeunes-277308). C'est très important parce que, malheureusement, notre vie moderne est trop difficile et très compliquée grâce aux ordinateurs et aux actualités quotidiennes. Parfois on doit se détacher de ces problèmes. Si on passe son temps au parc 15 minutes par jour sans le smartphone, c'est suffisant, et on peut se sentir mieux de plus en plus.
 
-Pour conclure, malgré qu'il existe beaucoup d'avantages à habiter au centre-ville, ce n'est pas toujours la meilleure option pour nous. Pour moi, une fois que je saurai assez sur la ville d'Ottawa, j'espère que je pourrai déménager au plus petit communautaire pour toutes ces raisons.
+Pour conclure, bien qu'il existe beaucoup d'avantages à habiter au centre-ville, ce n'est pas toujours la meilleure option pour nous. Pour moi, une fois que je saurai assez sur la ville d'Ottawa, j'espère que je pourrai déménager au plus petit communautaire pour toutes ces raisons.

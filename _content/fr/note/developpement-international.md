@@ -1,10 +1,10 @@
 ---
 date: 2026-05-10
 title: Le problème de développement international
+lastmod: '2026-05-10'
 keywords: [pays, malawi, international, riches, pauvres, contexte, projets, grands,
   chaque, efficacement]
 recommendations: [/fr/note/ottawa/, /fr/note/northsocial/, /fr/note/vibe-coding/]
-lastmod: '2026-05-10'
 ---
 
 De 2023 à 2025, j'ai [passé](https://wusc.ca/fr/pleins-feux-sur-takuya-une-experience-de-volontariat-inspirante/) plusieurs années au Malawi, en Afrique australe, pour le développement international. Avec l'organisation locale à but non lucratif, j'ai aidé sa transformation numérique, enseigné la programmation informatique et développé des applications mobiles pour l'éducation. Cette expérience était très intéressante, parce que j'ai seulement travaillé avec des entreprises avant d'aller en Afrique. 
