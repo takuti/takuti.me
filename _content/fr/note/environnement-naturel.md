@@ -2,8 +2,8 @@
 date: 2026-04-12
 title: Les effets positifs de l'environnement naturel
 lastmod: '2026-05-12'
-keywords: [ville, centre, notre, ottawa, habiter, voitures, nature, minutes, encore,
-  cerveau]
+keywords: [ville, centre, notre, ottawa, habiter, temps, voitures, nature, minutes,
+  encore]
 recommendations: [/fr/note/ottawa/, /fr/note/tarification-dynamique/, /fr/note/jeux-video/]
 ---
 

@@ -2,7 +2,8 @@
 date: 2026-03-29
 title: Le « vibe coding », c'est toujours efficace ?
 lastmod: '2026-04-02'
-keywords: [vibe, coding, logiciel, pas, savoir, faire, client, besoins, appris, utiliser]
+keywords: [vibe, coding, logiciel, pas, client, besoins, appris, utiliser, savoir,
+  faire]
 recommendations: [/fr/note/la-nouvelle-langue/, /fr/note/northsocial/, /fr/note/jeux-video/]
 ---
 
