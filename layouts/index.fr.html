@@ -11,6 +11,23 @@
       {{ partial "support.html" . }}
     </p>
   </section>
+
+  <section aria-label="Article Series">
+    <h3>{{ i18n "blog" }}</h3>
+    <dl class="entry-list">
+      {{ range first 5 (where .Site.RegularPages "Section" "note")}}
+      <dt>
+      <span class="date">
+        {{ .Date | time.Format ":date_long" }}
+      </span>
+      </dt>
+      <dd>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </dd>
+      {{ end }}
+    </dl>
+  </section>
+  <a href="{{ .Site.LanguagePrefix }}/note/" class="btn"><i class="fas fa-angle-right"></i>&nbsp;&nbsp;{{ i18n "more" }}</a>
 </main>
 
 </div>
