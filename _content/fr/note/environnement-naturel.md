@@ -5,6 +5,7 @@ lastmod: '2026-05-12'
 keywords: [ville, centre, notre, ottawa, habiter, temps, voitures, nature, minutes,
   encore]
 recommendations: [/fr/note/ottawa/, /fr/note/tarification-dynamique/, /fr/note/jeux-video/]
+categories: [Société]
 ---
 
 Préférez-vous habiter au centre de la ville ou vivre votre vie dans la nature ?

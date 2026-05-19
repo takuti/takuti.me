@@ -5,6 +5,7 @@ keywords: [recensement, questions, formulaire, gouvernement, ses, impression, il
   gens, semaine, internet]
 recommendations: [/fr/note/northsocial/, /fr/note/developpement-international/, /fr/note/la-nouvelle-langue/]
 lastmod: '2026-05-17'
+categories: [Canada]
 ---
 
 La semaine dernière, j'ai envoyé ma réponse pour le recensement canadien. En fait, c'était mon deuxième recensement après avoir arrivé au Canada en 2021, parce que le gouvernement fait le recensement chaque cinq années dans le pays. Mais, selon cette [vidéo](https://ici.radio-canada.ca/en-bref/1-10666384/recensement-fait-mecontents), il y a une grande différence pour le recensement cette année à cause des réseaux sociaux. C'est-à-dire que, sur Internet, beaucoup de personnes parlent quelques négatifs pour le recensement, en particulier pour les questions. On a impression que le formulaire est trop long, et il pose beaucoup de questions sensitives comme l'orientation sexuelle.
