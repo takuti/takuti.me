@@ -2,10 +2,10 @@
 date: 2026-03-18
 title: Mes services
 images: [/images/annual-review-2023/me.jpeg]
-lastmod: '2026-03-30'
+lastmod: '2026-05-19'
 ---
 
-Comme développeur produit au Canada, je travaille avec des personnels et des organisations depuis 2022. Trouvez plus d'information sur <a href="https://takuti.github.io/cv/" target="_blank" rel="noopener">mon CV <sup><i class="fas fa-external-link-alt"></i></sup></a> et [contactez-moi](/fr/contact) n'importe quand.
+Comme développeur produit au Canada, je travaille avec des personnels et des organisations depuis 2022. [Contactez-moi](/fr/contact) n'importe quand.
 
 ![takuya-presenting](/images/annual-review-2023/me.jpeg)
 
