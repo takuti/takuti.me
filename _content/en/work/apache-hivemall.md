@@ -1,7 +1,7 @@
 ---
 title: Apache Hivemall
 date: 2016-09-01
-lastmod: '2026-05-23'
+lastmod: '2022-12-31'
 meta: Open Source, Machine Learning, Personalization
 ---
 
@@ -20,7 +20,7 @@ Core contributor to Apache Hivemall, a scalable machine learning library that en
 
 - **PySpark Integration**: Enabled seamless access to Hivemall capabilities through SparkSession with Hive support, combining Spark/Hive scalability with Python ecosystem flexibility
 - **Algorithm Implementation**: Contributed state-of-the-art generalized factor models and recommendation techniques
-- **Query-Based ML in production**: Simplified end-to-end ML workflows through SQL-like interface, reducing complexity from numerous code fragments to dozens of lines of queries
+- **Query-Based ML in Production**: Simplified end-to-end ML workflows through SQL-like interface, reducing complexity from numerous code fragments to dozens of lines of queries
 
 ### Presentations & Publications
 

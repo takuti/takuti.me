@@ -1,7 +1,7 @@
 ---
 title: Streaming Recommendation Algorithms
 date: 2014-01-01
-lastmod: '2026-05-23'
+lastmod: '2017-12-31'
 meta: Research, Open Source, Personalization, Machine Learning
 ---
 
@@ -26,7 +26,8 @@ Developed novel recommendation algorithms and a Python library to handle dynamic
 - **EuroSciPy 2017**: FluRS: A Library for Streaming Recommendation Algorithms [[Video](https://www.youtube.com/watch?v=nARfsX63nDc)] [[Slides](https://speakerdeck.com/takuti/flurs-a-library-for-streaming-recommendation-algorithms)]
 - **CHIIR 2017**: [Sketching Dynamic User-Item Interactions for Online Item Recommendation](http://dl.acm.org/citation.cfm?id=3022152) [[Paper](/docs/chiir-2017-paper.pdf)] [[Poster](/docs/chiir-2017-poster.pdf)]
 - **RecProfile 2016**: [Incremental Factorization Machines for Persistently Cold-starting Online Item Recommendation](https://arxiv.org/abs/1607.02858) [[Paper](https://arxiv.org/pdf/1607.02858.pdf)] [[Slides](https://speakerdeck.com/takuti/incremental-factorization-machines)]
-- **WIMS 2015**: [User Modeling in Folksonomies: Relational Clustering and Tag Weighting](http://dl.acm.org/citation.cfm?id=2797129) [[Paper](/docs/wims-2015-paper.pdf)] [[Slides](https://speakerdeck.com/takuti/user-modeling-in-folksonomies)] [[Code](https://github.com/takuti/wims-2015)] *(Not exactly a "streaming" recommender, but it was a foundational study surfacing the limitations of batch algorithms.)*
+- **WIMS 2015**: [User Modeling in Folksonomies: Relational Clustering and Tag Weighting](http://dl.acm.org/citation.cfm?id=2797129) [[Paper](/docs/wims-2015-paper.pdf)] [[Slides](https://speakerdeck.com/takuti/user-modeling-in-folksonomies)] [[Code](https://github.com/takuti/wims-2015)]
+    - *Not exactly a "streaming" recommender, but it was a foundational study surfacing the limitations of batch algorithms.*
 
 ### Learn More
 
