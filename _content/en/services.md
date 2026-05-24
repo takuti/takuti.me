@@ -2,7 +2,7 @@
 date: 2026-02-19
 title: Professional Services
 images: [/images/annual-review-2023/me.jpeg]
-lastmod: '2026-05-19'
+lastmod: '2026-05-24'
 ---
 
 As a technical product builder based in Ottawa, Canada, I have provided the following services to individuals and organizations worldwide since 2022. See my [portfolio](/work) to learn more about my work, and feel free to [contact me](/contact) for a casual inquiry. Terms differ depending on a client's needs, location, and currency.

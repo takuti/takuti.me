@@ -1,7 +1,7 @@
 ---
 title: Recommendation.jl
 date: 2016-10-01
-lastmod: '2022-12-31'
+lastmod: '2026-05-23'
 meta: Open Source, Personalization, Community Outreach
 images: [/images/julia/accessor.png]
 ---
