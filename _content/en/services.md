@@ -5,7 +5,7 @@ images: [/images/annual-review-2023/me.jpeg]
 lastmod: '2026-05-19'
 ---
 
-As a technical product builder based in Ottawa, Canada, I have provided the following services to individuals and organizations worldwide since 2022. Terms differ depending on a client's need, location, and currency. Feel free to [contact](/contact) for a casual inquiry.
+As a technical product builder based in Ottawa, Canada, I have provided the following services to individuals and organizations worldwide since 2022. See my [portfolio](/work) to learn more about my work, and feel free to [contact me](/contact) for a casual inquiry. Terms differ depending on a client's needs, location, and currency.
 
 ![takuya-presenting](/images/annual-review-2023/me.jpeg)
 
