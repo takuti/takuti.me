@@ -5,13 +5,13 @@ other = "Accueil"
 other = "Blog"
 
 [work]
-other = "Publications et activités professionnelles"
+other = "Mon travail"
 
 [categories]
 other = "Catégories"
 
 [series]
-other = "Séries de mes articles"
+other = "Séries que j'ai écrites"
 
 [inSeries]
 other = "Articles dans cette série"

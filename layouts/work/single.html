@@ -6,7 +6,7 @@
   <p class="outer-box meta">
     <i class="fas fa-home"></i> <a href="{{ "/" | absLangURL }}">{{ i18n "home" }}</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
     <i class="fas fa-briefcase"></i> <a href="{{ "/work" | absLangURL }}">{{ i18n "work" }}</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-    <b>{{ .Params.meta }}</b>
+    <b>{{ .Title }}</b>
   </p>
   {{ if eq .Date .Lastmod }}
     {{ .Date.Format "January, 2006" }}

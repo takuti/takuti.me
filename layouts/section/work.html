@@ -2,18 +2,107 @@
 
 <div id="container">
 
-<dl class="entry-list">
+<h3><i class="fas fa-briefcase"></i> {{ i18n "work" }}</h3>
+
+<style>
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+  column-gap: 1rem;
+  margin: 1.5rem 0 0 0;
+  padding: 0;
+}
+
+.work-card {
+  width: 100%;
+  margin: 0;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #fff;
+}
+
+.work-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.work-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin: 0;
+  padding: 1.5rem;
+  background: #f6f8fa;
+}
+
+.work-card-content {
+  padding: 1.5rem;
+}
+
+.work-card-title {
+  font-size: 1.25em;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: #24292e;
+}
+
+.work-card-title a {
+  color: #24292e;
+  text-decoration: none;
+}
+
+.work-card-title a:hover {
+  color: #0366d6;
+}
+
+.work-card-meta {
+  font-size: 0.875em;
+  color: #586069;
+  margin-bottom: 0.5rem;
+}
+
+.work-card-date {
+  font-size: 0.875em;
+  color: #959da5;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .work-card {
+    max-width: 100%;
+  }
+}
+</style>
+
+<div class="work-grid">
   {{ range (where .Data.Pages.ByLastmod.Reverse "Section" "work") }}
-  <dt>
-  <span class="date">
-    {{ .Date.Format "2006" }}{{ if ne (.Date.Format "2006") (.Lastmod.Format "2006") }} - {{ .Lastmod.Format "2006" }}{{ end }} | {{ .Params.meta }}
-  </span>
-  </dt>
-  <dd>
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-  </dd>
-{{ end }}
-</dl>
+  <article class="work-card">
+    {{ if .Params.images }}
+    {{ $image := index .Params.images 0 }}
+    <img src="{{ $image }}" alt="{{ .Title }}" class="work-card-image" loading="lazy">
+    {{ else }}
+    <div class="work-card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+    {{ end }}
+    <div class="work-card-content">
+      <h2 class="work-card-title">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </h2>
+      <div class="work-card-meta">{{ .Params.meta }}</div>
+      <div class="work-card-date">
+        {{ .Date.Format "2006" }}{{ if ne (.Date.Format "2006") (.Lastmod.Format "2006") }} - {{ .Lastmod.Format "2006" }}{{ end }}
+      </div>
+    </div>
+  </article>
+  {{ end }}
+</div>
 
 </div>
 

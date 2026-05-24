@@ -3,6 +3,7 @@ title: Recommendation.jl
 date: 2016-10-01
 lastmod: '2022-12-31'
 meta: Open Source, Personalization
+images: [/images/julia/accessor.png]
 ---
 
 ### Scope

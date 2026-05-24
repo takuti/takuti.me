@@ -2,7 +2,8 @@
 title: No-Code ML Platform for Marketing
 date: 2017-06-01
 lastmod: '2019-12-31'
-meta: SaaS, Machine Learning, Personalization
+meta: SaaS, Machine Learning, Product
+images: [/images/work/cdp.png]
 ---
 
 ### Scope
