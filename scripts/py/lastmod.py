@@ -22,6 +22,9 @@ class ContentOnlyLastModifiedDateExtractor(LastModifiedDateExtractor):
 
     def process(self, posts, allow_overwrite=True):
         for post in posts:
+            # Skip posts under /work directory
+            if '/work/' in str(post.path):
+                continue
             date = self._lastmod_from_git(post.path)
             post.update("lastmod", date, allow_overwrite)
 
