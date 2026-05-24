@@ -2,7 +2,7 @@
 title: Hivemall
 date: 2016-09-01
 lastmod: '2022-12-31'
-meta: Open Source, Machine Learning, Personalization
+meta: Open Source, Machine Learning, NLP, Personalization, Community Outreach
 images: [/images/work/hivemall.png]
 ---
 

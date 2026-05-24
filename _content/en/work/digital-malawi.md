@@ -2,7 +2,7 @@
 title: Digital Transformation in Malawi
 date: 2023-08-01
 lastmod: '2025-12-31'
-meta: Digital Transformation, Design, Strategy, Product
+meta: Digital Transformation, Product, Strategy, Stakeholder Engagement
 images: [/images/altruistic-byte/computer-education.jpg]
 ---
 
