@@ -20,7 +20,17 @@ Served as the sole product partner to [Uchembere Wabwino Maternity Clinic](https
 
 ### [Testimonial](https://www.linkedin.com/services/page/315763320517323b24/)
 
-> Working with Takuya was an absolute privilege. He is a rare tech professional who combines deep technical expertise with reliability and trust. He transformed our vision into a fully functional, user-centred product and successfully led the launch of our app on the Google Play Store. An over-the-moon tech partner you can count on to deliver excellence. &mdash; *Lucy Msukwa, Founder at Uchembere Wabwino Maternity Clinic*
+<div style="background: #f8f9fa; border-left: 4px solid #0066cc; padding: 2rem; margin: 2rem 0; border-radius: 8px;">
+    <div style="text-align: center; margin-bottom: 1.5rem;">
+        <img src="/images/work/uchembere-logo.png" alt="Uchembere Wabwino Maternity Clinic Logo" style="max-width: 150px; height: auto; border-radius: 8px;">
+    </div>
+    <p style="font-style: italic; font-size: 1.05em; line-height: 1.7; margin: 0; color: #333;">
+        Working with Takuya was an absolute privilege. He is a rare tech professional who combines deep technical expertise with reliability and trust. He transformed our vision into a fully functional, user-centred product and successfully led the launch of our app on the Google Play Store. An over-the-moon tech partner you can count on to deliver excellence.
+    </p>
+    <p style="margin-top: 1rem; text-align: right; font-weight: 500; color: #555;">
+        &mdash; Lucy Msukwa, Founder at Uchembere Wabwino Maternity Clinic
+    </p>
+</div>
 
 ### Learn More
 

@@ -24,7 +24,17 @@ Led digital product and infrastructure strategy at a Malawian non-profit, from i
 
 ### [Testimonial](https://www.linkedin.com/services/page/315763320517323b24/)
 
-> Takuya has great work ethic and demonstrated strong professionalism whilst working with Emerge Livelihoods. He's always timely and committed to excellence in delivering diverse projects and services. Additionally, Takuya was great at planning and executing ideas as well as documentation through report writing and blog articles. &mdash; *Wangiwe Joanna Kambuzi, Founder and Managing Director at Emerge Livelihoods*
+<div style="background: #f8f9fa; border-left: 4px solid #0066cc; padding: 2rem; margin: 2rem 0; border-radius: 8px;">
+    <div style="text-align: center; margin-bottom: 1.5rem;">
+        <img src="/images/work/emerge-livelihoods-logo.png" alt="Emerge Livelihoods Logo" style="max-width: 150px; height: auto; border-radius: 8px;">
+    </div>
+    <p style="font-style: italic; font-size: 1.05em; line-height: 1.7; margin: 0; color: #333;">
+        Takuya has great work ethic and demonstrated strong professionalism whilst working with Emerge Livelihoods. He's always timely and committed to excellence in delivering diverse projects and services. Additionally, Takuya was great at planning and executing ideas as well as documentation through report writing and blog articles.
+    </p>
+    <p style="margin-top: 1rem; text-align: right; font-weight: 500; color: #555;">
+        &mdash; Wangiwe Joanna Kambuzi, Founder and Managing Director at Emerge Livelihoods
+    </p>
+</div>
 
 ### Presentations & Facilitation
 
