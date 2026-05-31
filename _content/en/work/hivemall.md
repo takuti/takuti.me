@@ -8,7 +8,7 @@ images: [/images/work/hivemall.png]
 
 ### Scope
 
-Core contributor to Apache Hivemall, a scalable machine learning library that enables SQL-based machine learning at scale on Apache Hive, Spark, and Pig. Contributed to new algorithms, PySpark integration, and community outreach.
+Core contributor to Hivemall, a scalable machine learning library that enables SQL-based machine learning at scale on Apache Hive, Spark, and Pig. Contributed to new algorithms, PySpark integration, and community outreach.
 
 ### Technology
 
@@ -32,7 +32,7 @@ Core contributor to Apache Hivemall, a scalable machine learning library that en
 
 ### Learn More
 
-- **Project**: [Apache Hivemall](https://hivemall.incubator.apache.org/)
+- **Project**: [Apache Hivemall (incubating)](https://hivemall.incubator.apache.org/)
 - **GitHub**: [apache/incubator-hivemall](https://github.com/apache/incubator-hivemall)
 - **Production**: [No-Coding ML Platform for Marketing](/work/ml-marketing-platform)
 
