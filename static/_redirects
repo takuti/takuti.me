@@ -1,2 +1,4 @@
+/fr/work /fr/services
+/ja/work /ja/services
 /cal https://calendly.com/takuti
 /cal/* https://calendly.com/takuti/:splat

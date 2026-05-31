@@ -10,7 +10,7 @@
     <input id="nav-input" type="checkbox">
     <span id="nav-content">
       <a href="/{{ .Site.Language.Lang }}">{{ i18n "home" }}</a>
-      <a href="{{ "/services" | absLangURL }}">{{ i18n "services" }}</a>
+      <a href="{{ "/work" | absLangURL }}">{{ i18n "work" }}</a>
       <a href="{{ "/note" | absLangURL }}">{{ i18n "blog" }}</a>
       {{ $currentLang := .Site.Language.Lang }}
       <span class="lang-dropdown">
