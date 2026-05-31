@@ -1,5 +1,5 @@
 ---
-title: No-Code ML Platform for Marketing
+title: No-Code ML Platform for Digital Marketing
 date: 2017-06-01
 lastmod: '2019-12-31'
 meta: Machine Learning, Product, Design, Engineering, Customer Engagement
