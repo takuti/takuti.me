@@ -4,6 +4,7 @@ series: [ab]
 date: 2026-06-01
 lang: en
 title: Act on Complicated Things
+lastmod: '2026-05-31'
 ---
 
 Our world is beautifully complex, but it doesn't necessarily have to be as complicated as it is today.
