@@ -5,7 +5,7 @@ date: 2026-03-01
 lang: en
 title: Who is Digitally Prepared?
 lastmod: '2026-03-01'
-keywords: [assessment, situational, driving, task, tasks, ict, technology, you, tri,
+keywords: [assessment, situational, driving, task, tasks, ict, technology, tri, you,
   driver]
 recommendations: [/note/one-year-in-malawi/, /note/volunteering-in-malawi/, /note/offline-learning/]
 ---

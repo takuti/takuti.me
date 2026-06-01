@@ -4,7 +4,7 @@ date: 2014-11-09
 lang: en
 title: Hello English Entries
 lastmod: '2020-04-12'
-keywords: [blog, japanese, write, takuti, ese, articles, posts, japan, english, this]
+keywords: [blog, japanese, write, takuti, articles, ese, posts, japan, english, this]
 recommendations: [/note/new-year-resolution-2017/, /note/the-producer-consumer-gap/,
   /note/annual-review-2021/]
 ---

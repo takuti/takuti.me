@@ -6,7 +6,7 @@ lang: en
 title: Paddling in the Life, and Currently I'm a Freelance Software Developer
 images: [/images/become-a-freelancer-in-canada/me.jpeg]
 lastmod: '2026-03-04'
-keywords: [amazon, product, managers, was, beach, ompany, are, canada, document, how]
+keywords: [amazon, product, managers, was, beach, ompany, are, canada, how, document]
 recommendations: [/note/td-to-amazon/, /note/annual-review-2022/, /note/annual-review-2021/]
 ---
 

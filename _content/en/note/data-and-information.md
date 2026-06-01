@@ -5,6 +5,9 @@ date: 2026-05-01
 lang: en
 title: A Recipe for Sustainable Data Products
 lastmod: '2026-05-01'
+keywords: [dataset, data, ingredients, information, consumers, are, its, purpose,
+  documenting, you]
+recommendations: [/note/data-feminism/, /note/how-information-flows/, /note/coursera-data-science-ethics/]
 ---
 
 By and large, digital systems consist of two different parts: **data** and **information**.

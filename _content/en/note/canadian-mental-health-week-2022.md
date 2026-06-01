@@ -6,8 +6,8 @@ lang: en
 title: 'Starting with Empathy to #GetReal, Beat Loneliness, and Be Ethical. #MentalHealthWeek'
 images: [/images/canadian-mental-health-week-2022/thumbnail.jpeg, /images/canadian-mental-health-week-2022/health-assessment.png]
 lastmod: '2026-03-04'
-keywords: [health, empathy, mental, loneliness, assessment, perience, way, warning,
-  invalidate, empathetic]
+keywords: [health, empathy, mental, loneliness, assessment, perience, warning, invalidate,
+  empathetic, way]
 recommendations: [/note/loneliness/, /note/search-for-identity/, /note/becoming-a-freelancer-in-canada/]
 ---
 

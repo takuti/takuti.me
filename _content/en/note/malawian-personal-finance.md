@@ -6,7 +6,7 @@ lang: en
 title: One of the Poorest Life Is Not *That* Bad
 images: [/images/malawian-personal-finance/meal.jpg, /images/malawian-personal-finance/book.jpg]
 lastmod: '2026-03-04'
-keywords: [mwk, usd, malawi, earn, per, wage, poorest, book, minimum, malawian]
+keywords: [mwk, usd, malawi, earn, per, wage, poorest, book, malawian, minimum]
 recommendations: [/note/digital-malawi-2023/, /note/relativize-and-contextualize/,
   /note/volunteering-in-malawi/]
 ---

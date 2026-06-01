@@ -4,7 +4,7 @@ date: 2017-04-30
 lang: en
 title: Moving to GitHub Pages
 lastmod: '2020-04-12'
-keywords: [github, pages, cloudflare, site, custom, hugo, takuti, domain, https, directory]
+keywords: [github, pages, cloudflare, site, custom, hugo, takuti, https, domain, directory]
 recommendations: [/note/travis-gh-pages-deployment/, /note/hello-netlify/, /note/hugo-markdown-and-mathjax/]
 ---
 

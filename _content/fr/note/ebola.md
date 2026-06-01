@@ -2,9 +2,9 @@
 date: 2026-05-24
 title: L'épidémie d'Ebola est plus complexe et contextuelle qu'on pense
 categories: [Afrique]
+lastmod: '2026-05-24'
 keywords: [corps, culture, dans, virus, mort, elle, pays, risque, personnes, toucher]
 recommendations: [/fr/note/developpement-international/, /fr/note/recensement/, /fr/note/northsocial/]
-lastmod: '2026-05-24'
 ---
 
 Le risque d'épidémie d'Ebola [s'élève](https://ici.radio-canada.ca/ohdio/balados/6108/ca-sexplique-balado-info-alexis-de-lancer/1172647/epidemie-ebola-virus-rdc-congo-afrique-virus-pandemie-symptomes/transcription) en Afrique, en particulier en République démocratique du Congo et en Ouganda. Heureusement, bien que le virus soit très dangereux avec le haut risque de mortalité, c'est plus facile à contrôler que les autres virus comme la COVID, parce qu'il a toujours besoin du contact direct avec les personnes symptomatiques. Cependant, le problème est plus complexe et contextuel; peut-être que la situation est plus urgente qu'on pense.

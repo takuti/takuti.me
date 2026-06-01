@@ -6,7 +6,7 @@ lang: en
 title: Connecting the Dots in Complexity
 images: [/images/finding-the-mother-tree/forest.jpeg]
 lastmod: '2024-03-10'
-keywords: [simard, her, nature, forest, trees, tree, mother, complex, research, hubs]
+keywords: [simard, her, forest, nature, trees, tree, mother, complex, research, hubs]
 recommendations: [/note/how-information-flows/, /note/why-information-grows/, /note/td-to-amazon/]
 ---
 

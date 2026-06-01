@@ -7,7 +7,7 @@ lang: en
 title: 'Sustainable Capitalism: The Importance of Long-Term Thinking and Adaptivity'
 lastmod: '2026-03-04'
 keywords: [capitalism, sustainable, term, sustainability, long, investment, short,
-  profitability, environmental, externalities]
+  profitability, environmental, gore]
 recommendations: [/note/sustainability-at-big-tech/, /note/td-to-amazon/, /note/environmental-problems-and-business/]
 ---
 

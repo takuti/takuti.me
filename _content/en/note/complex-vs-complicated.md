@@ -4,7 +4,10 @@ series: [ab]
 date: 2026-06-01
 lang: en
 title: Act on Complicated Things
-lastmod: '2026-05-31'
+lastmod: '2026-06-01'
+keywords: [complicated, they, are, complex, complications, tangible, you, simplify,
+  factors, ground]
+recommendations: [/note/data-and-information/, /note/we-not-i/, /note/one-year-in-malawi/]
 ---
 
 Our world is beautifully complex, but it doesn't necessarily have to be as complicated as it is today.
@@ -17,13 +20,13 @@ Climate change, global politics, the economy, and the development of social crea
 
 The complicated things, on the other hand, show linearly predictable behaviours. They are like entangled strings; even if it seems impossible to decompose, the object is eventually a sum of simpler, static building blocks. As long as the input remains the same, a complicated system will consistently generate a similar output with minimal uncertainty. No matter how lengthy and messy they are, the intermediate logics can be written as a set of rules, i.e., algorithms, like factory machines and computer programs.
 
-It is the redundancy embedded in our daily lives. An abundance of online tools and recommendations, bureaucracies and [bullshit jobs](https://en.wikipedia.org/wiki/Bullshit_Jobs), as well as varying "best practices" your neighbours may teach you, are the distractions and noises that make our world more redundant and complicated. Yes, there are some contexts worth examining (e.g., history, culture, and underlying dynamics). Nevertheless, if we spend sufficient time analyzing them, we can provide a decent explanation for why things are as they are and where they came from. Along the way, you will be frustrated by how much room there is to shorten or simplify the systems.
+The confusion and redundancy embedded in our daily lives are the consequences of over-complication. An abundance of online tools and recommendations, bureaucracies and [bullshit jobs](https://en.wikipedia.org/wiki/Bullshit_Jobs), as well as varying "best practices" your neighbours may teach you, are the distractions and noises that appear in our overly complicated society. Yes, there are some factors worth examining (e.g., history, culture, and underlying dynamics), but not everything is equally important. Nevertheless, if we spend sufficient time analyzing complicated issues, we can provide a decent explanation of why things are as they are and where they came from. Along the way, you will be frustrated by how much room there is to shorten or simplify the systems.
 
 ### Knowing what we *can* and *cannot* change
 
 Complex objects are so authentic and even [look too naive at first](/note/complexity-of-simplicity); everyone agrees with their importance, but soon realizes the depth when we try to explain why. Some may even find a supernatural power in the complexity, and historically speaking, [myths](/note/autonomy-and-life) have helped humans remain innocent and autonomous in times of uncertainty.
 
-By contrast, complicated things are artificially designed and implemented by a person or a group of people. Even if they are well-intentioned, an incentive mechanism can override the intentions with skewed power dynamics and negative externalities, and there will always be winners and losers among those who are part of complicated systems.
+By contrast, complicated things are artificially designed and implemented by a person or a group of people. Even if they are well-intentioned, an incentive mechanism can override intentions in skewed power dynamics and negative externalities, and there will always be winners and losers among those who are part of complicated systems.
 
 We often overlook this distinction and waste our finite resources.
 

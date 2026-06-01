@@ -5,7 +5,7 @@ date: 2022-02-13
 lang: en
 title: '"Out of Scope"'
 lastmod: '2026-03-04'
-keywords: [page, what, now, you, sivers, derek, friend, scope, saying, serendipity]
+keywords: [page, what, now, you, sivers, derek, friend, scope, serendipity, saying]
 recommendations: [/note/definition-of-done/, /note/foundations-of-humane-technology/,
   /note/the-producer-consumer-gap/]
 ---

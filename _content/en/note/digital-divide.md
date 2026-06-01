@@ -6,8 +6,8 @@ lang: en
 title: Missing Link to Bridge the Digital Divide
 images: [/images/altruistic-byte/computer-education.jpg]
 lastmod: '2026-01-03'
-keywords: [digital, skills, people, programs, gap, africa, development, passively,
-  education, infrastructure]
+keywords: [digital, skills, people, programs, africa, gap, passively, education, development,
+  infrastructure]
 recommendations: [/note/digital-malawi-2023/, /note/computer-education-in-malawi/,
   /note/one-year-in-malawi/]
 ---

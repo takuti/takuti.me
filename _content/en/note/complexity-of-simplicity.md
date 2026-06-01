@@ -6,9 +6,10 @@ lang: en
 title: 'The Complexity of Simplicity: Tacos, Sushi, and ChatGPT'
 images: [/images/complexity-of-simplicity/tacos-cdmx-1.jpeg]
 lastmod: '2024-03-10'
-keywords: [tacos, udon, complexity, sushi, mexico, simplicity, noodles, cdmx, restaurants,
+keywords: [tacos, udon, sushi, complexity, mexico, simplicity, noodles, cdmx, restaurants,
   crystallized]
-recommendations: [/note/three-perspectives-on-llms/, /note/annual-review-2023/, /note/the-producer-consumer-gap/]
+recommendations: [/note/three-perspectives-on-llms/, /note/data-and-information/,
+  /note/complex-vs-complicated/]
 ---
 
 When a particular product is presented in an extremely simplistic form, it has become harder for ordinary people to recognize the complexity behind it, making us unconscious about what's going on outside of our sight and triggering an over-simplified reaction.

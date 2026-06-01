@@ -5,8 +5,7 @@ images: [/images/supply-chain-analytics/push-pull-flow.png, /images/supply-chain
 lang: en
 title: Actionable Insights from Supply Chain Analytics
 lastmod: '2021-05-09'
-keywords: [strategy, pull, push, vasta, inventory, cost, analytics, per, distribution,
-  unit]
+keywords: [strategy, pull, push, vasta, inventory, cost, analytics, per, unit, distribution]
 recommendations: [/note/coursera-supply-chain-management/, /note/machine-learning-product/,
   /note/supply-chain-disruption/]
 ---

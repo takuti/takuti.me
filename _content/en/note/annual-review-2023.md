@@ -5,7 +5,7 @@ lang: en
 title: 'My 2023 Annual Review: Between Individual and Systems'
 images: [/images/annual-review-2023/me.jpeg]
 lastmod: '2023-12-25'
-keywords: [malawi, year, note, volunteer, practices, reshaped, eumc, information,
+keywords: [malawi, year, note, volunteer, reshaped, eumc, practices, information,
   wusc, december]
 recommendations: [/note/volunteering-in-malawi/, /note/relativize-and-contextualize/,
   /note/one-year-in-malawi/]

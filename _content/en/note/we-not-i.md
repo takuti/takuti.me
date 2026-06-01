@@ -5,7 +5,7 @@ date: 2025-11-07
 lang: en
 title: '"We," Not "I"'
 lastmod: '2025-11-07'
-keywords: [oppressed, they, group, voices, pluralism, are, diverse, systematically,
+keywords: [oppressed, they, voices, pluralism, group, are, diverse, systematically,
   education, freire]
 recommendations: [/note/computer-education-in-malawi/, /note/pedagogy/, /note/one-year-in-malawi/]
 ---
