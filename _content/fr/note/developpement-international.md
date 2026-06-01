@@ -4,7 +4,7 @@ title: Le problème de développement international
 lastmod: '2026-05-10'
 categories: [Technologies, Société, Afrique]
 keywords: [pays, malawi, international, riches, pauvres, projets, grands, contexte,
-  applications, efficacement]
+  applications, chaque]
 recommendations: [/fr/note/ebola/, /fr/note/recensement/, /fr/note/northsocial/]
 ---
 

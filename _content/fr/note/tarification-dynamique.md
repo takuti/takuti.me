@@ -3,9 +3,9 @@ date: 2026-04-19
 title: On doit interdire la tarification personnalisée ?
 lastmod: '2026-04-19'
 categories: [Technologies]
-keywords: [prix, tarification, algorithmique, entreprises, utilisateurs, produits,
-  personnes, dans, tactique, produit]
-recommendations: [/fr/note/northsocial/, /fr/note/environnement-naturel/, /fr/note/ottawa/]
+keywords: [prix, tarification, algorithmique, entreprises, des, utilisateurs, produits,
+  personnes, tactique, produit]
+recommendations: [/fr/note/northsocial/, /fr/note/vibe-coding/, /fr/note/environnement-naturel/]
 ---
 
 La tarification personnalisée est une méthode algorithmique qui change les prix de produits numériques par les contextes, comme la location, la météo et le genre d'utilisateur. Généralement, ça utilise des programmations logicielles avec l'intelligence artificielle pour choisir le meilleur prix pour chaque utilisateur. Cependant, le public [discute](https://bureau-concurrence.canada.ca/fr/comment-nous-favorisons-concurrence/education-sensibilisation/publications/consultation-tarification-algorithmique-concurrence-nous-avons-entendu) (aussi [ici](https://www.blakes.com/fr-ca/perspectives/le-gouvernement-du-manitoba-entend-interdire-la-tarification-personnalisee-au-moyen-du-projet-de-loi/) au Manitoba, et [ici](https://ici.radio-canada.ca/nouvelle/2246772/tarification-personnalisee-surveillance-prix-aliments) à l'Ontario) des impacts négatifs de la technologie parce que le but des entreprises, comme Uber, Instacart et Google (pour les prix d'avion et d'hôtel), est surtout de maximiser leurs revenus. C'est-à-dire qu'ils ne favorisent pas des consommateurs par la tarification.

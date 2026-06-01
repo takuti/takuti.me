@@ -4,8 +4,8 @@ title: Mon avis sur Northsocial.ca, le nouveau réseau social pour les Canadienn
 images: [/images/northsocial/northsocial.png]
 lastmod: '2026-05-12'
 categories: [Canada, Technologies]
-keywords: [northsocial, utilisateurs, applications, application, social, sur, plateforme,
-  nouveau, gagner, fil]
+keywords: [northsocial, utilisateurs, applications, application, des, social, sur,
+  soit, ligne, plateforme]
 recommendations: [/fr/note/vibe-coding/, /fr/note/la-nouvelle-langue/, /fr/note/tarification-dynamique/]
 ---
 
