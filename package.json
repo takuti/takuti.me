@@ -52,7 +52,7 @@
     "*.{png,jpeg,jpg,gif}": [
       "node ./scripts/js/imagemin.js"
     ],
-    "_content/{en,ja,fr}/!(work)/**/*.{md,html}": [
+    "_content/{en,ja,fr}/{*.{md,html},!(work)/**/*.{md,html}}": [
       "python ./scripts/py/lastmod.py",
       "git add -u _content/en _content/ja _content/fr"
     ],
