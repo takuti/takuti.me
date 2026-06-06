@@ -1,14 +1,103 @@
+# robots.txt for takuti.me
+# Policy: open to humans + search engines + chosen AI crawlers;
+#         deny known-aggressive / low-value scrapers.
+# NOTE: robots.txt is advisory. Non-compliant bots (Bytespider, YisouSpider,
+#       PetalBot, etc.) are enforced at the edge via Cloudflare WAF.
+
+# ---------------------------------------------------------------------------
+# Default: allow everything; ask polite bots to throttle
+# (Crawl-delay is honored by Bing/Yandex; Googlebot ignores it.)
+# ---------------------------------------------------------------------------
 User-agent: *
 Allow: /
+Crawl-delay: 5
 
+# ---------------------------------------------------------------------------
+# Explicitly allowed: search engines + AI crawlers
+# ---------------------------------------------------------------------------
+User-agent: Googlebot
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Blocked: aggressive / low-value SEO scrapers
+# ---------------------------------------------------------------------------
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: Barkrowler
+Disallow: /
+
+User-agent: serpstatbot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
+
+# ---------------------------------------------------------------------------
+# Aggressive / robots-ignoring crawlers (also HARD-blocked at Cloudflare,
+# because they frequently disregard this file)
+# ---------------------------------------------------------------------------
+User-agent: Bytespider
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: AspiegelBot
+Disallow: /
+
+User-agent: YisouSpider
+Disallow: /
+
+# ---------------------------------------------------------------------------
 # Sitemaps
+# ---------------------------------------------------------------------------
 Sitemap: https://takuti.me/sitemap.xml
 Sitemap: https://takuti.me/en/sitemap.xml
 Sitemap: https://takuti.me/ja/sitemap.xml
-
-# Crawl-delay (optional, 1 second)
-Crawl-delay: 1
-
-# Block specific paths if needed
-# Disallow: /admin/
-# Disallow: /private/
+Sitemap: https://takuti.me/fr/sitemap.xml
