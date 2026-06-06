@@ -3,6 +3,7 @@ date: 2026-03-22
 title: L'apprentissage du français
 translationKey: new-lang
 lastmod: '2026-03-22'
+categories: [Éducation]
 keywords: [langue, mon, des, apprendre, apprentissage, continuer, apprends, sur, nouvelle,
   domaine]
 recommendations: [/fr/note/vibe-coding/, /fr/note/jeux-video/, /fr/note/northsocial/]
