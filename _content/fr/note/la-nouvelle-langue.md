@@ -1,6 +1,7 @@
 ---
 date: 2026-03-22
 title: L'apprentissage du français
+translationKey: new-lang
 lastmod: '2026-03-22'
 keywords: [langue, mon, des, apprendre, apprentissage, continuer, apprends, sur, nouvelle,
   domaine]

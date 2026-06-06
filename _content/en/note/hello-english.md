@@ -3,6 +3,7 @@ categories: [Life & Reflection]
 date: 2014-11-09
 lang: en
 title: Hello English Entries
+translationKey: new-lang
 lastmod: '2020-04-12'
 keywords: [blog, japanese, write, takuti, articles, ese, posts, japan, english, this]
 recommendations: [/note/new-year-resolution-2017/, /note/the-producer-consumer-gap/,
