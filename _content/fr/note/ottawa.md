@@ -5,7 +5,7 @@ lastmod: '2026-05-03'
 categories: [Canada]
 keywords: [ville, vancouver, villes, moins, dans, ottawa, canada, environnement, nord,
   habitais]
-recommendations: [/fr/note/environnement-naturel/, /fr/note/tarification-dynamique/,
+recommendations: [/fr/note/environnement-naturel/, /fr/note/education-numerique/,
   /fr/note/ebola/]
 ---
 
