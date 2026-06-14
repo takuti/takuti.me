@@ -3,9 +3,9 @@ date: 2026-05-10
 title: Le problème de développement international
 lastmod: '2026-05-10'
 categories: [Technologies, Société, Afrique]
-keywords: [pays, international, malawi, riches, projets, pauvres, grands, contexte,
+keywords: [pays, malawi, international, riches, projets, pauvres, contexte, grands,
   chaque, applications]
-recommendations: [/fr/note/ebola/, /fr/note/education-numerique/, /fr/note/recensement/]
+recommendations: [/fr/note/ebola/, /fr/note/le-monde-a-besoin-du-canada/, /fr/note/education-numerique/]
 ---
 
 De 2023 à 2025, j'ai [passé](https://wusc.ca/fr/pleins-feux-sur-takuya-une-experience-de-volontariat-inspirante/) plusieurs années au Malawi, en Afrique australe, pour le développement international. Avec l'organisation locale à but non lucratif, j'ai aidé sa transformation numérique, enseigné la programmation informatique et développé des applications mobiles pour l'éducation. Cette expérience était très intéressante, parce que j'ai seulement travaillé avec des entreprises avant d'aller en Afrique. 

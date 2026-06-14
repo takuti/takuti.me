@@ -4,7 +4,7 @@ title: L'apprentissage du français
 translationKey: new-lang
 lastmod: '2026-03-22'
 categories: [Éducation]
-keywords: [langue, mon, apprendre, des, apprentissage, continuer, apprends, peut,
+keywords: [langue, apprendre, mon, des, apprentissage, continuer, apprends, peut,
   sur, nouvelle]
 recommendations: [/fr/note/vibe-coding/, /fr/note/jeux-video/, /fr/note/northsocial/]
 ---

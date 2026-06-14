@@ -5,8 +5,8 @@ lastmod: '2026-05-03'
 categories: [Canada]
 keywords: [ville, vancouver, villes, moins, dans, ottawa, canada, environnement, nord,
   habitais]
-recommendations: [/fr/note/environnement-naturel/, /fr/note/education-numerique/,
-  /fr/note/ebola/]
+recommendations: [/fr/note/environnement-naturel/, /fr/note/le-monde-a-besoin-du-canada/,
+  /fr/note/education-numerique/]
 ---
 
 La ville d'Ottawa au Canada, où j'habite pendant six mois après avoir passé cinq années à Vancouver, devient populaire. En 2026, [Numbeo](https://fr.numbeo.com/qualit%C3%A9-de-vie/classements) dit que la ville est la meilleure ville au Canada (28e dans le monde) pour l'indice de qualité de vie. Je pense que c'est la bonne chose, et il y a plusieurs raisons qui permettent ça.
