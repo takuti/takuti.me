@@ -3,7 +3,7 @@ date: 2026-05-24
 title: L'épidémie d'Ebola est plus complexe et contextuelle qu'on pense
 categories: [Afrique]
 lastmod: '2026-05-24'
-keywords: [culture, corps, virus, mort, elle, dans, risque, pays, toucher, ebola]
+keywords: [culture, corps, virus, mort, elle, dans, pays, risque, toucher, ebola]
 recommendations: [/fr/note/developpement-international/, /fr/note/le-monde-a-besoin-du-canada/,
   /fr/note/education-numerique/]
 ---
