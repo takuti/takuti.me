@@ -3,7 +3,7 @@ date: 2026-06-07
 title: Les difficultés de l'éducation numérique
 categories: [Afrique, Éducation]
 lastmod: '2026-06-07'
-keywords: [pas, technologies, application, des, doivent, utilisateurs, internet, applications,
+keywords: [technologies, pas, application, des, doivent, utilisateurs, internet, applications,
   distance, utiliser]
 recommendations: [/fr/note/northsocial/, /fr/note/vibe-coding/, /fr/note/developpement-international/]
 ---

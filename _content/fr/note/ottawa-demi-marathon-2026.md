@@ -1,7 +1,7 @@
 ---
 date: 2026-06-01
 title: Le premier demi-marathon en trois ans
-categories: [Sport]
+categories: [Sports]
 images: [/images/ottawa-demi-marathon-2026/takuya.jpeg]
 lastmod: '2026-06-01'
 keywords: [marathon, demi, courir, pas, vitesse, distance, corps, ottawa, mon, longue]
