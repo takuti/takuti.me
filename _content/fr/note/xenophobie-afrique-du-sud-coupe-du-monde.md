@@ -2,10 +2,10 @@
 date: 2026-06-28
 title: Le risque des Africains qui sont contre l'Afrique du Sud à la Coupe du Monde
 categories: [Afrique, Société, Sports]
+lastmod: '2026-06-28'
 keywords: [sud, pays, sport, africains, pas, afrique, soutenir, responsables, japonais,
   conflit]
 recommendations: [/fr/note/developpement-international/, /fr/note/ebola/, /fr/note/le-monde-a-besoin-du-canada/]
-lastmod: '2026-06-28'
 ---
 
 À la Coupe du Monde, [certains supporters africains refusent de soutenir l'Afrique du Sud](https://www.brut.media/afrique/videos/afrique/societe/pourquoi-certains-supporters-africains-refusent-de-soutenir-l-afrique-du-sud) en raison des problèmes dans le pays. Parce que les gens d'Afrique du Sud [attaquent](https://news.un.org/fr/story/2026/06/1158991) les étrangers africains, les autres pays africains critiquent ces violences xénophobes. À mon avis, ce conflit pose un grand risque pour la solidarité mondiale.
