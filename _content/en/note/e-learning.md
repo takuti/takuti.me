@@ -6,6 +6,9 @@ lang: en
 title: Developer's Guide to Building E-Learning Solutions in Resource-Constrained
   Environments
 lastmod: '2026-07-03'
+keywords: [mobile, education, phones, agile, features, content, application, student,
+  low, rule]
+recommendations: [/note/offline-learning/, /note/digital-divide/, /note/digital-malawi-2023/]
 ---
 
 Knowledge and skills are the power. One can be self-reliant and seize a brighter future with the right capacity, even without status and wealth.

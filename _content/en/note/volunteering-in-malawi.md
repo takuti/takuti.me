@@ -7,8 +7,8 @@ title: Starting Field Study on How Information Flows in Malawi
 images: [/images/volunteering-in-malawi/lake-malawi.jpg, /images/volunteering-in-malawi/bizcubation-pitch-night.jpeg,
   /images/volunteering-in-malawi/mzuzu-coffee.jpg]
 lastmod: '2026-03-04'
-keywords: [malawi, volunteer, mzuzu, volunteering, africa, canada, information, you,
-  international, lake]
+keywords: [malawi, volunteer, mzuzu, volunteering, canada, africa, information, you,
+  lake, international]
 recommendations: [/note/digital-malawi-2023/, /note/relativize-and-contextualize/,
   /note/one-year-in-malawi/]
 ---

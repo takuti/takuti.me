@@ -5,7 +5,7 @@ images: [/images/jekyll/2015-10-04-phpcon.jpg]
 lang: en
 title: 'Japan PHP Conference 2015 #phpcon2015'
 lastmod: '2026-03-04'
-keywords: [php, phpcon, database, conference, testing, performance, rasmus, october,
+keywords: [php, phpcon, conference, database, testing, performance, rasmus, october,
   released, keynote]
 recommendations: [/note/pyconjp-2015/, /note/mlss-kyoto-2015/, /note/hivemall-events-2018-autumn/]
 ---

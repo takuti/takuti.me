@@ -6,8 +6,8 @@ lang: en
 title: Relativize Malawi, and Rethink Their Contexts
 images: [/images/relativize-and-contextualize/lake_malawi.jpg]
 lastmod: '2024-01-31'
-keywords: [malawi, nepal, relativize, beer, tech, malawians, contextualize, sustainable,
-  are, context]
+keywords: [malawi, nepal, relativize, beer, malawians, tech, contextualize, sustainable,
+  are, was]
 recommendations: [/note/volunteering-in-malawi/, /note/digital-malawi-2023/, /note/my-identity-in-malawi/]
 ---
 

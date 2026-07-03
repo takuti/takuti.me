@@ -6,8 +6,8 @@ lang: en
 title: The AI Divide
 images: [/images/thumbnails/divide.jpg]
 lastmod: '2026-03-04'
-keywords: [humans, isting, divide, technology, smarter, contexts, problems, inequality,
-  need, tools]
+keywords: [humans, isting, divide, technology, smarter, contexts, problems, need,
+  tools, inequality]
 recommendations: [/note/offline-learning/, /note/digital-divide/, /note/data-and-information/]
 ---
 

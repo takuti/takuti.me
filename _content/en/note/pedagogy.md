@@ -5,9 +5,9 @@ date: 2026-04-01
 lang: en
 title: Toward Inclusive Education
 lastmod: '2026-04-01'
-keywords: [french, teacher, class, education, learning, classroom, learners, dbr,
+keywords: [french, class, teacher, education, learning, classroom, learners, dbr,
   practices, students]
-recommendations: [/note/offline-learning/, /note/computer-education-in-malawi/, /note/we-not-i/]
+recommendations: [/note/offline-learning/, /note/e-learning/, /note/computer-education-in-malawi/]
 ---
 
 There are many educational practices out there.

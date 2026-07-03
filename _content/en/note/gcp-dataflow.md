@@ -4,8 +4,8 @@ date: 2022-11-11
 lang: en
 title: Google Cloud Dataflow and Its Positive Impact on Developer Productivity
 lastmod: '2022-11-11'
-keywords: [cloud, dataflow, data, apache, pipelines, pipeline, beam, google, resource,
-  airflow]
+keywords: [cloud, dataflow, data, apache, pipelines, pipeline, beam, google, airflow,
+  resource]
 recommendations: [/note/airflow-lineage/, /note/coursera-machine-learning-on-gcp/,
   /note/data-validation/]
 ---

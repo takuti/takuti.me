@@ -7,7 +7,7 @@ images: [/images/coursera-machine-learning-on-gcp/certificate.png]
 lastmod: '2022-09-14'
 keywords: [specialization, google, cloud, vertex, bigquery, feature, solving, engineering,
   keras, automl]
-recommendations: [/note/machine-learning-product/, /note/gcp-dataflow/, /note/annual-review-2021/]
+recommendations: [/note/gcp-dataflow/, /note/machine-learning-product/, /note/annual-review-2021/]
 ---
 
 I have recently got a chance to review machine learning (ML) basics through [**Machine Learning on Google Cloud Specialization** on Coursera](https://coursera.org/share/28e4b7d13b11fbf63f5795f0701cf283). Although none of the contents was really new to me, it was a well-developed series of courses that gives us a high-level overview of the field both in theory and practice, accompanied by hands-on assignments on Google Cloud so we can familiarize ourselves with how to turn the basic concepts into workable implementations. I would definitely recommend the course if someone has a plan to build a data/ML pipeline on Google Cloud from scratch knowing little to nothing about ML.

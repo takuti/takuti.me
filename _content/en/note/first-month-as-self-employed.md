@@ -6,7 +6,7 @@ lang: en
 title: My First Month as Self-Employed
 images: []
 lastmod: '2024-03-10'
-keywords: [income, employed, clients, self, day, empathy, currency, month, time, working]
+keywords: [income, employed, clients, day, self, empathy, currency, month, time, working]
 recommendations: [/note/annual-review-2022/, /note/becoming-a-freelancer-in-canada/,
   /note/working-from-home-202004/]
 ---
