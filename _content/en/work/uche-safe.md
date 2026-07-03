@@ -36,3 +36,4 @@ Served as the sole product partner to [Uchembere Wabwino Maternity Clinic](https
 
 - **Google Play**: [Uche Safe App](https://play.google.com/store/apps/details?id=org.uchembere.app&pli=1)
     - *In-field deployment has been made through facilitator-led direct installation of an .apk file.*
+- **Article**: [Developer's Guide to Building E-Learning Solutions in Resource-Constrained Environments](/note/e-learning/)
