@@ -5,8 +5,7 @@ categories: [Sports]
 images: [/images/ottawa-demi-marathon-2026/takuya.jpeg]
 lastmod: '2026-06-01'
 keywords: [marathon, demi, courir, pas, vitesse, distance, corps, ottawa, mon, longue]
-recommendations: [/fr/note/environnement-naturel/, /fr/note/education-numerique/,
-  /fr/note/ebola/]
+recommendations: [/fr/note/environnement-naturel/, /fr/note/ebola/, /fr/note/education-numerique/]
 ---
 
 Le week-end dernier, je suis [arrivé](https://sportstats.one/fr/event/ottawa-race-weekend/leaderboard/145830?focus=13392&type=pid%3Ffocus%3D13392&type=pid?focus=13392&type=pid) à mon 5e demi-marathon à 1 h 32 au [Demi-marathon d'Ottawa](https://www.runottawa.ca/fr/les-courses/le-demi-marathon-dottawa/). En fait, je n'ai pas fait de marathon depuis trois ans après être sorti du Canada pour le travail en Afrique. Donc, mon but était d'arriver plus rapidement que le dernier demi-marathon en 2023 à Ottawa. C'était 1 h 31, donc, malheureusement, j'ai manqué le but.
