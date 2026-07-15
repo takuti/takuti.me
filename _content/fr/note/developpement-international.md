@@ -3,8 +3,8 @@ date: 2026-05-10
 title: Le problème de développement international
 lastmod: '2026-05-10'
 categories: [Technologies, Société, Afrique]
-keywords: [pays, malawi, riches, projets, international, contexte, pauvres, applications,
-  chaque, program]
+keywords: [pays, malawi, riches, international, projets, pauvres, contexte, chaque,
+  applications, program]
 recommendations: [/fr/note/donnees-developpement-international/, /fr/note/ebola/,
   /fr/note/xenophobie-afrique-du-sud-coupe-du-monde/]
 ---
