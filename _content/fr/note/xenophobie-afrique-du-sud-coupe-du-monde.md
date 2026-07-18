@@ -3,7 +3,7 @@ date: 2026-06-28
 title: Le risque des Africains qui sont contre l'Afrique du Sud à la Coupe du Monde
 categories: [Afrique, Société, Sports]
 lastmod: '2026-06-28'
-keywords: [sud, pays, sport, africains, afrique, pas, soutenir, responsables, japonais,
+keywords: [sud, sport, pays, africains, pas, afrique, soutenir, responsables, japonais,
   conflit]
 recommendations: [/fr/note/developpement-international/, /fr/note/ebola/, /fr/note/donnees-developpement-international/]
 ---

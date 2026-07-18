@@ -5,7 +5,7 @@ images: [/images/northsocial/northsocial.png]
 lastmod: '2026-05-12'
 categories: [Canada, Technologies]
 keywords: [northsocial, utilisateurs, application, applications, social, des, sur,
-  plateforme, nouveau, gagner]
+  plateforme, gagner, fil]
 recommendations: [/fr/note/education-numerique/, /fr/note/vibe-coding/, /fr/note/la-nouvelle-langue/]
 ---
 

@@ -3,9 +3,9 @@ date: 2026-06-14
 title: Le monde a besoin du Canada
 categories: [Société, Canada]
 lastmod: '2026-06-14'
-keywords: [histoire, canada, complexe, des, riche, penser, hui, aujourd, monde, personnes]
-recommendations: [/fr/note/developpement-international/, /fr/note/donnees-developpement-international/,
-  /fr/note/coordination/]
+keywords: [histoire, canada, des, complexe, riche, hui, aujourd, monde, personnes,
+  penser]
+recommendations: [/fr/note/inclusivite/, /fr/note/developpement-international/, /fr/note/donnees-developpement-international/]
 ---
 
 J'habite au Canada depuis plus de cinq ans. Plus je passe du temps dans le pays, plus je pense que le monde a besoin d'une identité canadienne pour résoudre les problèmes complexes. Pourquoi? Parce que leur identité dépend de l'histoire complexe et de la diversité du pays.
