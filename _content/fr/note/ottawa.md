@@ -3,7 +3,7 @@ date: 2026-05-03
 title: Pourquoi Ottawa ?
 lastmod: '2026-05-03'
 categories: [Canada]
-keywords: [ville, vancouver, villes, moins, ottawa, dans, canada, environnement, nord,
+keywords: [ville, vancouver, villes, ottawa, moins, dans, canada, environnement, nord,
   naturel]
 recommendations: [/fr/note/environnement-naturel/, /fr/note/le-monde-a-besoin-du-canada/,
   /fr/note/education-numerique/]
