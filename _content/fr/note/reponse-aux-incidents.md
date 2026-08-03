@@ -3,10 +3,10 @@ date: 2026-07-15
 title: 'La gouvernance des données : comment répondre aux incidents ?'
 categories: [Technologies]
 lastmod: '2026-07-15'
-keywords: [incident, doit, impact, loi, gouvernance, utilisateurs, nous, service,
-  entreprise, comment]
+keywords: [incident, doit, impact, gouvernance, nous, utilisateurs, entreprise, service,
+  loi, comment]
 recommendations: [/fr/note/donnees-developpement-international/, /fr/note/inclusivite/,
-  /fr/note/vibe-coding/]
+  /fr/note/coordination/]
 ---
 
 La gouvernance des données est très importante dans les entreprises. Mais ce n'est pas toujours facile pour nous de répondre à un incident. Par exemple, quand une entreprise perd ses données privées à cause d'un problème de sécurité, c'est un incident grave, et on doit être préparé et comprendre comment agir dans cette situation.
