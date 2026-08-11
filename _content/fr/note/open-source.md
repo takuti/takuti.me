@@ -3,9 +3,9 @@ date: 2026-07-25
 title: L'autre possibilité contre des logiciels des grandes entreprises étrangères
 categories: [Technologies]
 lastmod: '2026-07-25'
-keywords: [logiciels, des, source, logiciel, open, mondial, leurs, peuvent, risques,
+keywords: [logiciels, source, logiciel, open, mondial, leurs, peuvent, peut, risques,
   local]
-recommendations: [/fr/note/education-numerique/, /fr/note/vibe-coding/, /fr/note/developpement-international/]
+recommendations: [/fr/note/vibe-coding/, /fr/note/education-numerique/, /fr/note/developpement-international/]
 ---
 
 Face à la concurrence, les grandes entreprises américaines, comme Microsoft, Google et OpenAI, développent rapidement des logiciels populaires et dominent le marché mondial. Or, cela peut poser un grand problème parce que les développeurs de logiciels peuvent obtenir des données personnelles et de l'argent plus facilement.

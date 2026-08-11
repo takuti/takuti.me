@@ -4,7 +4,7 @@ title: Le futur du recensement
 lastmod: '2026-05-17'
 categories: [Canada]
 keywords: [recensement, questions, formulaire, gouvernement, impression, ils, ses,
-  gens, des, semaine]
+  informations, gens, semaine]
 recommendations: [/fr/note/donnees-developpement-international/, /fr/note/interdire-reseaux-sociaux/,
   /fr/note/education-numerique/]
 ---

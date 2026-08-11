@@ -5,7 +5,7 @@ lastmod: '2026-05-10'
 categories: [Technologies, Société, Afrique]
 keywords: [pays, malawi, riches, international, projets, pauvres, contexte, applications,
   chaque, program]
-recommendations: [/fr/note/donnees-developpement-international/, /fr/note/ebola/,
+recommendations: [/fr/note/ebola/, /fr/note/donnees-developpement-international/,
   /fr/note/xenophobie-afrique-du-sud-coupe-du-monde/]
 ---
 

@@ -3,8 +3,8 @@ date: 2026-04-05
 title: Les jeux vidéo sont-ils mauvais pour nous ?
 lastmod: '2026-04-05'
 categories: [Technologies, Éducation]
-keywords: [jeux, apprentissage, pas, simulation, jouer, apprendre, des, dans, avec,
-  passer]
+keywords: [jeux, apprentissage, pas, simulation, jouer, apprendre, passer, avec, temps,
+  quelque]
 recommendations: [/fr/note/la-nouvelle-langue/, /fr/note/vibe-coding/, /fr/note/education-numerique/]
 ---
 

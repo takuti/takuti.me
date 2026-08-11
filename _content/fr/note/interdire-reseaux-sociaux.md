@@ -2,9 +2,10 @@
 date: 2026-08-03
 title: 'L''interdiction des réseaux sociaux : est-ce suffisant?'
 categories: [Société, Technologies]
-keywords: [sociaux, jeunes, des, ils, restriction, pas, aux, opinions, contenus, vous]
-recommendations: [/fr/note/northsocial/, /fr/note/education-numerique/, /fr/note/recensement/]
 lastmod: '2026-08-03'
+keywords: [sociaux, jeunes, ils, restriction, pas, opinions, contenus, aux, vous,
+  vpn]
+recommendations: [/fr/note/northsocial/, /fr/note/recensement/, /fr/note/education-numerique/]
 ---
 
 Plusieurs pays essaient d'interdire l'utilisation des réseaux sociaux, en particulier pour les jeunes. En Australie, par exemple, les utilisateurs de moins de 16 ans ne peuvent pas accéder aux grands médias sociaux comme TikTok et Instagram. [Les autres pays aussi adoptent la même loi](https://theconversation.com/interdiction-des-medias-sociaux-aux-moins-de-16-ans-les-effets-et-les-limites-du-projet-de-loi-canadien-284995), mais on ne sait pas si c'est une bonne idée dans le futur. À mon avis, je suis d'accord avec la restriction, mais on doit penser à plus de choses différentes à long terme.

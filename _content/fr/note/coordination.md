@@ -3,8 +3,8 @@ date: 2026-06-21
 title: La coordination entre les parties prenantes
 categories: [Société]
 lastmod: '2026-06-21'
-keywords: [commun, des, organisations, but, objectif, exemples, coordination, concrets,
-  nous, communiquer]
+keywords: [commun, organisations, but, objectif, exemples, coordination, concrets,
+  nous, communiquer, applications]
 recommendations: [/fr/note/inclusivite/, /fr/note/donnees-developpement-international/,
   /fr/note/le-monde-a-besoin-du-canada/]
 ---
