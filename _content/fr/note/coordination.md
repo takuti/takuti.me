@@ -4,7 +4,7 @@ title: La coordination entre les parties prenantes
 categories: [Société]
 lastmod: '2026-06-21'
 keywords: [commun, organisations, but, objectif, exemples, coordination, concrets,
-  nous, communiquer, applications]
+  communiquer, nous, applications]
 recommendations: [/fr/note/inclusivite/, /fr/note/donnees-developpement-international/,
   /fr/note/le-monde-a-besoin-du-canada/]
 ---

@@ -3,8 +3,8 @@ date: 2026-06-14
 title: Le monde a besoin du Canada
 categories: [Société, Canada]
 lastmod: '2026-06-14'
-keywords: [histoire, canada, complexe, monde, riche, hui, aujourd, personnes, canadienne,
-  penser]
+keywords: [histoire, canada, complexe, riche, hui, aujourd, monde, personnes, canadienne,
+  importantes]
 recommendations: [/fr/note/inclusivite/, /fr/note/developpement-international/, /fr/note/donnees-developpement-international/]
 ---
 

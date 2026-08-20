@@ -3,8 +3,8 @@ date: 2026-07-25
 title: L'autre possibilité contre des logiciels des grandes entreprises étrangères
 categories: [Technologies]
 lastmod: '2026-07-25'
-keywords: [logiciels, source, logiciel, open, mondial, leurs, peuvent, peut, risques,
-  local]
+keywords: [logiciels, source, logiciel, leurs, open, mondial, peuvent, risques, local,
+  peut]
 recommendations: [/fr/note/vibe-coding/, /fr/note/education-numerique/, /fr/note/developpement-international/]
 ---
 

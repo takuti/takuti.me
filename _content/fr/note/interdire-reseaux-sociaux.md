@@ -3,7 +3,7 @@ date: 2026-08-03
 title: 'L''interdiction des réseaux sociaux : est-ce suffisant?'
 categories: [Société, Technologies]
 lastmod: '2026-08-03'
-keywords: [sociaux, jeunes, ils, restriction, pas, opinions, contenus, aux, vous,
+keywords: [sociaux, jeunes, ils, restriction, pas, opinions, aux, vous, contenus,
   vpn]
 recommendations: [/fr/note/northsocial/, /fr/note/recensement/, /fr/note/education-numerique/]
 ---

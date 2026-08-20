@@ -4,10 +4,10 @@ title: Mon avis sur Northsocial.ca, le nouveau réseau social pour les Canadienn
 images: [/images/northsocial/northsocial.png]
 lastmod: '2026-05-12'
 categories: [Canada, Technologies]
-keywords: [northsocial, utilisateurs, application, applications, social, sur, soit,
+keywords: [northsocial, application, utilisateurs, social, applications, sur, soit,
   gagner, fil, facebook]
 recommendations: [/fr/note/education-numerique/, /fr/note/interdire-reseaux-sociaux/,
-  /fr/note/vibe-coding/]
+  /fr/note/nuancer-intelligence-artificielle/]
 ---
 
 La semaine dernière, [j'ai trouvé](https://ici.radio-canada.ca/nouvelle/2245636/facebook-canadien-defilement-infini-assurance) un nouveau réseau social qui s'appelle Northsocial.ca. C'est le réseau social canadien. Ça signifie que l'entreprise canadienne a développé l'application pour les Canadiennes, et son [site web](https://northsocial.ca/) dit que l'application habite les systèmes au Canada.
