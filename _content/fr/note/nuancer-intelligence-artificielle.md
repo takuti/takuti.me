@@ -2,9 +2,9 @@
 date: 2026-08-19
 title: Peser le pour et le contre de l'intelligence artificielle
 categories: [Technologies]
+lastmod: '2026-08-19'
 keywords: [sur, vingt, sept, institutions, notre, quatre, petit, futur, leur, grandes]
 recommendations: [/fr/note/inclusivite/, /fr/note/northsocial/, /fr/note/interdire-reseaux-sociaux/]
-lastmod: '2026-08-19'
 ---
 
 Le développement de l'intelligence artificielle et de l'IA générative change notre vie quotidienne et professionnelle. Les gouvernements et les entreprises augmentent l'investissement pour stimuler l'innovation, les algorithmes automatisent beaucoup de tâches et les robots remplacent les humains. Est-ce que c'est bien ou mal? En réalité, c'est plutôt entre les deux.

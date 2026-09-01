@@ -4,7 +4,8 @@ series: [ab]
 date: 2026-09-01
 lang: en
 title: '"Copy and Paste" in Development'
-draft: true
+images: [/images/copy-and-paste/different-paths.PNG]
+lastmod: '2026-09-01'
 ---
 
 One of the most fundamental challenges in international development is [context adaptation](/note/relativize-and-contextualize/). To deliver long-lasting solutions, development organizations must first understand local constraints and tangible uniqueness in culture, economy, politics, history, and language.
@@ -13,7 +14,7 @@ However, in reality, I've seen several development projects still following the 
 
 This is what I call **copy-and-paste development**, surfacing the practical gaps overlooked by one-size-fits-all approaches. These projects can make people feel good in the short term, but their long-term sustainability is always questionable.
 
-On a hot summer day in Malawi, I met a graduate of a computer education program I facilitated a year ago. In the classroom, he was one of many successful learners who were self-motivated and performed well during the exercises; organizations love to highlight them in "success stories." But now, without a computer, internet, money, or job opportunity, he's reluctantly helping a friend's small shop in a local market to earn money to survive for a day or two.
+On a hot summer day in Malawi, I met a graduate of a computer education program I facilitated a year ago. In the classroom, he was one of many successful learners who were self-motivated and performed well during the exercises; organizations love to highlight them in "success stories." But now, without a computer, internet, money, or job opportunities, he reluctantly helps a friend's small shop in a local market to earn money to survive for a day or two.
 
 The digital divide is partly caused by the [lack of critical-thinking and problem-solving skills under uncertainties](/note/digital-divide/), and material provisions, such as sending computers, teaching how to use them, and building AI applications, are important yet insufficient. In fact, thriving skills can be learned even in an [offline setup](/note/offline-learning/), but many naively treat computers and software tools as silver bullets.
 
