@@ -4,7 +4,7 @@ series: [ab]
 date: 2026-09-01
 lang: en
 title: '"Copy and Paste" in Development'
-images: [/images/copy-and-paste/different-paths.PNG]
+images: [/images/copy-and-paste/different-paths.png]
 lastmod: '2026-09-01'
 ---
 
@@ -20,7 +20,7 @@ The digital divide is partly caused by the [lack of critical-thinking and proble
 
 An underlying problem, in my opinion, is goal setting. Now, the world seems to be in consensus that poor countries should "catch up" with what rich countries enjoy:
 
-![liner-growth](/images/copy-and-paste/linear-path.PNG)
+![liner-growth](/images/copy-and-paste/linear-path.png)
 
 This linear path probably works best for essential matters such as WASH (water, sanitation, and hygiene) and peace. But keep in mind that this assumes the rich nations are "right" and assimilates the rest into the power of global politics and economy.
 
@@ -28,7 +28,7 @@ On the other hand, in technology, more is not always better. Digital application
 
 Therefore, we must consider technology as an auxiliary, not a destination. And it is essential for every context to define its own goal rather than imitating whatever others are doing:
 
-![different-paths](/images/copy-and-paste/different-paths.PNG)
+![different-paths](/images/copy-and-paste/different-paths.png)
 
 Enhanced productivity may be the universal goal in today's capitalist world. Even so, you can (should) still make your own definition of being productive that works in your context: Where are you now? How do you want to be? And how do we measure it?
 
