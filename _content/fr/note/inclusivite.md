@@ -4,8 +4,8 @@ title: Pourquoi l'inclusivité est-elle importante ?
 categories: [Société]
 lastmod: '2026-07-18'
 translationKey: inclusive
-keywords: [notre, clients, locaux, contextes, nous, beaucoup, travailler, organisations,
-  parce, avec]
+keywords: [notre, clients, locaux, contextes, nous, beaucoup, travailler, avec, parce,
+  organisations]
 recommendations: [/fr/note/coordination/, /fr/note/nuancer-intelligence-artificielle/,
   /fr/note/donnees-developpement-international/]
 ---

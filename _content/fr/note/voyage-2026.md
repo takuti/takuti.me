@@ -3,9 +3,8 @@ date: 2026-08-11
 title: 'Mon voyage privé en 2026 : quel est le changement ?'
 categories: [Personnel]
 lastmod: '2026-08-11'
-keywords: [vacances, femme, mes, vie, amis, voyager, voyage, sentais, presque, temps]
-recommendations: [/fr/note/inclusivite/, /fr/note/nuancer-intelligence-artificielle/,
-  /fr/note/environnement-naturel/]
+keywords: [vacances, mes, femme, amis, vie, voyager, voyage, sentais, presque, temps]
+recommendations: [/fr/note/equilibre-au-travail/, /fr/note/inclusivite/, /fr/note/nuancer-intelligence-artificielle/]
 ---
 
 La semaine dernière, je suis allé aux États-Unis pour retrouver mes amis. C'était très bien parce que j'ai passé presque un an sans vacances et je n'avais pas revu mes amis depuis un an et six mois. En fait, le dépaysement m'a permis de réfléchir à ma vie quotidienne et de recharger l'énergie efficacement. Cependant, je me sentais un peu mal pendant les vacances. Pourquoi ?

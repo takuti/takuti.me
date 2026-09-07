@@ -3,8 +3,8 @@ date: 2026-04-19
 title: On doit interdire la tarification personnalisée ?
 lastmod: '2026-04-19'
 categories: [Technologies]
-keywords: [prix, tarification, algorithmique, entreprises, produits, tactique, meilleur,
-  dynamique, qui, personnes]
+keywords: [prix, tarification, algorithmique, entreprises, tactique, meilleur, dynamique,
+  produits, personnes, utilisateur]
 recommendations: [/fr/note/education-numerique/, /fr/note/northsocial/, /fr/note/open-source/]
 ---
 
