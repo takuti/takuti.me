@@ -1,4 +1,3 @@
-prelims==0.0.7
+prelims==0.1.0
 mecab-python3
-GitPython
 tweepy
