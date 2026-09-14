@@ -95,7 +95,7 @@
 </style>
 
 <div class="work-grid">
-  {{ range (where .Data.Pages.ByLastmod.Reverse "Section" "work") }}
+  {{ range (where (.Data.Pages.ByParam "enddate").Reverse "Section" "work") }}
   <article class="work-card">
     {{ if .Params.images }}
     {{ $image := index .Params.images 0 }}
@@ -109,7 +109,8 @@
       </h2>
       <div class="work-card-meta">{{ .Params.meta }}</div>
       <div class="work-card-date">
-        {{ .Date.Format "2006" }}{{ if ne (.Date.Format "2006") (.Lastmod.Format "2006") }} - {{ .Lastmod.Format "2006" }}{{ end }}
+        {{ $enddate := time.AsTime .Params.enddate }}
+        {{ .Date.Format "2006" }}{{ if ne (.Date.Format "2006") ($enddate.Format "2006") }} - {{ $enddate.Format "2006" }}{{ end }}
       </div>
     </div>
   </article>

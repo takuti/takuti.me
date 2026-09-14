@@ -1,9 +1,10 @@
 ---
 title: Streaming Recommendation Algorithms
 date: 2014-01-01
-lastmod: '2017-12-31'
+params: {enddate: 2017-12-31}
 meta: Research, Open Source, Personalization, Machine Learning
 images: [/images/work/stream-recommender.png]
+lastmod: '2026-05-23'
 ---
 
 ### Scope

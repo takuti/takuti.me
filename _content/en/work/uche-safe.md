@@ -1,9 +1,10 @@
 ---
 title: Uche Safe App
 date: 2025-01-01
-lastmod: '2026-05-23'
+params: {enddate: 2026-05-23}
 meta: Product, Design, Personalization
 images: [/images/work/uche-safe.png]
+lastmod: '2026-07-03'
 ---
 
 ![uche-safe-screenshots](/images/work/uche-safe.png)

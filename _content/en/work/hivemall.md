@@ -1,9 +1,10 @@
 ---
 title: Hivemall
 date: 2016-09-01
-lastmod: '2022-12-31'
+params: {enddate: 2022-12-31}
 meta: Open Source, Machine Learning, NLP, Personalization, Community Outreach
 images: [/images/work/hivemall.png]
+lastmod: '2026-05-31'
 ---
 
 ### Scope
