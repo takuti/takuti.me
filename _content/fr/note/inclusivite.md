@@ -4,10 +4,9 @@ title: Pourquoi l'inclusivité est-elle importante ?
 categories: [Société]
 lastmod: '2026-07-18'
 translationKey: inclusive
-keywords: [notre, clients, locaux, contextes, nous, beaucoup, travailler, avec, parce,
-  organisations]
-recommendations: [/fr/note/coordination/, /fr/note/nuancer-intelligence-artificielle/,
-  /fr/note/donnees-developpement-international/]
+keywords: [notre, clients, locaux, contextes, nous, beaucoup, travailler, avec, organisations,
+  international]
+recommendations: [/fr/note/coordination/, /fr/note/gentil/, /fr/note/nuancer-intelligence-artificielle/]
 ---
 
 L'inclusivité est très utile dans notre vie professionnelle parce que nous pouvons apprendre quelque chose de nouveau et d'important des autres. C'est-à-dire que les choses qu'on peut penser et faire sont toujours limitées par notre expérience, donc on doit dépasser ces limites ensemble en équipe.

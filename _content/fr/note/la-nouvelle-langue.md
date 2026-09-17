@@ -4,9 +4,9 @@ title: L'apprentissage du français
 translationKey: new-lang
 lastmod: '2026-03-22'
 categories: [Éducation]
-keywords: [langue, mon, apprendre, apprentissage, continuer, apprends, domaine, classe,
-  sur, nouvelle]
-recommendations: [/fr/note/vibe-coding/, /fr/note/jeux-video/, /fr/note/northsocial/]
+keywords: [langue, mon, apprendre, apprentissage, continuer, apprends, sur, domaine,
+  classe, nouvelle]
+recommendations: [/fr/note/jeux-video/, /fr/note/vibe-coding/, /fr/note/northsocial/]
 ---
 
 C'est mon premier article en français sur mon blog. Depuis quatre mois, j'apprends le français. En fait, je suis allé à l'école de janvier à février 2026, mais je ne vais plus à la classe.

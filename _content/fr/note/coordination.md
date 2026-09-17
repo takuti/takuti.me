@@ -3,10 +3,10 @@ date: 2026-06-21
 title: La coordination entre les parties prenantes
 categories: [Société]
 lastmod: '2026-06-21'
-keywords: [commun, exemples, coordination, concrets, organisations, communiquer, but,
-  nous, applications, objectifs]
+keywords: [commun, exemples, coordination, concrets, organisations, but, communiquer,
+  applications, nous, objectifs]
 recommendations: [/fr/note/inclusivite/, /fr/note/donnees-developpement-international/,
-  /fr/note/equilibre-au-travail/]
+  /fr/note/le-monde-a-besoin-du-canada/]
 ---
 
 Les grands problèmes comme le changement climatique et le [développement international](/fr/note/developpement-international/) sont souvent très complexes, donc on doit communiquer avec soin avec les autres organisations et les personnes. C'est-à-dire que notre principal objectif est de trouver un accord grâce à la coopération et à la coordination avec les autres. Mais ce n'est pas toujours facile. À mon avis, il y a deux pratiques qu'on peut essayer d'adopter dans une situation complexe.
