@@ -6,6 +6,9 @@ lang: en
 title: '"Copy and Paste" in Development'
 images: [/images/copy-and-paste/different-paths.png]
 lastmod: '2026-09-01'
+keywords: [paste, digital, copy, rich, paths, computer, development, organizations,
+  are, skills]
+recommendations: [/note/digital-divide/, /note/offline-learning/, /note/computer-education-in-malawi/]
 ---
 
 One of the most fundamental challenges in international development is [context adaptation](/note/relativize-and-contextualize/). To deliver long-lasting solutions, development organizations must first understand local constraints and tangible uniqueness in culture, economy, politics, history, and language.

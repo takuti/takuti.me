@@ -6,6 +6,10 @@ lang: en
 title: The State of Development Data
 translationKey: development-data
 lastmod: '2026-08-01'
+keywords: [data, storytelling, enumerators, census, development, lesson, are, government,
+  low, poverty]
+recommendations: [/note/digital-malawi-2023/, /note/data-protection-law-in-malawi-2023/,
+  /note/one-year-in-malawi/]
 ---
 
 Data and statistical insights are key drivers for international development. They allow decision-makers to:

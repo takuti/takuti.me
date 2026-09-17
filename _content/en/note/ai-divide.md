@@ -6,9 +6,9 @@ lang: en
 title: The AI Divide
 images: [/images/thumbnails/divide.jpg]
 lastmod: '2026-03-04'
-keywords: [humans, isting, divide, technology, smarter, contexts, problems, need,
+keywords: [humans, isting, technology, divide, smarter, contexts, problems, need,
   tools, inequality]
-recommendations: [/note/offline-learning/, /note/digital-divide/, /note/data-and-information/]
+recommendations: [/note/copy-and-paste/, /note/offline-learning/, /note/digital-divide/]
 ---
 
 People worldwide exhibit varying levels of excitement or concern about AI, from the rich to the poor, ordinary citizens to global leaders to politicians, regardless of their occupation and industry. One cannot avoid the wave, even if "I'm not an expert" or "I don't use computers."

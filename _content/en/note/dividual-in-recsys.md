@@ -5,7 +5,7 @@ date: 2022-11-27
 lang: en
 title: 'Fluid People and Blended Society: How Systems Model "Dividuals"'
 lastmod: '2024-03-10'
-keywords: [user, data, users, systems, dividual, multiple, group, model, identities,
+keywords: [user, data, users, dividual, systems, multiple, group, model, identities,
   ing]
 recommendations: [/note/ethical-challenges-in-recommender-systems/, /note/data-feminism/,
   /note/coursera-data-science-ethics/]

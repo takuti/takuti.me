@@ -8,7 +8,7 @@ images: [/images/volunteering-in-malawi/lake-malawi.jpg, /images/volunteering-in
   /images/volunteering-in-malawi/mzuzu-coffee.jpg]
 lastmod: '2026-03-04'
 keywords: [malawi, volunteer, mzuzu, volunteering, canada, africa, information, you,
-  lake, international]
+  lake, are]
 recommendations: [/note/digital-malawi-2023/, /note/relativize-and-contextualize/,
   /note/one-year-in-malawi/]
 ---

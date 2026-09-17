@@ -7,7 +7,7 @@ title: Security, Privacy, and Ethics in the Web 3.0 Era
 images: [/images/web3/web-x.png]
 lastmod: '2022-03-13'
 keywords: [web, blockchain, literacy, technology, level, supported, security, haven,
-  yet, internet]
+  privacy, yet]
 recommendations: [/note/coursera-blockchain-specialization/, /note/three-perspectives-on-llms/,
   /note/internet-for-the-people/]
 ---

@@ -6,8 +6,8 @@ lang: en
 title: Design Thinking = Capturing the World Like a Designer
 lastmod: '2024-03-10'
 keywords: [gne, thinking, solving, ideas, design, capturing, designers, designer,
-  problem, ideate]
-recommendations: [/note/technique-producing-ideas/, /note/fermenting-thoughts/, /note/machine-learning-product/]
+  ideate, brainstorming]
+recommendations: [/note/technique-producing-ideas/, /note/fermenting-thoughts/, /note/language-as-a-design-tool/]
 ---
 
 Everyone loves **[design thinking](https://designthinking.ideo.com)**, a systematic way of problem-solving, and, in practice, the approach suggests non-designers to undergo the following steps to efficiently and effectively build valuable solutions:

@@ -4,8 +4,8 @@ date: 2022-10-27
 lang: en
 title: Updating My View of Nuclear Power
 lastmod: '2022-10-27'
-keywords: [nuclear, climate, disaster, power, book, waste, authors, caused, radioactive,
-  incidents]
+keywords: [nuclear, climate, disaster, power, book, waste, authors, radioactive, incidents,
+  fukushima]
 recommendations: [/note/how-to-avoid-a-climate-disaster/, /note/environmental-problems-and-business/,
   /note/td-to-amazon/]
 ---

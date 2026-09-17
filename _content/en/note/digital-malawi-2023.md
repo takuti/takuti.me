@@ -6,7 +6,7 @@ lang: en
 title: 'Definition, Role, and Current Status of Digital Literacy in Malawi #LiteracyDay'
 images: [/images/digital-malawi-2023/airtel-money.jpeg]
 lastmod: '2024-02-26'
-keywords: [malawi, digital, population, literacy, ountry, rural, internet, digitally,
+keywords: [malawi, population, digital, literacy, ountry, rural, internet, digitally,
   pyramid, airtel]
 recommendations: [/note/volunteering-in-malawi/, /note/relativize-and-contextualize/,
   /note/materializing-dx/]
