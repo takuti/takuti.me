@@ -3,7 +3,7 @@ date: 2026-08-19
 title: Peser le pour et le contre de l'intelligence artificielle
 categories: [Technologies]
 lastmod: '2026-08-19'
-keywords: [sur, vingt, institutions, notre, sept, quatre, petit, futur, leur, grandes]
+keywords: [sur, vingt, institutions, notre, sept, quatre, petit, futur, grandes, risque]
 recommendations: [/fr/note/equilibre-au-travail/, /fr/note/inclusivite/, /fr/note/northsocial/]
 ---
 

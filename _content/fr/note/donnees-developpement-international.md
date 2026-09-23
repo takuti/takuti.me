@@ -4,7 +4,7 @@ title: Le risque des vieilles données pour le développement international
 categories: [Société]
 lastmod: '2026-07-06'
 translationKey: development-data
-keywords: [pas, nous, recensement, combien, mieux, pays, sont, non, vieilles, utilisons]
+keywords: [pas, recensement, combien, nous, mieux, pays, non, sont, vieilles, utilisons]
 recommendations: [/fr/note/recensement/, /fr/note/developpement-international/, /fr/note/inclusivite/]
 ---
 

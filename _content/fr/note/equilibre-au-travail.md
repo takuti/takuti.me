@@ -3,10 +3,10 @@ date: 2026-09-07
 title: 'L''équilibre au travail : Qu''est-ce que ça veut dire?'
 categories: [Société]
 lastmod: '2026-09-07'
-keywords: [travail, sacrifier, priorise, vie, sur, sept, personnelle, entreprises,
-  lucratif, elle]
+keywords: [travail, sacrifier, priorise, vie, sept, personnelle, sur, entreprises,
+  lucratif, augmenter]
 recommendations: [/fr/note/nuancer-intelligence-artificielle/, /fr/note/inclusivite/,
-  /fr/note/gentil/]
+  /fr/note/donnees-developpement-international/]
 ---
 
 Le mois dernier, j'ai commencé un nouveau travail à temps plein dans une organisation à but non lucratif, après avoir passé cinq ans comme travailleur indépendant. Le changement me permet de réfléchir à ma situation professionnelle et de prioriser un équilibre entre ma vie professionnelle et personnelle. C'est très essentiel pour moi parce que je passais trop de temps au travail quand je travaillais dans une entreprise; en théorie, il y avait le droit à la déconnexion, mais il n'était pas réellement applicable si on avait beaucoup de responsabilités et de réunions entre plusieurs fuseaux horaires.

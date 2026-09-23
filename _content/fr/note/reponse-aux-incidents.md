@@ -3,8 +3,8 @@ date: 2026-07-15
 title: 'La gouvernance des données : comment répondre aux incidents ?'
 categories: [Technologies]
 lastmod: '2026-07-15'
-keywords: [incident, doit, impact, gouvernance, nous, service, loi, utilisateurs,
-  entreprise, comment]
+keywords: [incident, doit, impact, gouvernance, service, loi, nous, entreprise, comment,
+  utilisateurs]
 recommendations: [/fr/note/donnees-developpement-international/, /fr/note/inclusivite/,
   /fr/note/vibe-coding/]
 ---

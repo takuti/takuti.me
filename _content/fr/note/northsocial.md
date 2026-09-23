@@ -5,7 +5,7 @@ images: [/images/northsocial/northsocial.png]
 lastmod: '2026-05-12'
 categories: [Canada, Technologies]
 keywords: [northsocial, application, utilisateurs, applications, social, sur, soit,
-  fil, facebook, ligne]
+  fil, facebook, plateforme]
 recommendations: [/fr/note/education-numerique/, /fr/note/interdire-reseaux-sociaux/,
   /fr/note/nuancer-intelligence-artificielle/]
 ---

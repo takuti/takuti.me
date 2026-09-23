@@ -2,9 +2,9 @@
 date: 2026-09-17
 title: Dois-je être plus gentil ?
 categories: [Société]
-keywords: [gentil, moi, une, soutien, autres, avec, peux, leur, notre, sens]
-recommendations: [/fr/note/inclusivite/, /fr/note/le-monde-a-besoin-du-canada/, /fr/note/equilibre-au-travail/]
 lastmod: '2026-09-17'
+keywords: [gentil, moi, une, soutien, avec, autres, peux, notre, leur, sens]
+recommendations: [/fr/note/inclusivite/, /fr/note/le-monde-a-besoin-du-canada/, /fr/note/equilibre-au-travail/]
 ---
 
 Pendant plusieurs années, j'ai eu la chance de rencontrer beaucoup de personnes très gentilles. Dans un quartier, dans un appartement et au travail, elles m'aident beaucoup à avoir le sens de la communauté, comme dire bonjour et offrir fréquemment leur soutien. À mon avis, une bonne relation avec les autres est essentielle à notre vie quotidienne. En particulier, dans un pays étranger, parce qu'on a besoin de comprendre toutes les nouvelles choses, notre vie peut être compliquée sans leur soutien.
