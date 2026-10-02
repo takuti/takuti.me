@@ -6,7 +6,7 @@ lang: en
 title: Design Thinking = Capturing the World Like a Designer
 lastmod: '2024-03-10'
 keywords: [gne, thinking, solving, ideas, design, capturing, designers, designer,
-  ideate, brainstorming]
+  problem, ideate]
 recommendations: [/note/technique-producing-ideas/, /note/fermenting-thoughts/, /note/language-as-a-design-tool/]
 ---
 

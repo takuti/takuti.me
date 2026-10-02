@@ -5,7 +5,7 @@ date: 2022-03-28
 lang: en
 title: '3 Pillars of Ethics'' Scope: Society, Personal Relationship, and Individual'
 lastmod: '2022-03-28'
-keywords: [ethics, consensus, bad, relationship, personal, society, law, onsensus,
+keywords: [ethics, consensus, bad, relationship, personal, law, society, onsensus,
   crime, ourselves]
 recommendations: [/note/coursera-data-science-ethics/, /note/loneliness/, /note/data-feminism/]
 ---

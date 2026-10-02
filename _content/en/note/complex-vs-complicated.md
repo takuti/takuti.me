@@ -5,7 +5,7 @@ date: 2026-06-01
 lang: en
 title: Act on Complicated Things
 lastmod: '2026-06-01'
-keywords: [complicated, they, are, complex, complications, tangible, you, simplify,
+keywords: [complicated, they, are, complex, complications, tangible, simplify, you,
   factors, ground]
 recommendations: [/note/data-and-information/, /note/we-not-i/, /note/one-year-in-malawi/]
 ---

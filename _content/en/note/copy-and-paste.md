@@ -6,8 +6,8 @@ lang: en
 title: '"Copy and Paste" in Development'
 images: [/images/copy-and-paste/different-paths.png]
 lastmod: '2026-09-01'
-keywords: [paste, digital, copy, rich, paths, computer, development, organizations,
-  are, skills]
+keywords: [digital, paste, copy, rich, paths, computer, development, are, skills,
+  organizations]
 recommendations: [/note/digital-divide/, /note/offline-learning/, /note/computer-education-in-malawi/]
 ---
 
