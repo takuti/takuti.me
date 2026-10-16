@@ -3,7 +3,7 @@ date: 2026-09-17
 title: Dois-je être plus gentil ?
 categories: [Société]
 lastmod: '2026-09-17'
-keywords: [gentil, moi, une, soutien, avec, autres, peux, notre, leur, sens]
+keywords: [gentil, moi, soutien, une, autres, avec, peux, notre, leur, sens]
 recommendations: [/fr/note/inclusivite/, /fr/note/le-monde-a-besoin-du-canada/, /fr/note/equilibre-au-travail/]
 ---
 

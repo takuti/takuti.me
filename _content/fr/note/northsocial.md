@@ -6,8 +6,7 @@ lastmod: '2026-05-12'
 categories: [Canada, Technologies]
 keywords: [northsocial, application, utilisateurs, applications, social, sur, soit,
   fil, facebook, plateforme]
-recommendations: [/fr/note/education-numerique/, /fr/note/interdire-reseaux-sociaux/,
-  /fr/note/nuancer-intelligence-artificielle/]
+recommendations: [/fr/note/education-numerique/, /fr/note/ia-concurrence/, /fr/note/interdire-reseaux-sociaux/]
 ---
 
 La semaine dernière, [j'ai trouvé](https://ici.radio-canada.ca/nouvelle/2245636/facebook-canadien-defilement-infini-assurance) un nouveau réseau social qui s'appelle Northsocial.ca. C'est le réseau social canadien. Ça signifie que l'entreprise canadienne a développé l'application pour les Canadiennes, et son [site web](https://northsocial.ca/) dit que l'application habite les systèmes au Canada.

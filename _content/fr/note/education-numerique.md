@@ -3,9 +3,9 @@ date: 2026-06-07
 title: Les difficultés de l'éducation numérique
 categories: [Afrique, Éducation]
 lastmod: '2026-06-07'
-keywords: [technologies, application, pas, doivent, internet, applications, distance,
-  utilisateurs, utiliser, sujets]
-recommendations: [/fr/note/northsocial/, /fr/note/interdire-reseaux-sociaux/, /fr/note/developpement-international/]
+keywords: [technologies, application, pas, doivent, internet, distance, applications,
+  utilisateurs, sujets, pose]
+recommendations: [/fr/note/northsocial/, /fr/note/ia-concurrence/, /fr/note/interdire-reseaux-sociaux/]
 ---
 
 L'éducation numérique est plus populaire grâce aux réseaux sociaux et aux plateformes en ligne comme YouTube. Même si on n'a pas assez d'argent ou qu'on n'habite pas dans une grande ville, on apprend quelques sujets à distance par les technologies. Cependant, les développeurs doivent faire attention quand ils développent des applications. Sinon, le projet pose des inégalités.

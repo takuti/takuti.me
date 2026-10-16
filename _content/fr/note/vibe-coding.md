@@ -5,7 +5,7 @@ lastmod: '2026-04-02'
 categories: [Technologies]
 keywords: [vibe, coding, logiciel, client, besoins, pas, appris, utiliser, savoir,
   application]
-recommendations: [/fr/note/education-numerique/, /fr/note/la-nouvelle-langue/, /fr/note/inclusivite/]
+recommendations: [/fr/note/ia-concurrence/, /fr/note/education-numerique/, /fr/note/la-nouvelle-langue/]
 ---
 
 Le développement logiciel est plus facile à cause de l'intelligence artificielle (IA), et de plus en plus de personnes développent des logiciels grâce à l'IA. L'activité s'appelle le « [vibe coding](https://www.lesaffaires.com/dossiers/mois-du-genie-lheure-est-a-la-releve/ne-vous-laissez-pas-seduire-trop-vite-par-le-vibe-coding/) ».

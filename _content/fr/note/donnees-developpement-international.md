@@ -5,7 +5,7 @@ categories: [Société]
 lastmod: '2026-07-06'
 translationKey: development-data
 keywords: [pas, recensement, combien, nous, mieux, pays, non, sont, vieilles, utilisons]
-recommendations: [/fr/note/recensement/, /fr/note/developpement-international/, /fr/note/inclusivite/]
+recommendations: [/fr/note/developpement-international/, /fr/note/recensement/, /fr/note/inclusivite/]
 ---
 
 Les données sont très importantes pour le développement international.

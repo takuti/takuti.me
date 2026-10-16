@@ -3,8 +3,8 @@ date: 2026-09-07
 title: 'L''équilibre au travail : Qu''est-ce que ça veut dire?'
 categories: [Société]
 lastmod: '2026-09-07'
-keywords: [travail, sacrifier, priorise, vie, sept, personnelle, sur, entreprises,
-  lucratif, augmenter]
+keywords: [travail, vie, sacrifier, priorise, sept, personnelle, sur, entreprises,
+  lucratif, non]
 recommendations: [/fr/note/nuancer-intelligence-artificielle/, /fr/note/inclusivite/,
   /fr/note/donnees-developpement-international/]
 ---
