@@ -6,7 +6,7 @@ title: Comparison of Running Time of Cached/Uncached Spark RDD
 lastmod: '2020-04-12'
 keywords: [scala, rdd, transformation, distributed, rdds, collections, operations,
   spark, map, filter]
-recommendations: [/note/coursera-scala-capstone/, /note/hivemall-pyspark/, /note/machine-learning-product/]
+recommendations: [/note/coursera-scala-capstone/, /note/slow-down/, /note/hivemall-pyspark/]
 ---
 
 **Resilient Distributed Dataset** (RDD) is a distributed parallel data model in Spark. The model enables us to think of our distributed data like a single collection. In this article, I introduce some basics and show experimental result which clearly demonstrates the strength of RDD.

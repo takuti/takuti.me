@@ -5,7 +5,7 @@ date: 2023-04-07
 lang: en
 title: Three Perspectives on Large Language Models and Their Emerging Applications
 lastmod: '2024-03-10'
-keywords: [llms, use, chatgpt, details, models, limitations, openai, gpt, malicious,
+keywords: [llms, use, chatgpt, models, details, limitations, openai, gpt, malicious,
   lgorithms]
 recommendations: [/note/how-information-flows/, /note/td-to-amazon/, /note/one-year-in-malawi/]
 ---

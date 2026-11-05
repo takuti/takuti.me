@@ -7,7 +7,7 @@ translationKey: inclusive
 lastmod: '2026-10-02'
 keywords: [italian, inclusivity, pizza, experience, restaurant, our, work, with, locals,
   you]
-recommendations: [/note/mentoring/, /note/becoming-a-product-manager/, /note/one-year-in-malawi/]
+recommendations: [/note/mentoring/, /note/becoming-a-product-manager/, /note/volunteering-in-malawi/]
 ---
 
 In international development, non-profit organizations often claim inclusivity is a core value. But why does it matter?

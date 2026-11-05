@@ -5,7 +5,7 @@ date: 2022-10-20
 lang: en
 title: Why We "Productize"
 lastmod: '2024-03-10'
-keywords: [product, ladder, ize, productized, services, productization, book, offering,
+keywords: [product, ladder, ize, productized, services, book, productization, offering,
   innovation, stage]
 recommendations: [/note/ethical-product-developer/, /note/product-management-and-bullshit-job/,
   /note/internet-for-the-people/]

@@ -5,7 +5,7 @@ lang: en
 title: 'Moving Julia Project from Travis CI to GitHub Actions #JuliaLang'
 lastmod: '2021-03-06'
 keywords: [julia, travis, github, project, actions, tokenize, tagbot, migration, yml,
-  workflows]
+  undergone]
 recommendations: [/note/juliacon-2019/, /note/travis-gh-pages-deployment/, /note/recommendation-julia-documenter/]
 ---
 

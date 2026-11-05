@@ -4,7 +4,7 @@ date: 2020-03-29
 lang: en
 title: The Hardest Part of 2020's Strategic Ideation
 lastmod: '2020-04-12'
-keywords: [staying, concentration, problems, refresh, thoughts, away, ideation, producing,
+keywords: [staying, concentration, problems, refresh, thoughts, away, producing, ideation,
   from, ideas]
 recommendations: [/note/working-from-home-202004/, /note/technique-producing-ideas/,
   /note/annual-review-2021/]

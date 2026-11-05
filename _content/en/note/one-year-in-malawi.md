@@ -7,7 +7,7 @@ title: The End of the Beginning—What I Talk About When I Talk About Malawi
 images: [/images/one-year-in-malawi/mzuzu.png]
 lastmod: '2024-06-24'
 keywords: [malawi, capital, ict, african, people, international, development, businesses,
-  africa, digital]
+  digital, africa]
 recommendations: [/note/volunteering-in-malawi/, /note/digital-malawi-2023/, /note/computer-education-in-malawi/]
 ---
 

@@ -6,7 +6,7 @@ lang: en
 title: Why Offline Learning Still Matters in 2026
 images: [/images/annual-review-2023/me.jpeg]
 lastmod: '2026-01-01'
-keywords: [connected, low, digital, hyper, learning, dis, world, offline, people,
+keywords: [connected, low, hyper, digital, learning, dis, world, offline, people,
   are]
 recommendations: [/note/digital-divide/, /note/e-learning/, /note/digital-malawi-2023/]
 ---
